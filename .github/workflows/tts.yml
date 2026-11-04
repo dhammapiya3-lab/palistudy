@@ -1,0 +1,44 @@
+# 빠알리 프라이머 발음 mp3 만들기
+# tts/sample 또는 tts/full-<목소리키> 가지(branch)에 올리면 실행되고,
+# 만든 결과를 같은 가지에 다시 올림. (main 사이트에는 영향 없음)
+name: Generate Pali TTS
+
+on:
+  push:
+    branches: ['tts/**']
+    paths-ignore:
+      - 'primer/tts-samples/**'
+      - 'primer/public/audio/**'
+
+permissions:
+  contents: write
+
+jobs:
+  tts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - run: pip install edge-tts aksharamukha
+
+      - name: 발음 만들기
+        working-directory: primer/scripts/tts
+        run: |
+          BR="${GITHUB_REF_NAME}"
+          if [ "$BR" = "tts/sample" ]; then
+            python generate.py sample
+          else
+            python generate.py full "${BR#tts/full-}"
+          fi
+
+      - name: 결과 올리기
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A primer/tts-samples primer/public/audio
+          git commit -m "발음 mp3 생성 (${GITHUB_REF_NAME})" || echo "변경 없음"
+          git push
