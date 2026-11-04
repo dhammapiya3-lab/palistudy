@@ -7,7 +7,7 @@
 import type { Memo } from './memo'
 
 const REPO_OWNER = 'dhammapiya3-lab'
-const REPO_NAME = 'dhammapiya'
+const REPO_NAME = 'palistudy'
 const BRANCH = 'main'
 const MEMO_DIR = 'memos'
 

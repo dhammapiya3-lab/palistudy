@@ -2,7 +2,7 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/dhammapiya/suttalog/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/palistudy/suttalog/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
     <!-- 브라우저 캐시 완전 방지 -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -11,7 +11,7 @@
     <meta name="theme-color" content="#D4760A" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <link rel="manifest" href="/dhammapiya/suttalog/manifest.json" />
+    <link rel="manifest" href="/palistudy/suttalog/manifest.json" />
     <title>경전으로 배우기</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,7 +49,7 @@
         // 새 빌드는 사용자가 페이지를 닫았다 다시 열 때 자연스럽게 적용됨.
         // (controllerchange + reload 조합은 GitHub Pages 캐시와 만나면 reload 루프가 생김)
         var buildTime = typeof __BUILD_TIME__ !== 'undefined' ? __BUILD_TIME__ : Date.now().toString()
-        navigator.serviceWorker.register('/dhammapiya/suttalog/sw.js?v=' + buildTime)
+        navigator.serviceWorker.register('/palistudy/suttalog/sw.js?v=' + buildTime)
       })()
     </script>
   </body>

@@ -29,14 +29,14 @@ export default function App() {
 
   if (!onboarded) {
     return (
-      <BrowserRouter basename="/dhammapiya/suttalog">
+      <BrowserRouter basename="/palistudy/suttalog">
         <Onboarding onComplete={completeOnboarding} />
       </BrowserRouter>
     )
   }
 
   return (
-    <BrowserRouter basename="/dhammapiya/suttalog">
+    <BrowserRouter basename="/palistudy/suttalog">
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />

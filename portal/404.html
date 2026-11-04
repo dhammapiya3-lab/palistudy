@@ -9,11 +9,11 @@
     // → 앱 첫 화면으로 보내면서 원래 주소(?p=)를 넘겨 복원하게 함.
     (function () {
       var path = window.location.pathname;
-      var app = '/dhammapiya/suttalog/';
+      var app = '/palistudy/suttalog/';
       if (path.indexOf(app) === 0) {
         window.location.replace(app + '?p=' + encodeURIComponent(path + window.location.hash));
       } else {
-        window.location.replace('/dhammapiya/');
+        window.location.replace('/palistudy/');
       }
     })();
   </script>

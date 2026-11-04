@@ -6,7 +6,7 @@ import App from './App.tsx'
 // 새로고침 복원: 404.html이 ?p=원래경로 로 보내주면 그 주소로 되돌림
 try {
   const p = new URLSearchParams(window.location.search).get('p')
-  if (p && p.startsWith('/dhammapiya/suttalog/')) {
+  if (p && p.startsWith('/palistudy/suttalog/')) {
     window.history.replaceState(null, '', p)
   }
 } catch (e) {

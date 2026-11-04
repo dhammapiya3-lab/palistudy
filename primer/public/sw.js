@@ -5,9 +5,9 @@ const AUDIO_CACHE = 'pali-audio-v6'  // 2026-11-05 텔루구어 목소리로 전
 
 // 앱 셸: 핵심 파일 (빌드 시 해시 포함되므로 index만 사전 캐싱)
 const APP_SHELL = [
-  '/dhammapiya/primer/',
-  '/dhammapiya/primer/index.html',
-  '/dhammapiya/primer/manifest.json',
+  '/palistudy/primer/',
+  '/palistudy/primer/index.html',
+  '/palistudy/primer/manifest.json',
 ]
 
 // 설치: 앱 셸 사전 캐싱

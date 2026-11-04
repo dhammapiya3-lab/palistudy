@@ -1,7 +1,7 @@
 {
   "name": "경전으로 배우기",
   "short_name": "경전으로 배우기",
-  "start_url": "/dhammapiya/suttalog/",
+  "start_url": "/palistudy/suttalog/",
   "display": "standalone",
   "background_color": "#FEFCF3",
   "theme_color": "#D4760A",
@@ -18,5 +18,5 @@
       "type": "image/png"
     }
   ],
-  "scope": "/dhammapiya/suttalog/"
+  "scope": "/palistudy/suttalog/"
 }

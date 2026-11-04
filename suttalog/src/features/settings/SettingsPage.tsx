@@ -98,7 +98,7 @@ export default function SettingsPage() {
     localStorage.clear()
     // IndexedDB 삭제
     indexedDB.deleteDatabase('suttalog')
-    window.location.href = '/dhammapiya/suttalog/'
+    window.location.href = '/palistudy/suttalog/'
   }
 
   return (
@@ -149,7 +149,7 @@ export default function SettingsPage() {
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         <p className="text-sm font-semibold mb-1">📝 메모 GitHub 공유</p>
         <p className="text-xs mb-3" style={{ color: 'var(--color-text-secondary)' }}>
-          작성한 메모를 dhammapiya3-lab/dhammapiya 저장소에 push하여 공유합니다. PAT는 브라우저 localStorage에만 저장.
+          작성한 메모를 dhammapiya3-lab/palistudy 저장소에 push하여 공유합니다. PAT는 브라우저 localStorage에만 저장.
         </p>
         {ghConfigured ? (
           <div>
@@ -170,7 +170,7 @@ export default function SettingsPage() {
             <button onClick={saveGithubConfig} className="w-full py-2 rounded-lg text-sm font-bold text-white"
               style={{ backgroundColor: 'var(--color-primary)' }}>저장</button>
             <p className="text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>
-              GitHub → Settings → Developer settings → Personal access tokens → Fine-grained → Repository: dhammapiya, Permissions: Contents R/W
+              GitHub → Settings → Developer settings → Personal access tokens → Fine-grained → Repository: palistudy, Permissions: Contents R/W
             </p>
           </div>
         )}

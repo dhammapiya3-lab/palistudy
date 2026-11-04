@@ -24,7 +24,7 @@ function versionPlugin(): Plugin {
 
 export default defineConfig({
   plugins: [react(), tailwindcss(), versionPlugin()],
-  base: '/dhammapiya/primer/',
+  base: '/palistudy/primer/',
   server: {
     port: 3023,
     host: true,
