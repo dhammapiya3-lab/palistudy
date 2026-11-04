@@ -1,6 +1,7 @@
 // 학습 진도 CRUD
 import { getDB } from './index'
 import type { StudyProgress, PathProgress, StudyActivity } from '../types'
+import { localDateStr } from '../utils/local-date'
 
 // --- 경전 진도 ---
 
@@ -45,7 +46,7 @@ export async function getAllPathProgress(): Promise<PathProgress[]> {
 // --- 활동 기록 ---
 
 function todayKey(): string {
-  return new Date().toISOString().slice(0, 10)
+  return localDateStr()
 }
 
 export async function getTodayActivity(): Promise<StudyActivity> {

@@ -1,6 +1,8 @@
 
 interface CompletionScreenProps {
   correctCount: number
+  quizTotal: number
+  isReview?: boolean
   hearts: number
   elapsed: number
   onHome: () => void
@@ -9,6 +11,8 @@ interface CompletionScreenProps {
 
 export default function CompletionScreen({
   correctCount,
+  quizTotal,
+  isReview,
   hearts,
   elapsed,
   onHome,
@@ -36,7 +40,7 @@ export default function CompletionScreen({
         className="text-sm mt-2 intro-fade-up-delay2"
         style={{ color: 'var(--color-text-secondary)' }}
       >
-        이 과를 모두 마쳤습니다
+        {isReview ? '복습을 마쳤습니다' : '이 과를 모두 마쳤습니다'}
       </p>
 
       {/* 통계 카드 */}
@@ -50,7 +54,7 @@ export default function CompletionScreen({
         <div className="flex justify-around text-center">
           <div>
             <p className="text-2xl font-bold" style={{ color: 'var(--color-accent)' }}>
-              {correctCount}
+              {correctCount}<span className="text-base font-semibold opacity-70">/{quizTotal}</span>
             </p>
             <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>
               정답
@@ -88,9 +92,9 @@ export default function CompletionScreen({
         onClick={onHome}
         className="mt-8 w-full max-w-xs py-3.5 rounded-2xl text-white font-bold text-sm
                    active:scale-[0.97] transition-transform"
-        style={{ backgroundColor: 'var(--color-primary)' }}
+        style={{ backgroundColor: 'var(--color-primary-dark)' }}
       >
-        홈으로 돌아가기
+        돌아가기
       </button>
       <button
         onClick={onRestart}
@@ -101,7 +105,7 @@ export default function CompletionScreen({
           border: '1.5px solid var(--color-primary)',
         }}
       >
-        다시 학습하기
+        {isReview ? '다른 문제로 다시' : '처음부터 다시 보기'}
       </button>
     </div>
   )

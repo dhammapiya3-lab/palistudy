@@ -131,8 +131,8 @@ export default function MemoWriteTab({
             ? '내용을 수정하고 저장하세요.'
             : `기능 개선, 버그, 아이디어를 자유롭게 — ${getPageName(location.pathname)}`}
         </p>
-        <p className="text-[10px] text-neutral-400 dark:text-neutral-500 font-mono">
-          ID: {getCurrentPageId(location.pathname)}
+        <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
+          단계 ID: {getCurrentPageId(location.pathname)}
         </p>
 
         <textarea
@@ -140,6 +140,7 @@ export default function MemoWriteTab({
           onChange={e => setText(e.target.value)}
           onPaste={handlePaste}
           placeholder="메모 내용을 입력하세요..."
+          aria-label="메모 내용"
           rows={5}
           className="w-full rounded-lg border border-neutral-300
             dark:border-neutral-600 bg-transparent p-3 text-sm
@@ -161,10 +162,9 @@ export default function MemoWriteTab({
                   {img.order}
                 </span>
                 <button onClick={() => removeImage(img.order)}
-                  className="absolute top-1 right-1 bg-red-500
-                    text-white w-5 h-5 rounded-full flex items-center
-                    justify-center text-xs">
-                  ×
+                  aria-label={`이미지 ${img.order} 빼기`}
+                  className="absolute top-0 right-0 w-11 h-11 flex items-start justify-end p-1">
+                  <span aria-hidden="true" className="bg-red-500 text-white w-6 h-6 rounded-full flex items-center justify-center text-sm">×</span>
                 </button>
               </div>
             ))}

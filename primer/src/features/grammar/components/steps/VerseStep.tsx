@@ -5,7 +5,16 @@ interface VerseStepProps {
   onSpeak: (text: string) => void
 }
 
+// 낱말 = 글자(빠알리 확장 라틴 문자 ā ṃ ṭ ḍ ṇ ñ ṅ ḷ 포함)와 결합 부호가 이어진 덩어리
+const WORD_RE = /([\p{L}\p{M}]+)/u
+const norm = (s: string) => s.normalize('NFC').toLowerCase()
+const stripPunct = (s: string) => s.replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, '')
+
 export default function VerseStep({ step, onSpeak }: VerseStepProps) {
+  // 강조할 낱말 — 낱말 전체가 똑같을 때만 강조 (다른 낱말 속에 들어 있는 것은 강조하지 않음)
+  const highlights = new Set((step.highlight || []).map(h => norm(stripPunct(h))).filter(Boolean))
+  const lines = step.pali.normalize('NFC').split(/\r?\n/)
+
   return (
     <div className="flex-1 flex flex-col">
       <div
@@ -13,65 +22,61 @@ export default function VerseStep({ step, onSpeak }: VerseStepProps) {
         style={{
           backgroundColor: 'var(--color-surface)',
           border: '1px solid var(--color-border)',
-          boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+          boxShadow: 'var(--shadow-sm)',
         }}
       >
         {/* 장식 상단 */}
         <div
           className="text-center text-xs mb-3 tracking-widest"
           style={{ color: 'var(--color-text-secondary)' }}
+          aria-hidden="true"
         >
           ─── ☸ ───
         </div>
 
         <p
+          lang="pi"
           className="pali-text text-base leading-loose"
           style={{ fontFamily: 'var(--font-pali)' }}
         >
-          {step.pali.split(/(\s+)/).map((token, i) => {
-            const clean = token
-              .replace(/[,.:;—""\n]/g, '')
-              .toLowerCase()
-            const isHL = step.highlight?.some(h =>
-              clean.includes(h.toLowerCase())
-            )
-            return (
-              <span key={i}>
-                {isHL ? (
+          {lines.map((line, li) => (
+            <span key={li}>
+              {li > 0 && <br />}
+              {line.split(WORD_RE).map((part, i) => {
+                // 홀수 칸이 낱말, 짝수 칸은 띄어쓰기·문장부호 (그냥 글자로)
+                if (i % 2 === 0) return part ? <span key={i}>{part}</span> : null
+                const isHL = highlights.has(norm(part))
+                return (
                   <button
-                    onClick={() => onSpeak(token)}
-                    className="verse-word-dot font-bold px-1 py-0.5 rounded"
+                    key={i}
+                    type="button"
+                    onClick={() => onSpeak(part)}
+                    className={`verse-word ${isHL ? 'font-bold px-1 py-0.5' : ''}`}
                     style={{
-                      backgroundColor:
-                        'color-mix(in srgb, var(--color-primary) 15%, transparent)',
+                      backgroundColor: isHL
+                        ? 'color-mix(in srgb, var(--color-primary) 15%, transparent)'
+                        : undefined,
                       color: 'var(--color-primary)',
                     }}
                   >
-                    {token}
+                    {part}
                   </button>
-                ) : (
-                  <span
-                    className="verse-word-dot"
-                    onClick={() => onSpeak(token.trim())}
-                    style={{ color: 'var(--color-primary)' }}
-                  >
-                    {token}
-                  </span>
-                )}
-              </span>
-            )
-          })}
+                )
+              })}
+            </span>
+          ))}
         </p>
 
         {/* 전체 듣기 */}
         <button
           onClick={() => onSpeak(step.pali)}
-          className="audio-ripple mt-3 px-4 py-1.5 rounded-full text-xs font-medium
+          className="audio-ripple mt-3 px-4 py-2 rounded-full text-xs font-medium
                      active:scale-95 transition-transform"
           style={{
             color: 'var(--color-accent)',
             backgroundColor:
               'color-mix(in srgb, var(--color-accent) 8%, transparent)',
+            minHeight: 36,
           }}
         >
           🔊 전체 듣기
@@ -79,18 +84,15 @@ export default function VerseStep({ step, onSpeak }: VerseStepProps) {
 
         {/* 발음 */}
         <p
-          className="text-xs mt-3"
-          style={{
-            color: 'var(--color-primary)',
-            opacity: 0.7,
-          }}
+          className="text-xs mt-3 whitespace-pre-line"
+          style={{ color: 'var(--color-primary)' }}
         >
           🗣️ {step.pronKo}
         </p>
 
-        {/* 번역 오버레이 */}
+        {/* 번역 */}
         <div
-          className="mt-3 rounded-xl p-3 text-sm"
+          className="mt-3 rounded-xl p-3 text-sm whitespace-pre-line"
           style={{
             backgroundColor:
               'color-mix(in srgb, var(--color-border) 30%, transparent)',
@@ -105,12 +107,12 @@ export default function VerseStep({ step, onSpeak }: VerseStepProps) {
         <div
           className="mt-3 rounded-2xl p-4 text-xs flex items-start gap-2"
           style={{
-            backgroundColor: '#FFF8E1',
-            border: '1px solid #FFE082',
+            backgroundColor: 'var(--color-warn-bg)',
+            border: '1px solid var(--color-warn-border)',
           }}
         >
-          <span>📝</span>
-          <span>{step.note}</span>
+          <span aria-hidden="true">📝</span>
+          <span className="whitespace-pre-line">{step.note}</span>
         </div>
       )}
     </div>

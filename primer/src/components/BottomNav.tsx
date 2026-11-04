@@ -43,13 +43,13 @@ const TABS = [
   },
   {
     key: 'profile',
-    label: '프로필',
+    label: '설정',
     path: '/profile',
     icon: (active: boolean) => (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'}
-        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" strokeWidth={active ? '2.5' : '2'} strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
       </svg>
     ),
   },
@@ -63,12 +63,13 @@ export default function BottomNav() {
   if (location.pathname.startsWith('/learn/')) return null
 
   // 현재 활성 탭 판별
-  const activeTab = TABS.find(t =>
+  const activeTab = location.pathname === '/settings' ? 'profile' : TABS.find(t =>
     t.path === '/' ? location.pathname === '/' : location.pathname.startsWith(t.path)
   )?.key ?? 'home'
 
   return (
     <nav
+      aria-label="주요 메뉴"
       className="fixed bottom-0 left-0 right-0 z-50 bottom-bar-frost"
       style={{
         borderTop: '1px solid var(--color-border-light)',
@@ -87,7 +88,6 @@ export default function BottomNav() {
                 minHeight: '56px',
                 color: isActive ? 'var(--color-primary)' : 'var(--color-text-tertiary)',
               }}
-              aria-label={tab.label}
               aria-current={isActive ? 'page' : undefined}
             >
               {/* 활성 인디케이터 */}
@@ -98,11 +98,10 @@ export default function BottomNav() {
                     style={{ background: 'var(--color-primary-gradient)' }}
                   />
                 )}
-                <span className="block mt-1">{tab.icon(isActive)}</span>
+                <span className="block mt-1" aria-hidden="true">{tab.icon(isActive)}</span>
               </div>
               <span
-                className="text-[10px] font-semibold tracking-wide"
-                style={{ opacity: isActive ? 1 : 0.7 }}
+                className="text-[11px] font-semibold tracking-wide"
               >
                 {tab.label}
               </span>

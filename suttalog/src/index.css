@@ -5,8 +5,8 @@
    Google Fonts + 색상 팔레트 + 애니메이션 + 유틸리티
    ═══════════════════════════════════════════ */
 
-/* ── Google Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+/* ── 웹 글꼴 ── Noto Serif(빠알리)·Pretendard(UI)는 index.html의 <link>에서 불러옴
+   (CSS @import는 "tailwindcss" 뒤에 있으면 빌드 때 빠져서 쓰지 않음) */
 
 /* ── CSS 변수 (라이트 모드) ── */
 :root {
@@ -14,7 +14,8 @@
   --color-primary: #C06B0A;
   --color-primary-light: #E8993A;
   --color-primary-dark: #8F4F08;
-  --color-primary-gradient: linear-gradient(135deg, #D4820E 0%, #E8993A 100%);
+  /* 흰 글자가 올라가는 바탕 — 흰 글자 대비 4.5:1 이상 되도록 진하게 */
+  --color-primary-gradient: linear-gradient(135deg, #9A5205 0%, #B0600A 100%);
 
   /* 성공/오류 */
   --color-accent: #2E7D32;
@@ -31,7 +32,7 @@
   /* 텍스트 */
   --color-text: #1E1B16;
   --color-text-secondary: #6D6556;
-  --color-text-tertiary: #9C9488;
+  --color-text-tertiary: #756C60; /* 배경 대비 4.8:1 */
 
   /* 테두리/구분선 */
   --color-border: #E4DDD0;
@@ -137,7 +138,7 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
+  /* border-radius는 지정하지 않음 — outline이 요소 원래 모양(둥근 버튼·카드)을 따라감 */
 }
 
 /* ═══════════════════════════════════════════
@@ -339,13 +340,21 @@ body {
    ═══════════════════════════════════════════ */
 
 /* 빠알리 텍스트 스타일 */
-.pali-text {
-  font-family: var(--font-pali);
-  line-height: 1.9;
-  letter-spacing: 0.02em;
-  font-size: var(--pali-fontsize);
-  word-break: keep-all;
-  font-feature-settings: 'liga' 1, 'kern' 1;
+/* @layer components 안에 두어야 Tailwind 크기 클래스(text-xs, text-2xl 등)가 이 기본 크기를 이김.
+   크기 클래스가 없는 빠알리 본문만 설정의 글자 크기(--pali-fontsize)를 따름. */
+@layer components {
+  .pali-text {
+    font-family: var(--font-pali);
+    line-height: 1.9;
+    letter-spacing: 0.02em;
+    font-size: var(--pali-fontsize);
+    word-break: keep-all;
+    font-feature-settings: 'liga' 1, 'kern' 1;
+  }
+  /* 서체만 빠알리용으로(크기는 주변을 따름) — 출처 표기 등 */
+  .pali-font {
+    font-family: var(--font-pali);
+  }
 }
 
 /* 글래스모피즘 카드 */
@@ -493,7 +502,7 @@ body {
 .bottom-bar-frost {
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  background-color: color-mix(in srgb, var(--color-bg) 80%, transparent);
+  background-color: color-mix(in srgb, var(--color-bg) 96%, transparent);
   padding-bottom: max(12px, env(safe-area-inset-bottom));
 }
 

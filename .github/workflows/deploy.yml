@@ -38,6 +38,8 @@ jobs:
             primer/package-lock.json
             suttalog/package-lock.json
 
+      # 두 앱 모두 같은 방식: npm run build (= tsc -b && vite build, 타입 검사 후 빌드)
+      # 어느 한 앱이라도 타입 오류·빌드 오류가 나면 배포를 멈춤 → 사이트는 이전 판 그대로 유지됨
       - name: 빠알리 프라이머 빌드
         working-directory: primer
         run: |
@@ -48,12 +50,14 @@ jobs:
         working-directory: suttalog
         run: |
           npm ci
-          npx vite build
+          npm run build
 
       - name: 한 사이트로 합치기
         run: |
+          # 404.html은 반드시 site 맨 위에 있어야 함(경전 앱 깊은 주소 복원용)
           mkdir -p site
           cp -r portal/. site/
+          test -f site/404.html
           cp -r primer/dist site/primer
           cp -r suttalog/dist site/suttalog
 

@@ -18,7 +18,8 @@ async function loadManifest() {
       const raw = await res.json()
       // 원본 키 + 소문자 키 모두 등록 (대소문자 무시 매칭)
       manifest = {}
-      for (const [key, val] of Object.entries(raw)) {
+      for (const [rawKey, val] of Object.entries(raw)) {
+        const key = rawKey.normalize('NFC')
         manifest[key] = val as string
         const lower = key.toLowerCase()
         if (!manifest[lower]) manifest[lower] = val as string
@@ -33,17 +34,46 @@ loadManifest()
 // 현재 재생 중인 Audio 인스턴스
 let currentAudio: HTMLAudioElement | null = null
 
-/** mp3 파일로 재생 시도 → 성공 시 true (대소문자 무시) */
+/** 녹음 목록에서 찾기 — 대소문자, 앞뒤 문장부호, 줄바꿈 표기 차이를 무시 */
+function findMp3(text: string): string | null {
+  if (!manifest) return null
+  const t = text.normalize('NFC').trim()
+  const stripped = t.replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, '')
+  // 녹음 목록에는 줄바꿈이 '\\n' 글자로 적혀 있음
+  const escNl = (s: string) => s.replace(/\r?\n/g, '\\n')
+  const candidates = [t, escNl(t), stripped, escNl(stripped), t.replace(/\s*\n\s*/g, ' ')]
+  for (const c of candidates) {
+    if (!c) continue
+    const f = manifest[c] || manifest[c.toLowerCase()]
+    if (f) return f
+  }
+  return null
+}
+
+/** mp3 파일로 재생 시도 → 찾았으면 true (재생이 막히면 기계 음성으로) */
 function tryPlayMp3(text: string): boolean {
-  if (!manifest) return false
-  const filename = manifest[text] || manifest[text.toLowerCase()] || manifest[text.trim()]
+  const filename = findMp3(text)
   if (!filename) return false
   try {
     if (currentAudio) { currentAudio.pause(); currentAudio = null }
-    currentAudio = new Audio(`${AUDIO_DIR}${filename}`)
-    currentAudio.play()
+    const audio = new Audio(`${AUDIO_DIR}${filename}`)
+    currentAudio = audio
+    const p = audio.play()
+    if (p && typeof p.catch === 'function') {
+      p.catch((e: unknown) => {
+        // 다른 소리로 바뀌어 멈춘 경우(AbortError)는 그대로 둠
+        if (currentAudio !== audio || (e as { name?: string })?.name === 'AbortError') return
+        speakWithWebAPI(text)
+      })
+    }
     return true
   } catch { return false }
+}
+
+/** 재생 중인 소리 모두 멈춤 (다음 단계로 넘어가거나 과를 나갈 때) */
+export function stopPali() {
+  try { speechSynthesis.cancel() } catch { /* 무시 */ }
+  if (currentAudio) { currentAudio.pause(); currentAudio = null }
 }
 
 // === Web Speech API 폴백 (기존 코드) ===
@@ -142,8 +172,8 @@ function speakWithWebAPI(text: string) {
 /** 메인 TTS 함수 — mp3 우선, 없으면 Web Speech API 폴백 */
 export function speakPali(text: string) {
   // 기존 재생 중지
-  speechSynthesis.cancel()
-  if (currentAudio) { currentAudio.pause(); currentAudio = null }
+  stopPali()
+  if (!text || !text.trim()) return
   if (localStorage.getItem('suttalog2-sound') === 'off') return
 
   // mp3 먼저 시도 (edge-tts 고품질)

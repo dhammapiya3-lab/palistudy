@@ -1,6 +1,8 @@
 import { useState, useMemo, useCallback } from 'react'
 import { LESSONS } from '../../grammar/lessons'
 import { useStore } from '../../../store/useStore'
+import { isLessonCompleted, lessonPct } from '../../../utils/lesson-progress'
+import type { LessonInfo } from '../../grammar/types'
 
 export const CATEGORIES = [
   { key: 'basic', label: '기초', desc: '자모와 발음', range: [0, 1] as const },
@@ -11,57 +13,58 @@ export const CATEGORIES = [
   { key: 'sandhi', label: '연성법', desc: 'Sandhi', range: [31, 31] as const },
 ] as const
 
+// 검색용 글자 정리 — 대소문자·장음 기호·아래 점을 무시 (kanna 로도 kaññā 를 찾게)
+const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
+
+/** 과 제목·부제·배우는 낱말(뜻 포함)에서 찾기 */
+function lessonMatches(l: LessonInfo, q: string): boolean {
+  if (fold(l.title).includes(q) || fold(l.subtitle).includes(q)) return true
+  return l.steps.some(s => s.type === 'teach' && (fold(s.word).includes(q) || fold(s.meaning).includes(q)))
+}
+
 export function useCourses() {
   const progress = useStore(state => state.progress)
-  const recordStudy = useStore(state => state.recordStudy)
-  
+  const best = useStore(state => state.best)
+  const completed = useStore(state => state.completed)
+
   const [search, setSearch] = useState('')
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
 
-  const currentLessonIdx = useMemo(() => 
-    LESSONS.findIndex((lesson, idx) => {
-      const prog = Math.min(progress[lesson.id] || 0, lesson.steps.length)
-      return prog < lesson.steps.length && (idx === 0 ||
-        (progress[LESSONS[idx - 1].id] || 0) >= LESSONS[idx - 1].steps.length)
-    }), [progress])
+  const st = useMemo(() => ({ progress, best, completed }), [progress, best, completed])
+  const done = useCallback((l: LessonInfo) => isLessonCompleted(st, l.id, l.steps.length), [st])
 
+  // 지금 할 과 = 아직 마치지 않은 첫 과
+  const currentLessonIdx = useMemo(() => LESSONS.findIndex(l => !done(l)), [done])
+
+  // 검색: 묶음마다 맞는 과만 남김 (맞는 과가 없는 묶음은 숨김)
   const filteredCategories = useMemo(() => {
-    if (!search.trim()) return CATEGORIES
-    const q = search.toLowerCase()
-    return CATEGORIES.filter(cat => {
-      const catLessons = LESSONS.slice(cat.range[0], cat.range[1] + 1)
-      return catLessons.some(l =>
-        l.title.toLowerCase().includes(q) ||
-        l.subtitle.toLowerCase().includes(q)
-      )
-    })
+    const q = fold(search.trim())
+    return CATEGORIES.map(cat => {
+      const all = LESSONS.slice(cat.range[0], cat.range[1] + 1)
+      return { ...cat, lessons: q ? all.filter(l => lessonMatches(l, q)) : all }
+    }).filter(cat => cat.lessons.length > 0)
   }, [search])
 
   const getLessonState = useCallback((idx: number) => {
     const lesson = LESSONS[idx]
-    const prog = Math.min(progress[lesson.id] || 0, lesson.steps.length)
-    const isCompleted = prog >= lesson.steps.length
+    const isCompleted = done(lesson)
     const isCurrent = idx === currentLessonIdx
-    const pct = Math.round((prog / lesson.steps.length) * 100)
+    const pct = lessonPct(st, lesson.id, lesson.steps.length)
     return { isCompleted, isLocked: false, isCurrent, pct }
-  }, [currentLessonIdx, progress])
+  }, [currentLessonIdx, done, st])
 
   const getSectionCompletion = useCallback((range: readonly [number, number]) => {
-    let done = 0, total = 0
+    let d = 0, total = 0
     for (let i = range[0]; i <= Math.min(range[1], LESSONS.length - 1); i++) {
       total++
-      if ((progress[LESSONS[i].id] || 0) >= LESSONS[i].steps.length) done++
+      if (done(LESSONS[i])) d++
     }
-    return { done, total }
-  }, [progress])
+    return { done: d, total }
+  }, [done])
 
   const stats = useMemo(() => {
-    let completed = 0
-    LESSONS.forEach(l => {
-      if ((progress[l.id] || 0) >= l.steps.length) completed++
-    })
-    return { completed, total: LESSONS.length }
-  }, [progress])
+    return { completed: LESSONS.filter(done).length, total: LESSONS.length }
+  }, [done])
 
   const toggleSection = (key: string) => {
     setOpenSections(prev => ({ ...prev, [key]: !prev[key] }))
@@ -70,7 +73,6 @@ export function useCourses() {
   return {
     search, setSearch,
     openSections, toggleSection,
-    recordStudy,
     filteredCategories,
     getLessonState,
     getSectionCompletion,

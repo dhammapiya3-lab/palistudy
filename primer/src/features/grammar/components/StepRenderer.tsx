@@ -80,7 +80,6 @@ export default function StepRenderer(props: StepRendererProps) {
           writingChecked={props.writingChecked}
           onSetWritingChecked={props.onSetWritingChecked}
           onSpeak={props.onSpeak}
-          onNext={props.onNext}
         />
       )
     case 'speak':

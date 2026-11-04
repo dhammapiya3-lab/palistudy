@@ -31,14 +31,14 @@ export default function OptionsList({
               ${isWrn ? 'option-wrong' : ''}`}
             style={{
               backgroundColor: isAns
-                ? '#E8F5E9'
+                ? 'var(--color-success-bg)'
                 : isWrn
-                  ? '#FFEBEE'
+                  ? 'var(--color-wrong-bg)'
                   : 'var(--color-surface)',
               border: isAns
-                ? '2px solid #4CAF50'
+                ? '2px solid var(--color-success-strong)'
                 : isWrn
-                  ? '2px solid #F44336'
+                  ? '2px solid var(--color-wrong-strong)'
                   : isSelected
                     ? '2px solid var(--color-primary)'
                     : '1.5px solid var(--color-border)',
@@ -49,16 +49,16 @@ export default function OptionsList({
               className="shrink-0 w-5 h-5 rounded-full flex items-center justify-center"
               style={{
                 border: isAns
-                  ? '2px solid #4CAF50'
+                  ? '2px solid var(--color-success-strong)'
                   : isWrn
-                    ? '2px solid #F44336'
+                    ? '2px solid var(--color-wrong-strong)'
                     : isSelected
                       ? '2px solid var(--color-primary)'
                       : '2px solid var(--color-border)',
                 backgroundColor: isAns
-                  ? '#4CAF50'
+                  ? 'var(--color-success-strong)'
                   : isWrn
-                    ? '#F44336'
+                    ? 'var(--color-wrong-strong)'
                     : isSelected
                       ? 'var(--color-primary)'
                       : 'transparent',
@@ -73,7 +73,7 @@ export default function OptionsList({
             </span>
             <span className="flex-1">{opt}</span>
             {isAns && (
-              <span className="text-green-600 font-bold text-base">✓</span>
+              <span className="font-bold text-base" style={{ color: 'var(--color-success-strong)' }} aria-label="정답">✓</span>
             )}
           </button>
         )

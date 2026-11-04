@@ -5,8 +5,9 @@ import {
   decidePatch, deleteMemo, downloadMemosJson, listMemos, saveMemo, type Memo,
 } from '../../utils/memo'
 import {
-  fetchGithubMemos, githubIsConfigured, mergeMemos, pushMemoToGithub,
+  deleteMemoFromGithub, fetchGithubMemos, githubIsConfigured, invalidateGithubMemoCache, mergeMemos, pushMemoToGithub,
 } from '../../utils/memo-github'
+import { canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
 import PatchCard from './PatchCard'
 
 function subtitleOf(m: Memo): string {
@@ -25,6 +26,8 @@ function subtitleOf(m: Memo): string {
 export default function MemoList() {
   const nav = useNavigate()
   const [version, setVersion] = useState(0)
+  const [forceFetch, setForceFetch] = useState(false)
+  const [notice, setNotice] = useState<string | null>(null)
   const [remote, setRemote] = useState<Memo[]>([])
   const [syncing, setSyncing] = useState(false)
   const [syncError, setSyncError] = useState<string | null>(null)
@@ -35,20 +38,36 @@ export default function MemoList() {
   useEffect(() => {
     let cancelled = false
     setSyncing(true); setSyncError(null)
-    fetchGithubMemos()
+    fetchGithubMemos({ force: forceFetch })
       .then(rs => { if (!cancelled) setRemote(rs) })
       .catch(e => { if (!cancelled) setSyncError(String(e?.message ?? e)) })
-      .finally(() => { if (!cancelled) setSyncing(false) })
+      .finally(() => { if (!cancelled) { setSyncing(false); setForceFetch(false) } })
     return () => { cancelled = true }
-  }, [version])
+  }, [version, forceFetch])
 
-  const handleDelete = (pageId: string) => {
-    if (!confirm('이 메모를 삭제할까요?')) return
-    deleteMemo(pageId); setVersion(v => v + 1)
+  const handleDelete = async (m: Memo) => {
+    const shared = githubIsConfigured()
+    if (!confirm(shared ? '이 메모를 삭제할까요?\nGitHub에 공유된 사본도 함께 지웁니다.' : '이 메모를 삭제할까요?')) return
+    deleteMemo(m.pageId)
+    setNotice(null)
+    if (shared) {
+      // 공유된 사본도 지워야 다시 '공유 메모'로 나타나지 않음
+      try {
+        await deleteMemoFromGithub(m.memoId)
+        setRemote(rs => rs.filter(r => r.memoId !== m.memoId))
+      } catch (e) {
+        setNotice(`이 기기의 메모는 지웠지만 GitHub 사본은 지우지 못했어요. ${e instanceof Error ? e.message : ''}`)
+      }
+    } else {
+      setRemote(rs => rs.filter(r => r.memoId !== m.memoId))
+    }
+    invalidateGithubMemoCache()
+    setVersion(v => v + 1)
   }
   const handleOpen = (m: Memo) => {
-    localStorage.setItem(`suttalog-progress-${m.lessonId}`, String(m.stepIdx))
-    nav(`/learn/scripture/${m.lessonId}`)
+    const id = canonicalLessonId(m.lessonId)
+    localStorage.setItem(`suttalog-progress-${id}`, String(m.stepIdx))
+    nav(`/learn/scripture/${id}`)
   }
   const handleApprove = async (m: Memo) => {
     if (!m.patch) return
@@ -69,10 +88,10 @@ export default function MemoList() {
   }
 
   return (
-    <div className="px-4 pt-6 pb-24 max-w-lg mx-auto">
+    <div className="px-4 pt-6 max-w-lg mx-auto">
       <div className="flex items-center justify-between mb-4">
         <h1 className="text-xl font-bold">📝 메모</h1>
-        <button onClick={() => nav(-1)} className="text-sm px-3 py-1 rounded-full active:scale-95"
+        <button onClick={() => ((window.history.state as { idx?: number } | null)?.idx ?? 0) > 0 ? nav(-1) : nav('/profile')} className="text-sm px-3 py-2 rounded-full active:scale-95"
           style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-secondary)' }}>← 뒤로</button>
       </div>
 
@@ -81,14 +100,21 @@ export default function MemoList() {
           style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
           총 {merged.length}개 · 본인 {local.length} · 공유 {remote.length}
         </span>
-        {syncing && <span className="text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>🌐 동기화…</span>}
-        {syncError && <span className="text-[10px]" style={{ color: '#EF5350' }} title={syncError}>⚠️ sync 실패</span>}
-        <button onClick={() => setVersion(v => v + 1)} className="ml-auto text-xs px-3 py-1 rounded-full active:scale-95"
+        {syncing && <span className="text-[11px]" role="status" style={{ color: 'var(--color-text-secondary)' }}>🌐 공유 메모 받는 중…</span>}
+        <button onClick={() => { setForceFetch(true); setVersion(v => v + 1) }} className="ml-auto text-xs px-3 py-2 rounded-full active:scale-95"
           style={{ border: '1px solid var(--color-border)' }}>🔄 새로고침</button>
         <button onClick={downloadMemosJson} disabled={local.length === 0}
           className="text-xs px-3 py-1.5 rounded-full active:scale-95 disabled:opacity-40"
           style={{ backgroundColor: 'var(--color-primary)', color: '#fff' }}>📤 내보내기</button>
       </div>
+
+      {(syncError || notice) && (
+        <div role="alert" className="rounded-xl p-3 mb-4 text-xs leading-relaxed"
+          style={{ backgroundColor: 'color-mix(in srgb, var(--color-error) 8%, var(--color-surface))', border: '1px solid color-mix(in srgb, var(--color-error) 30%, transparent)', color: 'var(--color-text)' }}>
+          ⚠️ {notice ?? `공유 메모를 불러오지 못했어요. ${syncError}`}
+          {!notice && <><br />내 메모는 그대로 볼 수 있습니다.</>}
+        </div>
+      )}
 
       {!githubIsConfigured() && (
         <div className="rounded-xl p-3 mb-4 text-xs" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
@@ -116,17 +142,17 @@ export default function MemoList() {
                 style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
                 <div className="flex items-start justify-between gap-2 mb-1.5">
                   <div className="flex flex-wrap items-center gap-1.5 min-w-0">
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full shrink-0"
+                    <span className="text-[11px] font-semibold px-2 py-0.5 rounded-full shrink-0"
                       style={{ backgroundColor: 'color-mix(in srgb, var(--color-primary) 12%, var(--color-surface))', color: 'var(--color-primary)' }}>
-                      {m.lessonTitle || m.lessonId}
+                      {getLessonTitle(m.lessonId) || m.lessonTitle}
                     </span>
-                    <span className="text-[10px] font-mono shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>📍 {m.pageId}</span>
-                    <span className="text-[10px] font-mono shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>🆔 {m.memoId.slice(0, 8)}</span>
-                    <span className="text-[10px] shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
+                    <span className="text-[11px] font-mono shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>📍 {m.pageId}</span>
+                    <span className="text-[11px] font-mono shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>🆔 {m.memoId.slice(0, 8)}</span>
+                    <span className="text-[11px] shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
                       {isRemoteOnly ? '🌐' : '📱'} {m.author || (isRemoteOnly ? 'community' : 'me')}
                     </span>
                   </div>
-                  <p className="text-[10px] shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
+                  <p className="text-[11px] shrink-0" style={{ color: 'var(--color-text-tertiary)' }}>
                     {new Date(m.updatedAt).toLocaleDateString()}
                   </p>
                 </div>
@@ -147,7 +173,7 @@ export default function MemoList() {
                       className="px-3 py-1.5 rounded-lg text-xs active:scale-95"
                       style={{ border: '1px solid var(--color-border)' }}>📥 내 메모로</button>
                   ) : (
-                    <button onClick={() => handleDelete(m.pageId)}
+                    <button onClick={() => handleDelete(m)}
                       className="px-3 py-1.5 rounded-lg text-xs active:scale-95"
                       style={{ border: '1px solid var(--color-border)', color: '#EF5350' }}>삭제</button>
                   )}

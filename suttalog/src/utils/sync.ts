@@ -1,5 +1,6 @@
 // Firebase 동기화 모듈 (빤디따라마 참고)
 // Google 로그인 + Firestore로 기기간 학습 데이터 동기화
+import { isSecretStorageKey } from './memo-github'
 
 // TODO: Firebase 콘솔에서 프로젝트 생성 후 설정값 입력
 const FIREBASE_CONFIG = {
@@ -87,7 +88,7 @@ export async function pullFromCloud(): Promise<boolean> {
     if (docSnap.exists()) {
       const data = docSnap.data()
       for (const [key, value] of Object.entries(data)) {
-        if (key.startsWith('suttalog-') && typeof value === 'string') {
+        if (key.startsWith('suttalog-') && !isSecretStorageKey(key) && typeof value === 'string') {
           if (key.startsWith('suttalog-progress-')) {
             const local = Number(localStorage.getItem(key) || '0')
             const cloud = Number(value)
@@ -115,7 +116,8 @@ export async function pushToCloud(): Promise<boolean> {
     const data: Record<string, string> = {}
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i)
-      if (key?.startsWith('suttalog-')) {
+      // GitHub 토큰 같은 비밀 값은 클라우드에 올리지 않음
+      if (key?.startsWith('suttalog-') && !isSecretStorageKey(key)) {
         data[key] = localStorage.getItem(key) || ''
       }
     }

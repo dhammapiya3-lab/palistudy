@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { getMonthStudyDates, getDayLog, type DayLog } from '../../../utils/study-log'
+import { localDateStr } from '../../../utils/date'
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토']
 
@@ -12,7 +13,7 @@ export default function StudyCalendar() {
   const studyDates = getMonthStudyDates(year, month)
   const firstDow = new Date(year, month, 1).getDay()
   const daysInMonth = new Date(year, month + 1, 0).getDate()
-  const today = new Date().toISOString().slice(0, 10)
+  const today = localDateStr()
 
   return (
     <div
@@ -27,20 +28,22 @@ export default function StudyCalendar() {
       <div className="flex items-center justify-between mb-3">
         <button
           onClick={() => setViewDate(new Date(year, month - 1, 1))}
-          className="w-8 h-8 flex items-center justify-center rounded-full active:scale-90"
+          aria-label="이전 달"
+          className="w-10 h-10 flex items-center justify-center rounded-full active:scale-90"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
-        <p className="text-sm font-bold">{year}년 {month + 1}월</p>
+        <p className="text-sm font-bold" aria-live="polite">{year}년 {month + 1}월</p>
         <button
           onClick={() => setViewDate(new Date(year, month + 1, 1))}
-          className="w-8 h-8 flex items-center justify-center rounded-full active:scale-90"
+          aria-label="다음 달"
+          className="w-10 h-10 flex items-center justify-center rounded-full active:scale-90"
           style={{ color: 'var(--color-text-secondary)' }}
         >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="9 18 15 12 9 6" />
           </svg>
         </button>
@@ -74,6 +77,7 @@ export default function StudyCalendar() {
             <button
               key={day}
               onClick={() => setSelectedDay(getDayLog(dateStr))}
+              aria-label={`${month + 1}월 ${day}일${hasStudy ? ', 공부한 날' : ''}${isToday ? ', 오늘' : ''}`}
               className="aspect-square flex flex-col items-center justify-center rounded-xl text-xs font-medium transition-all active:scale-90"
               style={{
                 backgroundColor: hasStudy ? 'color-mix(in srgb, var(--color-primary) 15%, transparent)' : 'transparent',
@@ -101,8 +105,8 @@ export default function StudyCalendar() {
             <p className="text-xs font-bold">{selectedDay.date}</p>
             <button
               onClick={() => setSelectedDay(null)}
-              className="text-xs"
-              style={{ color: 'var(--color-text-tertiary)' }}
+              className="text-xs px-2 py-1"
+              style={{ color: 'var(--color-text-secondary)', minHeight: 32 }}
             >
               닫기
             </button>
@@ -117,6 +121,9 @@ export default function StudyCalendar() {
               <p className="text-[10px]" style={{ color: 'var(--color-text-secondary)' }}>분</p>
             </div>
           </div>
+          {selectedDay.entries.length === 0 && (
+            <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>이날은 공부했지만 끝까지 마친 과는 없어요.</p>
+          )}
           <div className="space-y-1.5">
             {selectedDay.entries.map((entry, i) => (
               <div
@@ -126,7 +133,7 @@ export default function StudyCalendar() {
               >
                 <span className="font-bold truncate flex-1">{entry.lessonTitle}</span>
                 <span style={{ color: 'var(--color-text-secondary)' }}>{entry.minutes}분</span>
-                <span style={{ color: 'var(--color-accent)' }}>{entry.score}/{entry.totalSteps}</span>
+                <span style={{ color: 'var(--color-accent)' }} title="정답 수">정답 {entry.score}</span>
               </div>
             ))}
           </div>

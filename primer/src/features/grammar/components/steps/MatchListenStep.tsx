@@ -25,6 +25,7 @@ export default function MatchListenStep({
       <p className="text-sm font-bold mb-4">{step.instruction}</p>
       <button
         onClick={() => onSpeak(step.word)}
+        aria-label="소리 듣기"
         className="w-24 h-24 mx-auto rounded-full flex items-center justify-center
                    text-4xl active:scale-90 transition-transform mb-6 mic-pulse"
         style={{

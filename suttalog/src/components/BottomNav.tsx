@@ -55,17 +55,27 @@ const TABS = [
   },
 ] as const
 
+/** 하단 메뉴를 숨기는 화면: 학습 화면과 레슨 완료 화면 */
+export function isNavHidden(pathname: string): boolean {
+  return pathname.startsWith('/learn/') || pathname.startsWith('/lesson-complete') || pathname.startsWith('/lesson/')
+}
+
+/** 주소 → 활성 탭. 맞는 탭이 없으면(예: 없는 주소) 아무 탭도 켜지 않음 */
+function tabOf(pathname: string): string | null {
+  if (pathname === '/') return 'home'
+  if (pathname.startsWith('/map') || pathname.startsWith('/skill')) return 'courses'
+  if (pathname.startsWith('/review')) return 'review'
+  if (pathname.startsWith('/profile') || pathname.startsWith('/settings') || pathname.startsWith('/memos')) return 'profile'
+  return null
+}
+
 export default function BottomNav() {
   const nav = useNavigate()
   const location = useLocation()
 
-  // 학습 화면에서는 하단바 숨김
-  if (location.pathname.startsWith('/learn/')) return null
+  if (isNavHidden(location.pathname)) return null
 
-  // 현재 활성 탭 판별
-  const activeTab = TABS.find(t =>
-    t.path === '/' ? location.pathname === '/' : location.pathname.startsWith(t.path)
-  )?.key ?? 'home'
+  const activeTab = tabOf(location.pathname)
 
   return (
     <nav
@@ -73,6 +83,7 @@ export default function BottomNav() {
       style={{
         borderTop: '1px solid var(--color-border-light)',
       }}
+      aria-label="주요 메뉴"
     >
       <div className="flex items-stretch justify-around max-w-lg mx-auto">
         {TABS.map(tab => {
@@ -87,7 +98,6 @@ export default function BottomNav() {
                 minHeight: '56px',
                 color: isActive ? 'var(--color-primary)' : 'var(--color-text-tertiary)',
               }}
-              aria-label={tab.label}
               aria-current={isActive ? 'page' : undefined}
             >
               {/* 활성 인디케이터 */}
@@ -98,11 +108,10 @@ export default function BottomNav() {
                     style={{ background: 'var(--color-primary-gradient)' }}
                   />
                 )}
-                <span className="block mt-1">{tab.icon(isActive)}</span>
+                <span className="block mt-1" aria-hidden="true">{tab.icon(isActive)}</span>
               </div>
               <span
-                className="text-[10px] font-semibold tracking-wide"
-                style={{ opacity: isActive ? 1 : 0.7 }}
+                className="text-[11px] font-semibold tracking-wide"
               >
                 {tab.label}
               </span>

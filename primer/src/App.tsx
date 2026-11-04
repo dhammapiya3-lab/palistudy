@@ -8,7 +8,8 @@ import GrammarLearn from './features/grammar/GrammarLearn'
 import Settings from './features/settings/Settings'
 import BottomNav from './components/BottomNav'
 import MemoFab from './components/MemoFab'
-import { initSync, isSyncConfigured } from './utils/sync'
+import UpdateBanner from './components/UpdateBanner'
+import { initSyncIfSignedIn } from './utils/sync'
 
 // 과가 바뀌면 화면 상태(단계 위치)를 새로 시작
 function KeyedGrammarLearn() {
@@ -17,17 +18,14 @@ function KeyedGrammarLearn() {
 }
 
 export default function App() {
-  // 앱 시작 시 Firebase 동기화 초기화
+  // 로그인한 적이 있을 때만 Firebase를 불러와 동기화 (처음 방문자는 Firebase를 받지 않음)
   useEffect(() => {
-    if (isSyncConfigured()) {
-      initSync(() => {
-        // 로그인 상태 변경 시 페이지 갱신 불필요 (각 컴포넌트에서 처리)
-      })
-    }
+    initSyncIfSignedIn()
   }, [])
 
   return (
-    <>
+    <div className="overflow-x-clip min-h-screen">
+      <UpdateBanner />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/courses" element={<Courses />} />
@@ -39,6 +37,6 @@ export default function App() {
       </Routes>
       <BottomNav />
       <MemoFab />
-    </>
+    </div>
   )
 }

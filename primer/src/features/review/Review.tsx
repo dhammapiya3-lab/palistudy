@@ -1,24 +1,26 @@
-// 복습 모드 — 완료한 과에서 랜덤 퀴즈 선택
-import { useMemo } from 'react'
+// 복습 — 완료한 과 목록 + 완료한 과의 퀴즈로 랜덤 복습
+import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LESSONS } from '../grammar/lessons'
 import { useDragOrder } from './useDragOrder'
-
-// 과별 진행도 조회
-function getProgress(id: string, total: number) {
-  return Math.min(Number(localStorage.getItem(`pali-primer-${id}`) || '0'), total)
-}
+import { useStore } from '../../store/useStore'
+import { completedLessons as getCompletedLessons } from '../../utils/lesson-progress'
+import { REVIEW_QUIZ_ID } from '../grammar/hooks/useGrammarLearn'
 
 export default function Review() {
   const nav = useNavigate()
+  const progress = useStore(s => s.progress)
+  const best = useStore(s => s.best)
+  const completed = useStore(s => s.completed)
 
-  // 완료한 과 목록
+  // 완료한 과 목록 (과목·홈과 같은 기준)
   const completedLessons = useMemo(() =>
-    LESSONS.filter(l => getProgress(l.id, l.steps.length) >= l.steps.length),
-  [])
+    getCompletedLessons({ progress, best, completed }),
+  [progress, best, completed])
 
-  // 끌어서 순서 바꾸기 (터치·마우스)
-  const { orderedItems, dragState, handleProps } = useDragOrder(completedLessons)
+  // 끌어서 순서 바꾸기 (터치·마우스) + 키보드(↑/↓)
+  const { orderedItems, dragState, handleProps, moveItem } = useDragOrder(completedLessons)
+  const [announce, setAnnounce] = useState('')
+  const handleRefs = useRef<(HTMLDivElement | null)[]>([])
 
   const hasCompleted = completedLessons.length > 0
 
@@ -31,27 +33,25 @@ export default function Review() {
       <div className="pt-[max(env(safe-area-inset-top),20px)] pb-4 animate-fadeIn">
         <h1 className="text-2xl font-bold tracking-tight">복습</h1>
         <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-          완료한 과에서 랜덤 퀴즈
+          끝까지 마친 과를 다시 보거나, 그 과들의 퀴즈를 섞어 풀어 봅니다
         </p>
       </div>
 
       {hasCompleted ? (
-        <div className="px-5 space-y-3 animate-slideUp">
+        <div className="space-y-3 animate-slideUp">
+          <p className="sr-only" aria-live="polite">{announce}</p>
           {/* 랜덤 복습 버튼 */}
           <button
-            onClick={() => {
-              const random = orderedItems[Math.floor(Math.random() * orderedItems.length)]
-              nav(`/learn/${random.id}`)
-            }}
+            onClick={() => nav(`/learn/${REVIEW_QUIZ_ID}`, { state: { from: '/review' } })}
             className="w-full rounded-2xl p-5 text-left card-shadow
               transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
             style={{
-              background: 'var(--color-primary-gradient)',
+              background: 'var(--color-cta-gradient)',
               minHeight: '48px',
             }}>
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/20">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
                   stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="23 4 23 10 17 10" />
                   <polyline points="1 20 1 14 7 14" />
@@ -59,9 +59,9 @@ export default function Review() {
                 </svg>
               </div>
               <div>
-                <p className="text-white font-bold text-base">랜덤 복습 시작</p>
-                <p className="text-white/70 text-xs mt-0.5">
-                  {orderedItems.length}개 과에서 랜덤 선택
+                <p className="text-white font-bold text-base">랜덤 퀴즈 복습</p>
+                <p className="text-white/90 text-xs mt-0.5">
+                  마친 {orderedItems.length}개 과의 퀴즈 중 10문제
                 </p>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Review() {
           <h2 className="text-sm font-bold pt-3 flex items-center gap-2"
             style={{ color: 'var(--color-text-secondary)' }}>
             복습 가능한 과
-            <span className="text-[10px] font-normal opacity-60">⋮⋮ 를 끌어서 순서 변경</span>
+            <span className="text-[11px] font-normal">⋮⋮ 를 끌어서 순서 변경</span>
           </h2>
 
           {/* 과 목록 — 왼쪽 손잡이(⋮⋮)를 끌어서 순서 변경 (터치·마우스) */}
@@ -98,11 +98,23 @@ export default function Review() {
                 {/* 끌기 손잡이 — 손가락으로 누르기 쉽게 넓게 */}
                 <div
                   {...handleProps(index)}
-                  aria-label={`${lesson.title} 순서 바꾸기`}
+                  ref={el => { handleRefs.current[index] = el }}
+                  aria-label={`${lesson.title} 순서 바꾸기 — 위아래 화살표 키로 옮기기 (${index + 1}/${orderedItems.length}번째)`}
                   role="button"
-                  className="shrink-0 w-11 flex items-center justify-center opacity-40 select-none"
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return
+                    e.preventDefault()
+                    const to = moveItem(index, e.key === 'ArrowUp' ? -1 : 1)
+                    if (to === null) return
+                    setAnnounce(`${lesson.title}을(를) ${to + 1}번째로 옮겼습니다`)
+                    // 옮긴 항목의 손잡이에 포커스 유지
+                    requestAnimationFrame(() => handleRefs.current[to]?.focus())
+                  }}
+                  className="shrink-0 w-11 flex items-center justify-center select-none rounded-l-2xl"
+                  style={{ ...handleProps(index).style, color: 'var(--color-text-tertiary)' }}
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
                     <circle cx="9" cy="6" r="1.4" />
                     <circle cx="9" cy="12" r="1.4" />
                     <circle cx="9" cy="18" r="1.4" />
@@ -113,7 +125,7 @@ export default function Review() {
                 </div>
 
                 <button
-                  onClick={() => nav(`/learn/${lesson.id}`)}
+                  onClick={() => nav(`/learn/${lesson.id}`, { state: { from: '/review' } })}
                   className="flex-1 min-w-0 flex items-center gap-3 pr-4 py-3.5 text-left active:scale-[0.98] transition-transform"
                   style={{ minHeight: '48px' }}>
                   {/* 완료 아이콘 */}
@@ -147,7 +159,7 @@ export default function Review() {
         </div>
       ) : (
         /* 완료한 과 없음 */
-        <div className="px-5 pt-16 text-center animate-fadeIn">
+        <div className="pt-16 text-center animate-fadeIn">
           <div className="w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6"
             style={{ backgroundColor: 'var(--color-surface-elevated)' }}>
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none"

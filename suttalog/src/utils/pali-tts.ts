@@ -108,9 +108,24 @@ export function paliToDevanagari(roman: string): string {
   return result
 }
 
+// 일부 안드로이드 WebView·인앱 브라우저에는 speechSynthesis가 없음 → 없으면 조용히 건너뜀
+function getSynth(): SpeechSynthesis | null {
+  return typeof window !== 'undefined' && 'speechSynthesis' in window ? window.speechSynthesis : null
+}
+
+/** 이 기기에서 소리 내어 읽기(TTS)를 쓸 수 있는지 */
+export function ttsAvailable(): boolean {
+  return getSynth() !== null && typeof SpeechSynthesisUtterance !== 'undefined'
+}
+
+/** 재생 중인 소리 멈춤 (TTS가 없는 기기에서도 안전) */
+export function stopSpeech(): void {
+  try { getSynth()?.cancel() } catch { /* 무시 */ }
+}
+
 // 사용 가능한 인도계 음성 찾기 (hi-IN > hi > sa > en-IN > 아무거나)
-function findBestVoice(): SpeechSynthesisVoice | null {
-  const voices = speechSynthesis.getVoices()
+function findBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
+  const voices = synth.getVoices()
   const priorities = ['hi-IN', 'hi', 'sa', 'en-IN', 'it-IT', 'en-US']
   for (const lang of priorities) {
     const found = voices.find(v => v.lang.startsWith(lang))
@@ -119,15 +134,24 @@ function findBestVoice(): SpeechSynthesisVoice | null {
   return voices[0] || null
 }
 
+// 재생 요청 번호 — 늦게 도착한 이전 요청이 또 읽지 않도록
+let requestSeq = 0
+
 // TTS 발음 재생
 export function speakPali(text: string) {
-  speechSynthesis.cancel()
+  const synth = getSynth()
+  if (!synth || typeof SpeechSynthesisUtterance === 'undefined') return
+  synth.cancel()
 
   // 소리 끔 설정 체크
   if (localStorage.getItem('suttalog-sound') === 'off') return
 
+  const seq = ++requestSeq
+  let played = false
   const trySpeak = () => {
-    const voice = findBestVoice()
+    if (played || seq !== requestSeq) return // 한 요청은 한 번만 읽음
+    played = true
+    const voice = findBestVoice(synth)
     const useDevanagari = voice && (voice.lang.startsWith('hi') || voice.lang.startsWith('sa'))
     const speakText = useDevanagari ? paliToDevanagari(text) : text
 
@@ -135,23 +159,17 @@ export function speakPali(text: string) {
     u.lang = voice?.lang || 'hi-IN'
     if (voice) u.voice = voice
     u.rate = 0.6
-    speechSynthesis.speak(u)
+    synth.speak(u)
   }
 
   // iOS Safari에서 voices가 비동기로 로드됨
-  if (speechSynthesis.getVoices().length === 0) {
-    speechSynthesis.onvoiceschanged = () => {
-      speechSynthesis.onvoiceschanged = null
+  if (synth.getVoices().length === 0) {
+    synth.onvoiceschanged = () => {
+      synth.onvoiceschanged = null
       trySpeak()
     }
-    // 폴백: 0.5초 후 그냥 시도
-    setTimeout(() => {
-      if (speechSynthesis.speaking) return
-      const u = new SpeechSynthesisUtterance(text)
-      u.lang = 'hi-IN'
-      u.rate = 0.6
-      speechSynthesis.speak(u)
-    }, 500)
+    // 폴백: 0.5초 안에 목소리 목록이 안 오면 같은 경로로 한 번만 시도
+    setTimeout(trySpeak, 500)
   } else {
     trySpeak()
   }

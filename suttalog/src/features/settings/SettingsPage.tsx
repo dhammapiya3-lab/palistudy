@@ -1,7 +1,24 @@
 // 설정 페이지
+import { stopSpeech } from '../../utils/pali-tts'
 import { useState, useEffect } from 'react'
 import { isSyncConfigured, isSyncLoggedIn, getSyncUser, initSync, syncLogin, syncLogout, pullFromCloud, pushToCloud } from '../../utils/sync'
 import { clearGithubConfig, getGithubUser, githubIsConfigured, setGithubConfig } from '../../utils/memo-github'
+
+// 켜기/끄기 스위치 — 화면낭독기용 role="switch", 손가락으로 누르기 쉬운 크기(44px)
+function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
+  return (
+    <button onClick={onClick} role="switch" aria-checked={on} aria-label={label}
+      className="w-14 h-11 shrink-0 flex items-center justify-center -mr-1">
+      <span className="w-12 h-7 rounded-full transition-all relative block"
+        style={{ backgroundColor: on ? 'var(--color-accent)' : 'var(--color-border)' }}>
+        <span className="absolute w-5 h-5 bg-white rounded-full top-1 transition-all shadow-sm" style={{ left: on ? 24 : 4 }} />
+      </span>
+    </button>
+  )
+}
+
+// ± 버튼 공통 모양(44px)
+const stepBtn = 'w-11 h-11 rounded-full flex items-center justify-center text-lg font-bold active:scale-90 shrink-0'
 
 export default function SettingsPage() {
   const [soundOn, setSoundOn] = useState(localStorage.getItem('suttalog-sound') !== 'off')
@@ -37,7 +54,7 @@ export default function SettingsPage() {
     setGhUser('')
     setGhConfigured(false)
   }
-  const [fontSize, setFontSize] = useState(Number(localStorage.getItem('suttalog-fontsize')) || 16)
+  const [fontSize, setFontSize] = useState(Number(localStorage.getItem('suttalog-fontsize')) || 18)
 
   // SSOT: 연꽃(목숨) 개수 — 기본값 5, 범위 1~10
   const [heartsCount, setHeartsCount] = useState(Number(localStorage.getItem('suttalog-hearts-count') || '5'))
@@ -90,13 +107,15 @@ export default function SettingsPage() {
     const next = !soundOn
     setSoundOn(next)
     localStorage.setItem('suttalog-sound', next ? 'on' : 'off')
-    if (!next) speechSynthesis.cancel()
+    if (!next) stopSpeech()
   }
 
   const resetAll = () => {
-    if (!confirm('모든 학습 데이터를 초기화하시겠습니까?\n진도, 설정이 모두 삭제됩니다.')) return
-    localStorage.clear()
-    // IndexedDB 삭제
+    if (!confirm('경전으로 배우기의 모든 학습 데이터를 초기화하시겠습니까?\n진도·메모·설정이 삭제됩니다.\n(빠알리 프라이머의 기록은 지워지지 않습니다.)')) return
+    // 같은 주소를 쓰는 빠알리 프라이머 데이터는 남기고, 이 앱(suttalog-) 데이터만 지움
+    Object.keys(localStorage)
+      .filter(k => k.startsWith('suttalog-'))
+      .forEach(k => localStorage.removeItem(k))
     indexedDB.deleteDatabase('suttalog')
     window.location.href = '/palistudy/suttalog/'
   }
@@ -112,12 +131,7 @@ export default function SettingsPage() {
             <p className="text-sm font-semibold">🔊 발음 소리</p>
             <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>단어/구절 탭 시 발음 재생</p>
           </div>
-          <button onClick={toggleSound}
-            className="w-12 h-7 rounded-full transition-all relative"
-            style={{ backgroundColor: soundOn ? 'var(--color-accent)' : 'var(--color-border)' }}>
-            <div className="absolute w-5 h-5 bg-white rounded-full top-1 transition-all"
-              style={{ left: soundOn ? 24 : 4 }} />
-          </button>
+          <Toggle on={soundOn} onClick={toggleSound} label="발음 소리" />
         </div>
       </div>
 
@@ -128,17 +142,15 @@ export default function SettingsPage() {
           오답 시 차감되는 연꽃 개수 (1~10)
         </p>
         <div className="flex items-center gap-3">
-          <button onClick={() => changeHeartsCount(heartsCount - 1)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold active:scale-90"
-            style={{ backgroundColor: 'var(--color-border)' }}>−</button>
-          <div className="flex-1 flex items-center justify-center gap-1">
+          <button onClick={() => changeHeartsCount(heartsCount - 1)} aria-label="연꽃 하나 줄이기"
+            className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>−</button>
+          <div className="flex-1 flex items-center justify-center gap-1 flex-wrap" aria-hidden="true">
             {Array.from({ length: heartsCount }, (_, i) => (
               <span key={i} className="text-base">🪷</span>
             ))}
           </div>
-          <button onClick={() => changeHeartsCount(heartsCount + 1)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold active:scale-90"
-            style={{ backgroundColor: 'var(--color-border)' }}>+</button>
+          <button onClick={() => changeHeartsCount(heartsCount + 1)} aria-label="연꽃 하나 늘리기"
+            className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>+</button>
         </div>
         <p className="text-center mt-2 text-sm font-bold" style={{ color: 'var(--color-primary)' }}>
           {heartsCount}개
@@ -157,7 +169,7 @@ export default function SettingsPage() {
               ✅ 활성화됨 — 사용자명: <b>{ghUser || 'anonymous'}</b>
             </p>
             <button onClick={removeGithubConfig} className="w-full py-2 rounded-lg text-xs"
-              style={{ border: '1px solid var(--color-border)', color: '#EF5350' }}>🗑️ 토큰 삭제</button>
+              style={{ border: '1px solid var(--color-border)', color: 'var(--color-error)' }}>🗑️ 토큰 삭제</button>
           </div>
         ) : (
           <div className="space-y-2">
@@ -169,19 +181,18 @@ export default function SettingsPage() {
               style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', color: 'var(--color-text)' }} />
             <button onClick={saveGithubConfig} className="w-full py-2 rounded-lg text-sm font-bold text-white"
               style={{ backgroundColor: 'var(--color-primary)' }}>저장</button>
-            <p className="text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>
+            <p className="text-[11px]" style={{ color: 'var(--color-text-tertiary)' }}>
               GitHub → Settings → Developer settings → Personal access tokens → Fine-grained → Repository: palistudy, Permissions: Contents R/W
             </p>
           </div>
         )}
       </div>
 
-      {/* 동기화 */}
+      {/* 동기화 — 서버 설정이 준비된 경우에만 보여 줌 */}
+      {syncReady && (
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         <p className="text-sm font-semibold mb-2">🔄 기기간 동기화</p>
-        {!syncReady ? (
-          <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>준비 중 (Firebase 설정 필요)</p>
-        ) : syncLoggedIn ? (
+        {syncLoggedIn ? (
           <div>
             <div className="flex items-center gap-2 mb-3">
               {syncUser?.photoURL && <img src={syncUser.photoURL} className="w-8 h-8 rounded-full" />}
@@ -221,6 +232,7 @@ export default function SettingsPage() {
           Google 로그인으로 여러 기기에서 학습 진도를 동기화합니다
         </p>
       </div>
+      )}
 
       {/* 쓰기 모드 */}
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
@@ -229,12 +241,7 @@ export default function SettingsPage() {
             <p className="text-sm font-semibold">✍️ 쓰기 모드</p>
             <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>단어 스펠링 직접 입력 (특수문자 키보드 제공)</p>
           </div>
-          <button onClick={toggleWriting}
-            className="w-12 h-7 rounded-full transition-all relative"
-            style={{ backgroundColor: writingOn ? 'var(--color-accent)' : 'var(--color-border)' }}>
-            <div className="absolute w-5 h-5 bg-white rounded-full top-1 transition-all"
-              style={{ left: writingOn ? 24 : 4 }} />
-          </button>
+          <Toggle on={writingOn} onClick={toggleWriting} label="쓰기 모드" />
         </div>
       </div>
 
@@ -246,7 +253,7 @@ export default function SettingsPage() {
         </p>
 
         {/* 모드 선택 */}
-        <div className="space-y-2">
+        <div className="space-y-2" role="radiogroup" aria-label="단어 설명 단계">
           {([
             { key: 'all',   icon: '📖', label: '모두 표시', desc: '모든 단어 해설 표시 (기본값)' },
             { key: 'first', icon: '1️⃣', label: '과 내 첫 등장만', desc: '같은 과에서 이미 설명한 단어 제외' },
@@ -255,13 +262,14 @@ export default function SettingsPage() {
             <button
               key={key}
               onClick={() => changeWordMode(key)}
+              role="radio" aria-checked={wordMode === key}
               className="w-full flex items-center gap-3 p-3 rounded-xl text-left transition-all"
               style={{
                 backgroundColor: wordMode === key ? 'color-mix(in srgb, var(--color-primary) 10%, var(--color-surface))' : 'var(--color-bg)',
                 border: wordMode === key ? '1.5px solid var(--color-primary)' : '1.5px solid var(--color-border)',
               }}
             >
-              <span className="text-lg">{icon}</span>
+              <span className="text-lg" aria-hidden="true">{icon}</span>
               <div className="flex-1">
                 <p className="text-sm font-semibold" style={{ color: wordMode === key ? 'var(--color-primary)' : 'var(--color-text)' }}>{label}</p>
                 <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>{desc}</p>
@@ -278,13 +286,11 @@ export default function SettingsPage() {
         {wordMode === 'limit' && (
           <div className="mt-3 pt-3 flex items-center gap-3" style={{ borderTop: '1px solid var(--color-border)' }}>
             <p className="text-sm flex-1">제외 기준 횟수</p>
-            <button onClick={() => changeWordLimit(wordLimit - 1)}
-              className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg"
-              style={{ backgroundColor: 'var(--color-border)' }}>−</button>
+            <button onClick={() => changeWordLimit(wordLimit - 1)} aria-label="횟수 줄이기"
+              className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>−</button>
             <span className="text-base font-bold w-8 text-center" style={{ color: 'var(--color-primary)' }}>{wordLimit}</span>
-            <button onClick={() => changeWordLimit(wordLimit + 1)}
-              className="w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg"
-              style={{ backgroundColor: 'var(--color-border)' }}>+</button>
+            <button onClick={() => changeWordLimit(wordLimit + 1)} aria-label="횟수 늘리기"
+              className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>+</button>
             <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>회 이상 시 제외</span>
           </div>
         )}
@@ -303,15 +309,13 @@ export default function SettingsPage() {
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         <p className="text-sm font-semibold mb-3">🔤 경전 글자 크기</p>
         <div className="flex items-center gap-4">
-          <button onClick={() => changeFontSize(fontSize - 1)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold"
-            style={{ backgroundColor: 'var(--color-border)' }}>−</button>
-          <span className="text-sm font-mono flex-1 text-center">{fontSize}px</span>
-          <button onClick={() => changeFontSize(fontSize + 1)}
-            className="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold"
-            style={{ backgroundColor: 'var(--color-border)' }}>+</button>
+          <button onClick={() => changeFontSize(fontSize - 1)} aria-label="글자 작게"
+            className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>−</button>
+          <span className="text-sm font-mono flex-1 text-center" aria-live="polite">{fontSize}px</span>
+          <button onClick={() => changeFontSize(fontSize + 1)} aria-label="글자 크게"
+            className={stepBtn} style={{ backgroundColor: 'var(--color-border)' }}>+</button>
         </div>
-        <p className="pali-text mt-3 text-center" style={{ fontSize: `${fontSize}px`, color: 'var(--color-primary)' }}>
+        <p lang="pi" className="pali-text mt-3 text-center" style={{ fontSize: `${fontSize}px`, color: 'var(--color-primary)' }}>
           Evaṃ me sutaṃ
         </p>
         <p className="text-center mt-1" style={{ fontSize: `${fontSize - 2}px` }}>
@@ -323,17 +327,30 @@ export default function SettingsPage() {
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         <h3 className="text-sm font-semibold mb-2">경전으로 배우기 정보</h3>
         <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>버전 0.1.0</p>
-        <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>경전 데이터: SuttaCentral.net (CC BY-NC)</p>
-        <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>번역: Bhikkhu Sujato (영어)</p>
+        <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>빠알리 원문: 미얀마 제6차 결집본(VRI) 대조</p>
+        <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>한국어 번역·해설: 정성광, 담마삐야</p>
+      </div>
+
+      {/* 다른 공부 앱 */}
+      <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+        <h3 className="text-sm font-semibold px-4 pt-4 pb-2">다른 공부 앱</h3>
+        <a href="/palistudy/primer/" className="flex items-center gap-3 px-4 py-3.5 text-sm border-t" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text)' }}>
+          <span aria-hidden="true">📿</span><span>빠알리 프라이머 <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>— 문법을 한 과씩</span></span>
+          <span className="ml-auto" aria-hidden="true" style={{ color: 'var(--color-text-secondary)' }}>›</span>
+        </a>
+        <a href="/palistudy/" className="flex items-center gap-3 px-4 py-3.5 text-sm border-t" style={{ borderColor: 'var(--color-border)', color: 'var(--color-text)' }}>
+          <span aria-hidden="true">🏠</span><span>빠알리어 공부 대문</span>
+          <span className="ml-auto" aria-hidden="true" style={{ color: 'var(--color-text-secondary)' }}>›</span>
+        </a>
       </div>
 
       {/* 초기화 */}
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-        <h3 className="text-sm font-semibold mb-2 text-red-500">초기화</h3>
-        <p className="text-xs mb-3" style={{ color: 'var(--color-text-secondary)' }}>모든 학습 진도, 설정, 데이터가 삭제됩니다.</p>
+        <h3 className="text-sm font-semibold mb-2" style={{ color: 'var(--color-error)' }}>초기화</h3>
+        <p className="text-xs mb-3" style={{ color: 'var(--color-text-secondary)' }}>경전으로 배우기의 학습 진도·메모·설정이 모두 삭제됩니다. (빠알리 프라이머 기록은 그대로 남습니다)</p>
         <button onClick={resetAll}
           className="w-full py-3 rounded-xl text-white font-bold text-sm active:scale-[0.97] transition-transform"
-          style={{ backgroundColor: '#EF4444' }}>
+          style={{ backgroundColor: 'var(--color-error)' }}>
           🗑️ 전체 초기화
         </button>
       </div>

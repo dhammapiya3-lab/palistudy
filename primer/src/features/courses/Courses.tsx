@@ -10,7 +10,6 @@ export default function Courses() {
   const {
     search, setSearch,
     openSections, toggleSection,
-    recordStudy,
     filteredCategories,
     getLessonState,
     getSectionCompletion,
@@ -32,7 +31,15 @@ export default function Courses() {
         onChange={setSearch} 
       />
 
-      <div className="px-5 space-y-3 animate-slideUp delay-2">
+      <div className="space-y-3 animate-slideUp delay-2">
+        {filteredCategories.length === 0 && (
+          <div className="text-center py-12" role="status">
+            <p className="text-sm font-bold">검색 결과가 없습니다</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>
+              과 이름이나 배우는 낱말(예: kaññā, 소녀)로 찾아 보세요.
+            </p>
+          </div>
+        )}
         {filteredCategories.map(cat => {
           const { done, total } = getSectionCompletion(cat.range)
           
@@ -40,6 +47,7 @@ export default function Courses() {
             <CategorySection
               key={cat.key}
               category={cat}
+              lessons={cat.lessons}
               isOpen={openSections[cat.key] ?? false}
               onToggle={() => toggleSection(cat.key)}
               isSearchActive={!!search.trim()}
@@ -47,8 +55,7 @@ export default function Courses() {
               total={total}
               getLessonState={getLessonState}
               onCourseClick={(lesson) => {
-                recordStudy()
-                nav(`/learn/${lesson.id}`)
+                nav(`/learn/${lesson.id}`, { state: { from: '/courses' } })
               }}
             />
           )

@@ -9,22 +9,26 @@ import ReferenceSheet from './components/ReferenceSheet'
 
 export default function GrammarLearn() {
   const {
-    nav, lid, lesson, STEPS, stepIdx, setStepIdx,
-    hearts, setHearts, selected, setSelected,
-    showResult, setShowResult, writingChecked, setWritingChecked,
+    lid, lesson, STEPS, stepIdx, isReview,
+    hearts, selected, setSelected,
+    showResult, writingChecked, setWritingChecked,
     arrangeOrder, setArrangeOrder, phase,
-    showCompletion, setShowCompletion, correctCount, setCorrectCount,
+    showCompletion, correctCount, quizTotal,
     showTOC, setShowTOC, showRef, setShowRef,
     heartShakeIdx, refTables, writingEnabled,
     step, speak, shuffledOpts,
-    getElapsedMin, handleCheck, handleNext, handlePrev,
-    isQuizType, isArrangeCorrect, transitionTo, startTimeRef
+    getElapsedMin, handleCheck, handleNext, handlePrev, seekTo, restart, close,
+    isLastStep, hasPrev,
+    isQuizType, isArrangeCorrect, isSkipped
   } = useGrammarLearn()
 
   if (!STEPS.length) {
     return (
       <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--color-bg)' }}>
-        <p>과를 찾을 수 없습니다.</p>
+        <div className="text-center px-6">
+          <p className="mb-4">{isReview ? '복습할 퀴즈가 아직 없습니다.' : '과를 찾을 수 없습니다.'}</p>
+          <button onClick={close} className="btn-primary">돌아가기</button>
+        </div>
       </div>
     )
   }
@@ -33,16 +37,12 @@ export default function GrammarLearn() {
     return (
       <CompletionScreen
         correctCount={correctCount}
+        quizTotal={quizTotal}
         hearts={hearts}
         elapsed={getElapsedMin()}
-        onHome={() => nav('/')}
-        onRestart={() => {
-          setShowCompletion(false)
-          setHearts(5)
-          setCorrectCount(0)
-          setStepIdx(0)
-          startTimeRef.current = Date.now()
-        }}
+        isReview={isReview}
+        onHome={close}
+        onRestart={() => restart(0)}
       />
     )
   }
@@ -55,21 +55,9 @@ export default function GrammarLearn() {
       <GameOverScreen
         stepIdx={stepIdx}
         totalSteps={STEPS.length}
-        onRestart={() => {
-          setHearts(5)
-          setStepIdx(0)
-          setCorrectCount(0)
-          setSelected(null)
-          setShowResult(false)
-        }}
-        onRestartFromQuiz={() => {
-          setHearts(5)
-          setStepIdx(firstQuizIdx)
-          setCorrectCount(0)
-          setSelected(null)
-          setShowResult(false)
-        }}
-        onHome={() => nav('/')}
+        onRestart={() => restart(0)}
+        onRestartFromQuiz={() => restart(firstQuizIdx)}
+        onHome={close}
         firstQuizIdx={firstQuizIdx}
       />
     )
@@ -88,10 +76,10 @@ export default function GrammarLearn() {
     : `스텝 ${stepIdx + 1}`
 
   return (
-    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
-      <div className="max-w-lg mx-auto w-full flex flex-col flex-1">
+    <div className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      <div className="max-w-lg mx-auto w-full min-w-0 flex flex-col flex-1">
         <LearnHeader
-          onClose={() => nav('/')}
+          onClose={close}
           STEPS={STEPS}
           stepIdx={stepIdx}
           refTables={refTables}
@@ -101,12 +89,12 @@ export default function GrammarLearn() {
           heartShakeIdx={heartShakeIdx}
           lessonTitle={lesson?.title || lid}
           stepTitle={stepTitle}
-          stepId={step.id}
-          onSeek={(i) => { if (i !== stepIdx) transitionTo(() => setStepIdx(i)) }}
+          onSeek={seekTo}
         />
 
         <div className={`flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-28 scroll-smooth ${phase === 'enter' ? 'step-enter' : phase === 'exit' ? 'step-exit' : ''}`}>
           <StepRenderer
+            key={step.id}
             step={step}
             lid={lid}
             onSpeak={speak}
@@ -129,21 +117,22 @@ export default function GrammarLearn() {
         </div>
 
         <LearnFooter
-          stepIdx={stepIdx}
+          hasPrev={hasPrev}
           onPrev={handlePrev}
           isQuizType={isQuizType}
           showResult={showResult}
           onCheck={handleCheck}
           selected={selected}
           onNext={handleNext}
-          isLastStep={stepIdx + 1 >= STEPS.length}
+          isLastStep={isLastStep}
         />
 
         {showTOC && (
           <TOCSheet
             STEPS={STEPS}
             stepIdx={stepIdx}
-            onSelect={(i) => transitionTo(() => { setStepIdx(i); setShowTOC(false); })}
+            isSkipped={isSkipped}
+            onSelect={(i) => { setShowTOC(false); seekTo(i) }}
             onClose={() => setShowTOC(false)}
           />
         )}

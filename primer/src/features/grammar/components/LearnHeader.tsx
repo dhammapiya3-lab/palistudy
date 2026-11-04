@@ -14,9 +14,11 @@ interface LearnHeaderProps {
   heartShakeIdx: number | null
   lessonTitle: string
   stepTitle: string
-  stepId?: string
   onSeek: (index: number) => void  // 진도 막대로 단계 이동
 }
+
+// 머리 줄 아이콘 버튼 — 손가락으로 누르기 쉬운 44px
+const iconBtn = 'w-11 h-11 flex items-center justify-center rounded-full active:scale-90 transition-transform shrink-0'
 
 export default function LearnHeader({
   onClose,
@@ -29,84 +31,56 @@ export default function LearnHeader({
   heartShakeIdx,
   lessonTitle,
   stepTitle,
-  stepId,
   onSeek,
 }: LearnHeaderProps) {
-  const renderProgressDots = () => {
-    const maxDots = Math.min(STEPS.length, 12)
-    const ratio = STEPS.length / maxDots
-    return (
-      <div className="flex items-center gap-1 mt-1 justify-center">
-        {Array.from({ length: maxDots }, (_, i) => {
-          const mappedIdx = Math.floor(i * ratio)
-          const isCurrent = mappedIdx <= stepIdx
-          const isExact = Math.floor(stepIdx / ratio) === i
-          return (
-            <span
-              key={i}
-              className={`rounded-full transition-all duration-300
-                ${isExact ? 'dot-active' : ''}`}
-              style={{
-                width: isExact ? '8px' : '5px',
-                height: isExact ? '8px' : '5px',
-                backgroundColor: isCurrent
-                  ? 'var(--color-primary)'
-                  : 'var(--color-border)',
-              }}
-            />
-          )
-        })}
-      </div>
-    )
-  }
-
   return (
-    <div className="shrink-0 px-4 pt-3 pb-1">
-      <div className="flex items-center gap-3">
+    <div className="shrink-0 px-2 pt-2 pb-1 min-w-0">
+      <div className="flex items-center gap-1 min-w-0">
         {/* 닫기 */}
         <button
           onClick={onClose}
-          className="w-8 h-8 flex items-center justify-center rounded-full
-                     text-base active:scale-90 transition-transform"
+          className={`${iconBtn} text-base`}
           style={{ color: 'var(--color-text-secondary)' }}
+          aria-label="학습 닫기"
         >
           ✕
         </button>
 
-        {/* 프로그레스 바 */}
-        <div className="flex-1 flex flex-col gap-0.5">
-          <ScrubBar
-            total={STEPS.length}
-            current={stepIdx}
-            onSeek={onSeek}
-            getLabel={i => stepLabel(STEPS[i], i)}
-            fillClassName="progress-bar-gradient"
-          />
-          <div className="flex items-center justify-between">
-            <div className="flex-1">{renderProgressDots()}</div>
-            <span
-              className="text-[10px] ml-2 shrink-0"
-              style={{ color: 'var(--color-text-secondary)' }}
-            >
-              {stepIdx + 1}/{STEPS.length}
-            </span>
+        {/* 진도 막대 + 단계 수 */}
+        <div className="flex-1 min-w-0 flex items-center gap-2 px-1">
+          <div className="flex-1 min-w-0">
+            <ScrubBar
+              total={STEPS.length}
+              current={stepIdx}
+              onSeek={onSeek}
+              getLabel={i => stepLabel(STEPS[i], i)}
+              fillClassName="progress-bar-gradient"
+            />
           </div>
+          <span
+            className="text-[11px] shrink-0 tabular-nums"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            {stepIdx + 1}/{STEPS.length}
+          </span>
         </div>
 
-        {/* 심화자료 버튼 */}
+        {/* 격변화 도표 버튼 */}
         {refTables.length > 0 && (
           <button
             onClick={onShowRef}
-            className="w-8 h-8 flex items-center justify-center rounded-full
-                       active:scale-90 transition-transform shrink-0"
+            className={iconBtn}
             style={{ color: 'var(--color-primary)' }}
-            aria-label="심화자료"
+            aria-label="격변화 도표"
+            title="격변화 도표"
           >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            {/* 표 모양 아이콘 */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+              <line x1="3" y1="15" x2="21" y2="15" />
+              <line x1="10" y1="4" x2="10" y2="20" />
             </svg>
           </button>
         )}
@@ -114,12 +88,12 @@ export default function LearnHeader({
         {/* 목차 버튼 */}
         <button
           onClick={onShowTOC}
-          className="w-8 h-8 flex items-center justify-center rounded-full
-                     active:scale-90 transition-transform shrink-0"
+          className={iconBtn}
           style={{ color: 'var(--color-text-secondary)' }}
-          aria-label="목차"
+          aria-label="단계 목차"
+          title="단계 목차"
         >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"
             stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="8" y1="6" x2="21" y2="6" />
             <line x1="8" y1="12" x2="21" y2="12" />
@@ -130,37 +104,28 @@ export default function LearnHeader({
           </svg>
         </button>
 
-        {/* 하트 */}
-        <div className="flex gap-1 shrink-0 ml-1">
-          {[0, 1, 2, 3, 4].map(i => (
-            <span
-              key={i}
-              className={`text-lg transition-all duration-300
-                ${i < hearts ? 'heart-pulse' : 'opacity-15 grayscale scale-75'}
-                ${heartShakeIdx === i ? 'heart-shake' : ''}`}
-              style={{
-                animationDelay: i < hearts ? `${i * 0.2}s` : undefined,
-              }}
-            >
-              🪷
-            </span>
-          ))}
+        {/* 연꽃잎 (남은 기회) — 아이콘 하나 + 숫자 */}
+        <div
+          className={`flex items-center gap-0.5 shrink-0 pr-2 pl-1 ${heartShakeIdx !== null ? 'heart-shake' : ''}`}
+          role="img"
+          aria-label={`연꽃잎 ${hearts}개 남음 (5개 중)`}
+          title={`연꽃잎 ${hearts}/5`}
+        >
+          <span className={`text-lg ${hearts > 0 ? '' : 'opacity-30 grayscale'}`} aria-hidden="true">🪷</span>
+          <span className="text-sm font-bold tabular-nums" style={{ color: 'var(--color-primary)' }} aria-hidden="true">
+            {hearts}
+          </span>
         </div>
       </div>
 
       {/* 브레드크럼 */}
-      <div className="flex items-center gap-2 px-1 mt-1 text-[11px] leading-tight"
+      <div className="flex items-center gap-2 px-3 mt-0.5 text-[11px] leading-tight min-w-0"
         style={{ color: 'var(--color-text-secondary)' }}>
-        <span className="font-semibold truncate" style={{ color: 'var(--color-primary)', maxWidth: '40%' }}>
+        <span className="font-semibold truncate" style={{ color: 'var(--color-primary)', maxWidth: '50%' }}>
           {lessonTitle}
         </span>
-        <span style={{ color: 'var(--color-border)' }}>›</span>
+        <span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>
         <span className="truncate">{stepTitle}</span>
-        {stepId && (
-          <span className="ml-auto font-mono text-[9px] opacity-40 shrink-0">
-            {stepId}
-          </span>
-        )}
       </div>
     </div>
   )

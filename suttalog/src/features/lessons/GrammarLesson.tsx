@@ -1,10 +1,13 @@
 // 문법 학습 - 경전 기반
 import { useNavigate, useParams } from 'react-router-dom'
+import { speakPali } from '../../utils/pali-tts'
+import { closeBasicLesson, finishBasicLesson } from './basics'
+import BasicLessonMissing from './BasicLessonMissing'
 
 const GRAMMAR_DATA: Record<string, {
   title: string; source: string; verse: string; verseKo: string;
   explanation: { title: string; content: string }[];
-  table?: { headers: string[]; rows: string[][] };
+  table?: { headers: string[]; rows: string[][]; paliCols: number[] };  // paliCols: 빠알리 낱말이 든 열(강조 표시)
 }> = {
   sov: {
     title: 'SOV 어순 (주어-목적어-동사)',
@@ -32,6 +35,7 @@ const GRAMMAR_DATA: Record<string, {
         ['주격', '-o (단), -ā (복)', '~이/가', 'Buddho'],
         ['대격', '-aṃ (단), -e (복)', '~을/를', 'Buddhaṃ'],
       ],
+      paliCols: [3],
     },
   },
   'declension-a': {
@@ -54,6 +58,7 @@ const GRAMMAR_DATA: Record<string, {
         ['7격', '처격', '~에서', 'buddhasmiṃ', 'buddhesu'],
         ['8격', '호격', '~이여!', 'buddha!', 'buddhā!'],
       ],
+      paliCols: [3, 4],
     },
   },
   present: {
@@ -71,6 +76,7 @@ const GRAMMAR_DATA: Record<string, {
         ['2인칭', 'gacchasi', 'gacchatha', '(네가) 간다 / (너희가) 간다'],
         ['1인칭', 'gacchāmi', 'gacchāma', '(내가) 간다 / (우리가) 간다'],
       ],
+      paliCols: [1, 2],
     },
   },
 }
@@ -80,27 +86,24 @@ export default function GrammarLesson() {
   const { lessonId } = useParams<{ lessonId: string }>()
   const lesson = lessonId ? GRAMMAR_DATA[lessonId] : null
 
-  if (!lesson) return <div className="p-4">레슨을 찾을 수 없습니다.</div>
+  if (!lesson || !lessonId) return <BasicLessonMissing />
 
-  const speak = (text: string) => {
-    const u = new SpeechSynthesisUtterance(text)
-    u.lang = 'it-IT'; u.rate = 0.7
-    speechSynthesis.speak(u)
-  }
+  // 발음: 경전 학습 화면과 같은 빠알리 TTS('발음 소리 끄기' 설정을 따름)
+  const speak = (text: string) => speakPali(text)
 
   return (
     <div className="min-h-screen pb-8" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
       {/* 상단바 */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
-        <button onClick={() => nav(-1)} className="text-xl">✕</button>
+        <button onClick={() => closeBasicLesson(nav, 'grammar', lessonId)} aria-label="레슨 닫기" className="text-xl w-11 h-11 -ml-2 flex items-center justify-center rounded-full shrink-0">✕</button>
         <span className="text-sm font-semibold flex-1">{lesson.title}</span>
       </div>
 
       <div className="px-5 pt-4 space-y-5">
         {/* 경전 원문 */}
         <div className="rounded-2xl p-5" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-          <p className="text-xs mb-2" style={{ color: 'var(--color-text-secondary)' }}>📜 {lesson.source}</p>
-          <p className="pali-text text-xl font-bold" style={{ color: 'var(--color-primary)' }}>{lesson.verse}</p>
+          <p className="text-xs mb-2" style={{ color: 'var(--color-text-secondary)' }}><span aria-hidden="true">📜 </span>{lesson.source}</p>
+          <p lang="pi" className="pali-text text-xl font-bold" style={{ color: 'var(--color-primary)' }}>{lesson.verse}</p>
           <p className="text-sm mt-2">{lesson.verseKo}</p>
           <button onClick={() => speak(lesson.verse)}
             className="mt-3 flex items-center gap-2 text-sm" style={{ color: 'var(--color-accent)' }}>
@@ -123,19 +126,23 @@ export default function GrammarLesson() {
               <thead>
                 <tr style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}>
                   {lesson.table.headers.map((h, i) => (
-                    <th key={i} className="px-2 py-2 text-left font-medium">{h}</th>
+                    <th key={i} className="px-2 py-2 text-left font-medium whitespace-nowrap">{h}</th>
                   ))}
                 </tr>
               </thead>
               <tbody>
                 {lesson.table.rows.map((row, i) => (
                   <tr key={i} style={{ backgroundColor: i % 2 === 0 ? 'var(--color-surface)' : 'var(--color-bg)' }}>
-                    {row.map((cell, j) => (
-                      <td key={j} className={`px-2 py-2 ${j >= 3 ? 'pali-text font-semibold' : ''}`}
-                        style={j >= 3 ? { color: 'var(--color-primary)' } : {}}>
-                        {cell}
-                      </td>
-                    ))}
+                    {row.map((cell, j) => {
+                      const isPali = lesson.table!.paliCols.includes(j)
+                      return (
+                        <td key={j} lang={isPali ? 'pi' : undefined}
+                          className={`px-2 py-2 ${isPali ? 'pali-font text-sm font-semibold' : ''} ${j === 0 ? 'whitespace-nowrap' : ''}`}
+                          style={isPali ? { color: 'var(--color-primary)' } : {}}>
+                          {cell}
+                        </td>
+                      )
+                    })}
                   </tr>
                 ))}
               </tbody>
@@ -143,10 +150,10 @@ export default function GrammarLesson() {
           </div>
         )}
 
-        <button onClick={() => nav('/lesson-complete')}
+        <button onClick={() => finishBasicLesson(nav, 'grammar', lessonId, lesson.title)}
           className="w-full py-4 rounded-xl text-white font-bold active:scale-[0.97]"
           style={{ backgroundColor: 'var(--color-primary)' }}>
-          퀴즈로 확인하기 →
+          다 읽었어요 · 완료 ✓
         </button>
       </div>
     </div>

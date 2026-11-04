@@ -46,7 +46,7 @@ export default function GameOverScreen({
         onClick={onRestart}
         className="mt-8 w-60 py-3.5 rounded-2xl text-white font-bold text-sm
                    active:scale-[0.97] transition-transform"
-        style={{ backgroundColor: 'var(--color-primary)' }}
+        style={{ backgroundColor: 'var(--color-primary-dark)' }}
       >
         처음부터 다시
       </button>
@@ -65,10 +65,10 @@ export default function GameOverScreen({
       )}
       <button
         onClick={onHome}
-        className="mt-3 text-sm font-medium"
-        style={{ color: 'var(--color-text-secondary)' }}
+        className="mt-3 text-sm font-medium px-4"
+        style={{ color: 'var(--color-text-secondary)', minHeight: 44 }}
       >
-        홈으로 돌아가기
+        나가기
       </button>
     </div>
   )

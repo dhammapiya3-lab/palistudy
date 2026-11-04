@@ -18,7 +18,7 @@ export default function HeroCard({ currentLesson, currentPct, onStart }: HeroCar
       className="w-full rounded-2xl text-left mb-5 intro-fade-up-delay
                  active:scale-[0.98] transition-transform"
       style={{
-        background: 'var(--color-primary-gradient)',
+        background: 'var(--color-cta-gradient)',
         boxShadow: '0 4px 20px rgba(192, 107, 10, 0.35)',
         border: 'none', padding: 0,
       }}
@@ -31,7 +31,7 @@ export default function HeroCard({ currentLesson, currentPct, onStart }: HeroCar
 
         <div className="flex items-center gap-4 relative z-10">
           <div className="relative flex-shrink-0">
-            <svg width="64" height="64">
+            <svg width="64" height="64" aria-hidden="true">
               <circle cx="32" cy="32" r={CR} fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="4" />
               <circle cx="32" cy="32" r={CR} fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="4"
                 strokeLinecap="round" strokeDasharray={CC} strokeDashoffset={CC * (1 - currentPct / 100)}
@@ -43,13 +43,13 @@ export default function HeroCard({ currentLesson, currentPct, onStart }: HeroCar
           </div>
 
           <div className="flex-1 min-w-0">
-            <p className="text-[0.7rem] font-semibold uppercase tracking-widest text-white/60 mb-0.5">
+            <p className="text-[0.75rem] font-semibold tracking-wider text-white/90 mb-0.5">
               {currentPct > 0 ? '학습 이어가기' : '학습 시작하기'}
             </p>
             <p className="text-lg font-bold text-white truncate leading-tight">
               {currentLesson.title}
             </p>
-            <p className="text-sm text-white/70 mt-0.5 truncate">
+            <p className="text-sm text-white/90 mt-0.5 truncate">
               {currentLesson.subtitle}
             </p>
             <div className="mt-2.5 h-1.5 rounded-full overflow-hidden bg-white/20">
@@ -59,7 +59,7 @@ export default function HeroCard({ currentLesson, currentPct, onStart }: HeroCar
           </div>
 
           <div className="flex-shrink-0 w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path d="M6 3l5 5-5 5" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>

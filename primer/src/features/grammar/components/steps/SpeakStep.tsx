@@ -14,7 +14,7 @@ export default function SpeakStep({ step, onSpeak }: SpeakStepProps) {
         style={{
           backgroundColor: 'var(--color-surface)',
           border: '1.5px solid var(--color-border)',
-          boxShadow: '0 2px 12px rgba(0,0,0,0.04)',
+          boxShadow: 'var(--shadow-sm)',
         }}
       >
         <div
@@ -24,6 +24,7 @@ export default function SpeakStep({ step, onSpeak }: SpeakStepProps) {
           ─── 따라 읽기 ───
         </div>
         <p
+          lang="pi"
           className="pali-text text-lg font-semibold"
           style={{ color: 'var(--color-primary)' }}
         >
@@ -35,6 +36,7 @@ export default function SpeakStep({ step, onSpeak }: SpeakStepProps) {
       {/* 마이크 버튼 */}
       <button
         onClick={() => onSpeak(step.pali)}
+        aria-label="발음 듣기"
         className="w-20 h-20 rounded-full flex items-center justify-center
                    text-3xl active:scale-90 transition-transform mic-pulse"
         style={{

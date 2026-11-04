@@ -1,6 +1,9 @@
 // 알파벳 학습 - 경전 기반
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { speakPali } from '../../utils/pali-tts'
+import { closeBasicLesson, finishBasicLesson } from './basics'
+import BasicLessonMissing from './BasicLessonMissing'
 
 // Dhammapada 1게 기반 알파벳 학습 데이터
 const LESSON_DATA: Record<string, {
@@ -24,8 +27,8 @@ const LESSON_DATA: Record<string, {
       { char: 'ī', ipa: '/iː/', ko: '이- (길게)', type: '장모음', example: '(이 게송에 없음)' },
       { char: 'u', ipa: '/u/', ko: '우 (짧게)', type: '단모음', example: 'pub-baṅ-ga-mā' },
       { char: 'ū', ipa: '/uː/', ko: '우- (길게)', type: '장모음', example: '(이 게송에 없음)' },
-      { char: 'e', ipa: '/eː/', ko: '에 (원칙상 장음, 겹자음 앞에서는 짧게)', type: '장모음', example: 'ce (장음) / seṭ-ṭhā (겹자음 앞 단음)' },
-      { char: 'o', ipa: '/oː/', ko: '오 (원칙상 장음, 겹자음 앞에서는 짧게)', type: '장모음', example: 'Ma-no' },
+      { char: 'e', ipa: '/eː/', ko: '에- (원칙상 장음, 겹자음 앞에서는 짧게)', type: '장모음', example: 'ce (장음) / seṭ-ṭhā (겹자음 앞 단음)' },
+      { char: 'o', ipa: '/oː/', ko: '오- (원칙상 장음, 겹자음 앞에서는 짧게)', type: '장모음', example: 'Ma-no' },
     ],
     steps: [
       { type: 'intro', content: '경전의 첫 게송을 통해 빠알리어 모음을 배워봅시다.' },
@@ -36,7 +39,7 @@ const LESSON_DATA: Record<string, {
     ],
   },
   consonants1: {
-    title: '자음 기초',
+    title: '자음 기초 (m n p b g d s)',
     verse: 'Manopubbaṅgamā dhammā,\nmanoseṭṭhā manomayā;',
     roman: 'Ma-no-pub-baṅ-ga-mā dham-mā',
     translation: 'Mind is the forerunner of all actions.',
@@ -90,31 +93,26 @@ export default function AlphabetLesson() {
   const [selected, setSelected] = useState<number | null>(null)
   const [showResult, setShowResult] = useState(false)
 
-  if (!lesson) return <div className="p-4">레슨을 찾을 수 없습니다.</div>
+  if (!lesson || !lessonId) return <BasicLessonMissing />
 
   const quizSteps = lesson.steps.filter(s => s.type === 'quiz')
   const currentQuiz = quizSteps[quizIndex]
 
-  // TTS 발음 (이탈리아어 엔진으로 근사)
-  const speak = (text: string) => {
-    const u = new SpeechSynthesisUtterance(text)
-    u.lang = 'it-IT'
-    u.rate = 0.7
-    speechSynthesis.speak(u)
-  }
+  // 발음: 경전 학습 화면과 같은 빠알리 TTS('발음 소리 끄기' 설정을 따름)
+  const speak = (text: string) => speakPali(text)
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
       {/* 상단바 */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-2">
-        <button onClick={() => nav(-1)} className="text-xl">✕</button>
+        <button onClick={() => closeBasicLesson(nav, 'alphabet', lessonId)} aria-label="레슨 닫기" className="text-xl w-11 h-11 -ml-2 flex items-center justify-center rounded-full shrink-0">✕</button>
         <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-border)' }}>
           <div className="h-full rounded-full transition-all" style={{
             width: phase === 'verse' ? '10%' : phase === 'letters' ? '40%' : `${40 + (quizIndex / Math.max(quizSteps.length, 1)) * 60}%`,
             backgroundColor: 'var(--color-primary)',
           }} />
         </div>
-        <span className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{lesson.title}</span>
+        <span className="text-xs max-w-[40%] truncate" style={{ color: 'var(--color-text-secondary)' }}>{lesson.title}</span>
       </div>
 
       {/* === 1단계: 경전 제시 + 발음 + 해석 === */}
@@ -129,7 +127,7 @@ export default function AlphabetLesson() {
 
           {/* 경전 원문 */}
           <div className="rounded-2xl p-5" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-            <p className="pali-text text-lg leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-primary)' }}>
+            <p lang="pi" className="pali-text text-lg leading-relaxed whitespace-pre-line" style={{ color: 'var(--color-primary)' }}>
               {lesson.verse}
             </p>
 
@@ -151,7 +149,7 @@ export default function AlphabetLesson() {
           {lesson.roman && (
             <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
               <p className="text-xs font-semibold mb-2" style={{ color: 'var(--color-text-secondary)' }}>🗣️ 읽기 가이드 (음절 분리)</p>
-              <p className="pali-text text-base">{lesson.roman}</p>
+              <p lang="pi" className="pali-text text-base">{lesson.roman}</p>
               <button onClick={() => speak(lesson.roman.replace(/-/g, ''))}
                 className="mt-2 text-xs flex items-center gap-1" style={{ color: 'var(--color-accent)' }}>
                 🔊 천천히 듣기
@@ -182,7 +180,7 @@ export default function AlphabetLesson() {
                 style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
                 <div className="flex items-center gap-4">
                   {/* 글자 */}
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold pali-text"
+                  <div lang="pi" className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-bold pali-text"
                     style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}>
                     {l.char}
                   </div>
@@ -192,7 +190,7 @@ export default function AlphabetLesson() {
                       <span className="text-xs font-mono" style={{ color: 'var(--color-text-secondary)' }}>{l.ipa}</span>
                     </div>
                     <p className="font-semibold text-sm mt-1">🇰🇷 {l.ko}</p>
-                    <p className="text-xs mt-0.5 pali-text" style={{ color: 'var(--color-text-secondary)' }}>
+                    <p className="text-xs mt-0.5 pali-font" style={{ color: 'var(--color-text-secondary)' }}>
                       예: {l.example}
                     </p>
                   </div>
@@ -252,7 +250,7 @@ export default function AlphabetLesson() {
                 setSelected(null)
                 setShowResult(false)
               } else {
-                nav('/lesson-complete')
+                finishBasicLesson(nav, 'alphabet', lessonId, lesson.title)
               }
             }}
             disabled={selected === null && !showResult}
@@ -268,7 +266,7 @@ export default function AlphabetLesson() {
         <div className="px-5 pt-20 text-center">
           <p className="text-5xl">🪷✨</p>
           <p className="text-xl font-bold mt-4" style={{ color: 'var(--color-primary)' }}>Sādhu!</p>
-          <button onClick={() => nav('/lesson-complete')}
+          <button onClick={() => finishBasicLesson(nav, 'alphabet', lessonId, lesson.title)}
             className="mt-8 px-8 py-4 rounded-xl text-white font-bold"
             style={{ backgroundColor: 'var(--color-primary)' }}>
             완료

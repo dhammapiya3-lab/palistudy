@@ -16,11 +16,11 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
           style={{ background: 'linear-gradient(180deg, var(--color-primary-light), var(--color-primary-dark))' }} />
         <div className="p-4 flex-1">
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-sm">🪷</span>
-            <span className="text-[0.65rem] font-semibold uppercase tracking-wider"
+            <span className="text-sm" aria-hidden="true">🪷</span>
+            <span className="text-[0.7rem] font-semibold tracking-wider"
               style={{ color: 'var(--color-primary)' }}>오늘의 게송</span>
           </div>
-          <p className="text-base leading-relaxed mb-1 pali-text"
+          <p lang="pi" className="text-base leading-relaxed mb-1 pali-text"
             style={{ fontFamily: 'var(--font-pali)', fontStyle: 'italic', color: 'var(--color-text)' }}>
             &ldquo;{quote.pali}&rdquo;
           </p>

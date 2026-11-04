@@ -8,7 +8,7 @@ export default function TeachGrammarStep({ step }: TeachGrammarStepProps) {
   return (
     <div className="flex-1 flex flex-col pt-2">
       <div className="flex items-center gap-2 mb-4">
-        <span className="text-3xl">📐</span>
+        <span className="text-3xl" aria-hidden="true">📐</span>
         <h2 className="text-lg font-bold">{step.title}</h2>
       </div>
 
@@ -16,11 +16,12 @@ export default function TeachGrammarStep({ step }: TeachGrammarStepProps) {
       <div
         className="rounded-2xl p-5"
         style={{
-          background: 'linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, white), color-mix(in srgb, var(--color-accent) 6%, white))',
+          background: 'linear-gradient(135deg, color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)), color-mix(in srgb, var(--color-accent) 6%, var(--color-surface)))',
           border: '1.5px solid color-mix(in srgb, var(--color-primary) 20%, transparent)',
         }}
       >
         <p
+          lang="pi"
           className="pali-text text-lg font-bold text-center whitespace-pre-line"
           style={{ color: 'var(--color-primary)' }}
         >
@@ -35,8 +36,8 @@ export default function TeachGrammarStep({ step }: TeachGrammarStepProps) {
       <div
         className="mt-4 rounded-2xl p-4 text-sm leading-relaxed whitespace-pre-line"
         style={{
-          backgroundColor: '#E3F2FD',
-          border: '1px solid #BBDEFB',
+          backgroundColor: 'var(--color-info-bg)',
+          border: '1px solid var(--color-info-border)',
         }}
       >
         {step.explanation.split('\n').map((line, i) => (

@@ -9,10 +9,11 @@ interface ScrubBarProps {
   getLabel?: (index: number) => string // 말풍선에 보일 단계 이름
   fillClassName?: string              // 채움 막대 꾸밈 (앱별)
   fillColor?: string
+  marks?: number[]                    // 소단원 시작 위치 눈금 (단계 번호)
 }
 
 export default function ScrubBar({
-  total, current, onSeek, getLabel, fillClassName = '', fillColor,
+  total, current, onSeek, getLabel, fillClassName = '', fillColor, marks,
 }: ScrubBarProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [preview, setPreview] = useState<number | null>(null) // 끄는 중 가리키는 단계
@@ -36,8 +37,10 @@ export default function ScrubBar({
   }
 
   const shown = preview ?? current
-  const pct = total <= 1 ? 100 : (shown / (total - 1)) * 100
-  const fillPct = ((shown + 1) / total) * 100
+  // 손잡이와 채움이 같은 위치를 가리키도록 같은 식을 씀
+  const pctOf = (i: number) => (total <= 1 ? 100 : (i / (total - 1)) * 100)
+  const pct = pctOf(shown)
+  const fillPct = pct
 
   return (
     <div
@@ -48,6 +51,7 @@ export default function ScrubBar({
       aria-valuemin={1}
       aria-valuemax={total}
       aria-valuenow={current + 1}
+      aria-valuetext={`${current + 1} / ${total} 단계`}
       tabIndex={0}
       onPointerDown={e => {
         if (e.pointerType === 'mouse' && e.button !== 0) return
@@ -62,6 +66,8 @@ export default function ScrubBar({
         // 키보드: ← → 로 한 단계씩
         if (e.key === 'ArrowRight' && current + 1 < total) { e.preventDefault(); onSeek(current + 1) }
         if (e.key === 'ArrowLeft' && current > 0) { e.preventDefault(); onSeek(current - 1) }
+        if (e.key === 'Home' && current > 0) { e.preventDefault(); onSeek(0) }
+        if (e.key === 'End' && current < total - 1) { e.preventDefault(); onSeek(total - 1) }
       }}
     >
       {/* 막대 */}
@@ -70,6 +76,11 @@ export default function ScrubBar({
           className={`h-full rounded-full ${preview === null ? 'transition-all duration-500 ease-out' : ''} ${fillClassName}`}
           style={{ width: `${fillPct}%`, backgroundColor: fillColor }}
         />
+        {/* 소단원 눈금 — 긴 레슨에서 위치를 가늠하기 쉽게 */}
+        {marks && total > 1 && marks.filter(m => m > 0).map(m => (
+          <span key={m} aria-hidden="true" className="absolute top-0 bottom-0 pointer-events-none"
+            style={{ left: `${pctOf(m)}%`, width: 2, marginLeft: -1, backgroundColor: 'var(--color-surface, #fff)', opacity: 0.85 }} />
+        ))}
         {/* 손잡이 — 끌 수 있다는 표시 */}
         <div
           className="absolute top-1/2 rounded-full shadow"

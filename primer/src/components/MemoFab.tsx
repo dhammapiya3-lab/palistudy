@@ -74,20 +74,51 @@ export default function MemoFab() {
     // 수정 중이던 것만 초기화. 새 메모로 쓰던 글·사진은 남겨 둠 (다시 열면 이어 쓰기)
     if (editingId) resetForm()
     setTab(text || images.length ? 'write' : 'list')
+    // 메모 버튼으로 포커스 되돌리기
+    requestAnimationFrame(() => fabRef.current?.focus())
   }
+
+  const fabRef = useRef<HTMLButtonElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
+  const handleCloseRef = useRef(handleClose)
+  useEffect(() => { handleCloseRef.current = handleClose })
+
+  // 창이 열리면: Esc로 닫기 + Tab 이동을 창 안에 가둠
+  useEffect(() => {
+    if (!open) return
+    const box = dialogRef.current
+    const focusables = () => Array.from(box?.querySelectorAll<HTMLElement>(
+      'button:not([disabled]), textarea, input:not([type=hidden]):not(.hidden), [href], select, [tabindex]:not([tabindex="-1"])'
+    ) || []).filter(el => el.offsetParent !== null)
+    const first = focusables()[0]
+    first?.focus()
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { e.preventDefault(); handleCloseRef.current() }
+      if (e.key === 'Tab') {
+        const list = focusables()
+        if (!list.length) return
+        const a = list[0], z = list[list.length - 1]
+        if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus() }
+        else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus() }
+      }
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   return (
     <>
       {/* 플로팅 메모 버튼 */}
       <button
+        ref={fabRef}
         onClick={() => setOpen(true)}
-        className="fixed right-4 bottom-20 z-50 w-12 h-12 rounded-full
+        className="fixed right-4 bottom-20 z-40 w-12 h-12 rounded-full
           bg-amber-600 text-white shadow-lg flex items-center justify-center
           hover:bg-amber-700 active:scale-95 transition-all"
         aria-label="메모"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          strokeWidth={2} className="w-6 h-6">
+          strokeWidth={2} className="w-6 h-6" aria-hidden="true">
           <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
           <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
         </svg>
@@ -99,35 +130,41 @@ export default function MemoFab() {
           justify-center bg-black/50"
           onClick={(e) => e.target === e.currentTarget && handleClose()}
         >
-          <div className="bg-white dark:bg-neutral-800 text-neutral-900
+          <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="memo-title"
+            className="bg-white dark:bg-neutral-800 text-neutral-900
             dark:text-neutral-100 w-full max-w-lg rounded-t-2xl sm:rounded-2xl
             max-h-[85vh] flex flex-col animate-[slideUp_0.2s_ease-out]">
 
             {/* 헤더 + 탭 */}
             <div className="border-b border-neutral-200 dark:border-neutral-700">
               <div className="flex items-center justify-between px-4 pt-3 pb-1">
-                <h2 className="font-bold text-lg">메모</h2>
-                <button onClick={handleClose}
-                  className="p-1 rounded-full hover:bg-neutral-100
+                <h2 id="memo-title" className="font-bold text-lg">메모</h2>
+                <button onClick={handleClose} aria-label="메모 닫기"
+                  className="w-11 h-11 -mr-2 flex items-center justify-center rounded-full hover:bg-neutral-100
                     dark:hover:bg-neutral-700">
-                  <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none"
+                  <svg aria-hidden="true" viewBox="0 0 24 24" className="w-5 h-5" fill="none"
                     stroke="currentColor" strokeWidth={2}>
                     <path d="M18 6L6 18M6 6l12 12" />
                   </svg>
                 </button>
               </div>
-              <div className="flex px-4 gap-4">
-                <button onClick={() => { resetForm(); setTab('write') }}
+              <div className="flex px-4 gap-4" role="tablist">
+                <button role="tab" aria-selected={tab === 'write'}
+                  onClick={() => {
+                    // 수정 중일 때만 비우고 새 메모로. 쓰던 새 메모 초안은 그대로 둠
+                    if (editingId) resetForm()
+                    setTab('write')
+                  }}
                   className={`pb-2 text-sm font-medium border-b-2 transition-colors ${
                     tab === 'write'
-                      ? 'border-amber-600 text-amber-600'
-                      : 'border-transparent text-neutral-400'
+                      ? 'border-amber-600 text-amber-700 dark:text-amber-400'
+                      : 'border-transparent text-neutral-500 dark:text-neutral-400'
                   }`}>새 메모</button>
-                <button onClick={() => setTab('list')}
+                <button role="tab" aria-selected={tab === 'list'} onClick={() => setTab('list')}
                   className={`pb-2 text-sm font-medium border-b-2 transition-colors ${
                     tab === 'list'
-                      ? 'border-amber-600 text-amber-600'
-                      : 'border-transparent text-neutral-400'
+                      ? 'border-amber-600 text-amber-700 dark:text-amber-400'
+                      : 'border-transparent text-neutral-500 dark:text-neutral-400'
                   }`}>전체 메모</button>
               </div>
             </div>

@@ -2,21 +2,69 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <title>이동 중…</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#C06B0A" />
+  <title>빠알리어 공부</title>
+  <meta name="description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+
+  <!-- 깊은 주소(예: 경전 화면)를 카카오톡 등으로 보낼 때 보이는 미리보기.
+       og:url은 일부러 넣지 않음 — 넣으면 미리보기를 눌렀을 때 대문으로 가 버림 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="빠알리어 공부" />
+  <meta property="og:title" content="빠알리어 공부" />
+  <meta property="og:description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+  <meta property="og:image" content="https://dhammapiya3-lab.github.io/palistudy/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="연꽃 그림과 '빠알리어 공부' 글자" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="빠알리어 공부" />
+  <meta name="twitter:description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+  <meta name="twitter:image" content="https://dhammapiya3-lab.github.io/palistudy/og-image.png" />
+
+  <link rel="icon" type="image/svg+xml" href="/palistudy/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/palistudy/favicon.png" />
+
   <script>
+    // ※ 이 파일은 지우거나 경로(/palistudy/)를 바꾸면 안 됨:
+    //   경전으로 배우기의 깊은 주소 새로고침이 이 파일 하나로 복원됨.
+    //
     // GitHub Pages는 사이트 전체에 404.html을 하나만 둠.
-    // 수따로그(경전으로 배우기)는 주소 방식(BrowserRouter)이라 새로고침하면 여기로 옴
-    // → 앱 첫 화면으로 보내면서 원래 주소(?p=)를 넘겨 복원하게 함.
+    // 1) 수따로그(경전으로 배우기)는 주소 방식(BrowserRouter)이라 새로고침하면 여기로 옴
+    //    → 앱 첫 화면으로 보내면서 원래 주소(?p=경로+?쿼리+#해시)를 넘겨 복원하게 함.
+    //      (앱 main.tsx가 p 값을 그대로 history.replaceState에 넣음)
+    // 2) 프라이머는 # 주소 방식(HashRouter)이라, 누가 #을 빼고 적은 주소
+    //    (/palistudy/primer/learn/lesson-05)로 오면 #/learn/lesson-05 로 고쳐 보냄.
+    // 3) 그 밖의 주소는 대문으로.
     (function () {
-      var path = window.location.pathname;
-      var app = '/palistudy/suttalog/';
-      if (path.indexOf(app) === 0) {
-        window.location.replace(app + '?p=' + encodeURIComponent(path + window.location.hash));
+      var loc = window.location;
+      var path = loc.pathname;
+      var search = loc.search;
+      var hash = loc.hash;
+      var sutta = '/palistudy/suttalog/';
+      var primer = '/palistudy/primer/';
+      var target;
+      if (path.indexOf(sutta) === 0) {
+        target = sutta + '?p=' + encodeURIComponent(path + search + hash);
+      } else if (path.indexOf(primer) === 0) {
+        var rest = path.slice(primer.length).replace(/^index\.html$/, '');
+        if (hash.indexOf('#/') === 0) {
+          // 이미 # 주소가 붙어 있으면 그것을 우선
+          target = primer + search + hash;
+        } else {
+          target = primer + '#/' + rest + search;
+        }
       } else {
-        window.location.replace('/palistudy/');
+        target = '/palistudy/';
       }
+      loc.replace(target);
     })();
   </script>
 </head>
-<body></body>
+<body>
+  <p style="font-family: system-ui, sans-serif; text-align: center; margin-top: 30vh; color: #6D6556;">
+    잠시만 기다려 주세요… <a href="/palistudy/" style="color: #C06B0A;">빠알리어 공부 처음 화면</a>
+  </p>
+</body>
 </html>

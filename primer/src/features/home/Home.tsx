@@ -11,7 +11,6 @@ export default function Home() {
   const nav = useNavigate()
   const {
     streak,
-    recordStudy,
     stats,
     currentLesson,
     currentPct,
@@ -21,8 +20,7 @@ export default function Home() {
   } = useHome()
 
   const handleCTA = () => {
-    recordStudy()
-    nav(`/learn/${currentLesson.id}`)
+    nav(`/learn/${currentLesson.id}`, { state: { from: '/' } })
   }
 
   return (
@@ -54,7 +52,7 @@ export default function Home() {
 
       {/* ── 푸터 ── */}
       <div className="pt-6 pb-4 text-center">
-        <p className="text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>
+        <p className="text-[11px]" style={{ color: 'var(--color-text-tertiary)' }}>
           제작: 혜통 · De Silva&apos;s Pali Primer 기반
         </p>
       </div>

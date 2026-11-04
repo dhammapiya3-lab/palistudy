@@ -12,10 +12,10 @@ function StatCard({ icon, label, value, iconBg }: StatCardProps) {
       style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', boxShadow: 'var(--shadow-sm)' }}>
       <div className="w-10 h-10 rounded-full mx-auto flex items-center justify-center mb-2"
         style={{ background: iconBg }}>
-        <span className="text-lg">{icon}</span>
+        <span className="text-lg" aria-hidden="true">{icon}</span>
       </div>
       <p className="text-xl font-bold leading-tight" style={{ color: 'var(--color-text)' }}>{value}</p>
-      <p className="text-[0.65rem] font-medium mt-0.5" style={{ color: 'var(--color-text-tertiary)' }}>{label}</p>
+      <p className="text-[0.7rem] font-medium mt-0.5" style={{ color: 'var(--color-text-tertiary)' }}>{label}</p>
     </div>
   )
 }

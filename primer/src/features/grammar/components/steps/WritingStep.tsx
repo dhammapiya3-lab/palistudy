@@ -7,7 +7,6 @@ interface WritingStepProps {
   writingChecked: boolean
   onSetWritingChecked: (val: boolean) => void
   onSpeak: (text: string) => void
-  onNext: () => void
 }
 
 export default function WritingStep({
@@ -16,11 +15,18 @@ export default function WritingStep({
   writingChecked,
   onSetWritingChecked,
   onSpeak,
-  onNext
 }: WritingStepProps) {
+  // 쓰기 모드가 꺼져 있으면 보통 이 단계는 건너뛰지만, 혹시 보이게 되면 빈 화면 대신 안내
   if (!writingEnabled) {
-    onNext()
-    return null
+    return (
+      <div className="flex-1 flex flex-col items-center justify-center text-center px-6">
+        <span className="text-4xl mb-3" aria-hidden="true">✍️</span>
+        <p className="text-sm font-bold">쓰기 모드가 꺼져 있어요</p>
+        <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>
+          설정에서 쓰기 모드를 켜면 손글씨 연습을 할 수 있어요.
+        </p>
+      </div>
+    )
   }
 
   return (
@@ -85,12 +91,13 @@ export default function WritingStep({
         <div
           className="mt-4 rounded-2xl p-4 text-center reveal-down"
           style={{
-            backgroundColor: '#E8F5E9',
-            border: '1px solid #C8E6C9',
+            backgroundColor: 'var(--color-success-bg)',
+            border: '1px solid var(--color-success-border)',
           }}
         >
           <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>정답</p>
           <p
+            lang="pi"
             className="pali-text text-2xl font-bold mt-1"
             style={{ color: 'var(--color-primary)' }}
           >

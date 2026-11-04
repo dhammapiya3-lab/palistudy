@@ -1,6 +1,7 @@
 // 메모 CRUD — localStorage 기반
 // 차후 AI가 메모 기반으로 lesson-data 일괄 수정 시 anchor 정보로 사용됨.
 import { getLessonTitle } from './lessons-meta'
+import { localDateStr } from './local-date'
 
 const MEMO_PREFIX = 'suttalog-memo:'
 const MEMO_INDEX = 'suttalog-memo-index'
@@ -43,8 +44,46 @@ export type Memo = {
   patch?: Patch
 }
 
+// pageId의 stepIdx는 '원본 레슨 데이터(필터 전)' 기준 번호입니다.
+// 설정(단어 설명 단계: 첫 등장만/횟수 제한)을 바꿔도 같은 단계를 가리키도록.
 export function pageIdOf(lessonId: string, stepIdx: number): string {
   return `${lessonId}:${stepIdx}`
+}
+
+function sameSnapshot(a: StepSnapshot, b: StepSnapshot): boolean {
+  if (a.stepType !== b.stepType) return false
+  const keys: (keyof StepSnapshot)[] = ['word', 'pali', 'question', 'title', 'instruction']
+  return keys.every(k => (a[k] ?? '') === (b[k] ?? ''))
+}
+
+/**
+ * 예전 메모 위치 바로잡기 — 예전에는 '걸러진 단계 번호'로 저장되어 설정에 따라 다른 단계를 가리킬 수 있었음.
+ * 메모에 저장된 단계 내용(stepSnapshot)과 원본 단계를 비교해, 지금 번호가 맞지 않으면
+ * 내용이 같은 가장 가까운 원본 단계로 옮깁니다. 맞는 단계를 못 찾으면 그대로 둡니다. 여러 번 실행해도 안전.
+ */
+export function relocateLessonMemos(lessonId: string, rawSnapshots: StepSnapshot[]): number {
+  let moved = 0
+  for (const pageId of readIndex()) {
+    if (!pageId.startsWith(lessonId + ':')) continue
+    const m = getMemo(pageId)
+    if (!m || !m.stepSnapshot) continue
+    const cur = rawSnapshots[m.stepIdx]
+    if (cur && sameSnapshot(cur, m.stepSnapshot)) continue
+    let best = -1
+    for (let i = 0; i < rawSnapshots.length; i++) {
+      if (!sameSnapshot(rawSnapshots[i], m.stepSnapshot)) continue
+      if (best < 0 || Math.abs(i - m.stepIdx) < Math.abs(best - m.stepIdx)) best = i
+    }
+    if (best < 0) continue
+    const newPageId = pageIdOf(lessonId, best)
+    if (newPageId === pageId || getMemo(newPageId)) continue // 이미 그 자리에 메모가 있으면 건드리지 않음
+    const next: Memo = { ...m, pageId: newPageId, stepIdx: best }
+    localStorage.setItem(MEMO_PREFIX + newPageId, JSON.stringify(next))
+    localStorage.removeItem(MEMO_PREFIX + pageId)
+    writeIndex(readIndex().map(id => (id === pageId ? newPageId : id)))
+    moved++
+  }
+  return moved
 }
 
 function uuid(): string {
@@ -143,7 +182,7 @@ export function downloadMemosJson(): void {
   const url = URL.createObjectURL(blob)
   const a = document.createElement('a')
   a.href = url
-  a.download = `suttalog-memos-${new Date().toISOString().slice(0, 10)}.json`
+  a.download = `suttalog-memos-${localDateStr()}.json`
   a.click()
   URL.revokeObjectURL(url)
 }

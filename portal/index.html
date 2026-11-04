@@ -3,30 +3,52 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-  <meta name="theme-color" content="#B45309" />
+  <meta name="theme-color" content="#C06B0A" />
+  <meta name="color-scheme" content="light dark" />
   <title>빠알리어 공부</title>
-  <!-- 카카오톡 등에서 링크 보낼 때 보이는 제목 -->
-  <meta property="og:title" content="빠알리어 공부" />
+  <meta name="description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+
+  <!-- 카카오톡 등에서 링크 보낼 때 보이는 미리보기 -->
   <meta property="og:type" content="website" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>" />
+  <meta property="og:site_name" content="빠알리어 공부" />
+  <meta property="og:title" content="빠알리어 공부" />
+  <meta property="og:description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+  <meta property="og:url" content="https://dhammapiya3-lab.github.io/palistudy/" />
+  <meta property="og:image" content="https://dhammapiya3-lab.github.io/palistudy/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="연꽃 그림과 '빠알리어 공부' 글자" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="빠알리어 공부" />
+  <meta name="twitter:description" content="빠알리 프라이머 · 경전으로 배우기 — 빠알리어를 문자부터 경전까지" />
+  <meta name="twitter:image" content="https://dhammapiya3-lab.github.io/palistudy/og-image.png" />
+
+  <!-- 아이콘 (두 앱과 같은 연꽃 모양) -->
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+
   <style>
+    /* 색은 두 앱(index.css)의 변수와 같은 값 */
     :root {
-      --bg: #FBF7EE;
+      --bg: #FBF8F0;
       --card: #FFFFFF;
-      --ink: #2B2118;
-      --muted: #7A6A58;
-      --line: #EADFCB;
-      --accent: #B45309;
+      --ink: #1E1B16;
+      --muted: #6D6556;
+      --line: #E4DDD0;
+      --accent: #C06B0A;
+      color-scheme: light;
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #1C1814;
-        --card: #26201A;
-        --ink: #F3EADC;
-        --muted: #B7A792;
-        --line: #3A3128;
-        --accent: #F59E0B;
+        --bg: #141210;
+        --card: #1E1C18;
+        --ink: #EDE8DF;
+        --muted: #A8A196;
+        --line: #3A362E;
+        --accent: #E8993A;
+        color-scheme: dark;
       }
     }
     * { box-sizing: border-box; }
@@ -35,16 +57,16 @@
       min-height: 100vh;
       background: var(--bg);
       color: var(--ink);
-      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
       display: flex;
       justify-content: center;
       padding: max(48px, env(safe-area-inset-top)) 20px 40px;
     }
     main { width: 100%; max-width: 440px; }
     header { text-align: center; margin-bottom: 36px; }
-    .lotus { font-size: 44px; line-height: 1; }
+    .logo { display: block; width: 64px; height: 64px; margin: 0 auto; }
     h1 { font-size: 26px; margin: 14px 0 6px; letter-spacing: -0.02em; }
-    .pali { font-family: "Noto Serif", Georgia, serif; font-style: italic; color: var(--muted); margin: 0; }
+    .pali { font-family: 'Noto Serif', Georgia, 'Times New Roman', serif; font-style: italic; color: var(--muted); margin: 0; }
     .apps { display: grid; gap: 14px; }
     a.app {
       display: flex; align-items: center; gap: 16px;
@@ -55,43 +77,50 @@
       text-decoration: none; color: inherit;
       transition: transform .12s ease, border-color .12s ease;
     }
-    a.app:hover, a.app:focus-visible { border-color: var(--accent); transform: translateY(-1px); outline: none; }
-    .icon {
-      flex: none; width: 52px; height: 52px; border-radius: 14px;
-      display: grid; place-items: center; font-size: 28px;
-      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    a.app:hover { border-color: var(--accent); transform: translateY(-1px); }
+    a.app:focus { outline: none; }
+    a.app:focus-visible {
+      border-color: var(--accent);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
     }
-    .name { font-size: 18px; font-weight: 700; margin: 0 0 3px; }
-    .desc { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.45; }
+    .icon { flex: none; width: 52px; height: 52px; border-radius: 14px; display: block; }
+    .text { display: block; }
+    .name { display: block; font-size: 18px; font-weight: 700; margin: 0 0 3px; }
+    .desc { display: block; font-size: 14px; color: var(--muted); margin: 0; line-height: 1.45; }
     .arrow { margin-left: auto; color: var(--muted); font-size: 20px; }
     footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); line-height: 1.6; }
+    @media (prefers-reduced-motion: reduce) {
+      a.app { transition: none; }
+      a.app:hover { transform: none; }
+    }
   </style>
 </head>
 <body>
   <main>
     <header>
-      <div class="lotus">🪷</div>
+      <img class="logo" src="./favicon.svg" alt="" aria-hidden="true" width="64" height="64" />
       <h1>빠알리어 공부</h1>
-      <p class="pali">Sabbadānaṃ dhammadānaṃ jināti</p>
+      <p class="pali" lang="pi">Sabbadānaṃ dhammadānaṃ jināti</p>
     </header>
 
     <!-- 앱 목록: 새 앱이 생기면 아래 a.app 블록을 하나 더 추가 -->
-    <nav class="apps">
+    <nav class="apps" aria-label="공부 앱">
       <a class="app" href="./primer/">
-        <span class="icon">📿</span>
-        <span>
-          <p class="name">빠알리 프라이머</p>
-          <p class="desc">문법을 한 과씩 — De Silva의 Pali Primer 기반</p>
+        <img class="icon" src="./primer/icon-192.png" alt="" aria-hidden="true" width="52" height="52" />
+        <span class="text">
+          <span class="name">빠알리 프라이머</span>
+          <span class="desc">문법을 한 과씩 — De Silva의 Pali Primer 기반</span>
         </span>
-        <span class="arrow">›</span>
+        <span class="arrow" aria-hidden="true">›</span>
       </a>
       <a class="app" href="./suttalog/">
-        <span class="icon">🪷</span>
-        <span>
-          <p class="name">경전으로 배우기</p>
-          <p class="desc">삼귀의·오계부터 대념처경까지</p>
+        <img class="icon" src="./suttalog/icon-192.png" alt="" aria-hidden="true" width="52" height="52" />
+        <span class="text">
+          <span class="name">경전으로 배우기</span>
+          <span class="desc">삼귀의·오계부터 대념처경까지</span>
         </span>
-        <span class="arrow">›</span>
+        <span class="arrow" aria-hidden="true">›</span>
       </a>
     </nav>
 

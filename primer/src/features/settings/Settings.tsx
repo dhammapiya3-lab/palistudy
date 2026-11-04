@@ -6,10 +6,11 @@ import { APP_NAME, APP_VERSION } from '../../config/constants'
 import { useSettings } from './hooks/useSettings'
 
 /** 애니메이션 토글 스위치 */
-function Toggle({ value, onChange }: { value: boolean; onChange: () => void }) {
+function Toggle({ value, onChange, label }: { value: boolean; onChange: () => void; label: string }) {
   return (
     <button
       onClick={onChange}
+      aria-label={label}
       className="relative w-[50px] h-[28px] rounded-full transition-colors duration-300 flex-shrink-0"
       style={{ backgroundColor: value ? 'var(--color-accent)' : 'var(--color-border)' }}
       role="switch"
@@ -54,6 +55,7 @@ function SettingRow({
       }}
     >
       <span
+        aria-hidden="true"
         className="flex items-center justify-center w-9 h-9 rounded-xl text-base flex-shrink-0"
         style={{
           backgroundColor: danger ? 'rgba(198,40,40,0.08)' : 'var(--color-surface-elevated)',
@@ -62,7 +64,7 @@ function SettingRow({
         {icon}
       </span>
       <div className="flex-1 min-w-0">
-        <p className={`font-semibold text-sm ${danger ? 'text-red-500' : ''}`}>{title}</p>
+        <p className="font-semibold text-sm" style={danger ? { color: 'var(--color-error)' } : undefined}>{title}</p>
         <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>{desc}</p>
       </div>
       {right}
@@ -70,60 +72,97 @@ function SettingRow({
   )
 }
 
+// 다른 공부 앱으로 가는 링크 (같은 사이트 안)
+function LinkRow({ href, icon, title, desc }: { href: string; icon: string; title: string; desc: string }) {
+  return (
+    <a
+      href={href}
+      className="flex items-center gap-3 w-full p-4 rounded-2xl text-left transition-all active:scale-[0.98]"
+      style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text)' }}
+    >
+      <span aria-hidden="true" className="flex items-center justify-center w-9 h-9 rounded-xl text-base flex-shrink-0"
+        style={{ backgroundColor: 'var(--color-surface-elevated)' }}>{icon}</span>
+      <div className="flex-1 min-w-0">
+        <p className="font-semibold text-sm">{title}</p>
+        <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>{desc}</p>
+      </div>
+      <span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>
+    </a>
+  )
+}
+
 export default function Settings() {
   const nav = useNavigate()
   const { settings, sync, actions } = useSettings()
+  // 주소로 바로 들어와 앞 화면이 없으면 홈으로
+  const goBack = () => {
+    const idx = (window.history.state as { idx?: number } | null)?.idx ?? 0
+    if (idx > 0) nav(-1)
+    else nav('/')
+  }
+  const sectionTitle = 'text-xs font-semibold tracking-wider px-1 mb-2'
+  const sectionTitleStyle = { color: 'var(--color-text-secondary)' }
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
      <div className="max-w-lg mx-auto">
       {/* 헤더 */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-3 sticky top-0 z-10" style={{ borderBottom: '1px solid var(--color-border)', backgroundColor: 'var(--color-bg)' }}>
-        <button onClick={() => nav(-1)} className="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--color-surface)] active:scale-90 transition-transform">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <button onClick={goBack} aria-label="뒤로" className="flex items-center justify-center w-11 h-11 rounded-full bg-[var(--color-surface)] active:scale-90 transition-transform">
+          <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
           </svg>
         </button>
         <h1 className="text-lg font-bold">설정</h1>
       </div>
 
-      <div className="px-4 py-5 space-y-6 pb-safe animate-fadeIn">
+      <div className="px-4 py-5 space-y-6 pb-28 animate-fadeIn">
         {/* 학습 설정 */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider px-1 mb-2 opacity-60">학습 및 화면</h2>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>학습 및 화면</h2>
           <div className="space-y-3">
             <SettingRow
               icon={<span>✍️</span>}
               title="쓰기 모드"
               desc="손글씨 쓰기 단계 포함"
-              right={<Toggle value={settings.writing} onChange={actions.toggleWriting} />}
+              right={<Toggle label="쓰기 모드" value={settings.writing} onChange={actions.toggleWriting} />}
             />
-            <SettingRow
-              icon={<span>🌓</span>}
-              title="다크 모드"
-              desc="어두운 배경 테마 적용"
-              right={<Toggle value={settings.theme === 'dark'} onChange={actions.toggleTheme} />}
-            />
+            <div>
+              <SettingRow
+                icon={<span>🌓</span>}
+                title="다크 모드"
+                desc={settings.theme === 'system' ? '어두운 배경 · 지금은 휴대폰 설정을 따름' : '어두운 배경 테마 적용'}
+                right={<Toggle label="다크 모드" value={settings.isDark} onChange={actions.toggleTheme} />}
+              />
+              {settings.theme !== 'system' && (
+                <button onClick={actions.followSystemTheme}
+                  className="mt-1 ml-1 text-xs underline underline-offset-2 px-1 py-2"
+                  style={{ color: 'var(--color-text-secondary)' }}>
+                  휴대폰(기기) 설정 따르기로 되돌리기
+                </button>
+              )}
+            </div>
           </div>
         </section>
 
         {/* 글씨 크기 */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider px-1 mb-2 opacity-60">글씨 크기</h2>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>글씨 크기</h2>
           <div className="p-4 rounded-2xl space-y-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
             <div className="text-center py-2 rounded-xl" style={{ backgroundColor: 'var(--color-surface-elevated)' }}>
-              <p className="pali-text font-bold" style={{ color: 'var(--color-primary)' }}>Dhammaṃ care sucaritaṃ</p>
-              <p className="text-sm mt-1 opacity-60">법을 잘 실천하라</p>
+              <p lang="pi" className="pali-text font-bold" style={{ color: 'var(--color-primary)' }}>Dhammaṃ care sucaritaṃ</p>
+              <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>법을 잘 실천하라</p>
             </div>
             <div className="flex gap-2">
               {FONT_SIZES.map(s => (
                 <button key={s.key} onClick={() => actions.changeFontSize(s.key)}
+                  aria-pressed={settings.fontSize === s.key}
                   className={`flex-1 py-2.5 rounded-xl text-center font-semibold transition-all active:scale-95`}
                   style={{
                     fontSize: `${s.px - 4}px`,
-                    backgroundColor: settings.fontSize === s.key ? 'var(--color-primary)' : 'var(--color-surface-elevated)',
+                    backgroundColor: settings.fontSize === s.key ? 'var(--color-primary-dark)' : 'var(--color-surface-elevated)',
                     color: settings.fontSize === s.key ? 'white' : 'var(--color-text)',
-                    border: settings.fontSize === s.key ? '1.5px solid var(--color-primary)' : '1.5px solid var(--color-border)',
+                    border: settings.fontSize === s.key ? '1.5px solid var(--color-primary-dark)' : '1.5px solid var(--color-border)',
                   }}
                 >
                   {s.label}
@@ -135,23 +174,23 @@ export default function Settings() {
 
         {/* 클라우드 동기화 */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider px-1 mb-2 opacity-60">클라우드 동기화</h2>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>클라우드 동기화</h2>
           {!sync.available ? (
-            <div className="p-4 rounded-2xl text-center text-xs opacity-60" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+            <div className="p-4 rounded-2xl text-center text-xs" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-secondary)' }}>
               Firebase 설정이 필요합니다.
             </div>
           ) : !sync.loggedIn ? (
-            <SettingRow icon={<span>☁️</span>} title="Google 로그인" desc="기기간 진도 동기화" onClick={actions.handleSyncLogin}
-              right={sync.loading ? <span className="animate-spin text-sm">⏳</span> : <span className="opacity-30">›</span>} />
+            <SettingRow icon={<span>☁️</span>} title="Google 로그인" desc="다른 기기와 진도·연속 학습일·설정을 함께 씀" onClick={actions.handleSyncLogin}
+              right={sync.loading ? <span className="animate-spin text-sm" aria-label="처리 중">⏳</span> : <span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>} />
           ) : (
             <div className="space-y-3">
               <div className="flex items-center gap-3 p-4 rounded-2xl" style={{ backgroundColor: 'var(--color-surface)', border: '1.5px solid var(--color-accent)' }}>
-                {sync.user?.photoURL ? <img src={sync.user.photoURL} alt="" className="w-9 h-9 rounded-full" /> : <span className="w-9 h-9 rounded-full bg-slate-100 flex items-center justify-center">👤</span>}
+                {sync.user?.photoURL ? <img src={sync.user.photoURL} alt="" className="w-9 h-9 rounded-full" /> : <span className="w-9 h-9 rounded-full flex items-center justify-center" style={{ backgroundColor: 'var(--color-surface-elevated)' }} aria-hidden="true">👤</span>}
                 <div className="flex-1 min-w-0">
                   <p className="font-semibold text-sm truncate">{sync.user?.displayName || sync.user?.email}</p>
-                  <p className="text-xs truncate opacity-60">{sync.user?.email}</p>
+                  <p className="text-xs truncate" style={{ color: 'var(--color-text-secondary)' }}>{sync.user?.email}</p>
                 </div>
-                <span className="text-[10px] font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">연결됨</span>
+                <span className="text-[11px] font-bold px-2 py-0.5 rounded-full" style={{ color: 'var(--color-accent)', backgroundColor: 'var(--color-success-bg)' }}>연결됨</span>
               </div>
               <div className="flex gap-2">
                 <button onClick={actions.handlePush} disabled={sync.loading} className="flex-1 py-3 rounded-xl text-sm font-bold bg-[var(--color-surface)] border border-[var(--color-border)] active:scale-95 transition-transform">
@@ -164,26 +203,35 @@ export default function Settings() {
               <SettingRow icon={<span>🚪</span>} title="로그아웃" desc="동기화 연결 해제" onClick={actions.handleSyncLogout} />
             </div>
           )}
-          {sync.message && <div className="mt-2 p-3 rounded-xl text-center text-xs font-medium animate-fadeIn" style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 8%, transparent)', color: 'var(--color-accent)' }}>{sync.message}</div>}
+          {sync.message && <div role="status" className="mt-2 p-3 rounded-xl text-center text-xs font-medium animate-fadeIn" style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 8%, transparent)', color: 'var(--color-accent)' }}>{sync.message}</div>}
+        </section>
+
+        {/* 다른 공부 앱 (경전으로 배우기와 같은 위치·같은 문구) */}
+        <section>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>다른 공부 앱</h2>
+          <div className="space-y-3">
+            <LinkRow href="/palistudy/suttalog/" icon="🪷" title="경전으로 배우기" desc="경전 구절을 한 낱말씩 읽으며 배우기" />
+            <LinkRow href="/palistudy/" icon="🏠" title="처음 화면 (빠알리어 공부)" desc="모든 공부 앱을 모아 둔 첫 화면" />
+          </div>
         </section>
 
         {/* 데이터 및 정보 */}
         <section>
-          <h2 className="text-xs font-semibold uppercase tracking-wider px-1 mb-2 opacity-60">기타</h2>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>기타</h2>
           <div className="space-y-3">
-            <SettingRow icon={<span>🗑️</span>} title="진도 초기화" desc="전체 데이터 삭제" onClick={actions.resetAllData} danger right={<span className="opacity-30">›</span>} />
+            <SettingRow icon={<span>🗑️</span>} title="진도 초기화" desc="전체 데이터 삭제" onClick={actions.resetAllData} danger right={<span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>} />
             <div className="p-5 rounded-2xl space-y-3 bg-[var(--color-surface)] border border-[var(--color-border)]">
               <div className="flex items-center gap-3">
-                <span className="flex items-center justify-center w-11 h-11 rounded-2xl text-xl bg-[var(--color-primary-gradient)] text-white">📿</span>
+                <span aria-hidden="true" className="flex items-center justify-center w-11 h-11 rounded-2xl text-xl text-white" style={{ background: 'var(--color-cta-gradient)' }}>📿</span>
                 <div>
                   <p className="font-bold text-sm">{APP_NAME}</p>
-                  <p className="text-xs opacity-60">{APP_VERSION}</p>
+                  <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{APP_VERSION}</p>
                 </div>
               </div>
               <hr className="border-[var(--color-border)]" />
               <div className="space-y-1 text-xs">
-                <p className="flex justify-between"><span className="opacity-60">교재</span><span>Pāli Primer (2008)</span></p>
-                <p className="flex justify-between"><span className="opacity-60">개발</span><span>SuttaLog2 Project</span></p>
+                <p className="flex justify-between"><span style={{ color: 'var(--color-text-secondary)' }}>교재</span><span>Pāli Primer (2008)</span></p>
+                <p className="flex justify-between"><span style={{ color: 'var(--color-text-secondary)' }}>개발</span><span>SuttaLog2 Project</span></p>
               </div>
             </div>
           </div>

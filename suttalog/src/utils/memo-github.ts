@@ -14,6 +14,12 @@ const MEMO_DIR = 'memos'
 const LS_PAT = 'suttalog-github-pat'
 const LS_USER = 'suttalog-github-user'
 
+/** 백업 파일·클라우드 동기화에 넣으면 안 되는 비밀 값(GitHub 토큰 등) */
+export const SECRET_STORAGE_KEYS: readonly string[] = [LS_PAT, LS_USER]
+export function isSecretStorageKey(key: string): boolean {
+  return SECRET_STORAGE_KEYS.includes(key)
+}
+
 export function githubIsConfigured(): boolean {
   return !!localStorage.getItem(LS_PAT)
 }
@@ -42,32 +48,66 @@ function getPat(): string | null {
 
 type GithubFile = { name: string; path: string; sha: string; size: number; type: string; download_url: string | null }
 
+/** GitHub 응답 상태를 사용자가 이해할 수 있는 한국어 문장으로 */
+function friendlyError(status: number, remaining: string | null): Error {
+  if ((status === 403 || status === 429) && remaining === '0') {
+    return new Error('GitHub 요청 한도를 넘었어요. 1시간쯤 뒤에 다시 시도해 주세요.')
+  }
+  if (status === 401) return new Error('GitHub 토큰이 맞지 않아요. 설정에서 토큰을 다시 등록해 주세요.')
+  if (status === 403) return new Error('GitHub이 요청을 거절했어요(권한 또는 요청 한도). 잠시 후 다시 시도해 주세요.')
+  return new Error(`GitHub에서 공유 메모를 받지 못했어요 (오류 ${status}).`)
+}
+
 export async function listGithubMemoFiles(): Promise<GithubFile[]> {
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${MEMO_DIR}?ref=${BRANCH}`
   const headers: Record<string, string> = { Accept: 'application/vnd.github+json' }
   const pat = getPat()
   if (pat) headers.Authorization = `Bearer ${pat}`
-  const res = await fetch(url, { headers })
+  let res: Response
+  try {
+    res = await fetch(url, { headers })
+  } catch {
+    throw new Error('인터넷 연결을 확인해 주세요. 공유 메모를 받지 못했어요.')
+  }
   if (res.status === 404) return [] // 디렉토리가 아직 없으면 빈 리스트
-  if (!res.ok) throw new Error(`GitHub list failed: ${res.status}`)
+  if (!res.ok) throw friendlyError(res.status, res.headers.get('x-ratelimit-remaining'))
   const data = await res.json()
   if (!Array.isArray(data)) return []
   return data.filter(f => f.type === 'file' && f.name.endsWith('.json') && f.name !== 'index.json')
 }
 
-export async function fetchGithubMemos(): Promise<Memo[]> {
+// 공유 메모 캐시 — 화면에 들어올 때마다 GitHub에 요청하지 않도록 5분간 sessionStorage에 보관
+const CACHE_KEY = 'suttalog-github-memos-cache'
+const CACHE_TTL = 5 * 60 * 1000
+
+export function invalidateGithubMemoCache(): void {
+  try { sessionStorage.removeItem(CACHE_KEY) } catch { /* 무시 */ }
+}
+
+export async function fetchGithubMemos(opts: { force?: boolean } = {}): Promise<Memo[]> {
+  if (!opts.force) {
+    try {
+      const raw = sessionStorage.getItem(CACHE_KEY)
+      if (raw) {
+        const { at, memos } = JSON.parse(raw) as { at: number; memos: Memo[] }
+        if (Date.now() - at < CACHE_TTL && Array.isArray(memos)) return memos
+      }
+    } catch { /* 캐시 무시 */ }
+  }
   const files = await listGithubMemoFiles()
-  const memos: Memo[] = []
-  for (const f of files) {
-    if (!f.download_url) continue
+  // 파일들을 동시에 받음(하나씩 차례로 받지 않음)
+  const results = await Promise.all(files.map(async f => {
+    if (!f.download_url) return null
     try {
       const res = await fetch(f.download_url)
-      if (!res.ok) continue
+      if (!res.ok) return null
       const memo = await res.json() as Memo
       memo.source = 'github'
-      memos.push(memo)
-    } catch { /* skip broken file */ }
-  }
+      return memo
+    } catch { return null /* 깨진 파일은 건너뜀 */ }
+  }))
+  const memos = results.filter((m): m is Memo => m !== null)
+  try { sessionStorage.setItem(CACHE_KEY, JSON.stringify({ at: Date.now(), memos })) } catch { /* 무시 */ }
   return memos
 }
 
@@ -126,7 +166,7 @@ export async function deleteMemoFromGithub(memoId: string): Promise<void> {
   const sha = await getFileSha(path)
   if (!sha) return // 이미 없으면 OK
   const url = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${path}`
-  await fetch(url, {
+  const res = await fetch(url, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${pat}`,
@@ -135,6 +175,8 @@ export async function deleteMemoFromGithub(memoId: string): Promise<void> {
     },
     body: JSON.stringify({ message: `memo delete: ${memoId}`, sha, branch: BRANCH }),
   })
+  if (!res.ok) throw friendlyError(res.status, res.headers.get('x-ratelimit-remaining'))
+  invalidateGithubMemoCache()
 }
 
 // === 병합 — 로컬 + GitHub, 같은 memoId면 GitHub의 updatedAt 더 최근 것 우선 ========

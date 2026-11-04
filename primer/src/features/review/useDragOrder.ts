@@ -118,5 +118,22 @@ export function useDragOrder<T extends { id: string }>(items: T[]) {
     style: { touchAction: 'none' as const, cursor: 'grab' },
   }), [])
 
-  return { orderedItems, dragState, handleProps }
+  /** 키보드로 한 칸 옮기기 (↑ / ↓) */
+  const moveItem = useCallback((from: number, delta: number): number | null => {
+    let moved: number | null = null
+    setOrderedItems(prev => {
+      const to = from + delta
+      if (to < 0 || to >= prev.length) return prev
+      const next = [...prev]
+      const [it] = next.splice(from, 1)
+      next.splice(to, 0, it)
+      saveOrder(next.map(i => i.id))
+      moved = to
+      return next
+    })
+    const to = from + delta
+    return moved ?? (to >= 0 && to < orderedItems.length ? to : null)
+  }, [orderedItems.length])
+
+  return { orderedItems, dragState, handleProps, moveItem }
 }

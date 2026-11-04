@@ -50,10 +50,11 @@ export default function ArrangeStep({
             onClick={() =>
               onSetArrangeOrder(o => o.filter((_, j) => j !== i))
             }
+            lang="pi"
             className="px-4 py-2.5 rounded-xl text-sm font-medium pali-text
                        active:scale-95 transition-all"
             style={{
-              backgroundColor: 'var(--color-primary)',
+              backgroundColor: 'var(--color-primary-dark)',
               color: 'white',
               boxShadow: '0 2px 6px rgba(212,118,10,0.2)',
             }}
@@ -73,7 +74,8 @@ export default function ArrangeStep({
               onClick={() =>
                 !used && onSetArrangeOrder(o => [...o, idx])
               }
-              className="px-4 py-2.5 rounded-xl text-sm font-medium pali-text
+              lang="pi"
+            className="px-4 py-2.5 rounded-xl text-sm font-medium pali-text
                          active:scale-95 transition-all duration-200"
               style={{
                 backgroundColor: used
@@ -102,19 +104,19 @@ export default function ArrangeStep({
             ${isArrangeCorrect ? 'option-correct' : 'option-wrong'}`}
           style={{
             backgroundColor: isArrangeCorrect
-              ? '#E8F5E9'
-              : '#FFEBEE',
-            border: `1.5px solid ${isArrangeCorrect ? '#C8E6C9' : '#FFCDD2'}`,
+              ? 'var(--color-success-bg)'
+              : 'var(--color-wrong-bg)',
+            border: `1.5px solid ${isArrangeCorrect ? 'var(--color-success-border)' : 'var(--color-wrong-border)'}`,
           }}
         >
           {isArrangeCorrect ? (
             <span className="flex items-center justify-center gap-2">
-              <span className="text-green-600 text-lg">✓</span>
+              <span className="text-lg" style={{ color: 'var(--color-success-strong)' }} aria-hidden="true">✓</span>
               정답입니다!
             </span>
           ) : (
             <span className="flex items-center justify-center gap-2">
-              <span className="text-red-500 text-lg">✕</span>
+              <span className="text-lg" style={{ color: 'var(--color-wrong-strong)' }} aria-hidden="true">✕</span>
               다시 시도해보세요
             </span>
           )}
