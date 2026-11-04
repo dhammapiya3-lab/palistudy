@@ -16,7 +16,7 @@ export default function GrammarLearn() {
     showCompletion, setShowCompletion, correctCount, setCorrectCount,
     showTOC, setShowTOC, showRef, setShowRef,
     heartShakeIdx, refTables, writingEnabled,
-    step, progress, speak, shuffledOpts,
+    step, speak, shuffledOpts,
     getElapsedMin, handleCheck, handleNext, handlePrev,
     isQuizType, isArrangeCorrect, transitionTo, startTimeRef
   } = useGrammarLearn()
@@ -92,7 +92,6 @@ export default function GrammarLearn() {
       <div className="max-w-lg mx-auto w-full flex flex-col flex-1">
         <LearnHeader
           onClose={() => nav('/')}
-          progress={progress}
           STEPS={STEPS}
           stepIdx={stepIdx}
           refTables={refTables}
@@ -103,6 +102,7 @@ export default function GrammarLearn() {
           lessonTitle={lesson?.title || lid}
           stepTitle={stepTitle}
           stepId={step.id}
+          onSeek={(i) => { if (i !== stepIdx) transitionTo(() => setStepIdx(i)) }}
         />
 
         <div className={`flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-28 scroll-smooth ${phase === 'enter' ? 'step-enter' : phase === 'exit' ? 'step-exit' : ''}`}>

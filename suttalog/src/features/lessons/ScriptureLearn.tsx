@@ -6,6 +6,7 @@ import { getMemo, hasMemo, pageIdOf, type StepSnapshot } from '../../utils/memo'
 import { getLessonTitle } from '../../utils/lessons-meta'
 import WritingCanvas from '../../components/WritingCanvas'
 import LotusHeart from '../../components/LotusHeart'
+import ScrubBar from '../../components/ScrubBar'
 import MemoSheet from '../../components/MemoSheet'
 import { LESSON_SN56_11, type StepType } from './lesson-data-sn56-11'
 import { LESSON_SN22_59 } from './lesson-data-sn22-59'
@@ -65,6 +66,21 @@ function filterStepsByWordMode(steps: Step[]): Step[] {
   })
 }
 
+// 단계 이름 (목차·진도 막대 말풍선에서 같이 사용)
+function stepLabel(s: StepType, i: number): string {
+  return s.type === 'intro' ? s.title
+    : s.type === 'teach' ? `${s.word} — ${s.meaning}`
+    : s.type === 'teach-grammar' ? s.title
+    : s.type === 'quiz' ? `퀴즈: ${s.question.slice(0, 28)}…`
+    : s.type === 'match-listen' ? `듣기: ${s.instruction.slice(0, 28)}`
+    : s.type === 'match-reverse' ? `뜻맞추기: ${s.meaning}`
+    : s.type === 'writing' ? `쓰기: ${s.answer}`
+    : s.type === 'speak' ? `따라읽기: ${s.pali.slice(0, 28)}`
+    : s.type === 'arrange' ? `배열: ${s.instruction.slice(0, 28)}`
+    : s.type === 'verse' ? `경전: ${s.pali.slice(0, 28)}…`
+    : `스텝 ${i + 1}`
+}
+
 export default function ScriptureLearn() {
   const nav = useNavigate()
   const { lessonId } = useParams<{ lessonId: string }>()
@@ -108,7 +124,6 @@ export default function ScriptureLearn() {
   const writingEnabled = localStorage.getItem('suttalog-writing') !== 'off'
 
   const step = STEPS[stepIdx]
-  const progress = ((stepIdx + 1) / STEPS.length) * 100
   const speak = (text: string) => speakPali(text)
   const isQuizType = step.type === 'match-listen' || step.type === 'match-reverse' || step.type === 'quiz'
   const isWriting = step.type === 'writing'
@@ -147,6 +162,18 @@ export default function ScriptureLearn() {
   })()
 
   const stopAudio = () => speechSynthesis.cancel()
+
+  // 원하는 단계로 바로 이동 (목차·진도 막대 공용)
+  const goToStep = (i: number) => {
+    if (i === stepIdx || i < 0 || i >= STEPS.length) return
+    stopAudio()
+    setStepIdx(i)
+    setSelected(null)
+    setShowResult(false)
+    setWritingInput('')
+    setWritingChecked(false)
+    setArrangeOrder([])
+  }
 
   const handleCheck = () => {
     if (selected === null) return
@@ -233,8 +260,15 @@ export default function ScriptureLearn() {
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
       <div className="shrink-0 flex items-center gap-2 px-4 pt-3 pb-2">
         <button onClick={() => nav('/')} className="text-lg">✕</button>
-        <div className="flex-1 h-2.5 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-border)' }}>
-          <div className="h-full rounded-full transition-all duration-500" style={{ width: `${progress}%`, backgroundColor: 'var(--color-primary)' }} />
+        {/* 진도 막대 — 누르거나 끌어서 원하는 단계로 이동 */}
+        <div className="flex-1">
+          <ScrubBar
+            total={STEPS.length}
+            current={stepIdx}
+            onSeek={goToStep}
+            getLabel={i => stepLabel(STEPS[i], i)}
+            fillColor="var(--color-primary)"
+          />
         </div>
         {/* 목차 버튼 */}
         <button
@@ -302,17 +336,7 @@ export default function ScriptureLearn() {
                   : s.type === 'speak' ? '🎤'
                   : s.type === 'arrange' ? '🧩'
                   : s.type === 'verse' ? '☸️' : '•'
-                const label = s.type === 'intro' ? s.title
-                  : s.type === 'teach' ? `${s.word} — ${s.meaning}`
-                  : s.type === 'teach-grammar' ? s.title
-                  : s.type === 'quiz' ? `퀴즈: ${s.question.slice(0, 28)}…`
-                  : s.type === 'match-listen' ? `듣기: ${s.instruction.slice(0, 28)}`
-                  : s.type === 'match-reverse' ? `뜻맞추기: ${s.meaning}`
-                  : s.type === 'writing' ? `쓰기: ${s.answer}`
-                  : s.type === 'speak' ? `따라읽기: ${s.pali.slice(0, 28)}`
-                  : s.type === 'arrange' ? `배열: ${s.instruction.slice(0, 28)}`
-                  : s.type === 'verse' ? `경전: ${s.pali.slice(0, 28)}…`
-                  : `스텝 ${i + 1}`
+                const label = stepLabel(s, i)
                 const isCur = i === stepIdx
                 return (
                   <button key={i}

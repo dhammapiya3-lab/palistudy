@@ -1,9 +1,10 @@
 import type { StepType } from '../types'
+import ScrubBar from '../../../components/ScrubBar'
+import { stepLabel } from './step-label'
 import type { DeclensionTable } from '../declension-tables'
 
 interface LearnHeaderProps {
   onClose: () => void
-  progress: number
   STEPS: StepType[]
   stepIdx: number
   refTables: DeclensionTable[]
@@ -14,11 +15,11 @@ interface LearnHeaderProps {
   lessonTitle: string
   stepTitle: string
   stepId?: string
+  onSeek: (index: number) => void  // 진도 막대로 단계 이동
 }
 
 export default function LearnHeader({
   onClose,
-  progress,
   STEPS,
   stepIdx,
   refTables,
@@ -28,7 +29,8 @@ export default function LearnHeader({
   heartShakeIdx,
   lessonTitle,
   stepTitle,
-  stepId
+  stepId,
+  onSeek,
 }: LearnHeaderProps) {
   const renderProgressDots = () => {
     const maxDots = Math.min(STEPS.length, 12)
@@ -73,16 +75,13 @@ export default function LearnHeader({
 
         {/* 프로그레스 바 */}
         <div className="flex-1 flex flex-col gap-0.5">
-          <div
-            className="h-2.5 rounded-full overflow-hidden"
-            style={{ backgroundColor: 'var(--color-border)' }}
-          >
-            <div
-              className="h-full rounded-full transition-all duration-700 ease-out
-                         progress-bar-gradient"
-              style={{ width: `${progress}%` }}
-            />
-          </div>
+          <ScrubBar
+            total={STEPS.length}
+            current={stepIdx}
+            onSeek={onSeek}
+            getLabel={i => stepLabel(STEPS[i], i)}
+            fillClassName="progress-bar-gradient"
+          />
           <div className="flex items-center justify-between">
             <div className="flex-1">{renderProgressDots()}</div>
             <span
