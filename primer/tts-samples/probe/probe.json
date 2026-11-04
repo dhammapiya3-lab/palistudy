@@ -1,0 +1,758 @@
+[
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "plain",
+  "text": "అ",
+  "file": "a_te_plain.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "dot",
+  "text": "అ.",
+  "file": "a_te_dot.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "danda",
+  "text": "అ।",
+  "file": "a_te_danda.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"అ\"",
+  "file": "a_te_quote.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "double",
+  "text": "అ అ",
+  "file": "a_te_double.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "te",
+  "variant": "dash",
+  "text": "అ -",
+  "file": "a_te_dash.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಅ",
+  "file": "a_kn_plain.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಅ.",
+  "file": "a_kn_dot.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಅ।",
+  "file": "a_kn_danda.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಅ\"",
+  "file": "a_kn_quote.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಅ ಅ",
+  "file": "a_kn_double.mp3"
+ },
+ {
+  "t": "a",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಅ -",
+  "file": "a_kn_dash.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఆ",
+  "file": "ā_te_plain.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఆ.",
+  "file": "ā_te_dot.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఆ।",
+  "file": "ā_te_danda.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఆ\"",
+  "file": "ā_te_quote.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఆ ఆ",
+  "file": "ā_te_double.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఆ -",
+  "file": "ā_te_dash.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಆ",
+  "file": "ā_kn_plain.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಆ.",
+  "file": "ā_kn_dot.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಆ।",
+  "file": "ā_kn_danda.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಆ\"",
+  "file": "ā_kn_quote.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಆ ಆ",
+  "file": "ā_kn_double.mp3"
+ },
+ {
+  "t": "ā",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಆ -",
+  "file": "ā_kn_dash.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఇ",
+  "file": "i_te_plain.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఇ.",
+  "file": "i_te_dot.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఇ।",
+  "file": "i_te_danda.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఇ\"",
+  "file": "i_te_quote.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఇ ఇ",
+  "file": "i_te_double.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఇ -",
+  "file": "i_te_dash.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಇ",
+  "file": "i_kn_plain.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಇ.",
+  "file": "i_kn_dot.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಇ।",
+  "file": "i_kn_danda.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಇ\"",
+  "file": "i_kn_quote.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಇ ಇ",
+  "file": "i_kn_double.mp3"
+ },
+ {
+  "t": "i",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಇ -",
+  "file": "i_kn_dash.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఈ",
+  "file": "ī_te_plain.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఈ.",
+  "file": "ī_te_dot.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఈ।",
+  "file": "ī_te_danda.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఈ\"",
+  "file": "ī_te_quote.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఈ ఈ",
+  "file": "ī_te_double.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఈ -",
+  "file": "ī_te_dash.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಈ",
+  "file": "ī_kn_plain.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಈ.",
+  "file": "ī_kn_dot.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಈ।",
+  "file": "ī_kn_danda.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಈ\"",
+  "file": "ī_kn_quote.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಈ ಈ",
+  "file": "ī_kn_double.mp3"
+ },
+ {
+  "t": "ī",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಈ -",
+  "file": "ī_kn_dash.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఉ",
+  "file": "u_te_plain.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఉ.",
+  "file": "u_te_dot.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఉ।",
+  "file": "u_te_danda.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఉ\"",
+  "file": "u_te_quote.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఉ ఉ",
+  "file": "u_te_double.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఉ -",
+  "file": "u_te_dash.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಉ",
+  "file": "u_kn_plain.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಉ.",
+  "file": "u_kn_dot.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಉ।",
+  "file": "u_kn_danda.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಉ\"",
+  "file": "u_kn_quote.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಉ ಉ",
+  "file": "u_kn_double.mp3"
+ },
+ {
+  "t": "u",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಉ -",
+  "file": "u_kn_dash.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఊ",
+  "file": "ū_te_plain.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఊ.",
+  "file": "ū_te_dot.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఊ।",
+  "file": "ū_te_danda.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఊ\"",
+  "file": "ū_te_quote.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఊ ఊ",
+  "file": "ū_te_double.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఊ -",
+  "file": "ū_te_dash.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಊ",
+  "file": "ū_kn_plain.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಊ.",
+  "file": "ū_kn_dot.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಊ।",
+  "file": "ū_kn_danda.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಊ\"",
+  "file": "ū_kn_quote.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಊ ಊ",
+  "file": "ū_kn_double.mp3"
+ },
+ {
+  "t": "ū",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಊ -",
+  "file": "ū_kn_dash.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఏ",
+  "file": "e_te_plain.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఏ.",
+  "file": "e_te_dot.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఏ।",
+  "file": "e_te_danda.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఏ\"",
+  "file": "e_te_quote.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఏ ఏ",
+  "file": "e_te_double.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఏ -",
+  "file": "e_te_dash.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಏ",
+  "file": "e_kn_plain.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಏ.",
+  "file": "e_kn_dot.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಏ।",
+  "file": "e_kn_danda.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಏ\"",
+  "file": "e_kn_quote.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಏ ಏ",
+  "file": "e_kn_double.mp3"
+ },
+ {
+  "t": "e",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಏ -",
+  "file": "e_kn_dash.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఓ",
+  "file": "o_te_plain.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఓ.",
+  "file": "o_te_dot.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఓ।",
+  "file": "o_te_danda.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఓ\"",
+  "file": "o_te_quote.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఓ ఓ",
+  "file": "o_te_double.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఓ -",
+  "file": "o_te_dash.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಓ",
+  "file": "o_kn_plain.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಓ.",
+  "file": "o_kn_dot.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಓ।",
+  "file": "o_kn_danda.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಓ\"",
+  "file": "o_kn_quote.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಓ ಓ",
+  "file": "o_kn_double.mp3"
+ },
+ {
+  "t": "o",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಓ -",
+  "file": "o_kn_dash.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "plain",
+  "text": "ఝ",
+  "file": "jha_te_plain.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "dot",
+  "text": "ఝ.",
+  "file": "jha_te_dot.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "danda",
+  "text": "ఝ।",
+  "file": "jha_te_danda.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "quote",
+  "text": "\"ఝ\"",
+  "file": "jha_te_quote.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "double",
+  "text": "ఝ ఝ",
+  "file": "jha_te_double.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "te",
+  "variant": "dash",
+  "text": "ఝ -",
+  "file": "jha_te_dash.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "plain",
+  "text": "ಝ",
+  "file": "jha_kn_plain.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "dot",
+  "text": "ಝ.",
+  "file": "jha_kn_dot.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "danda",
+  "text": "ಝ।",
+  "file": "jha_kn_danda.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "quote",
+  "text": "\"ಝ\"",
+  "file": "jha_kn_quote.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "double",
+  "text": "ಝ ಝ",
+  "file": "jha_kn_double.mp3"
+ },
+ {
+  "t": "jha",
+  "voice": "kn",
+  "variant": "dash",
+  "text": "ಝ -",
+  "file": "jha_kn_dash.mp3"
+ }
+]
