@@ -34,17 +34,6 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '• natthi = na(아니다) + atthi(있다) → "없다"\n' +
       '• saññuppādo = saññā + uppādo → ā 탈락',
   },
-  {
-    type: 'verse',
-    pali: '"Dveme, bhikkhave, antā pabbajitena na sevitabbā."',
-    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-',
-    translation:
-      '"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다."',
-    highlight: ['Dveme'],
-    note:
-      'Dveme = dve(둘) + ime(이것들) — 앞 모음 e 탈락\n' +
-      '전법륜경(SN 56.11)',
-  },
 
   // ② 앞 모음 탈락 + 뒷 모음 장음화
   {
@@ -72,7 +61,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
     example:
       'na + assa → nāssa\nsu + akkhāto → svakkhāto\n' +
       'kaṭṭha + udakaṃ → kaṭṭhodakaṃ\n' +
-      'vi + ākaroti → vyākaroti\nanu + āgacchati → annāgacchati',
+      'vi + ākaroti → vyākaroti\nanu + āgacchati → anvāgacchati',
     exampleKo:
       '그의 ~않다\n잘 설해진\n' +
       '장작과 물\n분별하다\n따라오다',
@@ -81,7 +70,10 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '• a + a → ā: na + assa → nāssa\n' +
       '• u + a → va: su + akkhāto → svakkhāto\n' +
       '• a + u → o: kaṭṭha + udakaṃ → kaṭṭhodakaṃ\n' +
-      '• i + ā → yā: vi + ākaroti → vyākaroti',
+      '• i + ā → yā: vi + ākaroti → vyākaroti\n' +
+      '• u + ā → vā: anu + āgacchati → anvāgacchati\n\n' +
+      '※ svakkhāto, vyākaroti, anvāgacchati는 구조상\n' +
+      '⑦번(i→y, u→v)과 같은 유형의 변화이기도 합니다.',
   },
 
   // ④ 자음 삽입
@@ -89,7 +81,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
     type: 'teach-grammar',
     title: '④ 자음 삽입 (insertion)',
     example:
-      'na + idaṃ → nayidaṃ\nsammā + aññā → sammādaññā\n' +
+      'na + idaṃ → nayidaṃ\nsammā + aññā → sammadaññā\n' +
       'tasmā + iha → tasmātiha\nyathā + iva → yathāriva',
     exampleKo:
       '이것이 아닌\n바른 앎\n' +
@@ -99,7 +91,8 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '삽입 자음의 종류:\n' +
       '• t, d, n, m\n• y, r, ḷ, v, g, h\n\n' +
       '예: tasmā + iha → tasmā-t-iha\n' +
-      '    na + idaṃ → na-y-idaṃ',
+      '    na + idaṃ → na-y-idaṃ\n' +
+      '    sammā + aññā → samma-d-aññā (d 삽입 + ā 단축)',
   },
 
   // ⑤ 뒷 모음 탈락
@@ -117,6 +110,17 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '①번(앞 모음 탈락)과 반대 방향:\n' +
       '• ko + asi → ko-si (a 탈락)\n' +
       '• te + ahaṃ → te-haṃ (a 탈락)',
+  },
+  {
+    type: 'verse',
+    pali: '"Dveme, bhikkhave, antā pabbajitena na sevitabbā."',
+    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-',
+    translation:
+      '"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다."',
+    highlight: ['Dveme'],
+    note:
+      'Dveme = dve(둘) + ime(이것들) — 뒷 모음 i 탈락 (⑤번 규칙)\n' +
+      '전법륜경(SN 56.11)',
   },
 
   // ⑥ 뒷 모음 탈락 + 앞 모음 장음화
@@ -142,13 +146,13 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       'kho + ettha → khvettha\nso + eva → sveva',
     exampleKo:
       '그대에게 나는\n나에게 이것이\n' +
-      '그것들에서 나는\n그가 나를\n' +
+      '그것들에서 나는\n그런 나는\n' +
       '참으로 거기서\n그가 바로',
     explanation:
-      '특히 k/kh/t/s 다음에서:\n' +
+      '흔히 짧은 대명사·불변사(te, me, so, kho, yesu…)\n끝의 i/e, u/o가 뒤 모음 앞에서:\n' +
       '• i, e → y로 변하고 뒤 a가 장음화\n' +
       '• u, o → v로 변하고 뒤 a가 장음화\n\n' +
-      '장모음과 이중모음은 변하지 않습니다.\n\n' +
+      'ā, ī, ū 같은 장모음은 이 변화를 겪지 않습니다.\n\n' +
       '예: te(e→y) + ahaṃ(a→ā) → tyāhaṃ\n' +
       '    so(o→v) + ahaṃ(a→ā) → svāhaṃ',
   },
@@ -181,7 +185,10 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '  bhikkhu → bhikkhū-ti\n' +
       '  asmi → asmī-ti\n\n' +
       '• -pi("~도") 앞에서는 때때로 장음화\n' +
-      '  tatra → tatrā-pi',
+      '  tatra → tatrā-pi\n\n' +
+      '※ 엄밀히는 iti의 i가 탈락하고 앞 모음이\n' +
+      '장음화되는 모음 연성(⑥과 같은 유형)입니다:\n' +
+      '  bhikkhu + iti → bhikkhūti',
   },
 
   // ─── 모음 연성법 퀴즈 ───
@@ -265,7 +272,10 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '• r + k → kkh: nir + kamati → nikkhamati\n' +
       '• r + t → tth: nir + tarati → nittharati\n' +
       '• d + h → ddh: ud + harati → uddharati\n\n' +
-      '경전에서 nikkhamati(떠나다)는\n출가 장면에서 자주 등장합니다.',
+      '경전에서 nikkhamati(떠나다)는\n출가 장면에서 자주 등장합니다.\n\n' +
+      '※ 역사적으로는 접두사 nis-의 s가 결합한 것입니다\n' +
+      '(nis + kamati, nis + tarati). kh, th처럼 기식이\n' +
+      '생기는 것도 s 때문입니다. 위 표기는 교재식 단순화입니다.',
   },
 
   // ⑫ ti/ṭi + 모음 → cc + 모음
@@ -350,11 +360,13 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '  saṃ + kamati → saṅkamati\n\n' +
       '• ṃ + c/ch/j/jh → ñ (구개음)\n' +
       '  dhammaṃ + ca → dhammañca\n\n' +
-      '• ṃ + t/th/d/dh → n (치음)\n' +
+      '• ṃ + t/th/d/dh/n → n (치음)\n' +
       '  saṃ + nisīdati → sannisīdati\n' +
       '  kusalaṃ + ti → kusalanti\n\n' +
-      '• ṃ + p/ph/b/bh → m (순음)\n' +
-      '  alaṃ + me → alamme',
+      '• ṃ + p/ph/b/bh/m → m (순음)\n' +
+      '  alaṃ + me → alamme\n' +
+      '  maraṇaṃ + pi → maraṇampi\n' +
+      '  (전법륜경: maraṇampi dukkhaṃ = 죽음도 괴로움이다)',
   },
 
   // 억제음 + 모음 → m
@@ -364,17 +376,17 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
     example:
       'idaṃ + āsanaṃ → idamāsanaṃ\n' +
       'idaṃ + ahaṃ → idāhaṃ\n' +
-      'maraṇaṃ + pi → maraṇampi',
+      'evaṃ + etaṃ → evametaṃ\n' +
+      'ekaṃ + eva → ekameva',
     exampleKo:
       '이 자리 (이것 + 자리)\n' +
-      '이것을 나는\n죽음도 (죽음 + ~도)',
+      '이것을 나는\n그와 같이 이것을\n오직 하나',
     explanation:
       '모음 앞에서 ṃ은 m으로 변합니다.\n' +
       '드물게 탈락하는 경우도 있습니다.\n\n' +
       '• idaṃ + āsanaṃ → idam-āsanaṃ\n' +
-      '• maraṇaṃ + pi → maraṇam-pi\n\n' +
-      '전법륜경(SN 56.11)에서:\n' +
-      'maraṇampi dukkhā = 죽음도 괴로움이다',
+      '• evaṃ + etaṃ → evam-etaṃ\n' +
+      '• ekaṃ + eva → ekam-eva'
   },
 
   // 억제음 + eva → yeva
@@ -387,6 +399,8 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       'ṃ + eva는 특별히 ṃ + yeva로 변합니다.\n\n' +
       '• ekaṃ + eva → ekaṃ yeva\n' +
       '  (y가 삽입됨)\n\n' +
+      '※ ṃ + eva는 ekameva처럼 m으로도 연결됩니다.\n' +
+      '(경전에서는 ekameva 쪽이 더 자주 나옵니다)\n\n' +
       'eva(바로, ~만)는 경전에서 매우\n자주 나오는 불변사입니다.',
   },
 
@@ -405,11 +419,12 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
     explanation:
       '전법륜경(SN 56.11) 사성제 구절:\n\n' +
       '• jātipi = jāti + pi → 변화 없이 연결\n' +
-      '  (자음 + 자음이므로 연성 불필요)\n\n' +
+      '  (모음 + 자음이므로 대개 변화 없음;\n' +
+      '   ⑨처럼 pi 앞에서 장음화되기도 함)\n\n' +
       '• maraṇampi = maraṇaṃ + pi\n' +
       '  → ṃ + p: 순음 앞에서 ṃ이 m으로\n\n' +
       '• Dveme = dve + ime\n' +
-      '  → 앞 모음 e 탈락 (①번 규칙)',
+      '  → 뒷 모음 i 탈락 (⑤번 규칙)',
   },
   {
     type: 'verse',
@@ -457,8 +472,8 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   },
   {
     type: 'quiz',
-    question: '"ekaṃ + eva"가 연성되면?',
-    options: ['ekameva', 'ekaṃ yeva', 'ekaṃeva', 'ekañeva'],
+    question: '"ekaṃ + eva"가 (y 삽입 규칙으로) 연성되면?',
+    options: ['ekāva', 'ekaṃ yeva', 'ekaṃeva', 'ekañeva'],
     answer: 1,
     hint: 'ṃ + eva → ṃ + yeva (특수 규칙)',
   },

@@ -15,7 +15,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "title": "모음 8자 (a ā i ī u ū e o)",
     "example": "a=아, ā=아-, i=이, ī=이-, u=우, ū=우-, e=에-, o=오-",
     "exampleKo": "ā ī ū는 장모음(두 배 길게). e o도 길게 — 단, 뒤에 이중자음이 오면 짧게.",
-    "explanation": "빠알리 모음은 8개. 위에 줄(ā)이 있으면 길게, 없으면 짧게 발음합니다."
+    "explanation": "빠알리 모음은 8개. a i u에 줄(ā ī ū)이 있으면 길게, 없으면 짧게. e o는 줄이 없어도 길게(이중자음 앞에서만 짧게) 발음합니다. e o를 이중모음이라 부르기도 하지만 발음은 단일 모음입니다."
   },
   {
     "type": "teach",
@@ -171,7 +171,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
       "이"
     ],
     "answer": 2,
-    "hint": "항상 긴 \"에\""
+    "hint": "긴 \"에\" (이중자음 앞에서는 짧게)"
   },
   {
     "type": "quiz",
@@ -183,7 +183,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
       "이"
     ],
     "answer": 2,
-    "hint": "항상 긴 \"오\""
+    "hint": "긴 \"오\" (이중자음 앞에서는 짧게)"
   },
   {
     "type": "teach-grammar",
@@ -225,8 +225,8 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "가(h)",
     "meaning": "숨 섞인 \"가\"",
     "icon": "🔊",
-    "verseLine": "saṅgaho [상가호-]",
-    "verseLineKo": "보살핌 (행복경)"
+    "verseLine": "saṅgha [상가]",
+    "verseLineKo": "승가"
   },
   {
     "type": "teach",
@@ -411,15 +411,15 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   },
   {
     "type": "teach-grammar",
-    "title": "권설음 (ṭ ṭh ḍ ḍh ṇ) — 혀를 말아",
-    "example": "ṭ=따(권), ṭh=타(권), ḍ=다(권)",
+    "title": "반설음 (ṭ ṭh ḍ ḍh ṇ) — 혀를 말아",
+    "example": "ṭ=따(반), ṭh=타(반), ḍ=다(반)",
     "exampleKo": "ṭ · ṭh · ḍ · ḍh · ṇ",
-    "explanation": "점이 아래 붙은 글자(ṭ ḍ ṇ). 혀끝을 위로 말아 발음합니다."
+    "explanation": "점이 아래 붙은 글자(ṭ ḍ ṇ). 혀끝을 위로 말아 발음합니다. (반) = 반설음 표시."
   },
   {
     "type": "teach",
     "word": "ṭ",
-    "pronKo": "따(권)",
+    "pronKo": "따(반)",
     "meaning": "혀를 말아 \"따\"",
     "icon": "🔊",
     "verseLine": "upaṭṭhānaṃ [우빳타-낭]",
@@ -428,7 +428,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "teach",
     "word": "ṭh",
-    "pronKo": "타(권)",
+    "pronKo": "타(반)",
     "meaning": "혀를 말아 \"타\"",
     "icon": "🔊",
     "verseLine": "santuṭṭhī [산뚯티-]",
@@ -437,7 +437,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "teach",
     "word": "ḍ",
-    "pronKo": "다(권)",
+    "pronKo": "다(반)",
     "meaning": "혀를 말아 \"다\"",
     "icon": "🔊",
     "verseLine": "paṇḍitānaṃ [빤디따-낭]",
@@ -446,20 +446,20 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "teach",
     "word": "ḍh",
-    "pronKo": "다(권h)",
+    "pronKo": "다(반h)",
     "meaning": "혀를 말아 숨 섞인 \"다\"",
     "icon": "🔊",
-    "verseLine": "viḍḍha [윋다]",
-    "verseLineKo": "꿰뚫린"
+    "verseLine": "vuḍḍhi [욷디]",
+    "verseLineKo": "성장, 번영"
   },
   {
     "type": "teach",
     "word": "ṇ",
-    "pronKo": "나(권)",
+    "pronKo": "나(반)",
     "meaning": "혀를 말아 \"나\"",
     "icon": "🔊",
-    "verseLine": "piṇḍikassa [삔디깟사]",
-    "verseLineKo": "핀디까의 (행복경)"
+    "verseLine": "anāthapiṇḍikassa [아나-타삔디깟사]",
+    "verseLineKo": "아나타삔디까의 (행복경)"
   },
   {
     "type": "quiz",
@@ -467,7 +467,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "까",
       "카",
-      "따(권)",
+      "따(반)",
       "가"
     ],
     "answer": 2,
@@ -479,7 +479,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "까",
       "카",
-      "타(권)",
+      "타(반)",
       "가"
     ],
     "answer": 2,
@@ -491,7 +491,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "까",
       "카",
-      "다(권)",
+      "다(반)",
       "가"
     ],
     "answer": 2,
@@ -503,7 +503,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "까",
       "카",
-      "다(권h)",
+      "다(반h)",
       "가"
     ],
     "answer": 2,
@@ -515,7 +515,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "까",
       "카",
-      "나(권)",
+      "나(반)",
       "가"
     ],
     "answer": 2,

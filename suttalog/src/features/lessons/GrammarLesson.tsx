@@ -8,11 +8,12 @@ const GRAMMAR_DATA: Record<string, {
 }> = {
   sov: {
     title: 'SOV 어순 (주어-목적어-동사)',
-    source: 'Dhammapada 1게',
-    verse: 'Manopubbaṅgamā dhammā',
-    verseKo: '마음이 모든 법의 선구자이다',
+    source: '예문',
+    verse: 'Bhikkhu vihāraṃ gacchati',
+    verseKo: '비구가 승원으로 간다',
     explanation: [
-      { title: '문장 구조 분석', content: 'Mano (마음이) + pubbaṅgamā (선구자인) + dhammā (법들은)\n\n빠알리어는 한국어처럼 SOV(주어-목적어-동사) 어순입니다.' },
+      { title: '문장 구조 분석', content: 'Bhikkhu (비구가, 주격) + vihāraṃ (승원으로, 대격) + gacchati (간다, 동사)\n\n빠알리어는 한국어처럼 SOV(주어-목적어-동사) 어순이 기본입니다. (격어미가 역할을 나타내므로 어순은 비교적 자유롭습니다)' },
+      { title: '참고: 동사 없는 문장 (Dhp 1)', content: 'Manopubbaṅgamā dhammā\n= manopubbaṅgamā (소유복합어 bahubbīhi, 주격 복수: "마음을 앞세운") + dhammā (법들은, 주격 복수)\n\n"법들은 마음을 앞세운다" — 동사도 목적어도 없는 명사문이라 SOV 예시는 아닙니다. mano는 독립된 주어가 아니라 복합어의 앞부분입니다.' },
       { title: '한국어와의 유사성', content: '한국어: "나는 법을 배운다"\n빠알리어: "Ahaṃ dhammaṃ sikkhāmi"\n(나는) (법을) (배운다)\n\n어순이 같습니다!' },
     ],
   },

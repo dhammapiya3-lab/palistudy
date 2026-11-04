@@ -6,16 +6,16 @@ export const LESSON_22: StepWithoutId[] = [
   { type: 'intro', title: '23과: 사역형', subtitle: 'Kārita (Causative)', description: '~시키다, ~하게 하다\n\n-e/-aya: \n-āpe/-āpaya: \n\n예: pacati(요리한다) → pāceti(요리시킨다)', icon: '👨‍💼' },
 
   // === 사역형 -e/-aya ===
-  { type: 'teach-grammar', title: '사역형 -e/-aya', example: 'pac(요리하다) → pāceti / pācayati\nbhuj(먹다) → bhojeti / bhojayati\nkar(행하다) → kāreti / kārayati\ndā(주다) → dāpeti / dāpayati', exampleKo: '어근 모음 강화 + -eti/-ayati', explanation: '-e/-aya:\n• pāceti = 요리시킨다 (pac → pāc + eti)\n• bhojeti = 먹인다 (bhuj → bhoj + eti)\n• kāreti = 행하게 한다 (kar → kār + eti)\n\n어근의 모음이 강화됩니다:\n• a → ā (pac → pāc)\n• u → o (bhuj → bhoj)\n• i → e (nis → nes → neseti, 인도하다)' },
+  { type: 'teach-grammar', title: '사역형 -e/-aya', example: 'pac(요리하다) → pāceti / pācayati\nbhuj(먹다) → bhojeti / bhojayati\nkar(행하다) → kāreti / kārayati\ndis(보이다) → deseti / desayati', exampleKo: '어근 모음 강화 + -eti/-ayati', explanation: '-e/-aya:\n• pāceti = 요리시킨다 (pac → pāc + eti)\n• bhojeti = 먹인다 (bhuj → bhoj + eti)\n• kāreti = 행하게 한다 (kar → kār + eti)\n\n어근의 모음이 강화됩니다:\n• a → ā (pac → pāc)\n• u → o (bhuj → bhoj)\n• i → e (dis → des → deseti, 보이다·설하다)' },
 
   // === 사역형 -āpe/-āpaya ===
-  { type: 'teach-grammar', title: '사역형 -āpe/-āpaya', example: 'cor(훔치다) → corāpeti (훔치게 시킨다)\nkiṇ(사다) → kiṇāpeti (사게 시킨다)\npac → pācāpeti (요리하게 시킨다)', exampleKo: '어근 + -āpeti', explanation: '-āpe/-āpaya:\n• corāpeti = 훔치게 한다\n• kiṇāpeti = 사게 한다\n• pācāpeti = 요리하게 시킨다' },
+  { type: 'teach-grammar', title: '사역형 -āpe/-āpaya', example: 'cor(훔치다) → corāpeti (훔치게 시킨다)\nkiṇ(사다) → kiṇāpeti (사게 시킨다)\npac → pācāpeti (요리하게 시킨다)\ndā(주다) → dāpeti / dāpayati (주게 한다)', exampleKo: '어근 + -āpeti', explanation: '-āpe/-āpaya:\n• corāpeti = 훔치게 한다\n• kiṇāpeti = 사게 한다\n• pācāpeti = 요리하게 시킨다\n• dāpeti = 주게 한다 (dā + āpe → dāpe)' },
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pāceti', pronKo: '빠-쩨-띠', meaning: '요리시키다', icon: '👨‍🍳', grammar: '사역형 (pac)', formNote: 'pac → pāc + eti\n복수: pācenti' },
   { type: 'teach', word: 'bhojeti', pronKo: '보-제-띠', meaning: '먹이다', icon: '🍽️', grammar: '사역형 (bhuj)', formNote: 'bhuj → bhoj + eti\n복수: bhojenti' },
   { type: 'teach', word: 'kāreti', pronKo: '까-레-띠', meaning: '행하게 하다', icon: '📋', grammar: '사역형 (kar)', formNote: 'kar → kār + eti\n복수: kārenti' },
-  { type: 'teach', word: 'dāpeti', pronKo: '다-뻬-띠', meaning: '주게 하다', icon: '🤲', grammar: '사역형 (dā)', formNote: 'dā → dāp + eti\n복수: dāpenti' },
+  { type: 'teach', word: 'dāpeti', pronKo: '다-뻬-띠', meaning: '주게 하다', icon: '🤲', grammar: '사역형 (dā)', formNote: 'dā + āpe + ti → dāpeti (-āpe형 사역)\n복수: dāpenti' },
   { type: 'teach', word: 'corāpeti', pronKo: '쪼-라-뻬-띠', meaning: '훔치게 시키다', icon: '🦹', grammar: '사역형 (cor)', formNote: 'cor + āpeti\n복수: corāpenti' },
   { type: 'teach', word: 'kiṇāpeti', pronKo: '끼나-뻬-띠', meaning: '사게 시키다', icon: '🛒', grammar: '사역형 (kiṇ)', formNote: 'kiṇ + āpeti\n복수: kiṇāpenti' },
 
@@ -32,7 +32,7 @@ export const LESSON_22: StepWithoutId[] = [
   { type: 'quiz', question: '1. Mātā dhītaraṃ odanaṃ pāceti.', options: ['어머니는 딸에게 밥을 요리시킨다', '어머니는 딸과 밥을 요리한다', '딸은 어머니에게 밥을 요리한다', '어머니는 딸의 밥을 요리한다'], answer: 0, hint: 'pāceti = 요리시키다 (사역형)' },
   { type: 'quiz', question: '2. "bhojeti"의 의미는?', options: ['먹이다', '먹다', '먹어야 할', '먹은'], answer: 0, hint: 'bhuj → bhoj + eti (사역형)' },
   { type: 'quiz', question: '3. Rājā purise gehaṃ kāreti.', options: ['왕은 사람들에게 집을 짓게 한다', '왕은 사람들의 집을 짓는다', '사람들은 왕의 집을 짓는다', '왕은 사람들과 집을 짓는다'], answer: 0, hint: 'kāreti = 행하게 하다/짓게 하다' },
-  { type: 'quiz', question: '4. "dāpeti"는 어떤 동사의 사역형인가?', options: ['dādāti (주다)', 'dassati (보다)', 'dahati (태우다)', 'dhāvati (달리다)'], answer: 0, hint: 'dā(주다) → dāpeti(주게 하다)' },
+  { type: 'quiz', question: '4. "dāpeti"는 어떤 동사의 사역형인가?', options: ['dadāti (주다)', 'passati (보다)', 'dahati (태우다)', 'dhāvati (달리다)'], answer: 0, hint: 'dā(주다) → dāpeti(주게 하다)' },
   { type: 'quiz', question: '5. Ācariyo sissehi gītaṃ gāyāpeti.', options: ['스승은 제자들에게 노래를 부르게 시킨다', '스승은 제자들과 노래를 부른다', '제자들은 스승에게 노래를 부른다', '스승은 제자들의 노래를 듣는다'], answer: 0, hint: 'gāyāpeti = 부르게 시키다 (사역형)' },
   { type: 'quiz', question: '6. Upāsikā samaṇe bhojeti.', options: ['여신도는 사문들을 먹인다', '여신도는 사문들과 먹는다', '사문들은 여신도를 먹인다', '여신도는 사문들을 본다'], answer: 0, hint: 'bhojeti = 먹이다/공양하다' },
   { type: 'quiz', question: '7. "corāpeti"의 의미는?', options: ['훔치게 시키다', '훔치다', '훔친', '훔쳐야 할'], answer: 0, hint: 'cor + āpeti = 사역형' },

@@ -1,9 +1,9 @@
-// 24-26과: -u/-i/-ī 남성명사 + -u 여성명사
+// 24-26과: -i/-ī 남성명사 + -u 여성명사
 import type { StepWithoutId } from './types'
 
 export const LESSON_23: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '24-26과: -u/-i/-ī 남성명사 + -u 여성명사', subtitle: 'Puliṅga -i/-ī/-u + Itthiliṅga -u nāma', description: '-u 여성명사 (dhenu 기준)\n-i 남성명사 (aggi 기준)\n-ī 남성명사 (pakkhī 기준)\n\n3과 통합 학습', icon: '📚' },
+  { type: 'intro', title: '24-26과: -i/-ī 남성명사 + -u 여성명사', subtitle: 'Puliṅga -i/-ī + Itthiliṅga -u nāma', description: '-u 여성명사 (dhenu 기준)\n-i 남성명사 (aggi 기준)\n-ī 남성명사 (pakkhī 기준)\n\n3과 통합 학습', icon: '📚' },
 
   // === -u 여성명사 격변화 (dhenu) ===
   { type: 'teach-grammar', title: '-u 여성명사 격변화 (dhenu 소)', example: '주격: dhenu / dhenuyo\n목적격: dhenuṃ / dhenuyo\n도구격: dhenuyā / dhenūhi\n여격: dhenuyā / dhenūnaṃ\n탈격: dhenuyā / dhenūhi\n소유격: dhenuyā / dhenūnaṃ\n처소격: dhenuyā,dhenuyaṃ / dhenūsu\n호격: dhenu / dhenuyo', exampleKo: '단수: -uyā (구~처소격)\n복수: -uyo/-ūhi/-ūnaṃ/-ūsu', explanation: '-u 여성명사는 -i 여성명사(bhūmi)와 패턴 동일:\n• 단수 도구격~처소격 = -uyā\n• 복수 주격/목적격 = -uyo\n• 복수 도구격/탈격 = -ūhi\n• 복수 여격/소유격 = -ūnaṃ\n• 복수 처소격 = -ūsu' },
@@ -16,10 +16,10 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'teach', word: 'rajju', pronKo: '랏주', meaning: '밧줄', icon: '🪢', grammar: '-u 여성명사', formNote: '주격: rajju / rajjuyo' },
   { type: 'teach', word: 'dhātu', pronKo: '다-뚜', meaning: '요소, 계(界)', icon: '🔬', grammar: '-u 여성명사', formNote: '주격: dhātu / dhātuyo', buddhism: '18계(dhātu): 6근+6경+6식' },
   { type: 'teach', word: 'sassu', pronKo: '삿수', meaning: '시어머니', icon: '👵', grammar: '-u 여성명사', formNote: '주격: sassu / sassuyo' },
-  { type: 'teach', word: 'vadhū', pronKo: '와두-', meaning: '며느리', icon: '👰', grammar: '-u 여성명사', formNote: '주격: vadhū / vadhuyo' },
+  { type: 'teach', word: 'vadhū', pronKo: '와두-', meaning: '며느리', icon: '👰', grammar: '-ū 여성명사', formNote: '주격: vadhū / vadhuyo' },
 
   // === -i 남성명사 격변화 (aggi) ===
-  { type: 'teach-grammar', title: '-i 남성명사 격변화 (aggi 불)', example: '주격: aggi / aggī,aggiyo\n목적격: aggiṃ / aggī,aggiyo\n도구격: agginā / aggīhi\n여격: aggino,aggissa / aggīnaṃ\n탈격: agginā,aggimhā / aggīhi\n소유격: aggino,aggissa / aggīnaṃ\n처소격: aggimhi,aggismiṃ / aggīsu\n호격: aggi / aggī,aggiyo', exampleKo: '단수: -inā(도구격), -ino/-issa(여/소유)\n복수: -ī/-īhi/-īnaṃ/-īsu', explanation: '-i 남성명사 핵심:\n• 도구격 단수: -inā (narena와 대응)\n• 여격/소유격 단수: -ino 또는 -issa\n• 탈격: -inā 또는 -imhā\n• 처소격: -imhi 또는 -ismiṃ\n• 복수: -ī/-īhi/-īnaṃ/-īsu' },
+  { type: 'teach-grammar', title: '-i 남성명사 격변화 (aggi 불)', example: '주격: aggi / aggī,aggayo\n목적격: aggiṃ / aggī,aggayo\n도구격: agginā / aggīhi\n여격: aggino,aggissa / aggīnaṃ\n탈격: agginā,aggimhā / aggīhi\n소유격: aggino,aggissa / aggīnaṃ\n처소격: aggimhi,aggismiṃ / aggīsu\n호격: aggi / aggī,aggayo', exampleKo: '단수: -inā(도구격), -ino/-issa(여/소유)\n복수: -ī/-īhi/-īnaṃ/-īsu', explanation: '-i 남성명사 핵심:\n• 도구격 단수: -inā (narena와 대응)\n• 여격/소유격 단수: -ino 또는 -issa\n• 탈격: -inā 또는 -imhā\n• 처소격: -imhi 또는 -ismiṃ\n• 복수: -ī/-īhi/-īnaṃ/-īsu\n• 복수 주격/목적격/호격 이형: -ayo (aggayo)\n  (-iyo는 -i/-ī 여성명사 어미)' },
 
   // === -i 남성명사 단어 ===
   { type: 'teach', word: 'aggi', pronKo: '앗기', meaning: '불', icon: '🔥', grammar: '-i 남성명사', formNote: '주격: aggi / aggī' },
@@ -32,7 +32,7 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'teach', word: 'asi', pronKo: '아시', meaning: '칼', icon: '🗡️', grammar: '-i 남성명사', formNote: '주격: asi / asī' },
 
   // === -ī 남성명사 격변화 (pakkhī) ===
-  { type: 'teach-grammar', title: '-ī 남성명사 격변화 (pakkhī 새)', example: '주격: pakkhī / pakkhī,pakkhino\n목적격: pakkhiṃ,pakkhiṃaṃ / pakkhī,pakkhino\n도구격: pakkhinā / pakkhīhi\n여격: pakkhino,pakkhissa / pakkhīnaṃ\n탈격: pakkhinā,pakkhimhā / pakkhīhi\n소유격: pakkhino,pakkhissa / pakkhīnaṃ\n처소격: pakkhimhi,pakkhismiṃ / pakkhīsu\n호격: pakkhi / pakkhī,pakkhino', exampleKo: '-i 남성과 유사, 주격이 -ī(장음)', explanation: '-ī 남성명사는 -i 남성과 거의 동일:\n• 주격 단수: -ī (장음)\n• 나머지 격변화는 -i 남성과 같은 패턴\n\n주요 차이:\n• -i형: aggi (주격 -i 단음)\n• -ī형: pakkhī (주격 -ī 장음)' },
+  { type: 'teach-grammar', title: '-ī 남성명사 격변화 (pakkhī 새)', example: '주격: pakkhī / pakkhī,pakkhino\n목적격: pakkhiṃ,pakkhinaṃ / pakkhī,pakkhino\n도구격: pakkhinā / pakkhīhi\n여격: pakkhino,pakkhissa / pakkhīnaṃ\n탈격: pakkhinā,pakkhimhā / pakkhīhi\n소유격: pakkhino,pakkhissa / pakkhīnaṃ\n처소격: pakkhini,pakkhimhi,pakkhismiṃ / pakkhīsu\n호격: pakkhi / pakkhī,pakkhino', exampleKo: '-i 남성과 유사, 주격이 -ī(장음)', explanation: '-ī(-in) 남성명사는 -i 남성과 비슷하지만\n다음 형태가 다릅니다:\n• 주격 단수: -ī (장음)\n• 복수 주격/목적격/호격: -ino (pakkhino)\n• 목적격 단수 이형: -inaṃ (pakkhinaṃ)\n• 처소격 단수 이형: -ini (pakkhini)\n나머지는 -i 남성과 같은 패턴\n\n주요 차이:\n• -i형: aggi (주격 -i 단음)\n• -ī형: pakkhī (주격 -ī 장음)' },
 
   // === -ī 남성명사 단어 ===
   { type: 'teach', word: 'pakkhī', pronKo: '빡키-', meaning: '새', icon: '🐦', grammar: '-ī 남성명사', formNote: '주격: pakkhī / pakkhī,pakkhino' },

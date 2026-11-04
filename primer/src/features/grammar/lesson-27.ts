@@ -3,7 +3,7 @@ import type { StepWithoutId } from './types'
 
 export const LESSON_27: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '30과: -vantu/-mantu 소유 형용사', subtitle: '-vantu/-mantu Kitaka', description: '-vantu: "~을 가진" (guṇavantu = 덕을 가진)\n-mantu: "~을 가진" (satimantu = 마음챙김을 가진)\n\nBhagavā는 Bhagavantu의 주격!', icon: '👑' },
+  { type: 'intro', title: '30과: -vantu/-mantu 소유 형용사', subtitle: '-vantu/-mantu Taddhita', description: '-vantu: "~을 가진" (guṇavantu = 덕을 가진)\n-mantu: "~을 가진" (satimantu = 마음챙김을 가진)\n\nBhagavā는 Bhagavantu의 주격!', icon: '👑' },
 
   // === -vantu 남성 격변화 (guṇavantu) ===
   { type: 'teach-grammar', title: '-vantu 남성 격변화 (guṇavantu 유덕한)', example: '주격: guṇavā / guṇavanto,guṇavantā\n목적격: guṇavantaṃ / guṇavante\n도구격: guṇavatā,guṇavantena / guṇavantehi\n여격: guṇavato,guṇavantassa / guṇavataṃ,guṇavantānaṃ\n탈격: guṇavatā,guṇavantamhā / guṇavantehi\n소유격: guṇavato,guṇavantassa / guṇavataṃ,guṇavantānaṃ\n처소격: guṇavati,guṇavantamhi / guṇavantesu\n호격: guṇava,guṇavaṃ / guṇavanto,guṇavantā', exampleKo: '주격 단수: -vā (특이한 형태!)\n도구격 단수: -vatā/-vantena\n여/소유 단수: -vato/-vantassa', explanation: '-vantu 남성명사 핵심:\n• 주격 단수: -vā (어간 -vantu → -vā)\n• 주격 복수: -vanto/-vantā\n• 도구격 단수: -vatā 또는 -vantena\n• 여/소유격: -vato 또는 -vantassa\n• 처소격 단수: -vati 또는 -vantamhi\n\n-a 명사와 -nt 어간이 혼합된 패턴' },
@@ -26,7 +26,7 @@ export const LESSON_27: StepWithoutId[] = [
   { type: 'teach', word: 'himavantu', pronKo: '히마완뚜', meaning: '눈(雪)이 있는 → 히말라야', icon: '🏔️', grammar: '-vantu 형용사 → 고유명사', formNote: '남성 주격: himavā', buddhism: 'Himavā = 히말라야 산 (히마와-)' },
 
   // === -mantu 형용사 단어 ===
-  { type: 'teach-grammar', title: '-mantu 형용사 (-vantu와 동일 패턴)', example: '남성 주격: satimā (← satimantu)\n도구격: satimatā, satimantena\n여/소유격: satimato, satimantassa\n처소격: satimati, satimantamhi', exampleKo: '-mantu는 -vantu와 완전히 같은 변화', explanation: '-mantu = -vantu와 동일 패턴:\n• v → m 만 다름\n• 주격 -mā, 도구격 -matā/-mantena\n• 여성: -matī/-mantī\n\n-vantu: 주로 명사 + vantu\n-mantu: 주로 명사 + mantu' },
+  { type: 'teach-grammar', title: '-mantu 형용사 (-vantu와 동일 패턴)', example: '남성 주격: satimā (← satimantu)\n도구격: satimatā, satimantena\n여/소유격: satimato, satimantassa\n처소격: satimati, satimantamhi', exampleKo: '-mantu는 -vantu와 완전히 같은 변화', explanation: '-mantu = -vantu와 동일 패턴:\n• v → m 만 다름\n• 주격 -mā, 도구격 -matā/-mantena\n• 여성: -matī/-mantī\n\n어떤 접미사가 붙는지는 어간 끝 모음으로 갈립니다:\n• -a/-ā 어간 + vantu (guṇavantu, sīlavantu)\n• -i/-u 어간 + mantu (satimantu, buddhimantu,\n  cakkhumantu, bhānumantu)' },
 
   { type: 'teach', word: 'satimantu', pronKo: '사띠만뚜', meaning: '마음챙김이 있는', icon: '🧘', grammar: '-mantu 형용사', formNote: '남성 주격: satimā', buddhism: 'sati(마음챙김) = 사념처(四念處)의 핵심. satimā = 사띠마-' },
   { type: 'teach', word: 'cakkhumantu', pronKo: '짝쿠만뚜', meaning: '눈이 있는 → 통찰력 있는', icon: '👁️', grammar: '-mantu 형용사', formNote: '남성 주격: cakkhumā', buddhism: '붓다의 별칭으로 사용. cakkhumā = 짝쿠마-' },
@@ -46,7 +46,7 @@ export const LESSON_27: StepWithoutId[] = [
   { type: 'quiz', question: '10. Balavā puriso ariṃ parājeti.', options: ['힘센 사람은 적을 패배시킨다', '힘센 사람들은 적을 패배시킨다', '사람은 힘세게 적을 이긴다', '힘센 사람은 적에게 진다'], answer: 0, hint: 'balavā = balavantu 주격, parājeti = 패배시키다' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Evaṃ me sutaṃ:\nekaṃ samayaṃ Bhagavā\nSāvatthiyaṃ viharati\nJetavane Anāthapiṇḍikassa ārāme.', pronKo: '에-왕 메- 수땅\n에-깡 사마양 바가와-\n사-왓티양 위하라띠\n제-따와네- 아나-타삔디깟사 아-라-메-', translation: '이와 같이 나는 들었다:\n한때 세존께서\n사왓티의\n제따 숲 아나타핀디카의 동산에 머무셨다.', highlight: ['Bhagavā', 'Bhagavatā'], note: '경전 첫 정형구. Bhagavā = Bhagavantu의 주격 단수. 거의 모든 경이 이 문장으로 시작' },
+  { type: 'verse', pali: 'Evaṃ me sutaṃ:\nekaṃ samayaṃ Bhagavā\nSāvatthiyaṃ viharati\nJetavane Anāthapiṇḍikassa ārāme.', pronKo: '에-왕 메- 수땅\n에-깡 사마양 바가와-\n사-왓티양 위하라띠\n제-따와네- 아나-타삔디깟사 아-라-메-', translation: '이와 같이 나는 들었다:\n한때 세존께서\n사왓티의\n제따 숲 아나타핀디카의 동산에 머무셨다.', highlight: ['Bhagavā'], note: '경전 첫 정형구. Bhagavā = Bhagavantu의 주격 단수. 거의 모든 경이 이 문장으로 시작' },
 
   { type: 'verse', pali: 'Bhagavatā desitaṃ dhammaṃ\ndhāremi.', pronKo: '바가와따- 데-시땅 담망\n다-레-미', translation: '세존에 의해 설해진 법을\n나는 수지한다.', highlight: ['Bhagavatā', 'desitaṃ'], note: 'Bhagavatā = 도구격(~에 의해). desitaṃ = 과거분사(설해진). 수동 구문의 전형' },
 

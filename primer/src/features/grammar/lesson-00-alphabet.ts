@@ -23,7 +23,8 @@ export const LESSON_00: StepWithoutId[] = [
     explanation:
       '• 단모음 a, i, u — 짧게 발음\n' +
       '• 장모음 ā, ī, ū — 단모음의 약 2배 길이\n' +
-      '• 이중모음 e, o — 길게 (뒤에 이중자음이 오면 짧게)\n\n' +
+      '• 이중모음 e, o — 길게 (뒤에 이중자음이 오면 짧게)\n' +
+      '  ※ 역사적으로 ai/au에서 온 "이중모음"이지만, 빠알리에서 발음은 단일 모음(에-, 오-)입니다.\n\n' +
       '⚠️ 장모음 위의 가로줄(macron)이 길이 표시입니다.\n' +
       '예) a(아) vs ā(아-), i(이) vs ī(이-)',
   },
@@ -60,7 +61,7 @@ export const LESSON_00: StepWithoutId[] = [
     icon: '✨',
     audio: true,
     grammar: '이중모음 e, 단자음 v',
-    formNote: 'de(데) + va(와)\n단자음 뒤 모음 e는 길게 발음',
+    formNote: 'de(데-) + va(와)\ne는 단자음 v 앞이라 길게 발음\n(e·o는 본래 길고, 이중자음 앞에서만 짧음)',
   },
 
   // ── 자음 (33개) — 후음 ──
@@ -72,7 +73,8 @@ export const LESSON_00: StepWithoutId[] = [
       '후음:  ka(까)   kha(카)   ga(가)   gha(그하)  ṅa(응아)',
     exampleKo: '5행 × 5열 자음표의 첫 번째 행',
     explanation:
-      '목구멍(후두)에서 나는 소리\n\n' +
+      '목구멍에서 나는 소리 (전통 명칭 kaṇṭhaja)\n' +
+      '※ 실제 조음 위치는 혀 뒷부분과 여린입천장(연구개)입니다.\n\n' +
       '• ka(까) — 한국어 "가"의 된소리\n' +
       '• kha(카) — 거센소리 (기식 있음)\n' +
       '• ga(가) — 한국어 "가"\n' +
@@ -159,12 +161,14 @@ export const LESSON_00: StepWithoutId[] = [
       '반모음:  ya(야)  ra(라)  la(라)  va(와)\n' +
       '치찰음:  sa(싸)\n' +
       '기  음:  ha(하)\n' +
-      '억제음:  ṃ (아누스와라, ㅁ/응)',
-    exampleKo: '반모음 4 + 치찰음 1 + 기음 1 + 억제음 1 = 기타 7',
+      '억제음:  ṃ (아누스와라, ㅁ/응)\n' +
+      '설측음:  ḷa(ㄹ라)',
+    exampleKo: '반모음 4 + 치찰음 1 + 기음 1 + 억제음 1 + ḷa 1 = 기타 8',
     explanation:
       '반모음: 모음처럼 부드럽게 나는 자음\n' +
-      '• ya(야), ra(라), la/ḷa(라), va(와)\n\n' +
-      '치찰음: sa(싸) — 치아 사이 마찰음\n' +
+      '• ya(야), ra(라), la(라), va(와)\n\n' +
+      'ḷa(ㄹ라): 혀를 말아서 내는 la (반설음 l)\n\n' +
+      '치찰음: sa(싸) — 혀끝을 윗니 뒤에 가까이 대고 내는 마찰음\n' +
       '기음: ha(하) — 목에서 나는 숨소리\n' +
       '억제음: ṃ (Anusvāra) — 비음으로 끝맺음\n\n' +
       'ṃ은 단어 끝에 자주 등장합니다:\n' +
@@ -184,8 +188,8 @@ export const LESSON_00: StepWithoutId[] = [
       '순  음: pa(빠)   pha(파)   ba(바)   bha(브하)  ma(마)\n' +
       '─────────────────────────\n' +
       '반모음: ya  ra  la  va\n' +
-      '치찰음: sa | 기음: ha | 억제음: ṃ',
-    exampleKo: '25(5×5) + 반모음4 + 치찰음1 + 기음1 + 억제음1 + la = 33',
+      '치찰음: sa | 기음: ha | 억제음: ṃ | ḷa',
+    exampleKo: '25(5×5) + 반모음4 + 치찰음1 + 기음1 + 억제음1 + ḷa1 = 33',
     explanation:
       '각 행(후음~순음)은 발음 위치가 같고,\n' +
       '각 열(무성무기~비음)은 발음 방법이 같습니다.\n\n' +
@@ -201,17 +205,19 @@ export const LESSON_00: StepWithoutId[] = [
     example:
       '이중자음 앞 → 짧게:  mettā(멧따-), khetta(켓따)\n' +
       '                     koṭṭha(콧타), sotthi(솟티)\n\n' +
-      '단자음 뒤 → 길게:   deva(데-와), senā(세-나-)\n' +
+      'e·o + 단자음 → 길게: deva(데-와), senā(세-나-)\n' +
       '                     loka(로-까), odana(오-다나)',
-    exampleKo: '복자음(이중자음) 앞: 짧게 / 단자음 뒤: 길게',
+    exampleKo: 'e·o는 기본적으로 길게(단자음 앞) / 이중자음 앞에서는 짧게',
     explanation:
       '이 규칙을 알면 경전 발음이 정확해집니다:\n\n' +
       '1. 이중자음(tt, kk, ss 등) 앞 모음 → 짧게\n' +
       '   예) mettā, khetta, koṭṭha, sotthi\n\n' +
-      '2. 단자음 뒤 모음 → 길게\n' +
-      '   예) deva, senā, loka, odana\n\n' +
-      '3. ā, ī, ū는 항상 길게 발음\n' +
-      '4. e, o는 길게, 이중자음 앞에서는 짧게\n   예) deva 데-와 / mettā 멧따-',
+      '2. e, o는 본래 장모음 → 단자음 앞에서는 길게\n' +
+      '   예) deva, senā, loka, odana\n' +
+      '   (deva의 -va, loka의 -ka에 있는 a는 그대로 짧음)\n\n' +
+      '3. a, i, u는 자음 수와 상관없이 늘 짧게\n' +
+      '4. ā, ī, ū는 항상 길게 발음\n' +
+      '   예) deva 데-와 / mettā 멧따-',
   },
 
   // ── 8격(八格) 개요 ──
@@ -287,11 +293,12 @@ export const LESSON_00: StepWithoutId[] = [
       '그 세존, 아라한, 정등각에게 귀의합니다.',
     highlight: ['Namo', 'bhagavato', 'arahato', 'sammāsambuddhassa'],
     note:
-      '삼귀의 시작 구절. 모든 경전 낭송 전에 3번 읊습니다.\n' +
-      '• Namo — 귀의 (목적격/감탄)\n' +
-      '• tassa — "그"의 여격/소유격\n' +
-      '• bhagavato — 세존의 (소유격)\n' +
-      '• sammāsambuddhassa — 정등각의 (소유격)\n' +
+      '예경문(vandanā). 삼귀의 앞에 3번 읊습니다.\n' +
+      '• Namo — 귀의, 예경 (불변화사처럼 쓰임; 대상은 여격)\n' +
+      '• tassa — "그분께" (여격; 형태는 소유격과 동일)\n' +
+      '• bhagavato — 세존께 (여격; 형태는 소유격과 동일)\n' +
+      '• arahato — 아라한께 (여격; 형태는 소유격과 동일)\n' +
+      '• sammāsambuddhassa — 정등각께 (여격; 형태는 소유격과 동일)\n' +
       '• 이중자음 mm, ddh 앞 모음은 짧게!',
   },
 
@@ -314,23 +321,23 @@ export const LESSON_00: StepWithoutId[] = [
     question: '이중모음에 해당하는 것은?',
     options: ['a, i', 'ā, ī', 'e, o', 'u, ū'],
     answer: 2,
-    hint: '중간 정도 길이로 발음하는 모음 2개',
+    hint: '기본은 길게, 이중자음 앞에서 짧게 발음하는 모음 2개',
   },
 
   // ── 퀴즈: 발음규칙 ──
   {
     type: 'quiz',
     question: '"mettā"에서 e는 길게? 짧게?',
-    options: ['길게 (단자음 뒤)', '짧게 (이중자음 tt 앞)'],
+    options: ['길게 (e는 본래 장모음)', '짧게 (이중자음 tt 앞)'],
     answer: 1,
     hint: '이중자음 앞 모음 → 짧게',
   },
   {
     type: 'quiz',
     question: '"deva"에서 e는 길게? 짧게?',
-    options: ['길게 (단자음 v 뒤)', '짧게 (이중자음 앞)'],
+    options: ['길게 (단자음 v 앞)', '짧게 (이중자음 앞)'],
     answer: 0,
-    hint: '단자음 뒤 모음 → 길게',
+    hint: 'e, o는 본래 길고, 이중자음 앞에서만 짧게',
   },
   {
     type: 'quiz',
@@ -387,11 +394,11 @@ export const LESSON_00: StepWithoutId[] = [
   },
   {
     type: 'writing',
-    instruction: '삼귀의 첫 단어를 써보세요',
+    instruction: '예경문 첫 단어를 써보세요',
     meaning: '귀의합니다',
     pronKo: '나모-',
     answer: 'Namo',
-    hint: '경전 시작 전 3번 읊는 구절의 첫 단어',
+    hint: '삼귀의 앞에 3번 읊는 예경문(vandanā)의 첫 단어',
   },
 
   // ── 읽기 ──

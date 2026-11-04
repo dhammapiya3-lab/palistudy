@@ -32,11 +32,11 @@ export const LESSON_29: StepWithoutId[] = [
   // === 예문 12개 (교재 32과 + quiz 변환) ===
   { type: 'quiz', question: '1. Yo atthaññū hoti so paṇḍito.', options: ['이치를 아는 자, 그가 현자이다', '현자는 이치를 안다', '그는 이치를 아는 현자이다', '현자가 되고자 하는 자는 이치를 안다'], answer: 0, hint: 'yo…so = …하는 그 자는, atthaññū = 이치를 아는' },
   { type: 'quiz', question: '2. Yaṃ ahaṃ ākaṅkhamāno āsiṃ taṃ me paripūraṃ ahosi.', options: ['내가 소망하고 있었던 것, 그것이 나에게 성취되었다', '나는 소망한 것을 모두 가졌다', '그것을 내가 소망했으므로 성취되었다', '성취된 것이 나의 소망이었다'], answer: 0, hint: 'yaṃ…taṃ = …하는 것, 그것은, ākaṅkhamāno = 소망하면서' },
-  { type: 'quiz', question: '3. Yena maggena āgato tena maggena gaccha.', options: ['어떤 길로 왔든, 그 길로 가라', '그 길로 가서 다시 오라', '길을 따라 오고 가라', '왔던 그 길은 가는 길이 아니다'], answer: 0, hint: 'yena…tena = 어떤~으로…그~으로, maggena = 길로' },
+  { type: 'quiz', question: '3. Yena maggena āgato tena maggena gaccha.', options: ['(네가) 왔던 그 길로 (돌아)가라', '그 길로 가서 다시 오라', '길을 따라 오고 가라', '왔던 그 길은 가는 길이 아니다'], answer: 0, hint: 'yena…tena = (관계) …한 그~으로, maggena = 길로' },
   { type: 'quiz', question: '4. Ko taṃ jānāti?', options: ['누가 그것을 아는가?', '그것을 어떻게 아는가?', '무엇을 아는가?', '그는 누구를 아는가?'], answer: 0, hint: 'ko = 누가, taṃ = 그것을, jānāti = 안다' },
-  { type: 'quiz', question: '5. Kiṃ tvaṃ icchasi?', options: ['너는 ~이다 무엇을 원하느냐?', '누가 너를 원하느냐?', '너는 ~이다 왜 원하느냐?', '무엇이 너를 원하느냐?'], answer: 0, hint: 'kiṃ = 무엇을, tvaṃ = 너, icchasi = 원하다' },
+  { type: 'quiz', question: '5. Kiṃ tvaṃ icchasi?', options: ['너는 무엇을 원하느냐?', '누가 너를 원하느냐?', '너는 왜 원하느냐?', '무엇이 너를 원하느냐?'], answer: 0, hint: 'kiṃ = 무엇을, tvaṃ = 너, icchasi = 원하다' },
   { type: 'quiz', question: '6. Yattha Bhagavā viharati tattha gacchāmi.', options: ['세존 계신 곳에 나는 간다', '나는 세존과 함께 머문다', '세존이 가시는 곳에 나도 머문다', '거기서 세존이 머무신다'], answer: 0, hint: 'yattha…tattha = 어디에…거기에' },
-  { type: 'quiz', question: '7. Koci puriso āgacchati.', options: ['어떤 사람이든 온다', '누가 오는가?', '그 사람이 온다', '사람들이 온다'], answer: 0, hint: 'koci = 어떤, ko+ci = 부정대명사' },
+  { type: 'quiz', question: '7. Koci puriso āgacchati.', options: ['어떤 사람이 온다 (누군가가 온다)', '누가 오는가?', '그 사람이 온다', '사람들이 온다'], answer: 0, hint: 'koci = 어떤 (누군가), ko+ci = 부정대명사' },
   { type: 'quiz', question: '8. Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha.', options: ['세존께서 법을 가르치시는 대로 그렇게 실천하라', '세존의 법을 가르치고 처신하라', '법대로 세존께 나아가라', '그렇게 법을 설하시는 세존이시다'], answer: 0, hint: 'yathā…tathā = …하는 대로…그렇게' },
   { type: 'quiz', question: '9. Yasmā so dhammaṃ jānāti tasmā paṇḍito.', options: ['그가 법을 알기 때문에 현자이다', '현자이므로 법을 안다', '법을 알면 현자가 될 것이다', '현자는 왜 법을 아는가'], answer: 0, hint: 'yasmā…tasmā = …때문에…그러므로' },
   { type: 'quiz', question: '10. Yadā so āgacchati tadā mayaṃ pūjessāma.', options: ['그가 올 때 우리는 공양할 것이다', '우리가 공양할 때 그가 올 것이다', '그가 왔으므로 우리는 공양했다', '언제 그가 오는가 우리가 공양하려 한다'], answer: 0, hint: 'yadā…tadā = …할 때…그때' },
@@ -44,7 +44,7 @@ export const LESSON_29: StepWithoutId[] = [
   { type: 'quiz', question: '12. Kuto āgato asi?', options: ['어디서 왔느냐?', '왜 왔느냐?', '언제 왔느냐?', '누구와 왔느냐?'], answer: 0, hint: 'kuto = 어디로부터, āgato = 온, asi = 너는 ~이다(2인칭)' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Yathā Bhagavā dhammaṃ deseti,\ntathā tumhehi paṭipajjitabbaṃ.', pronKo: '야타- 바가와- 담망 데-세-띠,\n따타- 뚬헤-히 빠띠빳지땁방.', translation: '세존께서 법을 가르치신 대로\n그처럼 당신들은 실천해야 한다.', highlight: ['Yathā', 'tathā', 'tumhehi'], note: 'yathā…tathā = …하는 대로…그렇게\ntumhehi = 너희에 의해 (도구격, 수동문)\npaṭipajjitabbaṃ = 실천되어야 할 것 (미래수동분사)' },
+  { type: 'verse', pali: 'Yathā Bhagavā dhammaṃ deseti,\ntathā tumhehi paṭipajjitabbaṃ.', pronKo: '야타- 바가와- 담망 데-세-띠,\n따타- 뚬헤-히 빠띠빳지땁방.', translation: '세존께서 법을 가르치신 대로\n그처럼 당신들은 실천해야 한다.', highlight: ['Yathā', 'tathā', 'tumhehi'], note: 'yathā…tathā = …하는 대로…그렇게\ntumhehi = 너희에 의해 (도구격, 수동문)\npaṭipajjitabbaṃ = 실천되어야 할 것 (미래수동분사(의무분사))' },
 
   // === 마무리 ===
   { type: 'speak', pali: 'Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha', pronKo: '야타- 바가와- 담망 데-세-띠 따타- 빠띠빳자타' },

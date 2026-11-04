@@ -347,6 +347,11 @@ if __name__ == '__main__':
             v = sum(1 for s in result[k] if s['type'] == 'verse')
             print(f'{k:14} 단계 {len(result[k]):4}  단어 {c:4}  게송 {v:3}  새 단어(풀이 없음) {sum(1 for x in log if x[0]==k):3}')
     elif mode == 'write':
+        # 2026-11-05 문법 검수 반영 이후로는 lesson-data-*.ts 파일을 직접 고쳐 관리한다.
+        # 이 스크립트로 다시 쓰면 검수 반영 내용이 사라지므로 --force 없이는 쓰지 않는다.
+        if '--force' not in sys.argv:
+            print('검수 반영 이후 수업 파일은 직접 관리합니다. 덮어쓰려면 --force 를 붙이세요.')
+            sys.exit(1)
         if log:
             print('풀이가 없는 단어가 있어 쓰지 않음:', len(log))
             sys.exit(1)

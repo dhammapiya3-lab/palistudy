@@ -2,21 +2,21 @@
 // 어간별 미래형 활용 + 불규칙 미래형
 import type { StepWithoutId } from './types'
 
-const V_FUTURE = 'Buddho lokaṃ vicessati.'
-const V_FUTURE_K = '붓다께서 세상을 알게 될 것이다.'
+const V_FUTURE = 'Sekho pathaviṃ vicessati.'
+const V_FUTURE_K = '유학(有學)이 땅을 간파할 것이다.'
 
 export const LESSON_13: StepWithoutId[] = [
   // === 도입 ===
   { type: 'intro', title: '14과: 미래형', subtitle: 'Anāgatakāla (Future Tense)', description: '동사 미래형: 어간 + -(i)ssa + 현재어미\n\n• -a어간: pac + issa + ti = pacissati\n• -e어간: cor + essa + ti = coressati\n• -nā어간: kiṇ + issa + ti = kiṇissati\n\n불규칙: gacchati→gamissati 등', icon: '🔮' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_FUTURE, pronKo: '붓도- 로-깡 위쩻사띠', translation: V_FUTURE_K, highlight: ['vicessati'], note: 'vicessati = vijānāti(알다)의 미래형\nvi + ñā → vicessa + ti\n"알게 될 것이다"' },
+  { type: 'verse', pali: V_FUTURE, pronKo: '세-코- 빠타윙 위쩻사띠', translation: V_FUTURE_K, highlight: ['vicessati'], note: '법구경 45게 (Dhp 45)\nvicessati = vi + ci(살피다, 간택하다) + ssa + ti\n= vicinissati (vicinati의 미래형)\n"간파할 것이다, 가려낼 것이다"\nsekho = 유학(有學), pathaviṃ = 땅을' },
 
   // === 미래형 문법: -a어간 ===
   { type: 'teach-grammar', title: '미래형 활용 — -a어간 (pacati)', example: '3인칭: pacissati / pacissanti\n2인칭: pacissasi / pacissatha\n1인칭: pacissāmi / pacissāma', exampleKo: '단수 / 복수', explanation: '미래형 공식: 어근 + issa + 현재어미\n\npac(요리하다) + issa:\n• pacissati = 그는 요리할 것이다\n• pacissanti = 그들은 요리할 것이다\n• pacissasi = 너는 요리할 것이다\n• pacissatha = 너희는 요리할 것이다\n• pacissāmi = 나는 요리할 것이다\n• pacissāma = 우리는 요리할 것이다\n\n"-ssa-"가 미래의 표지입니다.' },
 
   // === 미래형 문법: -e어간 ===
-  { type: 'teach-grammar', title: '미래형 활용 — -e어간 (coreti)', example: '3인칭: coressati / coressanti\n2인칭: coressasi / coressatha\n1인칭: coressāmi / coressāma', exampleKo: '단수 / 복수', explanation: '-e어간 동사의 미래형:\n어근 + essa + 현재어미\n\ncor(훔치다) → coreti(현재)\ncor + essa + ti = coressati(미래)\n\n다른 예:\n• deseti(설하다) → desessati\n• pūjeti(공양하다) → pūjessati\n• rakkheti(보호하다) → rakhessati' },
+  { type: 'teach-grammar', title: '미래형 활용 — -e어간 (coreti)', example: '3인칭: coressati / coressanti\n2인칭: coressasi / coressatha\n1인칭: coressāmi / coressāma', exampleKo: '단수 / 복수', explanation: '-e어간 동사의 미래형:\n어근 + essa + 현재어미\n\ncor(훔치다) → coreti(현재)\ncor + essa + ti = coressati(미래)\n\n다른 예:\n• deseti(설하다) → desessati\n• pūjeti(공양하다) → pūjessati\n• katheti(말하다) → kathessati' },
 
   // === 미래형 문법: -nā어간 ===
   { type: 'teach-grammar', title: '미래형 활용 — -nā어간 (kiṇāti)', example: '3인칭: kiṇissati / kiṇissanti\n2인칭: kiṇissasi / kiṇissatha\n1인칭: kiṇissāmi / kiṇissāma', exampleKo: '단수 / 복수', explanation: '-nā어간 동사의 미래형:\n-nā를 버리고 어근 + issa + 어미\n\nkiṇāti(사다) → kiṇ + issa = kiṇissati\njānāti(알다) → jānissati\nsuṇāti(듣다) → suṇissati (또는 sossati)' },

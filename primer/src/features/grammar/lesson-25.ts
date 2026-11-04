@@ -6,7 +6,7 @@ export const LESSON_25: StepWithoutId[] = [
   { type: 'intro', title: '28과: -u/-ar 남성 + 친족명사', subtitle: 'Puliṅga -u/-ar nāma + ñātināma', description: 'satthu/satthar(스승) 격변화\npitu/pitar(아버지) 격변화\nbhātu/bhātar(형제) 격변화\nmātu/mātar(어머니) 여성 격변화\ndhītu(딸) 격변화', icon: '👨‍👩‍👧‍👦' },
 
   // === satthu/satthar 격변화표 ===
-  { type: 'teach-grammar', title: '-u/-ar 남성명사 격변화 (satthu 스승)', example: '주격: satthā / satthāro\n목적격: satthāraṃ / satthāro,satthāre\n도구격: satthārā / satthārehi\n여격: satthu,satthuno,satthassa / satthārānaṃ,satthānaṃ\n탈격: satthārā / satthārehi\n소유격: satthu,satthuno,satthassa / satthārānaṃ,satthānaṃ\n처소격: satthari / satthāresu\n호격: sattha / satthāro', exampleKo: '단수: satthā(주)/satthāraṃ(목)/satthārā(구·탈)\n복수: satthāro(주·목)/satthārehi(구·탈)', explanation: '-u/-ar 명사 핵심:\n• 주격 단수: -ā (장음화)\n• 목적격: -āraṃ\n• 도구격/탈격: -ārā\n• 여격/소유격: -u/-uno/-assa\n• 처소격: -ari\n• 복수: -āro/-āre/-ārehi/-ānaṃ/-āresu' },
+  { type: 'teach-grammar', title: '-u/-ar 남성명사 격변화 (satthu 스승)', example: '주격: satthā / satthāro\n목적격: satthāraṃ / satthāro,satthāre\n도구격: satthārā / satthārehi\n여격: satthu,satthuno,satthussa / satthārānaṃ,satthānaṃ\n탈격: satthārā / satthārehi\n소유격: satthu,satthuno,satthussa / satthārānaṃ,satthānaṃ\n처소격: satthari / satthāresu\n호격: sattha / satthāro', exampleKo: '단수: satthā(주)/satthāraṃ(목)/satthārā(구·탈)\n복수: satthāro(주·목)/satthārehi(구·탈)', explanation: '-u/-ar 명사 핵심:\n• 주격 단수: -ā (장음화)\n• 목적격: -āraṃ\n• 도구격/탈격: -ārā\n• 여격/소유격: -u/-uno/-ussa\n• 처소격: -ari\n• 복수: -āro/-āre/-ārehi/-ānaṃ/-āresu' },
 
   // === -u/-ar 명사 단어 ===
   { type: 'teach', word: 'satthu', pronKo: '삿투', meaning: '스승', icon: '🧑‍🏫', grammar: '-u/-ar 남성명사', baseForm: 'satthar', formNote: '주격: satthā / satthāro', buddhism: '붓다를 가리키는 칭호로 자주 사용' },

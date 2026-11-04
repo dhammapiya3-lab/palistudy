@@ -19,7 +19,7 @@ export const LESSON_02: StepWithoutId[] = [
 
   // === 명사 14개 (교재 전체) ===
   { type: 'teach', word: 'dhammaṃ', pronKo: '담망', meaning: '법을 (목적격 단수)', icon: '☸️', grammar: '남성명사 · 목적격 단수', baseForm: 'dhamma (법, 진리, 가르침)', formNote: 'dhamma + ṃ → dhammaṃ', buddhism: '"Tathāgato dhammaṃ bhāsati" — 경전 핵심 목적격 용례', verseLine: V_DHAMMA, verseLineKo: V_DHAMMA_K },
-  { type: 'teach', word: 'bhattaṃ', pronKo: '밧땅', meaning: '쌀을 (목적격 단수)', icon: '🍚', grammar: '남성명사 · 목적격 단수', baseForm: 'bhatta (쌀)', formNote: 'bhatta + ṃ → bhattaṃ' },
+  { type: 'teach', word: 'bhattaṃ', pronKo: '밧땅', meaning: '밥을, 음식을 (목적격 단수)', icon: '🍚', grammar: '중성명사 · 목적격 단수', baseForm: 'bhatta (밥, 끼니, 음식)', formNote: 'bhatta + ṃ → bhattaṃ\n※ 사전상 중성. 목적격 단수는 남성과 형태가 같음\n(날쌀은 taṇḍula)' },
   { type: 'teach', word: 'odanaṃ', pronKo: '오-다낭', meaning: '밥을 (목적격 단수)', icon: '🍚', grammar: '남성명사 · 목적격 단수', baseForm: 'odana (밥)', formNote: 'odana + ṃ → odanaṃ' },
   { type: 'teach', word: 'gāmaṃ', pronKo: '가-망', meaning: '마을로 (목적격 단수)', icon: '🏘️', grammar: '남성명사 · 목적격 단수', baseForm: 'gāma (마을)', formNote: 'gāma + ṃ → gāmaṃ (방향: 마을로)' },
   { type: 'teach', word: 'suriyaṃ', pronKo: '수리양', meaning: '태양을 (목적격 단수)', icon: '☀️', grammar: '남성명사 · 목적격 단수', baseForm: 'suriya (태양)', formNote: 'suriya + ṃ → suriyaṃ' },
@@ -58,7 +58,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'quiz', question: '2. Brāhmaṇā odanaṃ bhuñjanti.', options: ['바라문은 밥을 먹는다', '바라문들은 쌀을 요리한다', '바라문들은 밥을 먹는다', '사람들은 밥을 먹는다'], answer: 2, hint: 'Brāhmaṇā=바라문들은(복수), odanaṃ=밥을' },
   { type: 'quiz', question: '3. Manusso suriyaṃ passati.', options: ['사람들은 태양을 본다', '사람은 달을 본다', '사람은 태양을 본다', '사람은 태양으로 간다'], answer: 2, hint: 'Manusso=사람은(단수), suriyaṃ=태양을' },
   { type: 'quiz', question: '4. Kumārā sigāle paharanti.', options: ['소년은 재칼을 때린다', '소년들은 재칼들을 때린다', '소년들은 개들을 때린다', '왕들은 재칼들을 때린다'], answer: 1, hint: 'Kumārā=소년들은, sigāle=재칼들을(목적격 복수)' },
-  { type: 'quiz', question: '5. Yācakā bhattaṃ yācanti.', options: ['거지는 쌀을 구걸한다', '거지들은 밥을 먹는다', '거지들은 쌀을 구걸한다', '거지들은 밥을 요리한다'], answer: 2, hint: 'Yācakā=거지들은, bhattaṃ=쌀을, yācanti=구걸하다(복수)' },
+  { type: 'quiz', question: '5. Yācakā bhattaṃ yācanti.', options: ['거지는 밥을 구걸한다', '거지들은 밥을 먹는다', '거지들은 밥을 구걸한다', '거지들은 밥을 요리한다'], answer: 2, hint: 'Yācakā=거지들은, bhattaṃ=밥을, yācanti=구걸하다(복수)' },
   { type: 'quiz', question: '6. Kassakā āvāṭe khaṇanti.', options: ['농부는 구덩이를 판다', '농부들은 산을 오른다', '농부들은 구덩이들을 판다', '농부들은 나무를 자른다'], answer: 2, hint: 'āvāṭe=구덩이들을(목적격 복수), khaṇanti=파다' },
   { type: 'quiz', question: '7. Mitto gāmaṃ āgacchati.', options: ['친구는 마을로 간다', '친구는 마을로 온다', '친구들은 마을로 온다', '친구는 산으로 간다'], answer: 1, hint: 'Mitto=친구는(단수), gāmaṃ=마을로, āgacchati=오다' },
   { type: 'quiz', question: '8. Bhūpālo manusse rakkhati.', options: ['왕은 사람을 보호한다', '왕들은 사람들을 보호한다', '왕은 사람들을 보호한다', '사람들은 왕을 보호한다'], answer: 2, hint: 'Bhūpālo=왕은(단수), manusse=사람들을(목적격 복수)' },

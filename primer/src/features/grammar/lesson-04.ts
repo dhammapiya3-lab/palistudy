@@ -2,15 +2,15 @@
 // 경전: 중도 — 양극단으로부터 떠나다 (탈격 개념)
 import type { StepWithoutId } from './types'
 
-const V_MAJJHIMA = 'Pānātipātā veramaṇī sikkhāpadaṃ samādiyāmi.\nAdinnādānā veramaṇī sikkhāpadaṃ samādiyāmi.\nKāmesumicchācārā veramaṇī sikkhāpadaṃ samādiyāmi.'
+const V_MAJJHIMA = 'Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi.\nAdinnādānā veramaṇī sikkhāpadaṃ samādiyāmi.\nKāmesumicchācārā veramaṇī sikkhāpadaṃ samādiyāmi.'
 const V_MAJJHIMA_K = '살아있는 생명을 죽이는 것으로부터 떠나는 학습계를 받아 지닙니다.\n주지 않은 것을 가지는 것으로부터 떠나는 학습계를 받아 지닙니다.\n욕망에 있어 삿된 행위로부터 떠나는 학습계를 받아 지닙니다.'
 
 export const LESSON_04: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '4과: 남성명사 탈격 (Ablative)', subtitle: 'Pañcamī vibhatti (Ablative)', description: '탈격은 분리·출발·원인을 나타냅니다.\n~로부터, ~에게서, ~때문에\n\n경전: "pānātipātā veramaṇī"\n(살생으로부터 멀어짐)', icon: '🔙' },
+  { type: 'intro', title: '4과: 남성명사 탈격 (Ablative)', subtitle: 'Pañcamī vibhatti (Ablative)', description: '탈격은 분리·출발·원인을 나타냅니다.\n~로부터, ~에게서, ~때문에\n\n경전: "pāṇātipātā veramaṇī"\n(살생으로부터 멀어짐)', icon: '🔙' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_MAJJHIMA, pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미\n아딘나-다-나- 웨-라마니- 식카-빠당 사마-디야-미\n까-메-수밋차-짜-라- 웨-라마니- 식카-빠당 사마-디야-미', translation: V_MAJJHIMA_K, highlight: ['pānātipātā', 'adinnādānā', 'kāmesumicchācārā', 'veramaṇī'], note: 'pānātipātā = 살생(pāṇa+atipāta)으로부터(탈격)\nadinnādānā = 도둑질(adinna+ādāna)로부터(탈격)\nkāmesumicchācārā = 사음(kāma+micchācāra)로부터(탈격)\nveramaṇī = 멀어짐, 삼감\n※ 오계(Pañca Sīla) 중 처음 세 가지' },
+  { type: 'verse', pali: V_MAJJHIMA, pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미\n아딘나-다-나- 웨-라마니- 식카-빠당 사마-디야-미\n까-메-수밋차-짜-라- 웨-라마니- 식카-빠당 사마-디야-미', translation: V_MAJJHIMA_K, highlight: ['pāṇātipātā', 'adinnādānā', 'kāmesumicchācārā', 'veramaṇī'], note: 'pāṇātipātā = 살생(pāṇa+atipāta)으로부터(탈격)\nadinnādānā = 도둑질(adinna+ādāna)로부터(탈격)\nkāmesumicchācārā = kāmesu(욕망들에 대해, 처소격 복수) + micchācārā(삿된 행위로부터, 탈격)\n  ※ 앞부분의 처소격 어미가 그대로 남은 복합어(aluttasamāsa)\nveramaṇī = 멀어짐, 삼감\n※ 오계(Pañca Sīla) 중 처음 세 가지' },
 
   // === 탈격 문법 ===
   { type: 'teach-grammar', title: '탈격 (Ablative) — ~로부터/때문에/에게서', example: 'nara + mhā = naramhā (사람으로부터)\nnara + ehi = narehi (사람들로부터)', exampleKo: '단수: -ā / -mhā / -smā\n복수: -ehi / -ebhi', explanation: '탈격의 주요 의미:\n• 분리/출발: gāmamhā nikkhamati (마을로부터 떠나다)\n• 원인/이유: bhayā palāyati (두려움 때문에 도망치다)\n• 출처: naramhā yācati (사람에게서 구하다)\n\n-a 남성명사:\n• 단수: -ā (narā), -mhā (naramhā), -smā (narasmā)\n• 복수: -ehi/-ebhi (narehi)\n※ 도구격 복수와 탈격 복수 형태 동일!' },
@@ -44,8 +44,8 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'teach', word: 'nikkhamati', pronKo: '닉카마띠', meaning: '떠나다, 나오다', icon: '🚪', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nikkhamati', formNote: '복수: nikkhamanti\n예: vihārasmā nikkhamati (정사로부터 떠나다)' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-자꼬- 나랑하- 밧땅 야-자띠\n야-자까- 나레-히 밧땅 야-잔띠', translation: '거지는 사람에게서 쌀을 구한다.\n거지들은 사람들에게서 쌀을 구한다.', highlight: ['naramhā', 'narehi'] },
-  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또- 마-뚤랑하- 빤함 뿟차띠\n뿟따- 마-뚤레-히 빤헤- 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'] },
+  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-자꼬- 나랑하- 밧땅 야-자띠\n야-자까- 나레-히 밧땅 야-잔띠', translation: '거지는 사람에게서 밥을 구한다.\n거지들은 사람들에게서 밥을 구한다.', highlight: ['naramhā', 'narehi'] },
+  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또- 마-뚤랑하- 빤함 뿟차띠\n뿟따- 마-뚤레-히 빤헤- 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'], note: '※ pucchati는 보통 묻는 대상도 목적격으로 받는 이중 목적격(mātulaṃ pañhaṃ pucchati)을 씁니다. 여기서는 탈격 연습을 위한 교재 예문입니다.' },
   { type: 'verse', pali: 'Kassako rukkhasmā patati.\nKassakā rukkhehi patanti.', pronKo: '깟사꼬- 룩카스마- 빠따띠\n깟사까- 룩케-히 빠딴띠', translation: '농부는 나무에서 떨어진다.\n농부들은 나무들에서 떨어진다.', highlight: ['rukkhasmā', 'rukkhehi'] },
 
   // === 연습문제 4 (10문제) ===
@@ -61,5 +61,5 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'quiz', question: '10. Yācako kassakasmā soṇaṃ yācati.', options: ['거지는 농부에게 개를 준다', '거지는 농부에게서 개를 요청한다', '거지들은 농부에게서 개를 요청한다', '거지는 농부와 함께 개를 본다'], answer: 1, hint: 'kassakasmā=농부에게서(탈격), soṇaṃ=개를, yācati=구하다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Pānātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미' },
+  { type: 'speak', pali: 'Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미' },
 ]

@@ -19,7 +19,7 @@ export const LESSON_01: StepWithoutId[] = [
 
   // === 명사 13개 (교재 전체) ===
   { type: 'teach', word: 'Buddho', pronKo: '붓도-', meaning: '붓다는 (주격 단수)', icon: '🙏', grammar: '남성명사 · 주격 단수', baseForm: 'Buddha (붓다, 깨달은 자)', formNote: 'Buddha → Buddho (-a → -o)' },
-  { type: 'teach', word: 'Tathāgato', pronKo: '따타-가또-', meaning: '여래는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Tathāgata (여래)', formNote: 'Tathāgata → Tathāgato', buddhism: '"이와 같이 온 자" 또는 "이와 같이 간 자"', verseLine: V2, verseLineKo: V2K },
+  { type: 'teach', word: 'Tathāgato', pronKo: '따타-가또-', meaning: '여래는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Tathāgata (여래)', formNote: 'Tathāgata → Tathāgato', buddhism: '"이와 같이 온 자" 또는 "이와 같이 간 자"' },
   { type: 'teach', word: 'Sugato', pronKo: '수가또-', meaning: '선서는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Sugata (선서, 잘 가신 분)', formNote: 'Sugata → Sugato' },
   { type: 'teach', word: 'manusso', pronKo: '마눗소-', meaning: '사람은 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'manussa (사람, 인간)', formNote: 'manussa → manusso' },
   { type: 'teach', word: 'naro', pronKo: '나로-', meaning: '인간은, 남자는 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'nara / purisa (인간, 남자)', formNote: 'nara → naro / purisa → puriso' },

@@ -13,10 +13,10 @@ export const LESSON_15: StepWithoutId[] = [
   { type: 'verse', pali: V_IMP, pronKo: '짜라타 빅카웨- 짜-리깡 바후자나히따-야', translation: V_IMP_K, highlight: ['Caratha', 'bhikkhave'], note: 'caratha = carati(행하다)의 명령형 2인칭 복수\ncārikaṃ = 편력(遍歷)을\nbahujanahitāya = 많은 사람(bahujana)의 이익(hita)을 위해\n— 최초 전법 선언(Mv 1.11.1)' },
 
   // === 명령형 문법 ===
-  { type: 'teach-grammar', title: '명령형 활용 — pacati 기준', example: '3인칭: pacatu / pacantu\n2인칭: paca (pacāhi) / pacatha\n1인칭: pacāmi / pacāma', exampleKo: '단수 / 복수', explanation: '명령형 인칭별 어미:\n\n인칭 | 단수 | 복수\n3인칭 | -atu/-etu | -antu/-entu\n2인칭 | -a/-āhi | -atha\n1인칭 | -āmi | -āma\n\n인칭별 의미:\n• 3인칭 명령형 = ~하게 하라 / ~하기를! (기원)\n• 2인칭 단수 두 형태:\n  - paca = 짧은 형 (일상적)\n  - pacāhi = 긴 형 (강조/경전)\n• 1인칭 명령형 = "~합시다" (청유)' },
+  { type: 'teach-grammar', title: '명령형 활용 — pacati 기준', example: '3인칭: pacatu / pacantu\n2인칭: paca (pacāhi) / pacatha\n1인칭: pacāmi / pacāma', exampleKo: '단수 / 복수', explanation: '명령형 인칭별 어미:\n\n인칭 | 단수 | 복수\n3인칭 | -atu/-etu | -antu/-entu\n2인칭 | -a/-āhi | -atha\n1인칭 | -āmi | -āma\n\n인칭별 의미:\n• 3인칭 명령형 = ~하게 하라 / ~하기를! (기원)\n• 2인칭 단수 두 형태:\n  - paca = 짧은 형 (일상적)\n  - pacāhi = 긴 형 (뜻 차이 없는 이형)\n• 1인칭 명령형 = "~합시다" (청유)' },
 
   // === 금지형 ===
-  { type: 'teach-grammar', title: '금지형 — mā + 명령형', example: 'mā gaccha = 가지 마라\nmā gacchatha = 가지 마라 (복수)\nmā bhāyatha = 두려워하지 마라', exampleKo: 'mā + 동사 명령형 = ~하지 마라', explanation: '금지형 구성:\nmā + 명령형(또는 과거형)\n\n예문:\n• mā paca = 요리하지 마라\n• mā pacantu = 요리하지 마라 (3인칭)\n• mā gacchatha = 가지 마라 (너희)\n\n경전 용례:\n• mā bhāyatha = 두려워하지 마라\n• mā pamādaṃ anuyuñjetha\n  = 방일에 빠지지 마라\n\nmā는 동사 바로 앞에 위치합니다.' },
+  { type: 'teach-grammar', title: '금지형 — mā + 명령형', example: 'mā gaccha = 가지 마라\nmā gacchatha = 가지 마라 (복수)\nmā bhāyatha = 두려워하지 마라', exampleKo: 'mā + 동사 명령형 = ~하지 마라', explanation: '금지형 구성:\nmā + 명령형 (또는 원망형·과거형 aorist)\n\n예문:\n• mā paca = 요리하지 마라\n• mā pacantu = 그들이 요리하지 않게 하라 (3인칭 복수)\n• mā gacchatha = 가지 마라 (너희)\n\n경전 용례:\n• mā bhāyatha = 두려워하지 마라\n• mā pamādaṃ anuyuñjetha (Dhp 27)\n  = 방일에 빠지지 마라\n  ※ anuyuñjetha는 명령형이 아니라 원망형(-etha)입니다.\n  mā는 명령형·원망형·과거형(aorist)과 함께 금지를 나타냅니다.\n\nmā는 동사 바로 앞에 위치합니다.' },
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pacatu', pronKo: '빠짜뚜', meaning: '그가 요리하게 하라', icon: '🍳', grammar: '명령형 3인칭 단수', baseForm: 'pacati', formNote: '현재: pacati\n명령: pacatu (3인칭)\n복수: pacantu' },

@@ -14,7 +14,7 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'teach', word: 'aṭavi', pronKo: '아따위', meaning: '숲', icon: '🌲', grammar: '-i 여성명사', formNote: '주격: aṭavi / aṭaviyo' },
   { type: 'teach', word: 'ratti', pronKo: '랏띠', meaning: '밤', icon: '🌙', grammar: '-i 여성명사', formNote: '주격: ratti / rattiyo' },
   { type: 'teach', word: 'doṇi', pronKo: '도-니', meaning: '배(船)', icon: '⛵', grammar: '-i 여성명사', formNote: '주격: doṇi / doṇiyo' },
-  { type: 'teach', word: 'yuvati', pronKo: '유와띠', meaning: '하녀, 젊은 여자', icon: '👧', grammar: '-i 여성명사', formNote: '주격: yuvati / yuvatiyo' },
+  { type: 'teach', word: 'yuvati', pronKo: '유와띠', meaning: '젊은 여자, 처녀', icon: '👧', grammar: '-i 여성명사', formNote: '주격: yuvati / yuvatiyo' },
   { type: 'teach', word: 'yaṭṭhi', pronKo: '얏티', meaning: '지팡이', icon: '🦯', grammar: '-i 여성명사', formNote: '주격: yaṭṭhi / yaṭṭhiyo' },
   { type: 'teach', word: 'asani', pronKo: '아사니', meaning: '번개', icon: '⚡', grammar: '-i 여성명사', formNote: '주격: asani / asaniyo' },
   { type: 'teach', word: 'iddhi', pronKo: '잇디', meaning: '신통력', icon: '✨', grammar: '-i 여성명사', formNote: '주격: iddhi / iddhiyo', buddhism: 'iddhipāda = 신족(神足), 사여의족' },
@@ -49,7 +49,7 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'quiz', question: '5. Bhaginī bhikkhussa dānaṃ deti.', options: ['여동생은 비구에게 보시를 행한다', '여동생들은 비구에게 보시를 행한다', '여동생은 비구의 보시를 받는다', '자매는 비구와 보시를 행한다'], answer: 0, hint: 'bhaginī = 여동생(단수), bhikkhussa = 비구에게' },
   { type: 'quiz', question: '6. nadī의 복수 처소격은?', options: ['nadīsu', 'nadiyā', 'nadiyo', 'nadīhi'], answer: 0, hint: '-ī 여성명사 복수 처소격 = -īsu' },
   { type: 'quiz', question: '7. Devī Buddhaṃ vandati.', options: ['왕비는 붓다를 경배한다', '왕비들은 붓다를 경배한다', '여왕은 붓다에게 묻는다', '왕비는 붓다를 본다'], answer: 0, hint: 'devī = 왕비(단수), vandati = 경배하다' },
-  { type: 'quiz', question: '8. Yuvatiyo doṇiyā nadiṃ taranti.', options: ['하녀들은 배로 강을 건넌다', '하녀는 배로 강을 건넌다', '하녀들은 배에서 강을 본다', '하녀들은 배로 바다를 건넌다'], answer: 0, hint: 'doṇiyā = 배로(도구격), nadiṃ = 강을(목적격)' },
+  { type: 'quiz', question: '8. Yuvatiyo doṇiyā nadiṃ taranti.', options: ['젊은 여자들은 배로 강을 건넌다', '젊은 여자는 배로 강을 건넌다', '젊은 여자들은 배에서 강을 본다', '젊은 여자들은 배로 바다를 건넌다'], answer: 0, hint: 'doṇiyā = 배로(도구격), nadiṃ = 강을(목적격)' },
   { type: 'quiz', question: '9. Ācariyo iddhiṃ āroceti.', options: ['스승은 신통력을 알린다', '스승은 신통력을 본다', '스승들은 신통력을 알린다', '스승은 신통력을 행한다'], answer: 0, hint: 'iddhiṃ = 신통력을(목적격), āroceti = 알리다' },
   { type: 'quiz', question: '10. Taruṇī aṭaviyā pupphāni saṃharati.', options: ['젊은 여자는 숲에서 꽃들을 모은다', '젊은 여자들은 숲에서 꽃을 모은다', '젊은 여자는 숲으로 꽃들을 가져간다', '젊은 여자는 공원에서 꽃들을 모은다'], answer: 0, hint: 'aṭaviyā = 숲에서(처소격)' },
 

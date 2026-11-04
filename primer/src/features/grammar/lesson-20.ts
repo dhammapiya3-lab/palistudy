@@ -3,7 +3,7 @@ import type { StepWithoutId } from './types'
 
 export const LESSON_20: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '21과: 현재분사 여성형', subtitle: 'Itthiliṅga vattamāna kicca', description: '현재분사 여성형:\n-ntī (능동): pacantī = 요리하는 (여자)\n-mānā (중간): pacamānā = 요리하는 (여자)\n\npacantī 격변화표 학습', icon: '👩‍🍳' },
+  { type: 'intro', title: '21과: 현재분사 여성형', subtitle: 'Itthiliṅga vattamāna kita', description: '현재분사 여성형:\n-ntī (능동): pacantī = 요리하는 (여자)\n-mānā (중간): pacamānā = 요리하는 (여자)\n\npacantī 격변화표 학습', icon: '👩‍🍳' },
 
   // === 현재분사 여성형 문법 ===
   { type: 'teach-grammar', title: '현재분사 여성형 -ntī / -mānā', example: 'pac → pacantī / pacamānā (요리하는 여자)\ngam → gacchantī / gacchamānā (가고 있는 여자)\nṭhā → tiṭṭhantī / tiṭṭhamānā (서 있는 여자)', exampleKo: '-ntī = 능동 현재분사 여성\n-mānā = 중간 현재분사 여성', explanation: '남성 현재분사 -nt(a) → 여성 -ntī:\n• pacanto (요리하는 남자) → pacantī (요리하는 여자)\n• gacchanto → gacchantī\n\n남성 -māna → 여성 -mānā:\n• pacamāno → pacamānā\n\n-ntī와 -mānā는 의미 동일,\n형태만 다릅니다.' },
@@ -32,7 +32,7 @@ export const LESSON_20: StepWithoutId[] = [
   { type: 'quiz', question: '3. Gacchantī bhaginī nadiṃ passati.', options: ['가고 있는 여동생은 강을 본다', '가고 있는 여동생들은 강을 본다', '여동생은 강으로 간다', '가고 있는 여동생은 강에서 논다'], answer: 0, hint: 'gacchantī = 가고 있는 (단수), nadiṃ = 강을' },
   { type: 'quiz', question: '4. -mānā 여성분사의 격변화는 어떤 명사형을 따르나?', options: ['-ā 여성명사형', '-ī 여성명사형', '-i 여성명사형', '-u 여성명사형'], answer: 0, hint: 'pacamānā → -ā 여성명사처럼 변화' },
   { type: 'quiz', question: '5. Rodantiyo dārikāyo mātaraṃ avhayanti.', options: ['울고 있는 소녀들은 어머니를 부른다', '울고 있는 소녀는 어머니를 부른다', '소녀들은 어머니를 위해 운다', '울고 있는 소녀들은 어머니를 본다'], answer: 0, hint: 'rodantiyo = 울고 있는 (복수), avhayanti = 부르다' },
-  { type: 'quiz', question: '6. Dhāvantī yuvati aṭaviṃ pavisati.', options: ['달리는 하녀는 숲으로 들어간다', '하녀는 숲에서 달린다', '달리는 하녀들은 숲으로 들어간다', '달리는 하녀는 숲에서 나온다'], answer: 0, hint: 'dhāvantī = 달리는 (단수), pavisati = 들어가다' },
+  { type: 'quiz', question: '6. Dhāvantī yuvati aṭaviṃ pavisati.', options: ['달리는 젊은 여자는 숲으로 들어간다', '젊은 여자는 숲에서 달린다', '달리는 젊은 여자들은 숲으로 들어간다', '달리는 젊은 여자는 숲에서 나온다'], answer: 0, hint: 'dhāvantī = 달리는 (단수), pavisati = 들어가다' },
   { type: 'quiz', question: '7. pacantī의 도구격 단수는?', options: ['pacantiyā', 'pacantīhi', 'pacantena', 'pacantāya'], answer: 0, hint: '-ntī 여성 → 단수 도구격~처소격: -iyā' },
   { type: 'quiz', question: '8. Nisīdantī bhikkhunī dhammaṃ suṇāti.', options: ['앉아 있는 비구니는 법을 듣는다', '비구니는 앉아서 법을 설한다', '앉아 있는 비구니들은 법을 듣는다', '비구니는 앉아서 명상한다'], answer: 0, hint: 'nisīdantī = 앉아 있는 (단수)' },
   { type: 'quiz', question: '9. -ntī와 -mānā의 관계는?', options: ['의미 동일, 형태만 다름', '능동과 수동의 차이', '현재와 과거의 차이', '단수와 복수의 차이'], answer: 0, hint: 'pacantī = pacamānā = 요리하는 (여자)' },

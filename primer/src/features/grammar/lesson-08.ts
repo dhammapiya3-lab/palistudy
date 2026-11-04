@@ -25,7 +25,7 @@ export const LESSON_08: StepWithoutId[] = [
   // === 중성명사 단어 18개 ===
   { type: 'teach', word: 'nayana / locana', pronKo: '나야나 / 로-짜나', meaning: '눈', icon: '👁️', grammar: '중성명사', baseForm: 'nayana, locana', formNote: '주격: nayanaṃ / nayanā,nayanāni\n두 동의어 모두 중성' },
   { type: 'teach', word: 'udaka / jala', pronKo: '우다까 / 잘라', meaning: '물', icon: '💧', grammar: '중성명사', baseForm: 'udaka, jala', formNote: '주격: udakaṃ / udakā\n처소격: udake (물에서)' },
-  { type: 'teach', word: 'arañña / vana', pronKo: '아란냐 / 와나', meaning: '숲', icon: '🌳', grammar: '중성명사', baseForm: 'arañña, vana', formNote: '주격: araññaṃ / araññā\n처소격: arañña/vane (숲에서)', buddhism: 'araññavāsī = 숲에 사는 자 (두타행)' },
+  { type: 'teach', word: 'arañña / vana', pronKo: '아란냐 / 와나', meaning: '숲', icon: '🌳', grammar: '중성명사', baseForm: 'arañña, vana', formNote: '주격: araññaṃ / araññā\n처소격: araññe / vane (숲에서)', buddhism: 'araññavāsī = 숲에 사는 자 (두타행)' },
   { type: 'teach', word: 'puppha / kusuma', pronKo: '뿝파 / 꾸수마', meaning: '꽃', icon: '🌸', grammar: '중성명사', baseForm: 'puppha, kusuma', formNote: '주격: pupphaṃ / pupphā,pupphāni' },
   { type: 'teach', word: 'geha / ghara', pronKo: '게-하 / 가라', meaning: '집', icon: '🏘️', grammar: '중성명사', baseForm: 'geha, ghara', formNote: '주격: gehaṃ / gehā\n처소격: gehe (집에서)' },
   { type: 'teach', word: 'āsana', pronKo: '아-사나', meaning: '자리, 좌석', icon: '💺', grammar: '중성명사', baseForm: 'āsana', formNote: '주격: āsanaṃ / āsanā,āsanāni', buddhism: 'āsana = 좌선의 자리\npaññatt-āsana = 마련된 자리' },
@@ -49,22 +49,22 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'teach', word: 'uṭṭhahati', pronKo: '웃타하띠', meaning: '일어나다', icon: '🧗', grammar: '동사 · 현재 3인칭 단수', baseForm: 'uṭṭhahati', formNote: '복수: uṭṭhahanti\nud + ṭhā(서다)' },
   { type: 'teach', word: 'phusati', pronKo: '푸사띠', meaning: '접촉하다, 닿다', icon: '👆', grammar: '동사 · 현재 3인칭 단수', baseForm: 'phusati', formNote: '복수: phusanti\nphassa = 접촉(촉)', buddhism: 'phassa = 촉(觸). 12연기 중 하나' },
   { type: 'teach', word: 'anusāsati', pronKo: '아누사-사띠', meaning: '가르치다, 교훈하다', icon: '👨‍🏫', grammar: '동사 · 현재 3인칭 단수', baseForm: 'anusāsati', formNote: '복수: anusāsanti\nanu + sās(가르치다)' },
-  { type: 'teach', word: 'ovadati', pronKo: '오-와다띠', meaning: '충고하다, 훈계하다', icon: '🗣️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ovadati', formNote: '복수: ovadanti\nova = 충고', buddhism: 'ovāda-pāṭimokkha = 교계경' },
+  { type: 'teach', word: 'ovadati', pronKo: '오-와다띠', meaning: '충고하다, 훈계하다', icon: '🗣️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ovadati', formNote: '복수: ovadanti\no(= ava) + vad(말하다)\novāda = 훈계', buddhism: 'ovāda-pāṭimokkha = 교계 빠띠목카(교계 계본, Dhp 183–185)' },
   { type: 'teach', word: 'saṃharati', pronKo: '상하라띠', meaning: '모으다, 거두다', icon: '🧺', grammar: '동사 · 현재 3인칭 단수', baseForm: 'saṃharati', formNote: '복수: saṃharanti\nsaṃ + har(운반하다)' },
   { type: 'teach', word: 'āsiñcati', pronKo: '아-신짜띠', meaning: '물을 뿌리다, 관개하다', icon: '🚿', grammar: '동사 · 현재 3인칭 단수', baseForm: 'āsiñcati', formNote: '복수: āsiñcanti\nā + siñc(뿌리다)' },
   { type: 'teach', word: 'akkosati', pronKo: '악꼬-사띠', meaning: '꾸짖다, 욕하다', icon: '😤', grammar: '동사 · 현재 3인칭 단수', baseForm: 'akkosati', formNote: '복수: akkosanti\nā + kus(꾸짖다)' },
-  { type: 'teach', word: 'bhindati', pronKo: '빈다띠', meaning: '자르다, 부수다', icon: '🪓', grammar: '동사 · 현재 3인칭 단수', baseForm: 'bhindati', formNote: '복수: bhindanti\nbhid(부수다)에서 파생' },
+  { type: 'teach', word: 'bhindati', pronKo: '빈다띠', meaning: '깨다, 부수다, 쪼개다', icon: '🪓', grammar: '동사 · 현재 3인칭 단수', baseForm: 'bhindati', formNote: '복수: bhindanti\nbhid(부수다)에서 파생' },
   { type: 'teach', word: 'pibati / pivati', pronKo: '삐바띠 / 삐와띠', meaning: '마시다', icon: '🍵', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pibati, pivati', formNote: '복수: pibanti/pivanti\n두 형태 모두 사용' },
 
   // === 교재 예문 3쌍 (호격 + 중성명사) ===
-  { type: 'verse', pali: 'Purisa, dānaṃ dehi!\nPurisā, dānāni detha!', pronKo: '뿌리사, 다-낭 데-히\n뿌리사-, 다-나-니 데-타', translation: '이 사람이여, 보시를 행하라!\n사람들이여, 보시들을 행하라!', highlight: ['Purisa', 'Purisā', 'dānaṃ', 'dānāni'], note: 'purisa=호격 단수, purisā=호격 복수\ndānaṃ=중성 주격 단수, dānāni=중성 복수' },
+  { type: 'verse', pali: 'Purisa, dānaṃ dehi!\nPurisā, dānāni detha!', pronKo: '뿌리사, 다-낭 데-히\n뿌리사-, 다-나-니 데-타', translation: '이 사람이여, 보시를 행하라!\n사람들이여, 보시들을 행하라!', highlight: ['Purisa', 'Purisā', 'dānaṃ', 'dānāni'], note: 'purisa=호격 단수, purisā=호격 복수\ndānaṃ = 중성 목적격 단수, dānāni = 중성 목적격 복수\n(중성은 주격과 목적격 형태가 같음)' },
   { type: 'verse', pali: 'Kumāra, pupphaṃ āhara!\nKumārā, pupphāni āharatha!', pronKo: '꾸마-라, 뿝팜 아-하라\n꾸마-라-, 뿝파-니 아-하라타', translation: '소년이여, 꽃을 가져오라!\n소년들이여, 꽃들을 가져오라!', highlight: ['Kumāra', 'Kumārā', 'pupphaṃ', 'pupphāni'] },
   { type: 'verse', pali: 'Rūpaṃ aniccaṃ.\nRūpāni aniccāni.', pronKo: '루-빵 아닛짱\n루-빠-니 아닛짜-니', translation: '물질은 무상하다.\n물질들은 무상하다.', highlight: ['Rūpaṃ', 'Rūpāni'], note: '중성명사 주격: 단수 -aṃ / 복수 -āni\naniccaṃ/aniccāni도 중성 형용사!' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Bhikkhave, rūpaṃ anattā.', options: ['비구들이여, 물질은 무아이다', '비구여, 물질은 무상하다', '비구들이여, 물질들은 무아이다', '비구들이여, 물질은 고통이다'], answer: 0, hint: 'bhikkhave=비구들이여(호격), rūpaṃ=물질(중성 주격 단수)' },
   { type: 'quiz', question: '2. Kassako khette tiṇaṃ saṃharati.', options: ['농부는 들에서 풀을 모은다', '농부는 들에서 풀을 심는다', '농부들은 들에서 풀을 모은다', '농부는 들에서 꽃을 모은다'], answer: 0, hint: 'khette=들에서(처소격), tiṇaṃ=풀을(중성 목적격)' },
-  { type: 'quiz', question: '3. Kumāra, gehamhā nikkhamā!', options: ['소년이여, 집에서 나와라!', '소년들이여, 집에서 나와라!', '소년이여, 집으로 가라!', '소년이여, 숲에서 나와라!'], answer: 0, hint: 'kumāra=소년이여(호격 단수), gehamhā=집에서(탈격)' },
+  { type: 'quiz', question: '3. Kumāra, gehamhā nikkhama!', options: ['소년이여, 집에서 나와라!', '소년들이여, 집에서 나와라!', '소년이여, 집으로 가라!', '소년이여, 숲에서 나와라!'], answer: 0, hint: 'kumāra=소년이여(호격 단수), gehamhā=집에서(탈격), nikkhama=나와라(명령형 2인칭 단수, = nikkhamāhi)' },
   { type: 'quiz', question: '4. Manussā nagaramhi bhaṇḍāni āharanti.', options: ['사람들은 도시에서 상품들을 가져온다', '사람은 도시에서 상품을 가져온다', '사람들은 도시로 상품들을 가져간다', '사람들은 도시에서 물을 가져온다'], answer: 0, hint: 'nagaramhi=도시에서(처소격), bhaṇḍāni=상품들을(중성 복수)' },
   { type: 'quiz', question: '5. Upāsako vihāre āsanaṃ nikkhipati.', options: ['우바새는 정사에서 자리를 놓는다', '우바새는 정사에서 자리를 치운다', '우바새들은 정사에서 자리를 놓는다', '우바새는 정사에서 꽃을 놓는다'], answer: 0, hint: 'āsanaṃ=자리를(중성 목적격), nikkhipati=내려놓다' },
   { type: 'quiz', question: '6. Puttā uyyāne pupphāni saṃharanti.', options: ['아들들은 공원에서 꽃들을 모은다', '아들은 공원에서 꽃을 모은다', '아들들은 공원에서 나뭇잎들을 모은다', '아들들은 숲에서 꽃들을 모은다'], answer: 0, hint: 'uyyāne=공원에서(처소격), pupphāni=꽃들을(중성 복수)' },

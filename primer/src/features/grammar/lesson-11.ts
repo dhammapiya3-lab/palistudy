@@ -10,13 +10,13 @@ export const LESSON_11: StepWithoutId[] = [
   { type: 'verse', pali: 'Buddhaṃ saraṇaṃ gacchāmi.\nDhammaṃ saraṇaṃ gacchāmi.\nSaṅghaṃ saraṇaṃ gacchāmi.', pronKo: '붓당 사라낭 갓차-미\n담망 사라낭 갓차-미\n상강 사라낭 갓차-미', translation: '부처님께 귀의합니다.\n법에 귀의합니다.\n승가에 귀의합니다.', highlight: ['gacchāmi', 'saraṇaṃ', 'Buddhaṃ'], note: 'gacchāmi = gacchati의 1인칭 단수!\n-āmi 어미 = "나는 ~한다"\nsaraṇaṃ gacchāmi = 귀의합니다 (피난처로 갑니다)\n— 삼귀의(Tisaraṇa), 불교 귀의문의 핵심!' },
 
   // === 현재형 인칭 어미 ===
-  { type: 'teach-grammar', title: '현재형 인칭 어미표', example: '         단수        복수\n3인칭: -ti          -nti\n2인칭: -si          -tha\n1인칭: -āmi/-mi     -āma/-mha', exampleKo: '6가지 인칭 어미', explanation: '빠알리어 동사는 주어에 따라 어미가 변합니다.\n\n3인칭 (그/그녀/그들):\n• so pacati (그는 요리한다)\n• te pacanti (그들은 요리한다)\n\n2인칭 (너/너희):\n• tvaṃ pacasi (너는 요리한다)\n• tumhe pacatha (너희는 요리한다)\n\n1인칭 (나/우리):\n• ahaṃ pacāmi (나는 요리한다)\n• mayaṃ pacāma (우리는 요리한다)\n\n지금까지 배운 -ti/-nti는 3인칭이었습니다!' },
+  { type: 'teach-grammar', title: '현재형 인칭 어미표', example: '         단수        복수\n3인칭: -ti          -nti\n2인칭: -si          -tha\n1인칭: -āmi(-mi)    -āma(-ma)', exampleKo: '6가지 인칭 어미', explanation: '빠알리어 동사는 주어에 따라 어미가 변합니다.\n\n3인칭 (그/그녀/그들):\n• so pacati (그는 요리한다)\n• te pacanti (그들은 요리한다)\n\n2인칭 (너/너희):\n• tvaṃ pacasi (너는 요리한다)\n• tumhe pacatha (너희는 요리한다)\n\n1인칭 (나/우리):\n• ahaṃ pacāmi (나는 요리한다)\n• mayaṃ pacāma (우리는 요리한다)\n\n지금까지 배운 -ti/-nti는 3인칭이었습니다!' },
 
   // === pacati 전체 활용 ===
   { type: 'teach-grammar', title: 'pacati (요리하다) 전체 활용', example: 'So pacati. (그는 요리한다)\nTe pacanti. (그들은 요리한다)\nTvaṃ pacasi. (너는 요리한다)\nTumhe pacatha. (너희는 요리한다)\nAhaṃ pacāmi. (나는 요리한다)\nMayaṃ pacāma. (우리는 요리한다)', exampleKo: '어간 pac- + 인칭 어미', explanation: '모든 -ati 동사는 이 패턴을 따릅니다:\n\n어간(pac-) + 어미:\n• pac + ati = pacati (3단)\n• pac + anti = pacanti (3복)\n• pac + asi = pacasi (2단)\n• pac + atha = pacatha (2복)\n• pac + āmi = pacāmi (1단)\n• pac + āma = pacāma (1복)\n\n다른 동사도 동일:\ngacch- → gacchati/gacchasi/gacchāmi...\nvas- → vasati/vasasi/vasāmi...' },
 
   // === 인칭대명사 ===
-  { type: 'teach-grammar', title: '인칭대명사 (주격)', example: '3인칭: So (그) / Sā (그녀) / Te (그들)\n2인칭: Tvaṃ (너) / Tumhe (너희)\n1인칭: Ahaṃ (나) / Mayaṃ (우리)', exampleKo: '7가지 인칭대명사', explanation: '인칭대명사 주격 형태:\n\n3인칭 남성:\n• So = 그 (단수)\n• Te = 그들 (복수)\n\n3인칭 여성:\n• Sā = 그녀 (단수)\n• Tā = 그녀들 (복수)\n\n2인칭:\n• Tvaṃ = 너 (단수)\n• Tumhe = 너희들 (복수)\n\n1인칭:\n• Ahaṃ = 나 (단수)\n• Mayaṃ = 우리 (복수)\n\n경전에서는 대명사가 생략되기도 합니다.\n어미만으로 인칭을 알 수 있기 때문!' },
+  { type: 'teach-grammar', title: '인칭대명사 (주격)', example: '3인칭: So (그) / Sā (그녀) / Te (그들)\n2인칭: Tvaṃ (너) / Tumhe (너희)\n1인칭: Ahaṃ (나) / Mayaṃ (우리)', exampleKo: '8가지 인칭대명사', explanation: '인칭대명사 주격 형태:\n\n3인칭 남성:\n• So = 그 (단수)\n• Te = 그들 (복수)\n\n3인칭 여성:\n• Sā = 그녀 (단수)\n• Tā = 그녀들 (복수)\n\n2인칭:\n• Tvaṃ = 너 (단수)\n• Tumhe = 너희들 (복수)\n\n1인칭:\n• Ahaṃ = 나 (단수)\n• Mayaṃ = 우리 (복수)\n\n경전에서는 대명사가 생략되기도 합니다.\n어미만으로 인칭을 알 수 있기 때문!' },
 
   // === atthi/santi ===
   { type: 'teach-grammar', title: 'atthi (있다, ~이다) 활용', example: '         단수        복수\n3인칭: atthi        santi\n2인칭: asi          attha\n1인칭: asmi/amhi    asma/amha', exampleKo: 'atthi = 영어 is/are/am', explanation: 'atthi는 가장 중요한 동사 중 하나입니다.\n존재(있다)와 서술(~이다) 모두에 사용됩니다.\n\n• So atthi = 그는 있다\n• Te santi = 그들은 있다\n• Tvaṃ asi = 너는 있다/~이다\n• Tumhe attha = 너희는 있다\n• Ahaṃ asmi = 나는 있다/~이다\n• Mayaṃ asma = 우리는 있다\n\n주의: 3인칭 복수가 santi로 불규칙!\nnatthi = na + atthi = 없다' },
@@ -45,7 +45,7 @@ export const LESSON_11: StepWithoutId[] = [
   { type: 'quiz', question: '7. Ahaṃ puññaṃ karomi.', options: ['나는 공덕을 짓는다', '그는 공덕을 짓는다', '우리는 공덕을 짓는다', '나는 악을 짓는다'], answer: 0, hint: 'karomi = karoti의 1인칭 단수' },
   { type: 'quiz', question: '8. Tvaṃ kuhiṃ gacchasi?', options: ['너는 어디에 가느냐?', '나는 어디에 가느냐?', '그는 어디에 가느냐?', '너희는 어디에 가느냐?'], answer: 0, hint: 'gacchasi = 2인칭 단수, kuhiṃ=어디에' },
   { type: 'quiz', question: '9. Mayaṃ Buddhaṃ vandāma.', options: ['우리는 부처님께 예배한다', '나는 부처님께 예배한다', '너희는 부처님께 예배한다', '그들은 부처님께 예배한다'], answer: 0, hint: 'vandāma = vandati의 1인칭 복수' },
-  { type: 'quiz', question: '10. Natthi santi paramaṃ sukhaṃ.', options: ['평화보다 더 큰 행복은 없다', '평화는 가장 큰 행복이다', '행복은 평화에 있다', '평화와 행복은 없다'], answer: 0, hint: 'natthi=없다, santi=평화, paramaṃ=최상의, sukhaṃ=행복' },
+  { type: 'quiz', question: '10. Natthi santiparaṃ sukhaṃ. (Dhp 202)', options: ['평화보다 더 큰 행복은 없다', '평화는 가장 큰 행복이다', '행복은 평화에 있다', '평화와 행복은 없다'], answer: 0, hint: 'natthi=없다, santiparaṃ = santi(평화, 여성명사; 동사 santi "그들은 있다"와 동형이의어) + para(~보다 높은), sukhaṃ=행복' },
 
   // === 마무리 ===
   { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미' },
