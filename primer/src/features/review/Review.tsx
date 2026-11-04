@@ -17,8 +17,8 @@ export default function Review() {
     LESSONS.filter(l => getProgress(l.id, l.steps.length) >= l.steps.length),
   [])
 
-  // 드래그앤드롭 순서 관리
-  const { orderedItems, dragState, handlers } = useDragOrder(completedLessons)
+  // 끌어서 순서 바꾸기 (터치·마우스)
+  const { orderedItems, dragState, handleProps } = useDragOrder(completedLessons)
 
   const hasCompleted = completedLessons.length > 0
 
@@ -71,53 +71,51 @@ export default function Review() {
           <h2 className="text-sm font-bold pt-3 flex items-center gap-2"
             style={{ color: 'var(--color-text-secondary)' }}>
             복습 가능한 과
-            <span className="text-[10px] font-normal opacity-60">드래그로 순서 변경</span>
+            <span className="text-[10px] font-normal opacity-60">⋮⋮ 를 끌어서 순서 변경</span>
           </h2>
 
-          {/* 드래그앤드롭 과 목록 */}
+          {/* 과 목록 — 왼쪽 손잡이(⋮⋮)를 끌어서 순서 변경 (터치·마우스) */}
           {orderedItems.map((lesson, index) => {
-            const h = handlers(index)
             const isDragging = dragState.dragIndex === index
-            const isOver = dragState.overIndex === index
+            const isOver = dragState.overIndex === index && !isDragging
             return (
               <div
                 key={lesson.id}
-                {...h}
+                data-drag-index={index}
+                className="flex items-stretch rounded-2xl card-shadow"
                 style={{
-                  opacity: isDragging ? 0.4 : 1,
-                  transform: isOver ? 'scale(1.02)' : undefined,
-                  transition: 'opacity 0.15s, transform 0.15s',
-                  borderRadius: '1rem',
-                  outline: isOver ? '2px solid var(--color-accent)' : undefined,
-                  cursor: 'grab',
+                  backgroundColor: 'var(--color-surface)',
+                  border: isOver || isDragging
+                    ? '1.5px solid var(--color-accent)'
+                    : '1.5px solid var(--color-border)',
+                  transform: isDragging ? `translateY(${dragState.offsetY}px) scale(1.02)` : undefined,
+                  transition: isDragging ? 'none' : 'transform 0.15s, border-color 0.15s',
+                  position: 'relative',
+                  zIndex: isDragging ? 10 : undefined,
+                  boxShadow: isDragging ? '0 8px 24px rgba(0,0,0,0.18)' : undefined,
                 }}
               >
-                <button
-                  onClick={() => !isDragging && nav(`/learn/${lesson.id}`)}
-                  className="w-full flex items-center gap-3 rounded-2xl px-4 py-3.5 text-left
-                    card-shadow transition-all duration-300
-                    hover:-translate-y-0.5 active:scale-[0.98]"
-                  style={{
-                    backgroundColor: 'var(--color-surface)',
-                    border: isOver
-                      ? '1.5px solid var(--color-accent)'
-                      : '1.5px solid var(--color-border)',
-                    minHeight: '48px',
-                  }}>
-                  {/* 드래그 핸들 아이콘 */}
-                  <div className="shrink-0 opacity-30 hover:opacity-60 transition-opacity">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                      stroke="currentColor" strokeWidth="2"
-                      strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="9" cy="6" r="1" fill="currentColor" stroke="none" />
-                      <circle cx="9" cy="12" r="1" fill="currentColor" stroke="none" />
-                      <circle cx="9" cy="18" r="1" fill="currentColor" stroke="none" />
-                      <circle cx="15" cy="6" r="1" fill="currentColor" stroke="none" />
-                      <circle cx="15" cy="12" r="1" fill="currentColor" stroke="none" />
-                      <circle cx="15" cy="18" r="1" fill="currentColor" stroke="none" />
-                    </svg>
-                  </div>
+                {/* 끌기 손잡이 — 손가락으로 누르기 쉽게 넓게 */}
+                <div
+                  {...handleProps(index)}
+                  aria-label={`${lesson.title} 순서 바꾸기`}
+                  role="button"
+                  className="shrink-0 w-11 flex items-center justify-center opacity-40 select-none"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                    <circle cx="9" cy="6" r="1.4" />
+                    <circle cx="9" cy="12" r="1.4" />
+                    <circle cx="9" cy="18" r="1.4" />
+                    <circle cx="15" cy="6" r="1.4" />
+                    <circle cx="15" cy="12" r="1.4" />
+                    <circle cx="15" cy="18" r="1.4" />
+                  </svg>
+                </div>
 
+                <button
+                  onClick={() => nav(`/learn/${lesson.id}`)}
+                  className="flex-1 min-w-0 flex items-center gap-3 pr-4 py-3.5 text-left active:scale-[0.98] transition-transform"
+                  style={{ minHeight: '48px' }}>
                   {/* 완료 아이콘 */}
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
                     style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, transparent)' }}>
