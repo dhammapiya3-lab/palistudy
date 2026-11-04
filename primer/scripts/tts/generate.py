@@ -11,7 +11,7 @@ from pathlib import Path
 
 import edge_tts
 
-from pali_script import CONSONANTS, to_script
+from pali_script import CONSONANTS, VOWELS_IND, to_script
 
 HERE = Path(__file__).resolve().parent
 PRIMER = HERE.parent.parent
@@ -37,6 +37,15 @@ SAMPLES = [
     'Buddhaṃ saraṇaṃ gacchāmi',
     'Namo tassa bhagavato arahato sammāsambuddhassa',
 ]
+
+
+# 텔루구어 목소리는 글자 하나만 주면 소리를 못 냄 → 낱글자(자모와 발음 2의 41자)는 칸나다어 목소리로
+LETTER_VOICE = 'kn'
+
+
+def is_letter(text: str) -> bool:
+    t = text.strip().lower()
+    return t in CONSONANTS or t in VOWELS_IND or t in ('ṃ', 'ṁ')
 
 
 def spoken_form(text: str) -> str:
@@ -118,7 +127,8 @@ async def run_full(voice_key: str):
     async def one(fname, text):
         async with sem:
             try:
-                await speak(text, voice_key, audio / fname, retries=2)
+                vk = LETTER_VOICE if is_letter(text) else voice_key
+                await speak(text, vk, audio / fname, retries=2)
             except Exception:
                 failed.append((fname, text))
 
