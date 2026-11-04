@@ -11,7 +11,7 @@ from pathlib import Path
 
 import edge_tts
 
-from pali_script import to_script
+from pali_script import CONSONANTS, to_script
 
 HERE = Path(__file__).resolve().parent
 PRIMER = HERE.parent.parent
@@ -38,9 +38,19 @@ SAMPLES = [
 ]
 
 
+def spoken_form(text: str) -> str:
+    """자음 글자 하나(k, kh …)는 '까'처럼 a를 붙여 읽고, ṃ은 '앙'으로 읽음"""
+    t = text.strip()
+    if t.lower() in CONSONANTS:
+        return t + 'a'
+    if t in ('ṃ', 'ṁ'):
+        return 'aṃ'
+    return t
+
+
 async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
     voice, script, _ = VOICES[voice_key]
-    native = to_script(text, script)
+    native = to_script(spoken_form(text), script)
     for n in range(retries):
         try:
             await edge_tts.Communicate(native, voice, rate=RATE).save(str(out))
