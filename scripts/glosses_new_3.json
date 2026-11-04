@@ -1,0 +1,1157 @@
+{
+"abhavissaṃsu": {
+"meaning": "~이었을 것이다 (만약 ~라면)",
+"grammar": "동사, 조건법 3인칭 복수",
+"baseForm": "hoti (이다)",
+"icon": "❓",
+"formNote": "가정을 나타냄: saṅkhārā attā abhavissaṃsu = 형성들이 자아라면"
+},
+"saṃvatteyyuṃ": {
+"meaning": "이어질 것이다",
+"grammar": "동사, 원망법 3인칭 복수",
+"baseForm": "saṃvattati (이어지다, 이끌다)",
+"icon": "➡️",
+"formNote": "단수 saṃvatteyya ↔ 복수 saṃvatteyyuṃ"
+},
+"saṅkhāresu": {
+"meaning": "형성들에 대해",
+"grammar": "남성명사, 처격 복수",
+"baseForm": "saṅkhāra (형성)",
+"icon": "⚙️",
+"formNote": "주격 복수 saṅkhārā ↔ 처격 복수 saṅkhāresu"
+},
+"ahesunti": {
+"meaning": "\"~되지 마라\"라고",
+"grammar": "동사 아오리스트 3인칭 복수(mā와 함께 금지) + 인용 ti",
+"baseForm": "hoti (되다)",
+"icon": "🚫",
+"formNote": "mā ahesuṃ + iti → mā ahesunti"
+},
+"saṃvattanti": {
+"meaning": "이어진다",
+"grammar": "동사, 현재 3인칭 복수",
+"baseForm": "saṃvattati (이어지다)",
+"icon": "➡️",
+"formNote": "단수 saṃvattati ↔ 복수 saṃvattanti"
+},
+"viññāṇe": {
+"meaning": "의식에 대해",
+"grammar": "중성명사, 처격 단수",
+"baseForm": "viññāṇa (의식)",
+"icon": "🧠",
+"formNote": "주격 viññāṇaṃ ↔ 처격 viññāṇe"
+},
+"niccaṃ": {
+"meaning": "항상한",
+"grammar": "형용사, 중성 주격 단수",
+"baseForm": "nicca (항상한)",
+"icon": "♾️",
+"formNote": "rūpaṃ(중성)과 호응 → niccaṃ"
+},
+"vāti": {
+"meaning": "~인가?라고",
+"grammar": "연성: vā(또는) + iti(인용)",
+"baseForm": "vā + iti",
+"icon": "❔",
+"formNote": "vā iti → vāti (질문 끝맺음)"
+},
+"panāniccaṃ": {
+"meaning": "그런데 무상한 것은",
+"grammar": "연성: pana(그런데) + aniccaṃ(형용사 중성 주격 단수)",
+"baseForm": "pana + anicca (무상한)",
+"icon": "🍂",
+"formNote": "pana aniccaṃ → panāniccaṃ"
+},
+"eso": {
+"meaning": "이것이, 이는",
+"grammar": "지시대명사, 남성 주격 단수",
+"baseForm": "eta (이것)",
+"icon": "👉",
+"formNote": "eso me attā = 이것이 나의 자아이다 (attā 남성과 호응)"
+},
+"niccā": {
+"meaning": "항상한",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "nicca (항상한)",
+"icon": "♾️",
+"formNote": "vedanā·saññā(여성)와 호응 → niccā"
+},
+"aniccā": {
+"meaning": "무상한",
+"grammar": "형용사, 여성 주격 단수 / 남성 주격 복수",
+"baseForm": "anicca (무상한)",
+"icon": "🍂",
+"formNote": "vedanā(여성 단수)·saṅkhārā(남성 복수)와 호응"
+},
+"tasmātiha": {
+"meaning": "그러므로 여기서",
+"grammar": "연성: tasmā(그러므로) + iha(여기서)",
+"baseForm": "tasmā + iha",
+"icon": "∴",
+"formNote": "tasmā iha → tasmātiha (t는 연결음)"
+},
+"oḷārikaṃ": {
+"meaning": "거친",
+"grammar": "형용사, 중성 주격 단수",
+"baseForm": "oḷārika (거친)",
+"icon": "🪨",
+"formNote": "rūpaṃ(중성)과 호응"
+},
+"sukhumaṃ": {
+"meaning": "미세한",
+"grammar": "형용사, 중성 주격 단수",
+"baseForm": "sukhuma (미세한)",
+"icon": "🔬",
+"formNote": "rūpaṃ(중성)과 호응"
+},
+"hīnaṃ": {
+"meaning": "저열한",
+"grammar": "형용사, 중성 주격 단수",
+"baseForm": "hīna (저열한)",
+"icon": "⬇️",
+"formNote": "rūpaṃ(중성)과 호응 → hīnaṃ (남성이면 hīno)"
+},
+"netaṃ": {
+"meaning": "이것은 ~이 아니다",
+"grammar": "연성: na(아님) + etaṃ(지시대명사 중성 주격 단수)",
+"baseForm": "na + eta",
+"icon": "🚫",
+"formNote": "na etaṃ → netaṃ"
+},
+"nesohamasmi": {
+"meaning": "이것은 내가 아니다",
+"grammar": "연성: na + eso + ahaṃ + asmi",
+"baseForm": "na + eta + ahaṃ + atthi",
+"icon": "🚫",
+"formNote": "na eso ahaṃ asmi → nesohamasmi"
+},
+"meso": {
+"meaning": "나의 이것은",
+"grammar": "연성: me(나의, 속격) + eso(이것)",
+"baseForm": "ahaṃ + eta",
+"icon": "🙋",
+"formNote": "me eso → meso"
+},
+"evametaṃ": {
+"meaning": "이와 같이 이것을",
+"grammar": "연성: evaṃ(이와 같이) + etaṃ(이것을, 대격)",
+"baseForm": "evaṃ + eta",
+"icon": "👉",
+"formNote": "evaṃ etaṃ → evametaṃ"
+},
+"kāci": {
+"meaning": "어떤 ~이든",
+"grammar": "부정대명사, 여성 주격 단수",
+"baseForm": "kā + ci (누구든, 무엇이든)",
+"icon": "❔",
+"formNote": "남성 koci·중성 kiñci ↔ 여성 kāci (vedanā와 호응)"
+},
+"atītānāgatapaccuppannā": {
+"meaning": "과거·미래·현재의",
+"grammar": "복합어 형용사, 여성 주격 단수",
+"baseForm": "atīta (과거) + anāgata (미래) + paccuppanna (현재)",
+"icon": "⏳",
+"formNote": "vedanā(여성)와 호응 → -ā"
+},
+"ajjhattā": {
+"meaning": "안의",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "ajjhatta (안의)",
+"icon": "⬅️",
+"formNote": "중성 ajjhattaṃ ↔ 여성 ajjhattā"
+},
+"oḷārikā": {
+"meaning": "거친",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "oḷārika (거친)",
+"icon": "🪨",
+"formNote": "중성 oḷārikaṃ ↔ 여성 oḷārikā"
+},
+"sukhumā": {
+"meaning": "미세한",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "sukhuma (미세한)",
+"icon": "🔬",
+"formNote": "중성 sukhumaṃ ↔ 여성 sukhumā"
+},
+"hīnā": {
+"meaning": "저열한",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "hīna (저열한)",
+"icon": "⬇️",
+"formNote": "중성 hīnaṃ ↔ 여성 hīnā"
+},
+"paṇītā": {
+"meaning": "뛰어난",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "paṇīta (뛰어난)",
+"icon": "⭐",
+"formNote": "중성 paṇītaṃ ↔ 여성 paṇītā"
+},
+"sabbā": {
+"meaning": "모든",
+"grammar": "대명형용사, 여성 주격 단수",
+"baseForm": "sabba (모든)",
+"icon": "♾️",
+"formNote": "중성 sabbaṃ ↔ 여성 sabbā"
+},
+"rūpasmimpi": {
+"meaning": "물질에 대해서도",
+"grammar": "중성명사 처격 단수 + pi(~도)",
+"baseForm": "rūpa (물질)",
+"icon": "🧱",
+"formNote": "rūpasmiṃ pi → rūpasmimpi"
+},
+"viññāṇasmimpi": {
+"meaning": "의식에 대해서도",
+"grammar": "중성명사 처격 단수 + pi(~도)",
+"baseForm": "viññāṇa (의식)",
+"icon": "🧠",
+"formNote": "viññāṇasmiṃ pi → viññāṇasmimpi"
+},
+"nibbindaṃ": {
+"meaning": "싫어하여 떠나면서",
+"grammar": "현재분사, 남성 주격 단수",
+"baseForm": "nibbindati (싫어하여 떠나다)",
+"icon": "🚶",
+"formNote": "동작이 진행 중임을 나타냄"
+},
+"vimuttasmiṃ": {
+"meaning": "해탈했을 때",
+"grammar": "과거분사, 처격 단수 (절대 처격)",
+"baseForm": "vimuccati (해탈하다)",
+"icon": "🕊️",
+"formNote": "처격이 \"~했을 때\"를 나타냄"
+},
+"pajānātīti": {
+"meaning": "\"분명히 안다\"라고",
+"grammar": "동사 현재 3인칭 단수 + 인용 ti",
+"baseForm": "pajānāti (분명히 알다)",
+"icon": "💡",
+"formNote": "pajānāti iti → pajānātīti"
+},
+"abhinanduṃ": {
+"meaning": "크게 기뻐하였다",
+"grammar": "동사, 아오리스트 3인칭 복수",
+"baseForm": "abhinandati (크게 기뻐하다)",
+"icon": "😊",
+"formNote": "abhinanduṃ (+ti → abhinandunti)"
+},
+"pañcavaggiyānaṃ": {
+"meaning": "다섯 무리의",
+"grammar": "형용사, 남성 속격 복수",
+"baseForm": "pañcavaggiya (다섯 무리의)",
+"icon": "🖐️",
+"formNote": "주격 pañcavaggiyā ↔ 속격 pañcavaggiyānaṃ"
+},
+"bhikkhūnaṃ": {
+"meaning": "비구들의",
+"grammar": "남성명사, 속격 복수",
+"baseForm": "bhikkhu (비구)",
+"icon": "🧘",
+"formNote": "주격 bhikkhū ↔ 속격 bhikkhūnaṃ"
+},
+"āsavehi": {
+"meaning": "번뇌들로부터",
+"grammar": "남성명사, 탈격 복수 (구격과 같은 꼴)",
+"baseForm": "āsava (번뇌)",
+"icon": "🌊",
+"formNote": "vimuccati와 함께 \"~로부터 해탈하다\""
+},
+"cittāni": {
+"meaning": "마음들이",
+"grammar": "중성명사, 주격 복수",
+"baseForm": "citta (마음)",
+"icon": "❤️",
+"formNote": "단수 cittaṃ ↔ 복수 cittāni"
+},
+"sati": {
+"meaning": "마음챙김이",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "sati (마음챙김)",
+"icon": "🧘",
+"formNote": "\"atthi kāyo\"ti vā panassa sati paccupaṭṭhitā hoti"
+},
+"ānāpānapabbaṃ": {
+"meaning": "호흡 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "ānāpāna + pabba (마디, 장)",
+"icon": "🌬️",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"iriyāpathapabbaṃ": {
+"meaning": "자세 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "iriyāpatha + pabba (마디, 장)",
+"icon": "🚶",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"sampajānapabbaṃ": {
+"meaning": "분명한 앎 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "sampajāna + pabba (마디, 장)",
+"icon": "👁️",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"paṭikūlamanasikārapabbaṃ": {
+"meaning": "혐오 주의 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "paṭikūlamanasikāra + pabba (마디, 장)",
+"icon": "🦴",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"dhātumanasikārapabbaṃ": {
+"meaning": "요소 주의 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "dhātumanasikāra + pabba (마디, 장)",
+"icon": "🌍",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"navasivathikapabbaṃ": {
+"meaning": "아홉 가지 묘지 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "navasivathika + pabba (마디, 장)",
+"icon": "⚰️",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"nīvaraṇapabbaṃ": {
+"meaning": "장애 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "nīvaraṇa + pabba (마디, 장)",
+"icon": "🚧",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"khandhapabbaṃ": {
+"meaning": "무더기 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "khandha + pabba (마디, 장)",
+"icon": "🧩",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"āyatanapabbaṃ": {
+"meaning": "감각 영역 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "āyatana + pabba (마디, 장)",
+"icon": "👂",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"bojjhaṅgapabbaṃ": {
+"meaning": "깨달음의 요소 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "bojjhaṅga + pabba (마디, 장)",
+"icon": "🌸",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"saccapabbaṃ": {
+"meaning": "진리 항목(장)",
+"grammar": "복합어, 중성 주격 단수",
+"baseForm": "sacca + pabba (마디, 장)",
+"icon": "💎",
+"formNote": "niṭṭhitaṃ(끝났다)과 함께 장의 끝을 알림"
+},
+"pūrā": {
+"meaning": "가득 찬",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "pūra (가득 찬)",
+"icon": "🧺",
+"formNote": "putoḷi(자루, 여성)와 호응"
+},
+"nānāvihitassa": {
+"meaning": "여러 가지의",
+"grammar": "형용사, 중성 속격 단수",
+"baseForm": "nānā (여러) + vihita (갖추어진)",
+"icon": "🌾",
+"formNote": "dhaññassa(곡식의)를 꾸밈"
+},
+"sālī": {
+"meaning": "산미(벼의 일종)이다",
+"grammar": "남성명사, 주격 복수",
+"baseForm": "sāl (산미(벼의 일종))",
+"icon": "🌾",
+"formNote": "자루를 열어 \"이것은 ~이다\"라고 하나씩 가리키는 대목"
+},
+"vīhī": {
+"meaning": "벼이다",
+"grammar": "남성명사, 주격 복수",
+"baseForm": "vīh (벼)",
+"icon": "🌾",
+"formNote": "자루를 열어 \"이것은 ~이다\"라고 하나씩 가리키는 대목"
+},
+"muggā": {
+"meaning": "녹두이다",
+"grammar": "남성명사, 주격 복수",
+"baseForm": "mugg (녹두)",
+"icon": "🌾",
+"formNote": "자루를 열어 \"이것은 ~이다\"라고 하나씩 가리키는 대목"
+},
+"māsā": {
+"meaning": "검은콩이다",
+"grammar": "남성명사, 주격 복수",
+"baseForm": "mās (검은콩)",
+"icon": "🌾",
+"formNote": "자루를 열어 \"이것은 ~이다\"라고 하나씩 가리키는 대목"
+},
+"tilā": {
+"meaning": "참깨이다",
+"grammar": "남성명사, 주격 복수",
+"baseForm": "til (참깨)",
+"icon": "🌾",
+"formNote": "자루를 열어 \"이것은 ~이다\"라고 하나씩 가리키는 대목"
+},
+"taṇḍulāti": {
+"meaning": "\"도정한 쌀이다\"라고",
+"grammar": "남성명사 주격 복수 + 인용 ti",
+"baseForm": "taṇḍula (도정한 쌀)",
+"icon": "🍚",
+"formNote": "taṇḍulā iti → taṇḍulāti"
+},
+"cuddasa": {
+"meaning": "열넷, 14",
+"grammar": "수사",
+"baseForm": "cuddasa (14)",
+"icon": "🔢"
+},
+"kāyānupassanā": {
+"meaning": "몸 관찰이",
+"grammar": "여성명사(복합어), 주격 단수/복수",
+"baseForm": "kāya (몸) + anupassanā (관찰)",
+"icon": "🧍"
+},
+"niṭṭhitā": {
+"meaning": "끝났다",
+"grammar": "과거분사, 여성 주격 단수/복수",
+"baseForm": "niṭṭhāti (끝나다)",
+"icon": "🏁",
+"formNote": "중성 niṭṭhitaṃ ↔ 여성 niṭṭhitā (anupassanā와 호응)"
+},
+"vedanāti": {
+"meaning": "\"느낌이 있다\"라고",
+"grammar": "여성명사 주격 + 인용 ti",
+"baseForm": "vedanā (느낌)",
+"icon": "💗",
+"formNote": "vedanā iti → vedanāti"
+},
+"vedanānupassanā": {
+"meaning": "느낌 관찰이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "vedanā + anupassanā",
+"icon": "💗"
+},
+"cittānupassanā": {
+"meaning": "마음 관찰이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "citta + anupassanā",
+"icon": "❤️"
+},
+"dhammānupassanā": {
+"meaning": "법 관찰이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "dhamma + anupassanā",
+"icon": "☸️"
+},
+"pañcasu": {
+"meaning": "다섯 가지에 대해",
+"grammar": "수사, 처격 복수",
+"baseForm": "pañca (다섯)",
+"icon": "🖐️",
+"formNote": "nīvaraṇesu를 꾸밈"
+},
+"chasu": {
+"meaning": "여섯 가지에 대해",
+"grammar": "수사, 처격 복수",
+"baseForm": "cha (여섯)",
+"icon": "6️⃣",
+"formNote": "āyatanesu를 꾸밈"
+},
+"sattasu": {
+"meaning": "일곱 가지에 대해",
+"grammar": "수사, 처격 복수",
+"baseForm": "satta (일곱)",
+"icon": "7️⃣",
+"formNote": "bojjhaṅgesu를 꾸밈"
+},
+"kāmacchandassa": {
+"meaning": "감각적 욕망의",
+"grammar": "남성·중성명사, 속격 단수",
+"baseForm": "kāmacchanda (감각적 욕망)",
+"icon": "🍯",
+"formNote": "주격/대격 kāmacchandao·kāmacchandaṃ ↔ 속격 kāmacchandassa"
+},
+"byāpādassa": {
+"meaning": "악의의",
+"grammar": "남성·중성명사, 속격 단수",
+"baseForm": "byāpāda (악의)",
+"icon": "😠",
+"formNote": "주격/대격 byāpādao·byāpādaṃ ↔ 속격 byāpādassa"
+},
+"thinamiddhassa": {
+"meaning": "해태와 혼침의",
+"grammar": "남성·중성명사, 속격 단수",
+"baseForm": "thinamiddha (해태와 혼침)",
+"icon": "😴",
+"formNote": "주격/대격 thinamiddhao·thinamiddhaṃ ↔ 속격 thinamiddhassa"
+},
+"uddhaccakukkuccassa": {
+"meaning": "들뜸과 후회의",
+"grammar": "남성·중성명사, 속격 단수",
+"baseForm": "uddhaccakukkucca (들뜸과 후회)",
+"icon": "🌪️",
+"formNote": "주격/대격 uddhaccakukkuccao·uddhaccakukkuccaṃ ↔ 속격 uddhaccakukkuccassa"
+},
+"tañca": {
+"meaning": "그리고 그것을",
+"grammar": "지시대명사 대격 단수 + ca",
+"baseForm": "ta (그것) + ca",
+"icon": "👉",
+"formNote": "taṃ ca → tañca"
+},
+"yañca": {
+"meaning": "그리고 ~인 것을",
+"grammar": "관계대명사 대격 단수 + ca",
+"baseForm": "ya + ca",
+"icon": "🔗",
+"formNote": "yaṃ ca → yañca"
+},
+"anuppannāya": {
+"meaning": "일어나지 않은",
+"grammar": "과거분사(부정), 여성 속격 단수",
+"baseForm": "an + uppanna (일어난)",
+"icon": "🌑",
+"formNote": "vicikicchāya(여성)를 꾸밈"
+},
+"vicikicchāya": {
+"meaning": "의심의",
+"grammar": "여성명사, 속격 단수",
+"baseForm": "vicikicchā (의심)",
+"icon": "❓",
+"formNote": "주격 vicikicchā ↔ 속격 vicikicchāya"
+},
+"uppannāya": {
+"meaning": "일어난",
+"grammar": "과거분사, 여성 속격 단수",
+"baseForm": "uppajjati (일어나다)",
+"icon": "🌱",
+"formNote": "남성·중성은 uppannassa"
+},
+"pahīnāya": {
+"meaning": "버려진",
+"grammar": "과거분사, 여성 속격 단수",
+"baseForm": "pajahati (버리다)",
+"icon": "🗑️",
+"formNote": "남성·중성은 pahīnassa"
+},
+"dhammāti": {
+"meaning": "\"법들이 있다\"라고",
+"grammar": "남성명사 주격 복수 + 인용 ti",
+"baseForm": "dhamma (법)",
+"icon": "☸️",
+"formNote": "dhammā iti → dhammāti"
+},
+"satisambojjhaṅgoti": {
+"meaning": "\"마음챙김의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "sati (마음챙김) + sambojjhaṅga (깨달음의 요소)",
+"icon": "🧘",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"satisambojjhaṅgassa": {
+"meaning": "마음챙김의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "sati + sambojjhaṅga",
+"icon": "🧘",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"dhammavicayasambojjhaṅgoti": {
+"meaning": "\"법 간택의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "dhammavicaya (법 간택) + sambojjhaṅga (깨달음의 요소)",
+"icon": "🔍",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"dhammavicayasambojjhaṅgassa": {
+"meaning": "법 간택의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "dhammavicaya + sambojjhaṅga",
+"icon": "🔍",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"vīriyasambojjhaṅgoti": {
+"meaning": "\"정진의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "vīriya (정진) + sambojjhaṅga (깨달음의 요소)",
+"icon": "💪",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"vīriyasambojjhaṅgassa": {
+"meaning": "정진의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "vīriya + sambojjhaṅga",
+"icon": "💪",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"pītisambojjhaṅgoti": {
+"meaning": "\"희열의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "pīti (희열) + sambojjhaṅga (깨달음의 요소)",
+"icon": "😊",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"pītisambojjhaṅgassa": {
+"meaning": "희열의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "pīti + sambojjhaṅga",
+"icon": "😊",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"passaddhisambojjhaṅgoti": {
+"meaning": "\"고요함의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "passaddhi (고요함) + sambojjhaṅga (깨달음의 요소)",
+"icon": "🍃",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"passaddhisambojjhaṅgassa": {
+"meaning": "고요함의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "passaddhi + sambojjhaṅga",
+"icon": "🍃",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"samādhisambojjhaṅgoti": {
+"meaning": "\"삼매의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "samādhi (삼매) + sambojjhaṅga (깨달음의 요소)",
+"icon": "🎯",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"samādhisambojjhaṅgassa": {
+"meaning": "삼매의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "samādhi + sambojjhaṅga",
+"icon": "🎯",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"upekkhāsambojjhaṅgoti": {
+"meaning": "\"평정의 깨달음 요소가 [있다]\"라고",
+"grammar": "남성명사 주격 단수 + 인용 ti",
+"baseForm": "upekkhā (평정) + sambojjhaṅga (깨달음의 요소)",
+"icon": "⚖️",
+"formNote": "대격 -sambojjhaṅgaṃ ↔ 주격 -sambojjhaṅgo"
+},
+"upekkhāsambojjhaṅgassa": {
+"meaning": "평정의 깨달음 요소의",
+"grammar": "남성명사, 속격 단수",
+"baseForm": "upekkhā + sambojjhaṅga",
+"icon": "⚖️",
+"formNote": "uppādo·bhāvanāya pāripūrī와 함께 \"~의 일어남/닦음의 완성\""
+},
+"jāti": {
+"meaning": "태어남",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "jāti (태어남)",
+"icon": "👶"
+},
+"tamhi": {
+"meaning": "그 ~에서",
+"grammar": "지시대명사, 처격 단수",
+"baseForm": "ta (그)",
+"icon": "👉",
+"formNote": "tamhi tamhi = 이런저런 ~에서 (반복)"
+},
+"sattanikāye": {
+"meaning": "중생의 무리에서",
+"grammar": "남성명사(복합어), 처격 단수",
+"baseForm": "satta (중생) + nikāya (무리)",
+"icon": "👥",
+"formNote": "처격 sattanikāye ↔ 탈격 sattanikāyā"
+},
+"āyatanānaṃ": {
+"meaning": "감각 영역들의",
+"grammar": "중성명사, 속격 복수",
+"baseForm": "āyatana (감각 영역)",
+"icon": "👂"
+},
+"jarā": {
+"meaning": "늙음",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "jarā (늙음)",
+"icon": "👴"
+},
+"maraṇaṃ": {
+"meaning": "죽음",
+"grammar": "중성명사, 주격 단수",
+"baseForm": "maraṇa (죽음)",
+"icon": "⚰️"
+},
+"tamhā": {
+"meaning": "그 ~로부터",
+"grammar": "지시대명사, 탈격 단수",
+"baseForm": "ta (그)",
+"icon": "👉",
+"formNote": "처격 tamhi ↔ 탈격 tamhā"
+},
+"sattanikāyā": {
+"meaning": "중생의 무리로부터",
+"grammar": "남성명사(복합어), 탈격 단수",
+"baseForm": "satta + nikāya",
+"icon": "👥",
+"formNote": "처격 sattanikāye ↔ 탈격 sattanikāyā"
+},
+"socitattaṃ": {
+"meaning": "슬퍼하는 상태",
+"grammar": "추상명사, 중성 주격 단수",
+"baseForm": "socita (슬퍼한) + tta (상태)",
+"icon": "😢",
+"formNote": "-tta는 \"~인 상태\"를 만드는 접미사"
+},
+"ādevitattaṃ": {
+"meaning": "한탄하는 상태",
+"grammar": "추상명사, 중성 주격 단수",
+"baseForm": "ādevita + tta",
+"icon": "😢",
+"formNote": "-tta는 \"~인 상태\"를 만드는 접미사"
+},
+"paridevitattaṃ": {
+"meaning": "비탄하는 상태",
+"grammar": "추상명사, 중성 주격 단수",
+"baseForm": "paridevita + tta",
+"icon": "😢",
+"formNote": "-tta는 \"~인 상태\"를 만드는 접미사"
+},
+"āyāsitattaṃ": {
+"meaning": "고뇌하는 상태",
+"grammar": "추상명사, 중성 주격 단수",
+"baseForm": "āyāsita + tta",
+"icon": "😢",
+"formNote": "-tta는 \"~인 상태\"를 만드는 접미사"
+},
+"upāyāsitattaṃ": {
+"meaning": "절망하는 상태",
+"grammar": "추상명사, 중성 주격 단수",
+"baseForm": "upāyāsita + tta",
+"icon": "😢",
+"formNote": "-tta는 \"~인 상태\"를 만드는 접미사"
+},
+"antoparisoko": {
+"meaning": "안의 깊은 슬픔",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "anto (안) + pari (두루) + soka (슬픔)",
+"icon": "😢"
+},
+"ādevanā": {
+"meaning": "한탄함",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "ādevanā (한탄)",
+"icon": "😭"
+},
+"paridevanā": {
+"meaning": "비탄함",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "paridevanā (비탄)",
+"icon": "😭"
+},
+"domanassaṃ": {
+"meaning": "근심, 정신적 괴로움",
+"grammar": "중성명사, 주격 단수",
+"baseForm": "du (나쁜) + manassa (마음 상태)",
+"icon": "😞"
+},
+"anatthakāmā": {
+"meaning": "손해를 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "anatth + kāma (바라는)",
+"icon": "🙅"
+},
+"ahitakāmā": {
+"meaning": "불이익을 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "ahit + kāma (바라는)",
+"icon": "🙅"
+},
+"aphāsukakāmā": {
+"meaning": "불편을 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "aphāsuk + kāma (바라는)",
+"icon": "🙅"
+},
+"ayogakkhemakāmā": {
+"meaning": "속박에서 벗어나지 못하길 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "ayogakkhem + kāma (바라는)",
+"icon": "🙅"
+},
+"atthakāmā": {
+"meaning": "이익을 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "atth + kāma (바라는)",
+"icon": "🙆"
+},
+"hitakāmā": {
+"meaning": "이로움을 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "hit + kāma (바라는)",
+"icon": "🙆"
+},
+"phāsukakāmā": {
+"meaning": "편안함을 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "phāsuk + kāma (바라는)",
+"icon": "🙆"
+},
+"yogakkhemakāmā": {
+"meaning": "속박에서 벗어나길 바라는 [사람들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "yogakkhem + kāma (바라는)",
+"icon": "🙆"
+},
+"tehi": {
+"meaning": "그들과",
+"grammar": "지시대명사, 구격 복수",
+"baseForm": "ta (그)",
+"icon": "👥",
+"formNote": "saddhiṃ과 함께 \"그들과 함께\""
+},
+"saddhiṃ": {
+"meaning": "~와 함께",
+"grammar": "불변사 (구격 지배)",
+"baseForm": "saddhiṃ",
+"icon": "🤝"
+},
+"samodhānaṃ": {
+"meaning": "합류, 함께함",
+"grammar": "중성명사, 주격 단수",
+"baseForm": "samodhāna (합침)",
+"icon": "🤝"
+},
+"asaṅgati": {
+"meaning": "함께하지 못함",
+"grammar": "여성명사, 주격 단수",
+"baseForm": "a + saṅgati (만남)",
+"icon": "💔"
+},
+"asamāgamo": {
+"meaning": "만나지 못함",
+"grammar": "남성명사, 주격 단수",
+"baseForm": "a + samāgama (모임)",
+"icon": "💔"
+},
+"asamodhānaṃ": {
+"meaning": "합류하지 못함",
+"grammar": "중성명사, 주격 단수",
+"baseForm": "a + samodhāna",
+"icon": "💔"
+},
+"amissībhāvo": {
+"meaning": "어울리지 못함",
+"grammar": "남성명사, 주격 단수",
+"baseForm": "a + missībhāva (섞임)",
+"icon": "💔"
+},
+"panetaṃ": {
+"meaning": "그러나 이것은",
+"grammar": "연성: pana + etaṃ",
+"baseForm": "pana + eta",
+"icon": "👉",
+"formNote": "pana etaṃ → panetaṃ"
+},
+"icchāya": {
+"meaning": "바람에 의해",
+"grammar": "여성명사, 구격 단수",
+"baseForm": "icchā (바람)",
+"icon": "🙏",
+"formNote": "주격 icchā ↔ 구격 icchāya"
+},
+"maraṇadhammā": {
+"meaning": "죽기 마련인 [자들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "maraṇa (죽음) + dhamma (성질)",
+"icon": "⚰️"
+},
+"sokaparidevadukkhadomanassupāyāsadhammā": {
+"meaning": "슬픔·비탄·괴로움·근심·절망에 매인 [자들]",
+"grammar": "복합어 형용사, 남성 주격 복수",
+"baseForm": "soka + parideva + dukkha + domanassa + upāyāsa + dhamma",
+"icon": "😢",
+"formNote": "속격 복수 -dhammānaṃ ↔ 주격 복수 -dhammā"
+},
+"āgaccheyyunti": {
+"meaning": "\"오지 않았으면\"이라고",
+"grammar": "동사 원망법 3인칭 복수 + 인용 ti",
+"baseForm": "āgacchati (오다)",
+"icon": "🚪",
+"formNote": "단수 āgaccheyya ↔ 복수 āgaccheyyuṃ"
+},
+"vuccanti": {
+"meaning": "~라고 불린다",
+"grammar": "동사, 수동 현재 3인칭 복수",
+"baseForm": "vuccati (불리다) < vatti (말하다)",
+"icon": "🏷️",
+"formNote": "단수 vuccati ↔ 복수 vuccanti"
+},
+"panesā": {
+"meaning": "그런데 이것은",
+"grammar": "연성: pana + esā(지시대명사 여성 주격 단수)",
+"baseForm": "pana + eta",
+"icon": "👉",
+"formNote": "pana esā → panesā (taṇhā 여성과 호응)"
+},
+"ettha": {
+"meaning": "여기에서, 거기에서",
+"grammar": "부사 (장소)",
+"baseForm": "ettha",
+"icon": "📍"
+},
+"sotasamphasso": {
+"meaning": "귀의 접촉이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "sota + samphassa (접촉)",
+"icon": "👂"
+},
+"sotasamphassajā": {
+"meaning": "귀의 접촉에서 생긴",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "sota + samphassa + ja (생긴)",
+"icon": "👂",
+"formNote": "vedanā(여성)를 꾸밈"
+},
+"ghānasamphasso": {
+"meaning": "코의 접촉이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "ghāna + samphassa (접촉)",
+"icon": "👃"
+},
+"ghānasamphassajā": {
+"meaning": "코의 접촉에서 생긴",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "ghāna + samphassa + ja (생긴)",
+"icon": "👃",
+"formNote": "vedanā(여성)를 꾸밈"
+},
+"kāyasamphasso": {
+"meaning": "몸의 접촉이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "kāya + samphassa (접촉)",
+"icon": "✋"
+},
+"kāyasamphassajā": {
+"meaning": "몸의 접촉에서 생긴",
+"grammar": "형용사, 여성 주격 단수",
+"baseForm": "kāya + samphassa + ja (생긴)",
+"icon": "✋",
+"formNote": "vedanā(여성)를 꾸밈"
+},
+"rūpasaññā": {
+"meaning": "형색에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rūpa (형색) + saññā (인식)",
+"icon": "👁️"
+},
+"rūpasañcetanā": {
+"meaning": "형색에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rūpa (형색) + sañcetanā (의도)",
+"icon": "👁️"
+},
+"rūpataṇhā": {
+"meaning": "형색에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rūpa (형색) + taṇhā (갈애)",
+"icon": "👁️"
+},
+"rūpavitakko": {
+"meaning": "형색에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "rūpa (형색) + vitakka (사유)",
+"icon": "👁️"
+},
+"rūpavicāro": {
+"meaning": "형색에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "rūpa (형색) + vicāra (고찰)",
+"icon": "👁️"
+},
+"saddasaññā": {
+"meaning": "소리에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "sadda (소리) + saññā (인식)",
+"icon": "🔊"
+},
+"saddasañcetanā": {
+"meaning": "소리에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "sadda (소리) + sañcetanā (의도)",
+"icon": "🔊"
+},
+"saddataṇhā": {
+"meaning": "소리에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "sadda (소리) + taṇhā (갈애)",
+"icon": "🔊"
+},
+"saddavitakko": {
+"meaning": "소리에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "sadda (소리) + vitakka (사유)",
+"icon": "🔊"
+},
+"saddavicāro": {
+"meaning": "소리에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "sadda (소리) + vicāra (고찰)",
+"icon": "🔊"
+},
+"gandhasaññā": {
+"meaning": "냄새에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "gandha (냄새) + saññā (인식)",
+"icon": "👃"
+},
+"gandhasañcetanā": {
+"meaning": "냄새에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "gandha (냄새) + sañcetanā (의도)",
+"icon": "👃"
+},
+"gandhataṇhā": {
+"meaning": "냄새에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "gandha (냄새) + taṇhā (갈애)",
+"icon": "👃"
+},
+"gandhavitakko": {
+"meaning": "냄새에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "gandha (냄새) + vitakka (사유)",
+"icon": "👃"
+},
+"gandhavicāro": {
+"meaning": "냄새에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "gandha (냄새) + vicāra (고찰)",
+"icon": "👃"
+},
+"rasasaññā": {
+"meaning": "맛에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rasa (맛) + saññā (인식)",
+"icon": "👅"
+},
+"rasasañcetanā": {
+"meaning": "맛에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rasa (맛) + sañcetanā (의도)",
+"icon": "👅"
+},
+"rasataṇhā": {
+"meaning": "맛에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "rasa (맛) + taṇhā (갈애)",
+"icon": "👅"
+},
+"rasavitakko": {
+"meaning": "맛에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "rasa (맛) + vitakka (사유)",
+"icon": "👅"
+},
+"rasavicāro": {
+"meaning": "맛에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "rasa (맛) + vicāra (고찰)",
+"icon": "👅"
+},
+"phoṭṭhabbasaññā": {
+"meaning": "감촉에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "phoṭṭhabba (감촉) + saññā (인식)",
+"icon": "✋"
+},
+"phoṭṭhabbasañcetanā": {
+"meaning": "감촉에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "phoṭṭhabba (감촉) + sañcetanā (의도)",
+"icon": "✋"
+},
+"phoṭṭhabbataṇhā": {
+"meaning": "감촉에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "phoṭṭhabba (감촉) + taṇhā (갈애)",
+"icon": "✋"
+},
+"phoṭṭhabbavitakko": {
+"meaning": "감촉에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "phoṭṭhabba (감촉) + vitakka (사유)",
+"icon": "✋"
+},
+"phoṭṭhabbavicāro": {
+"meaning": "감촉에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "phoṭṭhabba (감촉) + vicāra (고찰)",
+"icon": "✋"
+},
+"dhammasaññā": {
+"meaning": "법(마음의 대상)에 대한 인식이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "dhamma (법(마음의 대상)) + saññā (인식)",
+"icon": "☸️"
+},
+"dhammasañcetanā": {
+"meaning": "법(마음의 대상)에 대한 의도이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "dhamma (법(마음의 대상)) + sañcetanā (의도)",
+"icon": "☸️"
+},
+"dhammataṇhā": {
+"meaning": "법(마음의 대상)에 대한 갈애이",
+"grammar": "여성명사(복합어), 주격 단수",
+"baseForm": "dhamma (법(마음의 대상)) + taṇhā (갈애)",
+"icon": "☸️"
+},
+"dhammavitakko": {
+"meaning": "법(마음의 대상)에 대한 사유가",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "dhamma (법(마음의 대상)) + vitakka (사유)",
+"icon": "☸️"
+},
+"dhammavicāro": {
+"meaning": "법(마음의 대상)에 대한 고찰이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "dhamma (법(마음의 대상)) + vicāra (고찰)",
+"icon": "☸️"
+},
+"dukkhanirodhagāminiyā": {
+"meaning": "괴로움의 소멸로 이끄는",
+"grammar": "복합어 형용사, 여성 속격 단수",
+"baseForm": "dukkha + nirodha + gāminī (가는)",
+"icon": "🛤️",
+"formNote": "paṭipadāya(여성)를 꾸밈"
+},
+"paṭipadāya": {
+"meaning": "길에 대한",
+"grammar": "여성명사, 속격(처격) 단수",
+"baseForm": "paṭipadā (길, 도닦음)",
+"icon": "🛤️",
+"formNote": "주격 paṭipadā ↔ paṭipadāya"
+},
+"māsaṃ": {
+"meaning": "한 달 동안",
+"grammar": "남성명사, 대격 단수 (기간)",
+"baseForm": "māsa (달)",
+"icon": "🗓️",
+"formNote": "대격이 \"~동안\"을 나타냄"
+},
+"aḍḍhamāso": {
+"meaning": "보름이",
+"grammar": "남성명사(복합어), 주격 단수",
+"baseForm": "aḍḍha (반) + māsa (달)",
+"icon": "🌓"
+},
+"vuttaṃ": {
+"meaning": "말해진 것이다",
+"grammar": "과거분사, 중성 주격 단수",
+"baseForm": "vatti (말하다)",
+"icon": "💬",
+"formNote": "iti yaṃ taṃ vuttaṃ = \"~라고 말한 것은\""
+}
+}
