@@ -45,9 +45,9 @@ async function loadFirebase() {
   const { initializeApp } = await import('firebase/app')
   const { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } =
     await import('firebase/auth')
-  const { getFirestore, doc, getDoc, setDoc } =
+  const { getFirestore, initializeFirestore, doc, getDoc, setDoc } =
     await import('firebase/firestore')
-  return { initializeApp, getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, getFirestore, doc, getDoc, setDoc }
+  return { initializeApp, getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, getFirestore, initializeFirestore, doc, getDoc, setDoc }
 }
 
 let fb: Awaited<ReturnType<typeof loadFirebase>> | null = null
@@ -59,7 +59,12 @@ export async function initSync(onStateChange: (loggedIn: boolean) => void) {
     fb = await loadFirebase()
     const app = fb.initializeApp(FIREBASE_CONFIG)
     auth = fb.getAuth(app)
-    db = fb.getFirestore(app)
+    try {
+      // 카카오톡 등 앱 안 브라우저에서 실시간 연결이 막히면 자동으로 롱폴링 사용 (메모와 같은 설정)
+      db = fb.initializeFirestore(app, { experimentalAutoDetectLongPolling: true })
+    } catch {
+      db = fb.getFirestore(app)
+    }
     fb.onAuthStateChanged(auth, async (user: unknown) => {
       currentUser = user
       onStateChange(!!user)

@@ -1,3 +1,4 @@
+import { fitImages, withTimeout, friendlyError } from './memo-fit'
 // 메모 시스템 — Firestore에 base64 이미지 저장
 // 기기별 ID로 "내 메모" 구분, 수정 가능
 
@@ -19,6 +20,7 @@ const FIREBASE_CONFIG = {
 }
 
 const MAX_IMAGE_WIDTH = 800
+const SAVE_TIMEOUT = 25000 // 25초 안에 저장 안 되면 실패로 안내
 
 export interface MemoImage {
   order: number
@@ -56,14 +58,22 @@ async function ensureFirebase() {
   if (db) return
 
   const { initializeApp, getApps, getApp } = await import('firebase/app')
-  const { getFirestore, collection, addDoc, getDocs, doc, updateDoc,
+  const { getFirestore, initializeFirestore, collection, addDoc, getDocs, doc, updateDoc,
     deleteDoc, query, orderBy, where } = await import('firebase/firestore')
 
   fb = { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where }
 
   const app = getApps().length > 0 ? getApp() : initializeApp(FIREBASE_CONFIG)
-  db = getFirestore(app)
+  try {
+    // 카카오톡 등 앱 안 브라우저·회사망에서 실시간 연결이 막히면 자동으로 다른 방식(롱폴링) 사용
+    db = initializeFirestore(app, { experimentalAutoDetectLongPolling: true })
+  } catch {
+    db = getFirestore(app) // 이미 초기화된 경우
+  }
 }
+
+// 마지막 저장 실패 이유 (화면에 보여주기용)
+export let lastMemoError = ''
 
 // 이미지 → 리사이즈 → base64 data URL
 export function fileToDataUrl(file: File): Promise<string> {
@@ -82,7 +92,7 @@ export function fileToDataUrl(file: File): Promise<string> {
       ctx.drawImage(img, 0, 0, width, height)
       resolve(canvas.toDataURL('image/jpeg', 0.8))
     }
-    img.onerror = reject
+    img.onerror = () => reject(new Error('image-read'))
     img.src = URL.createObjectURL(file)
   })
 }
@@ -94,26 +104,32 @@ export async function saveMemo(
   imageFiles: File[],
   stepId?: string,  // 고유 스텝 ID
 ): Promise<boolean> {
+  lastMemoError = ''
   try {
     await ensureFirebase()
-    const images: MemoImage[] = []
+    let images: MemoImage[] = []
     for (let i = 0; i < imageFiles.length; i++) {
       const dataUrl = await fileToDataUrl(imageFiles[i])
-      images.push({ order: i + 1, dataUrl, name: imageFiles[i].name })
+      images.push({ order: i + 1, dataUrl, name: imageFiles[i].name || `image-${i + 1}.jpg` })
     }
-    const memo: Omit<Memo, 'id'> = {
+    // 1MB 제한에 맞게 사진 줄이기
+    const fitted = await fitImages(text, images)
+    if (!fitted) throw new Error('too-big')
+    images = fitted
+    const memo: Record<string, unknown> = {
       page,
-      stepId,  // 추가
       text,
       images,
       createdAt: new Date().toISOString(),
       deviceId: getDeviceId(),
       userAgent: navigator.userAgent.slice(0, 150),
     }
-    await fb.addDoc(fb.collection(db, COLLECTION), memo)
+    if (stepId) memo.stepId = stepId // undefined 값은 Firestore가 거부하므로 있을 때만
+    await withTimeout(fb.addDoc(fb.collection(db, COLLECTION), memo), SAVE_TIMEOUT)
     return true
   } catch (e) {
     console.error('메모 저장 실패:', e)
+    lastMemoError = friendlyError(e)
     return false
   }
 }
@@ -125,21 +141,25 @@ export async function updateMemo(
   images: MemoImage[],
   stepId?: string,  // 고유 스텝 ID (옵션)
 ): Promise<boolean> {
+  lastMemoError = ''
   try {
     await ensureFirebase()
     const ref = fb.doc(db, COLLECTION, memoId)
+    const fitted = await fitImages(text, images)
+    if (!fitted) throw new Error('too-big')
     const updateData: Record<string, unknown> = {
       text,
-      images,
+      images: fitted,
       updatedAt: new Date().toISOString(),
     }
     if (stepId !== undefined) {
       updateData.stepId = stepId
     }
-    await fb.updateDoc(ref, updateData)
+    await withTimeout(fb.updateDoc(ref, updateData), SAVE_TIMEOUT)
     return true
   } catch (e) {
     console.error('메모 수정 실패:', e)
+    lastMemoError = friendlyError(e)
     return false
   }
 }

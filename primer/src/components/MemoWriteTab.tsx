@@ -1,7 +1,8 @@
 // 메모 작성/수정 탭 UI
-import { useRef, useCallback } from 'react'
+import { useRef, useCallback, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-import { saveMemo, updateMemo, fileToDataUrl } from '../utils/memo'
+import { saveMemo, updateMemo, fileToDataUrl, lastMemoError } from '../utils/memo'
+import { friendlyError } from '../utils/memo-fit'
 import type { MemoImage } from '../utils/memo'
 import { getPageName, getCurrentPageId, type ImageItem } from './memo-utils'
 
@@ -28,13 +29,15 @@ export default function MemoWriteTab({
 }: Props) {
   const fileRef = useRef<HTMLInputElement>(null)
   const location = useLocation()
+  const [error, setError] = useState('')  // 저장 실패 이유
 
   // 이미지 추가
   const addImages = useCallback((files: FileList | File[]) => {
     setImages(prev => {
       const next = [...prev]
       for (const f of Array.from(files)) {
-        if (f.size > 5 * 1024 * 1024) continue
+        // 휴대폰 사진은 5MB가 넘는 경우가 많음 → 어차피 줄여서 저장하므로 25MB까지 허용
+        if (f.size > 25 * 1024 * 1024) { setError(`사진이 너무 커서 뺐어요: ${f.name}`); continue }
         orderCounter.current += 1
         next.push({
           file: f,
@@ -76,26 +79,31 @@ export default function MemoWriteTab({
   const handleSubmit = async () => {
     if (!text.trim() && images.length === 0) return
     setSending(true)
-
+    setError('')
     const pageId = getCurrentPageId(location.pathname)
 
-    let ok: boolean
-    if (editingId) {
-      const finalImages: MemoImage[] = []
-      const sorted = [...images].sort((a, b) => a.order - b.order)
-      for (let i = 0; i < sorted.length; i++) {
-        const img = sorted[i]
-        if (img.file) {
-          const dataUrl = await fileToDataUrl(img.file)
-          finalImages.push({ order: i + 1, dataUrl, name: img.name })
-        } else if (img.dataUrl) {
-          finalImages.push({ order: i + 1, dataUrl: img.dataUrl, name: img.name })
+    let ok = false
+    try {
+      if (editingId) {
+        const finalImages: MemoImage[] = []
+        const sorted = [...images].sort((a, b) => a.order - b.order)
+        for (let i = 0; i < sorted.length; i++) {
+          const img = sorted[i]
+          if (img.file) {
+            const dataUrl = await fileToDataUrl(img.file)
+            finalImages.push({ order: i + 1, dataUrl, name: img.name })
+          } else if (img.dataUrl) {
+            finalImages.push({ order: i + 1, dataUrl: img.dataUrl, name: img.name })
+          }
         }
+        ok = await updateMemo(editingId, text, finalImages, pageId)
+      } else {
+        const files = [...images].sort((a, b) => a.order - b.order).map(i => i.file!).filter(Boolean)
+        ok = await saveMemo(getPageName(location.pathname), text, files, pageId)
       }
-      ok = await updateMemo(editingId, text, finalImages, pageId)
-    } else {
-      const files = images.sort((a, b) => a.order - b.order).map(i => i.file!)
-      ok = await saveMemo(getPageName(location.pathname), text, files, pageId)
+      if (!ok) setError(lastMemoError || '저장하지 못했어요. 잠시 후 다시 시도해 주세요.')
+    } catch (e) {
+      setError(friendlyError(e))
     }
 
     setSending(false)
@@ -179,6 +187,15 @@ export default function MemoWriteTab({
         </button>
       </div>
 
+      {/* 저장 실패 안내 — 쓴 글은 그대로 남아 있으니 다시 보내기 가능 */}
+      {error && (
+        <div role="alert" className="mx-4 mb-1 rounded-lg bg-red-50 dark:bg-red-950/40
+          border border-red-200 dark:border-red-800 px-3 py-2 text-xs text-red-700 dark:text-red-300">
+          {error}
+          <span className="block mt-1 opacity-70">쓴 내용은 지워지지 않았어요. 버튼을 다시 눌러 보세요.</span>
+        </div>
+      )}
+
       {/* 하단 버튼 */}
       <div className="px-4 py-3 border-t border-neutral-200
         dark:border-neutral-700 flex gap-2">
@@ -199,7 +216,7 @@ export default function MemoWriteTab({
               className="w-full py-2.5 rounded-lg bg-amber-600 text-white
                 font-medium hover:bg-amber-700 disabled:opacity-50
                 transition-colors">
-              {sending ? '저장 중...' : editingId ? '수정 저장' : '메모 보내기'}
+              {sending ? '저장 중...' : editingId ? '수정 저장' : error ? '다시 보내기' : '메모 보내기'}
             </button>
           )}
         </div>

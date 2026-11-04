@@ -8,10 +8,21 @@ import type { ImageItem, Tab } from './memo-utils'
 import MemoWriteTab from './MemoWriteTab'
 import MemoListTab from './MemoListTab'
 
+const DRAFT_KEY = 'pali-memo-draft'
+
 export default function MemoFab() {
   const [open, setOpen] = useState(false)
-  const [tab, setTab] = useState<Tab>('list')
-  const [text, setText] = useState('')
+  const [tab, setTab] = useState<Tab>(() => {
+    try { return localStorage.getItem(DRAFT_KEY) ? 'write' : 'list' } catch { return 'list' }
+  })
+  // 쓰던 새 메모는 기기에 임시 저장 → 창을 닫거나 새로고침해도 남아 있음
+  const [text, setTextState] = useState(() => {
+    try { return localStorage.getItem(DRAFT_KEY) || '' } catch { return '' }
+  })
+  const setText = useCallback((v: string) => {
+    setTextState(v)
+    try { if (v) localStorage.setItem(DRAFT_KEY, v); else localStorage.removeItem(DRAFT_KEY) } catch { /* 무시 */ }
+  }, [])
   const [images, setImages] = useState<ImageItem[]>([])
   const [sending, setSending] = useState(false)
   const [done, setDone] = useState(false)
@@ -60,8 +71,9 @@ export default function MemoFab() {
 
   const handleClose = () => {
     setOpen(false)
-    resetForm()
-    setTab('list')
+    // 수정 중이던 것만 초기화. 새 메모로 쓰던 글·사진은 남겨 둠 (다시 열면 이어 쓰기)
+    if (editingId) resetForm()
+    setTab(text || images.length ? 'write' : 'list')
   }
 
   return (
