@@ -111,16 +111,31 @@ async def run_full(voice_key: str):
         file_to_text[fname] = text
         known.add(text.lower())
 
-    sem = asyncio.Semaphore(6)
+    # 음성 서버가 너무 빠른 요청을 막으므로: 동시 3개, 실패한 것은 쉬었다가 다시 (최대 5번)
+    sem = asyncio.Semaphore(3)
+    failed = []
 
     async def one(fname, text):
         async with sem:
-            await speak(text, voice_key, audio / fname)
+            try:
+                await speak(text, voice_key, audio / fname, retries=2)
+            except Exception:
+                failed.append((fname, text))
 
-    items = sorted(file_to_text.items())
-    for start in range(0, len(items), 60):
-        await asyncio.gather(*(one(f, t) for f, t in items[start:start + 60]))
-        print(f'{min(start + 60, len(items))}/{len(items)}')
+    todo = sorted(file_to_text.items())
+    for rnd in range(1, 6):
+        failed.clear()
+        for start in range(0, len(todo), 60):
+            await asyncio.gather(*(one(f, t) for f, t in todo[start:start + 60]))
+            print(f'[{rnd}회차] {min(start + 60, len(todo))}/{len(todo)}')
+        if not failed:
+            break
+        print(f'[{rnd}회차] 실패 {len(failed)}개 → {30 * rnd}초 쉬고 다시')
+        todo = list(failed)
+        await asyncio.sleep(30 * rnd)
+    if failed:
+        raise SystemExit(f'끝까지 실패: {[t for _, t in failed]}')
+    items = file_to_text
 
     (audio / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
     print(f'완료: 파일 {len(items)}개, 새 단어 {n}개')
