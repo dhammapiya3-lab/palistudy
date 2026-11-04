@@ -34,7 +34,7 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'teach', word: 'pavisati', pronKo: '빠위사띠', meaning: '들어가다', icon: '🚶', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pavisati', formNote: '복수: pavisanti' },
   { type: 'teach', word: 'dadāti', pronKo: '다다-띠', meaning: '주다', icon: '🤝', grammar: '동사 · 현재 3인칭 단수', baseForm: 'dadāti', formNote: '복수: dadanti\n여격과 함께 사용: narāya dadāti (사람에게 준다)' },
   { type: 'teach', word: 'ādadāti', pronKo: '아-다다-띠', meaning: '얻다, 가지다', icon: '✊', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ādadāti', formNote: '복수: ādadanti' },
-  { type: 'teach', word: 'kīḷati', pronKo: '낄라띠', meaning: '놀다', icon: '🎮', grammar: '동사 · 현재 3인칭 단수', baseForm: 'kīḷati', formNote: '복수: kīḷanti' },
+  { type: 'teach', word: 'kīḷati', pronKo: '낄-라띠', meaning: '놀다', icon: '🎮', grammar: '동사 · 현재 3인칭 단수', baseForm: 'kīḷati', formNote: '복수: kīḷanti' },
   { type: 'teach', word: 'nahāyati', pronKo: '나하-야띠', meaning: '목욕하다', icon: '🛁', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nahāyati', formNote: '복수: nahāyanti' },
   { type: 'teach', word: 'ākaḍḍhati', pronKo: '아-깟다띠', meaning: '끌다', icon: '🪢', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ākaḍḍhati', formNote: '복수: ākaḍḍhanti' },
   { type: 'teach', word: 'pajahati', pronKo: '빠자하띠', meaning: '버리다', icon: '🗑️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pajahati', formNote: '복수: pajahanti' },

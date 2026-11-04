@@ -64,7 +64,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'quiz', question: '8. Bhūpālo manusse rakkhati.', options: ['왕은 사람을 보호한다', '왕들은 사람들을 보호한다', '왕은 사람들을 보호한다', '사람들은 왕을 보호한다'], answer: 2, hint: 'Bhūpālo=왕은(단수), manusse=사람들을(목적격 복수)' },
   { type: 'quiz', question: '9. Puttā pabbataṃ gacchanti.', options: ['아들은 산으로 간다', '아들들은 산으로 간다', '아들들은 마을로 간다', '아들들은 산을 오른다'], answer: 1, hint: 'Puttā=아들들은, pabbataṃ=산으로, gacchanti=가다(복수)' },
   { type: 'quiz', question: '10. Kumāro Buddhaṃ vandati.', options: ['소년은 붓다를 본다', '소년은 붓다에게 경배한다', '소년들은 붓다에게 경배한다', '왕은 붓다에게 경배한다'], answer: 1, hint: 'Kumāro=소년은, Buddhaṃ=붓다에게, vandati=경배하다' },
-  { type: 'quiz', question: '11. Vāṇijā patte āharanti.', options: ['상인들은 그릇들을 가져온다', '상인은 그릇를 가져온다', '상인들은 그릇을 운반한다', '상인들은 밥을 가져온다'], answer: 0, hint: 'Vāṇijā=상인들은, patte=그릇들을(목적격 복수)' },
+  { type: 'quiz', question: '11. Vāṇijā patte āharanti.', options: ['상인들은 그릇들을 가져온다', '상인은 그릇을 가져온다', '상인들은 그릇을 운반한다', '상인들은 밥을 가져온다'], answer: 0, hint: 'Vāṇijā=상인들은, patte=그릇들을(목적격 복수)' },
   { type: 'quiz', question: '12. Puriso vihāraṃ gacchati.', options: ['남자들은 정사로 간다', '남자는 마을로 간다', '남자는 정사로 간다', '남자는 정사를 본다'], answer: 2, hint: 'Puriso=남자는(단수), vihāraṃ=정사로' },
   { type: 'quiz', question: '13. Kukkurā pabbataṃ dhāvanti.', options: ['개는 산으로 달린다', '개들은 마을로 달린다', '개들은 산으로 달린다', '재칼들은 산으로 달린다'], answer: 2, hint: 'Kukkurā=개들은, pabbataṃ=산으로, dhāvanti=달리다(복수)' },
   { type: 'quiz', question: '14. Sigālā gāmaṃ āgacchanti.', options: ['재칼은 마을로 온다', '재칼들은 마을로 간다', '재칼들은 마을로 온다', '개들은 마을로 온다'], answer: 2, hint: 'Sigālā=재칼들은(복수), āgacchanti=오다(복수)' },

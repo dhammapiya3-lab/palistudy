@@ -16,7 +16,7 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'verse', pali: 'Dārako bhattaṃ bhuñjituṃ icchati.', pronKo: '다-라꼬 밧땅 분지뚱 잇차띠', translation: '아이는 밥을 먹기를(bhuñjituṃ) 원한다.', highlight: ['bhuñjituṃ', 'icchati'], note: 'bhuñjituṃ = 먹을/먹기를 (부정사)\nicchati = 원하다' },
   { type: 'verse', pali: 'Samaṇo dhammaṃ desetuṃ vihāraṃ gacchati.', pronKo: '사마노 담망 데세뚱 위하-랑 갓차띠', translation: '사문은 법을 가르치기 위해(desetuṃ) 정사에 간다.', highlight: ['desetuṃ', 'dhammaṃ'], note: 'desetuṃ = 가르칠/가르치기 위해 (부정사)' },
   { type: 'verse', pali: 'Kumāro udakaṃ pātuṃ nadiṃ gacchati.', pronKo: '꾸마-로 우다깡 빠-뚱 나딩 갓차띠', translation: '소년은 물을 마시기 위해(pātuṃ) 강에 간다.', highlight: ['pātuṃ', 'udakaṃ'], note: 'pātuṃ = 마실 (불규칙 부정사: pā + tuṃ)' },
-  { type: 'verse', pali: 'Kassako nagaraṃ gantuṃ ussahati.', pronKo: '깟사꼬 나가랑 간뚱 웃사하띠', translation: '농부는 도시에 가려고(gantuṃ) 노력한다.', highlight: ['gantuṃ', 'ussahati'], note: 'gantuṃ = 갈 (불규칙: gam + tuṃ)\nussahati = 노력하다' },
+  { type: 'verse', pali: 'Kassako nagaraṃ gantuṃ ussahati.', pronKo: '깟사꼬 나가랑 간뚱 웃사하띠', translation: '농부는 도시에 가려고(gantuṃ) 노력한다.', highlight: ['gantuṃ', 'ussahati'], note: 'gantuṃ = 갈 (불규칙: gam + tuṃ)\nussahati = 노력하다/애쓰다' },
 
   // === 현재분사 문법 ===
   { type: 'teach-grammar', title: '현재분사 -nta/-māna — ~하면서, ~하는', example: 'pacati → pacanta / pacamāna (요리하면서)\ngacchati → gacchanta / gacchamāna (가면서)\nvasati → vasanta / vasamāna (살면서)\ndeseti → desenta / desemāna (가르치면서)', exampleKo: '어간 + nta 또는 māna', explanation: '현재분사는 동시 진행 동작을 표현합니다.\n두 형태가 있으며 의미 차이는 거의 없습니다.\n\n-nta형 (능동):\n• pac + anta → pacanta\n• gacch + anta → gacchanta\n\n-māna형 (중간태):\n• pac + amāna → pacamāna\n• gacch + amāna → gacchamāna\n\n현재분사는 형용사처럼 격변화합니다:\n주격 단수: -anto (남성)\n주격 복수: -antā (남성)\n목적격 단수: -antaṃ\n도구격 단수: -antena' },

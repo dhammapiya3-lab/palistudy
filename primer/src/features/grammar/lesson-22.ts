@@ -9,7 +9,7 @@ export const LESSON_22: StepWithoutId[] = [
   { type: 'teach-grammar', title: '사역형 -e/-aya', example: 'pac(요리하다) → pāceti / pācayati\nbhuj(먹다) → bhojeti / bhojayati\nkar(행하다) → kāreti / kārayati\ndā(주다) → dāpeti / dāpayati', exampleKo: '어근 모음 강화 + -eti/-ayati', explanation: '-e/-aya:\n• pāceti = 요리시킨다 (pac → pāc + eti)\n• bhojeti = 먹인다 (bhuj → bhoj + eti)\n• kāreti = 행하게 한다 (kar → kār + eti)\n\n어근의 모음이 강화됩니다:\n• a → ā (pac → pāc)\n• u → o (bhuj → bhoj)\n• i → e (nis → nes → neseti, 인도하다)' },
 
   // === 사역형 -āpe/-āpaya ===
-  { type: 'teach-grammar', title: '사역형 -āpe/-āpaya', example: 'cor(훔치다) → corāpeti (훔치게 시킨다)\nkiṇ(사다) → kiṇāpeti (사게 시킨다)\npac → pācāpeti (요리하게 시킨다)', exampleKo: '어근 + -āpeti', explanation: '-āpe/-āpaya:\n• corāpeti = 훔치게 한다\n• kiṇāpeti = 사게 한다\n• pācāpeti = 요리하게 시킨다\n\npāceti = 요리하게 한다\npācāpeti = 요리하게 시킨다' },
+  { type: 'teach-grammar', title: '사역형 -āpe/-āpaya', example: 'cor(훔치다) → corāpeti (훔치게 시킨다)\nkiṇ(사다) → kiṇāpeti (사게 시킨다)\npac → pācāpeti (요리하게 시킨다)', exampleKo: '어근 + -āpeti', explanation: '-āpe/-āpaya:\n• corāpeti = 훔치게 한다\n• kiṇāpeti = 사게 한다\n• pācāpeti = 요리하게 시킨다' },
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pāceti', pronKo: '빠-쩨띠', meaning: '요리시키다', icon: '👨‍🍳', grammar: '사역형 (pac)', formNote: 'pac → pāc + eti\n복수: pācenti' },

@@ -6,7 +6,7 @@ interface TeachStepProps {
   onSpeak: (text: string) => void
 }
 
-export default function TeachStep({ step, lid, onSpeak }: TeachStepProps) {
+export default function TeachStep({ step, onSpeak }: TeachStepProps) {
   return (
     <div className="flex-1 flex flex-col pt-1">
       {/* 게송 문맥 */}
@@ -71,14 +71,14 @@ export default function TeachStep({ step, lid, onSpeak }: TeachStepProps) {
       >
         <span className="text-4xl block">{step.icon}</span>
         <p
-          className={`pali-text text-3xl font-bold mt-3 ${lid !== 'lesson-00' ? 'cursor-pointer active:opacity-60' : ''} transition-opacity`}
+          className="pali-text text-3xl font-bold mt-3 cursor-pointer active:opacity-60 transition-opacity"
           style={{
             fontFamily: 'var(--font-pali)',
             color: 'var(--color-primary)',
           }}
-          onClick={lid !== 'lesson-00' ? () => onSpeak(step.word) : undefined}
+          onClick={() => onSpeak(step.word)}
         >
-          {step.word} {lid !== 'lesson-00' && <span className="text-base align-middle opacity-40">🔊</span>}
+          {step.word} <span className="text-base align-middle opacity-40">🔊</span>
         </p>
         {/* 발음 필 배지 */}
         <span
