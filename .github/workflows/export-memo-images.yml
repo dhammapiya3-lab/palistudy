@@ -1,0 +1,30 @@
+# 지정한 메모의 첨부 사진 내려받기: probe/memo-images 가지에 올리면 실행 (같은 가지에 사진 저장)
+name: Export memo images
+on:
+  push:
+    branches: ['probe/memo-images']
+permissions:
+  contents: write
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 사진 저장
+        run: |
+          K=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA
+          mkdir -p memo-images
+          for ID in $(cat .github/memo-image-ids.txt); do
+            curl -s "https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos/$ID?key=$K" > m.json
+            python3 - "$ID" <<'PY'
+          import json,sys,base64
+          mid=sys.argv[1]; f=json.load(open('m.json')).get('fields',{})
+          for n,v in enumerate(f.get('images',{}).get('arrayValue',{}).get('values',[])):
+              url=v['mapValue']['fields']['dataUrl']['stringValue']
+              ext='png' if 'image/png' in url[:30] else 'jpg'
+              open(f'memo-images/{mid}_{n+1}.{ext}','wb').write(base64.b64decode(url.split(',',1)[1]))
+          PY
+          done
+          ls memo-images | head -50
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add memo-images && git commit -qm "메모 사진 내려받기" && git push
