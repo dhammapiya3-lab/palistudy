@@ -5,3 +5,4 @@ site
 .claude/
 .devbrowser/
 *.pdf
+__pycache__/
