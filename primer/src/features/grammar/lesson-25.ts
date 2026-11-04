@@ -12,11 +12,11 @@ export const LESSON_25: StepWithoutId[] = [
   { type: 'teach', word: 'satthu', pronKo: '삿투', meaning: '스승', icon: '🧑‍🏫', grammar: '-u/-ar 남성명사', baseForm: 'satthar', formNote: '주격: satthā / satthāro', buddhism: '붓다를 가리키는 칭호로 자주 사용' },
   { type: 'teach', word: 'kattu', pronKo: '깟뚜', meaning: '행위자', icon: '🏃', grammar: '-u/-ar 남성명사', baseForm: 'kattar', formNote: '주격: kattā / kattāro' },
   { type: 'teach', word: 'gantu', pronKo: '간뚜', meaning: '가는 자', icon: '🚶', grammar: '-u/-ar 남성명사', baseForm: 'gantar', formNote: '주격: gantā / gantāro' },
-  { type: 'teach', word: 'sotu', pronKo: '소뚜', meaning: '듣는 자', icon: '👂', grammar: '-u/-ar 남성명사', baseForm: 'sotar', formNote: '주격: sotā / sotāro' },
+  { type: 'teach', word: 'sotu', pronKo: '소-뚜', meaning: '듣는 자', icon: '👂', grammar: '-u/-ar 남성명사', baseForm: 'sotar', formNote: '주격: sotā / sotāro' },
   { type: 'teach', word: 'dātu', pronKo: '다-뚜', meaning: '주는 자', icon: '🎁', grammar: '-u/-ar 남성명사', baseForm: 'dātar', formNote: '주격: dātā / dātāro' },
-  { type: 'teach', word: 'netu', pronKo: '네뚜', meaning: '이끄는 자', icon: '🧭', grammar: '-u/-ar 남성명사', baseForm: 'netar', formNote: '주격: netā / netāro' },
+  { type: 'teach', word: 'netu', pronKo: '네-뚜', meaning: '이끄는 자', icon: '🧭', grammar: '-u/-ar 남성명사', baseForm: 'netar', formNote: '주격: netā / netāro' },
   { type: 'teach', word: 'vattu', pronKo: '왓뚜', meaning: '말하는 자', icon: '🗣️', grammar: '-u/-ar 남성명사', baseForm: 'vattar', formNote: '주격: vattā / vattāro' },
-  { type: 'teach', word: 'jetu', pronKo: '제뚜', meaning: '승리자', icon: '🏆', grammar: '-u/-ar 남성명사', baseForm: 'jetar', formNote: '주격: jetā / jetāro' },
+  { type: 'teach', word: 'jetu', pronKo: '제-뚜', meaning: '승리자', icon: '🏆', grammar: '-u/-ar 남성명사', baseForm: 'jetar', formNote: '주격: jetā / jetāro' },
   { type: 'teach', word: 'bhattu', pronKo: '밧뚜', meaning: '남편', icon: '💑', grammar: '-u/-ar 남성명사', baseForm: 'bhattar', formNote: '주격: bhattā / bhattāro' },
   { type: 'teach', word: 'nattu', pronKo: '낫뚜', meaning: '손자', icon: '👶', grammar: '-u/-ar 남성명사', baseForm: 'nattar', formNote: '주격: nattā / nattāro' },
 
@@ -52,8 +52,8 @@ export const LESSON_25: StepWithoutId[] = [
   { type: 'quiz', question: '10. Jetā sattūnaṃ balaṃ jini.', options: ['승리자는 적들의 군대를 이겼다', '승리자들은 적들의 군대를 이겼다', '적들은 승리자의 군대를 이겼다', '승리자는 적의 군대를 이겼다'], answer: 0, hint: 'jetā = 승리자(주격 단수), sattūnaṃ = 적들의' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Satthā bhikkhūnaṃ dhammaṃ desento anukampaṃ upādāya', pronKo: '삿타- 빅쿠-낭 담망 데센또 아누깜빵 우빠-다-야', translation: '스승은 비구들에게 법을 설하시면서 연민을 지니시고', highlight: ['Satthā', 'bhikkhūnaṃ'], note: 'satthā = satthu의 주격 단수. 붓다가 자비심으로 가르치심을 표현' },
+  { type: 'verse', pali: 'Satthā bhikkhūnaṃ dhammaṃ desento anukampaṃ upādāya', pronKo: '삿타- 빅쿠-낭 담망 데-센또- 아누깜빵 우빠-다-야', translation: '스승은 비구들에게 법을 설하시면서 연민을 지니시고', highlight: ['Satthā', 'bhikkhūnaṃ'], note: 'satthā = satthu의 주격 단수. 붓다가 자비심으로 가르치심을 표현' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Satthā bhikkhūnaṃ dhammaṃ desesi', pronKo: '삿타- 빅쿠-낭 담망 데세시' },
+  { type: 'speak', pali: 'Satthā bhikkhūnaṃ dhammaṃ desesi', pronKo: '삿타- 빅쿠-낭 담망 데-세-시' },
 ]

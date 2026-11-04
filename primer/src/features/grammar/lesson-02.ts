@@ -12,7 +12,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'intro', title: '2과: 남성명사 목적격', subtitle: 'Dutiyā vibhatti (Accusative)', description: '목적격은 동작의 대상(~을, ~를)과\n방향(~로, ~에게로)을 나타냅니다.\n\n경전에서 dhammaṃ(법을)이 바로 목적격입니다!', icon: '🎯' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_DHAMMA, pronKo: '따타-가또 담망 바-사띠', translation: V_DHAMMA_K, highlight: ['dhammaṃ'], note: 'dhammaṃ = dhamma(법) + ṃ(목적격 어미)\n여래가 "무엇을" 말하는가? → 법을(dhammaṃ)' },
+  { type: 'verse', pali: V_DHAMMA, pronKo: '따타-가또- 담망 바-사띠', translation: V_DHAMMA_K, highlight: ['dhammaṃ'], note: 'dhammaṃ = dhamma(법) + ṃ(목적격 어미)\n여래가 "무엇을" 말하는가? → 법을(dhammaṃ)' },
 
   // === 목적격 문법 ===
   { type: 'teach-grammar', title: '목적격 (Accusative) — ~을/를', example: 'nara + ṃ = naraṃ (사람을)\nnara → nare (사람들을)', exampleKo: '단수: 기본형 + -ṃ / 복수: -a → -e', explanation: '목적격은 동작의 대상을 나타냅니다.\n\n-a 남성명사:\n• 단수: 기본형 + -ṃ (naraṃ, dhammaṃ)\n• 복수: -a → -e (nare, dhamme)\n\n해석: ~을, ~를, ~에게로, ~로' },
@@ -20,7 +20,7 @@ export const LESSON_02: StepWithoutId[] = [
   // === 명사 14개 (교재 전체) ===
   { type: 'teach', word: 'dhammaṃ', pronKo: '담망', meaning: '법을 (목적격 단수)', icon: '☸️', grammar: '남성명사 · 목적격 단수', baseForm: 'dhamma (법, 진리, 가르침)', formNote: 'dhamma + ṃ → dhammaṃ', buddhism: '"Tathāgato dhammaṃ bhāsati" — 경전 핵심 목적격 용례', verseLine: V_DHAMMA, verseLineKo: V_DHAMMA_K },
   { type: 'teach', word: 'bhattaṃ', pronKo: '밧땅', meaning: '쌀을 (목적격 단수)', icon: '🍚', grammar: '남성명사 · 목적격 단수', baseForm: 'bhatta (쌀)', formNote: 'bhatta + ṃ → bhattaṃ' },
-  { type: 'teach', word: 'odanaṃ', pronKo: '오다낭', meaning: '밥을 (목적격 단수)', icon: '🍚', grammar: '남성명사 · 목적격 단수', baseForm: 'odana (밥)', formNote: 'odana + ṃ → odanaṃ' },
+  { type: 'teach', word: 'odanaṃ', pronKo: '오-다낭', meaning: '밥을 (목적격 단수)', icon: '🍚', grammar: '남성명사 · 목적격 단수', baseForm: 'odana (밥)', formNote: 'odana + ṃ → odanaṃ' },
   { type: 'teach', word: 'gāmaṃ', pronKo: '가-망', meaning: '마을로 (목적격 단수)', icon: '🏘️', grammar: '남성명사 · 목적격 단수', baseForm: 'gāma (마을)', formNote: 'gāma + ṃ → gāmaṃ (방향: 마을로)' },
   { type: 'teach', word: 'suriyaṃ', pronKo: '수리양', meaning: '태양을 (목적격 단수)', icon: '☀️', grammar: '남성명사 · 목적격 단수', baseForm: 'suriya (태양)', formNote: 'suriya + ṃ → suriyaṃ' },
   { type: 'teach', word: 'candaṃ', pronKo: '짠당', meaning: '달을 (목적격 단수)', icon: '🌙', grammar: '남성명사 · 목적격 단수', baseForm: 'canda (달)', formNote: 'canda + ṃ → candaṃ' },
@@ -37,7 +37,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'teach', word: 'harati', pronKo: '하라띠', meaning: '운반하다, 빼앗다', icon: '📦', grammar: '동사 · 현재 3인칭 단수', baseForm: 'hara (운반하다)', formNote: 'hara + ti / 복수: haranti' },
   { type: 'teach', word: 'āharati', pronKo: '아-하라띠', meaning: '가져오다', icon: '📥', grammar: '동사 · 현재 3인칭 단수', baseForm: 'āhara (가져오다)', formNote: 'āhara + ti / 복수: āharanti' },
   { type: 'teach', word: 'āruhati', pronKo: '아-루하띠', meaning: '오르다, 올라가다', icon: '⬆️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'āruha (오르다)', formNote: 'āruha + ti / 복수: āruhanti' },
-  { type: 'teach', word: 'oruhati', pronKo: '오루하띠', meaning: '내려오다', icon: '⬇️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'oruha (내려오다)', formNote: 'oruha + ti / 복수: oruhanti' },
+  { type: 'teach', word: 'oruhati', pronKo: '오-루하띠', meaning: '내려오다', icon: '⬇️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'oruha (내려오다)', formNote: 'oruha + ti / 복수: oruhanti' },
   { type: 'teach', word: 'yācati', pronKo: '야-짜띠', meaning: '구걸하다', icon: '🤲', grammar: '동사 · 현재 3인칭 단수', baseForm: 'yāca (구걸하다)', formNote: 'yāca + ti / 복수: yācanti' },
   { type: 'teach', word: 'khaṇati', pronKo: '카나띠', meaning: '파다', icon: '⛏️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'khaṇa (파다)', formNote: 'khaṇa + ti / 복수: khaṇanti' },
   { type: 'teach', word: 'vijjhati', pronKo: '윗자띠', meaning: '쏘다', icon: '🏹', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vijjha (쏘다)', formNote: 'vijjha + ti / 복수: vijjhanti' },
@@ -46,12 +46,12 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'teach', word: 'vandati', pronKo: '완다띠', meaning: '인사하다, 경배하다', icon: '🙏', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vanda (경배하다)', formNote: 'vanda + ti / 복수: vandanti' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Putto naraṃ passati / Puttā nare passanti', pronKo: '뿟또 나랑 빳사띠 / 뿟따- 나레 빳산띠', translation: '아들은 사람을 본다 / 아들들은 사람들을 본다', highlight: ['naraṃ', 'nare', 'passati', 'passanti'] },
-  { type: 'verse', pali: 'Brāhmaṇo mātulaṃ rakkhati / Brāhmaṇā mātule rakkhanti', pronKo: '브라-흐마노 마-뚤랑 락카띠 / 브라-흐마나- 마-뚤레 락칸띠', translation: '바라문은 삼촌을 보호한다 / 바라문들은 삼촌들을 보호한다', highlight: ['mātulaṃ', 'mātule'] },
-  { type: 'verse', pali: 'Vāṇijo kassakaṃ paharati / Vāṇijā kassake paharanti', pronKo: '와-니조 깟사깡 빠하라띠 / 와-니자- 깟사게 빠하란띠', translation: '상인은 농부를 때린다 / 상인들은 농부들을 때린다', highlight: ['kassakaṃ', 'kassake'] },
+  { type: 'verse', pali: 'Putto naraṃ passati / Puttā nare passanti', pronKo: '뿟또- 나랑 빳사띠 / 뿟따- 나레- 빳산띠', translation: '아들은 사람을 본다 / 아들들은 사람들을 본다', highlight: ['naraṃ', 'nare', 'passati', 'passanti'] },
+  { type: 'verse', pali: 'Brāhmaṇo mātulaṃ rakkhati / Brāhmaṇā mātule rakkhanti', pronKo: '브라-흐마노- 마-뚤랑 락카띠 / 브라-흐마나- 마-뚤레- 락칸띠', translation: '바라문은 삼촌을 보호한다 / 바라문들은 삼촌들을 보호한다', highlight: ['mātulaṃ', 'mātule'] },
+  { type: 'verse', pali: 'Vāṇijo kassakaṃ paharati / Vāṇijā kassake paharanti', pronKo: '와-니조- 깟사깡 빠하라띠 / 와-니자- 깟사게- 빠하란띠', translation: '상인은 농부를 때린다 / 상인들은 농부들을 때린다', highlight: ['kassakaṃ', 'kassake'] },
 
   // === 경전 실례 ===
-  { type: 'verse', pali: V_DUKKHA, pronKo: '이당 코 빠나 빅카웨 둑캉 아리야삿짱', translation: V_DUKKHA_K, highlight: ['dukkhaṃ', 'ariyasaccaṃ'], note: 'dukkhaṃ ariyasaccaṃ: -ṃ이지만 중성명사 주격!\n(중성명사 주격도 -ṃ — 나중에 배움)' },
+  { type: 'verse', pali: V_DUKKHA, pronKo: '이당 코- 빠나 빅카웨- 둑캉 아리야삿짱', translation: V_DUKKHA_K, highlight: ['dukkhaṃ', 'ariyasaccaṃ'], note: 'dukkhaṃ ariyasaccaṃ: -ṃ이지만 중성명사 주격!\n(중성명사 주격도 -ṃ — 나중에 배움)' },
 
   // === 연습문제 2 (25문제) ===
   { type: 'quiz', question: '1. Tathāgato dhammaṃ bhāsati.', options: ['여래는 법을 말씀하신다', '여래를 법이 말한다', '여래는 법으로 간다', '여래들은 법을 말한다'], answer: 0, hint: 'Tathāgato=여래는, dhammaṃ=법을, bhāsati=말하다' },

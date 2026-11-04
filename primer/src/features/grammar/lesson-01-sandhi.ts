@@ -37,7 +37,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'verse',
     pali: '"Dveme, bhikkhave, antā pabbajitena na sevitabbā."',
-    pronKo: '드웨메 빅카웨 안따- 빱바지떼나 나 세위땁바-',
+    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-',
     translation:
       '"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다."',
     highlight: ['Dveme'],
@@ -414,7 +414,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'verse',
     pali: 'jātipi dukkhā, jarāpi dukkhā,\nbyādhipi dukkho, maraṇampi dukkhaṃ',
-    pronKo: '자-띠삐 둑카-, 자라-삐 둑카-,\n뱌-디삐 둑코, 마라남삐 둑캉',
+    pronKo: '자-띠삐 둑카-, 자라-삐 둑카-,\n뱌-디삐 둑코-, 마라남삐 둑캉',
     translation:
       '태어남도 괴로움, 늙음도 괴로움,\n병듦도 괴로움, 죽음도 괴로움이다',
     highlight: ['jātipi', 'jarāpi', 'maraṇampi'],
@@ -425,7 +425,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'verse',
     pali: 'Idaṃ kho pana, bhikkhave,\ndukkhaṃ ariyasaccaṃ—',
-    pronKo: '이당 코 빠나 빅카웨\n둑캉 아리야삿짱—',
+    pronKo: '이당 코- 빠나 빅카웨-\n둑캉 아리야삿짱—',
     translation: '비구들이여, 이것이 괴로움의 성스러운 진리이다—',
     highlight: ['dukkhaṃ', 'ariyasaccaṃ'],
     note:
@@ -502,6 +502,6 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'speak',
     pali: 'Dveme bhikkhave antā pabbajitena na sevitabbā',
-    pronKo: '드웨메 빅카웨 안따- 빱바지떼나 나 세위땁바-',
+    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-',
   },
 ]

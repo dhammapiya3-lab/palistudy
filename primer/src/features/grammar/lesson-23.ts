@@ -9,7 +9,7 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'teach-grammar', title: '-u 여성명사 격변화 (dhenu 소)', example: '주격: dhenu / dhenuyo\n목적격: dhenuṃ / dhenuyo\n도구격: dhenuyā / dhenūhi\n여격: dhenuyā / dhenūnaṃ\n탈격: dhenuyā / dhenūhi\n소유격: dhenuyā / dhenūnaṃ\n처소격: dhenuyā,dhenuyaṃ / dhenūsu\n호격: dhenu / dhenuyo', exampleKo: '단수: -uyā (구~처소격)\n복수: -uyo/-ūhi/-ūnaṃ/-ūsu', explanation: '-u 여성명사는 -i 여성명사(bhūmi)와 패턴 동일:\n• 단수 도구격~처소격 = -uyā\n• 복수 주격/목적격 = -uyo\n• 복수 도구격/탈격 = -ūhi\n• 복수 여격/소유격 = -ūnaṃ\n• 복수 처소격 = -ūsu' },
 
   // === -u 여성명사 단어 ===
-  { type: 'teach', word: 'dhenu', pronKo: '데누', meaning: '(젖 짜는) 소', icon: '🐄', grammar: '-u 여성명사', formNote: '주격: dhenu / dhenuyo' },
+  { type: 'teach', word: 'dhenu', pronKo: '데-누', meaning: '(젖 짜는) 소', icon: '🐄', grammar: '-u 여성명사', formNote: '주격: dhenu / dhenuyo' },
   { type: 'teach', word: 'yāgu', pronKo: '야-구', meaning: '죽(粥)', icon: '🥣', grammar: '-u 여성명사', formNote: '주격: yāgu / yāguyo' },
   { type: 'teach', word: 'kāsu', pronKo: '까-수', meaning: '구덩이', icon: '🕳️', grammar: '-u 여성명사', formNote: '주격: kāsu / kāsuyo' },
   { type: 'teach', word: 'vijju', pronKo: '윗주', meaning: '번개', icon: '⚡', grammar: '-u 여성명사', formNote: '주격: vijju / vijjuyo' },
@@ -59,5 +59,5 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'quiz', question: '15. Sukhī puriso dhammaṃ suṇāti.', options: ['행복한 사람은 법을 듣는다', '행복한 사람들은 법을 듣는다', '사람은 행복한 법을 듣는다', '행복한 사람은 법을 설한다'], answer: 0, hint: 'sukhī = 행복한 자(남성 단수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Muni araññe viharati', pronKo: '무니 아란녜 위하라띠' },
+  { type: 'speak', pali: 'Muni araññe viharati', pronKo: '무니 아란녜- 위하라띠' },
 ]

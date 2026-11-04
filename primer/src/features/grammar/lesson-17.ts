@@ -10,7 +10,7 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'intro', title: '18과: -ā 여성명사', subtitle: 'Itthiliṅga -ā (Feminine Nouns in -ā)', description: '여성명사 -ā형 격변화:\nvanitā(여인)를 기준으로 8격 학습\n\n여성명사: kaññā(소녀), gaṅgā(갠지스강),\nnāvā(배), ammā(어머니), paññā(지혜)...\n\n경전: "parisā" (수행원/모임)', icon: '👩' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_PARISA, pronKo: '짜땃소 이마- 빅카웨 빠리사-', translation: V_PARISA_K, highlight: ['parisā'], note: 'parisā = 수행원, 모임 (여성명사 -ā)\ncatasso = 네 가지 (여성 복수)\nimā = 이 (여성 복수 지시대명사)\n— DN 16 등 경전에서 "네 가지 모임" 언급' },
+  { type: 'verse', pali: V_PARISA, pronKo: '짜땃소- 이마- 빅카웨- 빠리사-', translation: V_PARISA_K, highlight: ['parisā'], note: 'parisā = 수행원, 모임 (여성명사 -ā)\ncatasso = 네 가지 (여성 복수)\nimā = 이 (여성 복수 지시대명사)\n— DN 16 등 경전에서 "네 가지 모임" 언급' },
 
   // === 격변화표 ===
   { type: 'teach-grammar', title: '여성명사 -ā 격변화 (vanitā)', example: '주격: vanitā / vanitā,vanitāyo\n목적격: vanitaṃ / vanitā,vanitāyo\n도구격: vanitāya / vanitāhi\n여격: vanitāya / vanitānaṃ\n탈격: vanitāya / vanitāhi\n소유격: vanitāya / vanitānaṃ\n처소격: vanitāya,vanitāyaṃ / vanitāsu\n호격: vanite / vanitā,vanitāyo', exampleKo: '8격 × 2수 = 16가지 형태', explanation: '여성명사 -ā형 격변화 총정리:\n\n격 | 단수 | 복수\n주격(~은) | -ā | -ā/-āyo\n목적격(~을) | -aṃ | -ā/-āyo\n도구격(~로) | -āya | -āhi/-ābhi\n여격(~에게) | -āya | -ānaṃ\n탈격(~에서) | -āya | -āhi/-ābhi\n소유격(~의) | -āya | -ānaṃ\n처소격(~에) | -āya/-āyaṃ | -āsu\n호격(~이여) | -e | -ā/-āyo\n\n특징: 도구격=여격=탈격=소유격=처소격 단수 모두 -āya!' },
@@ -32,25 +32,25 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'teach', word: 'mālā', pronKo: '마-라-', meaning: '화환', icon: '💐', grammar: '여성명사 -ā', baseForm: 'mālā', formNote: '목적격: mālaṃ (화환을)\n복수: mālā/mālāyo' },
   { type: 'teach', word: 'surā', pronKo: '수라-', meaning: '술', icon: '🍶', grammar: '여성명사 -ā', baseForm: 'surā', formNote: '탈격: surāya (술로부터)', buddhism: 'surāmerayamajjapamādaṭṭhānā\n= 다섯째 계 (음주 금지)' },
   { type: 'teach', word: 'sākhā', pronKo: '사-카-', meaning: '가지 (나뭇가지)', icon: '🌳', grammar: '여성명사 -ā', baseForm: 'sākhā', formNote: '처소격: sākhāyaṃ (가지에)\n복수: sākhā/sākhāyo' },
-  { type: 'teach', word: 'devatā', pronKo: '데와따-', meaning: '천신, 신', icon: '✨', grammar: '여성명사 -ā', baseForm: 'devatā', formNote: '복수 주격: devatā/devatāyo\ndeva(남성)의 여성형' },
+  { type: 'teach', word: 'devatā', pronKo: '데-와따-', meaning: '천신, 신', icon: '✨', grammar: '여성명사 -ā', baseForm: 'devatā', formNote: '복수 주격: devatā/devatāyo\ndeva(남성)의 여성형' },
   { type: 'teach', word: 'parisā', pronKo: '빠리사-', meaning: '수행원, 모임', icon: '👥', grammar: '여성명사 -ā', baseForm: 'parisā', formNote: '처소격: parisāyaṃ (모임에서)\n복수: parisā/parisāyo', buddhism: '4종 수행원: bhikkhu, bhikkhunī,\nupāsaka, upāsikā parisā' },
   { type: 'teach', word: 'saddhā', pronKo: '삿다-', meaning: '믿음, 신심', icon: '🙏', grammar: '여성명사 -ā', baseForm: 'saddhā', formNote: '도구격: saddhāya (믿음으로)\n소유격: saddhāya (믿음의)', buddhism: 'saddhā = 신(信). 다섯 근(五根) 첫째' },
   { type: 'teach', word: 'pipāsā', pronKo: '삐빠-사-', meaning: '갈증', icon: '🥵', grammar: '여성명사 -ā', baseForm: 'pipāsā', formNote: '주격: pipāsā\n탈격: pipāsāya (갈증으로부터)' },
   { type: 'teach', word: 'khudā', pronKo: '쿠다-', meaning: '배고픔, 기아', icon: '😖', grammar: '여성명사 -ā', baseForm: 'khudā', formNote: '주격: khudā\n탈격: khudāya (배고픔으로부터)' },
 
   // === 동사 ===
-  { type: 'teach', word: 'sakkoti', pronKo: '삭꼬띠', meaning: '할 수 있다', icon: '💪', grammar: '동사 · 현재 3인칭 단수', baseForm: 'sakkoti', formNote: '복수: sakkonti\n+ 부정사(tuṃ): gantuṃ sakkoti = 갈 수 있다' },
-  { type: 'teach', word: 'parivāreti', pronKo: '빠리와-레띠', meaning: '둘러싸다, 수행하다', icon: '🔄', grammar: '동사 · 현재 3인칭 단수', baseForm: 'parivāreti', formNote: '복수: parivārenti\npari + vār(둘러싸다)' },
-  { type: 'teach', word: 'nivāreti', pronKo: '니와-레띠', meaning: '막다, 금하다', icon: '🛡️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nivāreti', formNote: '복수: nivārenti\nni + vār(막다)' },
+  { type: 'teach', word: 'sakkoti', pronKo: '삭꼬-띠', meaning: '할 수 있다', icon: '💪', grammar: '동사 · 현재 3인칭 단수', baseForm: 'sakkoti', formNote: '복수: sakkonti\n+ 부정사(tuṃ): gantuṃ sakkoti = 갈 수 있다' },
+  { type: 'teach', word: 'parivāreti', pronKo: '빠리와-레-띠', meaning: '둘러싸다, 수행하다', icon: '🔄', grammar: '동사 · 현재 3인칭 단수', baseForm: 'parivāreti', formNote: '복수: parivārenti\npari + vār(둘러싸다)' },
+  { type: 'teach', word: 'nivāreti', pronKo: '니와-레-띠', meaning: '막다, 금하다', icon: '🛡️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nivāreti', formNote: '복수: nivārenti\nni + vār(막다)' },
   { type: 'teach', word: 'anubandhati', pronKo: '아누반다띠', meaning: '따라가다, 추적하다', icon: '👣', grammar: '동사 · 현재 3인칭 단수', baseForm: 'anubandhati', formNote: '복수: anubandhanti\nanu + bandh(묶다/따르다)' },
   { type: 'teach', word: 'kujjhati', pronKo: '꿋자띠', meaning: '화내다, 성내다', icon: '😠', grammar: '동사 · 현재 3인칭 단수', baseForm: 'kujjhati', formNote: '복수: kujjhanti\nkudh(화내다)에서 파생' },
   { type: 'teach', word: 'namassati', pronKo: '나맛사띠', meaning: '예배하다, 경배하다', icon: '🙇', grammar: '동사 · 현재 3인칭 단수', baseForm: 'namassati', formNote: '복수: namassanti\nnamas(경의) + ati' },
-  { type: 'teach', word: 'poseti', pronKo: '뽀세띠', meaning: '먹이다, 양육하다', icon: '🍼', grammar: '동사 · 현재 3인칭 단수', baseForm: 'poseti', formNote: '복수: posenti\npus(먹이다)에서 파생' },
+  { type: 'teach', word: 'poseti', pronKo: '뽀-세-띠', meaning: '먹이다, 양육하다', icon: '🍼', grammar: '동사 · 현재 3인칭 단수', baseForm: 'poseti', formNote: '복수: posenti\npus(먹이다)에서 파생' },
   { type: 'teach', word: 'vāyamati', pronKo: '와-야마띠', meaning: '노력하다, 정진하다', icon: '🏋️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vāyamati', formNote: '복수: vāyamanti\nvāyāma = 정진, 노력', buddhism: 'sammāvāyāma = 정정진(正精進)' },
 
   // === 예문 ===
-  { type: 'verse', pali: 'Vanitā sālaṃ gacchati.\nVanitāyo sālaṃ gacchanti.', pronKo: '와니따- 살-랑 갓차띠\n와니따-요 살-랑 갓찬띠', translation: '여인은 강당에 간다.\n여인들은 강당에 간다.', highlight: ['Vanitā', 'Vanitāyo'], note: '주격: vanitā(단수) / vanitāyo(복수)\n-ā 여성명사의 복수 주격에 -āyo 추가' },
-  { type: 'verse', pali: 'Ammā dārikaṃ poseti.\nAmmāyo dārikāyo posenti.', pronKo: '암마- 다-리깡 뽀세띠\n암마-요 다-리까-요 뽀센띠', translation: '어머니는 소녀를 양육한다.\n어머니들은 소녀들을 양육한다.', highlight: ['Ammā', 'Ammāyo', 'dārikaṃ', 'dārikāyo'], note: '목적격: dārikaṃ(단수) / dārikāyo(복수)' },
+  { type: 'verse', pali: 'Vanitā sālaṃ gacchati.\nVanitāyo sālaṃ gacchanti.', pronKo: '와니따- 살-랑 갓차띠\n와니따-요- 살-랑 갓찬띠', translation: '여인은 강당에 간다.\n여인들은 강당에 간다.', highlight: ['Vanitā', 'Vanitāyo'], note: '주격: vanitā(단수) / vanitāyo(복수)\n-ā 여성명사의 복수 주격에 -āyo 추가' },
+  { type: 'verse', pali: 'Ammā dārikaṃ poseti.\nAmmāyo dārikāyo posenti.', pronKo: '암마- 다-리깡 뽀-세-띠\n암마-요- 다-리까-요- 뽀-센띠', translation: '어머니는 소녀를 양육한다.\n어머니들은 소녀들을 양육한다.', highlight: ['Ammā', 'Ammāyo', 'dārikaṃ', 'dārikāyo'], note: '목적격: dārikaṃ(단수) / dārikāyo(복수)' },
   { type: 'verse', pali: 'Kaññā saddhāya Buddhaṃ namassati.', pronKo: '깐냐- 삿다-야 붓탕 나맛사띠', translation: '소녀는 믿음으로 붓다께 예배한다.', highlight: ['saddhāya', 'namassati'], note: 'saddhāya = 믿음으로 (도구격 단수 -āya)\n여성명사 도구격=여격=탈격=소유격=처소격 단수 모두 -āya' },
 
   // === 연습문제 10개 ===
@@ -66,5 +66,5 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'quiz', question: '10. Khudā ca pipāsā ca vanitānaṃ dukkhaṃ.', options: ['배고픔과 갈증은 여인들의 고통이다', '배고픔과 갈증은 여인의 고통이다', '배고픔과 갈증은 사람들의 고통이다', '배고픔과 갈증은 여인들에게 고통을 준다'], answer: 0, hint: 'vanitānaṃ=여인들의(소유격 복수 -ānaṃ), ca=그리고' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Catasso imā bhikkhave parisā', pronKo: '짜땃소 이마- 빅카웨 빠리사-' },
+  { type: 'speak', pali: 'Catasso imā bhikkhave parisā', pronKo: '짜땃소- 이마- 빅카웨- 빠리사-' },
 ]

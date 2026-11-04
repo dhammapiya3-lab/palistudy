@@ -18,11 +18,11 @@ export const LESSON_24: StepWithoutId[] = [
   { type: 'teach', word: 'pasu', pronKo: '빠수', meaning: '짐승', icon: '🐂', grammar: '-u 남성명사', formNote: '주격: pasu / pasū,pasuyo' },
   { type: 'teach', word: 'ākhu', pronKo: '아-쿠', meaning: '쥐', icon: '🐀', grammar: '-u 남성명사', formNote: '주격: ākhu / ākhū' },
   { type: 'teach', word: 'ucchu', pronKo: '웃추', meaning: '사탕수수', icon: '🎋', grammar: '-u 남성명사', formNote: '주격: ucchu / ucchū' },
-  { type: 'teach', word: 'veḷu', pronKo: '웰루', meaning: '대나무', icon: '🎍', grammar: '-u 남성명사', formNote: '주격: veḷu / veḷū', buddhism: 'Veḷuvana = 죽림정사(대나무 숲 정원)' },
+  { type: 'teach', word: 'veḷu', pronKo: '웰-루', meaning: '대나무', icon: '🎍', grammar: '-u 남성명사', formNote: '주격: veḷu / veḷū', buddhism: 'Veḷuvana = 죽림정사(대나무 숲 정원)' },
   { type: 'teach', word: 'kaṭacchu', pronKo: '까땃추', meaning: '숟가락', icon: '🥄', grammar: '-u 남성명사', formNote: '주격: kaṭacchu / kaṭacchū' },
   { type: 'teach', word: 'sattu', pronKo: '삿뚜', meaning: '적(敵)', icon: '⚔️', grammar: '-u 남성명사', formNote: '주격: sattu / sattū' },
-  { type: 'teach', word: 'setu', pronKo: '세뚜', meaning: '다리(橋)', icon: '🌉', grammar: '-u 남성명사', formNote: '주격: setu / setū' },
-  { type: 'teach', word: 'ketu', pronKo: '게뚜', meaning: '깃발', icon: '🚩', grammar: '-u 남성명사', formNote: '주격: ketu / ketū' },
+  { type: 'teach', word: 'setu', pronKo: '세-뚜', meaning: '다리(橋)', icon: '🌉', grammar: '-u 남성명사', formNote: '주격: setu / setū' },
+  { type: 'teach', word: 'ketu', pronKo: '게-뚜', meaning: '깃발', icon: '🚩', grammar: '-u 남성명사', formNote: '주격: ketu / ketū' },
   { type: 'teach', word: 'susu', pronKo: '수수', meaning: '청년', icon: '👦', grammar: '-u 남성명사', formNote: '주격: susu / susū' },
 
   // === -ū 남성명사 격변화표 (vidū 현자) ===
@@ -50,8 +50,8 @@ export const LESSON_24: StepWithoutId[] = [
   { type: 'quiz', question: '10. Setumhi nisinno bandhu taruno sākhaṃ hatthena ākaḍḍhi.', options: ['다리에 앉은 친척은 나무의 가지를 손으로 끌어당겼다', '다리에 앉은 친척들은 나무의 가지를 손으로 끌어당겼다', '다리 위의 친척은 나무의 가지를 도끼로 잘랐다', '다리에 앉은 친척은 나무의 열매를 손으로 땄다'], answer: 0, hint: 'setumhi = 다리에(처소격), nisinno = 앉은, sākhaṃ = 가지를' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워 따타-가땃사 사-와까- 혼띠', translation: '비구들은 여래의 제자들이다', highlight: ['Bhikkhavo'], note: 'bhikkhu 호격 복수 = bhikkhave / bhikkhavo. 경전에서 붓다가 제자들을 부를 때 사용' },
+  { type: 'verse', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워- 따타-가땃사 사-와까- 혼띠', translation: '비구들은 여래의 제자들이다', highlight: ['Bhikkhavo'], note: 'bhikkhu 호격 복수 = bhikkhave / bhikkhavo. 경전에서 붓다가 제자들을 부를 때 사용' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워 따타-가땃사 사-와까- 혼띠' },
+  { type: 'speak', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워- 따타-가땃사 사-와까- 혼띠' },
 ]

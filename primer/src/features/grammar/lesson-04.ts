@@ -10,7 +10,7 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'intro', title: '4과: 남성명사 탈격 (Ablative)', subtitle: 'Pañcamī vibhatti (Ablative)', description: '탈격은 분리·출발·원인을 나타냅니다.\n~로부터, ~에게서, ~때문에\n\n경전: "pānātipātā veramaṇī"\n(살생으로부터 멀어짐)', icon: '🔙' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_MAJJHIMA, pronKo: '빠-나-띠빠-따- 웨라마니- 식카-빠당 사마-디야-미\n아딘나-다-나- 웨라마니- 식카-빠당 사마-디야-미\n까-메수밋차-짜-라- 웨라마니- 식카-빠당 사마-디야-미', translation: V_MAJJHIMA_K, highlight: ['pānātipātā', 'adinnādānā', 'kāmesumicchācārā', 'veramaṇī'], note: 'pānātipātā = 살생(pāṇa+atipāta)으로부터(탈격)\nadinnādānā = 도둑질(adinna+ādāna)로부터(탈격)\nkāmesumicchācārā = 사음(kāma+micchācāra)로부터(탈격)\nveramaṇī = 멀어짐, 삼감\n※ 오계(Pañca Sīla) 중 처음 세 가지' },
+  { type: 'verse', pali: V_MAJJHIMA, pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미\n아딘나-다-나- 웨-라마니- 식카-빠당 사마-디야-미\n까-메-수밋차-짜-라- 웨-라마니- 식카-빠당 사마-디야-미', translation: V_MAJJHIMA_K, highlight: ['pānātipātā', 'adinnādānā', 'kāmesumicchācārā', 'veramaṇī'], note: 'pānātipātā = 살생(pāṇa+atipāta)으로부터(탈격)\nadinnādānā = 도둑질(adinna+ādāna)로부터(탈격)\nkāmesumicchācārā = 사음(kāma+micchācāra)로부터(탈격)\nveramaṇī = 멀어짐, 삼감\n※ 오계(Pañca Sīla) 중 처음 세 가지' },
 
   // === 탈격 문법 ===
   { type: 'teach-grammar', title: '탈격 (Ablative) — ~로부터/때문에/에게서', example: 'nara + mhā = naramhā (사람으로부터)\nnara + ehi = narehi (사람들로부터)', exampleKo: '단수: -ā / -mhā / -smā\n복수: -ehi / -ebhi', explanation: '탈격의 주요 의미:\n• 분리/출발: gāmamhā nikkhamati (마을로부터 떠나다)\n• 원인/이유: bhayā palāyati (두려움 때문에 도망치다)\n• 출처: naramhā yācati (사람에게서 구하다)\n\n-a 남성명사:\n• 단수: -ā (narā), -mhā (naramhā), -smā (narasmā)\n• 복수: -ehi/-ebhi (narehi)\n※ 도구격 복수와 탈격 복수 형태 동일!' },
@@ -28,25 +28,25 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'teach', word: 'sappa', pronKo: '삽빠', meaning: '뱀', icon: '🐍', grammar: '남성명사', baseForm: 'sappa', formNote: '탈격 단수: sappamhā\n탈격 복수: sappehi' },
   { type: 'teach', word: 'pañha', pronKo: '빤하', meaning: '질문', icon: '❓', grammar: '남성명사', baseForm: 'pañha', formNote: '탈격 단수: pañhamhā\n탈격 복수: pañhehi' },
   { type: 'teach', word: 'suka', pronKo: '수까', meaning: '앵무새 (= suva)', icon: '🦜', grammar: '남성명사', baseForm: 'suka / suva', formNote: '탈격 단수: sukamhā\n탈격 복수: sukehi' },
-  { type: 'teach', word: 'sopāna', pronKo: '소빠-나', meaning: '층계, 계단', icon: '🪜', grammar: '남성명사', baseForm: 'sopāna', formNote: '탈격 단수: sopānamhā\n탈격 복수: sopānehi' },
+  { type: 'teach', word: 'sopāna', pronKo: '소-빠-나', meaning: '층계, 계단', icon: '🪜', grammar: '남성명사', baseForm: 'sopāna', formNote: '탈격 단수: sopānamhā\n탈격 복수: sopānehi' },
   { type: 'teach', word: 'sūkara', pronKo: '수-까라', meaning: '돼지 (= varāha)', icon: '🐖', grammar: '남성명사', baseForm: 'sūkara / varāha', formNote: '탈격 단수: sūkaramhā\n탈격 복수: sūkarehi' },
 
   // === 동사 10개 (교재 전체) ===
   { type: 'teach', word: 'patati', pronKo: '빠따띠', meaning: '떨어지다', icon: '⬇️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'patati', formNote: '복수: patanti\n예: rukkhasmā patati (나무에서 떨어지다)' },
-  { type: 'teach', word: 'dhovati', pronKo: '도와띠', meaning: '씻다', icon: '🫧', grammar: '동사 · 현재 3인칭 단수', baseForm: 'dhovati', formNote: '복수: dhovanti\n예: sāṭake dhovati (옷을 씻다)' },
+  { type: 'teach', word: 'dhovati', pronKo: '도-와띠', meaning: '씻다', icon: '🫧', grammar: '동사 · 현재 3인칭 단수', baseForm: 'dhovati', formNote: '복수: dhovanti\n예: sāṭake dhovati (옷을 씻다)' },
   { type: 'teach', word: 'icchati', pronKo: '잇차띠', meaning: '원하다', icon: '💭', grammar: '동사 · 현재 3인칭 단수', baseForm: 'icchati', formNote: '복수: icchanti' },
   { type: 'teach', word: 'ḍasati', pronKo: '다사띠', meaning: '물다', icon: '🦷', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ḍasati', formNote: '복수: ḍasanti\n예: sappā ḍasanti (뱀들이 문다)' },
   { type: 'teach', word: 'pucchati', pronKo: '뿟차띠', meaning: '묻다, 질문하다', icon: '🗣️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pucchati', formNote: '복수: pucchanti\n예: pañhaṃ pucchati (질문을 묻다)' },
-  { type: 'teach', word: 'pakkosati', pronKo: '빡꼬사띠', meaning: '부르다', icon: '📢', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pakkosati', formNote: '복수: pakkosanti' },
+  { type: 'teach', word: 'pakkosati', pronKo: '빡꼬-사띠', meaning: '부르다', icon: '📢', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pakkosati', formNote: '복수: pakkosanti' },
   { type: 'teach', word: 'khādati', pronKo: '카-다띠', meaning: '먹다, 씹다', icon: '🍽️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'khādati', formNote: '복수: khādanti' },
   { type: 'teach', word: 'hanati', pronKo: '하나띠', meaning: '죽이다', icon: '⚔️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'hanati', formNote: '복수: hananti' },
-  { type: 'teach', word: 'otarati', pronKo: '오따라띠', meaning: '내려가다, 들어가다', icon: '🔽', grammar: '동사 · 현재 3인칭 단수', baseForm: 'otarati', formNote: '복수: otaranti' },
+  { type: 'teach', word: 'otarati', pronKo: '오-따라띠', meaning: '내려가다, 들어가다', icon: '🔽', grammar: '동사 · 현재 3인칭 단수', baseForm: 'otarati', formNote: '복수: otaranti' },
   { type: 'teach', word: 'nikkhamati', pronKo: '닉카마띠', meaning: '떠나다, 나오다', icon: '🚪', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nikkhamati', formNote: '복수: nikkhamanti\n예: vihārasmā nikkhamati (정사로부터 떠나다)' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-자꼬 나랑하- 밧땅 야-자띠\n야-자까- 나레히 밧땅 야-잔띠', translation: '거지는 사람에게서 쌀을 구한다.\n거지들은 사람들에게서 쌀을 구한다.', highlight: ['naramhā', 'narehi'] },
-  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또 마-뚤랑하- 빤함 뿟차띠\n뿟따- 마-뚤레히 빤헤 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'] },
-  { type: 'verse', pali: 'Kassako rukkhasmā patati.\nKassakā rukkhehi patanti.', pronKo: '깟사꼬 룩카스마- 빠따띠\n깟사까- 룩케히 빠딴띠', translation: '농부는 나무에서 떨어진다.\n농부들은 나무들에서 떨어진다.', highlight: ['rukkhasmā', 'rukkhehi'] },
+  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-자꼬- 나랑하- 밧땅 야-자띠\n야-자까- 나레-히 밧땅 야-잔띠', translation: '거지는 사람에게서 쌀을 구한다.\n거지들은 사람들에게서 쌀을 구한다.', highlight: ['naramhā', 'narehi'] },
+  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또- 마-뚤랑하- 빤함 뿟차띠\n뿟따- 마-뚤레-히 빤헤- 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'] },
+  { type: 'verse', pali: 'Kassako rukkhasmā patati.\nKassakā rukkhehi patanti.', pronKo: '깟사꼬- 룩카스마- 빠따띠\n깟사까- 룩케-히 빠딴띠', translation: '농부는 나무에서 떨어진다.\n농부들은 나무들에서 떨어진다.', highlight: ['rukkhasmā', 'rukkhehi'] },
 
   // === 연습문제 4 (10문제) ===
   { type: 'quiz', question: '1. Corā gāmamhā pabbataṃ dhāvanti.', options: ['도둑들은 마을로부터 산으로 달린다', '도둑들은 마을에서 산을 본다', '도둑은 마을로부터 산으로 달린다', '도둑들은 산으로부터 마을로 달린다'], answer: 0, hint: 'gāmamhā=마을로부터(탈격), pabbataṃ=산으로' },
@@ -61,5 +61,5 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'quiz', question: '10. Yācako kassakasmā soṇaṃ yācati.', options: ['거지는 농부에게 개를 준다', '거지는 농부에게서 개를 요청한다', '거지들은 농부에게서 개를 요청한다', '거지는 농부와 함께 개를 본다'], answer: 1, hint: 'kassakasmā=농부에게서(탈격), soṇaṃ=개를, yācati=구하다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Pānātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨라마니- 식카-빠당 사마-디야-미' },
+  { type: 'speak', pali: 'Pānātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미' },
 ]

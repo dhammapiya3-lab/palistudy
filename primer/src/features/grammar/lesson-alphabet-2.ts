@@ -13,8 +13,8 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "teach-grammar",
     "title": "모음 8자 (a ā i ī u ū e o)",
-    "example": "a=아, ā=아-, i=이, ī=이-, u=우, ū=우-, e=에, o=오",
-    "exampleKo": "ā ī ū는 장모음(두 배 길게). e o는 항상 길게.",
+    "example": "a=아, ā=아-, i=이, ī=이-, u=우, ū=우-, e=에-, o=오-",
+    "exampleKo": "ā ī ū는 장모음(두 배 길게). e o도 길게 — 단, 뒤에 이중자음이 오면 짧게.",
     "explanation": "빠알리 모음은 8개. 위에 줄(ā)이 있으면 길게, 없으면 짧게 발음합니다."
   },
   {
@@ -32,7 +32,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "아-",
     "meaning": "긴 \"아\" (두 배 길게)",
     "icon": "🔊",
-    "verseLine": "ārāme [아-라-메]",
+    "verseLine": "ārāme [아-라-메-]",
     "verseLineKo": "동산에서 (행복경)"
   },
   {
@@ -74,19 +74,19 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "teach",
     "word": "e",
-    "pronKo": "에",
-    "meaning": "항상 긴 \"에\"",
+    "pronKo": "에-",
+    "meaning": "긴 \"에\" (이중자음 앞에서는 짧게)",
     "icon": "🔊",
-    "verseLine": "evaṃ [에왕]",
+    "verseLine": "evaṃ [에-왕]",
     "verseLineKo": "이와 같이 (행복경)"
   },
   {
     "type": "teach",
     "word": "o",
-    "pronKo": "오",
-    "meaning": "항상 긴 \"오\"",
+    "pronKo": "오-",
+    "meaning": "긴 \"오\" (이중자음 앞에서는 짧게)",
     "icon": "🔊",
-    "verseLine": "okāsa [오까-사]",
+    "verseLine": "okāsa [오-까-사]",
     "verseLineKo": "기회/허락"
   },
   {
@@ -225,7 +225,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "가(h)",
     "meaning": "숨 섞인 \"가\"",
     "icon": "🔊",
-    "verseLine": "saṅgaho [상가호]",
+    "verseLine": "saṅgaho [상가호-]",
     "verseLineKo": "보살핌 (행복경)"
   },
   {
@@ -328,7 +328,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "자",
     "meaning": "\"자\"",
     "icon": "🔊",
-    "verseLine": "Jetavane [제따와네]",
+    "verseLine": "Jetavane [제-따와네-]",
     "verseLineKo": "제따와나에서 (행복경)"
   },
   {
@@ -534,7 +534,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "따",
     "meaning": "이에 혀 대고 \"따\"",
     "icon": "🔊",
-    "verseLine": "tapo [따뽀]",
+    "verseLine": "tapo [따뽀-]",
     "verseLineKo": "고행 (행복경)"
   },
   {
@@ -561,7 +561,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "다(h)",
     "meaning": "이에 혀 대고 숨 섞인 \"다\"",
     "icon": "🔊",
-    "verseLine": "dhammesu [담메수]",
+    "verseLine": "dhammesu [담메-수]",
     "verseLineKo": "법들에서 (행복경)"
   },
   {
@@ -570,7 +570,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "나",
     "meaning": "\"나\"",
     "icon": "🔊",
-    "verseLine": "nivāto [니와-또]",
+    "verseLine": "nivāto [니와-또-]",
     "verseLineKo": "겸손 (행복경)"
   },
   {
@@ -776,7 +776,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "라(l)",
     "meaning": "혀끝 윗잇몸 \"라\"",
     "icon": "🔊",
-    "verseLine": "lokadhammehi [로까담메히]",
+    "verseLine": "lokadhammehi [로-까담메-히]",
     "verseLineKo": "세상의 법으로 (행복경)"
   },
   {
@@ -794,7 +794,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "사(싸)",
     "meaning": "\"사(싸)\"",
     "icon": "🔊",
-    "verseLine": "sevanā [세와나-]",
+    "verseLine": "sevanā [세-와나-]",
     "verseLineKo": "가까이함 (행복경)"
   },
   {
@@ -821,7 +821,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "(ṃ)→ㅇ",
     "meaning": "콧소리 받침 (니가히따)",
     "icon": "🔊",
-    "verseLine": "evaṃ [에왕]",
+    "verseLine": "evaṃ [에-왕]",
     "verseLineKo": "이와 같이 (행복경)"
   },
   {

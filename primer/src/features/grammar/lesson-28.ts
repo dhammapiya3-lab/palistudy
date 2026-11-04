@@ -17,7 +17,7 @@ export const LESSON_28: StepWithoutId[] = [
 
   // === 2인칭 단어 ===
   { type: 'teach', word: 'tvaṃ', pronKo: '뜨왕', meaning: '너 (주격)', icon: '👤', grammar: '2인칭 대명사 단수', formNote: '주격: tvaṃ/tuvaṃ, 목적격: taṃ/tavaṃ' },
-  { type: 'teach', word: 'tumhe', pronKo: '뚬헤', meaning: '너희 (주격)', icon: '👥', grammar: '2인칭 대명사 복수', formNote: '주격: tumhe, 목적격: tumhe' },
+  { type: 'teach', word: 'tumhe', pronKo: '뚬헤-', meaning: '너희 (주격)', icon: '👥', grammar: '2인칭 대명사 복수', formNote: '주격: tumhe, 목적격: tumhe' },
 
   // === 1인칭 vs 2인칭 대조 ===
   { type: 'teach-grammar', title: '1인칭 / 2인칭 단축형 대조', example: '       1인칭    2인칭\n단축(단수): me       te\n단축(복수): no       vo\n주격(단수): ahaṃ     tvaṃ\n주격(복수): mayaṃ    tumhe\n처소(단수): mayi     tvayi\n처소(복수): amhesu   tumhesu', exampleKo: 'me/te = 단수 단축, no/vo = 복수 단축', explanation: '단축형 규칙:\n• me (나를/나에게/나의) — 문맥으로 격 판단\n• te (너를/너에게/너의) — 문맥으로 격 판단\n• no (우리를/우리에게/우리의)\n• vo (너희를/너희에게/너희의)\n\n단축형은 문장 첫 자리에 올 수 없음!' },

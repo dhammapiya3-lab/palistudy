@@ -33,10 +33,10 @@ export const LESSON_26: StepWithoutId[] = [
 
   // === 동사 ===
   { type: 'teach', word: 'anukampati', pronKo: '아누깜빠띠', meaning: '연민하다', icon: '🙏', grammar: '동사 (anu + kampati)' },
-  { type: 'teach', word: 'vāceti', pronKo: '와-쩨띠', meaning: '가르치다, 읽게 하다', icon: '📖', grammar: '동사 (사역형)' },
-  { type: 'teach', word: 'sammisseti', pronKo: '삼밋세띠', meaning: '섞다', icon: '🔄', grammar: '동사 (saṃ + misseti)' },
+  { type: 'teach', word: 'vāceti', pronKo: '와-쩨-띠', meaning: '가르치다, 읽게 하다', icon: '📖', grammar: '동사 (사역형)' },
+  { type: 'teach', word: 'sammisseti', pronKo: '삼밋세-띠', meaning: '섞다', icon: '🔄', grammar: '동사 (saṃ + misseti)' },
   { type: 'teach', word: 'pabbajati', pronKo: '빱바자띠', meaning: '출가하다', icon: '🧘', grammar: '동사', buddhism: '재가→출가 전환' },
-  { type: 'teach', word: 'parājeti', pronKo: '빠라-제띠', meaning: '패배시키다', icon: '⚔️', grammar: '동사 (parā + jeti)' },
+  { type: 'teach', word: 'parājeti', pronKo: '빠라-제-띠', meaning: '패배시키다', icon: '⚔️', grammar: '동사 (parā + jeti)' },
   { type: 'teach', word: 'anugacchati', pronKo: '아누갓차띠', meaning: '따르다', icon: '🚶', grammar: '동사 (anu + gacchati)' },
   { type: 'teach', word: 'vibhajati', pronKo: '위바자띠', meaning: '분배하다', icon: '⚖️', grammar: '동사 (vi + bhajati)', buddhism: 'vibhajjavāda = 분별설부' },
 
@@ -53,7 +53,7 @@ export const LESSON_26: StepWithoutId[] = [
   { type: 'quiz', question: '10. Cakkhuṃ aniccaṃ, cakkhuṃ anattā.', options: ['눈은 무상하고, 눈은 무아이다', '눈은 영원하고, 눈은 자아이다', '눈을 보고, 눈을 감는다', '눈이 아프고, 눈이 닫힌다'], answer: 0, hint: 'aniccaṃ = 무상, anattā = 무아 (SN 35)' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Cakkhuṃ bhikkhave anattā.\nYadanattā taṃ netaṃ mama,\nnesohamasmi, na meso attāti.', pronKo: '짝쿵 빅카웨 아낫따-. 야다낫따- 땅 네땅 마마, 네소하마스미, 나 메소 앗따-띠.', translation: '비구들이여, 눈은 무아이다.\n무아인 것, 그것은 나의 것이 아니고,\n그것은 내가 아니며, 그것은 나의 자아가 아니다.', highlight: ['Cakkhuṃ', 'anattā'], note: '여기서 cakkhuṃ은 cakkhu의 주격.' },
+  { type: 'verse', pali: 'Cakkhuṃ bhikkhave anattā.\nYadanattā taṃ netaṃ mama,\nnesohamasmi, na meso attāti.', pronKo: '짝쿵 빅카웨- 아낫따-. 야다낫따- 땅 네-땅 마마, 네-소-하마스미, 나 메-소- 앗따-띠.', translation: '비구들이여, 눈은 무아이다.\n무아인 것, 그것은 나의 것이 아니고,\n그것은 내가 아니며, 그것은 나의 자아가 아니다.', highlight: ['Cakkhuṃ', 'anattā'], note: '여기서 cakkhuṃ은 cakkhu의 주격.' },
 
   // === 마무리 ===
   { type: 'speak', pali: 'Cakkhuṃ aniccaṃ, cakkhuṃ anattā', pronKo: '짝쿵 아닛짱, 짝쿵 아낫따-.' },

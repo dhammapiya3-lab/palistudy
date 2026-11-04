@@ -12,7 +12,7 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'intro', title: '3과: 남성명사 도구격', subtitle: 'Tatiyā vibhatti (Instrumental)', description: '도구격은 수단·도구·동행을 나타냅니다.\n~에 의해서, ~와 함께, ~(으)로\n\n경전: "tathāgatena(여래에 의해)"\n"sāvakehi saddhiṃ(제자들과 함께)"', icon: '🤝' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_MAJJHIMA, pronKo: '에떼 코 빅카웨 우보 안떼 아누빠감마 맛지마- 빠띠빠다- 따타-가떼나 아비삼붓다-', translation: V_MAJJHIMA_K, highlight: ['tathāgatena'], note: 'tathāgatena = tathāgata(여래) + -ena(도구격 어미)\n"여래에 의해" 깨달아진 — 행위자를 도구격으로 표현!' },
+  { type: 'verse', pali: V_MAJJHIMA, pronKo: '에-떼- 코- 빅카웨- 우보- 안떼- 아누빠감마 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다-', translation: V_MAJJHIMA_K, highlight: ['tathāgatena'], note: 'tathāgatena = tathāgata(여래) + -ena(도구격 어미)\n"여래에 의해" 깨달아진 — 행위자를 도구격으로 표현!' },
 
   // === 도구격 문법 ===
   { type: 'teach-grammar', title: '도구격 (Instrumental) — ~로/함께/의해', example: 'nara + ena = narena (사람에 의해)\nnara + ehi = narehi (사람들에 의해)', exampleKo: '단수: -a → -ena / 복수: -a → -ehi(-ebhi)', explanation: '도구격의 다양한 의미:\n• 수단/도구: kakacena chindati (톱으로 자르다)\n• 동행: saddhiṃ/saha + 도구격 (함께)\n• 행위자: tathāgatena abhisambuddhā (여래에 의해 깨달아진)\n\n-a 남성명사:\n• 단수: -ena (narena, tathāgatena)\n• 복수: -ehi/-ebhi (narehi, sāvakehi)\nehi=ebhi (b탈락 형태)' },
@@ -21,31 +21,31 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'teach-grammar', title: 'saddhiṃ / saha — ~와 함께', example: 'sāvakehi saddhiṃ (제자들과 함께)\nmātulena saha (삼촌과 함께)', exampleKo: 'saddhiṃ 또는 saha + 도구격 명사', explanation: 'saddhiṃ과 saha는 도구격과 함께 사용하여\n"~와 함께"를 나타냅니다.\n\n보통 사물에는 사용하지 않습니다.\n(사람/생물과의 동행에 사용)\n\n예: narena saddhiṃ = 사람과 함께\n예: mātulena saha = 삼촌과 함께' },
 
   // === 명사 17개 (교재 전체) ===
-  { type: 'teach', word: 'rathena', pronKo: '라테나', meaning: '마차로 (도구격 단수)', icon: '🛞', grammar: '남성명사 · 도구격 단수', baseForm: 'ratha (마차)', formNote: 'ratha + ena → rathena' },
-  { type: 'teach', word: 'sakaṭena', pronKo: '사까떼나', meaning: '짐수레로 (도구격 단수)', icon: '🛒', grammar: '남성명사 · 도구격 단수', baseForm: 'sakaṭa (짐수레)', formNote: 'sakaṭa + ena → sakaṭena' },
-  { type: 'teach', word: 'hatthena', pronKo: '핫테나', meaning: '손으로 (도구격 단수)', icon: '✋', grammar: '남성명사 · 도구격 단수', baseForm: 'hattha (손)', formNote: 'hattha + ena → hatthena\n복수: hatthehi (손들로)' },
-  { type: 'teach', word: 'pādena', pronKo: '빠-데나', meaning: '발로 (도구격 단수)', icon: '🦶', grammar: '남성명사 · 도구격 단수', baseForm: 'pāda (발)', formNote: 'pāda + ena → pādena\n복수: pādehi (발들로)' },
-  { type: 'teach', word: 'maggena', pronKo: '맛게나', meaning: '길로, 길을 통해 (도구격 단수)', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
+  { type: 'teach', word: 'rathena', pronKo: '라테-나', meaning: '마차로 (도구격 단수)', icon: '🛞', grammar: '남성명사 · 도구격 단수', baseForm: 'ratha (마차)', formNote: 'ratha + ena → rathena' },
+  { type: 'teach', word: 'sakaṭena', pronKo: '사까떼-나', meaning: '짐수레로 (도구격 단수)', icon: '🛒', grammar: '남성명사 · 도구격 단수', baseForm: 'sakaṭa (짐수레)', formNote: 'sakaṭa + ena → sakaṭena' },
+  { type: 'teach', word: 'hatthena', pronKo: '핫테-나', meaning: '손으로 (도구격 단수)', icon: '✋', grammar: '남성명사 · 도구격 단수', baseForm: 'hattha (손)', formNote: 'hattha + ena → hatthena\n복수: hatthehi (손들로)' },
+  { type: 'teach', word: 'pādena', pronKo: '빠-데-나', meaning: '발로 (도구격 단수)', icon: '🦶', grammar: '남성명사 · 도구격 단수', baseForm: 'pāda (발)', formNote: 'pāda + ena → pādena\n복수: pādehi (발들로)' },
+  { type: 'teach', word: 'maggena', pronKo: '맛게-나', meaning: '길로, 길을 통해 (도구격 단수)', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
   { type: 'teach', word: 'dīpaṃ', pronKo: '디-빵', meaning: '섬을/등불을 (목적격)', icon: '🏝️', grammar: '남성명사', baseForm: 'dīpa (섬, 대륙, 등불)', formNote: '도구격: dīpena' },
-  { type: 'teach', word: 'sāvakena', pronKo: '사-와게나', meaning: '제자에 의해 (도구격 단수)', icon: '🙇', grammar: '남성명사 · 도구격 단수', baseForm: 'sāvaka (제자)', formNote: 'sāvaka + ena → sāvakena\n복수: sāvakehi', buddhism: 'sāvaka = "듣는 자". 붓다의 가르침을 듣고 수행하는 제자' },
-  { type: 'teach', word: 'samaṇena', pronKo: '사마네나', meaning: '사문과 함께 (도구격 단수)', icon: '🧘', grammar: '남성명사 · 도구격 단수', baseForm: 'samaṇa (사문, 스님)', formNote: 'samaṇa + ena → samaṇena' },
-  { type: 'teach', word: 'saggena', pronKo: '삭게나', meaning: '하늘로 (도구격 단수)', icon: '☁️', grammar: '남성명사 · 도구격 단수', baseForm: 'sagga (하늘)', formNote: 'sagga + ena → saggena\n목적격: saggaṃ' },
-  { type: 'teach', word: 'assena', pronKo: '앗세나', meaning: '말로 (도구격 단수)', icon: '🐴', grammar: '남성명사 · 도구격 단수', baseForm: 'assa (말)', formNote: 'assa + ena → assena\n복수: assehi' },
-  { type: 'teach', word: 'migena', pronKo: '미게나', meaning: '사슴과 함께 (도구격 단수)', icon: '🦌', grammar: '남성명사 · 도구격 단수', baseForm: 'miga (사슴, 짐승)', formNote: 'miga + ena → migena\n복수: migehi' },
-  { type: 'teach', word: 'sarena', pronKo: '사레나', meaning: '화살로 (도구격 단수)', icon: '🏹', grammar: '남성명사 · 도구격 단수', baseForm: 'sara (화살)', formNote: 'sara + ena → sarena' },
-  { type: 'teach', word: 'pāsāṇena', pronKo: '빠-사-네나', meaning: '돌로 (도구격 단수)', icon: '🪨', grammar: '남성명사 · 도구격 단수', baseForm: 'pāsāṇa (돌, 바위)', formNote: 'pāsāṇa + ena → pāsāṇena' },
-  { type: 'teach', word: 'kakacena', pronKo: '까까게나', meaning: '톱으로 (도구격 단수)', icon: '🪚', grammar: '남성명사 · 도구격 단수', baseForm: 'kakaca (톱)', formNote: 'kakaca + ena → kakacena' },
-  { type: 'teach', word: 'khaggena', pronKo: '캇게나', meaning: '칼로 (도구격 단수)', icon: '🗡️', grammar: '남성명사 · 도구격 단수', baseForm: 'khagga (칼)', formNote: 'khagga + ena → khaggena' },
-  { type: 'teach', word: 'corena', pronKo: '조레나', meaning: '도둑에 의해 (도구격 단수)', icon: '🥷', grammar: '남성명사 · 도구격 단수', baseForm: 'cora (도둑, 강도)', formNote: 'cora + ena → corena' },
-  { type: 'teach', word: 'paṇḍitena', pronKo: '빤디떼나', meaning: '현자와 함께 (도구격 단수)', icon: '🧠', grammar: '남성명사 · 도구격 단수', baseForm: 'paṇḍita (현자, 현명한 사람)', formNote: 'paṇḍita + ena → paṇḍitena\n복수: paṇḍitehi' },
+  { type: 'teach', word: 'sāvakena', pronKo: '사-와게-나', meaning: '제자에 의해 (도구격 단수)', icon: '🙇', grammar: '남성명사 · 도구격 단수', baseForm: 'sāvaka (제자)', formNote: 'sāvaka + ena → sāvakena\n복수: sāvakehi', buddhism: 'sāvaka = "듣는 자". 붓다의 가르침을 듣고 수행하는 제자' },
+  { type: 'teach', word: 'samaṇena', pronKo: '사마네-나', meaning: '사문과 함께 (도구격 단수)', icon: '🧘', grammar: '남성명사 · 도구격 단수', baseForm: 'samaṇa (사문, 스님)', formNote: 'samaṇa + ena → samaṇena' },
+  { type: 'teach', word: 'saggena', pronKo: '삭게-나', meaning: '하늘로 (도구격 단수)', icon: '☁️', grammar: '남성명사 · 도구격 단수', baseForm: 'sagga (하늘)', formNote: 'sagga + ena → saggena\n목적격: saggaṃ' },
+  { type: 'teach', word: 'assena', pronKo: '앗세-나', meaning: '말로 (도구격 단수)', icon: '🐴', grammar: '남성명사 · 도구격 단수', baseForm: 'assa (말)', formNote: 'assa + ena → assena\n복수: assehi' },
+  { type: 'teach', word: 'migena', pronKo: '미게-나', meaning: '사슴과 함께 (도구격 단수)', icon: '🦌', grammar: '남성명사 · 도구격 단수', baseForm: 'miga (사슴, 짐승)', formNote: 'miga + ena → migena\n복수: migehi' },
+  { type: 'teach', word: 'sarena', pronKo: '사레-나', meaning: '화살로 (도구격 단수)', icon: '🏹', grammar: '남성명사 · 도구격 단수', baseForm: 'sara (화살)', formNote: 'sara + ena → sarena' },
+  { type: 'teach', word: 'pāsāṇena', pronKo: '빠-사-네-나', meaning: '돌로 (도구격 단수)', icon: '🪨', grammar: '남성명사 · 도구격 단수', baseForm: 'pāsāṇa (돌, 바위)', formNote: 'pāsāṇa + ena → pāsāṇena' },
+  { type: 'teach', word: 'kakacena', pronKo: '까까게-나', meaning: '톱으로 (도구격 단수)', icon: '🪚', grammar: '남성명사 · 도구격 단수', baseForm: 'kakaca (톱)', formNote: 'kakaca + ena → kakacena' },
+  { type: 'teach', word: 'khaggena', pronKo: '캇게-나', meaning: '칼로 (도구격 단수)', icon: '🗡️', grammar: '남성명사 · 도구격 단수', baseForm: 'khagga (칼)', formNote: 'khagga + ena → khaggena' },
+  { type: 'teach', word: 'corena', pronKo: '조-레-나', meaning: '도둑에 의해 (도구격 단수)', icon: '🥷', grammar: '남성명사 · 도구격 단수', baseForm: 'cora (도둑, 강도)', formNote: 'cora + ena → corena' },
+  { type: 'teach', word: 'paṇḍitena', pronKo: '빤디떼-나', meaning: '현자와 함께 (도구격 단수)', icon: '🧠', grammar: '남성명사 · 도구격 단수', baseForm: 'paṇḍita (현자, 현명한 사람)', formNote: 'paṇḍita + ena → paṇḍitena\n복수: paṇḍitehi' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Samaṇo narena saddhiṃ gāmaṃ gacchati.\nSamaṇā narehi saddhiṃ gāmaṃ gacchanti.', pronKo: '사마노 나레나 삿딤 가-망 갓차띠\n사마나- 나레히 삿딤 가-망 갓찬띠', translation: '사문은 사람과 함께 마을로 간다.\n사문들은 사람들과 함께 마을로 간다.', highlight: ['narena', 'narehi', 'saddhiṃ'] },
-  { type: 'verse', pali: 'Putto mātulena saha candaṃ passati.\nPuttā mātulehi saha candaṃ passanti.', pronKo: '뿟또 마-뚤레나 사하 짠당 빳사띠\n뿟따- 마-뚤레히 사하 짠당 빳산띠', translation: '아들은 삼촌과 함께 달을 본다.\n아들들은 삼촌들과 함께 달을 본다.', highlight: ['mātulena', 'mātulehi', 'saha'] },
-  { type: 'verse', pali: 'Kassako kakacena rukkhaṃ chindati.\nKassakā kakacehi rukkhe chindanti.', pronKo: '깟사꼬 까까게나 룩캉 친다띠\n깟사까- 까까게히 룩케 친단띠', translation: '농부는 톱으로 나무를 자른다.\n농부들은 톱들로 나무들을 자른다.', highlight: ['kakacena', 'kakacehi'] },
+  { type: 'verse', pali: 'Samaṇo narena saddhiṃ gāmaṃ gacchati.\nSamaṇā narehi saddhiṃ gāmaṃ gacchanti.', pronKo: '사마노- 나레-나 삿딤 가-망 갓차띠\n사마나- 나레-히 삿딤 가-망 갓찬띠', translation: '사문은 사람과 함께 마을로 간다.\n사문들은 사람들과 함께 마을로 간다.', highlight: ['narena', 'narehi', 'saddhiṃ'] },
+  { type: 'verse', pali: 'Putto mātulena saha candaṃ passati.\nPuttā mātulehi saha candaṃ passanti.', pronKo: '뿟또- 마-뚤레-나 사하 짠당 빳사띠\n뿟따- 마-뚤레-히 사하 짠당 빳산띠', translation: '아들은 삼촌과 함께 달을 본다.\n아들들은 삼촌들과 함께 달을 본다.', highlight: ['mātulena', 'mātulehi', 'saha'] },
+  { type: 'verse', pali: 'Kassako kakacena rukkhaṃ chindati.\nKassakā kakacehi rukkhe chindanti.', pronKo: '깟사꼬- 까까게-나 룩캉 친다띠\n깟사까- 까까게-히 룩케- 친단띠', translation: '농부는 톱으로 나무를 자른다.\n농부들은 톱들로 나무들을 자른다.', highlight: ['kakacena', 'kakacehi'] },
 
   // === 팔정도 경전 구절 ===
-  { type: 'verse', pali: V_MAGGA, pronKo: '아야메와 아리요 앗탕기꼬 맛고', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
+  { type: 'verse', pali: V_MAGGA, pronKo: '아야메-와 아리요- 앗탕기꼬- 맛고-', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
 
   // === 연습문제 3 (25문제) ===
   { type: 'quiz', question: '1. Buddho sāvakehi saddhiṃ vihāraṃ gacchati.', options: ['붓다는 제자들과 함께 정사로 간다', '붓다는 제자를 위해 정사로 간다', '붓다들은 제자들과 함께 정사로 간다', '붓다는 제자들과 함께 마을로 간다'], answer: 0, hint: 'sāvakehi saddhiṃ=제자들과 함께(도구격+saddhiṃ)' },
@@ -75,5 +75,5 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'quiz', question: '25. Bhūpālo paṇḍitena saha manusse rakkhati.', options: ['왕은 현자와 함께 사람들을 보호한다', '왕들은 현자와 함께 사람들을 보호한다', '왕은 현자에 의해 사람들을 보호한다', '왕은 현자와 함께 사람을 보호한다'], answer: 0, hint: 'paṇḍitena saha=현자와 함께, manusse=사람들을' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Ete kho bhikkhave ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā', pronKo: '에떼 코 빅카웨 우보 안떼 아누빠감마 맛지마- 빠띠빠다- 따타-가떼나 아비삼붓다-' },
+  { type: 'speak', pali: 'Ete kho bhikkhave ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā', pronKo: '에-떼- 코- 빅카웨- 우보- 안떼- 아누빠감마 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다-' },
 ]

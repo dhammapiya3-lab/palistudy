@@ -7,16 +7,16 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'intro', title: '10과: 부정사 + 현재분사', subtitle: 'Tuṃ-paccaya / Nta-māna-paccaya', description: '부정사: ~하기 위해, ~할 (-(i)tuṃ)\n현재분사: ~하면서, ~하는 (-nta/-māna)\n새 단어: 중성명사 + 동사\n\n경전: "Dānaṃ dadāmānā sagge uppajjanti"', icon: '📚' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Dānaṃ dadāmānā sīlāni rakkhamānā\nmanussā sagge uppajjanti.', pronKo: '다-낭 다다-마-나- 시-라-니 락카마-나-\n마눗사- 삭게 웁빠잔띠', translation: '보시하면서(dadāmānā) 계를 지키면서(rakkhamānā)\n사람들은 천상에 태어난다.', highlight: ['dadāmānā', 'rakkhamānā', 'sagge'], note: 'dadāmānā = dadāti(주다)의 현재분사 복수 주격\nrakkhamānā = rakkhati(지키다)의 현재분사 복수 주격\n-māna 형태의 현재분사가 주어를 수식!' },
+  { type: 'verse', pali: 'Dānaṃ dadāmānā sīlāni rakkhamānā\nmanussā sagge uppajjanti.', pronKo: '다-낭 다다-마-나- 시-라-니 락카마-나-\n마눗사- 삭게- 웁빠잔띠', translation: '보시하면서(dadāmānā) 계를 지키면서(rakkhamānā)\n사람들은 천상에 태어난다.', highlight: ['dadāmānā', 'rakkhamānā', 'sagge'], note: 'dadāmānā = dadāti(주다)의 현재분사 복수 주격\nrakkhamānā = rakkhati(지키다)의 현재분사 복수 주격\n-māna 형태의 현재분사가 주어를 수식!' },
 
   // === 부정사 문법 ===
   { type: 'teach-grammar', title: '부정사 -(i)tuṃ — ~하기 위해, ~할', example: 'pacati → pacituṃ (요리할, 요리하기 위해)\nkhādati → khādituṃ (먹을)\ngacchati → gantuṃ (갈)\ndadāti → dātuṃ (줄)\ntiṭṭhati → ṭhātuṃ (설)\npibati → pātuṃ (마실)', exampleKo: '어간 + (i)tuṃ = ~할, ~하기 위해', explanation: '부정사는 목적이나 의도를 표현합니다.\n\n규칙형: 어간 + ituṃ\n• pacituṃ, khādituṃ, vasituṃ\n\n불규칙형: 어근 + tuṃ\n• gantuṃ (← gam), dātuṃ (← dā)\n• ṭhātuṃ (← ṭhā), pātuṃ (← pā)\n• sotuṃ (← su, 듣다)\n• ñātuṃ (← ñā, 알다)\n\n용법: sakkoti/ussahati + 부정사\n"~할 수 있다/감히 ~하다"' },
 
   // === 부정사 예문 ===
-  { type: 'verse', pali: 'Dārako bhattaṃ bhuñjituṃ icchati.', pronKo: '다-라꼬 밧땅 분지뚱 잇차띠', translation: '아이는 밥을 먹기를(bhuñjituṃ) 원한다.', highlight: ['bhuñjituṃ', 'icchati'], note: 'bhuñjituṃ = 먹을/먹기를 (부정사)\nicchati = 원하다' },
-  { type: 'verse', pali: 'Samaṇo dhammaṃ desetuṃ vihāraṃ gacchati.', pronKo: '사마노 담망 데세뚱 위하-랑 갓차띠', translation: '사문은 법을 가르치기 위해(desetuṃ) 정사에 간다.', highlight: ['desetuṃ', 'dhammaṃ'], note: 'desetuṃ = 가르칠/가르치기 위해 (부정사)' },
-  { type: 'verse', pali: 'Kumāro udakaṃ pātuṃ nadiṃ gacchati.', pronKo: '꾸마-로 우다깡 빠-뚱 나딩 갓차띠', translation: '소년은 물을 마시기 위해(pātuṃ) 강에 간다.', highlight: ['pātuṃ', 'udakaṃ'], note: 'pātuṃ = 마실 (불규칙 부정사: pā + tuṃ)' },
-  { type: 'verse', pali: 'Kassako nagaraṃ gantuṃ ussahati.', pronKo: '깟사꼬 나가랑 간뚱 웃사하띠', translation: '농부는 도시에 가려고(gantuṃ) 노력한다.', highlight: ['gantuṃ', 'ussahati'], note: 'gantuṃ = 갈 (불규칙: gam + tuṃ)\nussahati = 노력하다/애쓰다' },
+  { type: 'verse', pali: 'Dārako bhattaṃ bhuñjituṃ icchati.', pronKo: '다-라꼬- 밧땅 분지뚱 잇차띠', translation: '아이는 밥을 먹기를(bhuñjituṃ) 원한다.', highlight: ['bhuñjituṃ', 'icchati'], note: 'bhuñjituṃ = 먹을/먹기를 (부정사)\nicchati = 원하다' },
+  { type: 'verse', pali: 'Samaṇo dhammaṃ desetuṃ vihāraṃ gacchati.', pronKo: '사마노- 담망 데-세-뚱 위하-랑 갓차띠', translation: '사문은 법을 가르치기 위해(desetuṃ) 정사에 간다.', highlight: ['desetuṃ', 'dhammaṃ'], note: 'desetuṃ = 가르칠/가르치기 위해 (부정사)' },
+  { type: 'verse', pali: 'Kumāro udakaṃ pātuṃ nadiṃ gacchati.', pronKo: '꾸마-로- 우다깡 빠-뚱 나딩 갓차띠', translation: '소년은 물을 마시기 위해(pātuṃ) 강에 간다.', highlight: ['pātuṃ', 'udakaṃ'], note: 'pātuṃ = 마실 (불규칙 부정사: pā + tuṃ)' },
+  { type: 'verse', pali: 'Kassako nagaraṃ gantuṃ ussahati.', pronKo: '깟사꼬- 나가랑 간뚱 웃사하띠', translation: '농부는 도시에 가려고(gantuṃ) 노력한다.', highlight: ['gantuṃ', 'ussahati'], note: 'gantuṃ = 갈 (불규칙: gam + tuṃ)\nussahati = 노력하다/애쓰다' },
 
   // === 현재분사 문법 ===
   { type: 'teach-grammar', title: '현재분사 -nta/-māna — ~하면서, ~하는', example: 'pacati → pacanta / pacamāna (요리하면서)\ngacchati → gacchanta / gacchamāna (가면서)\nvasati → vasanta / vasamāna (살면서)\ndeseti → desenta / desemāna (가르치면서)', exampleKo: '어간 + nta 또는 māna', explanation: '현재분사는 동시 진행 동작을 표현합니다.\n두 형태가 있으며 의미 차이는 거의 없습니다.\n\n-nta형 (능동):\n• pac + anta → pacanta\n• gacch + anta → gacchanta\n\n-māna형 (중간태):\n• pac + amāna → pacamāna\n• gacch + amāna → gacchamāna\n\n현재분사는 형용사처럼 격변화합니다:\n주격 단수: -anto (남성)\n주격 복수: -antā (남성)\n목적격 단수: -antaṃ\n도구격 단수: -antena' },
@@ -25,7 +25,7 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'teach-grammar', title: '현재분사 격변화 (-nta형)', example: '주격 단: gacchanto (가는 자가)\n주격 복: gacchantā (가는 자들이)\n목적격 단: gacchantaṃ (가는 자를)\n목적격 복: gacchante (가는 자들을)\n도구격 단: gacchantena (가는 자에 의해)', exampleKo: '남성 형용사처럼 격변화', explanation: '현재분사 -nta는 남성 -a형처럼 변화합니다.\n\n• 주격: -anto / -antā\n• 목적격: -antaṃ / -ante\n• 도구격: -antena / -antehi\n• 처소격: -ante / -antesu\n\n-māna형은 일반 -a형과 동일:\n• -māno / -mānā (주격)\n• -mānaṃ / -māne (목적격)\n\n경전 예: "āgacchantaṃ" = 오는 자를' },
 
   // === 현재분사 예문 ===
-  { type: 'verse', pali: 'Magge gacchanto naro rukkhaṃ passati.', pronKo: '막게 갓찬또 나로 룩캉 빳사띠', translation: '길에서 가고 있는(gacchanto) 사람은 나무를 본다.', highlight: ['gacchanto', 'Magge'], note: 'gacchanto = 가고 있는 (현재분사 주격 단수)\nmagge = 길에서 (처소격)' },
+  { type: 'verse', pali: 'Magge gacchanto naro rukkhaṃ passati.', pronKo: '막게- 갓찬또- 나로- 룩캉 빳사띠', translation: '길에서 가고 있는(gacchanto) 사람은 나무를 본다.', highlight: ['gacchanto', 'Magge'], note: 'gacchanto = 가고 있는 (현재분사 주격 단수)\nmagge = 길에서 (처소격)' },
   { type: 'verse', pali: 'Bhikkhū piṇḍāya carantā gāmaṃ pavisanti.', pronKo: '빅쿠- 삔다-야 짜란따- 가-망 빠위산띠', translation: '비구들은 탁발하며 다니면서(carantā) 마을에 들어간다.', highlight: ['carantā', 'piṇḍāya'], note: 'carantā = 다니면서 (현재분사 복수 주격)\npiṇḍāya = 탁발을 위해' },
 
   // === 새 단어: 중성명사 (11과) ===
@@ -38,7 +38,7 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'teach', word: 'paduma', pronKo: '빠두마', meaning: '연꽃', icon: '🪷', grammar: '중성명사', baseForm: 'paduma', formNote: '주격: padumaṃ / padumā,padumāni', buddhism: '연꽃 = 진흙에서 피나 더럽히지 않음\n깨달은 자의 상징' },
   { type: 'teach', word: 'sacca', pronKo: '삿짜', meaning: '진리, 진실', icon: '💎', grammar: '중성명사', baseForm: 'sacca', formNote: '주격: saccaṃ / saccā,saccāni', buddhism: 'cattāri ariya-saccāni = 사성제\n고·집·멸·도' },
   { type: 'teach', word: 'citta', pronKo: '찟따', meaning: '마음', icon: '🧠', grammar: '중성명사', baseForm: 'citta', formNote: '주격: cittaṃ / cittā,cittāni', buddhism: 'citta = 마음. 아비담마에서 89/121가지\ncittānupassanā = 마음관찰 (사념처 중 하나)' },
-  { type: 'teach', word: 'pariyesati', pronKo: '빠리예사띠', meaning: '찾다, 구하다', icon: '🔍', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pariyesati', formNote: '복수: pariyesanti\npari + esati(구하다)' },
+  { type: 'teach', word: 'pariyesati', pronKo: '빠리예-사띠', meaning: '찾다, 구하다', icon: '🔍', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pariyesati', formNote: '복수: pariyesanti\npari + esati(구하다)' },
   { type: 'teach', word: 'ārabhati', pronKo: '아-라바띠', meaning: '시작하다', icon: '🚀', grammar: '동사 · 현재 3인칭 단수', baseForm: 'ārabhati', formNote: '복수: ārabhanti\nā + rabhati\nviriyārambha = 정진(精進)' },
 
   // === 연습문제 10과 (부정사) ===
@@ -68,5 +68,5 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'quiz', question: '20. Paṇḍitā saccaṃ jānituṃ ussahanti.', options: ['현자들은 진리를 알려고 노력한다', '현자는 진리를 알려고 노력한다', '현자들은 진리를 알고서 노력한다', '현자들은 진리를 가르치려고 노력한다'], answer: 0, hint: 'jānituṃ=알기를(부정사), ussahanti=노력하다(복수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Dānaṃ dadāmānā sagge uppajjanti', pronKo: '다-낭 다다-마-나- 삭게 웁빠잔띠' },
+  { type: 'speak', pali: 'Dānaṃ dadāmānā sagge uppajjanti', pronKo: '다-낭 다다-마-나- 삭게- 웁빠잔띠' },
 ]

@@ -12,25 +12,25 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'intro', title: '1과: 남성명사 주격 + 동사', subtitle: '-a puliṅga paṭhamā vibhatti', description: '-a로 끝나는 남성명사의 주격과\n현재 3인칭 동사를 배웁니다.\n\n전법륜경의 첫 구절에서 직접 확인합니다.', icon: '📿' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V1, pronKo: '에깡 사마양 바가와~ 바-라-나시양 위하라띠 이시빠따네 미가다-예', translation: V1K, highlight: ['bhagavā', 'viharati'], note: 'bhagavā(세존)는 주격, viharati(머무시다)는 현재 3인칭 동사입니다.\n오늘 이 문법을 배웁니다!' },
+  { type: 'verse', pali: V1, pronKo: '에-깡 사마양 바가와~ 바-라-나시양 위하라띠 이시빠따네- 미가다-예-', translation: V1K, highlight: ['bhagavā', 'viharati'], note: 'bhagavā(세존)는 주격, viharati(머무시다)는 현재 3인칭 동사입니다.\n오늘 이 문법을 배웁니다!' },
 
   // === 주격 문법 ===
   { type: 'teach-grammar', title: '주격 (Nominative) — ~은/는/이/가', example: 'nara + o = naro (사람은)\nnara + ā = narā (사람들은)', exampleKo: '단수: -a → -o / 복수: -a → -ā', explanation: '주격은 문장의 주어입니다.\n\n-a로 끝나는 남성명사:\n• 단수: -a → -o (naro, buddho, kassako)\n• 복수: -a → -ā (narā, buddhā, kassakā)' },
 
   // === 명사 13개 (교재 전체) ===
-  { type: 'teach', word: 'Buddho', pronKo: '붓도', meaning: '붓다는 (주격 단수)', icon: '🙏', grammar: '남성명사 · 주격 단수', baseForm: 'Buddha (붓다, 깨달은 자)', formNote: 'Buddha → Buddho (-a → -o)' },
-  { type: 'teach', word: 'Tathāgato', pronKo: '따타-가또', meaning: '여래는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Tathāgata (여래)', formNote: 'Tathāgata → Tathāgato', buddhism: '"이와 같이 온 자" 또는 "이와 같이 간 자"', verseLine: V2, verseLineKo: V2K },
-  { type: 'teach', word: 'Sugato', pronKo: '수가또', meaning: '선서는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Sugata (선서, 잘 가신 분)', formNote: 'Sugata → Sugato' },
-  { type: 'teach', word: 'manusso', pronKo: '마눗소', meaning: '사람은 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'manussa (사람, 인간)', formNote: 'manussa → manusso' },
-  { type: 'teach', word: 'naro', pronKo: '나로', meaning: '인간은, 남자는 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'nara / purisa (인간, 남자)', formNote: 'nara → naro / purisa → puriso' },
-  { type: 'teach', word: 'kassako', pronKo: '깟사꼬', meaning: '농부는 (주격 단수)', icon: '🌾', grammar: '남성명사 · 주격 단수', baseForm: 'kassaka (농부)', formNote: 'kassaka → kassako' },
-  { type: 'teach', word: 'brāhmaṇo', pronKo: '브라-흐마노', meaning: '바라문은 (주격 단수)', icon: '🧘', grammar: '남성명사 · 주격 단수', baseForm: 'brāhmaṇa (바라문)', formNote: 'brāhmaṇa → brāhmaṇo' },
-  { type: 'teach', word: 'putto', pronKo: '뿟또', meaning: '아들은 (주격 단수)', icon: '👦', grammar: '남성명사 · 주격 단수', baseForm: 'putta (아들)', formNote: 'putta → putto' },
-  { type: 'teach', word: 'mātulo', pronKo: '마-뚤로', meaning: '삼촌은 (주격 단수)', icon: '👨', grammar: '남성명사 · 주격 단수', baseForm: 'mātula (삼촌)', formNote: 'mātula → mātulo' },
-  { type: 'teach', word: 'kumāro', pronKo: '꾸마-로', meaning: '소년은, 왕자는 (주격 단수)', icon: '👦', grammar: '남성명사 · 주격 단수', baseForm: 'kumāra (소년, 왕자)', formNote: 'kumāra → kumāro' },
-  { type: 'teach', word: 'vāṇijo', pronKo: '와-니조', meaning: '상인은 (주격 단수)', icon: '💰', grammar: '남성명사 · 주격 단수', baseForm: 'vāṇija (상인)', formNote: 'vāṇija → vāṇijo' },
-  { type: 'teach', word: 'bhūpālo', pronKo: '부-빨-로', meaning: '왕은 (주격 단수)', icon: '👑', grammar: '남성명사 · 주격 단수', baseForm: 'bhūpāla (왕)', formNote: 'bhūpāla → bhūpālo' },
-  { type: 'teach', word: 'sahāyako', pronKo: '사하-야꼬', meaning: '친구는 (주격 단수)', icon: '🤝', grammar: '남성명사 · 주격 단수', baseForm: 'sahāya / sahāyaka / mitta (친구, 벗)', formNote: 'sahāyaka → sahāyako / mitta → mitto' },
+  { type: 'teach', word: 'Buddho', pronKo: '붓도-', meaning: '붓다는 (주격 단수)', icon: '🙏', grammar: '남성명사 · 주격 단수', baseForm: 'Buddha (붓다, 깨달은 자)', formNote: 'Buddha → Buddho (-a → -o)' },
+  { type: 'teach', word: 'Tathāgato', pronKo: '따타-가또-', meaning: '여래는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Tathāgata (여래)', formNote: 'Tathāgata → Tathāgato', buddhism: '"이와 같이 온 자" 또는 "이와 같이 간 자"', verseLine: V2, verseLineKo: V2K },
+  { type: 'teach', word: 'Sugato', pronKo: '수가또-', meaning: '선서는 (주격 단수)', icon: '☸️', grammar: '남성명사 · 주격 단수', baseForm: 'Sugata (선서, 잘 가신 분)', formNote: 'Sugata → Sugato' },
+  { type: 'teach', word: 'manusso', pronKo: '마눗소-', meaning: '사람은 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'manussa (사람, 인간)', formNote: 'manussa → manusso' },
+  { type: 'teach', word: 'naro', pronKo: '나로-', meaning: '인간은, 남자는 (주격 단수)', icon: '👤', grammar: '남성명사 · 주격 단수', baseForm: 'nara / purisa (인간, 남자)', formNote: 'nara → naro / purisa → puriso' },
+  { type: 'teach', word: 'kassako', pronKo: '깟사꼬-', meaning: '농부는 (주격 단수)', icon: '🌾', grammar: '남성명사 · 주격 단수', baseForm: 'kassaka (농부)', formNote: 'kassaka → kassako' },
+  { type: 'teach', word: 'brāhmaṇo', pronKo: '브라-흐마노-', meaning: '바라문은 (주격 단수)', icon: '🧘', grammar: '남성명사 · 주격 단수', baseForm: 'brāhmaṇa (바라문)', formNote: 'brāhmaṇa → brāhmaṇo' },
+  { type: 'teach', word: 'putto', pronKo: '뿟또-', meaning: '아들은 (주격 단수)', icon: '👦', grammar: '남성명사 · 주격 단수', baseForm: 'putta (아들)', formNote: 'putta → putto' },
+  { type: 'teach', word: 'mātulo', pronKo: '마-뚤로-', meaning: '삼촌은 (주격 단수)', icon: '👨', grammar: '남성명사 · 주격 단수', baseForm: 'mātula (삼촌)', formNote: 'mātula → mātulo' },
+  { type: 'teach', word: 'kumāro', pronKo: '꾸마-로-', meaning: '소년은, 왕자는 (주격 단수)', icon: '👦', grammar: '남성명사 · 주격 단수', baseForm: 'kumāra (소년, 왕자)', formNote: 'kumāra → kumāro' },
+  { type: 'teach', word: 'vāṇijo', pronKo: '와-니조-', meaning: '상인은 (주격 단수)', icon: '💰', grammar: '남성명사 · 주격 단수', baseForm: 'vāṇija (상인)', formNote: 'vāṇija → vāṇijo' },
+  { type: 'teach', word: 'bhūpālo', pronKo: '부-빨-로-', meaning: '왕은 (주격 단수)', icon: '👑', grammar: '남성명사 · 주격 단수', baseForm: 'bhūpāla (왕)', formNote: 'bhūpāla → bhūpālo' },
+  { type: 'teach', word: 'sahāyako', pronKo: '사하-야꼬-', meaning: '친구는 (주격 단수)', icon: '🤝', grammar: '남성명사 · 주격 단수', baseForm: 'sahāya / sahāyaka / mitta (친구, 벗)', formNote: 'sahāyaka → sahāyako / mitta → mitto' },
 
   // === 동사 10개 (교재 전체) ===
   { type: 'teach-grammar', title: '현재 3인칭 동사', example: '단수: 어간 + -ti (bhāsati 말한다)\n복수: 어간 + -nti (bhāsanti 말한다)', exampleKo: '단수 -ti / 복수 -nti', explanation: '현재 3인칭 동사 활용:\n• 단수: 어간 + -ti → bhāsati, pacati\n• 복수: 어간 + -nti → bhāsanti, pacanti' },
@@ -46,12 +46,12 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'teach', word: 'dhāvati', pronKo: '다-와띠', meaning: '달리다', icon: '🏃', grammar: '동사 · 현재 3인칭 단수', baseForm: 'dhāva (달리다)', formNote: 'dhāva + ti / 복수: dhāvanti' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Naro bhāsati / Narā bhāsanti', pronKo: '나로 바-사띠 / 나라- 바-산띠', translation: '사람은 말한다 / 사람들은 말한다', highlight: ['Naro', 'Narā', 'bhāsati', 'bhāsanti'] },
-  { type: 'verse', pali: 'Mātulo pacati / Mātulā pacanti', pronKo: '마-뚤로 빠짜띠 / 마-뚤라- 빠짠띠', translation: '삼촌은 요리한다 / 삼촌들은 요리한다', highlight: ['Mātulo', 'Mātulā', 'pacati', 'pacanti'] },
-  { type: 'verse', pali: 'Kassako kasati / Kassakā kasanti', pronKo: '깟사꼬 까사띠 / 깟사까- 까산띠', translation: '농부는 쟁기질한다 / 농부들은 쟁기질한다', highlight: ['Kassako', 'Kassakā', 'kasati', 'kasanti'] },
+  { type: 'verse', pali: 'Naro bhāsati / Narā bhāsanti', pronKo: '나로- 바-사띠 / 나라- 바-산띠', translation: '사람은 말한다 / 사람들은 말한다', highlight: ['Naro', 'Narā', 'bhāsati', 'bhāsanti'] },
+  { type: 'verse', pali: 'Mātulo pacati / Mātulā pacanti', pronKo: '마-뚤로- 빠짜띠 / 마-뚤라- 빠짠띠', translation: '삼촌은 요리한다 / 삼촌들은 요리한다', highlight: ['Mātulo', 'Mātulā', 'pacati', 'pacanti'] },
+  { type: 'verse', pali: 'Kassako kasati / Kassakā kasanti', pronKo: '깟사꼬- 까사띠 / 깟사까- 까산띠', translation: '농부는 쟁기질한다 / 농부들은 쟁기질한다', highlight: ['Kassako', 'Kassakā', 'kasati', 'kasanti'] },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V2, pronKo: '따뜨라 코 바가와~ 빤짜왓기예 빅쿠- 아-만떼시', translation: V2K, highlight: ['bhagavā', 'āmantesi'], note: 'bhagavā = 주격 (세존께서)\nāmantesi = 과거형 동사 (말씀하셨다)' },
+  { type: 'verse', pali: V2, pronKo: '따뜨라 코- 바가와~ 빤짜왓기예- 빅쿠- 아-만떼-시', translation: V2K, highlight: ['bhagavā', 'āmantesi'], note: 'bhagavā = 주격 (세존께서)\nāmantesi = 과거형 동사 (말씀하셨다)' },
 
   // === 연습문제 1 (16문제) ===
   { type: 'quiz', question: '1. Bhūpālo bhuñjati.', options: ['왕은 먹는다', '왕은 달린다', '왕들은 먹는다', '소년은 먹는다'], answer: 0, hint: 'Bhūpālo = 왕은(주격 단수), bhuñjati = 먹다' },
@@ -72,5 +72,5 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'quiz', question: '16. Sugato āgacchati.', options: ['선서는 가신다', '선서는 오신다', '선서들은 오신다', '여래는 오신다'], answer: 1, hint: 'Sugato = 선서는(주격 단수), āgacchati = 오다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에깡 사마양 바가와~ 바-라-나시양 위하라띠' },
+  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에-깡 사마양 바가와~ 바-라-나시양 위하라띠' },
 ]

@@ -10,7 +10,7 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'intro', title: '5과: 남성명사 여격 (Dative)', subtitle: 'Catutthī vibhatti (Dative)', description: '여격은 수여·목적·대상을 나타냅니다.\n~에게, ~를 위하여, ~를 목적으로\n\n경전: "Namo tassa bhagavato"\n(저 세존께 경배합니다)', icon: '🎁' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_SARANA, pronKo: '나모 땃사 바가와또 아라하또 삼마-삼붓닷사', translation: V_SARANA_K, highlight: ['tassa', 'bhagavato', 'arahato', 'sammāsambuddhassa'], note: 'tassa = ta(그)의 여격/소유격 "저~에게"\nbhagavato = bhagavant(세존)의 여격\narahato = arahant(아라한)의 여격\nsammāsambuddhassa = sammāsambuddha + ssa(여격)\n※ 여격과 소유격 형태 유사!' },
+  { type: 'verse', pali: V_SARANA, pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: V_SARANA_K, highlight: ['tassa', 'bhagavato', 'arahato', 'sammāsambuddhassa'], note: 'tassa = ta(그)의 여격/소유격 "저~에게"\nbhagavato = bhagavant(세존)의 여격\narahato = arahant(아라한)의 여격\nsammāsambuddhassa = sammāsambuddha + ssa(여격)\n※ 여격과 소유격 형태 유사!' },
 
   // === 여격 문법 ===
   { type: 'teach-grammar', title: '여격 (Dative) — ~에게/위하여/목적으로', example: 'nara + āya = narāya (사람에게)\nnara + ssa = narassa (사람에게)\nnara + ānaṃ = narānaṃ (사람들에게)', exampleKo: '단수: -āya / -ssa\n복수: -ānaṃ', explanation: '여격의 주요 의미:\n• 수여 대상: narāya dadāti (사람에게 준다)\n• 목적/이유: lābhāya gacchati (이득을 위해 간다)\n• 이익/불이익의 대상: kassakassa āharati (농부를 위해 가져온다)\n\n-a 남성명사:\n• 단수: -āya (narāya), -ssa (narassa)\n• 복수: -ānaṃ (narānaṃ)\n※ -ssa는 속격(소유)과 형태 동일!' },
@@ -28,7 +28,7 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'teach', word: 'kuddāla', pronKo: '꿋달-라', meaning: '괭이', icon: '⛏️', grammar: '남성명사', baseForm: 'kuddāla', formNote: '여격 단수: kuddālāya / kuddālassa\n여격 복수: kuddālānaṃ' },
 
   // === 동사 10개 (교재 전체) ===
-  { type: 'teach', word: 'rodati', pronKo: '로다띠', meaning: '울다', icon: '😢', grammar: '동사 · 현재 3인칭 단수', baseForm: 'rodati', formNote: '복수: rodanti' },
+  { type: 'teach', word: 'rodati', pronKo: '로-다띠', meaning: '울다', icon: '😢', grammar: '동사 · 현재 3인칭 단수', baseForm: 'rodati', formNote: '복수: rodanti' },
   { type: 'teach', word: 'hasati', pronKo: '하사띠', meaning: '웃다', icon: '😄', grammar: '동사 · 현재 3인칭 단수', baseForm: 'hasati', formNote: '복수: hasanti' },
   { type: 'teach', word: 'labhati', pronKo: '라바띠', meaning: '얻다', icon: '🤲', grammar: '동사 · 현재 3인칭 단수', baseForm: 'labhati', formNote: '복수: labhanti' },
   { type: 'teach', word: 'pavisati', pronKo: '빠위사띠', meaning: '들어가다', icon: '🚶', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pavisati', formNote: '복수: pavisanti' },
@@ -40,9 +40,9 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'teach', word: 'pajahati', pronKo: '빠자하띠', meaning: '버리다', icon: '🗑️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pajahati', formNote: '복수: pajahanti' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Dhīvaro narāya macchaṃ āharati.\nDhīvarā narānaṃ macche āharanti.', pronKo: '디-와로 나라-야 맛참 아-하라띠\n디-와라- 나라-남 맛체 아-하란띠', translation: '어부는 사람에게 물고기를 가져온다.\n어부들은 사람들에게 물고기들을 가져온다.', highlight: ['narāya', 'narānaṃ'] },
-  { type: 'verse', pali: 'Putto mātulassa odanaṃ dadāti.\nPuttā mātulānaṃ odanaṃ dadanti.', pronKo: '뿟또 마-뚤랏사 오다낭 다다-띠\n뿟따- 마-뚤라-남 오다낭 다단띠', translation: '아들은 삼촌에게 밥을 준다.\n아들들은 삼촌들에게 밥을 준다.', highlight: ['mātulassa', 'mātulānaṃ'] },
-  { type: 'verse', pali: 'Vāṇijo kassakassa ajaṃ dadāti.\nVāṇijā kassakānaṃ aje dadanti.', pronKo: '와-니조 깟사깟사 아잠 다다-띠\n와-니자- 깟사까-남 아제 다단띠', translation: '상인은 농부에게 염소를 준다.\n상인들은 농부들에게 염소들을 준다.', highlight: ['kassakassa', 'kassakānaṃ'] },
+  { type: 'verse', pali: 'Dhīvaro narāya macchaṃ āharati.\nDhīvarā narānaṃ macche āharanti.', pronKo: '디-와로- 나라-야 맛참 아-하라띠\n디-와라- 나라-남 맛체- 아-하란띠', translation: '어부는 사람에게 물고기를 가져온다.\n어부들은 사람들에게 물고기들을 가져온다.', highlight: ['narāya', 'narānaṃ'] },
+  { type: 'verse', pali: 'Putto mātulassa odanaṃ dadāti.\nPuttā mātulānaṃ odanaṃ dadanti.', pronKo: '뿟또- 마-뚤랏사 오-다낭 다다-띠\n뿟따- 마-뚤라-남 오-다낭 다단띠', translation: '아들은 삼촌에게 밥을 준다.\n아들들은 삼촌들에게 밥을 준다.', highlight: ['mātulassa', 'mātulānaṃ'] },
+  { type: 'verse', pali: 'Vāṇijo kassakassa ajaṃ dadāti.\nVāṇijā kassakānaṃ aje dadanti.', pronKo: '와-니조- 깟사깟사 아잠 다다-띠\n와-니자- 깟사까-남 아제- 다단띠', translation: '상인은 농부에게 염소를 준다.\n상인들은 농부들에게 염소들을 준다.', highlight: ['kassakassa', 'kassakānaṃ'] },
 
   // === 연습문제 5 (10문제) ===
   { type: 'quiz', question: '1. Upāsako ācariyassa phalaṃ dadāti.', options: ['우바새는 스승에게 과일을 준다', '우바새는 스승으로부터 과일을 받는다', '우바새들은 스승에게 과일을 준다', '우바새는 스승과 함께 과일을 먹는다'], answer: 0, hint: 'ācariyassa=스승에게(여격), dadāti=주다' },
@@ -57,5 +57,5 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'quiz', question: '10. Dārakā makkaṭānaṃ phale āharanti.', options: ['아이들은 원숭이들에게 과일들을 가져온다', '아이들은 원숭이들로부터 과일들을 받는다', '아이는 원숭이들에게 과일들을 가져온다', '아이들은 원숭이들과 함께 과일들을 먹는다'], answer: 0, hint: 'makkaṭānaṃ=원숭이들에게(여격 복수), phale=과일들을' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Namo tassa bhagavato arahato sammāsambuddhassa', pronKo: '나모 땃사 바가와또 아라하또 삼마-삼붓닷사' },
+  { type: 'speak', pali: 'Namo tassa bhagavato arahato sammāsambuddhassa', pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사' },
 ]

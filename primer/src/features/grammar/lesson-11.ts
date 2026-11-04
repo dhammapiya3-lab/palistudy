@@ -28,7 +28,7 @@ export const LESSON_11: StepWithoutId[] = [
   { type: 'teach', word: 'ahaṃ', pronKo: '아항', meaning: '나', icon: '👤', grammar: '1인칭 대명사 단수 주격', baseForm: 'ahaṃ', formNote: '목적격: maṃ/mamaṃ\n소유격: mama/mayhaṃ\n여격: mayhaṃ/me' },
   { type: 'teach', word: 'mayaṃ', pronKo: '마양', meaning: '우리', icon: '👥', grammar: '1인칭 대명사 복수 주격', baseForm: 'mayaṃ', formNote: '목적격: amhe/amhākaṃ\n소유격: amhākaṃ/amhaṃ' },
   { type: 'teach', word: 'tvaṃ', pronKo: '뜨왕', meaning: '너', icon: '👆', grammar: '2인칭 대명사 단수 주격', baseForm: 'tvaṃ', formNote: '목적격: taṃ/tavaṃ\n소유격: tava/tuyhaṃ\n여격: tuyhaṃ/te' },
-  { type: 'teach', word: 'tumhe', pronKo: '뚬헤', meaning: '너희', icon: '👆👆', grammar: '2인칭 대명사 복수 주격', baseForm: 'tumhe', formNote: '목적격: tumhe/tumhākaṃ\n소유격: tumhākaṃ' },
+  { type: 'teach', word: 'tumhe', pronKo: '뚬헤-', meaning: '너희', icon: '👆👆', grammar: '2인칭 대명사 복수 주격', baseForm: 'tumhe', formNote: '목적격: tumhe/tumhākaṃ\n소유격: tumhākaṃ' },
   { type: 'teach', word: 'saraṇa', pronKo: '사라나', meaning: '피난처, 귀의', icon: '🙏', grammar: '중성명사', baseForm: 'saraṇa', formNote: '주격: saraṇaṃ\nsaraṇaṃ gacchāmi = 귀의합니다', buddhism: 'tisaraṇa = 삼귀의 (불·법·승)' },
 
   // === 예문 ===

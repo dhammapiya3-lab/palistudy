@@ -2,23 +2,23 @@
 import type { StepType } from './lesson-data-sn56-11'
 
 const V1 = 'Pāṇātipātā veramaṇīsikkhāpadaṃ samādiyāmi.'
-const V1Ko = '빠~나~띠빠~따~ 웨라마니~식카~빠당 사마~디야~미.'
+const V1Ko = '빠~나~띠빠~따~ 웨~라마니~식카~빠당 사마~디야~미.'
 const V1K = '살아있는 생명을 죽이지 않는 계를 받들겠습니다.'
 
 const V2 = 'Adinnādānā veramaṇīsikkhāpadaṃ samādiyāmi.'
-const V2Ko = '아딘나~다~나~ 웨라마니~식카~빠당 사마~디야~미.'
+const V2Ko = '아딘나~다~나~ 웨~라마니~식카~빠당 사마~디야~미.'
 const V2K = '주지 않은 것을 취하지 않는 계를 받들겠습니다.'
 
 const V3 = 'Kāmesu micchācārā veramaṇīsikkhāpadaṃ samādiyāmi.'
-const V3Ko = '까~메수 밋차~짜~라~ 웨라마니~식카~빠당 사마~디야~미.'
+const V3Ko = '까~메~수 밋차~짜~라~ 웨~라마니~식카~빠당 사마~디야~미.'
 const V3K = '감각적 쾌락에서 삿된 행을 하지 않는 계를 받들겠습니다.'
 
 const V4 = 'Musāvādā veramaṇīsikkhāpadaṃ samādiyāmi.'
-const V4Ko = '무사~와~다~ 웨라마니~식카~빠당 사마~디야~미.'
+const V4Ko = '무사~와~다~ 웨~라마니~식카~빠당 사마~디야~미.'
 const V4K = '거짓말하지 않는 계를 받들겠습니다.'
 
 const V5 = 'Surāmerayamajjapamādaṭṭhānā veramaṇīsikkhāpadaṃ samādiyāmi.'
-const V5Ko = '수라~메라야맛자빠마~닷타~나~ 웨라마니~식카~빠당 사마~디야~미.'
+const V5Ko = '수라~메~라야맛자빠마~닷타~나~ 웨~라마니~식카~빠당 사마~디야~미.'
 const V5K = '방일의 원인이 되는 술·곡주·취하게 하는 것을 마시지 않는 계를 받들겠습니다.'
 
 const V_FULL = V1 + '\n' + V2 + '\n' + V3 + '\n' + V4 + '\n' + V5
@@ -29,7 +29,7 @@ export const LESSON_PANCASILA: StepType[] = [
     description: '재가 불자의 기본 수행 규칙 다섯 가지.\n불살생·불투도·불사음·불망어·불음주.\n\n계(Sīla)는 삼학(계·정·혜)의 기초.\n11과 MN10의 sammāvācā(정어)·sammākammanta(정업)과 직결.' },
 
   // ── 공통 단어 (5계 모두에 등장) ──
-  { type: 'teach', icon: '🚫', word: 'veramaṇī', pronKo: '웨라마니~', meaning: '삼감, 절제',
+  { type: 'teach', icon: '🚫', word: 'veramaṇī', pronKo: '웨~라마니~', meaning: '삼감, 절제',
     grammar: '여성명사, 주격 단수', baseForm: 'veramaṇī (vi- + √ram)',
     formNote: 'vi(분리/멀리) + √ram(기뻐하다) = "기쁘게 멀리함 = 삼감"\n11과 MN10 V_MAG3 정어의 veramaṇī와 같은 단어',
     buddhism: '삼감(禁戒). 적극적 의지로 멀리하는 것.',
@@ -70,7 +70,7 @@ export const LESSON_PANCASILA: StepType[] = [
     note: '✋ 2계: 주지 않은 것 취하지 않음.' },
 
   // ── 3계: 불사음 ──
-  { type: 'teach', icon: '💔', word: 'Kāmesu', pronKo: '까~메수', meaning: '감각적 쾌락들에서 (처격 복수)',
+  { type: 'teach', icon: '💔', word: 'Kāmesu', pronKo: '까~메~수', meaning: '감각적 쾌락들에서 (처격 복수)',
     grammar: '남성명사, 처격 복수', baseForm: 'kāma',
     formNote: 'kāma → kāmesu: -a 어간 처격 복수 -esu',
     buddhism: '욕(欲). 5가지 감각의 쾌락.',
@@ -98,7 +98,7 @@ export const LESSON_PANCASILA: StepType[] = [
     note: '🗣️ 4계: 거짓말 금지.' },
 
   // ── 5계: 불음주 ──
-  { type: 'teach', icon: '🍺', word: 'Surāmerayamajjapamādaṭṭhānā', pronKo: '수라~메라야맛자빠마~닷타~나~', meaning: '술·곡주·취기·방일의 원인에서 (탈격)',
+  { type: 'teach', icon: '🍺', word: 'Surāmerayamajjapamādaṭṭhānā', pronKo: '수라~메~라야맛자빠마~닷타~나~', meaning: '술·곡주·취기·방일의 원인에서 (탈격)',
     grammar: '복합어, 탈격 단수', baseForm: 'surā + meraya + majja + pamāda + ṭhāna',
     formNote: 'surā(증류주) + meraya(발효주) + majja(취하게 하는 것) + pamāda(방일) + ṭhāna(자리/원인)\n= "방일의 원인이 되는 술·곡주·취기"',
     buddhism: '음주(飮酒)·방일(放逸). 오계의 다섯째. 명료한 마음 유지.',
@@ -160,7 +160,7 @@ export const LESSON_PANCASILA: StepType[] = [
   { type: 'teach', icon: '🍶', word: 'surā', pronKo: '수라~', meaning: '증류주',
     grammar: '여성명사, 원형', baseForm: 'surā',
     verseLine: V5, verseLineKo: V5K, audio: true },
-  { type: 'teach', icon: '🍷', word: 'meraya', pronKo: '메라야', meaning: '발효주',
+  { type: 'teach', icon: '🍷', word: 'meraya', pronKo: '메~라야', meaning: '발효주',
     grammar: '중성명사, 원형', baseForm: 'meraya',
     verseLine: V5, verseLineKo: V5K, audio: true },
   { type: 'teach', icon: '🥴', word: 'majja', pronKo: '맛자', meaning: '취하게 하는 것',

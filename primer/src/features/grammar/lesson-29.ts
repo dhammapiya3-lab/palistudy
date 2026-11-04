@@ -44,8 +44,8 @@ export const LESSON_29: StepWithoutId[] = [
   { type: 'quiz', question: '12. Kuto āgato asi?', options: ['어디서 왔느냐?', '왜 왔느냐?', '언제 왔느냐?', '누구와 왔느냐?'], answer: 0, hint: 'kuto = 어디로부터, āgato = 온, asi = 너는 ~이다(2인칭)' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Yathā Bhagavā dhammaṃ deseti,\ntathā tumhehi paṭipajjitabbaṃ.', pronKo: '야타- 바가와- 담망 데세띠,\n따타- 뚬헤히 빠띠빳지땁방.', translation: '세존께서 법을 가르치신 대로\n그처럼 당신들은 실천해야 한다.', highlight: ['Yathā', 'tathā', 'tumhehi'], note: 'yathā…tathā = …하는 대로…그렇게\ntumhehi = 너희에 의해 (도구격, 수동문)\npaṭipajjitabbaṃ = 실천되어야 할 것 (미래수동분사)' },
+  { type: 'verse', pali: 'Yathā Bhagavā dhammaṃ deseti,\ntathā tumhehi paṭipajjitabbaṃ.', pronKo: '야타- 바가와- 담망 데-세-띠,\n따타- 뚬헤-히 빠띠빳지땁방.', translation: '세존께서 법을 가르치신 대로\n그처럼 당신들은 실천해야 한다.', highlight: ['Yathā', 'tathā', 'tumhehi'], note: 'yathā…tathā = …하는 대로…그렇게\ntumhehi = 너희에 의해 (도구격, 수동문)\npaṭipajjitabbaṃ = 실천되어야 할 것 (미래수동분사)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha', pronKo: '야타- 바가와- 담망 데세띠 따타- 빠띠빳자타' },
+  { type: 'speak', pali: 'Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha', pronKo: '야타- 바가와- 담망 데-세-띠 따타- 빠띠빳자타' },
 ]

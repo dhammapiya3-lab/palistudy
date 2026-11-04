@@ -25,12 +25,12 @@ export const LESSON_18: StepWithoutId[] = [
   { type: 'teach', word: 'mutta', pronKo: '뭇따', meaning: '해탈된, 풀린', icon: '🕊️', grammar: '불규칙 과거분사 (muc)', formNote: 'muc → mutta (불규칙)', buddhism: 'vimutta = 완전히 해탈된' },
 
   // === 교재 예문 6개 ===
-  { type: 'verse', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma.', pronKo: '붓데나 바-시땅 담망 수나-마', translation: '우리는 붓다에 의해 말씀하신 법을 듣는다.', highlight: ['bhāsitaṃ'], note: 'bhāsitaṃ = 말해진 (과거분사, 수동)' },
-  { type: 'verse', pali: 'Corena dinnaṃ dhanaṃ na gaṇhāmi.', pronKo: '쪼레나 딘낭 다낭 나 간하-미', translation: '나는 도둑에 의해 주어진 재물을 받지 않는다.', highlight: ['dinnaṃ'], note: 'dinnaṃ = 주어진 (dinna의 중성 주격)' },
-  { type: 'verse', pali: 'Gato so puriso nagaraṃ.', pronKo: '가또 소 뿌리소 나가랑', translation: '그 사람은 도시로 갔다.', highlight: ['Gato'], note: 'gato = 간 (자동사 → 능동 의미)' },
+  { type: 'verse', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma.', pronKo: '붓데-나 바-시땅 담망 수나-마', translation: '우리는 붓다에 의해 말씀하신 법을 듣는다.', highlight: ['bhāsitaṃ'], note: 'bhāsitaṃ = 말해진 (과거분사, 수동)' },
+  { type: 'verse', pali: 'Corena dinnaṃ dhanaṃ na gaṇhāmi.', pronKo: '쪼-레-나 딘낭 다낭 나 간하-미', translation: '나는 도둑에 의해 주어진 재물을 받지 않는다.', highlight: ['dinnaṃ'], note: 'dinnaṃ = 주어진 (dinna의 중성 주격)' },
+  { type: 'verse', pali: 'Gato so puriso nagaraṃ.', pronKo: '가또- 소- 뿌리소- 나가랑', translation: '그 사람은 도시로 갔다.', highlight: ['Gato'], note: 'gato = 간 (자동사 → 능동 의미)' },
   { type: 'verse', pali: 'Nisinnā bhikkhū dhammaṃ suṇanti.', pronKo: '니신나- 빅쿠- 담망 수난띠', translation: '앉은 비구들은 법을 듣는다.', highlight: ['Nisinnā'], note: 'nisinnā = 앉은 (복수 주격)' },
   { type: 'verse', pali: 'Hatā pāpakā dhammā.', pronKo: '하따- 빠-빠까- 담마-', translation: '악한 법들은 죽임 당했다(제거되었다).', highlight: ['Hatā'], note: 'hatā = 죽은/제거된 (han → hata)' },
-  { type: 'verse', pali: 'Tiṇṇo samuddaṃ paṇḍito.', pronKo: '띤노 사뭇당 빤디또', translation: '현자는 바다를 건넜다.', highlight: ['Tiṇṇo'], note: 'tiṇṇo = 건넌 (tar → tiṇṇa, 주격 남성)' },
+  { type: 'verse', pali: 'Tiṇṇo samuddaṃ paṇḍito.', pronKo: '띤노- 사뭇당 빤디또-', translation: '현자는 바다를 건넜다.', highlight: ['Tiṇṇo'], note: 'tiṇṇo = 건넌 (tar → tiṇṇa, 주격 남성)' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Buddhena desitaṃ dhammaṃ suṇāmi.', options: ['나는 붓다에 의해 설해진 법을 듣는다', '나는 붓다에게 법을 설한다', '나는 붓다의 법을 읽는다', '나는 붓다와 함께 법을 듣는다'], answer: 0, hint: 'desitaṃ = 설해진 (과거분사, 수동)' },
@@ -45,5 +45,5 @@ export const LESSON_18: StepWithoutId[] = [
   { type: 'quiz', question: '10. Pahīnā kilesā arahato.', options: ['아라한의 번뇌들은 멸해졌다', '아라한은 번뇌를 멸한다', '아라한의 번뇌들은 남아있다', '번뇌가 아라한을 멸했다'], answer: 0, hint: 'pahīnā = 멸해진 (복수), arahato = 아라한의' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma', pronKo: '붓데나 바-시땅 담망 수나-마' },
+  { type: 'speak', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma', pronKo: '붓데-나 바-시땅 담망 수나-마' },
 ]

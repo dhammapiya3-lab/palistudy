@@ -7,7 +7,7 @@ export const LESSON_09: StepWithoutId[] = [
   { type: 'intro', title: '9과: 절대분사 (Absolutive)', subtitle: 'Tvā-paccaya / Ya-paccaya', description: '절대분사: ~하고서, ~한 뒤에\n-(i)tvā 규칙과 -ya 형태\n불규칙 동사 절대분사\n\n"먼저 하고 → 다음 동작"\n경전에서 매우 자주 등장!', icon: '🔗' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Atha kho āyasmā mahāmoggallāno Bhagavantaṃ vanditvā padakkhiṇaṃ katvā pakkāmi.', pronKo: '아타 코 아-야스마- 마하-목갈라-노 바가완땅 완디뜨와- 빠닥키낭 깟뜨와- 빡까-미', translation: '그때 존자 마하목갈라나는 세존께 예배하고서(vanditvā), 오른쪽으로 도는 예를 행하고서(katvā) 떠나갔다.', highlight: ['vanditvā', 'katvā', 'pakkāmi'], note: 'vanditvā = vandati(예배하다)의 절대분사\nkatvā = karoti(하다)의 불규칙 절대분사\npadakkhiṇaṃ katvā = 오른쪽으로 도는 예를 행하다\npakkāmi = pakkamati(떠나다)의 과거형\n※ 두 개의 절대분사가 연속으로 사용됨' },
+  { type: 'verse', pali: 'Atha kho āyasmā mahāmoggallāno Bhagavantaṃ vanditvā padakkhiṇaṃ katvā pakkāmi.', pronKo: '아타 코- 아-야스마- 마하-목갈라-노- 바가완땅 완디뜨와- 빠닥키낭 깟뜨와- 빡까-미', translation: '그때 존자 마하목갈라나는 세존께 예배하고서(vanditvā), 오른쪽으로 도는 예를 행하고서(katvā) 떠나갔다.', highlight: ['vanditvā', 'katvā', 'pakkāmi'], note: 'vanditvā = vandati(예배하다)의 절대분사\nkatvā = karoti(하다)의 불규칙 절대분사\npadakkhiṇaṃ katvā = 오른쪽으로 도는 예를 행하다\npakkāmi = pakkamati(떠나다)의 과거형\n※ 두 개의 절대분사가 연속으로 사용됨' },
 
   // === -itvā 규칙 ===
   { type: 'teach-grammar', title: '절대분사 -(i)tvā 규칙', example: '-ati → -itvā: pacati → pacitvā (요리하고서)\n-āti → -itvā: khādāti → khāditvā (먹고서)\n-oti → -itvā: karoti → karitvā (하고서)', exampleKo: '어간 + itvā = ~하고서', explanation: '절대분사는 "~하고서, ~한 뒤에"를 뜻합니다.\n주절 동사보다 먼저 일어난 동작을 표현합니다.\n\n기본 규칙:\n• -ati 어미 동사 → 어간 + itvā\n• pacati(요리하다) → pacitvā\n• vasati(살다) → vasitvā\n• rakkhati(지키다) → rakkhitvā\n\n어간이 짧은 동사는 -tvā만:\n• gantvā(가고서), hantvā(죽이고서)' },
@@ -34,10 +34,10 @@ export const LESSON_09: StepWithoutId[] = [
   { type: 'teach', word: 'vandati', pronKo: '완다띠', meaning: '예배하다, 절하다', icon: '🙇', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vandati', formNote: '복수: vandanti\nvandana = 예배, 경배' },
 
   // === 교재 예문 ===
-  { type: 'verse', pali: 'Kassako khettamhā āgantvā bhattaṃ bhuñjati.', pronKo: '깟사꼬 켓땀하- 아-간뜨와- 밧땅 분자띠', translation: '농부는 밭에서 돌아와서(āgantvā) 밥을 먹는다.', highlight: ['āgantvā', 'khettamhā', 'bhattaṃ'], note: 'āgantvā = 와서 (절대분사)\nkhettamhā = 밭에서 (탈격)\nbhattaṃ = 밥을 (목적격)' },
+  { type: 'verse', pali: 'Kassako khettamhā āgantvā bhattaṃ bhuñjati.', pronKo: '깟사꼬- 켓땀하- 아-간뜨와- 밧땅 분자띠', translation: '농부는 밭에서 돌아와서(āgantvā) 밥을 먹는다.', highlight: ['āgantvā', 'khettamhā', 'bhattaṃ'], note: 'āgantvā = 와서 (절대분사)\nkhettamhā = 밭에서 (탈격)\nbhattaṃ = 밥을 (목적격)' },
   { type: 'verse', pali: 'Vānarā rukkhaṃ āruyha phalāni khādanti.', pronKo: '와-나라- 룩캉 아-룻야 팔라-니 카-단띠', translation: '원숭이들은 나무에 올라서(āruyha) 과일들을 먹는다.', highlight: ['āruyha', 'rukkhaṃ', 'phalāni'], note: 'āruyha = 올라서 (-ya형 절대분사)\nrukkhaṃ = 나무를 (방향의 목적격)' },
-  { type: 'verse', pali: 'Dārako bhattaṃ yācitvā rodati.', pronKo: '다-라꼬 밧땅 야-찌뜨와- 로다띠', translation: '아이는 밥을 구걸하고서(yācitvā) 운다.', highlight: ['yācitvā', 'bhattaṃ', 'rodati'], note: 'yācitvā = 구걸하고서 (절대분사)\nrodati = 울다' },
-  { type: 'verse', pali: 'Samaṇo Buddhaṃ passitvā vandati.', pronKo: '사마노 붓당 빳씻뜨와- 완다띠', translation: '사문은 부처님을 보고서(passitvā) 예배한다.', highlight: ['passitvā', 'Buddhaṃ', 'vandati'], note: 'passitvā = 보고서 (disvā와 동의)\nvandati = 예배하다' },
+  { type: 'verse', pali: 'Dārako bhattaṃ yācitvā rodati.', pronKo: '다-라꼬- 밧땅 야-찌뜨와- 로-다띠', translation: '아이는 밥을 구걸하고서(yācitvā) 운다.', highlight: ['yācitvā', 'bhattaṃ', 'rodati'], note: 'yācitvā = 구걸하고서 (절대분사)\nrodati = 울다' },
+  { type: 'verse', pali: 'Samaṇo Buddhaṃ passitvā vandati.', pronKo: '사마노- 붓당 빳씻뜨와- 완다띠', translation: '사문은 부처님을 보고서(passitvā) 예배한다.', highlight: ['passitvā', 'Buddhaṃ', 'vandati'], note: 'passitvā = 보고서 (disvā와 동의)\nvandati = 예배하다' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Kassako khettamhā āgantvā bhattaṃ bhuñjati.', options: ['농부는 밭에서 와서 밥을 먹는다', '농부는 밭으로 가서 밥을 먹는다', '농부들은 밭에서 와서 밥을 먹는다', '농부는 밭에서 와서 밥을 짓는다'], answer: 0, hint: 'āgantvā=와서(절대분사), khettamhā=밭에서(탈격)' },

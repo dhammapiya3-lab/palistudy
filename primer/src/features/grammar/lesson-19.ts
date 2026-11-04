@@ -13,7 +13,7 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'teach', word: 'aṅguli', pronKo: '앙굴리', meaning: '손가락', icon: '☝️', grammar: '-i 여성명사', formNote: '주격: aṅguli / aṅguliyo' },
   { type: 'teach', word: 'aṭavi', pronKo: '아따위', meaning: '숲', icon: '🌲', grammar: '-i 여성명사', formNote: '주격: aṭavi / aṭaviyo' },
   { type: 'teach', word: 'ratti', pronKo: '랏띠', meaning: '밤', icon: '🌙', grammar: '-i 여성명사', formNote: '주격: ratti / rattiyo' },
-  { type: 'teach', word: 'doṇi', pronKo: '도니', meaning: '배(船)', icon: '⛵', grammar: '-i 여성명사', formNote: '주격: doṇi / doṇiyo' },
+  { type: 'teach', word: 'doṇi', pronKo: '도-니', meaning: '배(船)', icon: '⛵', grammar: '-i 여성명사', formNote: '주격: doṇi / doṇiyo' },
   { type: 'teach', word: 'yuvati', pronKo: '유와띠', meaning: '하녀, 젊은 여자', icon: '👧', grammar: '-i 여성명사', formNote: '주격: yuvati / yuvatiyo' },
   { type: 'teach', word: 'yaṭṭhi', pronKo: '얏티', meaning: '지팡이', icon: '🦯', grammar: '-i 여성명사', formNote: '주격: yaṭṭhi / yaṭṭhiyo' },
   { type: 'teach', word: 'asani', pronKo: '아사니', meaning: '번개', icon: '⚡', grammar: '-i 여성명사', formNote: '주격: asani / asaniyo' },
@@ -31,14 +31,14 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'teach', word: 'pokkharaṇī', pronKo: '뽁카라니-', meaning: '연못', icon: '🪷', grammar: '-ī 여성명사', formNote: '주격: pokkharaṇī / pokkharaṇiyo' },
   { type: 'teach', word: 'kadalī', pronKo: '까달리-', meaning: '바나나', icon: '🍌', grammar: '-ī 여성명사', formNote: '주격: kadalī / kadaliyo' },
   { type: 'teach', word: 'gāvī', pronKo: '가-위-', meaning: '암소', icon: '🐄', grammar: '-ī 여성명사', formNote: '주격: gāvī / gāviyo' },
-  { type: 'teach', word: 'rājinī / devī', pronKo: '라-지니- / 데위-', meaning: '왕비', icon: '👑', grammar: '-ī 여성명사', formNote: '주격: rājinī / rājiniyo\ndevī / deviyo' },
+  { type: 'teach', word: 'rājinī / devī', pronKo: '라-지니- / 데-위-', meaning: '왕비', icon: '👑', grammar: '-ī 여성명사', formNote: '주격: rājinī / rājiniyo\ndevī / deviyo' },
   { type: 'teach', word: 'kumārī', pronKo: '꾸마-리-', meaning: '소녀', icon: '👧', grammar: '-ī 여성명사', formNote: '주격: kumārī / kumāriyo' },
 
   // === 동사 ===
-  { type: 'teach', word: 'vyākaroti', pronKo: '위야-까로띠', meaning: '해답하다, 수기하다', icon: '📖', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vyākaronti\nvi + ā + kar', buddhism: 'vyākaraṇa = 수기(授記)' },
-  { type: 'teach', word: 'pattheti', pronKo: '빳테띠', meaning: '원하다, 발원하다', icon: '🙏', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: patthenti\npa + atth' },
-  { type: 'teach', word: 'vissajjeti', pronKo: '윗삿제띠', meaning: '해답하다, 보내다', icon: '💬', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vissajjenti\nvi + sajj(풀다)' },
-  { type: 'teach', word: 'āroceti', pronKo: '아-로쩨띠', meaning: '알리다, 보고하다', icon: '📢', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: ārocenti\nā + ruc(빛나다)' },
+  { type: 'teach', word: 'vyākaroti', pronKo: '위야-까로-띠', meaning: '해답하다, 수기하다', icon: '📖', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vyākaronti\nvi + ā + kar', buddhism: 'vyākaraṇa = 수기(授記)' },
+  { type: 'teach', word: 'pattheti', pronKo: '빳테-띠', meaning: '원하다, 발원하다', icon: '🙏', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: patthenti\npa + atth' },
+  { type: 'teach', word: 'vissajjeti', pronKo: '윗삿제-띠', meaning: '해답하다, 보내다', icon: '💬', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vissajjenti\nvi + sajj(풀다)' },
+  { type: 'teach', word: 'āroceti', pronKo: '아-로-쩨-띠', meaning: '알리다, 보고하다', icon: '📢', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: ārocenti\nā + ruc(빛나다)' },
   { type: 'teach', word: 'muñcati', pronKo: '문짜띠', meaning: '풀다, 놓아주다', icon: '🔓', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: muñcanti\nmuc(풀다)', buddhism: 'vimutti = 해탈' },
 
   // === 연습문제 10개 ===
@@ -54,5 +54,5 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'quiz', question: '10. Taruṇī aṭaviyā pupphāni saṃharati.', options: ['젊은 여자는 숲에서 꽃들을 모은다', '젊은 여자들은 숲에서 꽃을 모은다', '젊은 여자는 숲으로 꽃들을 가져간다', '젊은 여자는 공원에서 꽃들을 모은다'], answer: 0, hint: 'aṭaviyā = 숲에서(처소격)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Nadiyā jalaṃ pibanti gāviyo', pronKo: '나디야- 잘랑 삐반띠 가-위요' },
+  { type: 'speak', pali: 'Nadiyā jalaṃ pibanti gāviyo', pronKo: '나디야- 잘랑 삐반띠 가-위요-' },
 ]

@@ -18,12 +18,12 @@ export const LESSON_00: StepWithoutId[] = [
     type: 'teach-grammar',
     title: '모음 — 단모음 · 장모음 · 이중모음',
     example:
-      '단모음:  a(아)   i(이)   u(우)\n장모음:  ā(아-)  ī(이-)  ū(우-)\n이중모음: e(에)   o(오)',
+      '단모음:  a(아)   i(이)   u(우)\n장모음:  ā(아-)  ī(이-)  ū(우-)\n이중모음: e(에-)  o(오-)',
     exampleKo: '단모음 3 + 장모음 3 + 이중모음 2 = 8개',
     explanation:
       '• 단모음 a, i, u — 짧게 발음\n' +
       '• 장모음 ā, ī, ū — 단모음의 약 2배 길이\n' +
-      '• 이중모음 e, o — 중간 정도 길이\n\n' +
+      '• 이중모음 e, o — 길게 (뒤에 이중자음이 오면 짧게)\n\n' +
       '⚠️ 장모음 위의 가로줄(macron)이 길이 표시입니다.\n' +
       '예) a(아) vs ā(아-), i(이) vs ī(이-)',
   },
@@ -211,7 +211,7 @@ export const LESSON_00: StepWithoutId[] = [
       '2. 단자음 뒤 모음 → 길게\n' +
       '   예) deva, senā, loka, odana\n\n' +
       '3. ā, ī, ū는 항상 길게 발음\n' +
-      '4. e, o는 중간 정도 길이',
+      '4. e, o는 길게, 이중자음 앞에서는 짧게\n   예) deva 데-와 / mettā 멧따-',
   },
 
   // ── 8격(八格) 개요 ──
@@ -266,7 +266,7 @@ export const LESSON_00: StepWithoutId[] = [
     type: 'verse',
     pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye.',
     pronKo:
-      '에깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네 미가다-예',
+      '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-',
     translation:
       '한때 세존께서 바라나시의 이시빠따나 녹야원에 머무셨다.',
     highlight: ['Ekaṃ', 'bhagavā', 'bārāṇasiyaṃ', 'viharati'],
@@ -282,7 +282,7 @@ export const LESSON_00: StepWithoutId[] = [
   {
     type: 'verse',
     pali: 'Namo tassa bhagavato arahato sammāsambuddhassa.',
-    pronKo: '나모 땃사 바가와또 아라하또 삼마-삼붓닷사',
+    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사',
     translation:
       '그 세존, 아라한, 정등각에게 귀의합니다.',
     highlight: ['Namo', 'bhagavato', 'arahato', 'sammāsambuddhassa'],
@@ -381,7 +381,7 @@ export const LESSON_00: StepWithoutId[] = [
     type: 'writing',
     instruction: '경전 첫 단어를 써보세요',
     meaning: '하나의 (어떤)',
-    pronKo: '에깡',
+    pronKo: '에-깡',
     answer: 'Ekaṃ',
     hint: '전법륜경 첫 단어. ṃ(억제음)으로 끝남',
   },
@@ -389,7 +389,7 @@ export const LESSON_00: StepWithoutId[] = [
     type: 'writing',
     instruction: '삼귀의 첫 단어를 써보세요',
     meaning: '귀의합니다',
-    pronKo: '나모',
+    pronKo: '나모-',
     answer: 'Namo',
     hint: '경전 시작 전 3번 읊는 구절의 첫 단어',
   },
@@ -398,12 +398,12 @@ export const LESSON_00: StepWithoutId[] = [
   {
     type: 'speak',
     pali: 'Namo tassa bhagavato arahato sammāsambuddhassa',
-    pronKo: '나모 땃사 바가와또 아라하또 삼마-삼붓닷사',
+    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사',
   },
   {
     type: 'speak',
     pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye',
     pronKo:
-      '에깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네 미가다-예',
+      '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-',
   },
 ]

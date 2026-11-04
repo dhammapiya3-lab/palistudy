@@ -46,10 +46,10 @@ export const LESSON_27: StepWithoutId[] = [
   { type: 'quiz', question: '10. Balavā puriso ariṃ parājeti.', options: ['힘센 사람은 적을 패배시킨다', '힘센 사람들은 적을 패배시킨다', '사람은 힘세게 적을 이긴다', '힘센 사람은 적에게 진다'], answer: 0, hint: 'balavā = balavantu 주격, parājeti = 패배시키다' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Evaṃ me sutaṃ:\nekaṃ samayaṃ Bhagavā\nSāvatthiyaṃ viharati\nJetavane Anāthapiṇḍikassa ārāme.', pronKo: '에왕 메 수땅\n에깡 사마양 바가와-\n사-왓티양 위하라띠\n제따와네 아나-타삔디깟사 아-라-메', translation: '이와 같이 나는 들었다:\n한때 세존께서\n사왓티의\n제따 숲 아나타핀디카의 동산에 머무셨다.', highlight: ['Bhagavā', 'Bhagavatā'], note: '경전 첫 정형구. Bhagavā = Bhagavantu의 주격 단수. 거의 모든 경이 이 문장으로 시작' },
+  { type: 'verse', pali: 'Evaṃ me sutaṃ:\nekaṃ samayaṃ Bhagavā\nSāvatthiyaṃ viharati\nJetavane Anāthapiṇḍikassa ārāme.', pronKo: '에-왕 메- 수땅\n에-깡 사마양 바가와-\n사-왓티양 위하라띠\n제-따와네- 아나-타삔디깟사 아-라-메-', translation: '이와 같이 나는 들었다:\n한때 세존께서\n사왓티의\n제따 숲 아나타핀디카의 동산에 머무셨다.', highlight: ['Bhagavā', 'Bhagavatā'], note: '경전 첫 정형구. Bhagavā = Bhagavantu의 주격 단수. 거의 모든 경이 이 문장으로 시작' },
 
-  { type: 'verse', pali: 'Bhagavatā desitaṃ dhammaṃ\ndhāremi.', pronKo: '바가와따- 데시땅 담망\n다-레미', translation: '세존에 의해 설해진 법을\n나는 수지한다.', highlight: ['Bhagavatā', 'desitaṃ'], note: 'Bhagavatā = 도구격(~에 의해). desitaṃ = 과거분사(설해진). 수동 구문의 전형' },
+  { type: 'verse', pali: 'Bhagavatā desitaṃ dhammaṃ\ndhāremi.', pronKo: '바가와따- 데-시땅 담망\n다-레-미', translation: '세존에 의해 설해진 법을\n나는 수지한다.', highlight: ['Bhagavatā', 'desitaṃ'], note: 'Bhagavatā = 도구격(~에 의해). desitaṃ = 과거분사(설해진). 수동 구문의 전형' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Evaṃ me sutaṃ: ekaṃ samayaṃ Bhagavā Sāvatthiyaṃ viharati', pronKo: '에왕 메 수땅: 에깡 사마양 바가와- 사-왓티양 위하라띠' },
+  { type: 'speak', pali: 'Evaṃ me sutaṃ: ekaṃ samayaṃ Bhagavā Sāvatthiyaṃ viharati', pronKo: '에-왕 메- 수땅: 에-깡 사마양 바가와- 사-왓티양 위하라띠' },
 ]

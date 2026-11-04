@@ -13,16 +13,16 @@ export const LESSON_21: StepWithoutId[] = [
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pacitabba / pacanīya', pronKo: '빠찌땁바 / 빠짜니-야', meaning: '요리되어야 할', icon: '🍳', grammar: '미래수동분사 (pac)', formNote: '-tabba형 = -anīya형' },
-  { type: 'teach', word: 'bhuñjitabba / bhojanīya', pronKo: '분지땁바 / 보자니-야', meaning: '먹어져야 할', icon: '🍽️', grammar: '미래수동분사 (bhuj)', formNote: 'bhojanīya → bhojana(음식)과 관련' },
+  { type: 'teach', word: 'bhuñjitabba / bhojanīya', pronKo: '분지땁바 / 보-자니-야', meaning: '먹어져야 할', icon: '🍽️', grammar: '미래수동분사 (bhuj)', formNote: 'bhojanīya → bhojana(음식)과 관련' },
   { type: 'teach', word: 'kātabba / karaṇīya', pronKo: '까-땁바 / 까라니-야', meaning: '행해져야 할', icon: '✅', grammar: '미래수동분사 (kar)', formNote: 'karaṇīya = 의무, 할 일', buddhism: 'Karaṇīya Mettā Sutta = 자비경' },
   { type: 'teach', word: 'dātabba', pronKo: '다-땁바', meaning: '주어져야 할', icon: '🎁', grammar: '미래수동분사 (dā)', formNote: 'dā + tabba' },
   { type: 'teach', word: 'gantabba', pronKo: '간땁바', meaning: '가야 할 / 도달되어야 할', icon: '🚶', grammar: '미래수동분사 (gam)', formNote: 'gam + tabba' },
   { type: 'teach', word: 'pūjanīya', pronKo: '뿌-자니-야', meaning: '공경받아야 할', icon: '🙏', grammar: '미래수동분사 (pūj)', formNote: 'pūj + anīya', buddhism: '부처님 = pūjanīya(공경 받을 분)' },
 
   // === 예문 3개 ===
-  { type: 'verse', pali: 'Dhammo samaṇena desitabbo.', pronKo: '담모 사마네나 데시땁보', translation: '법은 사문에 의해 설해져야 한다.', highlight: ['desitabbo'], note: 'desitabbo = 설해져야 할 (미래수동분사, 남성 주격)' },
+  { type: 'verse', pali: 'Dhammo samaṇena desitabbo.', pronKo: '담모- 사마네-나 데-시땁보-', translation: '법은 사문에 의해 설해져야 한다.', highlight: ['desitabbo'], note: 'desitabbo = 설해져야 할 (미래수동분사, 남성 주격)' },
   { type: 'verse', pali: 'Karaṇīyaṃ kusalaṃ sukhāvahaṃ.', pronKo: '까라니-양 꾸살랑 수카-와항', translation: '행해져야 할 선은 행복을 가져온다.', highlight: ['Karaṇīyaṃ'], note: 'karaṇīyaṃ = 행해져야 할 (중성 주격)' },
-  { type: 'verse', pali: 'Buddho pūjanīyo sabbalokaṃ.', pronKo: '붓도 뿌-자니-요 삽발로깡', translation: '붓다는 온 세상에 의해 공경받아야 한다.', highlight: ['pūjanīyo'], note: 'pūjanīyo = 공경받아야 할 (남성 주격)' },
+  { type: 'verse', pali: 'Buddho pūjanīyo sabbalokaṃ.', pronKo: '붓도- 뿌-자니-요- 삽발로-깡', translation: '붓다는 온 세상에 의해 공경받아야 한다.', highlight: ['pūjanīyo'], note: 'pūjanīyo = 공경받아야 할 (남성 주격)' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Dhammo bhikkhuhi desitabbo.', options: ['법은 비구들에 의해 설해져야 한다', '비구들은 법을 설한다', '법은 비구들에게 설해졌다', '비구들이 법을 설할 것이다'], answer: 0, hint: 'desitabbo = 설해져야 할 (미래수동분사)' },
