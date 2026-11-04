@@ -25,11 +25,19 @@ jobs:
             console.log('===== ', url)
             await pg.goto(url); await pg.waitForTimeout(3000)
             await pg.click('[aria-label="메모"]'); await pg.waitForTimeout(800)
+            await pg.click('text=새 메모'); await pg.waitForTimeout(500)
             await pg.fill('textarea', '진단 테스트 메모 (자동 삭제)')
+            const t0 = Date.now()
             await pg.click('text=메모 보내기')
-            await pg.waitForTimeout(8000)
+            for (let i = 0; i < 40; i++) {
+              await pg.waitForTimeout(500)
+              const busy = await pg.locator('button:has-text("저장 중")').count()
+              if (!busy) break
+            }
+            console.log('걸린 시간(초):', (Date.now() - t0) / 1000)
+            console.log('화면 글자:', (await pg.locator('body').innerText()).replace(/\s+/g, ' ').slice(0, 300))
             console.log('버튼 상태:', await pg.locator('button:has-text("저장 중"), button:has-text("메모 보내기")').first().textContent().catch(() => '?'))
-            await pg.keyboard.press('Escape')
+            await pg.goto('about:blank')
           }
           await b.close()
           JS
