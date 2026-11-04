@@ -2,13 +2,13 @@
 import type { StepType } from './lesson-data-sn56-11'
 
 const V1 = 'Buddhaṃ saraṇaṃ gacchāmi.'
-const V1Ko = '붓당 사라낭 갓차~미.'
+const V1Ko = '붓당 사라낭 갓차-미.'
 const V1K = '저는 붓다께 귀의합니다.'
 const V2 = 'Dhammaṃ saraṇaṃ gacchāmi.'
-const V2Ko = '담망 사라낭 갓차~미.'
+const V2Ko = '담망 사라낭 갓차-미.'
 const V2K = '저는 담마에 귀의합니다.'
 const V3 = 'Saṁghaṃ saraṇaṃ gacchāmi.'
-const V3Ko = '상강 사라낭 갓차~미.'
+const V3Ko = '상강 사라낭 갓차-미.'
 const V3K = '저는 상가에 귀의합니다.'
 
 const V4 = 'Dutiyampi Buddhaṃ saraṇaṃ gacchāmi.\nDutiyampi Dhammaṃ saraṇaṃ gacchāmi.\nDutiyampi Saṁghaṃ saraṇaṃ gacchāmi.'
@@ -37,7 +37,7 @@ export const LESSON_TRISARANA: StepType[] = [
     buddhism: '귀의처(歸依處). 의지처. 두려움에서 보호하는 곳.',
     verseLine: V1, verseLineKo: V1K, audio: true },
 
-  { type: 'teach', icon: '🚶', word: 'gacchāmi', pronKo: '갓차~미', meaning: '저는 갑니다, 귀의합니다',
+  { type: 'teach', icon: '🚶', word: 'gacchāmi', pronKo: '갓차-미', meaning: '저는 갑니다, 귀의합니다',
     grammar: '동사 1인칭 단수 현재', baseForm: 'gacchati (가다)',
     formNote: 'gacchati(3인칭) → gacchāmi(1인칭) -mi 어미\n√gam(가다) — MN10 V_IRI의 gacchanto와 같은 어근\n"saraṇaṃ gacchāmi" = "귀의처로 갑니다 = 귀의합니다"',
     verseLine: V1, verseLineKo: V1K, audio: true },
@@ -72,7 +72,7 @@ export const LESSON_TRISARANA: StepType[] = [
     formNote: 'dutiyaṃ(둘째를, 부사적) + api → dutiyampi (산디)\n반복 강조',
     verseLine: V4, verseLineKo: V4K, audio: true },
 
-  { type: 'verse', pali: V4, pronKo: '두띠얌삐 붓당 사라낭 갓차~미. 두띠얌삐 담망 사라낭 갓차~미. 두띠얌삐 상강 사라낭 갓차~미.',
+  { type: 'verse', pali: V4, pronKo: '두띠얌삐 붓당 사라낭 갓차-미. 두띠얌삐 담망 사라낭 갓차-미. 두띠얌삐 상강 사라낭 갓차-미.',
     translation: V4K, highlight: ['Dutiyampi'],
     note: '🔁 두 번째 귀의 — Dutiyampi 추가만 다름.' },
 
@@ -82,7 +82,7 @@ export const LESSON_TRISARANA: StepType[] = [
     formNote: 'tatiyaṃ + api → tatiyampi (산디)\n3회 독송 완료',
     verseLine: V5, verseLineKo: V5K, audio: true },
 
-  { type: 'verse', pali: V5, pronKo: '따띠얌삐 붓당 사라낭 갓차~미. 따띠얌삐 담망 사라낭 갓차~미. 따띠얌삐 상강 사라낭 갓차~미.',
+  { type: 'verse', pali: V5, pronKo: '따띠얌삐 붓당 사라낭 갓차-미. 따띠얌삐 담망 사라낭 갓차-미. 따띠얌삐 상강 사라낭 갓차-미.',
     translation: V5K, highlight: ['Tatiyampi'],
     note: '🔁 세 번째 귀의 — 9문장 완성.' },
 
@@ -132,7 +132,7 @@ export const LESSON_TRISARANA: StepType[] = [
     exampleKo: '저는 붓다께 귀의합니다.',
     explanation: '[대상 대격] + saraṇaṃ + gacchāmi 구조 반복.\n\n• 1회: Buddhaṃ → Dhammaṃ → Saṅghaṃ\n• 2회: Dutiyampi + 위 3문장\n• 3회: Tatiyampi + 위 3문장\n\n총 9문장. 3보 × 3회 = 흔들리지 않는 귀의의 확립.' },
 
-  { type: 'verse', pali: V_FULL, pronKo: '붓당 사라낭 갓차~미. 담망 사라낭 갓차~미. 상강 사라낭 갓차~미. 두띠얌삐... 따띠얌삐...',
+  { type: 'verse', pali: V_FULL, pronKo: '붓당 사라낭 갓차-미. 담망 사라낭 갓차-미. 상강 사라낭 갓차-미. 두띠얌삐... 따띠얌삐...',
     translation: V_FULLK, highlight: ['Buddhaṃ', 'Dhammaṃ', 'Saṁghaṃ', 'saraṇaṃ', 'gacchāmi', 'Dutiyampi', 'Tatiyampi'],
     note: '🪷 삼귀의 전문 9문장.' },
 
