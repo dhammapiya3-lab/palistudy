@@ -1,0 +1,67 @@
+# 대문 + 두 앱을 함께 빌드해서 한 사이트로 배포
+#   /dhammapiya/           → portal/ (대문)
+#   /dhammapiya/primer/    → primer/ (빠알리 프라이머)
+#   /dhammapiya/suttalog/  → suttalog/ (빠알리어 공부 1)
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    # 앱에서 올리는 메모(memos/)만 바뀐 경우에는 다시 배포하지 않음
+    paths-ignore:
+      - 'memos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            primer/package-lock.json
+            suttalog/package-lock.json
+
+      - name: 빠알리 프라이머 빌드
+        working-directory: primer
+        run: |
+          npm ci
+          npm run build
+
+      - name: 빠알리어 공부 1 빌드
+        working-directory: suttalog
+        run: |
+          npm ci
+          npx vite build
+
+      - name: 한 사이트로 합치기
+        run: |
+          mkdir -p site
+          cp -r portal/. site/
+          cp -r primer/dist site/primer
+          cp -r suttalog/dist site/suttalog
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: deploy
+        uses: actions/deploy-pages@v4

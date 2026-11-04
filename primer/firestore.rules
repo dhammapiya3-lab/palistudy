@@ -1,0 +1,23 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 기존: 사용자별 학습 진도 (로그인 사용자만)
+    match /pali-primer-users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // 메모: 누구나 작성/읽기 가능, 수정은 같은 deviceId만
+    match /pali-primer-memos/{memoId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if request.resource.data.deviceId == resource.data.deviceId;
+      allow delete: if true;
+    }
+
+    // 카니보어 탈고 코멘트: 클라이언트 측에서 AES-GCM 암호화된 블롭만 저장.
+    // 내용은 passphrase 없이 복호화 불가능하므로 공개 규칙으로도 실질 비공개 유지.
+    match /carnivore-proofread/{docId} {
+      allow read, write: if true;
+    }
+  }
+}

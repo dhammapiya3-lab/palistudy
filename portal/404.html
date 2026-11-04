@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>이동 중…</title>
+  <script>
+    // GitHub Pages는 사이트 전체에 404.html을 하나만 둠.
+    // 수따로그(빠알리어 공부 1)는 주소 방식(BrowserRouter)이라 새로고침하면 여기로 옴
+    // → 앱 첫 화면으로 보내면서 원래 주소(?p=)를 넘겨 복원하게 함.
+    (function () {
+      var path = window.location.pathname;
+      var app = '/dhammapiya/suttalog/';
+      if (path.indexOf(app) === 0) {
+        window.location.replace(app + '?p=' + encodeURIComponent(path + window.location.hash));
+      } else {
+        window.location.replace('/dhammapiya/');
+      }
+    })();
+  </script>
+</head>
+<body></body>
+</html>

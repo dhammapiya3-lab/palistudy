@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta name="theme-color" content="#B45309" />
+  <title>담마삐야 · 빠알리어 공부</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪷</text></svg>" />
+  <style>
+    :root {
+      --bg: #FBF7EE;
+      --card: #FFFFFF;
+      --ink: #2B2118;
+      --muted: #7A6A58;
+      --line: #EADFCB;
+      --accent: #B45309;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1C1814;
+        --card: #26201A;
+        --ink: #F3EADC;
+        --muted: #B7A792;
+        --line: #3A3128;
+        --accent: #F59E0B;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: max(48px, env(safe-area-inset-top)) 20px 40px;
+    }
+    main { width: 100%; max-width: 440px; }
+    header { text-align: center; margin-bottom: 36px; }
+    .lotus { font-size: 44px; line-height: 1; }
+    h1 { font-size: 26px; margin: 14px 0 6px; letter-spacing: -0.02em; }
+    .pali { font-family: "Noto Serif", Georgia, serif; font-style: italic; color: var(--muted); margin: 0; }
+    .apps { display: grid; gap: 14px; }
+    a.app {
+      display: flex; align-items: center; gap: 16px;
+      padding: 18px 18px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      text-decoration: none; color: inherit;
+      transition: transform .12s ease, border-color .12s ease;
+    }
+    a.app:hover, a.app:focus-visible { border-color: var(--accent); transform: translateY(-1px); outline: none; }
+    .icon {
+      flex: none; width: 52px; height: 52px; border-radius: 14px;
+      display: grid; place-items: center; font-size: 28px;
+      background: color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+    .name { font-size: 18px; font-weight: 700; margin: 0 0 3px; }
+    .desc { font-size: 14px; color: var(--muted); margin: 0; line-height: 1.45; }
+    .arrow { margin-left: auto; color: var(--muted); font-size: 20px; }
+    footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="lotus">🪷</div>
+      <h1>빠알리어 공부</h1>
+      <p class="pali">Sabbadānaṃ dhammadānaṃ jināti</p>
+    </header>
+
+    <!-- 앱 목록: 새 앱이 생기면 아래 a.app 블록을 하나 더 추가 -->
+    <nav class="apps">
+      <a class="app" href="./primer/">
+        <span class="icon">📿</span>
+        <span>
+          <p class="name">빠알리 프라이머</p>
+          <p class="desc">문법을 한 과씩 — De Silva의 Pali Primer 기반</p>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+      <a class="app" href="./suttalog/">
+        <span class="icon">🪷</span>
+        <span>
+          <p class="name">빠알리어 공부 1</p>
+          <p class="desc">경전으로 배우기 — 삼귀의·오계부터 대념처경까지</p>
+        </span>
+        <span class="arrow">›</span>
+      </a>
+    </nav>
+
+    <footer>모든 보시 가운데 법보시가 으뜸입니다.</footer>
+  </main>
+</body>
+</html>

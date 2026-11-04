@@ -1,0 +1,3896 @@
+{
+  "sn56.11_001": {
+    "text": "Ekaṁ samayaṁ bhagavā bārāṇasiyaṁ viharati isipatane migadāye.",
+    "start": 23.7,
+    "end": 27.34,
+    "duration": 3.64,
+    "words": [
+      {
+        "word": "Ekaṁ",
+        "start": 23.7,
+        "end": 23.7
+      },
+      {
+        "word": "samayaṁ",
+        "start": 23.7,
+        "end": 23.7
+      },
+      {
+        "word": "bhagavā",
+        "start": 23.7,
+        "end": 24.12
+      },
+      {
+        "word": "bārāṇasiyaṁ",
+        "start": 24.12,
+        "end": 24.78
+      },
+      {
+        "word": "viharati",
+        "start": 25.59,
+        "end": 26.84
+      },
+      {
+        "word": "isipatane",
+        "start": 26.84,
+        "end": 27.34
+      },
+      {
+        "word": "migadāye.",
+        "start": 27.34,
+        "end": 27.34
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_002": {
+    "text": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:",
+    "start": 27.34,
+    "end": 43.66,
+    "duration": 16.32,
+    "words": [
+      {
+        "word": "Tatra",
+        "start": 27.34,
+        "end": 27.34
+      },
+      {
+        "word": "kho",
+        "start": 27.34,
+        "end": 27.34
+      },
+      {
+        "word": "bhagavā",
+        "start": 27.34,
+        "end": 29.24
+      },
+      {
+        "word": "pañcavaggiye",
+        "start": 29.24,
+        "end": 32.22
+      },
+      {
+        "word": "bhikkhū",
+        "start": 32.22,
+        "end": 32.76
+      },
+      {
+        "word": "āmantesi:",
+        "start": 42.02,
+        "end": 43.66
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_003": {
+    "text": "Dveme, bhikkhave, antā pabbajitena na sevitabbā.",
+    "start": 43.66,
+    "end": 47.94,
+    "duration": 4.28,
+    "words": [
+      {
+        "word": "Dveme,",
+        "start": 43.66,
+        "end": 45.3
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 46.7,
+        "end": 47.84
+      },
+      {
+        "word": "antā",
+        "start": 47.84,
+        "end": 47.84
+      },
+      {
+        "word": "pabbajitena",
+        "start": 47.84,
+        "end": 47.84
+      },
+      {
+        "word": "na",
+        "start": 47.84,
+        "end": 47.84
+      },
+      {
+        "word": "sevitabbā.",
+        "start": 47.84,
+        "end": 47.94
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_004": {
+    "text": "Katame dve?",
+    "start": 49.02,
+    "end": 51.2,
+    "duration": 2.18,
+    "words": [
+      {
+        "word": "Katame",
+        "start": 49.02,
+        "end": 50.12
+      },
+      {
+        "word": "dve?",
+        "start": 50.12,
+        "end": 51.2
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_005": {
+    "text": "Yo cāyaṁ kāmesu kāmasukhallikānuyogo hīno gammo pothujjaniko anariyo anatthasaṁhito, yo cāyaṁ attakilamathānuyogo dukkho anariyo anatthasaṁhito.",
+    "start": 51.22,
+    "end": 70.86,
+    "duration": 19.64,
+    "words": [
+      {
+        "word": "Yo",
+        "start": 51.22,
+        "end": 51.22
+      },
+      {
+        "word": "cāyaṁ",
+        "start": 51.62,
+        "end": 51.72
+      },
+      {
+        "word": "kāmesu",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "kāmasukhallikānuyogo",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "hīno",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "gammo",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "pothujjaniko",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "anariyo",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "anatthasaṁhito,",
+        "start": 51.72,
+        "end": 51.72
+      },
+      {
+        "word": "yo",
+        "start": 70.04,
+        "end": 70.04
+      },
+      {
+        "word": "cāyaṁ",
+        "start": 70.04,
+        "end": 70.04
+      },
+      {
+        "word": "attakilamathānuyogo",
+        "start": 70.1,
+        "end": 70.62
+      },
+      {
+        "word": "dukkho",
+        "start": 70.62,
+        "end": 70.74
+      },
+      {
+        "word": "anariyo",
+        "start": 70.74,
+        "end": 70.76
+      },
+      {
+        "word": "anatthasaṁhito.",
+        "start": 70.76,
+        "end": 70.86
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_006": {
+    "text": "Ete kho, bhikkhave, ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṁvattati.",
+    "start": 70.88,
+    "end": 149.3,
+    "duration": 78.42,
+    "words": [
+      {
+        "word": "Ete",
+        "start": 70.88,
+        "end": 73.02
+      },
+      {
+        "word": "kho,",
+        "start": 90.62,
+        "end": 90.62
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 90.62,
+        "end": 92.76
+      },
+      {
+        "word": "ubho",
+        "start": 93.88,
+        "end": 93.88
+      },
+      {
+        "word": "ante",
+        "start": 93.88,
+        "end": 93.88
+      },
+      {
+        "word": "anupagamma",
+        "start": 93.88,
+        "end": 94.78
+      },
+      {
+        "word": "majjhimā",
+        "start": 94.78,
+        "end": 94.78
+      },
+      {
+        "word": "paṭipadā",
+        "start": 94.78,
+        "end": 96.16
+      },
+      {
+        "word": "tathāgatena",
+        "start": 96.16,
+        "end": 96.16
+      },
+      {
+        "word": "abhisambuddhā",
+        "start": 133.6,
+        "end": 136.58
+      },
+      {
+        "word": "cakkhukaraṇī",
+        "start": 136.58,
+        "end": 138.44
+      },
+      {
+        "word": "ñāṇakaraṇī",
+        "start": 138.44,
+        "end": 140.58
+      },
+      {
+        "word": "upasamāya",
+        "start": 140.58,
+        "end": 142.12
+      },
+      {
+        "word": "abhiññāya",
+        "start": 142.12,
+        "end": 143.66
+      },
+      {
+        "word": "sambodhāya",
+        "start": 143.66,
+        "end": 145.68
+      },
+      {
+        "word": "nibbānāya",
+        "start": 145.68,
+        "end": 147.5
+      },
+      {
+        "word": "saṁvattati.",
+        "start": 147.5,
+        "end": 149.3
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_007": {
+    "text": "Katamā ca sā, bhikkhave, majjhimā paṭipadā tathāgatena abhisambuddhā cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṁvattati?",
+    "start": 149.32,
+    "end": 171.36,
+    "duration": 22.04,
+    "words": [
+      {
+        "word": "Katamā",
+        "start": 149.32,
+        "end": 150.08
+      },
+      {
+        "word": "ca",
+        "start": 150.08,
+        "end": 150.32
+      },
+      {
+        "word": "sā,",
+        "start": 150.32,
+        "end": 150.98
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 150.98,
+        "end": 152.1
+      },
+      {
+        "word": "majjhimā",
+        "start": 152.26,
+        "end": 153.46
+      },
+      {
+        "word": "paṭipadā",
+        "start": 153.46,
+        "end": 154.72
+      },
+      {
+        "word": "tathāgatena",
+        "start": 154.72,
+        "end": 156.54
+      },
+      {
+        "word": "abhisambuddhā",
+        "start": 156.54,
+        "end": 158.7
+      },
+      {
+        "word": "cakkhukaraṇī",
+        "start": 158.7,
+        "end": 160.5
+      },
+      {
+        "word": "ñāṇakaraṇī",
+        "start": 160.5,
+        "end": 162.58
+      },
+      {
+        "word": "upasamāya",
+        "start": 162.58,
+        "end": 164.06
+      },
+      {
+        "word": "abhiññāya",
+        "start": 164.06,
+        "end": 165.64
+      },
+      {
+        "word": "sambodhāya",
+        "start": 165.64,
+        "end": 167.56
+      },
+      {
+        "word": "nibbānāya",
+        "start": 167.56,
+        "end": 169.42
+      },
+      {
+        "word": "saṁvattati?",
+        "start": 169.42,
+        "end": 171.36
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_008": {
+    "text": "Ayameva ariyo aṭṭhaṅgiko maggo, seyyathidaṁ—",
+    "start": 171.36,
+    "end": 178.06,
+    "duration": 6.7,
+    "words": [
+      {
+        "word": "Ayameva",
+        "start": 171.36,
+        "end": 172.32
+      },
+      {
+        "word": "ariyo",
+        "start": 172.32,
+        "end": 173.48
+      },
+      {
+        "word": "aṭṭhaṅgiko",
+        "start": 173.48,
+        "end": 175.02
+      },
+      {
+        "word": "maggo,",
+        "start": 175.02,
+        "end": 176.24
+      },
+      {
+        "word": "seyyathidaṁ—",
+        "start": 176.24,
+        "end": 178.06
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_009": {
+    "text": "sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhi.",
+    "start": 178.06,
+    "end": 196.98,
+    "duration": 18.92,
+    "words": [
+      {
+        "word": "sammādiṭṭhi",
+        "start": 178.06,
+        "end": 180.2
+      },
+      {
+        "word": "sammāsaṅkappo",
+        "start": 180.2,
+        "end": 182.44
+      },
+      {
+        "word": "sammāvācā",
+        "start": 182.44,
+        "end": 184.58
+      },
+      {
+        "word": "sammākammanto",
+        "start": 184.58,
+        "end": 187.2
+      },
+      {
+        "word": "sammāājīvo",
+        "start": 187.2,
+        "end": 190.02
+      },
+      {
+        "word": "sammāvāyāmo",
+        "start": 190.02,
+        "end": 192.78
+      },
+      {
+        "word": "sammāsati",
+        "start": 192.78,
+        "end": 194.34
+      },
+      {
+        "word": "sammāsamādhi.",
+        "start": 194.34,
+        "end": 196.98
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_010": {
+    "text": "Ayaṁ kho sā, bhikkhave, majjhimā paṭipadā tathāgatena abhisambuddhā cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṁvattati.",
+    "start": 197.04,
+    "end": 218.58,
+    "duration": 21.54,
+    "words": [
+      {
+        "word": "Ayaṁ",
+        "start": 197.04,
+        "end": 197.16
+      },
+      {
+        "word": "kho",
+        "start": 197.16,
+        "end": 197.72
+      },
+      {
+        "word": "sā,",
+        "start": 197.72,
+        "end": 198.56
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 198.76,
+        "end": 199.54
+      },
+      {
+        "word": "majjhimā",
+        "start": 199.92,
+        "end": 200.92
+      },
+      {
+        "word": "paṭipadā",
+        "start": 200.92,
+        "end": 202.16
+      },
+      {
+        "word": "tathāgatena",
+        "start": 202.16,
+        "end": 203.94
+      },
+      {
+        "word": "abhisambuddhā",
+        "start": 203.94,
+        "end": 206.12
+      },
+      {
+        "word": "cakkhukaraṇī",
+        "start": 206.12,
+        "end": 207.88
+      },
+      {
+        "word": "ñāṇakaraṇī",
+        "start": 207.88,
+        "end": 209.92
+      },
+      {
+        "word": "upasamāya",
+        "start": 209.92,
+        "end": 211.38
+      },
+      {
+        "word": "abhiññāya",
+        "start": 211.38,
+        "end": 212.94
+      },
+      {
+        "word": "sambodhāya",
+        "start": 212.94,
+        "end": 214.94
+      },
+      {
+        "word": "nibbānāya",
+        "start": 214.94,
+        "end": 216.62
+      },
+      {
+        "word": "saṁvattati.",
+        "start": 216.62,
+        "end": 218.58
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_011": {
+    "text": "Idaṁ kho pana, bhikkhave, dukkhaṁ ariyasaccaṁ—",
+    "start": 218.58,
+    "end": 224.02,
+    "duration": 5.44,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 218.58,
+        "end": 219.06
+      },
+      {
+        "word": "kho",
+        "start": 219.06,
+        "end": 219.48
+      },
+      {
+        "word": "pana,",
+        "start": 219.48,
+        "end": 219.96
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 220.08,
+        "end": 221.02
+      },
+      {
+        "word": "dukkhaṁ",
+        "start": 221.02,
+        "end": 222.32
+      },
+      {
+        "word": "ariyasaccaṁ—",
+        "start": 222.32,
+        "end": 224.02
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_012": {
+    "text": "jātipi dukkhā, jarāpi dukkhā, byādhipi dukkho, maraṇampi dukkhaṁ, appiyehi sampayogo dukkho, piyehi vippayogo dukkho, yampicchaṁ na labhati tampi dukkhaṁ—saṅkhittena pañcupādānakkhandhā dukkhā.",
+    "start": 224.02,
+    "end": 256.78,
+    "duration": 32.76,
+    "words": [
+      {
+        "word": "jātipi",
+        "start": 224.02,
+        "end": 225.24
+      },
+      {
+        "word": "dukkhā,",
+        "start": 225.24,
+        "end": 226.1
+      },
+      {
+        "word": "jarāpi",
+        "start": 226.1,
+        "end": 227.12
+      },
+      {
+        "word": "dukkhā,",
+        "start": 227.12,
+        "end": 228.18
+      },
+      {
+        "word": "byādhipi",
+        "start": 228.32,
+        "end": 229.12
+      },
+      {
+        "word": "dukkho,",
+        "start": 229.12,
+        "end": 229.56
+      },
+      {
+        "word": "maraṇampi",
+        "start": 229.56,
+        "end": 229.56
+      },
+      {
+        "word": "dukkhaṁ,",
+        "start": 234.38,
+        "end": 236.42
+      },
+      {
+        "word": "appiyehi",
+        "start": 236.42,
+        "end": 239.36
+      },
+      {
+        "word": "sampayogo",
+        "start": 239.36,
+        "end": 241.0
+      },
+      {
+        "word": "dukkho,",
+        "start": 241.0,
+        "end": 242.02
+      },
+      {
+        "word": "piyehi",
+        "start": 242.44,
+        "end": 243.4
+      },
+      {
+        "word": "vippayogo",
+        "start": 243.4,
+        "end": 244.92
+      },
+      {
+        "word": "dukkho,",
+        "start": 244.92,
+        "end": 245.92
+      },
+      {
+        "word": "yampicchaṁ",
+        "start": 246.0,
+        "end": 247.62
+      },
+      {
+        "word": "na",
+        "start": 247.62,
+        "end": 247.8
+      },
+      {
+        "word": "labhati",
+        "start": 247.8,
+        "end": 248.48
+      },
+      {
+        "word": "tampi",
+        "start": 248.48,
+        "end": 249.28
+      },
+      {
+        "word": "dukkhaṁ—saṅkhittena",
+        "start": 249.28,
+        "end": 252.02
+      },
+      {
+        "word": "pañcupādānakkhandhā",
+        "start": 252.52,
+        "end": 255.5
+      },
+      {
+        "word": "dukkhā.",
+        "start": 255.5,
+        "end": 256.78
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_013": {
+    "text": "Idaṁ kho pana, bhikkhave, dukkhasamudayaṁ ariyasaccaṁ—",
+    "start": 256.78,
+    "end": 263.24,
+    "duration": 6.46,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 256.78,
+        "end": 257.36
+      },
+      {
+        "word": "kho",
+        "start": 257.36,
+        "end": 257.7
+      },
+      {
+        "word": "pana,",
+        "start": 257.7,
+        "end": 258.04
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 258.66,
+        "end": 259.34
+      },
+      {
+        "word": "dukkhasamudayaṁ",
+        "start": 259.34,
+        "end": 261.62
+      },
+      {
+        "word": "ariyasaccaṁ—",
+        "start": 261.62,
+        "end": 263.24
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_014": {
+    "text": "yāyaṁ taṇhā ponobbhavikā nandirāgasahagatā tatratatrābhinandinī, seyyathidaṁ—",
+    "start": 263.24,
+    "end": 275.3,
+    "duration": 12.06,
+    "words": [
+      {
+        "word": "yāyaṁ",
+        "start": 263.24,
+        "end": 264.38
+      },
+      {
+        "word": "taṇhā",
+        "start": 264.38,
+        "end": 265.4
+      },
+      {
+        "word": "ponobbhavikā",
+        "start": 265.4,
+        "end": 267.42
+      },
+      {
+        "word": "nandirāgasahagatā",
+        "start": 270.58,
+        "end": 270.58
+      },
+      {
+        "word": "tatratatrābhinandinī,",
+        "start": 270.58,
+        "end": 273.94
+      },
+      {
+        "word": "seyyathidaṁ—",
+        "start": 273.94,
+        "end": 275.3
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_015": {
+    "text": "kāmataṇhā, bhavataṇhā, vibhavataṇhā.",
+    "start": 275.3,
+    "end": 280.48,
+    "duration": 5.18,
+    "words": [
+      {
+        "word": "kāmataṇhā,",
+        "start": 275.3,
+        "end": 277.06
+      },
+      {
+        "word": "bhavataṇhā,",
+        "start": 277.26,
+        "end": 278.74
+      },
+      {
+        "word": "vibhavataṇhā.",
+        "start": 278.8,
+        "end": 280.48
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_016": {
+    "text": "Idaṁ kho pana, bhikkhave, dukkhanirodhaṁ ariyasaccaṁ—",
+    "start": 280.48,
+    "end": 287.32,
+    "duration": 6.84,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 280.48,
+        "end": 281.32
+      },
+      {
+        "word": "kho",
+        "start": 281.32,
+        "end": 281.66
+      },
+      {
+        "word": "pana,",
+        "start": 281.66,
+        "end": 282.14
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 282.58,
+        "end": 283.38
+      },
+      {
+        "word": "dukkhanirodhaṁ",
+        "start": 283.84,
+        "end": 285.48
+      },
+      {
+        "word": "ariyasaccaṁ—",
+        "start": 285.48,
+        "end": 287.32
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_017": {
+    "text": "yo tassāyeva taṇhāya asesavirāganirodho cāgo paṭinissaggo mutti anālayo.",
+    "start": 287.32,
+    "end": 300.14,
+    "duration": 12.82,
+    "words": [
+      {
+        "word": "yo",
+        "start": 287.32,
+        "end": 287.86
+      },
+      {
+        "word": "tassāyeva",
+        "start": 287.86,
+        "end": 289.78
+      },
+      {
+        "word": "taṇhāya",
+        "start": 289.78,
+        "end": 290.94
+      },
+      {
+        "word": "asesavirāganirodho",
+        "start": 291.66,
+        "end": 294.28
+      },
+      {
+        "word": "cāgo",
+        "start": 294.3,
+        "end": 295.34
+      },
+      {
+        "word": "paṭinissaggo",
+        "start": 295.34,
+        "end": 297.48
+      },
+      {
+        "word": "mutti",
+        "start": 297.48,
+        "end": 298.38
+      },
+      {
+        "word": "anālayo.",
+        "start": 298.38,
+        "end": 300.14
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_018": {
+    "text": "Idaṁ kho pana, bhikkhave, dukkhanirodhagāminī paṭipadā ariyasaccaṁ—",
+    "start": 300.14,
+    "end": 309.34,
+    "duration": 9.2,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 300.14,
+        "end": 300.68
+      },
+      {
+        "word": "kho",
+        "start": 300.68,
+        "end": 301.0
+      },
+      {
+        "word": "pana,",
+        "start": 301.0,
+        "end": 301.74
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 302.74,
+        "end": 302.74
+      },
+      {
+        "word": "dukkhanirodhagāminī",
+        "start": 302.74,
+        "end": 305.86
+      },
+      {
+        "word": "paṭipadā",
+        "start": 305.86,
+        "end": 307.2
+      },
+      {
+        "word": "ariyasaccaṁ—",
+        "start": 307.2,
+        "end": 309.34
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_019": {
+    "text": "ayameva ariyo aṭṭhaṅgiko maggo, seyyathidaṁ—",
+    "start": 309.36,
+    "end": 316.16,
+    "duration": 6.8,
+    "words": [
+      {
+        "word": "ayameva",
+        "start": 309.36,
+        "end": 310.34
+      },
+      {
+        "word": "ariyo",
+        "start": 310.34,
+        "end": 311.26
+      },
+      {
+        "word": "aṭṭhaṅgiko",
+        "start": 311.26,
+        "end": 312.98
+      },
+      {
+        "word": "maggo,",
+        "start": 312.98,
+        "end": 314.1
+      },
+      {
+        "word": "seyyathidaṁ—",
+        "start": 314.1,
+        "end": 316.16
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_020": {
+    "text": "sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhi.",
+    "start": 316.16,
+    "end": 335.36,
+    "duration": 19.2,
+    "words": [
+      {
+        "word": "sammādiṭṭhi",
+        "start": 316.16,
+        "end": 318.14
+      },
+      {
+        "word": "sammāsaṅkappo",
+        "start": 318.14,
+        "end": 320.18
+      },
+      {
+        "word": "sammāvācā",
+        "start": 320.18,
+        "end": 322.36
+      },
+      {
+        "word": "sammākammanto",
+        "start": 322.36,
+        "end": 324.72
+      },
+      {
+        "word": "sammāājīvo",
+        "start": 324.72,
+        "end": 327.5
+      },
+      {
+        "word": "sammāvāyāmo",
+        "start": 327.5,
+        "end": 330.2
+      },
+      {
+        "word": "sammāsati",
+        "start": 330.2,
+        "end": 331.64
+      },
+      {
+        "word": "sammāsamādhi.",
+        "start": 333.76,
+        "end": 335.36
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_021": {
+    "text": "Idaṁ dukkhaṁ ariyasaccan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 335.36,
+    "end": 357.38,
+    "duration": 22.02,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 335.36,
+        "end": 335.94
+      },
+      {
+        "word": "dukkhaṁ",
+        "start": 335.94,
+        "end": 336.82
+      },
+      {
+        "word": "ariyasaccan'ti",
+        "start": 336.82,
+        "end": 339.0
+      },
+      {
+        "word": "me,",
+        "start": 339.0,
+        "end": 339.4
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 339.94,
+        "end": 340.8
+      },
+      {
+        "word": "pubbe",
+        "start": 341.08,
+        "end": 341.78
+      },
+      {
+        "word": "ananussutesu",
+        "start": 341.78,
+        "end": 344.02
+      },
+      {
+        "word": "dhammesu",
+        "start": 344.02,
+        "end": 345.26
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 345.26,
+        "end": 346.14
+      },
+      {
+        "word": "udapādi,",
+        "start": 346.14,
+        "end": 347.32
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 347.32,
+        "end": 348.44
+      },
+      {
+        "word": "udapādi,",
+        "start": 348.44,
+        "end": 349.7
+      },
+      {
+        "word": "paññā",
+        "start": 349.7,
+        "end": 350.74
+      },
+      {
+        "word": "udapādi,",
+        "start": 350.74,
+        "end": 352.04
+      },
+      {
+        "word": "vijjā",
+        "start": 352.06,
+        "end": 353.08
+      },
+      {
+        "word": "udapādi,",
+        "start": 353.08,
+        "end": 354.54
+      },
+      {
+        "word": "āloko",
+        "start": 354.78,
+        "end": 355.8
+      },
+      {
+        "word": "udapādi.",
+        "start": 355.8,
+        "end": 357.38
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_022": {
+    "text": "Taṁ kho panidaṁ dukkhaṁ ariyasaccaṁ pariññeyyan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 357.6,
+    "end": 382.4,
+    "duration": 24.8,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 357.6,
+        "end": 357.8
+      },
+      {
+        "word": "kho",
+        "start": 357.8,
+        "end": 358.14
+      },
+      {
+        "word": "panidaṁ",
+        "start": 358.14,
+        "end": 359.3
+      },
+      {
+        "word": "dukkhaṁ",
+        "start": 359.3,
+        "end": 360.18
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 360.18,
+        "end": 361.88
+      },
+      {
+        "word": "pariññeyyan'ti",
+        "start": 361.88,
+        "end": 363.94
+      },
+      {
+        "word": "me,",
+        "start": 363.94,
+        "end": 364.4
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 364.4,
+        "end": 365.78
+      },
+      {
+        "word": "pubbe",
+        "start": 366.32,
+        "end": 366.84
+      },
+      {
+        "word": "ananussutesu",
+        "start": 366.84,
+        "end": 368.9
+      },
+      {
+        "word": "dhammesu",
+        "start": 368.9,
+        "end": 370.16
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 370.16,
+        "end": 371.0
+      },
+      {
+        "word": "udapādi,",
+        "start": 371.0,
+        "end": 372.46
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 372.46,
+        "end": 373.42
+      },
+      {
+        "word": "udapādi,",
+        "start": 373.42,
+        "end": 374.6
+      },
+      {
+        "word": "paññā",
+        "start": 374.6,
+        "end": 375.68
+      },
+      {
+        "word": "udapādi,",
+        "start": 375.68,
+        "end": 376.94
+      },
+      {
+        "word": "vijjā",
+        "start": 376.94,
+        "end": 378.0
+      },
+      {
+        "word": "udapādi,",
+        "start": 378.0,
+        "end": 379.36
+      },
+      {
+        "word": "āloko",
+        "start": 379.72,
+        "end": 380.68
+      },
+      {
+        "word": "udapādi.",
+        "start": 380.68,
+        "end": 382.4
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_023": {
+    "text": "Taṁ kho panidaṁ dukkhaṁ ariyasaccaṁ pariññātan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 382.66,
+    "end": 407.58,
+    "duration": 24.92,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 382.66,
+        "end": 382.66
+      },
+      {
+        "word": "kho",
+        "start": 382.66,
+        "end": 383.1
+      },
+      {
+        "word": "panidaṁ",
+        "start": 383.1,
+        "end": 384.3
+      },
+      {
+        "word": "dukkhaṁ",
+        "start": 384.3,
+        "end": 385.24
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 385.24,
+        "end": 386.82
+      },
+      {
+        "word": "pariññātan'ti",
+        "start": 386.82,
+        "end": 388.88
+      },
+      {
+        "word": "me,",
+        "start": 388.88,
+        "end": 389.32
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 389.32,
+        "end": 390.7
+      },
+      {
+        "word": "pubbe",
+        "start": 391.02,
+        "end": 391.68
+      },
+      {
+        "word": "ananussutesu",
+        "start": 391.68,
+        "end": 393.88
+      },
+      {
+        "word": "dhammesu",
+        "start": 393.88,
+        "end": 395.12
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 395.12,
+        "end": 396.0
+      },
+      {
+        "word": "udapādi,",
+        "start": 396.0,
+        "end": 397.4
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 397.42,
+        "end": 398.42
+      },
+      {
+        "word": "udapādi,",
+        "start": 398.42,
+        "end": 399.62
+      },
+      {
+        "word": "paññā",
+        "start": 399.62,
+        "end": 400.66
+      },
+      {
+        "word": "udapādi,",
+        "start": 400.66,
+        "end": 401.96
+      },
+      {
+        "word": "vijjā",
+        "start": 402.34,
+        "end": 403.04
+      },
+      {
+        "word": "udapādi,",
+        "start": 403.04,
+        "end": 404.56
+      },
+      {
+        "word": "āloko",
+        "start": 404.72,
+        "end": 405.76
+      },
+      {
+        "word": "udapādi.",
+        "start": 405.76,
+        "end": 407.58
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_024": {
+    "text": "Idaṁ dukkhasamudayaṁ ariyasaccan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 407.6,
+    "end": 430.52,
+    "duration": 22.92,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 407.6,
+        "end": 408.02
+      },
+      {
+        "word": "dukkhasamudayaṁ",
+        "start": 408.02,
+        "end": 410.06
+      },
+      {
+        "word": "ariyasaccan'ti",
+        "start": 410.06,
+        "end": 412.04
+      },
+      {
+        "word": "me,",
+        "start": 412.04,
+        "end": 412.44
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 412.44,
+        "end": 413.66
+      },
+      {
+        "word": "pubbe",
+        "start": 413.66,
+        "end": 414.8
+      },
+      {
+        "word": "ananussutesu",
+        "start": 414.8,
+        "end": 416.94
+      },
+      {
+        "word": "dhammesu",
+        "start": 416.94,
+        "end": 418.18
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 418.18,
+        "end": 419.16
+      },
+      {
+        "word": "udapādi,",
+        "start": 419.16,
+        "end": 420.4
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 420.4,
+        "end": 421.54
+      },
+      {
+        "word": "udapādi,",
+        "start": 421.54,
+        "end": 422.76
+      },
+      {
+        "word": "paññā",
+        "start": 422.78,
+        "end": 423.82
+      },
+      {
+        "word": "udapādi,",
+        "start": 423.82,
+        "end": 425.12
+      },
+      {
+        "word": "vijjā",
+        "start": 425.48,
+        "end": 426.14
+      },
+      {
+        "word": "udapādi,",
+        "start": 426.14,
+        "end": 427.6
+      },
+      {
+        "word": "āloko",
+        "start": 427.9,
+        "end": 428.92
+      },
+      {
+        "word": "udapādi.",
+        "start": 428.92,
+        "end": 430.52
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_025": {
+    "text": "Taṁ kho panidaṁ dukkhasamudayaṁ ariyasaccaṁ pahātabban'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 430.7,
+    "end": 456.6,
+    "duration": 25.9,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 430.7,
+        "end": 430.94
+      },
+      {
+        "word": "kho",
+        "start": 430.94,
+        "end": 430.94
+      },
+      {
+        "word": "panidaṁ",
+        "start": 430.94,
+        "end": 432.38
+      },
+      {
+        "word": "dukkhasamudayaṁ",
+        "start": 432.38,
+        "end": 434.44
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 434.44,
+        "end": 436.02
+      },
+      {
+        "word": "pahātabban'ti",
+        "start": 436.02,
+        "end": 438.12
+      },
+      {
+        "word": "me,",
+        "start": 438.12,
+        "end": 438.54
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 439.06,
+        "end": 439.94
+      },
+      {
+        "word": "pubbe",
+        "start": 440.2,
+        "end": 440.76
+      },
+      {
+        "word": "ananussutesu",
+        "start": 440.76,
+        "end": 443.08
+      },
+      {
+        "word": "dhammesu",
+        "start": 443.08,
+        "end": 444.28
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 444.28,
+        "end": 445.4
+      },
+      {
+        "word": "udapādi,",
+        "start": 445.4,
+        "end": 446.4
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 446.4,
+        "end": 447.58
+      },
+      {
+        "word": "udapādi,",
+        "start": 447.58,
+        "end": 448.86
+      },
+      {
+        "word": "paññā",
+        "start": 448.92,
+        "end": 449.96
+      },
+      {
+        "word": "udapādi,",
+        "start": 449.96,
+        "end": 451.22
+      },
+      {
+        "word": "vijjā",
+        "start": 451.22,
+        "end": 452.3
+      },
+      {
+        "word": "udapādi,",
+        "start": 452.3,
+        "end": 453.66
+      },
+      {
+        "word": "āloko",
+        "start": 453.86,
+        "end": 455.02
+      },
+      {
+        "word": "udapādi.",
+        "start": 455.02,
+        "end": 456.6
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_026": {
+    "text": "Taṁ kho panidaṁ dukkhasamudayaṁ ariyasaccaṁ pahīnan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 456.6,
+    "end": 481.94,
+    "duration": 25.34,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 456.6,
+        "end": 456.82
+      },
+      {
+        "word": "kho",
+        "start": 456.82,
+        "end": 457.12
+      },
+      {
+        "word": "panidaṁ",
+        "start": 457.12,
+        "end": 458.72
+      },
+      {
+        "word": "dukkhasamudayaṁ",
+        "start": 458.72,
+        "end": 460.48
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 460.48,
+        "end": 462.06
+      },
+      {
+        "word": "pahīnan'ti",
+        "start": 462.12,
+        "end": 463.56
+      },
+      {
+        "word": "me,",
+        "start": 463.56,
+        "end": 464.08
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 464.56,
+        "end": 465.32
+      },
+      {
+        "word": "pubbe",
+        "start": 465.32,
+        "end": 466.4
+      },
+      {
+        "word": "ananussutesu",
+        "start": 466.4,
+        "end": 468.54
+      },
+      {
+        "word": "dhammesu",
+        "start": 468.54,
+        "end": 469.8
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 469.8,
+        "end": 470.66
+      },
+      {
+        "word": "udapādi,",
+        "start": 470.66,
+        "end": 471.92
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 471.92,
+        "end": 473.0
+      },
+      {
+        "word": "udapādi,",
+        "start": 473.0,
+        "end": 474.24
+      },
+      {
+        "word": "paññā",
+        "start": 474.24,
+        "end": 475.26
+      },
+      {
+        "word": "udapādi,",
+        "start": 475.26,
+        "end": 476.6
+      },
+      {
+        "word": "vijjā",
+        "start": 476.62,
+        "end": 477.54
+      },
+      {
+        "word": "udapādi,",
+        "start": 477.54,
+        "end": 479.1
+      },
+      {
+        "word": "āloko",
+        "start": 479.26,
+        "end": 480.26
+      },
+      {
+        "word": "udapādi.",
+        "start": 480.26,
+        "end": 481.94
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_027": {
+    "text": "Idaṁ dukkhanirodhaṁ ariyasaccan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 482.08,
+    "end": 504.6,
+    "duration": 22.52,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 482.08,
+        "end": 482.5
+      },
+      {
+        "word": "dukkhanirodhaṁ",
+        "start": 482.5,
+        "end": 484.52
+      },
+      {
+        "word": "ariyasaccan'ti",
+        "start": 484.52,
+        "end": 486.6
+      },
+      {
+        "word": "me,",
+        "start": 486.6,
+        "end": 486.98
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 486.98,
+        "end": 488.28
+      },
+      {
+        "word": "pubbe",
+        "start": 488.66,
+        "end": 489.24
+      },
+      {
+        "word": "ananussutesu",
+        "start": 489.24,
+        "end": 491.42
+      },
+      {
+        "word": "dhammesu",
+        "start": 491.42,
+        "end": 492.64
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 492.64,
+        "end": 493.58
+      },
+      {
+        "word": "udapādi,",
+        "start": 493.58,
+        "end": 494.78
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 494.78,
+        "end": 495.9
+      },
+      {
+        "word": "udapādi,",
+        "start": 495.9,
+        "end": 497.08
+      },
+      {
+        "word": "paññā",
+        "start": 497.14,
+        "end": 498.14
+      },
+      {
+        "word": "udapādi,",
+        "start": 498.14,
+        "end": 499.44
+      },
+      {
+        "word": "vijjā",
+        "start": 499.44,
+        "end": 500.48
+      },
+      {
+        "word": "udapādi,",
+        "start": 500.48,
+        "end": 501.96
+      },
+      {
+        "word": "āloko",
+        "start": 502.22,
+        "end": 503.22
+      },
+      {
+        "word": "udapādi.",
+        "start": 503.22,
+        "end": 504.6
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_028": {
+    "text": "Taṁ kho panidaṁ dukkhanirodhaṁ ariyasaccaṁ sacchikātabban'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 504.62,
+    "end": 531.28,
+    "duration": 26.66,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 504.62,
+        "end": 505.3
+      },
+      {
+        "word": "kho",
+        "start": 505.3,
+        "end": 505.3
+      },
+      {
+        "word": "panidaṁ",
+        "start": 505.3,
+        "end": 506.62
+      },
+      {
+        "word": "dukkhanirodhaṁ",
+        "start": 506.62,
+        "end": 508.74
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 508.74,
+        "end": 510.44
+      },
+      {
+        "word": "sacchikātabban'ti",
+        "start": 510.44,
+        "end": 512.98
+      },
+      {
+        "word": "me,",
+        "start": 512.98,
+        "end": 513.4
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 514.0,
+        "end": 514.8
+      },
+      {
+        "word": "pubbe",
+        "start": 515.42,
+        "end": 515.9
+      },
+      {
+        "word": "ananussutesu",
+        "start": 515.9,
+        "end": 517.88
+      },
+      {
+        "word": "dhammesu",
+        "start": 517.88,
+        "end": 519.18
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 519.18,
+        "end": 520.22
+      },
+      {
+        "word": "udapādi,",
+        "start": 520.22,
+        "end": 521.28
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 521.28,
+        "end": 522.4
+      },
+      {
+        "word": "udapādi,",
+        "start": 522.4,
+        "end": 523.64
+      },
+      {
+        "word": "paññā",
+        "start": 523.66,
+        "end": 524.74
+      },
+      {
+        "word": "udapādi,",
+        "start": 524.74,
+        "end": 526.02
+      },
+      {
+        "word": "vijjā",
+        "start": 526.02,
+        "end": 527.02
+      },
+      {
+        "word": "udapādi,",
+        "start": 527.02,
+        "end": 528.4
+      },
+      {
+        "word": "āloko",
+        "start": 528.74,
+        "end": 529.72
+      },
+      {
+        "word": "udapādi.",
+        "start": 529.72,
+        "end": 531.28
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_029": {
+    "text": "Taṁ kho panidaṁ dukkhanirodhaṁ ariyasaccaṁ sacchikatan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 531.46,
+    "end": 557.1,
+    "duration": 25.64,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 531.46,
+        "end": 531.86
+      },
+      {
+        "word": "kho",
+        "start": 531.86,
+        "end": 532.18
+      },
+      {
+        "word": "panidaṁ",
+        "start": 532.18,
+        "end": 533.32
+      },
+      {
+        "word": "dukkhanirodhaṁ",
+        "start": 533.32,
+        "end": 535.16
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 535.16,
+        "end": 537.02
+      },
+      {
+        "word": "sacchikatan'ti",
+        "start": 537.02,
+        "end": 538.72
+      },
+      {
+        "word": "me,",
+        "start": 538.72,
+        "end": 539.2
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 539.2,
+        "end": 540.48
+      },
+      {
+        "word": "pubbe",
+        "start": 540.86,
+        "end": 541.48
+      },
+      {
+        "word": "ananussutesu",
+        "start": 541.48,
+        "end": 543.64
+      },
+      {
+        "word": "dhammesu",
+        "start": 543.64,
+        "end": 544.9
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 544.9,
+        "end": 545.7
+      },
+      {
+        "word": "udapādi,",
+        "start": 545.7,
+        "end": 547.0
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 547.0,
+        "end": 548.12
+      },
+      {
+        "word": "udapādi,",
+        "start": 548.12,
+        "end": 549.3
+      },
+      {
+        "word": "paññā",
+        "start": 549.34,
+        "end": 550.4
+      },
+      {
+        "word": "udapādi,",
+        "start": 550.4,
+        "end": 551.7
+      },
+      {
+        "word": "vijjā",
+        "start": 551.7,
+        "end": 552.72
+      },
+      {
+        "word": "udapādi,",
+        "start": 552.72,
+        "end": 554.14
+      },
+      {
+        "word": "āloko",
+        "start": 554.68,
+        "end": 555.5
+      },
+      {
+        "word": "udapādi.",
+        "start": 555.5,
+        "end": 557.1
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_030": {
+    "text": "Idaṁ dukkhanirodhagāminī paṭipadā ariyasaccan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 557.1,
+    "end": 582.18,
+    "duration": 25.08,
+    "words": [
+      {
+        "word": "Idaṁ",
+        "start": 557.1,
+        "end": 557.7
+      },
+      {
+        "word": "dukkhanirodhagāminī",
+        "start": 557.7,
+        "end": 560.66
+      },
+      {
+        "word": "paṭipadā",
+        "start": 560.66,
+        "end": 561.9
+      },
+      {
+        "word": "ariyasaccan'ti",
+        "start": 561.9,
+        "end": 564.02
+      },
+      {
+        "word": "me,",
+        "start": 564.02,
+        "end": 564.36
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 564.36,
+        "end": 565.7
+      },
+      {
+        "word": "pubbe",
+        "start": 566.2,
+        "end": 566.6
+      },
+      {
+        "word": "ananussutesu",
+        "start": 566.6,
+        "end": 568.88
+      },
+      {
+        "word": "dhammesu",
+        "start": 568.88,
+        "end": 570.18
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 570.18,
+        "end": 571.1
+      },
+      {
+        "word": "udapādi,",
+        "start": 571.1,
+        "end": 572.32
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 572.32,
+        "end": 573.48
+      },
+      {
+        "word": "udapādi,",
+        "start": 573.48,
+        "end": 574.72
+      },
+      {
+        "word": "paññā",
+        "start": 574.74,
+        "end": 575.74
+      },
+      {
+        "word": "udapādi,",
+        "start": 575.74,
+        "end": 577.04
+      },
+      {
+        "word": "vijjā",
+        "start": 577.26,
+        "end": 578.02
+      },
+      {
+        "word": "udapādi,",
+        "start": 578.02,
+        "end": 579.64
+      },
+      {
+        "word": "āloko",
+        "start": 579.64,
+        "end": 580.82
+      },
+      {
+        "word": "udapādi.",
+        "start": 580.82,
+        "end": 582.18
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_031": {
+    "text": "Taṁ kho panidaṁ dukkhanirodhagāminī paṭipadā ariyasaccaṁ bhāvetabban'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 582.18,
+    "end": 610.74,
+    "duration": 28.56,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 582.18,
+        "end": 582.84
+      },
+      {
+        "word": "kho",
+        "start": 582.84,
+        "end": 583.18
+      },
+      {
+        "word": "panidaṁ",
+        "start": 583.18,
+        "end": 584.52
+      },
+      {
+        "word": "dukkhanirodhagāminī",
+        "start": 584.52,
+        "end": 587.2
+      },
+      {
+        "word": "paṭipadā",
+        "start": 587.2,
+        "end": 588.54
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 588.54,
+        "end": 590.44
+      },
+      {
+        "word": "bhāvetabban'ti",
+        "start": 590.44,
+        "end": 592.66
+      },
+      {
+        "word": "me,",
+        "start": 592.66,
+        "end": 593.08
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 593.62,
+        "end": 594.48
+      },
+      {
+        "word": "pubbe",
+        "start": 594.7,
+        "end": 595.34
+      },
+      {
+        "word": "ananussutesu",
+        "start": 595.34,
+        "end": 597.56
+      },
+      {
+        "word": "dhammesu",
+        "start": 597.56,
+        "end": 598.74
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 598.74,
+        "end": 599.82
+      },
+      {
+        "word": "udapādi,",
+        "start": 599.82,
+        "end": 600.9
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 600.9,
+        "end": 602.04
+      },
+      {
+        "word": "udapādi,",
+        "start": 602.04,
+        "end": 603.28
+      },
+      {
+        "word": "paññā",
+        "start": 603.42,
+        "end": 604.3
+      },
+      {
+        "word": "udapādi,",
+        "start": 604.3,
+        "end": 605.62
+      },
+      {
+        "word": "vijjā",
+        "start": 605.62,
+        "end": 606.64
+      },
+      {
+        "word": "udapādi,",
+        "start": 606.64,
+        "end": 608.52
+      },
+      {
+        "word": "āloko",
+        "start": 608.52,
+        "end": 609.3
+      },
+      {
+        "word": "udapādi.",
+        "start": 609.3,
+        "end": 610.74
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_032": {
+    "text": "Taṁ kho panidaṁ dukkhanirodhagāminī paṭipadā ariyasaccaṁ bhāvitan'ti me, bhikkhave, pubbe ananussutesu dhammesu cakkhuṁ udapādi, ñāṇaṁ udapādi, paññā udapādi, vijjā udapādi, āloko udapādi.",
+    "start": 610.74,
+    "end": 639.52,
+    "duration": 28.78,
+    "words": [
+      {
+        "word": "Taṁ",
+        "start": 610.74,
+        "end": 611.34
+      },
+      {
+        "word": "kho",
+        "start": 611.34,
+        "end": 611.68
+      },
+      {
+        "word": "panidaṁ",
+        "start": 611.68,
+        "end": 612.92
+      },
+      {
+        "word": "dukkhanirodhagāminī",
+        "start": 612.92,
+        "end": 615.78
+      },
+      {
+        "word": "paṭipadā",
+        "start": 615.78,
+        "end": 617.06
+      },
+      {
+        "word": "ariyasaccaṁ",
+        "start": 617.06,
+        "end": 618.88
+      },
+      {
+        "word": "bhāvitan'ti",
+        "start": 618.88,
+        "end": 620.38
+      },
+      {
+        "word": "me,",
+        "start": 620.38,
+        "end": 620.76
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 621.32,
+        "end": 622.1
+      },
+      {
+        "word": "pubbe",
+        "start": 622.42,
+        "end": 623.16
+      },
+      {
+        "word": "ananussutesu",
+        "start": 623.16,
+        "end": 625.28
+      },
+      {
+        "word": "dhammesu",
+        "start": 625.28,
+        "end": 626.42
+      },
+      {
+        "word": "cakkhuṁ",
+        "start": 626.42,
+        "end": 627.48
+      },
+      {
+        "word": "udapādi,",
+        "start": 627.48,
+        "end": 628.56
+      },
+      {
+        "word": "ñāṇaṁ",
+        "start": 629.74,
+        "end": 629.74
+      },
+      {
+        "word": "udapādi,",
+        "start": 629.74,
+        "end": 631.12
+      },
+      {
+        "word": "paññā",
+        "start": 631.3,
+        "end": 632.02
+      },
+      {
+        "word": "udapādi,",
+        "start": 632.02,
+        "end": 633.72
+      },
+      {
+        "word": "vijjā",
+        "start": 633.72,
+        "end": 634.32
+      },
+      {
+        "word": "udapādi,",
+        "start": 634.32,
+        "end": 635.9
+      },
+      {
+        "word": "āloko",
+        "start": 636.02,
+        "end": 637.02
+      },
+      {
+        "word": "udapādi.",
+        "start": 637.02,
+        "end": 639.52
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_033": {
+    "text": "Yāvakīvañca me, bhikkhave, imesu catūsu ariyasaccesu evaṁ tiparivaṭṭaṁ dvādasākāraṁ yathābhūtaṁ ñāṇadassanaṁ na suvisuddhaṁ ahosi, neva tāvāhaṁ, bhikkhave, sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya anuttaraṁ sammāsambodhiṁ abhisambuddho'ti paccaññāsiṁ.",
+    "start": 639.92,
+    "end": 683.32,
+    "duration": 43.4,
+    "words": [
+      {
+        "word": "Yāvakīvañca",
+        "start": 639.92,
+        "end": 641.78
+      },
+      {
+        "word": "me,",
+        "start": 641.78,
+        "end": 642.32
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 642.74,
+        "end": 643.66
+      },
+      {
+        "word": "imesu",
+        "start": 644.04,
+        "end": 644.78
+      },
+      {
+        "word": "catūsu",
+        "start": 644.78,
+        "end": 645.78
+      },
+      {
+        "word": "ariyasaccesu",
+        "start": 645.78,
+        "end": 647.96
+      },
+      {
+        "word": "evaṁ",
+        "start": 647.96,
+        "end": 648.86
+      },
+      {
+        "word": "tiparivaṭṭaṁ",
+        "start": 648.86,
+        "end": 650.54
+      },
+      {
+        "word": "dvādasākāraṁ",
+        "start": 650.54,
+        "end": 653.06
+      },
+      {
+        "word": "yathābhūtaṁ",
+        "start": 653.06,
+        "end": 654.82
+      },
+      {
+        "word": "ñāṇadassanaṁ",
+        "start": 654.82,
+        "end": 656.92
+      },
+      {
+        "word": "na",
+        "start": 656.92,
+        "end": 657.1
+      },
+      {
+        "word": "suvisuddhaṁ",
+        "start": 657.1,
+        "end": 658.68
+      },
+      {
+        "word": "ahosi,",
+        "start": 658.68,
+        "end": 659.58
+      },
+      {
+        "word": "neva",
+        "start": 660.14,
+        "end": 660.38
+      },
+      {
+        "word": "tāvāhaṁ,",
+        "start": 660.38,
+        "end": 661.96
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 662.36,
+        "end": 663.34
+      },
+      {
+        "word": "sadevake",
+        "start": 663.52,
+        "end": 664.68
+      },
+      {
+        "word": "loke",
+        "start": 664.68,
+        "end": 665.68
+      },
+      {
+        "word": "samārake",
+        "start": 665.68,
+        "end": 667.24
+      },
+      {
+        "word": "sabrahmake",
+        "start": 667.24,
+        "end": 668.74
+      },
+      {
+        "word": "sassamaṇabrāhmaṇiyā",
+        "start": 668.74,
+        "end": 671.54
+      },
+      {
+        "word": "pajāya",
+        "start": 671.54,
+        "end": 672.56
+      },
+      {
+        "word": "sadevamanussāya",
+        "start": 672.56,
+        "end": 675.1
+      },
+      {
+        "word": "anuttaraṁ",
+        "start": 675.1,
+        "end": 676.62
+      },
+      {
+        "word": "sammāsambodhiṁ",
+        "start": 676.62,
+        "end": 679.2
+      },
+      {
+        "word": "abhisambuddho'ti",
+        "start": 679.2,
+        "end": 681.7
+      },
+      {
+        "word": "paccaññāsiṁ.",
+        "start": 681.7,
+        "end": 683.32
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_034": {
+    "text": "Yato ca kho me, bhikkhave, imesu catūsu ariyasaccesu evaṁ tiparivaṭṭaṁ dvādasākāraṁ yathābhūtaṁ ñāṇadassanaṁ suvisuddhaṁ ahosi, athāhaṁ, bhikkhave, sadevake loke samārake sabrahmake sassamaṇabrāhmaṇiyā pajāya sadevamanussāya anuttaraṁ sammāsambodhiṁ abhisambuddho'ti paccaññāsiṁ.",
+    "start": 683.32,
+    "end": 724.76,
+    "duration": 41.44,
+    "words": [
+      {
+        "word": "Yato",
+        "start": 683.32,
+        "end": 683.68
+      },
+      {
+        "word": "ca",
+        "start": 683.68,
+        "end": 684.16
+      },
+      {
+        "word": "kho",
+        "start": 684.16,
+        "end": 684.66
+      },
+      {
+        "word": "me,",
+        "start": 684.66,
+        "end": 685.08
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 685.08,
+        "end": 686.32
+      },
+      {
+        "word": "imesu",
+        "start": 686.68,
+        "end": 687.4
+      },
+      {
+        "word": "catūsu",
+        "start": 687.4,
+        "end": 688.42
+      },
+      {
+        "word": "ariyasaccesu",
+        "start": 688.42,
+        "end": 690.54
+      },
+      {
+        "word": "evaṁ",
+        "start": 690.54,
+        "end": 691.44
+      },
+      {
+        "word": "tiparivaṭṭaṁ",
+        "start": 691.44,
+        "end": 693.08
+      },
+      {
+        "word": "dvādasākāraṁ",
+        "start": 693.08,
+        "end": 695.6
+      },
+      {
+        "word": "yathābhūtaṁ",
+        "start": 695.6,
+        "end": 697.36
+      },
+      {
+        "word": "ñāṇadassanaṁ",
+        "start": 699.26,
+        "end": 699.36
+      },
+      {
+        "word": "suvisuddhaṁ",
+        "start": 699.36,
+        "end": 700.92
+      },
+      {
+        "word": "ahosi,",
+        "start": 700.92,
+        "end": 702.12
+      },
+      {
+        "word": "athāhaṁ,",
+        "start": 702.12,
+        "end": 703.14
+      },
+      {
+        "word": "bhikkhave,",
+        "start": 703.74,
+        "end": 704.28
+      },
+      {
+        "word": "sadevake",
+        "start": 704.28,
+        "end": 705.78
+      },
+      {
+        "word": "loke",
+        "start": 705.78,
+        "end": 706.9
+      },
+      {
+        "word": "samārake",
+        "start": 706.9,
+        "end": 708.48
+      },
+      {
+        "word": "sabrahmake",
+        "start": 708.48,
+        "end": 709.92
+      },
+      {
+        "word": "sassamaṇabrāhmaṇiyā",
+        "start": 710.02,
+        "end": 712.88
+      },
+      {
+        "word": "pajāya",
+        "start": 712.88,
+        "end": 713.82
+      },
+      {
+        "word": "sadevamanussāya",
+        "start": 713.82,
+        "end": 716.46
+      },
+      {
+        "word": "anuttaraṁ",
+        "start": 716.46,
+        "end": 717.8
+      },
+      {
+        "word": "sammāsambodhiṁ",
+        "start": 717.8,
+        "end": 720.4
+      },
+      {
+        "word": "abhisambuddho'ti",
+        "start": 720.4,
+        "end": 722.9
+      },
+      {
+        "word": "paccaññāsiṁ.",
+        "start": 722.9,
+        "end": 724.76
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_035": {
+    "text": "Ñāṇañca pana me dassanaṁ udapādi:",
+    "start": 724.76,
+    "end": 729.14,
+    "duration": 4.38,
+    "words": [
+      {
+        "word": "Ñāṇañca",
+        "start": 724.76,
+        "end": 725.6
+      },
+      {
+        "word": "pana",
+        "start": 725.6,
+        "end": 725.94
+      },
+      {
+        "word": "me",
+        "start": 725.94,
+        "end": 726.48
+      },
+      {
+        "word": "dassanaṁ",
+        "start": 726.48,
+        "end": 727.82
+      },
+      {
+        "word": "udapādi:",
+        "start": 727.82,
+        "end": 729.14
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_036": {
+    "text": "akuppā me vimutti, ayamantimā jāti, natthi dāni punabbhavo'ti.",
+    "start": 729.2,
+    "end": 737.52,
+    "duration": 8.32,
+    "words": [
+      {
+        "word": "akuppā",
+        "start": 729.2,
+        "end": 730.2
+      },
+      {
+        "word": "me",
+        "start": 730.2,
+        "end": 730.64
+      },
+      {
+        "word": "vimutti,",
+        "start": 730.64,
+        "end": 731.78
+      },
+      {
+        "word": "ayamantimā",
+        "start": 731.78,
+        "end": 733.44
+      },
+      {
+        "word": "jāti,",
+        "start": 733.44,
+        "end": 734.14
+      },
+      {
+        "word": "natthi",
+        "start": 734.22,
+        "end": 735.02
+      },
+      {
+        "word": "dāni",
+        "start": 735.02,
+        "end": 735.64
+      },
+      {
+        "word": "punabbhavo'ti.",
+        "start": 735.64,
+        "end": 737.52
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_037": {
+    "text": "Idamavoca bhagavā.",
+    "start": 737.52,
+    "end": 740.06,
+    "duration": 2.54,
+    "words": [
+      {
+        "word": "Idamavoca",
+        "start": 737.52,
+        "end": 738.8
+      },
+      {
+        "word": "bhagavā.",
+        "start": 738.8,
+        "end": 740.06
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_038": {
+    "text": "Attamanā pañcavaggiyā bhikkhū bhagavato bhāsitaṁ abhinandunti.",
+    "start": 740.06,
+    "end": 748.34,
+    "duration": 8.28,
+    "words": [
+      {
+        "word": "Attamanā",
+        "start": 740.06,
+        "end": 741.42
+      },
+      {
+        "word": "pañcavaggiyā",
+        "start": 741.42,
+        "end": 743.6
+      },
+      {
+        "word": "bhikkhū",
+        "start": 743.6,
+        "end": 744.4
+      },
+      {
+        "word": "bhagavato",
+        "start": 744.4,
+        "end": 745.5
+      },
+      {
+        "word": "bhāsitaṁ",
+        "start": 745.5,
+        "end": 747.04
+      },
+      {
+        "word": "abhinandunti.",
+        "start": 747.04,
+        "end": 748.34
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_039": {
+    "text": "Imasmiñca pana veyyākaraṇasmiṁ bhaññamāne āyasmato koṇḍaññassa virajaṁ vītamalaṁ dhammacakkhuṁ udapādi:",
+    "start": 748.34,
+    "end": 763.46,
+    "duration": 15.12,
+    "words": [
+      {
+        "word": "Imasmiñca",
+        "start": 748.34,
+        "end": 749.8
+      },
+      {
+        "word": "pana",
+        "start": 749.8,
+        "end": 750.22
+      },
+      {
+        "word": "veyyākaraṇasmiṁ",
+        "start": 750.22,
+        "end": 752.84
+      },
+      {
+        "word": "bhaññamāne",
+        "start": 752.84,
+        "end": 754.42
+      },
+      {
+        "word": "āyasmato",
+        "start": 754.42,
+        "end": 756.1
+      },
+      {
+        "word": "koṇḍaññassa",
+        "start": 756.1,
+        "end": 757.86
+      },
+      {
+        "word": "virajaṁ",
+        "start": 757.86,
+        "end": 759.02
+      },
+      {
+        "word": "vītamalaṁ",
+        "start": 759.02,
+        "end": 760.4
+      },
+      {
+        "word": "dhammacakkhuṁ",
+        "start": 760.4,
+        "end": 762.22
+      },
+      {
+        "word": "udapādi:",
+        "start": 762.22,
+        "end": 763.46
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_040": {
+    "text": "yaṁ kiñci samudayadhammaṁ sabbaṁ taṁ nirodhadhamman'ti.",
+    "start": 763.84,
+    "end": 769.4,
+    "duration": 5.56,
+    "words": [
+      {
+        "word": "yaṁ",
+        "start": 763.84,
+        "end": 763.92
+      },
+      {
+        "word": "kiñci",
+        "start": 763.92,
+        "end": 764.48
+      },
+      {
+        "word": "samudayadhammaṁ",
+        "start": 764.48,
+        "end": 767.18
+      },
+      {
+        "word": "sabbaṁ",
+        "start": 767.18,
+        "end": 767.66
+      },
+      {
+        "word": "taṁ",
+        "start": 767.66,
+        "end": 768.0
+      },
+      {
+        "word": "nirodhadhamman'ti.",
+        "start": 768.0,
+        "end": 769.4
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_041": {
+    "text": "Pavattite ca pana bhagavatā dhammacakke bhummā devā saddamanussāvesuṁ:",
+    "start": 771.68,
+    "end": 782.18,
+    "duration": 10.5,
+    "words": [
+      {
+        "word": "Pavattite",
+        "start": 771.68,
+        "end": 772.98
+      },
+      {
+        "word": "ca",
+        "start": 772.98,
+        "end": 773.24
+      },
+      {
+        "word": "pana",
+        "start": 773.24,
+        "end": 773.78
+      },
+      {
+        "word": "bhagavatā",
+        "start": 773.78,
+        "end": 774.52
+      },
+      {
+        "word": "dhammacakke",
+        "start": 774.52,
+        "end": 776.38
+      },
+      {
+        "word": "bhummā",
+        "start": 776.38,
+        "end": 777.56
+      },
+      {
+        "word": "devā",
+        "start": 778.4,
+        "end": 778.4
+      },
+      {
+        "word": "saddamanussāvesuṁ:",
+        "start": 778.4,
+        "end": 782.18
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_042": {
+    "text": "etaṁ bhagavatā bārāṇasiyaṁ isipatane migadāye anuttaraṁ dhammacakkaṁ pavattitaṁ appaṭivattiyaṁ samaṇena vā brāhmaṇena vā devena vā mārena vā brahmunā vā kenaci vā lokasmin'ti.",
+    "start": 782.38,
+    "end": 808.62,
+    "duration": 26.24,
+    "words": [
+      {
+        "word": "etaṁ",
+        "start": 782.38,
+        "end": 782.42
+      },
+      {
+        "word": "bhagavatā",
+        "start": 782.42,
+        "end": 783.8
+      },
+      {
+        "word": "bārāṇasiyaṁ",
+        "start": 783.8,
+        "end": 785.82
+      },
+      {
+        "word": "isipatane",
+        "start": 785.82,
+        "end": 787.22
+      },
+      {
+        "word": "migadāye",
+        "start": 787.22,
+        "end": 788.62
+      },
+      {
+        "word": "anuttaraṁ",
+        "start": 788.62,
+        "end": 790.24
+      },
+      {
+        "word": "dhammacakkaṁ",
+        "start": 790.24,
+        "end": 792.0
+      },
+      {
+        "word": "pavattitaṁ",
+        "start": 792.0,
+        "end": 793.52
+      },
+      {
+        "word": "appaṭivattiyaṁ",
+        "start": 793.52,
+        "end": 795.54
+      },
+      {
+        "word": "samaṇena",
+        "start": 795.54,
+        "end": 796.84
+      },
+      {
+        "word": "vā",
+        "start": 796.84,
+        "end": 797.3
+      },
+      {
+        "word": "brāhmaṇena",
+        "start": 797.3,
+        "end": 798.94
+      },
+      {
+        "word": "vā",
+        "start": 798.94,
+        "end": 799.46
+      },
+      {
+        "word": "devena",
+        "start": 799.46,
+        "end": 800.88
+      },
+      {
+        "word": "vā",
+        "start": 800.88,
+        "end": 801.3
+      },
+      {
+        "word": "mārena",
+        "start": 801.3,
+        "end": 802.64
+      },
+      {
+        "word": "vā",
+        "start": 802.64,
+        "end": 803.12
+      },
+      {
+        "word": "brahmunā",
+        "start": 803.12,
+        "end": 804.62
+      },
+      {
+        "word": "vā",
+        "start": 804.62,
+        "end": 805.14
+      },
+      {
+        "word": "kenaci",
+        "start": 805.14,
+        "end": 806.06
+      },
+      {
+        "word": "vā",
+        "start": 806.06,
+        "end": 806.58
+      },
+      {
+        "word": "lokasmin'ti.",
+        "start": 806.58,
+        "end": 808.62
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_043": {
+    "text": "Bhummānaṁ devānaṁ saddaṁ sutvā cātumahārājikā devā saddamanussāvesuṁ:",
+    "start": 808.62,
+    "end": 891.88,
+    "duration": 83.26,
+    "words": [
+      {
+        "word": "Bhummānaṁ",
+        "start": 808.62,
+        "end": 809.72
+      },
+      {
+        "word": "devānaṁ",
+        "start": 809.72,
+        "end": 811.24
+      },
+      {
+        "word": "saddaṁ",
+        "start": 811.24,
+        "end": 812.26
+      },
+      {
+        "word": "sutvā",
+        "start": 812.26,
+        "end": 813.24
+      },
+      {
+        "word": "cātumahārājikā",
+        "start": 813.8,
+        "end": 816.48
+      },
+      {
+        "word": "devā",
+        "start": 887.82,
+        "end": 887.82
+      },
+      {
+        "word": "saddamanussāvesuṁ:",
+        "start": 887.82,
+        "end": 891.88
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_044": {
+    "text": "etaṁ bhagavatā bārāṇasiyaṁ isipatane migadāye anuttaraṁ dhammacakkaṁ pavattitaṁ, appaṭivattiyaṁ samaṇena vā brāhmaṇena vā devena vā mārena vā brahmunā vā kenaci vā lokasmin'ti.",
+    "start": 892.02,
+    "end": 942.62,
+    "duration": 50.6,
+    "words": [
+      {
+        "word": "etaṁ",
+        "start": 892.02,
+        "end": 892.1
+      },
+      {
+        "word": "bhagavatā",
+        "start": 892.1,
+        "end": 893.52
+      },
+      {
+        "word": "bārāṇasiyaṁ",
+        "start": 893.52,
+        "end": 895.46
+      },
+      {
+        "word": "isipatane",
+        "start": 895.46,
+        "end": 896.72
+      },
+      {
+        "word": "migadāye",
+        "start": 896.72,
+        "end": 898.22
+      },
+      {
+        "word": "anuttaraṁ",
+        "start": 898.22,
+        "end": 899.68
+      },
+      {
+        "word": "dhammacakkaṁ",
+        "start": 899.68,
+        "end": 901.48
+      },
+      {
+        "word": "pavattitaṁ,",
+        "start": 901.48,
+        "end": 903.04
+      },
+      {
+        "word": "appaṭivattiyaṁ",
+        "start": 903.12,
+        "end": 905.06
+      },
+      {
+        "word": "samaṇena",
+        "start": 905.06,
+        "end": 906.34
+      },
+      {
+        "word": "vā",
+        "start": 906.34,
+        "end": 906.78
+      },
+      {
+        "word": "brāhmaṇena",
+        "start": 906.78,
+        "end": 908.4
+      },
+      {
+        "word": "vā",
+        "start": 908.4,
+        "end": 908.92
+      },
+      {
+        "word": "devena",
+        "start": 908.92,
+        "end": 910.36
+      },
+      {
+        "word": "vā",
+        "start": 910.36,
+        "end": 910.8
+      },
+      {
+        "word": "mārena",
+        "start": 910.8,
+        "end": 912.2
+      },
+      {
+        "word": "vā",
+        "start": 912.2,
+        "end": 912.62
+      },
+      {
+        "word": "brahmunā",
+        "start": 912.62,
+        "end": 914.12
+      },
+      {
+        "word": "vā",
+        "start": 914.12,
+        "end": 914.5
+      },
+      {
+        "word": "kenaci",
+        "start": 914.5,
+        "end": 915.46
+      },
+      {
+        "word": "vā",
+        "start": 915.46,
+        "end": 915.94
+      },
+      {
+        "word": "lokasmin'ti.",
+        "start": 939.68,
+        "end": 942.62
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_045": {
+    "text": "Cātumahārājikānaṁ devānaṁ saddaṁ sutvā tāvatiṁsā devā saddamanussāvesuṁ.",
+    "start": 942.62,
+    "end": 978.31,
+    "duration": 35.69,
+    "words": [
+      {
+        "word": "Cātumahārājikānaṁ",
+        "start": 942.62,
+        "end": 945.5
+      },
+      {
+        "word": "devānaṁ",
+        "start": 945.5,
+        "end": 947.18
+      },
+      {
+        "word": "saddaṁ",
+        "start": 947.18,
+        "end": 948.66
+      },
+      {
+        "word": "sutvā",
+        "start": 976.13,
+        "end": 977.19
+      },
+      {
+        "word": "tāvatiṁsā",
+        "start": 977.19,
+        "end": 978.31
+      },
+      {
+        "word": "devā",
+        "start": 978.31,
+        "end": 978.31
+      },
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 978.31,
+        "end": 978.31
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_046": {
+    "text": "Tāvatiṁsānaṁ devānaṁ saddaṁ sutvā yāmā devā saddamanussāvesuṁ.",
+    "start": 978.31,
+    "end": 978.73,
+    "duration": 0.42,
+    "words": [
+      {
+        "word": "Tāvatiṁsānaṁ",
+        "start": 978.31,
+        "end": 978.67
+      },
+      {
+        "word": "devānaṁ",
+        "start": 978.67,
+        "end": 978.67
+      },
+      {
+        "word": "saddaṁ",
+        "start": 978.67,
+        "end": 978.67
+      },
+      {
+        "word": "sutvā",
+        "start": 978.67,
+        "end": 978.67
+      },
+      {
+        "word": "yāmā",
+        "start": 978.67,
+        "end": 978.67
+      },
+      {
+        "word": "devā",
+        "start": 978.67,
+        "end": 978.67
+      },
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 978.67,
+        "end": 978.73
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_047": {
+    "text": "Yāmānaṁ devānaṁ saddaṁ sutvā tusitā devā saddamanussāvesuṁ.",
+    "start": 978.77,
+    "end": 978.99,
+    "duration": 0.22,
+    "words": [
+      {
+        "word": "Yāmānaṁ",
+        "start": 978.77,
+        "end": 978.79
+      },
+      {
+        "word": "devānaṁ",
+        "start": 978.79,
+        "end": 978.79
+      },
+      {
+        "word": "saddaṁ",
+        "start": 978.79,
+        "end": 978.79
+      },
+      {
+        "word": "sutvā",
+        "start": 978.79,
+        "end": 978.79
+      },
+      {
+        "word": "tusitā",
+        "start": 978.79,
+        "end": 978.79
+      },
+      {
+        "word": "devā",
+        "start": 978.79,
+        "end": 978.79
+      },
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 978.79,
+        "end": 978.99
+      }
+    ],
+    "status": "short"
+  },
+  "sn56.11_048": {
+    "text": "Tusitānaṁ devānaṁ saddaṁ sutvā nimmānaratī devā saddamanussāvesuṁ.",
+    "start": 978.99,
+    "end": 979.05,
+    "duration": 0.06,
+    "words": [
+      {
+        "word": "Tusitānaṁ",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "devānaṁ",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "saddaṁ",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "sutvā",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "nimmānaratī",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "devā",
+        "start": 978.99,
+        "end": 978.99
+      },
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 978.99,
+        "end": 979.05
+      }
+    ],
+    "status": "short"
+  },
+  "sn56.11_049": {
+    "text": "Nimmānaratīnaṁ devānaṁ saddaṁ sutvā paranimmitavasavattī devā saddamanussāvesuṁ.",
+    "start": 979.05,
+    "end": 980.01,
+    "duration": 0.96,
+    "words": [
+      {
+        "word": "Nimmānaratīnaṁ",
+        "start": 979.05,
+        "end": 979.15
+      },
+      {
+        "word": "devānaṁ",
+        "start": 979.15,
+        "end": 979.15
+      },
+      {
+        "word": "saddaṁ",
+        "start": 979.15,
+        "end": 979.15
+      },
+      {
+        "word": "sutvā",
+        "start": 979.15,
+        "end": 979.4
+      },
+      {
+        "word": "paranimmitavasavattī",
+        "start": 979.43,
+        "end": 979.67
+      },
+      {
+        "word": "devā",
+        "start": 979.67,
+        "end": 979.71
+      },
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 979.71,
+        "end": 980.01
+      }
+    ],
+    "status": "aligned"
+  },
+  "sn56.11_050": {
+    "text": "Paranimmitavasavattīnaṁ devānaṁ saddaṁ sutvā brahmakāyikā devā saddamanussāvesuṁ:",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "saddamanussāvesuṁ.",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "Paranimmitavasavattīnaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "devānaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "saddaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "sutvā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "brahmakāyikā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "devā",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_051": {
+    "text": "etaṁ bhagavatā bārāṇasiyaṁ isipatane migadāye anuttaraṁ dhammacakkaṁ pavattitaṁ appaṭivattiyaṁ samaṇena vā brāhmaṇena vā devena vā mārena vā brahmunā vā kenaci vā lokasmin'ti.",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "saddamanussāvesuṁ:",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "etaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "bhagavatā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "bārāṇasiyaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "isipatane",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "migadāye",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "anuttaraṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "dhammacakkaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "pavattitaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "appaṭivattiyaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "samaṇena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "brāhmaṇena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "devena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "mārena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "brahmunā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "kenaci",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vā",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_052": {
+    "text": "Itiha tena khaṇena tena layena tena muhuttena yāva brahmalokā saddo abbhuggacchi.",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "lokasmin'ti.",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "Itiha",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "tena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "khaṇena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "tena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "layena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "tena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "muhuttena",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "yāva",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "brahmalokā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "saddo",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_053": {
+    "text": "Ayañca dasasahassilokadhātu saṅkampi sampakampi sampavedhi, appamāṇo ca uḷāro obhāso loke pāturahosi atikkamma devānaṁ devānubhāvanti.",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "abbhuggacchi.",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "Ayañca",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "dasasahassilokadhātu",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "saṅkampi",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "sampakampi",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "sampavedhi,",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "appamāṇo",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "ca",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "uḷāro",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "obhāso",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "loke",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "pāturahosi",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "atikkamma",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "devānaṁ",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_054": {
+    "text": "Atha kho bhagavā imaṁ udānaṁ udānesi:",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "devānubhāvanti.",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "Atha",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "kho",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "bhagavā",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "imaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "udānaṁ",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_055": {
+    "text": "aññāsi vata bho, koṇḍañño, aññāsi vata bho, koṇḍañño'ti.",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "udānesi:",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "aññāsi",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vata",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "bho,",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "koṇḍañño,",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "aññāsi",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "vata",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "bho,",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  },
+  "sn56.11_056": {
+    "text": "Iti hidaṁ āyasmato koṇḍaññassa aññāsikoṇḍañño tveva nāmaṁ ahosīti.",
+    "start": 980.31,
+    "end": 980.31,
+    "duration": 0.0,
+    "words": [
+      {
+        "word": "koṇḍañño'ti.",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "Iti",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "hidaṁ",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "āyasmato",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "koṇḍaññassa",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "aññāsikoṇḍañño",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "tveva",
+        "start": 980.31,
+        "end": 980.31
+      },
+      {
+        "word": "nāmaṁ",
+        "start": 980.31,
+        "end": 980.31
+      }
+    ],
+    "status": "missing"
+  }
+}

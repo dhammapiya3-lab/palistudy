@@ -1,0 +1,12 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "pali-primer-memos",
+      "queryScope": "COLLECTION",
+      "fields": [
+        { "fieldPath": "deviceId", "order": "ASCENDING" },
+        { "fieldPath": "createdAt", "order": "DESCENDING" }
+      ]
+    }
+  ]
+}
