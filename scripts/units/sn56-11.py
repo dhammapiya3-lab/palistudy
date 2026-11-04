@@ -97,8 +97,8 @@ for prev, prev_k, nxt, nxt_k in HEAVENS:
                   f'{prev_k} 소리를 듣고 {nxt_k} 소리 높여 외쳤다. “{PROCLAIM_K[1:-1]}”', []))
 
 UNITS += [
-    ('Itiha tena khaṇena tena muhuttena yāva brahmalokā saddo abbhuggacchi.',
-     '이렇게 그 찰나, 그 순간에 그 소리는 범천의 세계에까지 퍼져 올라갔다.', []),
+    ('Itiha tena khaṇena tena layena tena muhuttena yāva brahmalokā saddo abbhuggacchi.',
+     '이렇게 그 찰나, 그 잠깐, 그 순간에 그 소리는 범천의 세계에까지 퍼져 올라갔다.', []),
     ('Ayañca dasasahassilokadhātu saṅkampi sampakampi sampavedhi, appamāṇo ca uḷāro obhāso loke pāturahosi atikkamma devānaṃ devānubhāvanti.',
      '그리고 이 일만 세계가 흔들리고, 크게 흔들리고, 진동하였으며, 신들의 위력을 뛰어넘는 한량없고 광대한 빛이 세상에 나타났다.', []),
     ('Atha kho bhagavā imaṃ udānaṃ udānesi – ‘‘aññāsi vata, bho, koṇḍañño, aññāsi vata, bho, koṇḍañño’’ti!',

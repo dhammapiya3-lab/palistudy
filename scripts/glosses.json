@@ -12795,5 +12795,26 @@
 "baseForm": "vatti (말하다)",
 "icon": "💬",
 "formNote": "iti yaṃ taṃ vuttaṃ = \"~라고 말한 것은\""
+},
+"layena": {
+"meaning": "그 짧은 시간에",
+"grammar": "남성명사, 구격 단수 (때)",
+"baseForm": "laya (아주 짧은 시간, 순간)",
+"formNote": "khaṇa(찰나)·laya·muhutta(순간)를 나란히 써서 \"바로 그 순간\"을 강조",
+"icon": "⏱️"
+},
+"yeva": {
+"meaning": "~인 자들은 (바로)",
+"grammar": "연성: ye(관계대명사 남성 주격 복수) + eva(강조)",
+"baseForm": "ya + eva",
+"formNote": "ye eva → yeva. 6차 결집본 표기 (다른 판본은 ye va)",
+"icon": "🔗"
+},
+"retīti": {
+"meaning": "\"[다시] 온다\"라고",
+"grammar": "동사 현재 3인칭 단수 + 인용 ti",
+"baseForm": "eti (오다) ← puna + eti",
+"formNote": "puna eti → puna r-eti (r은 연결음) + iti → retīti",
+"icon": "🔁"
 }
 }

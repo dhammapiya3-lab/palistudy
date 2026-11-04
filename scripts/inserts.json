@@ -1,0 +1,8 @@
+{
+  "pancasila": {
+    "10": [
+      {"type": "teach", "icon": "📖", "word": "abrahmacariyā", "pronKo": "아브라흐마짜리야-", "meaning": "청정하지 못한 행(성행위)에서", "grammar": "복합어, 탈격 단수", "baseForm": "a (아님) + brahmacariya (청정한 삶)", "formNote": "탈격 -ā = \"~로부터 (멀리함)\"\nkāmesu micchācārā(재가자의 셋째 계) 대신 쓰이는 형태", "buddhism": "6차 결집본 소송경(Khuddakapāṭha)의 십학처(사미·출가자 계)에서는 셋째 계가 'Abrahmacariyā veramaṇī sikkhāpadaṃ samādiyāmi(청정하지 못한 행을 삼가는 계를 받들겠습니다)'입니다. 재가자가 오계를 받을 때는 앞에서 배운 'Kāmesu micchācārā'로 독송합니다. 포살일에 팔계를 지킬 때는 재가자도 abrahmacariyā로 독송합니다.", "verseLine": "Abrahmacariyā veramaṇī sikkhāpadaṃ samādiyāmi.", "verseLineKo": "청정하지 못한 행을 삼가는 계를 받들겠습니다. (십학처·팔계의 셋째 계)", "audio": true},
+      {"type": "verse", "pali": "Abrahmacariyā veramaṇī sikkhāpadaṃ samādiyāmi.", "pronKo": "", "translation": "청정하지 못한 행을 삼가는 계를 받들겠습니다.", "highlight": ["Abrahmacariyā"], "note": "📜 6차 결집본 소송경(Khp 2) 십학처의 셋째 계 — 출가자의 계와 포살일 팔계에서 이렇게 독송합니다. 재가 오계는 위의 Kāmesu micchācārā."}
+    ]
+  }
+}

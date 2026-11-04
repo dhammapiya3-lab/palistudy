@@ -15,6 +15,34 @@ from pali_hangul import to_hangul  # noqa: E402
 
 APP = HERE.parent / 'suttalog' / 'src' / 'features' / 'lessons'
 OLD = json.load(open('/home/claude/vri/lessons.json'))
+
+
+def _apply_spelling(old):
+    f = HERE / 'spelling_fixes.json'
+    fixes = json.load(open(f)) if f.exists() else {}
+    for k, pairs in fixes.items():
+        if k.startswith('_') or k not in old:
+            continue
+        for st in old[k]:
+            for a, b in pairs:
+                if a.startswith('@word:'):
+                    if st.get('word') == a[6:]:
+                        st['word'] = b
+                        st['_repron'] = True
+                    continue
+                for fld, v in list(st.items()):
+                    if isinstance(v, str) and a in v:
+                        st[fld] = v.replace(a, b)
+                        if fld in ('pali', 'word'):
+                            st['_repron'] = True
+                    elif isinstance(v, list):
+                        nv = [x.replace(a, b) if isinstance(x, str) else x for x in v]
+                        if nv != v:
+                            st[fld] = nv
+    return old
+
+
+OLD = _apply_spelling(OLD)
 GLOSS_FILE = HERE / 'glosses.json'
 GLOSS = json.load(open(GLOSS_FILE)) if GLOSS_FILE.exists() else {}
 
@@ -189,13 +217,25 @@ def build_keep(k):
         if i in rep_speak:
             s['pali'] = vri_quotes(rep_speak[i])
             s['pronKo'] = pron(rep_speak[i])
+        if s.pop('_repron', False):
+            src = s.get('pali') if s['type'] in ('verse', 'speak') else s.get('word')
+            if src:
+                s['pronKo'] = pron(src)
         if s['type'] in ('verse', 'speak'):
             if truncated(s.get('pronKo')) or not s.get('pronKo'):
                 s['pronKo'] = pron(s['pali'])
             if str(i) in fixes:
                 s['translation'] = fixes[str(i)]
         out.append(s)
+        for extra in INSERTS.get(k, {}).get(str(i), []):
+            e = dict(extra)
+            if not e.get('pronKo'):
+                e['pronKo'] = pron(e.get('pali') or e.get('word'))
+            out.append(e)
     return out
+
+
+INSERTS = json.load(open(HERE / 'inserts.json')) if (HERE / 'inserts.json').exists() else {}
 
 
 # ---------- 빠진 단어 학습 넣기 ----------
