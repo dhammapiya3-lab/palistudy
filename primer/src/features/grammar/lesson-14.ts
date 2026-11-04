@@ -7,7 +7,7 @@ const V_OPT_K = '만약 비구가 계를 지킨다면, 행복할 것이다.'
 
 export const LESSON_14: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '15과: 원망형', subtitle: 'Sattamī (Optative / Conditional)', description: '원망형: ~할 수 있다, ~해야 한다, ~한다면\n동사어근 + eyya\n\n• paceyya = 요리할 수 있다/해야 한다\n• sace paceyya = 만약 요리한다면\n\n부사: sace(만약), ca(그리고), pi(또한)', icon: '🌙' },
+  { type: 'intro', title: '15과: 원망형', subtitle: 'Sattamī (Optative)', description: '원망형: ~할 수 있다, ~해야 한다, ~한다면\n동사어근 + eyya\n\n• paceyya = 요리할 수 있다/해야 한다\n• sace paceyya = 만약 요리한다면\n\n부사: sace(만약), ca(그리고), pi(또한)', icon: '🌙' },
 
   // === 대표 예문 (교재 작문) ===
   { type: 'verse', pali: V_OPT, pronKo: '사쩨- 빅쿠 실-랑 락케이야, 수키- 앗사', translation: V_OPT_K, highlight: ['Sace', 'rakkheyya', 'assa'], note: '※ 교재 작문 예문 (경전 구절 아님)\nsace = 만약 (조건 부사)\nrakkheyya = rakkhati(지키다)의 원망형\nassa = atthi(있다)의 원망형\n"만약 ~한다면, ~일 것이다"' },
@@ -27,7 +27,7 @@ export const LESSON_14: StepWithoutId[] = [
   { type: 'teach', word: 'paceyya', pronKo: '빠쩨이야', meaning: '요리할 수 있다/해야 한다', icon: '🍳', grammar: '원망형 3인칭 단수', baseForm: 'pacati', formNote: '현재: pacati\n원망형: paceyya\n복수: paceyyuṃ' },
   { type: 'teach', word: 'gaccheyya', pronKo: '갓체이야', meaning: '갈 수 있다/간다면', icon: '🚶', grammar: '원망형 3인칭 단수', baseForm: 'gacchati', formNote: '현재: gacchati\n원망형: gaccheyya\n복수: gaccheyyuṃ' },
   { type: 'teach', word: 'dadeyya', pronKo: '다데이야', meaning: '줄 수 있다/준다면', icon: '🎁', grammar: '원망형 3인칭 단수', baseForm: 'dadāti', formNote: '현재: dadāti/deti\n원망형: dadeyya\n복수: dadeyyuṃ' },
-  { type: 'teach', word: 'labhetha', pronKo: '랍베-타', meaning: '얻을 수 있다', icon: '🏆', grammar: '원망형 3인칭 단수', baseForm: 'labhati', formNote: '현재: labhati\n원망형: labheyya/labhetha\n두 형태 모두 사용' },
+  { type: 'teach', word: 'labhetha', pronKo: '랍베-타', meaning: '얻을 수 있다', icon: '🏆', grammar: '원망형 3인칭 단수 (중간태/attanopada -etha)', baseForm: 'labhati', formNote: '현재: labhati\n원망형: labheyya/labhetha\n두 형태 모두 사용\nlabheyya(능동태형)와 같은 뜻 — 2인칭 복수 labheyyātha와 구별' },
 
   // === 예문 3쌍 ===
   { type: 'verse', pali: 'Sace samaṇo dhammaṃ deseyya, manussā suṇeyyuṃ.\nYadi samaṇā dhammaṃ deseyyuṃ, manussā suṇeyyuṃ.', pronKo: '사쩨- 사마노- 담망 데-세이야, 마눗사- 수네이융\n야디 사마나- 담망 데-세이융, 마눗사- 수네이융', translation: '만약 사문이 법을 설한다면, 사람들이 들을 것이다.\n만약 사문들이 법을 설한다면, 사람들이 들을 것이다.', highlight: ['deseyya', 'deseyyuṃ', 'suṇeyyuṃ'], note: 'sace/yadi + 원망형 = 조건문\n-eyya(단수) / -eyyuṃ(복수)' },

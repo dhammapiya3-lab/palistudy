@@ -15,7 +15,7 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'verse', pali: V_MAJJHIMA, pronKo: '에-떼- 코- 빅카웨- 우보- 안떼- 아누빠감마 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다-', translation: V_MAJJHIMA_K, highlight: ['tathāgatena'], note: 'tathāgatena = tathāgata(여래) + -ena(도구격 어미)\n"여래에 의해" 깨달아진 — 행위자를 도구격으로 표현!' },
 
   // === 도구격 문법 ===
-  { type: 'teach-grammar', title: '도구격 (Instrumental) — ~로/함께/의해', example: 'nara + ena = narena (사람에 의해)\nnara + ehi = narehi (사람들에 의해)', exampleKo: '단수: -a → -ena / 복수: -a → -ehi(-ebhi)', explanation: '도구격의 다양한 의미:\n• 수단/도구: kakacena chindati (톱으로 자르다)\n• 동행: saddhiṃ/saha + 도구격 (함께)\n• 행위자: tathāgatena abhisambuddhā (여래에 의해 깨달아진)\n\n-a 남성명사:\n• 단수: -ena (narena, tathāgatena)\n• 복수: -ehi/-ebhi (narehi, sāvakehi)\nehi=ebhi (b탈락 형태)' },
+  { type: 'teach-grammar', title: '도구격 (Instrumental) — ~로/함께/의해', example: 'nara + ena = narena (사람에 의해)\nnara + ehi = narehi (사람들에 의해)', exampleKo: '단수: -a → -ena / 복수: -a → -ehi(-ebhi)', explanation: '도구격의 다양한 의미:\n• 수단/도구: kakacena chindati (톱으로 자르다)\n• 동행: saddhiṃ/saha + 도구격 (함께)\n• 행위자: tathāgatena abhisambuddhā (여래에 의해 깨달아진)\n\n-a 남성명사:\n• 단수: -ena (narena, tathāgatena)\n• 복수: -ehi/-ebhi (narehi, sāvakehi)\nehi = ebhi (bh가 h로 약화된 형태)' },
 
   // === saddhiṃ/saha 설명 ===
   { type: 'teach-grammar', title: 'saddhiṃ / saha — ~와 함께', example: 'sāvakehi saddhiṃ (제자들과 함께)\nmātulena saha (삼촌과 함께)', exampleKo: 'saddhiṃ 또는 saha + 도구격 명사', explanation: 'saddhiṃ과 saha는 도구격과 함께 사용하여\n"~와 함께"를 나타냅니다.\n\n보통 사물에는 사용하지 않습니다.\n(사람/생물과의 동행에 사용)\n\n예: narena saddhiṃ = 사람과 함께\n예: mātulena saha = 삼촌과 함께' },
@@ -56,7 +56,7 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'quiz', question: '6. Mātulo puttehi saddhiṃ rathena gāmaṃ āgacchati.', options: ['삼촌은 아들들과 함께 마차로 마을로 온다', '삼촌들은 아들들과 함께 마차로 마을로 온다', '삼촌은 아들과 함께 마차로 마을로 간다', '삼촌은 아들들과 함께 마을에서 온다'], answer: 0, hint: 'puttehi saddhiṃ=아들들과 함께, rathena=마차로' },
   { type: 'quiz', question: '7. Kumārā hatthehi patte āharanti.', options: ['소년들은 손들로 그릇들을 가져온다', '소년은 손으로 그릇을 가져온다', '소년들은 손들로 밥을 가져온다', '소년들은 발로 그릇들을 운반한다'], answer: 0, hint: 'hatthehi=손들로(도구격 복수), patte=그릇들을' },
   { type: 'quiz', question: '8. Coro maggena assaṃ harati.', options: ['도둑은 길로 마차를 운반한다', '도둑은 길로 말을 운반한다', '도둑들은 길로 말을 운반한다', '도둑은 길에서 말을 본다'], answer: 1, hint: 'maggena=길로(도구격), assaṃ=말을' },
-  { type: 'quiz', question: '9. Kassako āvāṭaṃ oruhati.', options: ['농부는 구덩이를 판다', '농부는 구덩이로 내려온다', '농부들은 구덩이로 내려온다', '농부는 산에서 내려온다'], answer: 1, hint: 'āvāṭaṃ=구덩이를, oruhati=내려오다' },
+  { type: 'quiz', question: '9. Kassako āvāṭaṃ oruhati.', options: ['농부는 구덩이를 판다', '농부는 구덩이로 내려온다', '농부들은 구덩이로 내려온다', '농부는 산에서 내려온다'], answer: 1, hint: 'āvāṭaṃ=구덩이로(방향 목적격), oruhati=내려오다' },
   { type: 'quiz', question: '10. Bhūpālā paṇḍitehi saha samaṇe passanti.', options: ['왕들은 현자들과 함께 사문들을 본다', '왕은 현자와 함께 사문을 본다', '왕들은 현자들에 의해 사문들을 본다', '왕들은 현자들과 함께 사문들에게 간다'], answer: 0, hint: 'paṇḍitehi saha=현자들과 함께, samaṇe=사문들을' },
   { type: 'quiz', question: '11. Paṇḍito bhūpālena saha Tathāgataṃ vandati.', options: ['현자는 왕과 함께 여래에게 경배한다', '현자들은 왕과 함께 여래에게 경배한다', '현자는 왕에 의해 여래에게 경배한다', '현자는 왕과 함께 여래를 본다'], answer: 0, hint: 'bhūpālena saha=왕과 함께, Tathāgataṃ=여래에게' },
   { type: 'quiz', question: '12. Puttā sahāyena saddhiṃ odanaṃ bhuñjanti.', options: ['아들은 친구와 함께 밥을 먹는다', '아들들은 친구와 함께 밥을 먹는다', '아들들은 친구들과 함께 밥을 먹는다', '아들들은 친구와 함께 쌀을 요리한다'], answer: 1, hint: 'sahāyena saddhiṃ=친구와 함께, odanaṃ=밥을' },

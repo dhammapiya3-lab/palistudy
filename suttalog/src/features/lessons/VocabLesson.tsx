@@ -8,14 +8,14 @@ const VOCAB_DATA: Record<string, {
 }> = {
   refuge: {
     title: '삼보 (Buddha, Dhamma, Saṅgha)',
-    source: 'Dhammapada 190-192게 삼귀의문',
+    source: 'Khuddakapāṭha 1 삼귀의 (Saraṇattaya) — Dhp 190–192 귀의 게송 참조',
     sourceVerse: 'Buddhaṃ saraṇaṃ gacchāmi.\nDhammaṃ saraṇaṃ gacchāmi.\nSaṅghaṃ saraṇaṃ gacchāmi.',
     sourceKo: '부처님께 귀의합니다.\n법에 귀의합니다.\n승가에 귀의합니다.',
     words: [
       { pali: 'Buddha', ko: '깨달은 자, 부처', grammar: '남성명사', ipa: '/bud.dʰɐ/', root: '√budh (깨닫다)' },
       { pali: 'Dhamma', ko: '법, 가르침, 진리', grammar: '남성명사', ipa: '/dʰɐm.mɐ/', root: '√dhar (지탱하다)' },
-      { pali: 'Saṅgha', ko: '승가, 공동체', grammar: '남성명사', ipa: '/sɐŋ.gʰɐ/', root: 'saṃ+√gam (함께 가다)' },
-      { pali: 'saraṇaṃ', ko: '귀의처, 보호처', grammar: '중성명사 대격', ipa: '/sɐ.rɐ.ɳɐṃ/', root: '√sar (가다)' },
+      { pali: 'Saṅgha', ko: '승가, 공동체', grammar: '남성명사', ipa: '/sɐŋ.gʰɐ/', root: 'saṃ + √han (함께 모이다)' },
+      { pali: 'saraṇaṃ', ko: '귀의처, 보호처', grammar: '중성명사 대격', ipa: '/sɐ.rɐ.ɳɐṃ/', root: '√sar (보호하다; 주석서: hiṃsā "부수다")' },
       { pali: 'gacchāmi', ko: '(나는) 갑니다', grammar: '동사 1인칭 단수 현재', ipa: '/gɐt.tɕʰaː.mi/', root: '√gam (가다)' },
     ],
   },
@@ -29,8 +29,8 @@ const VOCAB_DATA: Record<string, {
       { pali: 'citta', ko: '마음, 심(心)', grammar: '중성명사', ipa: '/tɕit.tɐ/', root: '√cit (알다)' },
       { pali: 'vedanā', ko: '느낌, 수(受)', grammar: '여성명사', ipa: '/ʋe.dɐ.naː/', root: '√vid (알다)' },
       { pali: 'saññā', ko: '인식, 상(想)', grammar: '여성명사', ipa: '/sɐɲ.ɲaː/', root: 'saṃ+√ñā (알다)' },
-      { pali: 'dukkha', ko: '괴로움, 고(苦)', grammar: '중성명사/형용사', ipa: '/duk.kʰɐ/', root: 'du+√kha (나쁜 공간)' },
-      { pali: 'sukha', ko: '행복, 즐거움', grammar: '중성명사/형용사', ipa: '/su.kʰɐ/', root: 'su+√kha (좋은 공간)' },
+      { pali: 'dukkha', ko: '괴로움, 고(苦)', grammar: '중성명사/형용사', ipa: '/duk.kʰɐ/', root: 'du(나쁜) + kha(공간) — 전통적 어원 풀이(Vism)' },
+      { pali: 'sukha', ko: '행복, 즐거움', grammar: '중성명사/형용사', ipa: '/su.kʰɐ/', root: 'su(좋은) + kha(공간) — 전통적 어원 풀이(Vism)' },
     ],
   },
   numbers: {

@@ -68,13 +68,13 @@ const LESSON_DATA: Record<string, {
     letters: [
       { char: 'ṃ', ipa: '/ŋ/', ko: '"앙"의 받침 ㅇ', type: 'niggahīta', example: 'cakkaṃ' },
       { char: 'ṅ', ipa: '/ŋ/', ko: '"앙"의 ㅇ (k/g 앞)', type: '연구개 비음', example: 'pub-baṅ-ga-mā' },
-      { char: 'ñ', ipa: '/ɲ/', ko: '"냐"의 초성', type: '경구개 비음', example: '(다음 게송)' },
+      { char: 'ñ', ipa: '/ɲ/', ko: '"냐"의 초성', type: '경구개 비음', example: '(이 게송에 없음) 예: saññā, ñāṇa' },
       { char: 'ṭ', ipa: '/ʈ/', ko: '혀를 말아 ㄷ', type: '반설 무성', example: 'seṭ-ṭhā / pa-duṭ-ṭhe-na' },
       { char: 'ḍ', ipa: '/ɖ/', ko: '혀를 말아 ㄷ(울림)', type: '반설 유성', example: '(이 게송에 없음)' },
       { char: 'ṇ', ipa: '/ɳ/', ko: '혀를 말아 ㄴ', type: '반설 비음', example: '(다음 과)' },
     ],
     steps: [
-      { type: 'intro', content: '빠알리어에만 있는 특수 발음부호를 배웁니다.\n점(.)이 아래에 붙은 문자들입니다.' },
+      { type: 'intro', content: '빠알리어에만 있는 특수 발음부호를 배웁니다.\n점·물결표 같은 부호가 붙은 문자들입니다 (ṭ ḍ ṇ ṃ: 아래 점, ṅ: 위 점, ñ: 물결표).' },
       { type: 'quiz', content: '"seṭṭhā"의 ṭ는 어떻게 발음?', options: ['일반 ㄷ', '혀를 뒤로 말아서 ㄷ', '영어 th처럼', 'ㅌ처럼'], answer: 1 },
       { type: 'quiz', content: '"pubbaṅgamā"의 ṅ은?', options: ['"앙"의 받침 ㅇ 소리', '"능"의 ㄴ', '"밍"의 ㅁ', '묵음'], answer: 0 },
     ],

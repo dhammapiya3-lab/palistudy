@@ -4,7 +4,7 @@ import type { StepWithoutId } from './types'
 
 export const LESSON_10: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '10과: 부정사 + 현재분사', subtitle: 'Tuṃ-paccaya / Nta-māna-paccaya', description: '부정사: ~하기 위해, ~할 (-(i)tuṃ)\n현재분사: ~하면서, ~하는 (-nta/-māna)\n새 단어: 중성명사 + 동사\n\n예문: "Dānaṃ dadamānā sagge uppajjanti"', icon: '📚' },
+  { type: 'intro', title: '10-11과: 부정사 + 현재분사', subtitle: 'Tuṃ-paccaya / Nta-māna-paccaya', description: '부정사: ~하기 위해, ~할 (-(i)tuṃ)\n현재분사: ~하면서, ~하는 (-nta/-māna)\n새 단어: 중성명사 + 동사\n\n예문: "Dānaṃ dadamānā sagge uppajjanti"', icon: '📚' },
 
   // === 대표 예문 (교재 작문) ===
   { type: 'verse', pali: 'Dānaṃ dadamānā sīlāni rakkhamānā\nmanussā sagge uppajjanti.', pronKo: '다-낭 다다마-나- 시-라-니 락카마-나-\n마눗사- 삭게- 웁빠잔띠', translation: '보시하면서(dadamānā) 계를 지키면서(rakkhamānā)\n사람들은 천상에 태어난다.', highlight: ['dadamānā', 'rakkhamānā', 'sagge'], note: '※ 교재 작문 예문 (경전 구절 아님)\ndadamānā = dadāti(주다)의 현재분사 복수 주격 (어간 dada- + māna)\nrakkhamānā = rakkhati(지키다)의 현재분사 복수 주격\n-māna 형태의 현재분사가 주어를 수식!' },
@@ -19,7 +19,7 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'verse', pali: 'Kassako nagaraṃ gantuṃ ussahati.', pronKo: '깟사꼬- 나가랑 간뚱 웃사하띠', translation: '농부는 도시에 가려고(gantuṃ) 노력한다.', highlight: ['gantuṃ', 'ussahati'], note: 'gantuṃ = 갈 (불규칙: gam + tuṃ)\nussahati = 노력하다/애쓰다' },
 
   // === 현재분사 문법 ===
-  { type: 'teach-grammar', title: '현재분사 -nta/-māna — ~하면서, ~하는', example: 'pacati → pacanta / pacamāna (요리하면서)\ngacchati → gacchanta / gacchamāna (가면서)\nvasati → vasanta / vasamāna (살면서)\ndeseti → desenta / desayamāna (가르치면서)', exampleKo: '어간 + nta 또는 māna', explanation: '현재분사는 동시 진행 동작을 표현합니다.\n두 형태가 있으며 의미 차이는 거의 없습니다.\n\n-nta형 (능동):\n• pac + anta → pacanta\n• gacch + anta → gacchanta\n\n-māna형 (중간태):\n• pac + amāna → pacamāna\n• gacch + amāna → gacchamāna\n\n현재분사는 형용사처럼 격변화합니다:\n주격 단수: -anto (남성)\n주격 복수: -antā (남성)\n목적격 단수: -antaṃ\n도구격 단수: -antena' },
+  { type: 'teach-grammar', title: '현재분사 -nta/-māna — ~하면서, ~하는', example: 'pacati → pacanta / pacamāna (요리하면서)\ngacchati → gacchanta / gacchamāna (가면서)\nvasati → vasanta / vasamāna (살면서)\ndeseti → desenta / desayamāna (가르치면서)', exampleKo: '어간 + nta 또는 māna', explanation: '현재분사는 동시 진행 동작을 표현합니다.\n두 형태가 있으며 의미 차이는 거의 없습니다.\n\n-nta형 (능동):\n• pac + anta → pacanta\n• gacch + anta → gacchanta\n\n-māna형 (형태상 중간태 attanopada 어미, 실제 의미는 -nta형과 거의 같음):\n• pac + amāna → pacamāna\n• gacch + amāna → gacchamāna\n\n현재분사는 형용사처럼 격변화합니다:\n주격 단수: -anto (남성)\n주격 복수: -antā (남성)\n목적격 단수: -antaṃ\n도구격 단수: -antena' },
 
   // === 현재분사 격변화 ===
   { type: 'teach-grammar', title: '현재분사 격변화 (-nta형)', example: '주격 단: gacchanto (가는 자가)\n주격 복: gacchantā (가는 자들이)\n목적격 단: gacchantaṃ (가는 자를)\n목적격 복: gacchante (가는 자들을)\n도구격 단: gacchantena (가는 자에 의해)', exampleKo: '남성 형용사처럼 격변화', explanation: '현재분사 -nta는 남성 -a형처럼 변화하는 형태 외에\n고유형도 있으며 경전에서 자주 쓰입니다.\n(주격 단수 gacchaṃ, 여격·소유격 단수 gacchato,\n도구격 단수 gacchatā, 소유격 복수 gacchataṃ)\n\n-a형처럼 변화하는 형태:\n\n• 주격: -anto / -antā\n• 목적격: -antaṃ / -ante\n• 도구격: -antena / -antehi\n• 처소격: -ante / -antesu\n\n-māna형은 일반 -a형과 동일:\n• -māno / -mānā (주격)\n• -mānaṃ / -māne (목적격)\n\n경전 예: "āgacchantaṃ" = 오는 자를' },
@@ -29,11 +29,11 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'verse', pali: 'Bhikkhū piṇḍāya carantā gāmaṃ pavisanti.', pronKo: '빅쿠- 삔다-야 짜란따- 가-망 빠위산띠', translation: '비구들은 탁발하며 다니면서(carantā) 마을에 들어간다.', highlight: ['carantā', 'piṇḍāya'], note: 'carantā = 다니면서 (현재분사 복수 주격)\npiṇḍāya = 탁발을 위해' },
 
   // === 새 단어: 중성명사 (11과) ===
-  { type: 'teach', word: 'āpaṇa', pronKo: '아-빠나', meaning: '가게, 상점', icon: '🏪', grammar: '중성명사', baseForm: 'āpaṇa', formNote: '주격: āpaṇaṃ / āpaṇā,āpaṇāni\n처소격: āpaṇe (가게에서)' },
+  { type: 'teach', word: 'āpaṇa', pronKo: '아-빠나', meaning: '가게, 상점', icon: '🏪', grammar: '남성명사', baseForm: 'āpaṇa', formNote: '주격: āpaṇo / āpaṇā\n처소격: āpaṇe (가게에서)' },
   { type: 'teach', word: 'puñña', pronKo: '뿐냐', meaning: '공덕, 선행', icon: '✨', grammar: '중성명사', baseForm: 'puñña', formNote: '주격: puññaṃ / puññā,puññāni', buddhism: 'puñña = 공덕. dāna(보시)·sīla(지계)·bhāvanā(수행)으로 쌓음' },
   { type: 'teach', word: 'pāpa', pronKo: '빠-빠', meaning: '악, 악업', icon: '👿', grammar: '중성명사', baseForm: 'pāpa', formNote: '주격: pāpaṃ / pāpā,pāpāni', buddhism: 'pāpa ↔ puñña (악 ↔ 공덕)\n"Sabbapāpassa akaraṇaṃ" = 모든 악을 짓지 말라\n(직역: 모든 악의 짓지 않음 — akaraṇaṃ은 중성명사 "짓지 않음")' },
   { type: 'teach', word: 'kamma', pronKo: '깜마', meaning: '업, 행위', icon: '⚖️', grammar: '중성명사', baseForm: 'kamma', formNote: '주격: kammaṃ / kammā,kammāni', buddhism: 'kamma = 업(業). 의도적 행위\nkusala-kamma = 선업, akusala-kamma = 악업' },
-  { type: 'teach', word: 'kusala', pronKo: '꾸살라', meaning: '선(善), 선한', icon: '👼', grammar: '중성명사 / 형용사', baseForm: 'kusala', formNote: '명사: kusalaṃ (선)\n형용사: kusala kamma (선업)', buddhism: 'kusala ↔ akusala (선 ↔ 불선)' },
+  { type: 'teach', word: 'kusala', pronKo: '꾸살라', meaning: '선(善), 선한', icon: '👼', grammar: '중성명사 / 형용사', baseForm: 'kusala', formNote: '명사: kusalaṃ (선)\n형용사: kusalaṃ kammaṃ (선한 업) / 복합어: kusalakamma (선업)', buddhism: 'kusala ↔ akusala (선 ↔ 불선)' },
   { type: 'teach', word: 'dhana', pronKo: '다나', meaning: '재산, 부', icon: '💰', grammar: '중성명사', baseForm: 'dhana', formNote: '주격: dhanaṃ / dhanā,dhanāni', buddhism: 'ariya-dhana = 성스러운 재산 (7가지)\nsaddhā, sīla, hirī, ottappa, suta, cāga, paññā' },
   { type: 'teach', word: 'paduma', pronKo: '빠두마', meaning: '연꽃', icon: '🪷', grammar: '중성명사', baseForm: 'paduma', formNote: '주격: padumaṃ / padumā,padumāni', buddhism: '연꽃 = 진흙에서 피나 더럽히지 않음\n깨달은 자의 상징' },
   { type: 'teach', word: 'sacca', pronKo: '삿짜', meaning: '진리, 진실', icon: '💎', grammar: '중성명사', baseForm: 'sacca', formNote: '주격: saccaṃ / saccā,saccāni', buddhism: 'cattāri ariya-saccāni = 사성제\n고·집·멸·도' },

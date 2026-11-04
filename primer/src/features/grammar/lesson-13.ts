@@ -19,10 +19,10 @@ export const LESSON_13: StepWithoutId[] = [
   { type: 'teach-grammar', title: '미래형 활용 — -e어간 (coreti)', example: '3인칭: coressati / coressanti\n2인칭: coressasi / coressatha\n1인칭: coressāmi / coressāma', exampleKo: '단수 / 복수', explanation: '-e어간 동사의 미래형:\n어근 + essa + 현재어미\n\ncor(훔치다) → coreti(현재)\ncor + essa + ti = coressati(미래)\n\n다른 예:\n• deseti(설하다) → desessati\n• pūjeti(공양하다) → pūjessati\n• katheti(말하다) → kathessati' },
 
   // === 미래형 문법: -nā어간 ===
-  { type: 'teach-grammar', title: '미래형 활용 — -nā어간 (kiṇāti)', example: '3인칭: kiṇissati / kiṇissanti\n2인칭: kiṇissasi / kiṇissatha\n1인칭: kiṇissāmi / kiṇissāma', exampleKo: '단수 / 복수', explanation: '-nā어간 동사의 미래형:\n-nā를 버리고 어근 + issa + 어미\n\nkiṇāti(사다) → kiṇ + issa = kiṇissati\njānāti(알다) → jānissati\nsuṇāti(듣다) → suṇissati (또는 sossati)' },
+  { type: 'teach-grammar', title: '미래형 활용 — -nā어간 (kiṇāti)', example: '3인칭: kiṇissati / kiṇissanti\n2인칭: kiṇissasi / kiṇissatha\n1인칭: kiṇissāmi / kiṇissāma', exampleKo: '단수 / 복수', explanation: '-nā어간 동사의 미래형:\n어간의 장모음 -ā를 떼고 + issa + 어미\n\nkiṇāti(사다): kiṇā- → kiṇ-issati\njānāti(알다): jānā- → jān-issati\nsuṇāti(듣다): suṇā- → suṇ-issati (sossati는 √su에서 직접)' },
 
   // === 불규칙 미래형 ===
-  { type: 'teach-grammar', title: '불규칙 미래형 — 주의!', example: 'gacchati → gamissati\ndadāti → dassati\ntiṭṭhati → ṭhassati\nkaroti → karissati/kāhiti', exampleKo: '가다 → 갈 것이다\n주다 → 줄 것이다\n서다 → 설 것이다\n하다 → 할 것이다', explanation: '불규칙 미래형은 어근이 변합니다:\n\n• gacchati(가다): gam + issa = gamissati\n  — gacch-가 아닌 원래 어근 gam- 사용\n• dadāti(주다): dā → dassati\n  — 어근 축약\n• tiṭṭhati(서다): ṭhā → ṭhassati\n  — 어근 ṭhā 사용\n• karoti(하다): kar + issa = karissati\n  또는 kāhiti (고형)\n\n이 4개는 반드시 암기!' },
+  { type: 'teach-grammar', title: '불규칙 미래형 — 주의!', example: 'gacchati → gamissati\ndadāti → dassati\ntiṭṭhati → ṭhassati\nkaroti → karissati/kāhiti', exampleKo: '가다 → 갈 것이다\n주다 → 줄 것이다\n서다 → 설 것이다\n하다 → 할 것이다', explanation: '불규칙 미래형은 어근이 변합니다:\n\n• gacchati(가다): gam + issa = gamissati\n  — 주로 어근 gam-을 써서 gamissati\n    (현재어간형 gacchissati도 드물게 나옴)\n• dadāti(주다): dā → dassati\n  — 어근 축약\n• tiṭṭhati(서다): ṭhā → ṭhassati\n  — 어근 ṭhā 사용\n• karoti(하다): kar + issa = karissati\n  또는 kāhiti (고형)\n\n이 4개는 반드시 암기!' },
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pacissati', pronKo: '빠찟사띠', meaning: '요리할 것이다', icon: '🍳', grammar: '미래형 3인칭 단수', baseForm: 'pacati', formNote: '현재: pacati\n미래: pacissati\npac + issa + ti' },

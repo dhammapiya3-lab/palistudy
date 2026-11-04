@@ -127,13 +127,14 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'teach-grammar',
     title: '⑥ 뒷 모음 탈락 + 앞 모음 장음화',
-    example: 'vi + ati → vīti',
-    exampleKo: '지나가다 (vi + ati)',
+    example: 'vi + atikkamati → vītikkamati',
+    exampleKo: '넘어서다, 범하다 (vi + atikkamati)',
     explanation:
       '뒷 모음이 탈락한 후, 앞 모음이\n보상적으로 장음화됩니다.\n\n' +
       '②번의 반대 방향:\n' +
-      '• vi + ati: a 탈락 → i가 ī로 장음화\n' +
-      '→ vīti (지나가다)',
+      '• vi + atikkamati: a 탈락 → i가 ī로 장음화\n' +
+      '→ vītikkamati (넘어서다, 범하다)\n\n' +
+      '※ vīti는 독립된 단어가 아니라 접두사 결합형으로,\nvītikkamati·vītivatta 같은 단어 안에서만 나타납니다.',
   },
 
   // ⑦ i/e→y, u/o→v 변화
@@ -152,7 +153,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '흔히 짧은 대명사·불변사(te, me, so, kho, yesu…)\n끝의 i/e, u/o가 뒤 모음 앞에서:\n' +
       '• i, e → y로 변하고 뒤 a가 장음화\n' +
       '• u, o → v로 변하고 뒤 a가 장음화\n\n' +
-      'ā, ī, ū 같은 장모음은 이 변화를 겪지 않습니다.\n\n' +
+      '주로 짧은 단어 끝의 i/u와 e/o에 일어나며,\nā는 이 변화를 겪지 않습니다.\n\n' +
       '예: te(e→y) + ahaṃ(a→ā) → tyāhaṃ\n' +
       '    so(o→v) + ahaṃ(a→ā) → svāhaṃ',
   },
@@ -351,7 +352,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       'dhammaṃ + ca → dhammañca\n' +
       'saṃ + nisīdati → sannisīdati',
     exampleKo:
-      '함께 걷다 (saṃ + 걷다)\n' +
+      '건너가다, 옮겨가다 (saṃ + kamati)\n' +
       '법과 (dhammaṃ + ~와)\n' +
       '함께 앉다 (saṃ + 앉다)',
     explanation:

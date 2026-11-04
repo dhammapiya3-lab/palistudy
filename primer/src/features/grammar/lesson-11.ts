@@ -4,7 +4,7 @@ import type { StepWithoutId } from './types'
 
 export const LESSON_11: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '11과: 동사 인칭변화 (현재형)', subtitle: 'Vattamānā-vibhatti (Present Tense Conjugation)', description: '현재형 전 인칭 어미:\n3인칭: -ti/-nti\n2인칭: -si/-tha\n1인칭: -āmi/-āma\n\n인칭대명사: So, Tvaṃ, Ahaṃ...\n경전: "Buddhaṃ saraṇaṃ gacchāmi"', icon: '🗣️' },
+  { type: 'intro', title: '12과: 동사 인칭변화 (현재형)', subtitle: 'Vattamānā-vibhatti (Present Tense Conjugation)', description: '현재형 전 인칭 어미:\n3인칭: -ti/-nti\n2인칭: -si/-tha\n1인칭: -āmi/-āma\n\n인칭대명사: So, Tvaṃ, Ahaṃ...\n경전: "Buddhaṃ saraṇaṃ gacchāmi"', icon: '🗣️' },
 
   // === 경전 구절 ===
   { type: 'verse', pali: 'Buddhaṃ saraṇaṃ gacchāmi.\nDhammaṃ saraṇaṃ gacchāmi.\nSaṅghaṃ saraṇaṃ gacchāmi.', pronKo: '붓당 사라낭 갓차-미\n담망 사라낭 갓차-미\n상강 사라낭 갓차-미', translation: '부처님께 귀의합니다.\n법에 귀의합니다.\n승가에 귀의합니다.', highlight: ['gacchāmi', 'saraṇaṃ', 'Buddhaṃ'], note: 'gacchāmi = gacchati의 1인칭 단수!\n-āmi 어미 = "나는 ~한다"\nsaraṇaṃ gacchāmi = 귀의합니다 (피난처로 갑니다)\n— 삼귀의(Tisaraṇa), 불교 귀의문의 핵심!' },

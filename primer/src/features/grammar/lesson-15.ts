@@ -16,7 +16,7 @@ export const LESSON_15: StepWithoutId[] = [
   { type: 'teach-grammar', title: '명령형 활용 — pacati 기준', example: '3인칭: pacatu / pacantu\n2인칭: paca (pacāhi) / pacatha\n1인칭: pacāmi / pacāma', exampleKo: '단수 / 복수', explanation: '명령형 인칭별 어미:\n\n인칭 | 단수 | 복수\n3인칭 | -atu/-etu | -antu/-entu\n2인칭 | -a/-āhi | -atha\n1인칭 | -āmi | -āma\n\n인칭별 의미:\n• 3인칭 명령형 = ~하게 하라 / ~하기를! (기원)\n• 2인칭 단수 두 형태:\n  - paca = 짧은 형 (일상적)\n  - pacāhi = 긴 형 (뜻 차이 없는 이형)\n• 1인칭 명령형 = "~합시다" (청유)' },
 
   // === 금지형 ===
-  { type: 'teach-grammar', title: '금지형 — mā + 명령형', example: 'mā gaccha = 가지 마라\nmā gacchatha = 가지 마라 (복수)\nmā bhāyatha = 두려워하지 마라', exampleKo: 'mā + 동사 명령형 = ~하지 마라', explanation: '금지형 구성:\nmā + 명령형 (또는 원망형·과거형 aorist)\n\n예문:\n• mā paca = 요리하지 마라\n• mā pacantu = 그들이 요리하지 않게 하라 (3인칭 복수)\n• mā gacchatha = 가지 마라 (너희)\n\n경전 용례:\n• mā bhāyatha = 두려워하지 마라\n• mā pamādaṃ anuyuñjetha (Dhp 27)\n  = 방일에 빠지지 마라\n  ※ anuyuñjetha는 명령형이 아니라 원망형(-etha)입니다.\n  mā는 명령형·원망형·과거형(aorist)과 함께 금지를 나타냅니다.\n\nmā는 동사 바로 앞에 위치합니다.' },
+  { type: 'teach-grammar', title: '금지형 — mā + 명령형', example: 'mā gaccha = 가지 마라\nmā gacchatha = 가지 마라 (복수)\nmā bhāyatha = 두려워하지 마라', exampleKo: 'mā + 동사 명령형 = ~하지 마라', explanation: '금지형 구성:\nmā + 명령형 (또는 원망형·과거형 aorist)\n\n예문:\n• mā paca = 요리하지 마라\n• mā pacantu = 그들이 요리하지 않게 하라 (3인칭 복수)\n• mā gacchatha = 가지 마라 (너희)\n\n경전 용례:\n• mā bhāyatha = 두려워하지 마라\n• mā pamādaṃ anuyuñjetha (Dhp 27)\n  = 방일에 빠지지 마라\n  ※ anuyuñjetha는 명령형이 아니라 원망형(-etha)입니다.\n  mā는 명령형·원망형·과거형(aorist)과 함께 금지를 나타냅니다.\n\nmā는 보통 절 앞쪽에 오며, 동사와 떨어져 있을 수 있습니다(mā pāpaṃ karohi).' },
 
   // === 단어 학습 ===
   { type: 'teach', word: 'pacatu', pronKo: '빠짜뚜', meaning: '그가 요리하게 하라', icon: '🍳', grammar: '명령형 3인칭 단수', baseForm: 'pacati', formNote: '현재: pacati\n명령: pacatu (3인칭)\n복수: pacantu' },
@@ -40,7 +40,7 @@ export const LESSON_15: StepWithoutId[] = [
   { type: 'quiz', question: '4. Samaṇā dhammaṃ desentu.', options: ['사문들이 법을 설하게 하라', '사문은 법을 설하게 하라', '사문들은 법을 설한다', '사문들이 법을 설할 것이다'], answer: 0, hint: 'desentu = deseti의 명령형 3인칭 복수' },
   { type: 'quiz', question: '5. Mā pāpaṃ karohi!', options: ['악을 행하지 마라!', '악을 행하라!', '악을 행하지 않는다', '악을 행해야 한다'], answer: 0, hint: 'mā + karohi = 행하지 마라 (금지형)' },
   { type: 'quiz', question: '6. Kumāra, udakaṃ āharāhi!', options: ['소년이여, 물을 가져오라!', '소년들이여, 물을 가져오라!', '소년이여, 물을 마셔라!', '소년이여, 물을 가져오지 마라!'], answer: 0, hint: 'āharāhi = āharati의 명령형 2인칭 단수' },
-  { type: 'quiz', question: '7. Gāmaṃ gacchāma.', options: ['마을에 갑시다', '마을에 간다', '마을에 가라', '마을에 갈 것이다'], answer: 0, hint: 'gacchāma = 1인칭 복수 명령형 (청유: ~합시다)' },
+  { type: 'quiz', question: '7. Gāmaṃ gacchāma.', options: ['마을에 갑시다', '마을에 갔다', '마을에 가라', '마을에 갈 것이다'], answer: 0, hint: 'gacchāma = 1인칭 복수 명령형 (청유: ~합시다)\n※ 현재 1인칭 복수(우리는 간다)와 형태가 같아 문맥으로 구분' },
   { type: 'quiz', question: '8. Bhikkhave, mā pamādaṃ anuyuñjatha!', options: ['비구들이여, 방일에 빠지지 마라!', '비구여, 방일에 빠지지 마라!', '비구들이여, 방일에 빠져라!', '비구들이여, 방일에 빠지지 않는다!'], answer: 0, hint: 'mā + anuyuñjatha = ~에 빠지지 마라(금지 복수)' },
   { type: 'quiz', question: '9. So sīlaṃ rakkhatu.', options: ['그가 계를 지키게 하라', '그는 계를 지킨다', '그가 계를 지킬 것이다', '그들이 계를 지키게 하라'], answer: 0, hint: 'rakkhatu = 명령형 3인칭 단수, so=그' },
   { type: 'quiz', question: '10. Caratha bhikkhave cārikaṃ!', options: ['비구들이여, 편력하라!', '비구여, 편력하라!', '비구들이여, 편력하지 마라!', '비구들이여, 편력할 것이다!'], answer: 0, hint: 'caratha = carati의 명령형 2인칭 복수' },

@@ -6,7 +6,7 @@ export const LESSON_26: StepWithoutId[] = [
   { type: 'intro', title: '29과: -i/-u 중성명사', subtitle: 'Napuṃsakaliṅga -i/-u nāma', description: '-i 중성명사 (aṭṭhi 기준)\n-u 중성명사 (cakkhu 기준)\n\n중성명사는 주격=목적격이 핵심!', icon: '🦴' },
 
   // === -i 중성명사 격변화 (aṭṭhi) ===
-  { type: 'teach-grammar', title: '-i 중성명사 격변화 (aṭṭhi 뼈)', example: '주격: aṭṭhi,aṭṭhiṃ / aṭṭhī,aṭṭhīni\n목적격: aṭṭhiṃ,aṭṭhi / aṭṭhī,aṭṭhīni\n도구격: aṭṭhinā / aṭṭhīhi\n여격: aṭṭhino,aṭṭhissa / aṭṭhīnaṃ\n탈격: aṭṭhinā / aṭṭhīhi\n소유격: aṭṭhino,aṭṭhissa / aṭṭhīnaṃ\n처소격: aṭṭhini,aṭṭhimhi / aṭṭhīsu\n호격: aṭṭhi / aṭṭhī,aṭṭhīni', exampleKo: '단수: -inā(도구격), -ino/-issa(여/소유)\n복수: -ī/-īni/-īhi/-īnaṃ/-īsu', explanation: '-i 중성명사 핵심:\n• 주격=목적격 (중성의 특징)\n• 단수 주격: -i 또는 -iṃ / 복수 주격: -ī 또는 -īni\n• 도구격/탈격 단수: -inā\n• 처소격 단수: -ini 또는 -imhi\n• 남성 -i와 비교: 주격/목적격만 차이' },
+  { type: 'teach-grammar', title: '-i 중성명사 격변화 (aṭṭhi 뼈)', example: '주격: aṭṭhi,aṭṭhiṃ / aṭṭhī,aṭṭhīni\n목적격: aṭṭhiṃ,aṭṭhi / aṭṭhī,aṭṭhīni\n도구격: aṭṭhinā / aṭṭhīhi\n여격: aṭṭhino,aṭṭhissa / aṭṭhīnaṃ\n탈격: aṭṭhinā / aṭṭhīhi\n소유격: aṭṭhino,aṭṭhissa / aṭṭhīnaṃ\n처소격: aṭṭhini,aṭṭhimhi,aṭṭhismiṃ / aṭṭhīsu\n호격: aṭṭhi / aṭṭhī,aṭṭhīni', exampleKo: '단수: -inā(도구격), -ino/-issa(여/소유)\n복수: -ī/-īni/-īhi/-īnaṃ/-īsu', explanation: '-i 중성명사 핵심:\n• 주격=목적격 (중성의 특징)\n• 단수 주격: -i 또는 -iṃ / 복수 주격: -ī 또는 -īni\n• 도구격/탈격 단수: -inā\n• 처소격 단수: -ini, -imhi 또는 -ismiṃ\n• 남성 -i와 비교: 주격/목적격만 차이' },
 
   // === -i 중성명사 단어 ===
   { type: 'teach', word: 'aṭṭhi', pronKo: '앗티', meaning: '뼈', icon: '🦴', grammar: '-i 중성명사', formNote: '주격: aṭṭhi / aṭṭhī,aṭṭhīni' },
@@ -18,7 +18,7 @@ export const LESSON_26: StepWithoutId[] = [
   { type: 'teach', word: 'satthi', pronKo: '삿티', meaning: '넓적다리', icon: '🦵', grammar: '-i 중성명사', formNote: '주격: satthi / satthī,satthīni' },
 
   // === -u 중성명사 격변화 (cakkhu) ===
-  { type: 'teach-grammar', title: '-u 중성명사 격변화 (cakkhu 눈)', example: '주격: cakkhu,cakkhuṃ / cakkhū,cakkhūni\n목적격: cakkhuṃ,cakkhu / cakkhū,cakkhūni\n도구격: cakkhunā / cakkhūhi\n여격: cakkhuno,cakkhussa / cakkhūnaṃ\n탈격: cakkhunā / cakkhūhi\n소유격: cakkhuno,cakkhussa / cakkhūnaṃ\n처소격: cakkhuni,cakkhumhi / cakkhūsu\n호격: cakkhu / cakkhū,cakkhūni', exampleKo: '단수: -unā(도구격), -uno/-ussa(여/소유)\n복수: -ū/-ūni/-ūhi/-ūnaṃ/-ūsu', explanation: '-u 중성명사 핵심:\n• 주격=목적격 (중성의 특징)\n• -i 중성과 동일 패턴: i→u 치환\n• 단수 주격: -u 또는 -uṃ (cakkhu / cakkhuṃ)\n• 단수 처소격: -uni 또는 -umhi\n• 복수 주격: -ū 또는 -ūni' },
+  { type: 'teach-grammar', title: '-u 중성명사 격변화 (cakkhu 눈)', example: '주격: cakkhu,cakkhuṃ / cakkhū,cakkhūni\n목적격: cakkhuṃ,cakkhu / cakkhū,cakkhūni\n도구격: cakkhunā / cakkhūhi\n여격: cakkhuno,cakkhussa / cakkhūnaṃ\n탈격: cakkhunā / cakkhūhi\n소유격: cakkhuno,cakkhussa / cakkhūnaṃ\n처소격: cakkhuni,cakkhumhi,cakkhusmiṃ / cakkhūsu\n호격: cakkhu / cakkhū,cakkhūni', exampleKo: '단수: -unā(도구격), -uno/-ussa(여/소유)\n복수: -ū/-ūni/-ūhi/-ūnaṃ/-ūsu', explanation: '-u 중성명사 핵심:\n• 주격=목적격 (중성의 특징)\n• -i 중성과 동일 패턴: i→u 치환\n• 단수 주격: -u 또는 -uṃ (cakkhu / cakkhuṃ)\n• 단수 처소격: -uni, -umhi 또는 -usmiṃ\n• 복수 주격: -ū 또는 -ūni' },
 
   // === -u 중성명사 단어 ===
   { type: 'teach', word: 'cakkhu', pronKo: '짝쿠', meaning: '눈(目)', icon: '👁️', grammar: '-u 중성명사', formNote: '주격: cakkhu / cakkhū,cakkhūni', buddhism: '6근(saḷāyatana) 중 하나' },
@@ -44,7 +44,7 @@ export const LESSON_26: StepWithoutId[] = [
   { type: 'quiz', question: '1. Aṭṭhīni sarīre honti.', options: ['뼈들은 몸에 있다', '뼈는 몸에 있다', '뼈들은 몸을 만든다', '뼈들은 몸에서 나온다'], answer: 0, hint: 'aṭṭhīni = 뼈들(복수), sarīre = 몸에서' },
   { type: 'quiz', question: '2. cakkhu의 도구격 단수는?', options: ['cakkhunā', 'cakkhuṃ', 'cakkhūhi', 'cakkhussa'], answer: 0, hint: '-u 중성명사 도구격 단수 = -unā' },
   { type: 'quiz', question: '3. Vārinā khettaṃ siñcati.', options: ['물로 밭에 물을 준다', '물을 밭에서 가져온다', '물이 밭으로 흐른다', '물로 밭을 씻는다'], answer: 0, hint: 'vārinā = 물로(도구격), siñcati = 물을 주다' },
-  { type: 'quiz', question: '4. aṭṭhi의 처소격 단수는?', options: ['aṭṭhini 또는 aṭṭhimhi', 'aṭṭhīsu', 'aṭṭhiyā', 'aṭṭhismiṃ'], answer: 0, hint: '-i 중성명사 처소격 단수 = -ini/-imhi' },
+  { type: 'quiz', question: '4. aṭṭhi의 처소격 단수는?', options: ['aṭṭhini 또는 aṭṭhimhi', 'aṭṭhīsu', 'aṭṭhiyā', 'aṭṭhe'], answer: 0, hint: '-i 중성명사 처소격 단수 = -ini/-imhi (-ismiṃ도 가능)' },
   { type: 'quiz', question: '5. Bhikkhu dadhiṃ bhuñjati.', options: ['비구는 응유를 먹는다', '비구들은 응유를 먹는다', '비구는 응유를 만든다', '비구는 우유를 먹는다'], answer: 0, hint: 'dadhiṃ = 응유를(목적격), bhuñjati = 먹다' },
   { type: 'quiz', question: '6. Sappiṃ madhunā sammisseti.', options: ['버터를 꿀과 섞는다', '꿀을 버터로 섞는다', '버터와 꿀을 먹는다', '버터는 꿀에 있다'], answer: 0, hint: 'sappiṃ = 버터를(목적격), madhunā = 꿀로(도구격)' },
   { type: 'quiz', question: '7. Kumāro dārunā aggiṃ karoti.', options: ['소년은 장작으로 불을 만든다', '소년은 장작에 불을 놓는다', '소년은 장작을 불에 넣는다', '소년은 장작과 불을 가져온다'], answer: 0, hint: 'dārunā = 장작으로(도구격), aggiṃ = 불을' },

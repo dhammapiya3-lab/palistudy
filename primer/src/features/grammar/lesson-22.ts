@@ -6,7 +6,7 @@ export const LESSON_22: StepWithoutId[] = [
   { type: 'intro', title: '23과: 사역형', subtitle: 'Kārita (Causative)', description: '~시키다, ~하게 하다\n\n-e/-aya: \n-āpe/-āpaya: \n\n예: pacati(요리한다) → pāceti(요리시킨다)', icon: '👨‍💼' },
 
   // === 사역형 -e/-aya ===
-  { type: 'teach-grammar', title: '사역형 -e/-aya', example: 'pac(요리하다) → pāceti / pācayati\nbhuj(먹다) → bhojeti / bhojayati\nkar(행하다) → kāreti / kārayati\ndis(보이다) → deseti / desayati', exampleKo: '어근 모음 강화 + -eti/-ayati', explanation: '-e/-aya:\n• pāceti = 요리시킨다 (pac → pāc + eti)\n• bhojeti = 먹인다 (bhuj → bhoj + eti)\n• kāreti = 행하게 한다 (kar → kār + eti)\n\n어근의 모음이 강화됩니다:\n• a → ā (pac → pāc)\n• u → o (bhuj → bhoj)\n• i → e (dis → des → deseti, 보이다·설하다)' },
+  { type: 'teach-grammar', title: '사역형 -e/-aya', example: 'pac(요리하다) → pāceti / pācayati\nbhuj(먹다) → bhojeti / bhojayati\nkar(행하다) → kāreti / kārayati\ndis(가리키다, 보여 주다) → deseti / desayati (가르치다, 설하다)\n※ \'보다\'의 √dis(passati, diṭṭha)와는 다른 어근', exampleKo: '어근 모음 강화 + -eti/-ayati', explanation: '-e/-aya:\n• pāceti = 요리시킨다 (pac → pāc + eti)\n• bhojeti = 먹인다 (bhuj → bhoj + eti)\n• kāreti = 행하게 한다 (kar → kār + eti)\n\n어근의 모음이 강화됩니다:\n• a → ā (pac → pāc)\n• u → o (bhuj → bhoj)\n• i → e (dis → des → deseti, 가리키다·설하다)' },
 
   // === 사역형 -āpe/-āpaya ===
   { type: 'teach-grammar', title: '사역형 -āpe/-āpaya', example: 'cor(훔치다) → corāpeti (훔치게 시킨다)\nkiṇ(사다) → kiṇāpeti (사게 시킨다)\npac → pācāpeti (요리하게 시킨다)\ndā(주다) → dāpeti / dāpayati (주게 한다)', exampleKo: '어근 + -āpeti', explanation: '-āpe/-āpaya:\n• corāpeti = 훔치게 한다\n• kiṇāpeti = 사게 한다\n• pācāpeti = 요리하게 시킨다\n• dāpeti = 주게 한다 (dā + āpe → dāpe)' },

@@ -24,10 +24,10 @@ const GRAMMAR_DATA: Record<string, {
     verseKo: '부처님께 귀의합니다',
     explanation: [
       { title: '주격 (-o): "~이/가"', content: 'Buddho deseti = 부처님이 설하신다\n-o 어미가 붙으면 주어가 됩니다' },
-      { title: '대격 (-aṃ): "~을/를"', content: 'Buddhaṃ saraṇaṃ gacchāmi\n= 부처님(을) 귀의처(를) 갑니다\n-aṃ 어미가 붙으면 목적어가 됩니다' },
+      { title: '대격 (-aṃ): "~을/를"', content: 'Buddhaṃ saraṇaṃ gacchāmi\n= 부처님(을) 귀의처(를) 갑니다\n(남성 -a 어간에서) -aṃ 어미는 대격 = 목적어입니다.\n단, 중성 -a 어간은 주격도 -aṃ이므로(cittaṃ, sutaṃ 등) 문장 안의 기능으로 판단합니다' },
     ],
     table: {
-      headers: ['격', '어미', '기능', '예시'],
+      headers: ['격', '어미 (남성 -a 어간)', '기능', '예시'],
       rows: [
         ['주격', '-o (단), -ā (복)', '~이/가', 'Buddho'],
         ['대격', '-aṃ (단), -e (복)', '~을/를', 'Buddhaṃ'],

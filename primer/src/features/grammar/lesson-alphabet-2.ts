@@ -759,7 +759,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"야\"",
     "icon": "🔊",
     "verseLine": "yassa [얏사]",
-    "verseLineKo": "~의 (행복경)"
+    "verseLineKo": "그 사람의 (관계대명사 소유격, 행복경)"
   },
   {
     "type": "teach",

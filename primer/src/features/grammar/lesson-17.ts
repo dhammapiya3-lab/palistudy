@@ -58,11 +58,11 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'quiz', question: '2. Dārikāyo gaṅgāyaṃ kīḷanti.', options: ['소녀들은 갠지스 강에서 논다', '소녀는 갠지스 강에서 논다', '소녀들은 갠지스 강에 간다', '소녀들은 바다에서 논다'], answer: 0, hint: 'dārikāyo=소녀들(복수), gaṅgāyaṃ=갠지스 강에서(처소격)' },
   { type: 'quiz', question: '3. Ammā kaññāya kathaṃ katheti.', options: ['어머니는 소녀에게 이야기를 한다', '어머니는 소녀의 이야기를 듣는다', '어머니들은 소녀에게 이야기를 한다', '어머니는 소녀에게서 이야기를 듣는다'], answer: 0, hint: 'kaññāya=소녀에게(여격 -āya), kathaṃ=이야기를' },
   { type: 'quiz', question: '4. Bhariyā mālāhi Buddhaṃ pūjeti.', options: ['아내는 화환들로 붓다를 공양한다', '아내는 화환으로 붓다를 공양한다', '아내들은 화환들로 붓다를 공양한다', '아내는 화환들을 붓다께 드린다'], answer: 0, hint: 'mālāhi=화환들로(도구격 복수 -āhi)' },
-  { type: 'quiz', question: '5. Kaññā nāvāya gaṅgaṃ tarati.', options: ['소녀는 배로 갠지스 강을 건넌다', '소녀는 배에서 갠지스 강을 건넌다', '소녀들은 배로 갠지스 강을 건넌다', '소녀는 배를 타고 바다를 건넌다'], answer: 0, hint: 'nāvāya=배로(도구격 -āya), gaṅgaṃ=갠지스 강을' },
+  { type: 'quiz', question: '5. Kaññā nāvāya gaṅgaṃ tarati.', options: ['소녀는 배로 갠지스 강을 건넌다', '소녀는 배를 갠지스 강으로 끈다', '소녀들은 배로 갠지스 강을 건넌다', '소녀는 배를 타고 바다를 건넌다'], answer: 0, hint: 'nāvāya=배로(도구격 -āya), gaṅgaṃ=갠지스 강을' },
   { type: 'quiz', question: '6. Devatāyo sākhāsu nisīdanti.', options: ['천신들은 가지들에 앉는다', '천신은 가지에 앉는다', '천신들은 가지들에서 내려온다', '천신들은 나무들에 앉는다'], answer: 0, hint: 'sākhāsu=가지들에(처소격 복수 -āsu)' },
   { type: 'quiz', question: '7. Parisā sālaṃ sannipatati.', options: ['수행원이 강당에 모인다', '수행원들이 강당에 모인다', '수행원이 강당에서 나간다', '수행원이 마을에 모인다'], answer: 0, hint: 'parisā=수행원(단수 주격), sālaṃ=강당에(목적격=방향)' },
   { type: 'quiz', question: '8. Upāsikā puttaṃ surāya nivāreti.', options: ['우바이는 아들을 술로부터 막는다', '우바이는 아들에게 술을 준다', '우바이들은 아들을 술로부터 막는다', '아들은 우바이를 술로부터 막는다'], answer: 0, hint: 'puttaṃ=아들을(목적격), surāya=술로부터(탈격 -āya), nivāreti=(~를 …로부터) 막다' },
-  { type: 'quiz', question: '9. Vanite, paññāya vāyama!', options: ['여인이여, 지혜를 위해 노력하라!', '여인들이여, 지혜를 위해 노력하라!', '여인이여, 지혜로 노력하라!', '여인이여, 지혜를 가져라!'], answer: 0, hint: 'vanite=여인이여(호격 단수 -e), paññāya=지혜를 위해(여격)' },
+  { type: 'quiz', question: '9. Vanite, paññāya vāyama!', options: ['여인이여, 지혜를 위해 노력하라!', '여인들이여, 지혜를 위해 노력하라!', '여인이여, 지혜를 버려라!', '여인이여, 지혜를 가져라!'], answer: 0, hint: 'vanite=여인이여(호격 단수 -e), paññāya=지혜를 위해(여격)' },
   { type: 'quiz', question: '10. Khudā ca pipāsā ca vanitānaṃ dukkhaṃ.', options: ['배고픔과 갈증은 여인들의 고통이다', '배고픔과 갈증은 여인의 고통이다', '배고픔과 갈증은 사람들의 고통이다', '배고픔과 갈증은 여인들에게 고통을 준다'], answer: 0, hint: 'vanitānaṃ=여인들의(소유격 복수 -ānaṃ), ca=그리고' },
 
   // === 마무리 ===

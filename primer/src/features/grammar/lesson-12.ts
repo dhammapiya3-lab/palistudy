@@ -4,7 +4,7 @@ import type { StepWithoutId } from './types'
 
 export const LESSON_12: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '12과: -e어간 + -nā어간 동사', subtitle: 'E-stem (curādi) / Nā-dhātu verbs', description: '-e어간: deseti, cinteti, pūjeti...\n-nā어간: kiṇāti, suṇāti, jānāti...\n특수 동사: bhavati/hoti, karoti\n\n경전: "Buddho dhammaṃ deseti"', icon: '📖' },
+  { type: 'intro', title: '13과: -e어간 + -nā어간 동사', subtitle: 'E-stem (curādi) / Nā-dhātu verbs', description: '-e어간: deseti, cinteti, pūjeti...\n-nā어간: kiṇāti, suṇāti, jānāti...\n특수 동사: bhavati/hoti, karoti\n\n경전: "Buddho dhammaṃ deseti"', icon: '📖' },
 
   // === 경전 구절 ===
   { type: 'verse', pali: 'Buddho dhammaṃ deseti.\nBhikkhū dhammaṃ suṇanti.', pronKo: '붓도- 담망 데-세-띠\n빅쿠- 담망 수난띠', translation: '부처님은 법을 가르치신다.\n비구들은 법을 듣는다.', highlight: ['deseti', 'suṇanti', 'dhammaṃ'], note: 'deseti = -e어간 동사 (가르치다)\nsuṇanti = suṇāti(-nā어간)의 복수\n이 두 동사류를 이번 과에서 배웁니다!' },

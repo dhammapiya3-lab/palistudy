@@ -12,7 +12,7 @@ const SKILL_DATA: Record<string, {
     lessons: [
       { id: '1-1', title: '모음 (a ā i ī u ū e o)', desc: 'Dhp 1게로 배우는 단모음/장모음', route: '/learn/alphabet/vowels', status: 'done' },
       { id: '1-2', title: '자음 기초 (k~m)', desc: 'Dhp 1게의 자음 분석', route: '/learn/alphabet/consonants1', status: 'done' },
-      { id: '1-3', title: '특수 발음부호 (ṃ ṅ ñ ṭ ḍ ṇ ḷ)', desc: 'Dhp 2게로 배우는 반설음/비음', route: '/learn/alphabet/special', status: 'current' },
+      { id: '1-3', title: '특수 발음부호 (ṃ ṅ ñ ṭ ḍ ṇ)', desc: 'Dhp 1게로 배우는 반설음/비음', route: '/learn/alphabet/special', status: 'current' },
       { id: '1-4', title: '유기음 (kh gh ch jh th dh ph bh)', desc: 'Dhp 3게 한국어 없는 발음 연습', route: '/learn/alphabet/aspirated', status: 'locked' },
       { id: '1-5', title: '종합 읽기 연습', desc: '1~3게 전체 소리내어 읽기', route: '/learn/alphabet/review', status: 'locked' },
     ],
@@ -21,7 +21,7 @@ const SKILL_DATA: Record<string, {
     title: '기초 단어', icon: '💬', desc: '핵심 100단어',
     source: 'Dhammapada 1~26게',
     lessons: [
-      { id: '2-1', title: '삼보 (Buddha, Dhamma, Saṅgha)', desc: 'Dhp 190-192게 삼귀의문', route: '/learn/vocab/refuge', status: 'done' },
+      { id: '2-1', title: '삼보 (Buddha, Dhamma, Saṅgha)', desc: 'Khp 1 삼귀의문', route: '/learn/vocab/refuge', status: 'done' },
       { id: '2-2', title: '마음 (citta, mano, vedanā)', desc: 'Dhp 1-2게 마음 관련 단어', route: '/learn/vocab/mind', status: 'done' },
       { id: '2-3', title: '수사 (eka~dasa)', desc: 'Dhp 속 숫자 표현', route: '/learn/vocab/numbers', status: 'current' },
       { id: '2-4', title: '기본 동사 (gacchati, passati...)', desc: '경전 빈출 동사 20개', route: '/learn/vocab/verbs', status: 'locked' },
@@ -32,7 +32,7 @@ const SKILL_DATA: Record<string, {
     title: '문장 구조', icon: '📝', desc: 'SOV 어순, 기초 문법',
     source: 'Dhammapada',
     lessons: [
-      { id: '3-1', title: '주어-목적어-동사 (SOV)', desc: 'Dhp 1게 문장 구조 분석', route: '/learn/grammar/sov', status: 'done' },
+      { id: '3-1', title: '주어-목적어-동사 (SOV)', desc: '예문으로 배우는 SOV 어순 (Dhp 1 명사문 비교)', route: '/learn/grammar/sov', status: 'done' },
       { id: '3-2', title: '주격과 대격 (-o, -aṃ)', desc: '누가(주격) 무엇을(대격)', route: '/learn/grammar/nom-acc', status: 'current' },
       { id: '3-3', title: '간단한 문장 만들기', desc: '단어 배열로 문장 구성', route: '/learn/grammar/compose', status: 'locked' },
     ],
@@ -43,7 +43,7 @@ const SKILL_DATA: Record<string, {
     lessons: [
       { id: '4-1', title: '남성 -a 어간 8격', desc: 'buddha의 격변화표', route: '/learn/grammar/declension-a', status: 'current' },
       { id: '4-2', title: '여성 -ā 어간', desc: 'vedanā의 격변화', route: '/learn/grammar/declension-aa', status: 'locked' },
-      { id: '4-3', title: '중성 -a 어간', desc: 'cittaṃ의 격변화', route: '/learn/grammar/declension-n', status: 'locked' },
+      { id: '4-3', title: '중성 -a 어간', desc: 'citta의 격변화', route: '/learn/grammar/declension-n', status: 'locked' },
     ],
   },
   '5': {

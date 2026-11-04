@@ -14,13 +14,13 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'verse', pali: V_RUPA, pronKo: '루-빵 빅카웨- 아낫따-', translation: V_RUPA_K, highlight: ['Rūpaṃ', 'bhikkhave', 'anattā'], note: 'Rūpaṃ = rūpa(물질/색)의 중성명사 주격 단수\nbhikkhave = bhikkhu(비구)의 호격 복수\nanattā = 무아(無我)\n— 무아경(SN 22.59) 핵심 구절!' },
 
   // === 호격 문법 ===
-  { type: 'teach-grammar', title: '호격 (Vocative) — ~여, ~이여', example: '남성 단수: nara → nara (원형 그대로)\n남성 복수: nara → narā', exampleKo: '단수: 원형과 동일(-a)\n복수: 주격과 동일(-ā)', explanation: '호격은 상대를 부를 때 사용합니다.\n\n남성 -a 명사:\n• 단수: -a (원형) — purisa! (이 사람이여!)\n• 복수: -ā — purisā! (사람들이여!)\n\n경전에서 가장 많이 나오는 호격:\n• bhikkhu → bhikkhave! (비구들이여!)\n• rāja → rāja! (왕이여!)\n\n문장 첫머리나 중간에 삽입됩니다.' },
+  { type: 'teach-grammar', title: '호격 (Vocative) — ~여, ~이여', example: '남성 단수: nara → nara (원형 그대로)\n남성 복수: nara → narā', exampleKo: '단수: 원형과 동일(-a)\n복수: 주격과 동일(-ā)', explanation: '호격은 상대를 부를 때 사용합니다.\n\n남성 -a 명사:\n• 단수: -a (원형) — purisa! (이 사람이여!)\n• 복수: -ā — purisā! (사람들이여!)\n\n경전에서 가장 많이 나오는 호격:\n• bhikkhu → bhikkhave! (비구들이여!)\n• rājan → rāja! (왕이여!)\n\n문장 첫머리나 중간에 삽입됩니다.' },
 
   // === 남성명사 전체 격변화표 (nara 기준) ===
   { type: 'teach-grammar', title: '남성명사 -a 전체 격변화 (nara)', example: '주격: naro / narā\n목적격: naraṃ / nare\n도구격: narena / narehi\n여격: narāya / narānaṃ\n탈격: naramhā,narā / narehi\n소유격: narassa / narānaṃ\n처소격: nare,naramhi / naresu\n호격: nara / narā', exampleKo: '8격 × 2수 = 16가지 형태', explanation: '남성명사 -a형 격변화 총정리:\n\n격 | 단수 | 복수\n주격(~은) | -o | -ā\n목적격(~을) | -aṃ | -e\n도구격(~로) | -ena | -ehi/-ebhi\n여격(~에게) | -āya/-ssa | -ānaṃ\n탈격(~에서) | -mhā/-smā/-ā | -ehi/-ebhi\n소유격(~의) | -ssa | -ānaṃ\n처소격(~에) | -e/-mhi/-smiṃ | -esu\n호격(~이여) | -a | -ā\n\n여격 복수 = 소유격 복수 (-ānaṃ)\n탈격 복수 = 도구격 복수 (-ehi)' },
 
   // === 중성명사 도입 ===
-  { type: 'teach-grammar', title: '중성명사 -a형 격변화 (phala 기준)', example: '주격: phalaṃ / phalā,phalāni\n목적격: phalaṃ / phale,phalāni\n호격: phala / phalāni\n나머지: 남성과 동일', exampleKo: '중성은 주격=목적격, 복수에 -āni 추가', explanation: '중성명사는 남성과 거의 동일하되\n주격·목적격·호격만 다릅니다.\n\n격 | 단수 | 복수\n주격 | -aṃ | -ā/-āni\n목적격 | -aṃ | -e/-āni\n호격 | -a | -āni\n도구격 | -ena | -ehi\n여격 | -assa/-āya | -ānaṃ\n탈격 | -amhā/-asmā | -ehi\n소유격 | -assa | -ānaṃ\n처소격 | -e/-amhi | -esu\n\n핵심: 주격 단수 -aṃ (남성은 -o)\n복수에 -āni 형태 추가!' },
+  { type: 'teach-grammar', title: '중성명사 -a형 격변화 (phala 기준)', example: '주격: phalaṃ / phalā,phalāni\n목적격: phalaṃ / phale,phalāni\n호격: phala / phalāni\n나머지: 남성과 동일', exampleKo: '중성은 주격·목적격 단수가 -aṃ으로 같고, 복수 -āni도 같음', explanation: '중성명사는 남성과 거의 동일하되\n주격·목적격·호격만 다릅니다.\n\n격 | 단수 | 복수\n주격 | -aṃ | -ā/-āni\n목적격 | -aṃ | -e/-āni\n호격 | -a | -āni\n도구격 | -ena | -ehi\n여격 | -assa/-āya | -ānaṃ\n탈격 | -amhā/-asmā | -ehi\n소유격 | -assa | -ānaṃ\n처소격 | -e/-amhi | -esu\n\n핵심: 주격 단수 -aṃ (남성은 -o)\n복수에 -āni 형태 추가!' },
 
   // === 중성명사 단어 18개 ===
   { type: 'teach', word: 'nayana / locana', pronKo: '나야나 / 로-짜나', meaning: '눈', icon: '👁️', grammar: '중성명사', baseForm: 'nayana, locana', formNote: '주격: nayanaṃ / nayanā,nayanāni\n두 동의어 모두 중성' },
@@ -34,7 +34,7 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'teach', word: 'khīra', pronKo: '키-라', meaning: '우유', icon: '🥛', grammar: '중성명사', baseForm: 'khīra', formNote: '주격: khīraṃ\n처소격: khīre' },
   { type: 'teach', word: 'nagara', pronKo: '나가라', meaning: '도시', icon: '🏙️', grammar: '중성명사', baseForm: 'nagara', formNote: '주격: nagaraṃ / nagarā\n처소격: nagare (도시에서)' },
   { type: 'teach', word: 'uyyāna', pronKo: '웃야-나', meaning: '공원, 동산', icon: '🏞️', grammar: '중성명사', baseForm: 'uyyāna', formNote: '주격: uyyānaṃ / uyyānā\n처소격: uyyāne (공원에서)' },
-  { type: 'teach', word: 'khetta', pronKo: '켓따', meaning: '들, 논, 밭', icon: '🌾', grammar: '중성명사', baseForm: 'khetta', formNote: '주격: khettaṃ / khettā,khettāni\n처소격: khette (들에서)', buddhism: 'puññakhetta = 공덕의 밭 (승가)' },
+  { type: 'teach', word: 'khetta', pronKo: '켓따', meaning: '들, 논, 밭', icon: '🌾', grammar: '중성명사', baseForm: 'khetta', formNote: '주격: khettaṃ / khettā,khettāni\n처소격: khette (들에서)', buddhism: 'puññakkhetta = 공덕의 밭 (승가)' },
   { type: 'teach', word: 'bhaṇḍa', pronKo: '반다', meaning: '상품, 물건', icon: '📦', grammar: '중성명사', baseForm: 'bhaṇḍa', formNote: '주격: bhaṇḍaṃ / bhaṇḍā,bhaṇḍāni' },
   { type: 'teach', word: 'sīla', pronKo: '시-라', meaning: '계, 덕, 도덕', icon: '📿', grammar: '중성명사', baseForm: 'sīla', formNote: '주격: sīlaṃ / sīlā,sīlāni', buddhism: 'sīla = 계율. 삼학(三學) 중 첫째\nsīla → samādhi → paññā' },
   { type: 'teach', word: 'dāna', pronKo: '다-나', meaning: '보시, 베풂', icon: '🎁', grammar: '중성명사', baseForm: 'dāna', formNote: '주격: dānaṃ / dānā,dānāni', buddhism: 'dāna = 보시(布施). 바라밀 첫째\ndānaṃ deti = 보시를 행하다' },
@@ -57,7 +57,7 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'teach', word: 'pibati / pivati', pronKo: '삐바띠 / 삐와띠', meaning: '마시다', icon: '🍵', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pibati, pivati', formNote: '복수: pibanti/pivanti\n두 형태 모두 사용' },
 
   // === 교재 예문 3쌍 (호격 + 중성명사) ===
-  { type: 'verse', pali: 'Purisa, dānaṃ dehi!\nPurisā, dānāni detha!', pronKo: '뿌리사, 다-낭 데-히\n뿌리사-, 다-나-니 데-타', translation: '이 사람이여, 보시를 행하라!\n사람들이여, 보시들을 행하라!', highlight: ['Purisa', 'Purisā', 'dānaṃ', 'dānāni'], note: 'purisa=호격 단수, purisā=호격 복수\ndānaṃ = 중성 목적격 단수, dānāni = 중성 목적격 복수\n(중성은 주격과 목적격 형태가 같음)' },
+  { type: 'verse', pali: 'Purisa, dānaṃ dehi!\nPurisā, dānāni detha!', pronKo: '뿌리사, 다-낭 데-히\n뿌리사-, 다-나-니 데-타', translation: '이 사람이여, 보시를 행하라!\n사람들이여, 보시들을 행하라!', highlight: ['Purisa', 'Purisā', 'dānaṃ', 'dānāni'], note: 'purisa=호격 단수, purisā=호격 복수\ndānaṃ = 중성 목적격 단수, dānāni = 중성 목적격 복수\n(중성은 주격·목적격 단수가 -aṃ으로 같고, 복수 -āni도 같음)' },
   { type: 'verse', pali: 'Kumāra, pupphaṃ āhara!\nKumārā, pupphāni āharatha!', pronKo: '꾸마-라, 뿝팜 아-하라\n꾸마-라-, 뿝파-니 아-하라타', translation: '소년이여, 꽃을 가져오라!\n소년들이여, 꽃들을 가져오라!', highlight: ['Kumāra', 'Kumārā', 'pupphaṃ', 'pupphāni'] },
   { type: 'verse', pali: 'Rūpaṃ aniccaṃ.\nRūpāni aniccāni.', pronKo: '루-빵 아닛짱\n루-빠-니 아닛짜-니', translation: '물질은 무상하다.\n물질들은 무상하다.', highlight: ['Rūpaṃ', 'Rūpāni'], note: '중성명사 주격: 단수 -aṃ / 복수 -āni\naniccaṃ/aniccāni도 중성 형용사!' },
 
