@@ -8,7 +8,7 @@
 |---|---|---|
 | `portal/` | `/dhammapiya/` | 대문 — 앱 고르는 첫 화면 |
 | `primer/` | `/dhammapiya/primer/` | 빠알리 프라이머 — De Silva의 Pali Primer 기반 문법 학습 (구 SuttaLog2) |
-| `suttalog/` | `/dhammapiya/suttalog/` | 빠알리어 공부 1 — 경전으로 배우기 (SuttaLog) |
+| `suttalog/` | `/dhammapiya/suttalog/` | 경전으로 배우기 — 삼귀의·오계부터 대념처경까지 (SuttaLog) |
 | `memos/` | — | 앱에서 올린 교정 메모 (자동 생성) |
 
 ## 배포

@@ -1,6 +1,6 @@
 {
-  "name": "빠알리어 공부1",
-  "short_name": "빠알리어 공부1",
+  "name": "경전으로 배우기",
+  "short_name": "경전으로 배우기",
   "start_url": "/dhammapiya/suttalog/",
   "display": "standalone",
   "background_color": "#FEFCF3",

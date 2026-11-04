@@ -321,7 +321,7 @@ export default function SettingsPage() {
 
       {/* 정보 */}
       <div className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-        <h3 className="text-sm font-semibold mb-2">빠알리어 공부1 정보</h3>
+        <h3 className="text-sm font-semibold mb-2">경전으로 배우기 정보</h3>
         <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>버전 0.1.0</p>
         <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>경전 데이터: SuttaCentral.net (CC BY-NC)</p>
         <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>번역: Bhikkhu Sujato (영어)</p>

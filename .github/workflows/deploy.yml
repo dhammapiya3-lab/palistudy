@@ -1,7 +1,7 @@
 # 대문 + 두 앱을 함께 빌드해서 한 사이트로 배포
 #   /dhammapiya/           → portal/ (대문)
 #   /dhammapiya/primer/    → primer/ (빠알리 프라이머)
-#   /dhammapiya/suttalog/  → suttalog/ (빠알리어 공부 1)
+#   /dhammapiya/suttalog/  → suttalog/ (경전으로 배우기)
 name: Deploy to GitHub Pages
 
 on:
@@ -44,7 +44,7 @@ jobs:
           npm ci
           npm run build
 
-      - name: 빠알리어 공부 1 빌드
+      - name: 경전으로 배우기 빌드
         working-directory: suttalog
         run: |
           npm ci
