@@ -13,6 +13,8 @@ jobs:
       - name: 실제 사이트에서 메모 보내기 시험
         run: |
           mkdir t && cd t && npm init -y >/dev/null && npm i -s playwright@1 >/dev/null && npx playwright install --with-deps chromium >/dev/null 2>&1
+          # 휴대폰 사진 크기의 시험 사진 5장 (압축이 잘 안 되는 무늬)
+          for i in 1 2 3 4 5; do convert -size 3000x4000 plasma:fractal -quality 95 big$i.jpg; done; ls -la big*.jpg
           cat > t.mjs <<'JS'
           import { chromium } from 'playwright'
           const b = await chromium.launch()
@@ -27,6 +29,7 @@ jobs:
             await pg.click('[aria-label="메모"]'); await pg.waitForTimeout(800)
             await pg.click('text=새 메모'); await pg.waitForTimeout(500)
             await pg.fill('textarea', '진단 테스트 메모 (자동 삭제)')
+            if (url.includes('lesson')) await pg.setInputFiles('input[type=file]', ['big1.jpg','big2.jpg','big3.jpg','big4.jpg','big5.jpg'])
             const t0 = Date.now()
             await pg.click('text=메모 보내기')
             for (let i = 0; i < 40; i++) {
@@ -53,6 +56,7 @@ jobs:
           for x in d:
               f=x["fields"]; t=f.get("text",{}).get("stringValue","")
               if "진단 테스트" in t:
-                  print("지움", x["name"].split("/")[-1], f.get("page",{}).get("stringValue"))
+                  imgs=f.get("images",{}).get("arrayValue",{}).get("values",[])
+                  print("지움", x["name"].split("/")[-1], f.get("page",{}).get("stringValue"), "사진", len(imgs), "크기", len(json.dumps(f)))
                   subprocess.run(["curl","-s","-X","DELETE","https://firestore.googleapis.com/v1/"+x["name"]+"?key=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA"])
           '
