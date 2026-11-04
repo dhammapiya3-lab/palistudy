@@ -6,9 +6,7 @@ name: Generate Pali TTS
 on:
   push:
     branches: ['tts/**']
-    paths-ignore:
-      - 'primer/tts-samples/**'
-      - 'primer/public/audio/**'
+    # (자동 작업이 올린 결과는 다시 실행되지 않으므로 반복 걱정 없음)
 
 permissions:
   contents: write
