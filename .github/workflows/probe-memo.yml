@@ -1,0 +1,26 @@
+# 메모 저장 진단: probe/memo 가지에 올리면 실행 (사이트에는 영향 없음)
+name: Probe memo store
+on:
+  push:
+    branches: ['probe/memo']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Firestore 읽기·쓰기 시험
+        run: |
+          K=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA
+          BASE="https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos"
+          for REF in "" "https://reachtowisdom.github.io/SuttaLog2/" "https://dhammapiya3-lab.github.io/palistudy/primer/"; do
+            echo "===== Referer: ${REF:-없음}"
+            H=(); [ -n "$REF" ] && H=(-H "Referer: $REF")
+            echo "-- 읽기"; curl -s "${H[@]}" "$BASE?pageSize=1&key=$K" | head -c 500; echo
+            echo "-- 쓰기"
+            R=$(curl -s "${H[@]}" -X POST -H 'Content-Type: application/json' "$BASE?key=$K" \
+              -d '{"fields":{"text":{"stringValue":"진단 테스트 (자동 삭제)"},"page":{"stringValue":"probe"},"deviceId":{"stringValue":"probe"},"createdAt":{"stringValue":"2026-11-05T00:00:00Z"},"images":{"arrayValue":{}}}}')
+            echo "$R" | head -c 500; echo
+            NAME=$(echo "$R" | python3 -c 'import sys,json;print(json.load(sys.stdin).get("name",""))' 2>/dev/null)
+            if [ -n "$NAME" ]; then echo "-- 삭제"; curl -s "${H[@]}" -X DELETE "https://firestore.googleapis.com/v1/$NAME?key=$K" | head -c 200; echo; fi
+          done
+          echo "===== 전체 메모 개수"
+          curl -s -H "Referer: https://reachtowisdom.github.io/SuttaLog2/" "$BASE?pageSize=300&mask.fieldPaths=createdAt&key=$K" | python3 -c 'import sys,json;d=json.load(sys.stdin);docs=d.get("documents",[]);print(len(docs), sorted([x["fields"]["createdAt"]["stringValue"] for x in docs])[-3:] if docs else d)'
