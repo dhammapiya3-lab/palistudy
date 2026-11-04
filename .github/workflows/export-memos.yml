@@ -1,0 +1,28 @@
+# 메모 목록 내보내기 (사진 제외): probe/memo-export 가지에 올리면 실행
+name: Export memos
+on:
+  push:
+    branches: ['probe/memo-export']
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 메모 목록 출력
+        run: |
+          K=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA
+          BASE="https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos"
+          curl -s "$BASE?pageSize=1000&key=$K" > all.json
+          python3 - <<'PY'
+          import json
+          d=json.load(open('all.json')).get('documents',[])
+          def v(f,k):
+              x=f.get(k,{})
+              return x.get('stringValue', x.get('nullValue', None) if 'nullValue' in x else x.get('stringValue'))
+          print('COUNT', len(d))
+          for x in d:
+              f=x['fields']
+              imgs=f.get('images',{}).get('arrayValue',{}).get('values',[])
+              row={'id':x['name'].split('/')[-1],'createdAt':v(f,'createdAt'),'updatedAt':v(f,'updatedAt'),'page':v(f,'page'),
+                   'stepId':v(f,'stepId'),'status':v(f,'status'),'text':v(f,'text'),'images':len(imgs),'device':v(f,'deviceId')}
+              print('MEMO\t'+json.dumps(row,ensure_ascii=False))
+          PY
