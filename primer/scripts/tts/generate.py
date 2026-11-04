@@ -73,7 +73,7 @@ async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
 async def run_sample(keys=None, texts=None, folder='tts-samples'):
     keys = keys or [k for k in VOICES if k != 'te0']
     out_dir = PRIMER / folder
-    out_dir.mkdir(exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
     rows = []
     for i, text in enumerate(texts or SAMPLES):
         row = {'text': text, 'files': {}, 'native': {}}
