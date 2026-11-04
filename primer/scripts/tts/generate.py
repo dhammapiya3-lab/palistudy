@@ -21,7 +21,8 @@ RATE = '-30%'
 VOICES = {
     'hi': ('hi-IN-MadhurNeural', 'devanagari', '힌디어 (지금 쓰는 목소리)'),
     'kn': ('kn-IN-GaganNeural', 'kannada', '칸나다어'),
-    'te': ('te-IN-MohanNeural', 'telugu', '텔루구어'),
+    'te': ('te-IN-MohanNeural', 'telugu', '텔루구어 (ñ → ny 보정)'),
+    'te0': ('te-IN-MohanNeural', 'telugu_raw', '텔루구어 (보정 전)'),
     'si': ('si-LK-SameeraNeural', 'sinhala', '싱할라어 (스리랑카)'),
 }
 
@@ -48,6 +49,13 @@ def spoken_form(text: str) -> str:
     return t
 
 
+# ñ 들어간 단어 확인용
+NY_SAMPLES = [
+    'sabbaññū', 'vadaññū', 'mattaññū', 'puñña', 'paññā', 'kaññā',
+    'kataññutā', 'ñāṇa', 'dānañca', 'pañca', 'Buddhaṃ saraṇaṃ gacchāmi',
+]
+
+
 async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
     voice, script, _ = VOICES[voice_key]
     native = to_script(spoken_form(text), script)
@@ -62,19 +70,20 @@ async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
     raise RuntimeError(f'생성 실패: {text} / {voice_key}')
 
 
-async def run_sample():
-    out_dir = PRIMER / 'tts-samples'
+async def run_sample(keys=None, texts=None, folder='tts-samples'):
+    keys = keys or [k for k in VOICES if k != 'te0']
+    out_dir = PRIMER / folder
     out_dir.mkdir(exist_ok=True)
     rows = []
-    for i, text in enumerate(SAMPLES):
+    for i, text in enumerate(texts or SAMPLES):
         row = {'text': text, 'files': {}, 'native': {}}
-        for key in VOICES:
+        for key in keys:
             name = f'{i:02d}_{key}.mp3'
             row['native'][key] = await speak(text, key, out_dir / name)
             row['files'][key] = name
             print(f'{name}  {text}  →  {row["native"][key]}')
         rows.append(row)
-    voices = {k: v[2] for k, v in VOICES.items()}
+    voices = {k: VOICES[k][2] for k in keys}
     (out_dir / 'samples.json').write_text(
         json.dumps({'voices': voices, 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
 
@@ -121,6 +130,8 @@ if __name__ == '__main__':
     mode = sys.argv[1] if len(sys.argv) > 1 else 'sample'
     if mode == 'sample':
         asyncio.run(run_sample())
+    elif mode == 'ny':
+        asyncio.run(run_sample(['te0', 'te'], NY_SAMPLES, 'tts-samples/ny'))
     elif mode == 'full':
         asyncio.run(run_full(sys.argv[2]))
     else:
