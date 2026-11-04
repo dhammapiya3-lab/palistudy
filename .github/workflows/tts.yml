@@ -39,6 +39,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A primer/tts-samples primer/public/audio
+          git add -A primer/public/audio
+          if [ -d primer/tts-samples ]; then git add -A primer/tts-samples; fi
           git commit -m "발음 mp3 생성 (${GITHUB_REF_NAME})" || echo "변경 없음"
           git push
