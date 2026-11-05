@@ -38,6 +38,8 @@ jobs:
             python letters.py
           elif [ "$BR" = "tts/sutta" ]; then
             python sutta.py
+          elif [ "$BR" = "tts/compare4" ]; then
+            python compare4.py
           elif [ "$BR" = "tts/redo-ph" ]; then
             python redo_ph.py
           elif [ "$BR" = "tts/redo-texts" ]; then
