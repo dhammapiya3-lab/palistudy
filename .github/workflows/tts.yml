@@ -35,6 +35,8 @@ jobs:
             python generate.py add "${BR#tts/add-}"
           elif [ "$BR" = "tts/letters" ]; then
             python letters.py
+          elif [ "$BR" = "tts/letters-vowels" ]; then
+            python letters.py vowels
           elif [ "$BR" = "tts/probe" ]; then
             python probe.py
           else

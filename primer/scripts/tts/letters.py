@@ -41,6 +41,12 @@ FORMS = {
 LETTERS = list(CONSONANTS.keys())
 ORDER = ['k','kh','g','gh','ṅ','c','ch','j','jh','ñ','ṭ','ṭh','ḍ','ḍh','ṇ','t','th','d','dh','n','p','ph','b','bh','m','y','r','l','v','s','h','ḷ']
 LETTERS = [x for x in ORDER if x in CONSONANTS] + ['ṃ']
+VOWELS = ['a', 'ā', 'i', 'ī', 'u', 'ū', 'e', 'o']
+import sys
+ONLY_VOWELS = len(sys.argv) > 1 and sys.argv[1] == 'vowels'
+if ONLY_VOWELS:
+    LETTERS = VOWELS
+    OUT = OUT.parent / 'letters-vowels'
 
 async def main():
     OUT.mkdir(parents=True, exist_ok=True)
@@ -50,9 +56,13 @@ async def main():
 
     async def one(letter, vk, form):
         voice, script, _ = VOICES[vk]
-        deva = to_devanagari('aṃ' if letter == 'ṃ' else letter + 'a')
+        if letter in VOWELS:
+            deva = VOWELS_IND[letter]
+        else:
+            deva = to_devanagari('aṃ' if letter == 'ṃ' else letter + 'a')
         text = FORMS[form](conv(deva, script))
-        f = f"{ORDER.index(letter) if letter in ORDER else 99:02d}_{vk}_{form}.mp3"
+        idx = VOWELS.index(letter) + 50 if letter in VOWELS else (ORDER.index(letter) if letter in ORDER else 99)
+        f = f"{idx:02d}_{vk}_{form}.mp3"
         async with sem:
             for n in range(4):
                 try:
