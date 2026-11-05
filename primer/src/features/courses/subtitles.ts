@@ -33,6 +33,7 @@ const KO_FIRST: Record<string, string> = {
   'lesson-28': '나·너·우리·너희 · ahaṃ/tvaṃ',
   'lesson-29': '누구·그·~하는 이 · yo/so/ko',
   'lesson-sandhi': '낱말이 붙을 때 소리 변화 · Sandhi',
+  'lesson-absolute': '~할 때 · ~하는데도 · 절대 구문',
 }
 
 export function friendlySubtitle(id: string, original: string): string {

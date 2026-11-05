@@ -50,4 +50,6 @@ export const LESSON_SOURCES: LessonSource[] = [
   { id: 'lesson-29', title: '32과: 관계·지시·의문대명사', subtitle: 'yo/so/ko · yattha/tattha', icon: '❓', load: () => import('./lesson-29').then(m => m.LESSON_29) },
   // 연성법
   { id: 'lesson-sandhi', title: '연성법', subtitle: 'Sandhi ①~⑬ · 억제음 변화', icon: '🔗', load: () => import('./lesson-01-sandhi').then(m => m.LESSON_01_SANDHI) },
+  // 절대 구문
+  { id: 'lesson-absolute', title: '절대 처격 · 절대 소유격', subtitle: '처격·소유격 + 분사 · ~할 때 / ~하는데도', icon: '⏳', load: () => import('./lesson-absolute').then(m => m.LESSON_ABSOLUTE) },
 ]

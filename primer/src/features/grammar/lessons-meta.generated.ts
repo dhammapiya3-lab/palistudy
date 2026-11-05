@@ -35,4 +35,5 @@ export const LESSON_META: Record<string, GeneratedLessonMeta> = {
   "lesson-28": { stepCount: 20, search: "aham\n나\nmayam\n우리\ntvam\n너\ntumhe\n너희" },
   "lesson-29": { stepCount: 23, search: "" },
   "lesson-sandhi": { stepCount: 41, search: "" },
+  "lesson-absolute": { stepCount: 23, search: "uggacchante\n떠오를 때\nvutte\n말했을 때\nsati\n있을 때\nparinibbute\n완전한 열반에 드셨을 때\nrudantassa\n우는데도\nakamakanam\n원하지 않는" },
 }

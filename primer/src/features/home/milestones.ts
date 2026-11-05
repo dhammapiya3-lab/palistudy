@@ -61,6 +61,13 @@ export const MILESTONES: Record<string, Milestone> = {
     explain: 'dveme = dve + ime — 낱말이 붙어 소리가 바뀌는 연성을 풀어 읽을 수 있어요.',
     sutta: { title: '초전법륜경', url: suttaLessonUrl('sn56-11') },
   },
+  absolute: {
+    key: 'absolute', short: '절대 구문', badge: '⏳', title: '절대 처격·절대 소유격까지 마쳤어요',
+    pali: 'Pavattite ca pana bhagavatā dhammacakke bhummā devā saddamanussāvesuṃ.',
+    ko: '세존께서 법의 바퀴를 굴리셨을 때 땅의 신들이 소리 높여 외쳤다.',
+    explain: 'pavattite … dhammacakke = 처격 과거분사 + 처격 명사 — 절대 처격("~했을 때")으로 읽을 수 있어요.',
+    sutta: { title: '초전법륜경', url: suttaLessonUrl('sn56-11') },
+  },
 }
 
 const SEEN_KEY = 'primer-milestones-seen'

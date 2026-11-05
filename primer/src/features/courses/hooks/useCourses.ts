@@ -22,6 +22,7 @@ export const CATEGORIES = [
   { key: 'feminine', label: '여성명사 + 분사', desc: '18~23과', range: [18, 23] as const },
   { key: 'advanced', label: '고급 문법', desc: '24~32과', range: [24, 30] as const },
   { key: 'sandhi', label: '연성법', desc: 'Sandhi', range: [31, 31] as const },
+  { key: 'absolute', label: '절대 구문', desc: '절대 처격 · 절대 소유격', range: [32, 32] as const },
 ] as const
 
 // 검색용 글자 정리 — 대소문자·장음 기호·아래 점을 무시 (kanna 로도 kaññā 를 찾게)
