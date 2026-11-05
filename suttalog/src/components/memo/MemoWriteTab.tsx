@@ -113,8 +113,10 @@ export default function MemoWriteTab({
       setTimeout(() => {
         setDone(false)
         resetForm()
-        setTab('list')
-        loadMemos()
+        if (editingId) {
+          setTab('list')
+          loadMemos()
+        }
       }, 1200)
     }
   }
