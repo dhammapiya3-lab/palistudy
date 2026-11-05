@@ -1,0 +1,21 @@
+# 메모 저장소 권한 시험: probe/store 가지에 올리면 실행 (사이트에는 영향 없음)
+name: Probe memo collection
+on:
+  push:
+    branches: ['probe/store']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 새 모음(suttalog-memos) 쓰기·읽기·지우기 시험
+        run: |
+          K=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA
+          for C in suttalog-memos pali-primer-memos; do
+            B="https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/$C"
+            echo "== $C"
+            R=$(curl -s -X POST "$B?key=$K" -H 'Content-Type: application/json' -d '{"fields":{"page":{"stringValue":"probe"},"text":{"stringValue":"권한 시험 (자동 삭제)"},"createdAt":{"stringValue":"2000-01-01T00:00:00Z"},"deviceId":{"stringValue":"probe"}}}')
+            echo "$R" | head -c 300; echo
+            N=$(echo "$R" | python3 -c "import sys,json;print(json.load(sys.stdin).get('name',''))" 2>/dev/null)
+            [ -n "$N" ] && curl -s -o /dev/null -w "read %{http_code}\n" "https://firestore.googleapis.com/v1/$N?key=$K"
+            [ -n "$N" ] && curl -s -o /dev/null -w "delete %{http_code}\n" -X DELETE "https://firestore.googleapis.com/v1/$N?key=$K"
+          done
