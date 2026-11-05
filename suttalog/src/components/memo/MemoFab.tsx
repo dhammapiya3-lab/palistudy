@@ -4,11 +4,14 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import MemoModal from './MemoModal'
 import { MEMO_FAB_STYLE } from './fab-style'
+import { useHideOnScroll } from './useHideOnScroll'
 
 export default function MemoFab() {
   const [open, setOpen] = useState(false)
   const { pathname } = useLocation()
-  if (pathname.startsWith('/learn/scripture/') || pathname === '/memos') return null
+  const hidden = useHideOnScroll()
+  // 설정 화면은 오른쪽에 스위치가 줄지어 있어 버튼이 가리므로 숨김 (메모는 설정 안 '피드백 메모'로 열 수 있음)
+  if (pathname.startsWith('/learn/scripture/') || pathname === '/memos' || pathname === '/settings') return null
   // 복습 안쪽 화면은 아래쪽에 큰 버튼이 있어 조금 올림 (빠알리 프라이머와 같은 규칙)
   const raised = pathname.startsWith('/review/')
   return (
@@ -16,7 +19,7 @@ export default function MemoFab() {
       <button
         onClick={() => setOpen(true)}
         style={raised ? { ...MEMO_FAB_STYLE, bottom: 142 } : MEMO_FAB_STYLE}
-        className="group fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all"
+        className={`group fixed z-40 rounded-full ${hidden ? 'translate-x-24 opacity-0 pointer-events-none' : ''} bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all duration-300`}
         aria-label="피드백 메모 남기기"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} width={28} height={28} aria-hidden="true">

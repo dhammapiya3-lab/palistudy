@@ -12,6 +12,7 @@ import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
 import MemoModal from '../../components/memo/MemoModal'
 import { MEMO_FAB_STYLE } from '../../components/memo/fab-style'
+import { useHideOnScroll } from '../../components/memo/useHideOnScroll'
 import type { StepType } from './lesson-data-sn56-11'
 import { getCachedLesson, hasLessonData, loadLesson, LESSON_IDS } from './lesson-registry'
 import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
@@ -276,6 +277,7 @@ function LessonLoader({ lid }: { lid: string }) {
 // ───────────────────────── 레슨 진행 ─────────────────────────
 
 function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[]; learned: Set<string> | null }) {
+  const fabHidden = useHideOnScroll()
   const nav = useNavigate()
   const location = useLocation()
   const canSpeak = ttsAvailable()
@@ -1305,7 +1307,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
       {!easy && <button
         onClick={() => { setEditMemo(null); setShowMemo(true) }}
         style={MEMO_FAB_STYLE}
-        className="group fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all"
+        className={`group fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all duration-300 ${fabHidden ? 'translate-x-24 opacity-0 pointer-events-none' : ''}`}
         aria-label="피드백 메모 남기기"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} width={28} height={28} aria-hidden="true">

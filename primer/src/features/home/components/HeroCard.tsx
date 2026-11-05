@@ -84,7 +84,7 @@ export default function HeroCard({ currentLesson, currentPct, todayMin, goalMin,
             <p className="text-lg font-bold text-white truncate leading-tight">
               {currentLesson.title}
             </p>
-            <p className="text-sm text-white/90 mt-0.5 truncate">
+            <p className="text-sm text-white/90 mt-0.5 line-clamp-2">
               {currentLesson.subtitle}
             </p>
             <div className="mt-2.5 flex items-center gap-2">

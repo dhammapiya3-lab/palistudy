@@ -10,6 +10,7 @@ import MemoWriteTab from './MemoWriteTab'
 import MemoListTab from './MemoListTab'
 import AdminUnlock from './AdminUnlock'
 import { isAdmin } from '../utils/admin'
+import { useHideOnScroll } from './useHideOnScroll'
 
 const DRAFT_KEY = 'pali-memo-draft'
 
@@ -18,6 +19,7 @@ export default function MemoFab() {
   const [admin, setAdmin] = useState(isAdmin)
   // 복습·문법표 안쪽 화면은 아래쪽에 큰 버튼이 있어 메모 버튼을 조금 올림
   const { pathname } = useLocation()
+  const hidden = useHideOnScroll()
   const raised = pathname.startsWith("/review/") || pathname.startsWith("/tables")
   const [tab, setTab] = useState<Tab>(() => {
     try { return localStorage.getItem(DRAFT_KEY) ? 'write' : 'list' } catch { return 'list' }
@@ -120,9 +122,9 @@ export default function MemoFab() {
         ref={fabRef}
         onClick={() => setOpen(true)}
         style={raised ? { bottom: 'calc(7.5rem + env(safe-area-inset-bottom))' } : undefined}
-        className="group fixed right-4 bottom-20 z-40 w-12 h-12 rounded-full
+        className={`group fixed right-4 bottom-20 z-40 w-12 h-12 rounded-full
           bg-amber-600 text-white shadow-lg flex items-center justify-center
-          hover:bg-amber-700 active:scale-95 transition-all"
+          hover:bg-amber-700 active:scale-95 transition-all duration-300 ${hidden ? 'translate-x-24 opacity-0 pointer-events-none' : ''}`}
         aria-label="피드백 메모 남기기"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
