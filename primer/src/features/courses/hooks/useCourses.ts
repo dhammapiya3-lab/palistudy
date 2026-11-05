@@ -2,7 +2,7 @@ import { useState, useMemo, useCallback } from 'react'
 import { LESSONS } from '../../grammar/lessons'
 import { useStore } from '../../../store/useStore'
 import { isLessonCompleted, lessonPct } from '../../../utils/lesson-progress'
-import type { LessonInfo } from '../../grammar/types'
+import type { LessonMeta } from '../../grammar/types'
 
 export const CATEGORIES = [
   { key: 'basic', label: '기초', desc: '자모와 발음', range: [0, 1] as const },
@@ -17,9 +17,10 @@ export const CATEGORIES = [
 const fold = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase()
 
 /** 과 제목·부제·배우는 낱말(뜻 포함)에서 찾기 */
-function lessonMatches(l: LessonInfo, q: string): boolean {
+function lessonMatches(l: LessonMeta, q: string): boolean {
   if (fold(l.title).includes(q) || fold(l.subtitle).includes(q)) return true
-  return l.steps.some(s => s.type === 'teach' && (fold(s.word).includes(q) || fold(s.meaning).includes(q)))
+  // l.search: 배우는 낱말·뜻 (미리 fold 해 둠, 줄바꿈으로 구분 — scripts/gen-lesson-meta.mts)
+  return l.search.includes(q)
 }
 
 export function useCourses() {
@@ -31,7 +32,7 @@ export function useCourses() {
   const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
 
   const st = useMemo(() => ({ progress, best, completed }), [progress, best, completed])
-  const done = useCallback((l: LessonInfo) => isLessonCompleted(st, l.id, l.steps.length), [st])
+  const done = useCallback((l: LessonMeta) => isLessonCompleted(st, l.id, l.stepCount), [st])
 
   // 지금 할 과 = 아직 마치지 않은 첫 과
   const currentLessonIdx = useMemo(() => LESSONS.findIndex(l => !done(l)), [done])
@@ -49,7 +50,7 @@ export function useCourses() {
     const lesson = LESSONS[idx]
     const isCompleted = done(lesson)
     const isCurrent = idx === currentLessonIdx
-    const pct = lessonPct(st, lesson.id, lesson.steps.length)
+    const pct = lessonPct(st, lesson.id, lesson.stepCount)
     return { isCompleted, isLocked: false, isCurrent, pct }
   }, [currentLessonIdx, done, st])
 

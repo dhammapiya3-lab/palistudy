@@ -1,21 +1,13 @@
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useNavigate, useParams, useSearchParams, useLocation } from 'react-router-dom'
 import { speakPali, stopPali } from '../../../utils/pali-tts'
-import { getLessonById, LESSONS } from '../lessons'
 import type { StepType, LessonInfo } from '../types'
 import { getTablesForLesson } from '../declension-tables'
 import { addStudyEntry } from '../../../utils/study-log'
 import { useStore } from '../../../store/useStore'
-import { isLessonCompleted } from '../../../utils/lesson-progress'
+import { REVIEW_QUIZ_ID, isQuizStep } from './useLessonData'
 
 type TransitionPhase = 'enter' | 'stable' | 'exit'
-
-/** 랜덤 복습(완료한 과의 퀴즈만 모은 묶음) 주소 */
-export const REVIEW_QUIZ_ID = 'review-quiz'
-const REVIEW_QUIZ_COUNT = 10
-
-export const isQuizStep = (s?: StepType) =>
-  s?.type === 'quiz' || s?.type === 'match-listen' || s?.type === 'match-reverse'
 
 // ── 과 안에서의 학습 상태 (연꽃잎·정답·푼 문제) — 과를 나갔다 와도 이어짐 ──
 const SESSION_KEY = 'pali-lesson-session'
@@ -39,26 +31,13 @@ function saveSession(lid: string, s: LessonSession | null) {
   } catch { /* 무시 */ }
 }
 
-/** 완료한 과의 퀴즈 단계에서 무작위로 골라 복습 묶음 만들기 */
-function buildReviewLesson(): LessonInfo {
-  const st = useStore.getState()
-  const done = LESSONS.filter(l => isLessonCompleted(st, l.id, l.steps.length))
-  const pool = done.flatMap(l => l.steps.filter(s => isQuizStep(s)))
-  for (let i = pool.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1))
-    ;[pool[i], pool[j]] = [pool[j], pool[i]]
-  }
-  return { id: REVIEW_QUIZ_ID, title: '랜덤 복습', subtitle: '완료한 과의 퀴즈', icon: '🔁', steps: pool.slice(0, REVIEW_QUIZ_COUNT) }
-}
-
-export function useGrammarLearn() {
+/** 과 학습 화면 상태 — lesson: 받아 둔 과 내용 (useLessonData), null이면 없는 과 */
+export function useGrammarLearn(lesson: LessonInfo | null) {
   const nav = useNavigate()
   const location = useLocation()
   const { lessonId } = useParams<{ lessonId: string }>()
   const lid = lessonId || 'lesson-01'
   const isReview = lid === REVIEW_QUIZ_ID
-  const [reviewLesson] = useState<LessonInfo | null>(() => (isReview ? buildReviewLesson() : null))
-  const lesson = isReview ? reviewLesson : getLessonById(lid)
   const STEPS = useMemo(() => lesson?.steps || [], [lesson])
 
   // 들어온 곳(과목·복습·홈)으로 돌아가기

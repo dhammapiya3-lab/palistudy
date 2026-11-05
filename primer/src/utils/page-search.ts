@@ -1,5 +1,5 @@
 // 레슨 콘텐츠 텍스트 검색 — 메모의 원문/수정문으로 페이지(스텝) 매칭
-import { LESSONS } from '../features/grammar/lessons'
+import { LESSONS, loadAllLessons, loadLesson, lessonIdOfStepId } from '../features/grammar/lessons'
 import type { StepType } from '../features/grammar/types'
 
 // 메인 페이지 ID 상수
@@ -119,14 +119,14 @@ function getSearchableFields(step: StepType): Array<{ field: string; text: strin
   return fields
 }
 
-/** 레슨 콘텐츠에서 텍스트 검색 — 메모 매칭용 */
-export function searchLessonContent(query: string): PageSearchResult[] {
+/** 레슨 콘텐츠에서 텍스트 검색 — 메모 매칭용 (모든 과 내용을 받아서 찾음) */
+export async function searchLessonContent(query: string): Promise<PageSearchResult[]> {
   if (!query.trim()) return []
 
   const q = query.trim().toLowerCase()
   const results: PageSearchResult[] = []
 
-  for (const lesson of LESSONS) {
+  for (const lesson of await loadAllLessons()) {
     for (let i = 0; i < lesson.steps.length; i++) {
       const step = lesson.steps[i]
       const fields = getSearchableFields(step)
@@ -171,11 +171,11 @@ export function searchLessonContent(query: string): PageSearchResult[] {
   return [...best.values()].sort((a, b) => b.score - a.score)
 }
 
-/** stepId로 레슨/스텝 인덱스 조회 */
-export function findStepById(stepId: string): { lessonId: string; stepIndex: number } | null {
-  for (const lesson of LESSONS) {
-    const idx = lesson.steps.findIndex(s => s.id === stepId)
-    if (idx >= 0) return { lessonId: lesson.id, stepIndex: idx }
-  }
-  return null
+/** stepId로 레슨/스텝 인덱스 조회 (해당 과 내용만 받아서 찾음) */
+export async function findStepById(stepId: string): Promise<{ lessonId: string; stepIndex: number } | null> {
+  const lessonId = lessonIdOfStepId(stepId)
+  if (!lessonId) return null
+  const lesson = await loadLesson(lessonId)
+  const idx = lesson ? lesson.steps.findIndex(s => s.id === stepId) : -1
+  return lesson && idx >= 0 ? { lessonId: lesson.id, stepIndex: idx } : null
 }

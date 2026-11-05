@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDragOrder } from './useDragOrder'
 import { useStore } from '../../store/useStore'
 import { completedLessons as getCompletedLessons } from '../../utils/lesson-progress'
-import { REVIEW_QUIZ_ID } from '../grammar/hooks/useGrammarLearn'
+import { REVIEW_QUIZ_ID } from '../grammar/hooks/useLessonData'
 
 export default function Review() {
   const nav = useNavigate()

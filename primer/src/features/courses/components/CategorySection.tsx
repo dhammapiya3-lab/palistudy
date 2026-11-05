@@ -1,7 +1,7 @@
 import ChevronIcon from './ChevronIcon'
 import CourseCard from './CourseCard'
 import { LESSONS } from '../../grammar/lessons'
-import type { LessonInfo } from '../../grammar/types'
+import type { LessonMeta } from '../../grammar/types'
 
 interface LessonState {
   isCompleted: boolean
@@ -17,14 +17,14 @@ interface CategorySectionProps {
     desc: string
     range: readonly [number, number]
   }
-  lessons: LessonInfo[]          // 보여 줄 과 (검색 중이면 맞는 과만)
+  lessons: LessonMeta[]          // 보여 줄 과 (검색 중이면 맞는 과만)
   isOpen: boolean
   onToggle: () => void
   isSearchActive: boolean
   done: number
   total: number
   getLessonState: (idx: number) => LessonState
-  onCourseClick: (lesson: LessonInfo) => void
+  onCourseClick: (lesson: LessonMeta) => void
 }
 
 export default function CategorySection({

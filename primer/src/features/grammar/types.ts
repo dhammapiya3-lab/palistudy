@@ -25,7 +25,18 @@ export type SpeakStep = Extract<StepType, { type: 'speak' }>
 export type ArrangeStep = Extract<StepType, { type: 'arrange' }>
 export type VerseStep = Extract<StepType, { type: 'verse' }>
 
-// 과 정보
+// 과 요약 — 늘 들고 있는 가벼운 정보 (과 내용 없이)
+export interface LessonMeta {
+  id: string
+  title: string
+  subtitle: string
+  icon: string
+  stepCount: number
+  /** 과목 검색용: 배우는 낱말·뜻 (검색용으로 정리된 글자, 줄바꿈으로 구분) */
+  search: string
+}
+
+// 과 정보 (내용 포함) — loadLesson()으로 받음
 export interface LessonInfo {
   id: string
   title: string

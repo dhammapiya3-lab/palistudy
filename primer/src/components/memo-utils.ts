@@ -1,5 +1,5 @@
 // 메모 관련 유틸 함수 — 페이지 이름/ID 변환, 날짜 포맷, 검색어 추출
-import { getLessonById } from '../features/grammar/lessons'
+import { getLoadedLesson } from '../features/grammar/lessons'
 import { PATH_TO_PAGE_ID } from '../utils/page-search'
 
 // 페이지 경로 → 한글 이름 (레거시 호환 + 표시용)
@@ -16,7 +16,8 @@ export function getPageName(path: string): string {
     const lessonId = path.replace('/learn/', '').split('?')[0]
     const currentInfo = window.currentLessonInfo
     if (currentInfo?.lessonId === lessonId) {
-      const lesson = getLessonById(lessonId)
+      // 지금 보고 있는 과는 이미 받아 둔 상태
+      const lesson = getLoadedLesson(lessonId)
       const step = lesson?.steps[currentInfo.stepIndex]
       if (step?.id) return `학습: ${step.id}`
       return `학습: ${lessonId}#${currentInfo.stepIndex}`
@@ -32,7 +33,7 @@ export function getCurrentPageId(path: string): string {
     const lessonId = path.replace('/learn/', '').split('?')[0]
     const currentInfo = window.currentLessonInfo
     if (currentInfo?.lessonId === lessonId) {
-      const lesson = getLessonById(lessonId)
+      const lesson = getLoadedLesson(lessonId)
       const step = lesson?.steps[currentInfo.stepIndex]
       if (step?.id) return step.id
     }

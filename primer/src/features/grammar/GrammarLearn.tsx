@@ -1,4 +1,7 @@
+import { useNavigate, useParams } from 'react-router-dom'
 import { useGrammarLearn } from './hooks/useGrammarLearn'
+import { useLessonData, REVIEW_QUIZ_ID } from './hooks/useLessonData'
+import type { LessonInfo } from './types'
 import LearnHeader from './components/LearnHeader'
 import LearnFooter from './components/LearnFooter'
 import StepRenderer from './components/StepRenderer'
@@ -7,9 +10,43 @@ import GameOverScreen from './components/GameOverScreen'
 import TOCSheet from './components/TOCSheet'
 import ReferenceSheet from './components/ReferenceSheet'
 
+/** 과 화면 — 과 내용을 받은 뒤 학습 화면을 띄움 (받는 동안 잠깐 '불러오는 중') */
 export default function GrammarLearn() {
+  const { lessonId } = useParams<{ lessonId: string }>()
+  const lid = lessonId || 'lesson-01'
+  const data = useLessonData(lid)
+  if (data.status === 'ready') return <GrammarLearnView lesson={data.lesson} />
+  return <LessonLoadState error={data.status === 'error'} isReview={lid === REVIEW_QUIZ_ID} />
+}
+
+/** 과 내용을 받는 중 / 받지 못함 */
+function LessonLoadState({ error, isReview }: { error: boolean; isReview: boolean }) {
+  const nav = useNavigate()
+  return (
+    <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      {error ? (
+        <div className="text-center px-6 animate-fadeIn" role="alert">
+          <p className="mb-1">과 내용을 불러오지 못했습니다.</p>
+          <p className="text-sm mb-4" style={{ color: 'var(--color-text-secondary)' }}>인터넷 연결을 확인한 뒤 다시 시도해 주세요.</p>
+          <div className="flex gap-2 justify-center">
+            <button onClick={() => window.location.reload()} className="btn-primary">다시 시도</button>
+            <button onClick={() => nav(isReview ? '/review' : '/')} className="btn-secondary">돌아가기</button>
+          </div>
+        </div>
+      ) : (
+        <div className="text-center px-6 lesson-loading" role="status" aria-live="polite">
+          <div className="w-8 h-8 mx-auto mb-3 rounded-full border-[3px] animate-spin"
+            style={{ borderColor: 'var(--color-border)', borderTopColor: 'var(--color-primary)' }} aria-hidden="true" />
+          <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>불러오는 중…</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
   const {
-    lid, lesson, STEPS, stepIdx, isReview,
+    lid, STEPS, stepIdx, isReview,
     hearts, selected, setSelected,
     showResult, writingChecked, setWritingChecked,
     arrangeOrder, setArrangeOrder, phase,
@@ -20,7 +57,7 @@ export default function GrammarLearn() {
     getElapsedMin, handleCheck, handleNext, handlePrev, seekTo, restart, close,
     isLastStep, hasPrev,
     isQuizType, isArrangeCorrect, isSkipped
-  } = useGrammarLearn()
+  } = useGrammarLearn(lesson)
 
   if (!STEPS.length) {
     return (

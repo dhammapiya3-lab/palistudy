@@ -1,5 +1,5 @@
 // 메모 목록 탭 — 검색, 필터, 상세보기, 이동, 상태 관리
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { deleteMemo, getDeviceId, updateMemoStepId, updateMemoStatus } from '../utils/memo'
 import type { Memo, MemoStatus } from '../utils/memo'
@@ -30,6 +30,35 @@ const STATUS_STYLE: Record<string, { badge: string; active: string; btn: string 
                btn:    'border-red-400 text-red-500 dark:text-red-400' },
 }
 
+// stepId → 이동 경로 계산 (과 내용을 받아서 찾음)
+async function resolveNavPath(memo: Memo): Promise<string | null> {
+  if (memo.stepId) {
+    const mainRoutes: Record<string, string> = {
+      'page-home': '/', 'page-courses': '/courses',
+      'page-review': '/review', 'page-settings': '/settings',
+    }
+    if (mainRoutes[memo.stepId]) return mainRoutes[memo.stepId]
+    const found = await findStepById(memo.stepId)
+    if (found) return `/learn/${found.lessonId}?step=${found.stepIndex}`
+  }
+  // 텍스트 기반 탐색
+  if (memo.text) {
+    const terms = extractSearchTerms(memo.text)
+    const all: PageSearchResult[] = []
+    for (const t of terms) all.push(...await searchLessonContent(t))
+    const best = new Map<string, PageSearchResult>()
+    for (const r of all) {
+      const ex = best.get(r.stepId)
+      if (!ex || r.score > ex.score) best.set(r.stepId, r)
+    }
+    const top = [...best.values()].sort((a, b) => b.score - a.score)[0]
+    if (top) return `/learn/${top.lessonId}?step=${top.stepIndex}`
+  }
+  const m = memo.page.match(/학습:\s*([^#]+)(?:#(\d+))?/)
+  if (m) return m[2] ? `/learn/${m[1].trim()}?step=${m[2]}` : `/learn/${m[1].trim()}`
+  return null
+}
+
 export default function MemoListTab({ memos, loading, loadMemos, startEdit, onClose }: Props) {
   const [filterMode, setFilterMode] = useState<'lesson' | 'all' | MemoStatus>('미승인')
   const [searchText, setSearchText] = useState('')
@@ -38,50 +67,33 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
   const location = useLocation()
   const navigate = useNavigate()
 
+  // 상세 뷰의 '이동' 경로 (과 내용을 받아서 찾으므로 따로 계산)
+  const [navInfo, setNavInfo] = useState<{ memo: Memo; path: string | null } | null>(null)
+  useEffect(() => {
+    if (!selectedMemo) return
+    let alive = true
+    resolveNavPath(selectedMemo).then(
+      path => { if (alive) setNavInfo({ memo: selectedMemo, path }) },
+      () => { if (alive) setNavInfo({ memo: selectedMemo, path: null }) },
+    )
+    return () => { alive = false }
+  }, [selectedMemo])
+
   // 현재 레슨 ID
   const currentLessonId = location.pathname.startsWith('/learn/')
     ? location.pathname.replace('/learn/', '').split('?')[0] : null
 
-  // stepId → 이동 경로 계산
-  const resolveNavPath = (memo: Memo): string | null => {
-    if (memo.stepId) {
-      const mainRoutes: Record<string, string> = {
-        'page-home': '/', 'page-courses': '/courses',
-        'page-review': '/review', 'page-settings': '/settings',
-      }
-      if (mainRoutes[memo.stepId]) return mainRoutes[memo.stepId]
-      const found = findStepById(memo.stepId)
-      if (found) return `/learn/${found.lessonId}?step=${found.stepIndex}`
-    }
-    // 텍스트 기반 탐색
-    if (memo.text) {
-      const terms = extractSearchTerms(memo.text)
-      const all: PageSearchResult[] = []
-      for (const t of terms) all.push(...searchLessonContent(t))
-      const best = new Map<string, PageSearchResult>()
-      for (const r of all) {
-        const ex = best.get(r.stepId)
-        if (!ex || r.score > ex.score) best.set(r.stepId, r)
-      }
-      const top = [...best.values()].sort((a, b) => b.score - a.score)[0]
-      if (top) return `/learn/${top.lessonId}?step=${top.stepIndex}`
-    }
-    const m = memo.page.match(/학습:\s*([^#]+)(?:#(\d+))?/)
-    if (m) return m[2] ? `/learn/${m[1].trim()}?step=${m[2]}` : `/learn/${m[1].trim()}`
-    return null
-  }
-
   // 이동 실행
-  const handleNavigate = (memo: Memo) => {
-    const path = resolveNavPath(memo)
+  const handleNavigate = async (memo: Memo) => {
+    const path = await resolveNavPath(memo)
     if (path) { navigate(path); onClose() }
   }
 
   // 콘텐츠 매칭 검색
-  const handleFindMatch = (memo: Memo) => {
+  const handleFindMatch = async (memo: Memo) => {
     const terms = extractSearchTerms(memo.text)
     const all: PageSearchResult[] = []
-    for (const t of terms) all.push(...searchLessonContent(t))
+    for (const t of terms) all.push(...await searchLessonContent(t))
     const best = new Map<string, PageSearchResult>()
     for (const r of all) {
       const ex = best.get(r.stepId)
@@ -126,7 +138,7 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
   if (selectedMemo) {
     const memo = selectedMemo
     const isMyMemo = memo.deviceId === getDeviceId()
-    const navPath = resolveNavPath(memo)
+    const navPath = navInfo?.memo === memo ? navInfo.path : null
     return (
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {/* 상단 바 */}

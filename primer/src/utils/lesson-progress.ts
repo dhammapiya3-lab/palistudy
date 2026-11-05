@@ -23,7 +23,7 @@ export function lessonPct(s: ProgressState, lessonId: string, totalSteps: number
 
 /** 완료한 과 목록 */
 export function completedLessons(s: ProgressState) {
-  return LESSONS.filter(l => isLessonCompleted(s, l.id, l.steps.length))
+  return LESSONS.filter(l => isLessonCompleted(s, l.id, l.stepCount))
 }
 
 /**
@@ -43,7 +43,7 @@ export function normalizeProgress() {
     let legacy = 0
     try { legacy = Number(localStorage.getItem(legacyKey) || '0') || 0 } catch { /* 무시 */ }
     if (legacy > 0) {
-      if (legacy >= l.steps.length) {
+      if (legacy >= l.stepCount) {
         if (!completed[l.id]) { completed[l.id] = true; changed = true }
       } else if (legacy > (best[l.id] || 0)) {
         best[l.id] = legacy
@@ -53,8 +53,8 @@ export function normalizeProgress() {
       try { localStorage.removeItem(legacyKey) } catch { /* 무시 */ }
     }
     const p = progress[l.id] || 0
-    if (p >= l.steps.length && !completed[l.id]) { completed[l.id] = true; changed = true }
-    if (p > (best[l.id] || 0)) { best[l.id] = Math.min(p, l.steps.length); changed = true }
+    if (p >= l.stepCount && !completed[l.id]) { completed[l.id] = true; changed = true }
+    if (p > (best[l.id] || 0)) { best[l.id] = Math.min(p, l.stepCount); changed = true }
   }
 
   if (changed) useStore.setState({ progress, best, completed })

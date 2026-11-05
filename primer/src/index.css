@@ -310,6 +310,8 @@ body {
    ═══════════════════════════════════════════ */
 
 .animate-fadeIn { animation: fadeIn var(--transition-normal) ease-out both; }
+/* 과 내용 받는 중 — 금방 끝나면 깜빡이지 않게 조금 있다가 보임 */
+.lesson-loading { animation: fadeIn var(--transition-normal) ease-out 0.25s both; }
 .animate-slideUp { animation: slideUp var(--transition-slow) ease-out both; }
 .animate-slideIn { animation: slideIn var(--transition-slow) ease-out both; }
 .animate-shake { animation: shake 0.5s ease-in-out; }

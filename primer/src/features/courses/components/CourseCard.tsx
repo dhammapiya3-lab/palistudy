@@ -5,7 +5,7 @@ interface CourseCardProps {
     id: string
     title: string
     subtitle: string
-    steps: any[]
+    stepCount: number
   }
   isCompleted: boolean
   isCurrent: boolean
@@ -70,7 +70,7 @@ export default function CourseCard({ lesson, isCompleted, isCurrent, pct, onClic
       {/* 스텝 수 */}
       <span className="text-[10px] font-semibold shrink-0"
         style={{ color: 'var(--color-text-tertiary)' }}>
-        {lesson.steps.length}스텝
+        {lesson.stepCount}스텝
       </span>
     </button>
   )

@@ -1,5 +1,5 @@
-import { useMemo } from 'react'
-import { LESSONS } from '../../grammar/lessons'
+import { useEffect, useMemo } from 'react'
+import { LESSONS, loadLesson } from '../../grammar/lessons'
 import { APP_NAME } from '../../../config/constants'
 import { useStore, getDisplayStreak } from '../../../store/useStore'
 import { isLessonCompleted, lessonPct } from '../../../utils/lesson-progress'
@@ -35,9 +35,9 @@ export function useHome() {
     const st = { progress, best, completed }
     let totalSteps = 0, doneSteps = 0, done = 0
     LESSONS.forEach(l => {
-      const isDone = isLessonCompleted(st, l.id, l.steps.length)
-      const reached = isDone ? l.steps.length : Math.min(Math.max(best[l.id] || 0, progress[l.id] || 0), l.steps.length)
-      totalSteps += l.steps.length; doneSteps += reached
+      const isDone = isLessonCompleted(st, l.id, l.stepCount)
+      const reached = isDone ? l.stepCount : Math.min(Math.max(best[l.id] || 0, progress[l.id] || 0), l.stepCount)
+      totalSteps += l.stepCount; doneSteps += reached
       if (isDone) done++
     })
     return {
@@ -49,12 +49,18 @@ export function useHome() {
 
   // 이어서 할 과 = 아직 마치지 않은 첫 과
   const currentLesson = useMemo(() =>
-    LESSONS.find(l => !isLessonCompleted({ progress, best, completed }, l.id, l.steps.length)) ?? LESSONS[0]
+    LESSONS.find(l => !isLessonCompleted({ progress, best, completed }, l.id, l.stepCount)) ?? LESSONS[0]
   , [progress, best, completed])
+
+  // '이어서 학습'할 과 내용을 미리 받아 둠 (눌렀을 때 바로 열리게) — 화면이 다 뜬 뒤 잠깐 있다가
+  useEffect(() => {
+    const t = setTimeout(() => { loadLesson(currentLesson.id).catch(() => { /* 열 때 다시 시도 */ }) }, 1500)
+    return () => clearTimeout(t)
+  }, [currentLesson.id])
 
   const currentPct = useMemo(() => {
     if (!currentLesson) return 0
-    return lessonPct({ progress, best, completed }, currentLesson.id, currentLesson.steps.length)
+    return lessonPct({ progress, best, completed }, currentLesson.id, currentLesson.stepCount)
   }, [currentLesson, progress, best, completed])
 
   const todayQuote = useMemo(() => QUOTES[new Date().getDate() % QUOTES.length], [])
