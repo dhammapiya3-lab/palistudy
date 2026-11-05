@@ -10,6 +10,7 @@ import WritingCanvas from '../../components/WritingCanvas'
 import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
 import MemoModal from '../../components/memo/MemoModal'
+import { MEMO_FAB_STYLE } from '../../components/memo/fab-style'
 import type { StepType } from './lesson-data-sn56-11'
 import { getCachedLesson, hasLessonData, loadLesson, LESSON_IDS } from './lesson-registry'
 import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
@@ -1266,21 +1267,16 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
         </div>
       </div>
 
-      {/* 메모 버튼 — 아래 막대 바로 위, 학습 칸(430px) 오른쪽 (쉬운 화면에서는 숨김) */}
+      {/* 메모 버튼 — 빠알리 프라이머와 같은 자리·모양 (화면 오른쪽 아래, 쉬운 화면에서는 숨김) */}
       {!easy && <button
         onClick={() => { setEditMemo(null); setShowMemo(true) }}
-        className="fixed rounded-full flex items-center justify-center active:scale-90 z-40"
-        style={{
-          bottom: barH + 12,
-          right: 'max(16px, calc((100vw - 430px) / 2 + 16px))',
-          width: 48, height: 48,
-          backgroundColor: 'var(--color-primary)', color: '#fff', boxShadow: '0 4px 16px rgba(0,0,0,0.28)',
-        }}
+        style={MEMO_FAB_STYLE}
+        className="fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all"
         aria-label="메모"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <path d="M12 20h9" />
-          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} width={28} height={28} aria-hidden="true">
+          <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+          <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
         </svg>
       </button>}
 
