@@ -15,18 +15,34 @@ def toks(s):
     return re.sub(r'[^a-zāīūṃṅñṭḍṇḷ ]', ' ', s.lower().replace('-', '').replace('’', '').replace('‘', '')).split()
 
 def find(line, form, occ):
-    L, F = toks(line), toks(form)
+    L, F = toks(line) if isinstance(line, str) else line, toks(form)
     if not F:
         return -1
     hits = [i for i in range(len(L) - len(F) + 1) if L[i:i + len(F)] == F]
-    if not hits and len(F) == 1:
-        hits = [i for i in range(len(L)) if L[i].startswith(F[0])]
-    return hits[occ - 1] if len(hits) >= occ else (hits[0] if hits else -1)
+    bump = 0
+    if not hits:  # 연성: 앞부분(yanta-)이거나, 앞 낱말 끝에 붙은 경우(yanta+santaṃ)
+        hits = [i for i in range(len(L) - len(F) + 1) if L[i].startswith(F[0]) and L[i + 1:i + len(F)] == F[1:]]
+        bump = 0.3
+    if not hits and (len(F) > 1 or len(F[0]) >= 4):
+        hits = [i for i in range(len(L) - len(F) + 1) if L[i].endswith(F[0]) and L[i + 1:i + len(F)] == F[1:]]
+        bump = 0.6
+    return (hits[occ - 1] if len(hits) >= occ else hits[0]) + bump if hits else -1
 
-def pos_of(o):
+def sub_at(T, L):
+    """T(토큰 목록) 안에서 L(토큰 목록)이 처음 나오는 자리"""
+    for i in range(len(T) - len(L) + 1):
+        if T[i:i + len(L)] == L:
+            return i
+    return -1
+
+def pos_of(o, target=None):
     f = o.get('formInVerse') or o['word']
     f = f[0] if isinstance(f, list) else f
-    return find(o['verseLine'], f.split(' / ')[0], o.get('occurrence', 1))
+    p = find(o['verseLine'], f.split(' / ')[0].split('·')[0], o.get('occurrence', 1))
+    if target is None or p < 0:
+        return p
+    off = sub_at(target, toks(o['verseLine']))
+    return -1 if off < 0 else off + p
 
 write = '--write' in sys.argv
 total = 0
@@ -45,18 +61,26 @@ for f in sorted(LESSONS.glob('lesson-data-*.ts')):
         if o['type'] != 'teach' or not o.get('verseLine'):
             k += 1; continue
         j = k
-        while j + 1 < len(steps) and steps[j + 1][1]['type'] == 'teach' and steps[j + 1][1].get('verseLine') == o['verseLine']:
+        while j + 1 < len(steps) and steps[j + 1][1]['type'] == 'teach' and steps[j + 1][1].get('verseLine'):
             j += 1
         run = list(range(k, j + 1))
+        nxt = next((steps[x][1] for x in range(j + 1, len(steps)) if steps[x][1]['type'] == 'verse'), None)
+        target = toks(nxt['pali']) if nxt else None
         if (lid, k) in MANUAL:
             new = MANUAL[(lid, k)]
             assert sorted(new) == run, (lid, k)
         elif (lid, k) in SKIP or len(run) < 2:
             new = run
         else:
+            ps = {r: pos_of(steps[r][1], target) for r in run}
+            if target is not None and sum(p >= 0 for p in ps.values()) < len(run) / 2:
+                ps = {r: pos_of(steps[r][1]) for r in run}   # 다음 구절에 없으면 같은 문장끼리만
+                same = len({steps[r][1]['verseLine'] for r in run}) == 1
+                if not same:
+                    k = j + 1; continue
             groups = []
             for r in run:
-                p = pos_of(steps[r][1])
+                p = ps[r]
                 if p < 0 and groups:
                     groups[-1][1].append(r)
                 else:
@@ -65,7 +89,7 @@ for f in sorted(LESSONS.glob('lesson-data-*.ts')):
             new = [r for g in groups for r in g[1]]
         if new != run:
             total += 1
-            print(lid, k, [steps[r][1]['word'] for r in new][:12])
+            print(lid, k, ' '.join(steps[r][1]['word'] for r in new)[:200])
             for a, r in zip(run, new):
                 perm[a] = r
         k = j + 1
