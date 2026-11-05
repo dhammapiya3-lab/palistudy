@@ -29,6 +29,6 @@ jobs:
               f=x['fields']
               imgs=f.get('images',{}).get('arrayValue',{}).get('values',[])
               row={'id':x['name'].split('/')[-1],'createdAt':v(f,'createdAt'),'updatedAt':v(f,'updatedAt'),'page':v(f,'page'),
-                   'stepId':v(f,'stepId'),'status':v(f,'status'),'text':v(f,'text'),'images':len(imgs),'device':v(f,'deviceId')}
+                   'stepId':v(f,'stepId'),'status':v(f,'status'),'text':v(f,'text'),'images':len(imgs),'device':v(f,'deviceId'),'app':v(f,'app'),'snapshot':v(f,'snapshot')}
               print('MEMO\t'+json.dumps(row,ensure_ascii=False))
           PY
