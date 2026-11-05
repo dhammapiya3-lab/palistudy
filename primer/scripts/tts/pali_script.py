@@ -86,6 +86,8 @@ def to_script(roman: str, script: str) -> str:
         return shift_block(deva, 0x0C00)
     if script == 'telugu':
         return telugu_ny(shift_block(deva, 0x0C00))
+    if script == 'telugu_ph':  # 문장 속 ph: 같은 텔루구어 목소리에서 ph만 p + h로 따로 적음 (사용자 선택)
+        return telugu_ny(shift_block(deva.replace('फ', 'प्ह'), 0x0C00))
     if script == 'sinhala':
         from aksharamukha import transliterate
         return transliterate.process('Devanagari', 'Sinhala', deva)
