@@ -7,13 +7,13 @@ const V_NAMO_K = '세존의 제자 승가는 잘 수행하는 이들이며, 세�
 
 export const LESSON_06: StepWithoutId[] = [
   // === 도입 ===
-  { type: 'intro', title: '6과: 남성명사 소유격', subtitle: 'Chaṭṭhī vibhatti (Genitive)', description: '소유격은 소유·관계를 나타냅니다.\n~의 (소유·관계)\n\n단수: -ssa / 복수: -ānaṃ\n(여격과 형태 동일 — ~에게/~를 위하여는 여격의 기능)\n\n경전: "bhagavato sāvakasaṅgho\n(세존의 제자 승가)"', icon: '👑' },
+  { type: 'intro', title: '6과: 남성명사 소유격', subtitle: 'Chaṭṭhī vibhatti (Genitive)', description: '소유격은 소유·관계를 나타냅니다.\n~의 (소유·관계)\n\n단수: -ssa / 복수: -ānaṃ\n\n경전: "bhagavato sāvakasaṅgho\n(세존의 제자 승가)"', icon: '👑' },
 
   // === 경전 구절 ===
   { type: 'verse', pali: V_NAMO, pronKo: '숩빠띠빤노- 바가와또- 사-와까상고- 우줍빠띠빤노- 바가와또- 사-와까상고-', translation: V_NAMO_K, highlight: ['bhagavato', 'sāvakasaṅgho', 'Suppaṭipanno', 'ujuppaṭipanno'], note: 'bhagavato = bhagavant(세존)의 소유격\nsāvakasaṅgho = sāvaka(제자) + saṅgha(승가)\nsuppaṭipanno = su(잘) + paṭipanna(수행하는)\nujuppaṭipanno = uju(곧은) + paṭipanna(수행하는)\n※ 승가 수념(Saṅghānussati) 정형구의 첫머리' },
 
   // === 소유격 문법 ===
-  { type: 'teach-grammar', title: '소유격 (Genitive) — ~의', example: 'nara + ssa = narassa (사람의)\nnara + ānaṃ = narānaṃ (사람들의)', exampleKo: '단수: -a → -assa / 복수: -a → -ānaṃ', explanation: '소유격의 의미:\n• 소유: narassa putto (사람의 아들)\n• 관계: Buddhassa sāvako (붓다의 제자)\n※ ~에게/~를 위하여: kassakassa (농부를 위하여) — 여격과 형태가 같은 경우(기능은 여격)\n\n-a 남성명사:\n• 단수: -assa (narassa, kassakassa)\n• 복수: -ānaṃ (narānaṃ, kassakānaṃ)\n\n-ssa·-ānaṃ은 여격과 형태 동일!' },
+  { type: 'teach-grammar', title: '소유격 (Genitive) — ~의', example: 'nara + ssa = narassa (사람의)\nnara + ānaṃ = narānaṃ (사람들의)', exampleKo: '단수: -a → -assa / 복수: -a → -ānaṃ', explanation: '소유격의 의미:\n• 소유: narassa putto (사람의 아들)\n• 관계: Buddhassa sāvako (붓다의 제자)\n\n-a 남성명사:\n• 단수: -assa (narassa, kassakassa)\n• 복수: -ānaṃ (narānaṃ, kassakānaṃ)\n\n-ssa·-ānaṃ은 여격과 형태 동일!' },
 
   // === 소유격 vs 여격 비교 ===
   { type: 'teach-grammar', title: '소유격 vs 여격 — 구별법', example: '소유격: narassa putto (사람의 아들)\n여격: narāya deti (사람에게 준다)', exampleKo: '소유격=소유·관계 / 여격=방향·수여', explanation: '복수형은 둘 다 -ānaṃ으로 동일!\n\n• 소유격: ~의 (수식어 역할)\n  narānaṃ puttā = 사람들의 아들들\n• 여격: ~에게 (동사의 간접목적어)\n  narānaṃ deti = 사람들에게 준다\n\n단수:\n• 여격 단수 -āya (narāya)는 여격 전용\n• -ssa (narassa)는 소유격·여격 공통\n복수 -ānaṃ도 두 격 공통입니다.\n따라서 -ssa/-ānaṃ은 문맥으로 구별합니다.' },
