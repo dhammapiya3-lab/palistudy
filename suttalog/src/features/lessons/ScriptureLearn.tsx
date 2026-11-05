@@ -1,5 +1,5 @@
 // 경전 중심 Duolingo식 학습 UI (데이터는 레슨별 파일을 필요할 때만 불러옴)
-import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback, Fragment } from 'react'
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { soundOff, speakPali, speakSequence, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
 import { pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/memo'
@@ -1013,6 +1013,23 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
                 <p className="text-lg font-bold">{step.meaning}</p>
                 {step.grammar && <GrammarChip grammar={step.grammar} />}
               </div>
+              {step.parts && step.parts.length > 1 && (
+                <div className="rounded-xl p-3 mt-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+                  <p className="text-[10px] font-semibold mb-2" style={{ color: 'var(--color-text-tertiary)' }}>🧩 이루는 낱말 — 눌러서 발음 듣기</p>
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {step.parts.map((p, i) => (
+                      <Fragment key={i}>
+                        {i > 0 && <span className="text-xs" style={{ color: 'var(--color-text-tertiary)' }}>+</span>}
+                        <button onClick={() => canSpeak && speak(p.w)} className="rounded-lg px-2.5 py-1.5 text-left active:scale-95"
+                          style={{ backgroundColor: C.infoBg, border: `1px solid ${C.infoBorder}` }}>
+                          <span className="pali-font font-bold block" lang="pi" style={{ color: 'var(--color-primary)', fontSize: 'calc(var(--pali-fontsize, 18px) * 0.85)' }}>{p.w}</span>
+                          <span className="text-[11px] block" style={{ color: 'var(--color-text-secondary)' }}>{p.m}</span>
+                        </button>
+                      </Fragment>
+                    ))}
+                  </div>
+                </div>
+              )}
               {step.verseLine && (
                 <div className="rounded-xl p-3 mt-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
                   <p className="text-[10px] font-semibold mb-1" style={{ color: 'var(--color-text-tertiary)' }}>경전 속 문장</p>
@@ -1271,13 +1288,16 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
       {!easy && <button
         onClick={() => { setEditMemo(null); setShowMemo(true) }}
         style={MEMO_FAB_STYLE}
-        className="fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all"
-        aria-label="메모"
+        className="group fixed z-40 rounded-full bg-amber-600 text-white shadow-lg flex items-center justify-center hover:bg-amber-700 active:scale-95 transition-all"
+        aria-label="피드백 메모 남기기"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} width={28} height={28} aria-hidden="true">
           <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
           <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
         </svg>
+        <span role="tooltip" className="pointer-events-none absolute right-full mr-2 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-neutral-800 px-2.5 py-1.5 text-xs text-white shadow opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
+          피드백 메모 — 오류 신고·의견 남기기
+        </span>
       </button>}
 
       {/* 메모 창 — 빠알리 프라이머와 같은 모양 (위치는 원본 데이터 기준 단계 번호) */}

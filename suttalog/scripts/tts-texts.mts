@@ -38,6 +38,8 @@ for (const id of LESSON_IDS) {
         // 낱말 카드 발음, 확인 문제(듣고 고르기)·낱말 복습·낱말장
         addSpeak(s.word)
         add(s.word)
+        // 이루는 낱말(복합어 나눔) 누르기
+        s.parts?.forEach(p => addSpeak(p.w))
         const f = s.formInVerse
         if (f) (Array.isArray(f) ? f : [f]).forEach(x => { addSpeak(x); add(x) })
         // 런타임 확인 문제(듣고 고르기) — 화면이 만드는 그대로
