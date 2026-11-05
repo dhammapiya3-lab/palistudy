@@ -6,10 +6,35 @@ import json
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 LESSONS = HERE.parent / 'src/features/lessons'
+import re
+def norm(w):
+    return re.sub(r'[^a-zāīūṃṅñṭḍṇḷ]', '', w.split(' / ')[0].lower())
+# 같은 과 안에서 같은 낱말(또는 원형 카드)이면 해설을 함께 보여 줌 — 문맥에 따라 뜻이 달라지는 낱말은 제외
+NO_COPY = {'me', 'loke', 'ca', 'vā', 'va', 'pi', 'na', 'hi', 'so', 'sā', 'taṃ', 'te', 'yaṃ', 'yo', 'ye', 'idha', 'atthi', 'kāyo', 'evampi', 'rūpaṃ', 'bhūtā', 'cittaṃ', 'dukkho', 'dukkhā'}
+def related(a, b):
+    a, b = norm(a), norm(b)
+    if not a or not b or a in NO_COPY or b in NO_COPY:
+        return False
+    if a == b:
+        return True
+    s, l = (a, b) if len(a) <= len(b) else (b, a)
+    return len(s) >= 4 and l.startswith(s.rstrip('ṃ')) and len(l) - len(s) <= 4
+
+SHARED = json.loads((HERE / 'commentary' / '_shared.json').read_text(encoding='utf-8'))
+def nline(s):
+    return ' '.join(re.sub(r'[^a-zāīūṃṅñṭḍṇḷ ]', ' ', s.lower()).split())
+def shared_for(o):
+    w, line = norm(o['word']), nline(o.get('verseLine') or '')
+    for e in SHARED:
+        if norm(e['word']) == w and (not e['ctx'] or e['ctx'] in line):
+            return e['cmt']
+    return None
+
 total = 0
-for src in sorted((HERE / 'commentary').glob('*.json')):
+for src in sorted(p for p in (HERE / 'commentary').glob('*.json') if not p.name.startswith('_')):
     lid = src.stem
     want = {e['raw']: e for e in json.loads(src.read_text(encoding='utf-8'))}
+    explicit = dict(want)
     f = LESSONS / f'lesson-data-{lid}.ts'
     lines = f.read_text(encoding='utf-8').split('\n')
     raw = -1; n = 0
@@ -23,6 +48,9 @@ for src in sorted((HERE / 'commentary').glob('*.json')):
             continue
         e = want.pop(raw, None)
         new = e['cmt'] if e else None
+        if not e:
+            src_e = next((x for x in explicit.values() if related(x['word'], o['word'])), None)
+            new = src_e['cmt'] if src_e else shared_for(o)
         if e and e['word'] != o['word']:
             raise SystemExit(f'{lid} raw {raw}: {e["word"]} ≠ {o["word"]}')
         if o.get('cmt') != new:
