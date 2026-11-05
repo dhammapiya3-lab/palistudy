@@ -59,11 +59,13 @@ export default function BottomNav() {
   const nav = useNavigate()
   const location = useLocation()
 
-  // 학습 화면에서는 하단바 숨김
-  if (location.pathname.startsWith('/learn/')) return null
+  // 학습 화면·복습 안쪽 화면(퀴즈·낱말 카드·독송 — 아래쪽에 자기 버튼이 있음)에서는 하단바 숨김
+  if (location.pathname.startsWith('/learn/') || location.pathname.startsWith('/review/')) return null
 
   // 현재 활성 탭 판별
-  const activeTab = location.pathname === '/settings' ? 'profile' : TABS.find(t =>
+  const activeTab = location.pathname === '/settings' ? 'profile'
+    : location.pathname.startsWith('/tables') ? 'review'
+    : TABS.find(t =>
     t.path === '/' ? location.pathname === '/' : location.pathname.startsWith(t.path)
   )?.key ?? 'home'
 

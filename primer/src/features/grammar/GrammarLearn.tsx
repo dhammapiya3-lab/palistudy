@@ -1,4 +1,10 @@
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { useStore } from '../../store/useStore'
+import { estimateMinutes } from '../../utils/lesson-time'
+import { buildGlossary } from './verse-gloss'
+import ChunkBreakScreen from './components/ChunkBreakScreen'
+import OnboardingCards from './components/OnboardingCards'
 import { useGrammarLearn } from './hooks/useGrammarLearn'
 import { useLessonData, REVIEW_QUIZ_ID } from './hooks/useLessonData'
 import type { LessonInfo } from './types'
@@ -15,8 +21,39 @@ export default function GrammarLearn() {
   const { lessonId } = useParams<{ lessonId: string }>()
   const lid = lessonId || 'lesson-01'
   const data = useLessonData(lid)
-  if (data.status === 'ready') return <GrammarLearnView lesson={data.lesson} />
+  const backToSutta = useSuttaBack(lid)
+  if (data.status === 'ready') return (
+    <>
+      {backToSutta && (
+        <a
+          href={backToSutta}
+          className="fixed left-1/2 -translate-x-1/2 z-[60] text-xs font-semibold px-3 py-1.5 rounded-full"
+          style={{ top: 'max(6px, env(safe-area-inset-top))', backgroundColor: 'var(--color-primary)', color: '#fff', boxShadow: 'var(--shadow-sm)' }}
+        >
+          ← 경전으로 돌아가기
+        </a>
+      )}
+      <GrammarLearnView lesson={data.lesson} />
+    </>
+  )
   return <LessonLoadState error={data.status === 'error'} isReview={lid === REVIEW_QUIZ_ID} />
+}
+
+/** 경전으로 배우기의 문법 칩에서 왔으면(?back=) 돌아갈 주소 — 이 앱 주소에서 지워져도 유지 */
+function useSuttaBack(lid: string): string | null {
+  const [back] = useState<string | null>(() => {
+    try {
+      const q = window.location.hash.split('?')[1] || ''
+      const b = new URLSearchParams(q).get('back')
+      if (b && b.startsWith('/palistudy/suttalog/')) {
+        sessionStorage.setItem('primer-back-to-sutta', JSON.stringify({ lid, b }))
+        return b
+      }
+      const saved = JSON.parse(sessionStorage.getItem('primer-back-to-sutta') || 'null') as { lid: string; b: string } | null
+      return saved && saved.lid === lid ? saved.b : null
+    } catch { return null }
+  })
+  return back
 }
 
 /** 과 내용을 받는 중 / 받지 못함 */
@@ -44,6 +81,17 @@ function LessonLoadState({ error, isReview }: { error: boolean; isReview: boolea
   )
 }
 
+/** 쉬운 화면: 학습 화면에 있는 동안 글씨를 '매우 크게'(21px)로 — 나가면 원래대로 */
+function useEasyFont(on: boolean) {
+  useEffect(() => {
+    if (!on) return
+    const el = document.documentElement
+    const before = el.style.fontSize
+    el.style.fontSize = '21px'
+    return () => { el.style.fontSize = before }
+  }, [on])
+}
+
 function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
   const {
     lid, STEPS, stepIdx, isReview,
@@ -52,12 +100,31 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
     arrangeOrder, setArrangeOrder, phase,
     showCompletion, correctCount, quizTotal,
     showTOC, setShowTOC, showRef, setShowRef,
-    heartShakeIdx, refTables, writingEnabled,
+    heartShakeIdx, refTables, writingEnabled, easyMode,
     step, speak, shuffledOpts,
     getElapsedMin, handleCheck, handleNext, handlePrev, seekTo, restart, close,
     isLastStep, hasPrev,
-    isQuizType, isArrangeCorrect, isSkipped
+    isQuizType, isArrangeCorrect, isSkipped, skipReason,
+    lastAnswer, chunks, chunkLabel, chunkBreak, continueChunk, stopAtChunk, restartChunk,
+    retryMode, retryWrong, wrongCount, nextLesson, goNextLesson,
+    moreGroups, openMoreGroup, inlineMore, visibleSteps,
   } = useGrammarLearn(lesson)
+
+  const onboardingSeen = useStore(s => s.onboardingSeen)
+  const setOnboardingSeen = useStore(s => s.setOnboardingSeen)
+  const dailyGoalMin = useStore(s => s.dailyGoalMin)
+  const writingSetting = useStore(s => s.writingEnabled)
+  const setWritingEnabled = useStore(s => s.setWritingEnabled)
+  const writingOffered = useStore(s => s.writingOffered)
+  const setWritingOffered = useStore(s => s.setWritingOffered)
+
+  useEasyFont(easyMode)
+
+  // 경전 낱말 풀이 — 같은 과 낱말 카드에서
+  const glossary = useMemo(() => buildGlossary(STEPS), [STEPS])
+
+  // 쉬운 화면: 메모 버튼 숨김 (학습 화면에 있는 동안만)
+  const hideMemo = easyMode ? <style>{'button[aria-label="메모"]{display:none!important}'}</style> : null
 
   if (!STEPS.length) {
     return (
@@ -71,20 +138,52 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
   }
 
   if (showCompletion) {
+    // 1과를 마치면 한 번만 '글자 쓰기도 해 볼까요?' (쓰기가 꺼져 있고 쉬운 화면이 아닐 때)
+    const writingOffer = lid === 'lesson-01' && !writingOffered && !writingSetting && !easyMode
     return (
-      <CompletionScreen
-        correctCount={correctCount}
-        quizTotal={quizTotal}
-        hearts={hearts}
-        elapsed={getElapsedMin()}
-        isReview={isReview}
-        onHome={close}
-        onRestart={() => restart(0)}
-      />
+      <>
+        {hideMemo}
+        <CompletionScreen
+          correctCount={correctCount}
+          quizTotal={quizTotal}
+          hearts={hearts}
+          elapsed={getElapsedMin()}
+          isReview={isReview}
+          onHome={close}
+          onRestart={() => restart(0)}
+          nextLessonTitle={nextLesson?.title}
+          onNextLesson={nextLesson ? goNextLesson : undefined}
+          wrongCount={wrongCount}
+          onRetryWrong={retryWrong}
+          moreGroups={moreGroups}
+          onOpenMore={openMoreGroup}
+          writingOffer={writingOffer}
+          onWritingOffer={accept => { setWritingOffered(true); if (accept) setWritingEnabled(true) }}
+          easyMode={easyMode}
+        />
+      </>
     )
   }
 
-  if (hearts <= 0) {
+  if (chunkBreak) {
+    const nextChunk = chunks[chunkBreak.done]
+    return (
+      <>
+        {hideMemo}
+        <ChunkBreakScreen
+          done={chunkBreak.done}
+          total={chunks.length}
+          lessonTitle={lesson?.title || lid}
+          nextMinutes={nextChunk ? estimateMinutes(nextChunk.length) : 0}
+          easyMode={easyMode}
+          onContinue={continueChunk}
+          onStop={stopAtChunk}
+        />
+      </>
+    )
+  }
+
+  if (hearts <= 0 && !easyMode && !retryMode) {
     const firstQuizIdx = STEPS.findIndex(s =>
       s.type === 'quiz' || s.type === 'match-listen' || s.type === 'match-reverse'
     )
@@ -96,6 +195,8 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
         onRestartFromQuiz={() => restart(firstQuizIdx)}
         onHome={close}
         firstQuizIdx={firstQuizIdx}
+        onRestartChunk={chunks.length > 1 && chunkLabel ? restartChunk : undefined}
+        chunkLabel={chunkLabel}
       />
     )
   }
@@ -114,6 +215,7 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
 
   return (
     <div className="min-h-screen flex flex-col overflow-x-hidden" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
+      {hideMemo}
       <div className="max-w-lg mx-auto w-full min-w-0 flex flex-col flex-1">
         <LearnHeader
           onClose={close}
@@ -125,8 +227,11 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
           hearts={hearts}
           heartShakeIdx={heartShakeIdx}
           lessonTitle={lesson?.title || lid}
-          stepTitle={stepTitle}
+          stepTitle={retryMode ? `다시 풀기 · ${stepTitle}` : step.more ? `더 알아보기 · ${stepTitle}` : stepTitle}
           onSeek={seekTo}
+          hideHearts={easyMode || retryMode}
+          chunkLabel={chunkLabel}
+          visibleSteps={visibleSteps}
         />
 
         <div className={`flex-1 flex flex-col overflow-y-auto px-4 pt-3 pb-28 scroll-smooth ${phase === 'enter' ? 'step-enter' : phase === 'exit' ? 'step-exit' : ''}`}>
@@ -140,7 +245,7 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
             shuffledOpts={shuffledOpts}
             getAnswerText={() => {
               if (!('answer' in step) || !('options' in step)) return ''
-              return (step as any).options[(step as any).answer]
+              return (step as { options: string[]; answer: number }).options[(step as { answer: number }).answer]
             }}
             onSelect={setSelected}
             writingEnabled={writingEnabled}
@@ -150,7 +255,22 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
             arrangeOrder={arrangeOrder}
             onSetArrangeOrder={setArrangeOrder}
             isArrangeCorrect={isArrangeCorrect}
+            lastOk={showResult ? lastAnswer?.ok : undefined}
+            easyMode={easyMode}
+            glossary={glossary}
           />
+
+          {/* 바로 뒤에 붙은 '더 알아보기' — 원할 때만 */}
+          {inlineMore && (
+            <button
+              type="button"
+              onClick={() => openMoreGroup(inlineMore)}
+              className="self-start mt-4 flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-medium active:scale-95 transition-transform"
+              style={{ color: 'var(--color-primary)', border: '1px dashed var(--color-primary-light)', minHeight: 40 }}
+            >
+              📖 더 알아보기: {inlineMore} ›
+            </button>
+          )}
         </div>
 
         <LearnFooter
@@ -169,6 +289,7 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
             STEPS={STEPS}
             stepIdx={stepIdx}
             isSkipped={isSkipped}
+            skipReason={skipReason}
             onSelect={(i) => { setShowTOC(false); seekTo(i) }}
             onClose={() => setShowTOC(false)}
           />
@@ -179,6 +300,11 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
             refTables={refTables}
             onClose={() => setShowRef(false)}
           />
+        )}
+
+        {/* 처음 공부할 때 30초 안내 */}
+        {!onboardingSeen && !isReview && (
+          <OnboardingCards goalMin={dailyGoalMin} easyMode={easyMode} onDone={() => setOnboardingSeen(true)} />
         )}
       </div>
     </div>

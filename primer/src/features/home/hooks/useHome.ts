@@ -3,6 +3,20 @@ import { LESSONS, loadLesson } from '../../grammar/lessons'
 import { APP_NAME } from '../../../config/constants'
 import { useStore, getDisplayStreak } from '../../../store/useStore'
 import { isLessonCompleted, lessonPct } from '../../../utils/lesson-progress'
+import { localDateStr } from '../../../utils/date'
+import { getMonthStudyDates } from '../../../utils/study-log'
+import { estimateMinutes, chunkCount } from '../../../utils/lesson-time'
+import { doneMilestones } from '../milestones'
+import { suttaLinksFor, type SuttaLink } from '../../reference/sutta-links'
+
+/** 두 날짜(YYYY-MM-DD) 사이 날 수 */
+function daysSince(date: string | null): number {
+  if (!date) return 0
+  const [y, m, d] = date.split('-').map(Number)
+  const then = new Date(y, m - 1, d).getTime()
+  const [ty, tm, td] = localDateStr().split('-').map(Number)
+  return Math.round((new Date(ty, tm - 1, td).getTime() - then) / 86400000)
+}
 
 export const QUOTES = [
   { pali: 'Dhammaṃ care sucaritaṃ', ko: '법을 잘 실천하라' },
@@ -63,6 +77,75 @@ export function useHome() {
     return lessonPct({ progress, best, completed }, currentLesson.id, currentLesson.stepCount)
   }, [currentLesson, progress, best, completed])
 
+  // 하루 목표 — 오늘 공부한 시간(분)
+  const studySeconds = useStore(state => state.studySeconds)
+  const goalMin = useStore(state => state.dailyGoalMin)
+  const todayMin = Math.floor((studySeconds[localDateStr()] || 0) / 60)
+
+  // 이번 달 공부한 날 (연속이 끊겨도 쌓인 것)
+  const monthDays = useMemo(() => {
+    const now = new Date()
+    return getMonthStudyDates(now.getFullYear(), now.getMonth()).size
+    // 공부 기록이 바뀌면 다시 셈
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastStudyDate, studySeconds])
+
+  // 지금까지 공부한 날 (이번 달 기록이 아직 없을 때 보여 줌)
+  const totalDays = useMemo(() => {
+    try {
+      const a = JSON.parse(localStorage.getItem('pali-study-dates') || '[]')
+      const b = Object.keys(JSON.parse(localStorage.getItem('pali-study-log') || '{}'))
+      return new Set([...(Array.isArray(a) ? a : []), ...b]).size
+    } catch { return 0 }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lastStudyDate])
+
+  // 3일 넘게 쉬었다가 돌아왔는지 (마지막 공부가 4일 이상 전)
+  const daysAway = daysSince(lastStudyDate)
+  const isReturning = !!lastStudyDate && daysAway >= 4
+
+  // 2분 복습에 쓸 과 — 하던 과(문제를 좀 풀었으면), 아니면 마지막으로 마친 과
+  const reviewLesson = useMemo(() => {
+    const st = { progress, best, completed }
+    const reach = (id: string) => Math.max(best[id] || 0, progress[id] || 0)
+    if (reach(currentLesson.id) >= 8 && !isLessonCompleted(st, currentLesson.id, currentLesson.stepCount)) return currentLesson
+    const idx = LESSONS.findIndex(l => l.id === currentLesson.id)
+    for (let i = idx - 1; i >= 0; i--) if (isLessonCompleted(st, LESSONS[i].id, LESSONS[i].stepCount)) return LESSONS[i]
+    return reach(currentLesson.id) > 0 ? currentLesson : null
+  }, [currentLesson, progress, best, completed])
+
+  // 마친 묶음 (이정표)
+  const milestones = useMemo(() => doneMilestones({ progress, best, completed }), [progress, best, completed])
+
+  // 경전 앱 추천 구절 — 가장 최근에 배운 문법 (지금 과 또는 바로 앞 과)
+  const suttaSuggestion: SuttaLink | null = useMemo(() => {
+    const idx = LESSONS.findIndex(l => l.id === currentLesson.id)
+    const st = { progress, best, completed }
+    for (let i = idx; i >= 0; i--) {
+      const l = LESSONS[i]
+      const started = isLessonCompleted(st, l.id, l.stepCount) || Math.max(best[l.id] || 0, progress[l.id] || 0) > 0
+      if (!started) continue
+      const links = suttaLinksFor(l.id)
+      if (links.length) return links[0]
+    }
+    return null
+  }, [currentLesson, progress, best, completed])
+
+  const heroMeta = useMemo(() => {
+    const min = estimateMinutes(currentLesson.stepCount)
+    const chunks = chunkCount(currentLesson.stepCount)
+    if (!min) return undefined
+    return currentPct > 0 ? `과 전체 약 ${min}분 · ${chunks}마디` : `약 ${min}분 · ${chunks}마디 — 한 마디씩 나눠 해도 좋아요`
+  }, [currentLesson.stepCount, currentPct])
+
+  // 대문(/palistudy/)의 '이어 하기' 표시용 — 같은 사이트라 대문이 읽음
+  useEffect(() => {
+    const any = Object.keys(progress).length > 0 || Object.keys(completed).length > 0
+    try {
+      if (any) localStorage.setItem('primer-resume', JSON.stringify({ id: currentLesson.id, title: currentLesson.title, pct: currentPct, at: Date.now() }))
+    } catch { /* 무시 */ }
+  }, [currentLesson.id, currentLesson.title, currentPct, progress, completed])
+
   const todayQuote = useMemo(() => QUOTES[new Date().getDate() % QUOTES.length], [])
   const greeting = useMemo(() => getGreetingInfo(), [])
 
@@ -73,6 +156,16 @@ export function useHome() {
     currentPct,
     todayQuote,
     greeting,
-    APP_NAME
+    APP_NAME,
+    todayMin,
+    goalMin,
+    monthDays,
+    totalDays,
+    daysAway,
+    isReturning,
+    reviewLesson,
+    milestones,
+    suttaSuggestion,
+    heroMeta,
   }
 }

@@ -1,10 +1,10 @@
-// 복습 — 완료한 과 목록 + 완료한 과의 퀴즈로 랜덤 복습
+// 복습 — 간격 복습 퀴즈 · 내 단어장 · 독송 외우기 · 문법표 + 완료한 과 다시 보기
 import { useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDragOrder } from './useDragOrder'
 import { useStore } from '../../store/useStore'
 import { completedLessons as getCompletedLessons } from '../../utils/lesson-progress'
-import { REVIEW_QUIZ_ID } from '../grammar/hooks/useLessonData'
+import ReviewTools from './ReviewTools'
 
 export default function Review() {
   const nav = useNavigate()
@@ -33,40 +33,15 @@ export default function Review() {
       <div className="pt-[max(env(safe-area-inset-top),20px)] pb-4 animate-fadeIn">
         <h1 className="text-2xl font-bold tracking-tight">복습</h1>
         <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-          끝까지 마친 과를 다시 보거나, 그 과들의 퀴즈를 섞어 풀어 봅니다
+          잊어 가는 것부터 다시 — 하루 2~3분이면 충분해요
         </p>
       </div>
+
+      <ReviewTools />
 
       {hasCompleted ? (
         <div className="space-y-3 animate-slideUp">
           <p className="sr-only" aria-live="polite">{announce}</p>
-          {/* 랜덤 복습 버튼 */}
-          <button
-            onClick={() => nav(`/learn/${REVIEW_QUIZ_ID}`, { state: { from: '/review' } })}
-            className="w-full rounded-2xl p-5 text-left card-shadow
-              transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
-            style={{
-              background: 'var(--color-cta-gradient)',
-              minHeight: '48px',
-            }}>
-            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-white/20">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"
-                  stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="23 4 23 10 17 10" />
-                  <polyline points="1 20 1 14 7 14" />
-                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-white font-bold text-base">랜덤 퀴즈 복습</p>
-                <p className="text-white/90 text-xs mt-0.5">
-                  마친 {orderedItems.length}개 과의 퀴즈 중 10문제
-                </p>
-              </div>
-            </div>
-          </button>
-
           {/* 완료한 과 목록 헤더 */}
           <h2 className="text-sm font-bold pt-3 flex items-center gap-2"
             style={{ color: 'var(--color-text-secondary)' }}>
@@ -159,20 +134,10 @@ export default function Review() {
         </div>
       ) : (
         /* 완료한 과 없음 */
-        <div className="pt-16 text-center animate-fadeIn">
-          <div className="w-20 h-20 rounded-full mx-auto flex items-center justify-center mb-6"
-            style={{ backgroundColor: 'var(--color-surface-elevated)' }}>
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none"
-              stroke="var(--color-text-tertiary)" strokeWidth="1.5"
-              strokeLinecap="round" strokeLinejoin="round">
-              <polyline points="23 4 23 10 17 10" />
-              <polyline points="1 20 1 14 7 14" />
-              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
-            </svg>
-          </div>
-          <h2 className="text-lg font-bold mb-2">아직 완료한 과가 없습니다</h2>
-          <p className="text-sm mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            과를 완료하면 여기서 복습할 수 있어요
+        <div className="pt-6 pb-4 text-center animate-fadeIn">
+          <p className="text-sm font-bold mb-1">아직 끝까지 마친 과가 없어요</p>
+          <p className="text-xs mb-5" style={{ color: 'var(--color-text-secondary)' }}>
+            과를 마치면 여기서 한 과씩 다시 볼 수 있어요
           </p>
           <button
             onClick={() => nav('/courses')}

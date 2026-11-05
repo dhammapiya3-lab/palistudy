@@ -1,6 +1,7 @@
 // 레슨 완료 축하 화면 — 방금 마친 레슨의 실제 기록과 학습맵 순서상 다음 레슨을 보여 줌
 import { useLocation, useNavigate } from 'react-router-dom'
 import { LESSON_ORDER, canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
+import type { PracticeRef } from '../lessons/learn-extras'
 
 /** ScriptureLearn이 완료 화면으로 넘겨주는 이번 학습 기록 */
 export type LessonResult = {
@@ -10,6 +11,7 @@ export type LessonResult = {
   newWords: number    // 이번에 처음 배운 단어 수
   elapsedMs: number   // 이번 학습 시간(앱을 연 뒤부터)
   steps: number       // 레슨 전체 단계 수
+  retry?: PracticeRef[] // 이번에 틀린 문제(원본 단계 번호) — '틀린 n문제 다시 풀기'
 }
 
 function formatElapsed(ms: number): string {
@@ -96,6 +98,15 @@ export default function LessonComplete() {
 
       {/* 버튼 */}
       <div className="w-full mt-8 space-y-3">
+        {lid && result?.retry && result.retry.length > 0 && (
+          <button
+            onClick={() => nav(`/learn/scripture/${lid}`, { state: { retry: result.retry } })}
+            className="w-full py-3.5 rounded-xl font-bold active:scale-[0.97] transition-transform"
+            style={{ border: '2px solid var(--color-primary)', color: 'var(--color-primary)', backgroundColor: 'var(--color-surface)' }}
+          >
+            🔁 틀린 {result.retry.length}문제 다시 풀기
+          </button>
+        )}
         {nextId ? (
           <button
             onClick={() => nav(`/learn/scripture/${nextId}`)}

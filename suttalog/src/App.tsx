@@ -19,6 +19,9 @@ const Profile = lazy(() => import('./features/profile/Profile'))
 const Settings = lazy(() => import('./features/settings/SettingsPage'))
 const MemoList = lazy(() => import('./features/memo/MemoList'))
 const NotFound = lazy(() => import('./features/notfound/NotFound'))
+const WordReview = lazy(() => import('./features/review/WordReview'))
+const WordBook = lazy(() => import('./features/review/WordBook'))
+const Recite = lazy(() => import('./features/recite/Recite'))
 
 function Loading() {
   return (
@@ -34,6 +37,8 @@ export default function App() {
   )
 
   const completeOnboarding = () => {
+    // 처음 쓰는 분: 쓰기 문제는 꺼 둔 채로 시작(설정 → 더 자세한 학습 설정에서 켤 수 있음)
+    if (localStorage.getItem('suttalog-writing') === null) localStorage.setItem('suttalog-writing', 'off')
     localStorage.setItem('suttalog-onboarded', 'true')
     setOnboarded(true)
   }
@@ -58,6 +63,10 @@ export default function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/memos" element={<MemoList />} />
+            <Route path="/words" element={<WordBook />} />
+            {/* 낱말 복습·독송문 외우기는 하단 메뉴 없이 한 화면 */}
+            <Route path="/review/words" element={<WordReview />} />
+            <Route path="/recite/:lessonId" element={<Recite />} />
             {/* 학습 화면(/learn/*)과 레슨 완료 화면은 Layout이 하단 메뉴를 숨김 */}
             <Route path="/learn/alphabet/:lessonId" element={<AlphabetLesson />} />
             <Route path="/learn/vocab/:lessonId" element={<VocabLesson />} />

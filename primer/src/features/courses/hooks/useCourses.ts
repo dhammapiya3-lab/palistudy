@@ -1,8 +1,19 @@
-import { useState, useMemo, useCallback } from 'react'
-import { LESSONS } from '../../grammar/lessons'
+import { useState, useMemo, useCallback, useEffect } from 'react'
+import { LESSONS, loadAllLessons } from '../../grammar/lessons'
 import { useStore } from '../../../store/useStore'
 import { isLessonCompleted, lessonPct } from '../../../utils/lesson-progress'
-import type { LessonMeta } from '../../grammar/types'
+import type { LessonMeta, LessonInfo } from '../../grammar/types'
+
+/** 검색 결과 낱말 줄 — 뜻 + 그 낱말을 배우는 단계로 가기 */
+export interface WordHit {
+  stepId: string
+  lessonId: string
+  lessonTitle: string
+  index: number
+  word: string
+  meaning: string
+  pronKo: string
+}
 
 export const CATEGORIES = [
   { key: 'basic', label: '기초', desc: '자모와 발음', range: [0, 1] as const },
@@ -29,13 +40,49 @@ export function useCourses() {
   const completed = useStore(state => state.completed)
 
   const [search, setSearch] = useState('')
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>({})
 
   const st = useMemo(() => ({ progress, best, completed }), [progress, best, completed])
   const done = useCallback((l: LessonMeta) => isLessonCompleted(st, l.id, l.stepCount), [st])
 
   // 지금 할 과 = 아직 마치지 않은 첫 과
   const currentLessonIdx = useMemo(() => LESSONS.findIndex(l => !done(l)), [done])
+
+  // 처음에는 지금 공부하는 묶음만 펼침 (나머지는 접어 두어 화면을 단순하게)
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
+    const idx = currentLessonIdx === -1 ? 0 : currentLessonIdx
+    const cat = CATEGORIES.find(c => idx >= c.range[0] && idx <= c.range[1])
+    return cat ? { [cat.key]: true } : {}
+  })
+
+  // 낱말 검색 — 검색을 시작하면 과 내용을 받아 낱말·뜻을 찾음
+  const [allLessons, setAllLessons] = useState<LessonInfo[] | null>(null)
+  const searching = !!search.trim()
+  useEffect(() => {
+    if (!searching || allLessons) return
+    let alive = true
+    loadAllLessons().then(ls => { if (alive) setAllLessons(ls) }, () => { /* 인터넷이 없으면 과 이름으로만 찾음 */ })
+    return () => { alive = false }
+  }, [searching, allLessons])
+
+  const wordHits = useMemo<WordHit[]>(() => {
+    const q = fold(search.trim())
+    if (!q || !allLessons) return []
+    const out: WordHit[] = []
+    const seen = new Set<string>()
+    for (const l of allLessons) {
+      l.steps.forEach((s, index) => {
+        if (s.type !== 'teach' || out.length >= 8) return
+        const w = fold(s.word), m = fold(s.meaning)
+        if (!(w.includes(q) || m.includes(q))) return
+        const key = w + '|' + m
+        if (seen.has(key)) return
+        seen.add(key)
+        out.push({ stepId: s.id, lessonId: l.id, lessonTitle: l.title, index, word: s.word, meaning: s.meaning, pronKo: s.pronKo })
+      })
+    }
+    // 낱말이 바로 맞는 것 먼저
+    return out.sort((a, b) => Number(fold(b.word).startsWith(q)) - Number(fold(a.word).startsWith(q)))
+  }, [search, allLessons])
 
   // 검색: 묶음마다 맞는 과만 남김 (맞는 과가 없는 묶음은 숨김)
   const filteredCategories = useMemo(() => {
@@ -77,6 +124,7 @@ export function useCourses() {
     filteredCategories,
     getLessonState,
     getSectionCompletion,
-    stats
+    stats,
+    wordHits,
   }
 }

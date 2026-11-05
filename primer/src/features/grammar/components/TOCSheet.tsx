@@ -5,6 +5,8 @@ interface TOCSheetProps {
   STEPS: StepType[]
   stepIdx: number
   isSkipped?: (index: number) => boolean
+  /** 건너뛰는 이유 — 'more'(더 알아보기)는 눌러서 열 수 있음 */
+  skipReason?: (index: number) => 'writing' | 'more' | null
   onSelect: (index: number) => void
   onClose: () => void
 }
@@ -13,6 +15,7 @@ export default function TOCSheet({
   STEPS,
   stepIdx,
   isSkipped,
+  skipReason,
   onSelect,
   onClose
 }: TOCSheetProps) {
@@ -37,7 +40,9 @@ export default function TOCSheet({
           {STEPS.map((s, i) => {
             const label = stepLabel(s, i)
             const isCur = i === stepIdx
-            const skipped = isSkipped?.(i) ?? false
+            const reason = skipReason?.(i) ?? null
+            const skipped = (isSkipped?.(i) ?? false) && reason !== 'more'
+            const isMore = reason === 'more'
             const typeIcon = s.type === 'intro' ? '📖' : s.type === 'teach' ? '📝'
               : s.type === 'teach-grammar' ? '📐' : s.type === 'quiz' ? '❓'
               : s.type === 'match-listen' ? '🔊' : s.type === 'match-reverse' ? '🎯'
@@ -55,15 +60,18 @@ export default function TOCSheet({
                     ? 'color-mix(in srgb, var(--color-primary) 10%, var(--color-surface))'
                     : 'transparent',
                   border: isCur ? '1px solid var(--color-primary-light)' : '1px solid transparent',
-                  opacity: skipped ? 0.45 : 1,
+                  opacity: skipped ? 0.45 : isMore ? 0.75 : 1,
                 }}>
                 <span className="text-sm shrink-0">{typeIcon}</span>
                 <span className="text-xs font-medium truncate flex-1"
                   style={{ color: isCur ? 'var(--color-primary)' : 'var(--color-text)' }}>
                   {i + 1}. {label}
                 </span>
-                {skipped && (
+                {skipped && reason === 'writing' && (
                   <span className="text-[10px] shrink-0" style={{ color: 'var(--color-text-secondary)' }}>쓰기 모드 꺼짐</span>
+                )}
+                {isMore && (
+                  <span className="text-[10px] shrink-0" style={{ color: 'var(--color-text-secondary)' }}>더 알아보기</span>
                 )}
                 {isCur && (
                   <span className="text-[10px] font-bold shrink-0"

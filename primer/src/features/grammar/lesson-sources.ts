@@ -13,7 +13,7 @@ export interface LessonSource {
 
 export const LESSON_SOURCES: LessonSource[] = [
   // 기초
-  { id: 'lesson-00', title: '자모와 발음', subtitle: '모음 8 · 자음 33 · 발음규칙 · 8격', icon: '🔤', load: () => import('./lesson-00-alphabet').then(m => m.LESSON_00) },
+  { id: 'lesson-00', title: '자모와 발음', subtitle: '글자와 소리 · 듣고 고르기 · 예경문 읽기', icon: '🔤', load: () => import('./lesson-00-alphabet').then(m => m.LESSON_00) },
   { id: 'lesson-alphabet-2', title: '자모와 발음 2', subtitle: '41자 개별 학습 · 행복경 예시', icon: '🔡', load: () => import('./lesson-alphabet-2').then(m => m.LESSON_ALPHABET_2) },
   // 남성 -a 8격
   { id: 'lesson-01', title: '1과: 주격 + 동사', subtitle: '-o/-ā · -ti/-nti', icon: '📿', load: () => import('./lesson-01').then(m => m.LESSON_01) },

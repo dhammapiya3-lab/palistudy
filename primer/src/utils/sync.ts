@@ -8,6 +8,7 @@ import { useStore } from '../store/useStore'
 import { applyTheme } from './theme'
 import { applyFontSize } from './font-size'
 import { normalizeProgress } from './lesson-progress'
+import { useWordSrs, mergeWordCards, WORD_SRS_KEY, type WordCard } from '../store/useWordSrs'
 
 // panditarama-video Firebase 프로젝트 공유 (컬렉션만 분리)
 const FIREBASE_CONFIG = {
@@ -30,6 +31,11 @@ const ORDER_KEY = 'pali-review-order'      // 복습 목록 순서
 const FONT_KEY = 'pali-primer-fontsize'    // 글씨 크기
 const SOUND_KEY = 'suttalog2-sound'        // 소리 켜기/끄기
 const LEGACY_LESSON_PREFIX = 'pali-primer-lesson-' // 예전 판 진도 키
+const MILESTONES_KEY = 'primer-milestones-seen' // 이미 축하한 이정표
+// WORD_SRS_KEY ('primer-word-srs')          // 내 단어장 낱말 카드 복습 상태
+
+/** 클라우드에 올리는 키 */
+const SYNC_KEYS = [STORE_KEY, LOG_KEY, DATES_KEY, ORDER_KEY, FONT_KEY, SOUND_KEY, WORD_SRS_KEY, MILESTONES_KEY]
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let auth: any = null
@@ -106,7 +112,11 @@ export function initSync(onStateChange?: (loggedIn: boolean) => void): Promise<v
         if (user) {
           await pullFromCloud()
           // 로그인 중에는 진도·설정이 바뀔 때마다 몇 초 뒤 자동 저장
-          if (!unsubscribeStore) unsubscribeStore = useStore.subscribe(() => debouncedPush())
+          if (!unsubscribeStore) {
+            const a = useStore.subscribe(() => debouncedPush())
+            const b = useWordSrs.subscribe(() => debouncedPush())
+            unsubscribeStore = () => { a(); b() }
+          }
         } else if (unsubscribeStore) {
           unsubscribeStore()
           unsubscribeStore = null
@@ -157,6 +167,14 @@ interface StoreSnapshot {
   theme?: 'light' | 'dark' | 'system'
   streak?: number
   lastStudyDate?: string | null
+  audioRate?: 0.75 | 1
+  easyMode?: boolean
+  dailyGoalMin?: 5 | 10 | 15
+  onboardingSeen?: boolean
+  writingOffered?: boolean
+  studySeconds?: Record<string, number>
+  quizRecords?: Record<string, { ok: number; ng: number; last: string }>
+  seenWords?: Record<string, { lessonId: string; word: string; meaning: string; pronKo: string }>
 }
 
 function parseJSON<T>(v: unknown, fallback: T): T {
@@ -195,8 +213,29 @@ function mergeStore(cloud: StoreSnapshot, adoptSettings: boolean) {
     }
   }
 
-  const next: Partial<ReturnType<typeof useStore.getState>> = { progress, best, completed, streak, lastStudyDate }
+  // 날짜별 공부 시간: 같은 날이면 큰 값 (두 기기에서 같은 시간을 두 번 더하지 않게)
+  const studySeconds = { ...(local.studySeconds || {}) }
+  for (const [d, sec] of Object.entries(cloud.studySeconds || {})) {
+    if (typeof sec === 'number') studySeconds[d] = Math.max(studySeconds[d] || 0, sec)
+  }
+  // 문제 기록: 더 최근에 푼 쪽 (같은 날이면 더 많이 푼 쪽)
+  const quizRecords = { ...(local.quizRecords || {}) }
+  for (const [id, r] of Object.entries(cloud.quizRecords || {})) {
+    if (!r || typeof r.last !== 'string') continue
+    const mine = quizRecords[id]
+    if (!mine || r.last > mine.last || (r.last === mine.last && r.ok + r.ng > mine.ok + mine.ng)) quizRecords[id] = r
+  }
+  // 본 낱말: 양쪽 모두
+  const seenWords = { ...(cloud.seenWords || {}), ...(local.seenWords || {}) }
+
+  const next: Partial<ReturnType<typeof useStore.getState>> = { progress, best, completed, streak, lastStudyDate, studySeconds, quizRecords, seenWords }
+  // 처음 안내·쓰기 권유는 한 기기에서 봤으면 본 것으로
+  if (cloud.onboardingSeen) next.onboardingSeen = true
+  if (cloud.writingOffered) next.writingOffered = true
   if (adoptSettings) {
+    if (cloud.audioRate === 0.75 || cloud.audioRate === 1) next.audioRate = cloud.audioRate
+    if (typeof cloud.easyMode === 'boolean') next.easyMode = cloud.easyMode
+    if (cloud.dailyGoalMin === 5 || cloud.dailyGoalMin === 10 || cloud.dailyGoalMin === 15) next.dailyGoalMin = cloud.dailyGoalMin
     if (typeof cloud.writingEnabled === 'boolean') next.writingEnabled = cloud.writingEnabled
     if (cloud.theme === 'light' || cloud.theme === 'dark' || cloud.theme === 'system') next.theme = cloud.theme
     if (typeof cloud.fontSize === 'string') next.fontSize = cloud.fontSize
@@ -258,6 +297,19 @@ function mergeCloudData(data: Record<string, unknown>, adoptSettings: boolean) {
   if (data[LOG_KEY] !== undefined) mergeStudyLog(data[LOG_KEY])
   if (data[DATES_KEY] !== undefined) mergeStudyDates(data[DATES_KEY])
 
+  // 3-1) 내 단어장 카드 복습 상태 (더 최근에 본 쪽)
+  const cloudSrs = parseJSON<{ state?: { cards?: Record<string, WordCard> } }>(data[WORD_SRS_KEY], {})
+  if (cloudSrs.state?.cards) {
+    useWordSrs.setState({ cards: mergeWordCards(useWordSrs.getState().cards, cloudSrs.state.cards) })
+  }
+  // 3-2) 이미 축하한 이정표 (양쪽 모두)
+  if (data[MILESTONES_KEY] !== undefined) {
+    const a = parseJSON<string[]>(data[MILESTONES_KEY], [])
+    const b = parseJSON<string[]>(localStorage.getItem(MILESTONES_KEY), [])
+    const all = Array.from(new Set([...(Array.isArray(a) ? a : []), ...(Array.isArray(b) ? b : [])]))
+    localStorage.setItem(MILESTONES_KEY, JSON.stringify(all))
+  }
+
   // 4) 기타 설정
   if (adoptSettings) {
     if (typeof data[FONT_KEY] === 'string' && data[FONT_KEY]) { localStorage.setItem(FONT_KEY, data[FONT_KEY] as string); applyFontSize() }
@@ -296,7 +348,7 @@ async function writeLocalToCloud() {
   if (!currentUser || !db || !fb) return
   const docRef = fb.doc(db, COLLECTION, currentUser.uid)
   const data: Record<string, string> = {}
-  for (const key of [STORE_KEY, LOG_KEY, DATES_KEY, ORDER_KEY, FONT_KEY, SOUND_KEY]) {
+  for (const key of SYNC_KEYS) {
     const v = localStorage.getItem(key)
     if (v !== null) data[key] = v
   }
@@ -311,7 +363,7 @@ export async function overwriteCloud(): Promise<boolean> {
   try {
     const docRef = fb.doc(db, COLLECTION, currentUser.uid)
     const data: Record<string, string> = {}
-    for (const key of [STORE_KEY, LOG_KEY, DATES_KEY, ORDER_KEY, FONT_KEY, SOUND_KEY]) {
+    for (const key of SYNC_KEYS) {
       data[key] = localStorage.getItem(key) ?? ''
     }
     data['lastSyncAt'] = new Date().toISOString()

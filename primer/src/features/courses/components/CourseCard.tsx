@@ -1,4 +1,7 @@
 import CircleProgress from './CircleProgress'
+import { estimateMinutes, chunkCount } from '../../../utils/lesson-time'
+import { friendlySubtitle } from '../subtitles'
+import { suttaLinksFor, suttaLessonUrl } from '../../reference/sutta-links'
 
 interface CourseCardProps {
   lesson: {
@@ -14,7 +17,12 @@ interface CourseCardProps {
 }
 
 export default function CourseCard({ lesson, isCompleted, isCurrent, pct, onClick }: CourseCardProps) {
+  const min = estimateMinutes(lesson.stepCount)
+  const chunks = chunkCount(lesson.stepCount)
+  // 마친 과에는 '이 문법이 나오는 경전' 한 줄
+  const sutta = isCompleted ? suttaLinksFor(lesson.id)[0] : undefined
   return (
+    <div>
     <button
       onClick={onClick}
       className="w-full flex items-center gap-3 rounded-xl px-3.5 py-3 text-left
@@ -63,15 +71,27 @@ export default function CourseCard({ lesson, isCompleted, isCurrent, pct, onClic
         </p>
         <p className="text-[11px] mt-0.5 truncate"
           style={{ color: 'var(--color-text-secondary)' }}>
-          {lesson.subtitle}
+          {friendlySubtitle(lesson.id, lesson.subtitle)}
         </p>
       </div>
 
-      {/* 스텝 수 */}
-      <span className="text-[10px] font-semibold shrink-0"
-        style={{ color: 'var(--color-text-tertiary)' }}>
-        {lesson.stepCount}스텝
-      </span>
+      {/* 예상 시간 · 마디 수 */}
+      {min > 0 && (
+        <span className="text-[10px] font-semibold shrink-0 text-right leading-tight"
+          style={{ color: 'var(--color-text-tertiary)' }}>
+          약 {min}분<br />{chunks}마디
+        </span>
+      )}
     </button>
+    {sutta && (
+      <a href={suttaLessonUrl(sutta.sutta)}
+        className="flex items-center gap-1.5 mt-1 ml-12 mr-1 px-2.5 py-1.5 rounded-lg text-[11px]"
+        style={{ color: 'var(--color-primary)', backgroundColor: 'color-mix(in srgb, var(--color-primary) 6%, transparent)' }}>
+        <span aria-hidden="true">🪷</span>
+        <span className="truncate">이 문법이 나오는 경전 · {sutta.title} — {sutta.note}</span>
+        <span aria-hidden="true" className="ml-auto shrink-0">›</span>
+      </a>
+    )}
+    </div>
   )
 }

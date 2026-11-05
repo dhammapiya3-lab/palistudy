@@ -89,6 +89,25 @@
     .name { display: block; font-size: 18px; font-weight: 700; margin: 0 0 3px; }
     .desc { display: block; font-size: 14px; color: var(--muted); margin: 0; line-height: 1.45; }
     .arrow { margin-left: auto; color: var(--muted); font-size: 20px; }
+    .start {
+      background: var(--card); border: 1px dashed var(--accent); border-radius: 18px;
+      padding: 14px 16px; margin: 0 0 16px; font-size: 14px; line-height: 1.6;
+    }
+    .start b { display: block; font-size: 15px; margin-bottom: 4px; }
+    .start ol { margin: 0; padding-left: 1.3em; }
+    .start .note { color: var(--muted); font-size: 13px; margin: 6px 0 0; }
+    .start a { color: var(--accent); font-weight: 700; text-underline-offset: 3px; }
+    .who { display: block; font-size: 13px; color: var(--accent); margin-top: 5px; font-weight: 600; }
+    .resume {
+      display: none; font-size: 12.5px; font-weight: 700; margin-top: 6px;
+      color: var(--card); background: var(--accent); border-radius: 999px; padding: 3px 10px; width: fit-content;
+    }
+    .resume.on { display: block; }
+    .step-no {
+      position: absolute; top: -9px; left: 14px; font-size: 12px; font-weight: 700;
+      background: var(--accent); color: var(--card); border-radius: 999px; padding: 1px 9px;
+    }
+    a.app { position: relative; }
     footer { margin-top: 40px; text-align: center; font-size: 13px; color: var(--muted); line-height: 1.6; }
     @media (prefers-reduced-motion: reduce) {
       a.app { transition: none; }
@@ -104,21 +123,37 @@
       <p class="pali" lang="pi">Sabbadānaṃ dhammadānaṃ jināti</p>
     </header>
 
+    <!-- 처음 온 분께: 두 앱의 순서 안내 (두 앱 모두 기록이 있으면 숨김) -->
+    <section class="start" id="start" aria-label="처음이세요? 여기서 시작">
+      <b>처음이세요? 여기서 시작하세요 🪷</b>
+      <ol>
+        <li><a href="./primer/#/learn/lesson-00">빠알리 프라이머 0과</a> — 글자와 발음 (10분쯤)</li>
+        <li><a href="./suttalog/learn/scripture/namo">경전으로 배우기 1과</a> — 나모 땃사를 한 낱말씩</li>
+      </ol>
+      <p class="note">프라이머로 문법을 한 과씩 익히고, 경전 앱에서 그 문법이 나오는 독송 구절을 읽어요. 둘을 번갈아 하면 좋아요.</p>
+    </section>
+
     <!-- 앱 목록: 새 앱이 생기면 아래 a.app 블록을 하나 더 추가 -->
     <nav class="apps" aria-label="공부 앱">
-      <a class="app" href="./primer/">
+      <a class="app" href="./primer/" id="app-primer">
+        <span class="step-no" aria-hidden="true">1 · 먼저</span>
         <img class="icon" src="./primer/icon-192.png" alt="" aria-hidden="true" width="52" height="52" />
         <span class="text">
           <span class="name">빠알리 프라이머</span>
-          <span class="desc">문법을 한 과씩 — De Silva의 Pali Primer 기반</span>
+          <span class="desc">글자·발음부터 문법을 한 과씩 — De Silva의 Pali Primer 기반</span>
+          <span class="who">이런 분께: 글자부터 차근차근 배우고 싶은 분</span>
+          <span class="resume" id="resume-primer"></span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
-      <a class="app" href="./suttalog/">
+      <a class="app" href="./suttalog/" id="app-suttalog">
+        <span class="step-no" aria-hidden="true">2 · 그다음</span>
         <img class="icon" src="./suttalog/icon-192.png" alt="" aria-hidden="true" width="52" height="52" />
         <span class="text">
           <span class="name">경전으로 배우기</span>
-          <span class="desc">삼귀의·오계부터 대념처경까지</span>
+          <span class="desc">삼귀의·오계부터 대념처경까지 — 독송 구절을 한 낱말씩</span>
+          <span class="who">이런 분께: 늘 외던 독송 구절의 뜻이 궁금한 분</span>
+          <span class="resume" id="resume-suttalog"></span>
         </span>
         <span class="arrow" aria-hidden="true">›</span>
       </a>
@@ -126,5 +161,48 @@
 
     <footer>모든 보시 가운데 법보시가 으뜸입니다.</footer>
   </main>
+
+  <script>
+    // 두 앱의 공부 기록(같은 사이트라 이 기기에 저장된 값을 읽음)으로 '이어 하기' 표시
+    (function () {
+      function read(k) { try { return localStorage.getItem(k) } catch (e) { return null } }
+      function json(k) { try { return JSON.parse(read(k) || 'null') } catch (e) { return null } }
+
+      // 빠알리 프라이머 — 홈이 남긴 'primer-resume' (없으면 진도가 있는지만)
+      var primer = null
+      var r = json('primer-resume')
+      var st = json('suttalog2-storage')
+      var hasPrimer = !!(st && st.state && (Object.keys(st.state.progress || {}).length || Object.keys(st.state.completed || {}).length))
+      if (r && r.title) primer = '이어 하기: ' + String(r.title).split(':')[0] + ' ' + (r.pct || 0) + '%'
+      else if (hasPrimer) primer = '이어 하기'
+
+      // 경전으로 배우기 — 마지막으로 공부한 과 + 진도
+      var TITLES = { 'namo': '나모땃사', 'trisarana': '삼귀의', 'pancasila': '오계', 'tisarana-guna': '삼보공덕', 'sn45-8': '도분별경', 'mangala': '축복경', 'sn56-11': '초전법륜경', 'metta': '자애경', 'sn22-59': '무아의 특징경', 'ratana': '보배경', 'mn10': '대념처경' }
+      var TOTALS = { 'namo': 13, 'trisarana': 32, 'pancasila': 43, 'tisarana-guna': 55, 'sn45-8': 193, 'mangala': 162, 'sn56-11': 314, 'metta': 116, 'sn22-59': 200, 'ratana': 229, 'mn10': 1008 }
+      var sutta = null
+      var last = json('suttalog-last-studied')
+      var lid = last && last.id
+      if (!lid) {
+        // 기록이 없으면 진도가 가장 앞선 경전
+        var bestR = 0
+        for (var id in TOTALS) {
+          var p = Number(read('suttalog-progress-' + id)) || 0
+          if (p > 0 && read('suttalog-done-' + id) !== 'true' && p / TOTALS[id] > bestR) { bestR = p / TOTALS[id]; lid = id }
+        }
+      }
+      if (lid && TITLES[lid]) {
+        var total = Number(read('suttalog-total-' + lid)) || TOTALS[lid]
+        var step = Number(read('suttalog-progress-' + lid)) || 0
+        var done = read('suttalog-done-' + lid) === 'true'
+        var pct = done ? 100 : Math.min(99, Math.round(step / total * 100))
+        sutta = '이어 하기: ' + TITLES[lid] + ' ' + pct + '%'
+      }
+
+      if (primer) { var a = document.getElementById('resume-primer'); a.textContent = primer; a.classList.add('on') }
+      if (sutta) { var b = document.getElementById('resume-suttalog'); b.textContent = sutta; b.classList.add('on') }
+      // 두 앱 모두 공부한 적이 있으면 '처음이세요?' 안내는 숨김
+      if (primer && sutta) document.getElementById('start').style.display = 'none'
+    })()
+  </script>
 </body>
 </html>

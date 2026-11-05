@@ -55,9 +55,10 @@ const TABS = [
   },
 ] as const
 
-/** 하단 메뉴를 숨기는 화면: 학습 화면과 레슨 완료 화면 */
+/** 하단 메뉴를 숨기는 화면: 학습 화면, 레슨 완료 화면, 낱말 복습, 독송문 외우기 */
 export function isNavHidden(pathname: string): boolean {
   return pathname.startsWith('/learn/') || pathname.startsWith('/lesson-complete') || pathname.startsWith('/lesson/')
+    || pathname.startsWith('/review/words') || pathname.startsWith('/recite/')
 }
 
 /** 주소 → 활성 탭. 맞는 탭이 없으면(예: 없는 주소) 아무 탭도 켜지 않음 */
@@ -65,7 +66,7 @@ function tabOf(pathname: string): string | null {
   if (pathname === '/') return 'home'
   if (pathname.startsWith('/map') || pathname.startsWith('/skill')) return 'courses'
   if (pathname.startsWith('/review')) return 'review'
-  if (pathname.startsWith('/profile') || pathname.startsWith('/settings') || pathname.startsWith('/memos')) return 'profile'
+  if (pathname.startsWith('/profile') || pathname.startsWith('/settings') || pathname.startsWith('/memos') || pathname.startsWith('/words')) return 'profile'
   return null
 }
 

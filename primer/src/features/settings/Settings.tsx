@@ -72,6 +72,28 @@ function SettingRow({
   )
 }
 
+/** 몇 개 중 하나 고르기 (하루 목표·소리 속도) */
+function Segmented<T extends string | number>({ label, value, options, onChange }: {
+  label: string; value: T; options: { v: T; label: string }[]; onChange: (v: T) => void
+}) {
+  return (
+    <div className="flex gap-2" role="radiogroup" aria-label={label}>
+      {options.map(o => (
+        <button key={String(o.v)} role="radio" aria-checked={value === o.v} onClick={() => onChange(o.v)}
+          className="flex-1 py-2.5 rounded-xl text-sm font-semibold transition-all active:scale-95"
+          style={{
+            backgroundColor: value === o.v ? 'var(--color-primary-dark)' : 'var(--color-surface-elevated)',
+            color: value === o.v ? 'white' : 'var(--color-text)',
+            border: value === o.v ? '1.5px solid var(--color-primary-dark)' : '1.5px solid var(--color-border)',
+            minHeight: 44,
+          }}>
+          {o.label}
+        </button>
+      ))}
+    </div>
+  )
+}
+
 // 다른 공부 앱으로 가는 링크 (같은 사이트 안)
 function LinkRow({ href, icon, title, desc }: { href: string; icon: string; title: string; desc: string }) {
   return (
@@ -122,6 +144,28 @@ export default function Settings() {
           <h2 className={sectionTitle} style={sectionTitleStyle}>학습 및 화면</h2>
           <div className="space-y-3">
             <SettingRow
+              icon={<span>👓</span>}
+              title="쉬운 화면"
+              desc="큰 글씨 · 메모·쓰기 숨김 · 보기 2개 · 연꽃잎 없이 공부"
+              right={<Toggle label="쉬운 화면" value={settings.easyMode} onChange={actions.toggleEasyMode} />}
+            />
+            <div className="p-4 rounded-2xl space-y-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+              <div>
+                <p className="font-semibold text-sm"><span aria-hidden="true">🎯 </span>하루 목표</p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>홈의 링에 &lsquo;오늘 7/10분&rsquo;처럼 보여요. 짧아도 충분해요.</p>
+              </div>
+              <Segmented label="하루 목표" value={settings.dailyGoal} onChange={actions.setDailyGoal}
+                options={[{ v: 5, label: '5분' }, { v: 10, label: '10분' }, { v: 15, label: '15분' }]} />
+            </div>
+            <div className="p-4 rounded-2xl space-y-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+              <div>
+                <p className="font-semibold text-sm"><span aria-hidden="true">🔊 </span>소리 속도</p>
+                <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>발음을 천천히 듣고 따라 하고 싶을 때 &lsquo;느리게&rsquo;</p>
+              </div>
+              <Segmented label="소리 속도" value={settings.audioRate} onChange={actions.setAudioRate}
+                options={[{ v: 0.75, label: '느리게' }, { v: 1, label: '보통' }]} />
+            </div>
+            <SettingRow
               icon={<span>✍️</span>}
               title="쓰기 모드"
               desc="손글씨 쓰기 단계 포함"
@@ -142,6 +186,26 @@ export default function Settings() {
                 </button>
               )}
             </div>
+          </div>
+        </section>
+
+        {/* 안내·오프라인 */}
+        <section>
+          <h2 className={sectionTitle} style={sectionTitleStyle}>도움말 · 오프라인</h2>
+          <div className="space-y-3">
+            <SettingRow
+              icon={<span>🪷</span>}
+              title="처음 안내 다시 보기"
+              desc="연꽃잎·건너뛰기·🔊·메모 버튼 설명을 다시 봐요"
+              onClick={() => { actions.replayOnboarding(); nav('/') }}
+              right={<span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>}
+            />
+            <SettingRow
+              icon={<span>📥</span>}
+              title="모든 과 미리 받아 두기"
+              desc="와이파이일 때 쉬는 틈에 받아 두어 인터넷이 없어도 공부 (데이터 절약 모드에서는 받지 않음)"
+              right={<Toggle label="모든 과 미리 받아 두기" value={settings.prefetch} onChange={actions.togglePrefetch} />}
+            />
           </div>
         </section>
 

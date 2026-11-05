@@ -10,10 +10,11 @@ interface ScrubBarProps {
   fillClassName?: string              // 채움 막대 꾸밈 (앱별)
   fillColor?: string
   marks?: number[]                    // 소단원 시작 위치 눈금 (단계 번호)
+  unitLabel?: string                  // 범위 이름(예: '2마디') — 마디 안 진도일 때 읽어 주기용
 }
 
 export default function ScrubBar({
-  total, current, onSeek, getLabel, fillClassName = '', fillColor, marks,
+  total, current, onSeek, getLabel, fillClassName = '', fillColor, marks, unitLabel,
 }: ScrubBarProps) {
   const trackRef = useRef<HTMLDivElement>(null)
   const [preview, setPreview] = useState<number | null>(null) // 끄는 중 가리키는 단계
@@ -51,7 +52,7 @@ export default function ScrubBar({
       aria-valuemin={1}
       aria-valuemax={total}
       aria-valuenow={current + 1}
-      aria-valuetext={`${current + 1} / ${total} 단계`}
+      aria-valuetext={`${unitLabel ? `${unitLabel} ` : ''}${current + 1} / ${total} 단계`}
       tabIndex={0}
       onPointerDown={e => {
         if (e.pointerType === 'mouse' && e.button !== 0) return

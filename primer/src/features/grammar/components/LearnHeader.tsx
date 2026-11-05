@@ -15,6 +15,12 @@ interface LearnHeaderProps {
   lessonTitle: string
   stepTitle: string
   onSeek: (index: number) => void  // 진도 막대로 단계 이동
+  /** 연꽃잎 숨김 (쉬운 화면) */
+  hideHearts?: boolean
+  /** 마디 표시 (예: '마디 2/3') */
+  chunkLabel?: string
+  /** 지금 흐름에서 보이는 단계 번호들 (건너뛰는 단계 빼고) — 진도 막대와 'n/전체'를 이것으로 */
+  visibleSteps?: number[]
 }
 
 // 머리 줄 아이콘 버튼 — 손가락으로 누르기 쉬운 44px
@@ -32,7 +38,14 @@ export default function LearnHeader({
   lessonTitle,
   stepTitle,
   onSeek,
+  hideHearts,
+  chunkLabel,
+  visibleSteps,
 }: LearnHeaderProps) {
+  // 보이는 단계 기준 위치 (건너뛰는 쓰기·더 알아보기 단계는 세지 않음)
+  const vis = visibleSteps && visibleSteps.length ? visibleSteps : STEPS.map((_, i) => i)
+  let pos = vis.indexOf(stepIdx)
+  if (pos < 0) pos = Math.max(0, vis.findIndex(i => i > stepIdx) - 1)
   return (
     <div className="shrink-0 px-2 pt-2 pb-1 min-w-0">
       <div className="flex items-center gap-1 min-w-0">
@@ -50,10 +63,10 @@ export default function LearnHeader({
         <div className="flex-1 min-w-0 flex items-center gap-2 px-1">
           <div className="flex-1 min-w-0">
             <ScrubBar
-              total={STEPS.length}
-              current={stepIdx}
-              onSeek={onSeek}
-              getLabel={i => stepLabel(STEPS[i], i)}
+              total={vis.length}
+              current={pos}
+              onSeek={i => onSeek(vis[i])}
+              getLabel={i => stepLabel(STEPS[vis[i]], vis[i])}
               fillClassName="progress-bar-gradient"
             />
           </div>
@@ -61,7 +74,7 @@ export default function LearnHeader({
             className="text-[11px] shrink-0 tabular-nums"
             style={{ color: 'var(--color-text-secondary)' }}
           >
-            {stepIdx + 1}/{STEPS.length}
+            {pos + 1}/{vis.length}
           </span>
         </div>
 
@@ -105,7 +118,7 @@ export default function LearnHeader({
         </button>
 
         {/* 연꽃잎 (남은 기회) — 아이콘 하나 + 숫자 */}
-        <div
+        {!hideHearts && <div
           className={`flex items-center gap-0.5 shrink-0 pr-2 pl-1 ${heartShakeIdx !== null ? 'heart-shake' : ''}`}
           role="img"
           aria-label={`연꽃잎 ${hearts}개 남음 (5개 중)`}
@@ -115,7 +128,7 @@ export default function LearnHeader({
           <span className="text-sm font-bold tabular-nums" style={{ color: 'var(--color-primary)' }} aria-hidden="true">
             {hearts}
           </span>
-        </div>
+        </div>}
       </div>
 
       {/* 브레드크럼 */}
@@ -126,6 +139,12 @@ export default function LearnHeader({
         </span>
         <span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>
         <span className="truncate">{stepTitle}</span>
+        {chunkLabel && (
+          <span className="ml-auto shrink-0 px-2 py-0.5 rounded-full font-semibold"
+            style={{ backgroundColor: 'color-mix(in srgb, var(--color-primary) 10%, transparent)', color: 'var(--color-primary)' }}>
+            {chunkLabel}
+          </span>
+        )}
       </div>
     </div>
   )

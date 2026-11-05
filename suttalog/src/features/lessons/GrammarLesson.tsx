@@ -1,13 +1,18 @@
 // 문법 학습 - 경전 기반
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { speakPali } from '../../utils/pali-tts'
 import { closeBasicLesson, finishBasicLesson } from './basics'
 import BasicLessonMissing from './BasicLessonMissing'
 
+type CheckQ = { q: string; options: string[]; answer: number; explain: string }
+
 const GRAMMAR_DATA: Record<string, {
   title: string; source: string; verse: string; verseKo: string;
   explanation: { title: string; content: string }[];
   table?: { headers: string[]; rows: string[][]; paliCols: number[] };  // paliCols: 빠알리 낱말이 든 열(강조 표시)
+  /** 레슨 끝 확인 문제 */
+  check?: CheckQ[];
 }> = {
   sov: {
     title: 'SOV 어순 (주어-목적어-동사)',
@@ -18,6 +23,14 @@ const GRAMMAR_DATA: Record<string, {
       { title: '문장 구조 분석', content: 'Bhikkhu (비구가, 주격) + vihāraṃ (승원으로, 대격) + gacchati (간다, 동사)\n\n빠알리어는 한국어처럼 SOV(주어-목적어-동사) 어순이 기본입니다. (격어미가 역할을 나타내므로 어순은 비교적 자유롭습니다)' },
       { title: '참고: 동사 없는 문장 (Dhp 1)', content: 'Manopubbaṅgamā dhammā\n= manopubbaṅgamā (소유복합어 bahubbīhi, 주격 복수: "마음을 앞세운") + dhammā (법들은, 주격 복수)\n\n"법들은 마음을 앞세운다" — 동사도 목적어도 없는 명사문이라 SOV 예시는 아닙니다. mano는 독립된 주어가 아니라 복합어의 앞부분입니다.' },
       { title: '한국어와의 유사성', content: '한국어: "나는 법을 배운다"\n빠알리어: "Ahaṃ dhammaṃ sikkhāmi"\n(나는) (법을) (배운다)\n\n어순이 같습니다!' },
+    ],
+    check: [
+      { q: 'Bhikkhu vihāraṃ gacchati 에서 ‘승원으로’에 해당하는 낱말은?', options: ['bhikkhu', 'vihāraṃ', 'gacchati'], answer: 1,
+        explain: 'vihāraṃ은 vihāra(승원)의 대격(=목적격). 가는 곳을 나타내 ‘승원으로’가 됩니다.' },
+      { q: '빠알리어에서 주어·목적어 같은 낱말의 역할을 알려 주는 것은?', options: ['낱말의 순서만', '낱말 끝의 격어미', '띄어쓰기'], answer: 1,
+        explain: '격어미(-o, -aṃ 등)가 역할을 나타냅니다. 그래서 어순을 바꿔도 뜻이 크게 달라지지 않아요.' },
+      { q: 'Ahaṃ dhammaṃ sikkhāmi 에서 동사(서술어)는?', options: ['ahaṃ', 'dhammaṃ', 'sikkhāmi'], answer: 2,
+        explain: 'sikkhāmi = (내가) 배운다. 1인칭 단수 현재 어미 -āmi. 한국어처럼 동사가 끝에 왔어요.' },
     ],
   },
   'nom-acc': {
@@ -33,10 +46,18 @@ const GRAMMAR_DATA: Record<string, {
       headers: ['격', '어미 (남성 -a 어간)', '기능', '예시'],
       rows: [
         ['주격', '-o (단), -ā (복)', '~이/가', 'Buddho'],
-        ['대격', '-aṃ (단), -e (복)', '~을/를', 'Buddhaṃ'],
+        ['대격(=목적격)', '-aṃ (단), -e (복)', '~을/를', 'Buddhaṃ'],
       ],
       paliCols: [3],
     },
+    check: [
+      { q: 'Buddho deseti(부처님이 설하신다)에서 Buddho는 몇 격?', options: ['주격', '대격(=목적격)', '속격(=소유격)'], answer: 0,
+        explain: '-o는 남성 -a 어간의 주격 단수 어미 — ‘~이/가’, 문장의 주어입니다.' },
+      { q: 'Dhammaṃ saraṇaṃ gacchāmi 에서 Dhammaṃ은 몇 격?', options: ['주격', '대격(=목적격)', '호격'], answer: 1,
+        explain: 'dhamma(남성 -a 어간)의 대격 단수 -aṃ. ‘담마를 (귀의처로 하여) 갑니다’ — 가는 대상이에요.' },
+      { q: '남성 -a 어간의 주격 복수 어미는?', options: ['-ā (buddhā)', '-aṃ (buddhaṃ)', '-assa (buddhassa)'], answer: 0,
+        explain: '주격 복수는 -ā: buddhā(부처님들이). -aṃ은 대격 단수, -assa는 여격·속격 단수입니다.' },
+    ],
   },
   'declension-a': {
     title: '남성 -a 어간 8격',
@@ -50,16 +71,26 @@ const GRAMMAR_DATA: Record<string, {
       headers: ['격', '명칭', '기능', '단수', '복수'],
       rows: [
         ['1격', '주격', '~이/가', 'buddho', 'buddhā'],
-        ['2격', '대격', '~을/를', 'buddhaṃ', 'buddhe'],
-        ['3격', '구격', '~에 의해', 'buddhena', 'buddhehi'],
+        ['2격', '대격(=목적격)', '~을/를', 'buddhaṃ', 'buddhe'],
+        ['3격', '구격(=도구격)', '~에 의해', 'buddhena', 'buddhehi'],
         ['4격', '여격', '~에게', 'buddhassa', 'buddhānaṃ'],
         ['5격', '탈격', '~로부터', 'buddhasmā', 'buddhehi'],
-        ['6격', '속격', '~의', 'buddhassa', 'buddhānaṃ'],
-        ['7격', '처격', '~에서', 'buddhasmiṃ', 'buddhesu'],
+        ['6격', '속격(=소유격)', '~의', 'buddhassa', 'buddhānaṃ'],
+        ['7격', '처격(=처소격)', '~에서', 'buddhasmiṃ', 'buddhesu'],
         ['8격', '호격', '~이여!', 'buddha!', 'buddhā!'],
       ],
       paliCols: [3, 4],
     },
+    check: [
+      { q: 'buddhena 는 몇 격?', options: ['주격', '구격(=도구격)', '처격(=처소격)', '여격'], answer: 1,
+        explain: '-ena는 구격 단수 어미 — ‘부처님에 의해, 부처님과 함께’.' },
+      { q: 'buddhassa 가 될 수 있는 격 두 가지는?', options: ['주격·대격', '여격·속격', '탈격·처격', '구격·탈격'], answer: 1,
+        explain: '-assa는 여격(~에게)과 속격(~의) 단수가 모양이 같아요. 나모땃사의 Sammāsambuddhassa는 Namo와 함께 ‘~께’(여격)로 읽습니다.' },
+      { q: 'buddhesu 의 뜻으로 알맞은 것은?', options: ['부처님들을', '부처님들의', '부처님들 가운데(에서)', '부처님들에 의해'], answer: 2,
+        explain: '-esu는 처격 복수 — ‘~들 안에서, ~들 가운데’.' },
+      { q: 'buddhehi 가 나타낼 수 있는 것은?', options: ['구격·탈격 복수', '주격 복수', '대격 복수', '처격 복수'], answer: 0,
+        explain: '-ehi는 구격 복수(~들에 의해)와 탈격 복수(~들로부터)가 같은 모양입니다.' },
+    ],
   },
   present: {
     title: '현재시제 활용',
@@ -78,6 +109,14 @@ const GRAMMAR_DATA: Record<string, {
       ],
       paliCols: [1, 2],
     },
+    check: [
+      { q: 'gacchāmi 의 뜻은?', options: ['(내가) 간다', '(그가) 간다', '(우리가) 간다'], answer: 0,
+        explain: '-āmi는 1인칭 단수 현재 어미. 삼귀의의 saraṇaṃ gacchāmi(귀의합니다)도 같은 꼴이에요.' },
+      { q: '‘(그들이) 본다’를 빠알리어로?', options: ['passati', 'passanti', 'passāmi'], answer: 1,
+        explain: '3인칭 복수 현재 어미 -anti: passanti. passati는 3인칭 단수, passāmi는 1인칭 단수입니다.' },
+      { q: 'gacchatha 의 인칭과 수는?', options: ['3인칭 단수', '2인칭 복수 (너희가)', '1인칭 복수 (우리가)'], answer: 1,
+        explain: '-atha는 2인칭 복수 현재 어미 — ‘(너희가) 간다’.' },
+    ],
   },
 }
 
@@ -85,6 +124,7 @@ export default function GrammarLesson() {
   const nav = useNavigate()
   const { lessonId } = useParams<{ lessonId: string }>()
   const lesson = lessonId ? GRAMMAR_DATA[lessonId] : null
+  const [checked, setChecked] = useState(false)
 
   if (!lesson || !lessonId) return <BasicLessonMissing />
 
@@ -150,12 +190,70 @@ export default function GrammarLesson() {
           </div>
         )}
 
+        {lesson.check && <CheckQuiz key={lessonId} questions={lesson.check} onAllAnswered={() => setChecked(true)} />}
+
         <button onClick={() => finishBasicLesson(nav, 'grammar', lessonId, lesson.title)}
-          className="w-full py-4 rounded-xl text-white font-bold active:scale-[0.97]"
+          disabled={!!lesson.check && !checked}
+          className="w-full py-4 rounded-xl text-white font-bold active:scale-[0.97] disabled:opacity-50"
           style={{ backgroundColor: 'var(--color-primary)' }}>
-          다 읽었어요 · 완료 ✓
+          {lesson.check && !checked ? '확인 문제를 풀면 완료할 수 있어요' : '다 했어요 · 완료 ✓'}
         </button>
       </div>
     </div>
+  )
+}
+
+/** 레슨 끝 확인 문제 — 고르면 바로 맞았는지와 풀이를 보여 줌(틀려도 다시 고를 수 있음) */
+function CheckQuiz({ questions, onAllAnswered }: { questions: CheckQ[]; onAllAnswered: () => void }) {
+  const [picks, setPicks] = useState<(number | null)[]>(() => questions.map(() => null))
+  const [solved, setSolved] = useState<boolean[]>(() => questions.map(() => false))
+
+  const pick = (qi: number, oi: number) => {
+    if (solved[qi]) return
+    const nextPicks = picks.map((p, i) => i === qi ? oi : p)
+    setPicks(nextPicks)
+    if (oi === questions[qi].answer) {
+      const nextSolved = solved.map((s, i) => i === qi ? true : s)
+      setSolved(nextSolved)
+      if (nextSolved.every(Boolean)) onAllAnswered()
+    }
+  }
+
+  return (
+    <section aria-labelledby="check-title" className="space-y-4">
+      <h2 id="check-title" className="font-bold text-base">✅ 확인 문제 <span className="text-xs font-normal" style={{ color: 'var(--color-text-secondary)' }}>({solved.filter(Boolean).length}/{questions.length})</span></h2>
+      {questions.map((q, qi) => {
+        const p = picks[qi]
+        const ok = solved[qi]
+        return (
+          <div key={qi} className="rounded-2xl p-4" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+            <p className="text-sm font-semibold mb-3">{qi + 1}. {q.q}</p>
+            <div className="space-y-2" role="group" aria-label={`${qi + 1}번 보기`}>
+              {q.options.map((o, oi) => {
+                const isAns = ok && oi === q.answer
+                const isWrong = !ok && p === oi
+                return (
+                  <button key={oi} onClick={() => pick(qi, oi)} disabled={ok}
+                    className="w-full text-left px-3 py-3 rounded-xl text-sm active:scale-[0.98]"
+                    style={{
+                      backgroundColor: isAns ? 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))' : isWrong ? 'color-mix(in srgb, var(--color-error) 10%, var(--color-surface))' : 'var(--color-bg)',
+                      border: isAns ? '2px solid var(--color-accent)' : isWrong ? '2px solid var(--color-error)' : '1.5px solid var(--color-border)',
+                      color: 'var(--color-text)',
+                    }}>
+                    <span lang={/[a-zāīūṃṅñṭḍṇḷ]/.test(o) && !/[가-힣]/.test(o) ? 'pi' : undefined}>{o}</span>
+                  </button>
+                )
+              })}
+            </div>
+            {p !== null && (
+              <p role="status" className="text-xs mt-3 leading-relaxed" style={{ color: ok ? 'var(--color-accent)' : 'var(--color-error)' }}>
+                {ok ? '✓ 맞았어요. ' : '다시 골라 보세요. '}
+                {ok && <span style={{ color: 'var(--color-text-secondary)' }}>{q.explain}</span>}
+              </p>
+            )}
+          </div>
+        )
+      })}
+    </section>
   )
 }

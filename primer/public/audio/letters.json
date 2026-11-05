@@ -1,0 +1,166 @@
+{
+ "a": {
+  "file": "letters/v_a.mp3",
+  "voice": "마라티어 남"
+ },
+ "ā": {
+  "file": "letters/v_aa.mp3",
+  "voice": "싱할라어 남"
+ },
+ "i": {
+  "file": "letters/v_i.mp3",
+  "voice": "마라티어 남"
+ },
+ "ī": {
+  "file": "letters/v_ii.mp3",
+  "voice": "싱할라어 남"
+ },
+ "u": {
+  "file": "letters/v_u.mp3",
+  "voice": "마라티어 남"
+ },
+ "ū": {
+  "file": "letters/v_uu.mp3",
+  "voice": "싱할라어 남"
+ },
+ "e": {
+  "file": "letters/v_e.mp3",
+  "voice": "싱할라어 남"
+ },
+ "o": {
+  "file": "letters/v_o.mp3",
+  "voice": "싱할라어 남"
+ },
+ "k": {
+  "file": "letters/c_k.mp3",
+  "voice": "텔루구어 남"
+ },
+ "kh": {
+  "file": "letters/c_kh.mp3",
+  "voice": "텔루구어 남"
+ },
+ "g": {
+  "file": "letters/c_g.mp3",
+  "voice": "텔루구어 남"
+ },
+ "gh": {
+  "file": "letters/c_gh.mp3",
+  "voice": "텔루구어 남"
+ },
+ "ṅ": {
+  "file": "letters/c_ng.mp3",
+  "voice": "힌디어 남"
+ },
+ "c": {
+  "file": "letters/c_c.mp3",
+  "voice": "텔루구어 남"
+ },
+ "ch": {
+  "file": "letters/c_ch.mp3",
+  "voice": "텔루구어 남"
+ },
+ "j": {
+  "file": "letters/c_j.mp3",
+  "voice": "텔루구어 남"
+ },
+ "jh": {
+  "file": "letters/c_jh.mp3",
+  "voice": "텔루구어 남"
+ },
+ "ñ": {
+  "file": "letters/c_ny.mp3",
+  "voice": "텔루구어 남"
+ },
+ "ṭ": {
+  "file": "letters/c_tt.mp3",
+  "voice": "네팔어 남"
+ },
+ "ṭh": {
+  "file": "letters/c_tth.mp3",
+  "voice": "네팔어 남"
+ },
+ "ḍ": {
+  "file": "letters/c_dd.mp3",
+  "voice": "네팔어 남"
+ },
+ "ḍh": {
+  "file": "letters/c_ddh.mp3",
+  "voice": "네팔어 남"
+ },
+ "ṇ": {
+  "file": "letters/c_nn.mp3",
+  "voice": "텔루구어 남"
+ },
+ "t": {
+  "file": "letters/c_t.mp3",
+  "voice": "구자라트어 남"
+ },
+ "th": {
+  "file": "letters/c_th.mp3",
+  "voice": "구자라트어 남"
+ },
+ "d": {
+  "file": "letters/c_d.mp3",
+  "voice": "텔루구어 남"
+ },
+ "dh": {
+  "file": "letters/c_dh.mp3",
+  "voice": "텔루구어 남"
+ },
+ "n": {
+  "file": "letters/c_n.mp3",
+  "voice": "텔루구어 남"
+ },
+ "p": {
+  "file": "letters/c_p.mp3",
+  "voice": "텔루구어 남"
+ },
+ "ph": {
+  "file": "letters/c_ph.mp3",
+  "voice": "텔루구어 남"
+ },
+ "b": {
+  "file": "letters/c_b.mp3",
+  "voice": "텔루구어 남"
+ },
+ "bh": {
+  "file": "letters/c_bh.mp3",
+  "voice": "텔루구어 남"
+ },
+ "m": {
+  "file": "letters/c_m.mp3",
+  "voice": "텔루구어 남"
+ },
+ "y": {
+  "file": "letters/c_y.mp3",
+  "voice": "텔루구어 남"
+ },
+ "r": {
+  "file": "letters/c_r.mp3",
+  "voice": "구자라트어 남"
+ },
+ "l": {
+  "file": "letters/c_l.mp3",
+  "voice": "구자라트어 남"
+ },
+ "v": {
+  "file": "letters/c_v.mp3",
+  "voice": "구자라트어 남"
+ },
+ "s": {
+  "file": "letters/c_s.mp3",
+  "voice": "구자라트어 남"
+ },
+ "h": {
+  "file": "letters/c_h.mp3",
+  "voice": "구자라트어 남"
+ },
+ "ḷ": {
+  "file": "letters/c_ll.mp3",
+  "voice": "힌디어 남"
+ },
+ "ṃ": {
+  "file": "letters/c_mm.mp3",
+  "voice": "힌디어 남"
+ }
+}

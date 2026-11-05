@@ -118,9 +118,24 @@ export function ttsAvailable(): boolean {
   return getSynth() !== null && typeof SpeechSynthesisUtterance !== 'undefined'
 }
 
-/** 재생 중인 소리 멈춤 (TTS가 없는 기기에서도 안전) */
+/** 재생 중인 소리 멈춤 (TTS가 없는 기기에서도 안전) — 이어 듣기도 함께 멈춤 */
 export function stopSpeech(): void {
+  requestSeq++
+  endSequence(true)
   try { getSynth()?.cancel() } catch { /* 무시 */ }
+}
+
+/** 소리 끔 설정인지 */
+export function soundOff(): boolean {
+  return localStorage.getItem('suttalog-sound') === 'off'
+}
+
+// 읽기 속도 — 설정 'suttalog-audio-rate': '1'(보통, 기본) | '0.75'(느리게)
+// 빠알리어는 기기 목소리로 읽으므로 '보통'도 원래 쓰던 0.6배속으로 천천히 읽고, '느리게'는 그 0.75배
+const BASE_RATE = 0.6
+export function speechRate(): number {
+  const r = Number(localStorage.getItem('suttalog-audio-rate') || '1')
+  return BASE_RATE * (r === 0.75 ? 0.75 : 1)
 }
 
 // 사용 가능한 인도계 음성 찾기 (hi-IN > hi > sa > en-IN > 아무거나)
@@ -137,14 +152,19 @@ function findBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
 // 재생 요청 번호 — 늦게 도착한 이전 요청이 또 읽지 않도록
 let requestSeq = 0
 
-// TTS 발음 재생
-export function speakPali(text: string) {
+// TTS 발음 재생 (onEnd: 다 읽었을 때 — 이어 듣기에서 사용)
+export function speakPali(text: string, onEnd?: (failed: boolean) => void) {
+  endSequence(true)
+  speakOne(text, onEnd)
+}
+
+function speakOne(text: string, onEnd?: (failed: boolean) => void): number {
   const synth = getSynth()
-  if (!synth || typeof SpeechSynthesisUtterance === 'undefined') return
+  if (!synth || typeof SpeechSynthesisUtterance === 'undefined') return -1
   synth.cancel()
 
   // 소리 끔 설정 체크
-  if (localStorage.getItem('suttalog-sound') === 'off') return
+  if (soundOff()) return -1
 
   const seq = ++requestSeq
   let played = false
@@ -158,7 +178,14 @@ export function speakPali(text: string) {
     const u = new SpeechSynthesisUtterance(speakText)
     u.lang = voice?.lang || 'hi-IN'
     if (voice) u.voice = voice
-    u.rate = 0.6
+    u.rate = speechRate()
+    if (onEnd) {
+      let ended = false
+      const fire = (failed: boolean) => { if (!ended && seq === requestSeq) { ended = true; onEnd(failed) } }
+      u.onend = () => fire(false)
+      // 끊김(interrupted/canceled)이 아닌 오류 = 이 기기에서 읽을 수 없음
+      u.onerror = e => fire(e.error !== 'interrupted' && e.error !== 'canceled')
+    }
     synth.speak(u)
   }
 
@@ -173,4 +200,65 @@ export function speakPali(text: string) {
   } else {
     trySpeak()
   }
+  return seq
+}
+
+// ───────────────── 이어 듣기 (구절을 차례로 읽기) ─────────────────
+// 한 번에 너무 긴 글은 일부 브라우저가 중간에 끊으므로 문장 단위로 나눠 읽음
+
+type Sequence = { onIndex?: (i: number) => void; onDone?: (stopped: boolean) => void }
+let current: Sequence | null = null
+
+function endSequence(stopped: boolean) {
+  const s = current
+  current = null
+  s?.onDone?.(stopped)
+}
+
+function chunks(text: string): string[] {
+  const t = text.replace(/\s+/g, ' ').trim()
+  if (t.length <= 220) return t ? [t] : []
+  const parts = t.split(/(?<=[.;:!?–—])\s+/)
+  const out: string[] = []
+  let buf = ''
+  for (const p of parts) {
+    if (buf && (buf + ' ' + p).length > 220) { out.push(buf); buf = p }
+    else buf = buf ? buf + ' ' + p : p
+  }
+  if (buf) out.push(buf)
+  return out
+}
+
+/** 여러 구절을 차례로 읽음. onIndex(i): i번째 구절을 읽기 시작할 때, onDone(stopped): 끝나거나 멈췄을 때 */
+export function speakSequence(texts: string[], opts: Sequence = {}): void {
+  stopSpeech()
+  if (!ttsAvailable() || soundOff() || !texts.length) { opts.onDone?.(true); return }
+  const me: Sequence = { ...opts }
+  current = me
+  let ti = 0
+  let pieces: string[] = []
+  let pi = 0
+  const next = () => {
+    if (current !== me) return
+    while (pi >= pieces.length) {
+      if (ti >= texts.length) { current = null; me.onDone?.(false); return }
+      pieces = chunks(texts[ti]); pi = 0
+      me.onIndex?.(ti)
+      ti++
+    }
+    const piece = pieces[pi++]
+    // 끝 알림이 오지 않는 기기를 위한 안전장치: 글 길이에 맞춘 넉넉한 시간 뒤 다음으로
+    let moved = false
+    const go = (failed = false) => {
+      if (moved) return
+      moved = true
+      window.clearTimeout(timer)
+      if (current !== me) return
+      if (failed) { endSequence(true); return }
+      window.setTimeout(next, 250)
+    }
+    const timer = window.setTimeout(() => go(false), Math.max(4000, piece.length * 260 / speechRate()))
+    if (speakOne(piece, go) < 0) { window.clearTimeout(timer); endSequence(true) }
+  }
+  next()
 }

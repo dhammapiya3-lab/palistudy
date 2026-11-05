@@ -1,4 +1,4 @@
-// 메모 편집 바텀 시트
+// '내 메모' 편집 바텀 시트 — 학습 화면의 ✏️ 단추로 엶
 import { useEffect, useState } from 'react'
 import { deleteMemo, getMemo, pageIdOf, saveMemo, type StepSnapshot } from '../utils/memo'
 import { pushMemoToGithub, githubIsConfigured } from '../utils/memo-github'
@@ -68,6 +68,7 @@ export default function MemoSheet({ open, onClose, lessonId, stepIdx, snapshot, 
       <div className="w-full max-w-lg rounded-t-3xl overflow-hidden" style={{ backgroundColor: 'var(--color-bg)', maxHeight: '80vh' }} onClick={e => e.stopPropagation()}>
         <div className="px-5 pt-5 pb-3 flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
+            <p className="text-base font-bold mb-1">✏️ 내 메모</p>
             <div className="flex flex-wrap items-center gap-1.5">
               <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full"
                 style={{ backgroundColor: 'color-mix(in srgb, var(--color-primary) 12%, var(--color-surface))', color: 'var(--color-primary)' }}>
@@ -92,7 +93,7 @@ export default function MemoSheet({ open, onClose, lessonId, stepIdx, snapshot, 
 
         <div className="px-5 pb-5">
           <textarea value={body} onChange={e => setBody(e.target.value)}
-            placeholder="이 단계에 대한 메모를 작성하세요. 차후 AI가 이 메모를 보고 일괄 수정합니다."
+            placeholder="이 단계를 공부하며 떠오른 생각, 궁금한 점, 외우는 요령을 적어 두세요. 프로필 → 내 메모에서 모아 볼 수 있어요."
             className="w-full p-3 rounded-xl text-sm leading-relaxed resize-none"
             style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)', minHeight: 160, color: 'var(--color-text)' }}
             autoFocus />
@@ -117,7 +118,7 @@ export default function MemoSheet({ open, onClose, lessonId, stepIdx, snapshot, 
             </button>
           </div>
 
-          {!githubIsConfigured() && (
+          {!githubIsConfigured() && localStorage.getItem('suttalog-admin-mode') === 'true' && (
             <p className="text-[10px] mt-2 text-center" style={{ color: 'var(--color-text-tertiary)' }}>
               💡 설정에서 GitHub 토큰을 등록하면 메모가 공유 저장소에도 자동 저장됩니다.
             </p>

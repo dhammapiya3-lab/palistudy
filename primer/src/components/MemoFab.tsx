@@ -2,6 +2,7 @@
 // 작성/수정은 MemoWriteTab, 목록은 MemoListTab에 위임
 
 import { useState, useRef, useCallback, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { getMemos } from '../utils/memo'
 import type { Memo } from '../utils/memo'
 import type { ImageItem, Tab } from './memo-utils'
@@ -12,6 +13,9 @@ const DRAFT_KEY = 'pali-memo-draft'
 
 export default function MemoFab() {
   const [open, setOpen] = useState(false)
+  // 복습·문법표 안쪽 화면은 아래쪽에 큰 버튼이 있어 메모 버튼을 조금 올림
+  const { pathname } = useLocation()
+  const raised = pathname.startsWith("/review/") || pathname.startsWith("/tables")
   const [tab, setTab] = useState<Tab>(() => {
     try { return localStorage.getItem(DRAFT_KEY) ? 'write' : 'list' } catch { return 'list' }
   })
@@ -112,6 +116,7 @@ export default function MemoFab() {
       <button
         ref={fabRef}
         onClick={() => setOpen(true)}
+        style={raised ? { bottom: 'calc(7.5rem + env(safe-area-inset-bottom))' } : undefined}
         className="fixed right-4 bottom-20 z-40 w-12 h-12 rounded-full
           bg-amber-600 text-white shadow-lg flex items-center justify-center
           hover:bg-amber-700 active:scale-95 transition-all"

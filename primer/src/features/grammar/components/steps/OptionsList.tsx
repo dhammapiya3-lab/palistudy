@@ -5,14 +5,23 @@ interface OptionsListProps {
   shuffledOpts: string[]
   answerText: string
   onSelect: (index: number) => void
+  /** 듣기 문제: 채점 전에는 '(한글 뜻)' 부분을 숨김 — 글자만 보고 맞히지 않게 */
+  hideGloss?: boolean
+  /** 큰 보기 (쉬운 화면) */
+  large?: boolean
 }
+
+/** 'bhagavā (세존)' → 'bhagavā' */
+const stripGloss = (s: string) => s.replace(/\s*\([^()]*\)\s*$/, '')
 
 export default function OptionsList({
   showResult,
   selected,
   shuffledOpts,
   answerText,
-  onSelect
+  onSelect,
+  hideGloss,
+  large,
 }: OptionsListProps) {
   return (
     <div className="space-y-3">
@@ -25,7 +34,7 @@ export default function OptionsList({
             key={i}
             onClick={() => !showResult && onSelect(i)}
             disabled={showResult}
-            className={`w-full flex items-center gap-3 p-4 rounded-2xl text-left text-sm
+            className={`w-full flex items-center gap-3 p-4 rounded-2xl text-left ${large ? 'text-lg' : 'text-sm'}
               font-medium transition-all active:scale-[0.98]
               ${isAns ? 'option-correct' : ''}
               ${isWrn ? 'option-wrong' : ''}`}
@@ -42,7 +51,7 @@ export default function OptionsList({
                   : isSelected
                     ? '2px solid var(--color-primary)'
                     : '1.5px solid var(--color-border)',
-              minHeight: '48px',
+              minHeight: large ? '60px' : '48px',
             }}
           >
             <span
@@ -71,7 +80,9 @@ export default function OptionsList({
                 <span className="text-white text-xs font-bold">✕</span>
               )}
             </span>
-            <span className="flex-1">{opt}</span>
+            <span className="flex-1" lang={hideGloss && !showResult ? 'pi' : undefined}>
+              {hideGloss && !showResult ? stripGloss(opt) : opt}
+            </span>
             {isAns && (
               <span className="font-bold text-base" style={{ color: 'var(--color-success-strong)' }} aria-label="정답">✓</span>
             )}

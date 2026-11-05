@@ -1,9 +1,11 @@
-// 홈 화면 — 스마트폰 1화면 (스크롤 없이)
-import { useState } from 'react'
+// 홈 화면 — 이어서 학습하기, 오늘 목표, 이번 주 학습
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { LESSON_META, LESSON_ORDER } from '../../utils/lessons-meta'
-import { getAllProgress, getCurrentLessonId, getLessonProgress } from '../../utils/lesson-progress'
+import { LESSON_META, lessonNumber } from '../../utils/lessons-meta'
+import { formatDuration, getCurrentLessonId, getLessonProgress, getOverall, getRecommendedNextId } from '../../utils/lesson-progress'
 import { localDateStr } from '../../utils/local-date'
+import { forgivingStreak, getDailyGoal, readStudyDates, thisWeek, todayStudySeconds } from '../../utils/study-time'
+import { backfillSeenWords, getDueSummary } from '../../utils/word-review'
 
 function getGreeting() {
   const h = new Date().getHours()
@@ -23,34 +25,41 @@ const QUOTES = [
   { pali: 'Manoseṭṭhā manomayā', ko: '마음이 으뜸이며, 마음이 만들어낸다', src: 'Dhp 1' },
 ]
 
-/** 오늘(또는 어제)부터 거슬러 올라가며 끊기지 않은 학습일 수 */
-function getStreak(dates: Set<string>): number {
-  const d = new Date()
-  if (!dates.has(localDateStr(d))) d.setDate(d.getDate() - 1)
-  let n = 0
-  while (dates.has(localDateStr(d))) { n++; d.setDate(d.getDate() - 1) }
-  return n
-}
-
 const R = 24, C = 2 * Math.PI * R
 
-function getStudyDates(): Set<string> {
-  return new Set(JSON.parse(localStorage.getItem('suttalog-study-dates') || '[]'))
+function countLearnedWords(): number {
+  try { return Object.keys(JSON.parse(localStorage.getItem('suttalog-word-counts') || '{}')).length } catch { return 0 }
 }
 
 export default function Home() {
   const nav = useNavigate()
   const g = getGreeting()
   const quote = QUOTES[new Date().getDate() % QUOTES.length]
-  const all = getAllProgress()
+  const [showCal, setShowCal] = useState(false)
+  const [, setVer] = useState(0)
+  // 예전에 공부한 낱말을 복습 목록에 한 번 채움(복습 낱말 수가 맞게 보이도록)
+  useEffect(() => {
+    let alive = true
+    backfillSeenWords().then(added => { if (alive && added) setVer(v => v + 1) })
+    return () => { alive = false }
+  }, [])
   const currentId = getCurrentLessonId()
   const current = LESSON_META[currentId]
   const cur = getLessonProgress(currentId)
   const currentPct = Math.round(cur.ratio * 100)
-  const lessonNo = (LESSON_ORDER as readonly string[]).indexOf(currentId) + 1
-  const completed = all.filter(p => p.done).length
-  const totalPct = Math.round((all.reduce((s, p) => s + p.ratio, 0) / all.length) * 100)
-  const studyDates = getStudyDates()
+  const lessonNo = lessonNumber(currentId)
+  const nextId = getRecommendedNextId(currentId)
+  const overall = getOverall()
+  const studyDates = readStudyDates()
+  const week = thisWeek(studyDates)
+  const weekDays = week.filter(d => d.studied).length
+  const streak = forgivingStreak(studyDates)
+  const goal = getDailyGoal()
+  const todayMin = Math.floor(todayStudySeconds() / 60)
+  const goalPct = Math.min(100, Math.round((todayMin / goal) * 100))
+  const due = getDueSummary()
+  const words = countLearnedWords()
+  const remainSteps = Math.max(0, cur.total - cur.step)
 
   return (
     <div className="px-4 pt-5 max-w-lg mx-auto">
@@ -68,8 +77,8 @@ export default function Home() {
 
       {/* ── 히어로: 현재 학습 ── */}
       <button onClick={() => nav(`/learn/scripture/${currentId}`)}
-        aria-label={`${currentPct > 0 ? '이어서 학습하기' : '학습 시작하기'}: 제${lessonNo}과 ${current.title}, 진도 ${currentPct}%`}
-        className="w-full rounded-2xl text-left mb-3  intro-fade-up-delay active:scale-[0.98] transition-transform"
+        aria-label={`${cur.started ? '이어서 학습하기' : '학습 시작하기'}: 제${lessonNo}과 ${current.title}, 진도 ${currentPct}%`}
+        className="w-full rounded-2xl text-left mb-1.5  intro-fade-up-delay active:scale-[0.98] transition-transform"
         style={{ background: 'var(--color-primary-gradient)', boxShadow: '0 4px 16px rgba(192,107,10,0.3)', border: 'none', padding: 0 }}>
         <div className="relative overflow-hidden rounded-2xl p-4">
           <div className="absolute -top-8 -right-8 w-28 h-28 rounded-full opacity-15" style={{ background: 'radial-gradient(circle, #fff 0%, transparent 70%)' }} />
@@ -83,9 +92,11 @@ export default function Home() {
               <span className="absolute inset-0 flex items-center justify-center text-white text-[11px] font-bold">{currentPct}%</span>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[11px] font-semibold tracking-wide text-white/90">{currentPct > 0 ? '이어서 학습하기' : '학습 시작하기'} · 제{lessonNo}과</p>
+              <p className="text-[11px] font-semibold tracking-wide text-white/90">{cur.started ? '이어서 학습하기' : '학습 시작하기'} · 제{lessonNo}과</p>
               <p className="text-base font-bold text-white truncate leading-tight">{current.icon} {current.title}</p>
-              <p className="text-xs text-white/90 truncate">{current.subtitle}</p>
+              <p className="text-xs text-white/90 truncate">
+                {cur.started ? `남은 분량 ${formatDuration(remainSteps)}` : `${cur.total}단계 · ${formatDuration(cur.total)}`} · {current.subtitle}
+              </p>
               <div className="mt-2 h-1 rounded-full overflow-hidden bg-white/20">
                 <div className="h-full rounded-full" style={{ width: `${currentPct}%`, background: 'linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0.9))' }} />
               </div>
@@ -97,20 +108,58 @@ export default function Home() {
         </div>
       </button>
 
+      {/* 추천 다음 과 */}
+      {nextId && (
+        <button onClick={() => nav(`/learn/scripture/${nextId}`)}
+          className="w-full text-left text-xs px-2 py-2 mb-2 flex items-center gap-1"
+          style={{ color: 'var(--color-text-secondary)' }}>
+          <span>추천 다음 과:</span>
+          <span className="font-semibold" style={{ color: 'var(--color-primary)' }}>제{lessonNumber(nextId)}과 {LESSON_META[nextId].title}</span>
+          <span aria-hidden="true" className="ml-auto">›</span>
+        </button>
+      )}
+
+      {/* ── 오늘 목표 ── */}
+      <div className="rounded-xl p-3 mb-3 flex items-center gap-3"
+        style={{ background: 'var(--color-surface)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--color-border-light)' }}>
+        <div className="flex-1 min-w-0">
+          <p className="text-xs font-semibold">
+            <span aria-hidden="true">{goalPct >= 100 ? '🪷 ' : '⏱️ '}</span>
+            {goalPct >= 100 ? `오늘 목표 ${goal}분을 채웠어요!` : `오늘 목표 ${goal}분 중 ${todayMin}분`}
+          </p>
+          <div className="mt-1.5 h-2 rounded-full overflow-hidden" style={{ backgroundColor: 'var(--color-border-light)' }}
+            role="progressbar" aria-valuenow={goalPct} aria-valuemin={0} aria-valuemax={100} aria-label="오늘 목표 채운 정도">
+            <div className="h-full rounded-full" style={{ width: `${Math.max(goalPct, 2)}%`, background: goalPct >= 100 ? 'var(--color-accent)' : 'var(--color-primary)' }} />
+          </div>
+        </div>
+        <button onClick={() => nav(due.total > 0 ? '/review/words' : '/review')}
+          className="shrink-0 rounded-lg px-2.5 py-2 text-center"
+          style={{ backgroundColor: 'color-mix(in srgb, var(--color-primary) 10%, transparent)', color: 'var(--color-primary)' }}>
+          <span className="block text-sm font-bold leading-tight">🧠 {due.total}</span>
+          <span className="block text-[11px] font-semibold">복습 낱말</span>
+        </button>
+      </div>
+
       {/* ── 통계 3칸 ── */}
       <div className="grid grid-cols-3 gap-2 mb-3 ">
         {[
-          { icon: '📚', label: '완료한 과', value: `${completed}/${all.length}`, bg: 'rgba(192,107,10,0.1)' },
-          { icon: '🔥', label: '연속 학습', value: `${getStreak(studyDates)}일`, bg: 'rgba(239,83,80,0.1)' },
-          { icon: '📖', label: '전체 진도', value: `${totalPct}%`, bg: 'rgba(46,125,50,0.1)' },
-        ].map((s, i) => (
-          <div key={i} className="rounded-xl p-2.5 text-center"
-            style={{ background: 'var(--color-surface)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--color-border-light)' }}>
-            <div aria-hidden="true" className="w-7 h-7 mx-auto rounded-full flex items-center justify-center text-xs mb-1" style={{ background: s.bg }}>{s.icon}</div>
-            <p className="text-base font-bold" style={{ color: 'var(--color-text)' }}>{s.value}</p>
-            <p className="text-[11px]" style={{ color: 'var(--color-text-secondary)' }}>{s.label}</p>
-          </div>
-        ))}
+          { icon: '📚', label: '경전 과', value: `${overall.doneLessons}/${overall.lessons}과`, sub: `전체 ${overall.pct}%`, bg: 'rgba(192,107,10,0.1)' },
+          { icon: '🔥', label: '이번 주', value: `${weekDays}/7일`, sub: streak > 1 ? `${streak}일째 이어 가요` : '하루 쉼은 괜찮아요', bg: 'rgba(239,83,80,0.1)' },
+          { icon: '💬', label: '배운 낱말', value: `${words}개`, sub: '낱말장 보기', bg: 'rgba(46,125,50,0.1)', to: '/words' },
+        ].map((s, i) => {
+          const body = (
+            <>
+              <div aria-hidden="true" className="w-7 h-7 mx-auto rounded-full flex items-center justify-center text-xs mb-1" style={{ background: s.bg }}>{s.icon}</div>
+              <p className="text-base font-bold" style={{ color: 'var(--color-text)' }}>{s.value}</p>
+              <p className="text-[11px]" style={{ color: 'var(--color-text-secondary)' }}>{s.label}</p>
+              <p className="text-[10px] mt-0.5" style={{ color: 'var(--color-text-tertiary)' }}>{s.sub}</p>
+            </>
+          )
+          const style = { background: 'var(--color-surface)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--color-border-light)' }
+          return s.to
+            ? <button key={i} onClick={() => nav(s.to!)} className="rounded-xl p-2.5 text-center active:scale-[0.97]" style={style}>{body}</button>
+            : <div key={i} className="rounded-xl p-2.5 text-center" style={style}>{body}</div>
+        })}
       </div>
 
       {/* ── 명구 (컴팩트) ── */}
@@ -125,14 +174,20 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ── 캘린더 ── */}
-      <StudyCalendar />
+      {/* ── 캘린더 (접어 둠) ── */}
+      <button onClick={() => setShowCal(v => !v)} aria-expanded={showCal}
+        className="w-full rounded-xl px-3 py-2.5 mb-2 text-xs font-semibold flex items-center justify-between"
+        style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-light)', color: 'var(--color-text)' }}>
+        <span><span aria-hidden="true">📅 </span>학습 달력 · 모두 {studyDates.size}일 공부</span>
+        <span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>{showCal ? '▲' : '▼'}</span>
+      </button>
+      {showCal && <StudyCalendar />}
 
       {/* 다른 공부 앱 */}
       <div className="mt-3 grid grid-cols-2 gap-2">
         <a href="/palistudy/primer/" className="rounded-xl px-3 py-2.5 text-xs font-semibold flex items-center justify-between"
           style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-light)', color: 'var(--color-text)' }}>
-          <span><span aria-hidden="true">📿 </span>빠알리 프라이머</span><span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>
+          <span><span aria-hidden="true">📿 </span>빠알리 프라이머<span className="block text-[10px] font-normal" style={{ color: 'var(--color-text-tertiary)' }}>문법이 막히면 여기서</span></span><span aria-hidden="true" style={{ color: 'var(--color-text-tertiary)' }}>›</span>
         </a>
         <a href="/palistudy/" className="rounded-xl px-3 py-2.5 text-xs font-semibold flex items-center justify-between"
           style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border-light)', color: 'var(--color-text)' }}>
@@ -155,7 +210,7 @@ function StudyCalendar() {
   const [viewDate, setViewDate] = useState(new Date())
   const year = viewDate.getFullYear()
   const month = viewDate.getMonth()
-  const studyDates = getStudyDates()
+  const studyDates = readStudyDates()
   const firstDow = new Date(year, month, 1).getDay()
   const daysInMonth = new Date(year, month + 1, 0).getDate()
   const today = localDateStr()

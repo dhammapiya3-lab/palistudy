@@ -1,5 +1,6 @@
 import type { MatchReverseStep as MatchReverseStepType } from '../../types'
 import OptionsList from './OptionsList'
+import AnswerExplain from './AnswerExplain'
 
 interface MatchReverseStepProps {
   step: MatchReverseStepType
@@ -8,6 +9,8 @@ interface MatchReverseStepProps {
   shuffledOpts: string[]
   getAnswerText: () => string
   onSelect: (index: number) => void
+  lastOk?: boolean
+  large?: boolean
 }
 
 export default function MatchReverseStep({
@@ -16,7 +19,9 @@ export default function MatchReverseStep({
   selected,
   shuffledOpts,
   getAnswerText,
-  onSelect
+  onSelect,
+  lastOk,
+  large,
 }: MatchReverseStepProps) {
   return (
     <div className="flex-1 flex flex-col">
@@ -41,7 +46,14 @@ export default function MatchReverseStep({
         shuffledOpts={shuffledOpts}
         answerText={getAnswerText()}
         onSelect={onSelect}
+        large={large}
       />
+      {showResult && lastOk !== undefined && (
+        <AnswerExplain
+          ok={lastOk}
+          answer={<>“{step.meaning}” = <span lang="pi" className="pali-text">{getAnswerText()}</span></>}
+        />
+      )}
     </div>
   )
 }

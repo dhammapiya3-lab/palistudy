@@ -4,6 +4,10 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 interface Props {
   width?: number
   height?: number
+  /** 안내선을 처음부터 켬 */
+  defaultGrid?: boolean
+  /** 흐리게 깔아 둘 정답 글자 (따라 쓰기) */
+  traceText?: string
 }
 
 interface Stroke {
@@ -22,10 +26,11 @@ function getCSSColor(varName: string, fallback: string): string {
   } catch { return fallback }
 }
 
-export default function WritingCanvas({ width: propWidth, height: propHeight }: Props) {
+export default function WritingCanvas({ width: propWidth, height: propHeight, defaultGrid = false, traceText }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [penSize, setPenSize] = useState<number>(PEN_SIZES[1])
-  const [showGrid, setShowGrid] = useState(false)
+  const [showGrid, setShowGrid] = useState(defaultGrid)
+  const [showTrace, setShowTrace] = useState(!!traceText)
   const [strokes, setStrokes] = useState<Stroke[]>([])
   // 드로잉 상태를 ref로 관리 (이벤트 핸들러에서 최신 값 접근)
   const drawingRef = useRef(false)
@@ -61,10 +66,29 @@ export default function WritingCanvas({ width: propWidth, height: propHeight }: 
     ctx.restore()
   }, [])
 
+  // 흐린 정답 글자 (따라 쓰기)
+  const drawTrace = useCallback((ctx: CanvasRenderingContext2D, w: number, h: number) => {
+    if (!traceText) return
+    ctx.save()
+    ctx.globalAlpha = 0.16
+    ctx.fillStyle = getCSSColor('--color-text', '#1E1B16')
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    // 칸에 맞는 크기로 (길면 줄임)
+    let size = Math.min(h * 0.62, 96)
+    const family = getCSSColor('--font-pali', '') || 'serif'
+    ctx.font = `${size}px ${family}`
+    const tw = ctx.measureText(traceText).width
+    if (tw > w * 0.9) { size = size * (w * 0.9) / tw; ctx.font = `${size}px ${family}` }
+    ctx.fillText(traceText, w / 2, h / 2)
+    ctx.restore()
+  }, [traceText])
+
   // 전체 다시 그리기
   const redraw = useCallback((ctx: CanvasRenderingContext2D, strokeList: Stroke[], grid: boolean, w: number, h: number) => {
     ctx.clearRect(0, 0, w, h)
     if (grid) drawGrid(ctx, w, h)
+    if (showTrace) drawTrace(ctx, w, h)
     const primaryColor = getCSSColor('--color-primary', '#C06B0A')
     for (const s of strokeList) {
       if (!s || s.points.length < 2) continue
@@ -79,7 +103,7 @@ export default function WritingCanvas({ width: propWidth, height: propHeight }: 
       }
       ctx.stroke()
     }
-  }, [drawGrid])
+  }, [drawGrid, drawTrace, showTrace])
 
   // 캔버스 크기 초기화 (크기 변경 시에만)
   useEffect(() => {
@@ -235,7 +259,21 @@ export default function WritingCanvas({ width: propWidth, height: propHeight }: 
             </button>
           ))}
         </div>
+        <div className="flex items-center gap-1.5">
+        {traceText && (
+          <button onClick={() => setShowTrace(v => !v)}
+            className="text-xs px-2.5 py-1 rounded-full transition-all"
+            aria-pressed={showTrace}
+            style={{
+              backgroundColor: showTrace ? 'var(--color-primary)' : 'var(--color-surface)',
+              color: showTrace ? '#fff' : 'var(--color-text-secondary)',
+              border: `1.5px solid ${showTrace ? 'var(--color-primary)' : 'var(--color-border)'}`,
+            }}>
+            따라 쓰기
+          </button>
+        )}
         <button onClick={() => setShowGrid(v => !v)}
+          aria-pressed={showGrid}
           className="text-xs px-2.5 py-1 rounded-full transition-all"
           style={{
             backgroundColor: showGrid ? 'var(--color-primary)' : 'var(--color-surface)',
@@ -244,6 +282,7 @@ export default function WritingCanvas({ width: propWidth, height: propHeight }: 
           }}>
           안내선
         </button>
+        </div>
       </div>
 
       {/* 캔버스 */}

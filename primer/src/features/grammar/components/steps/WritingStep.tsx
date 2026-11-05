@@ -71,7 +71,7 @@ export default function WritingStep({
           minHeight: '200px',
         }}
       >
-        <WritingCanvas />
+        <WritingCanvas defaultGrid traceText={step.answer} />
       </div>
 
       {/* 정답 보기 토글 */}

@@ -6,6 +6,9 @@ interface GameOverScreenProps {
   onRestartFromQuiz: () => void
   onHome: () => void
   firstQuizIdx: number
+  /** 마디로 나뉜 과면 — 이 마디만 다시 */
+  onRestartChunk?: () => void
+  chunkLabel?: string
 }
 
 export default function GameOverScreen({
@@ -14,7 +17,9 @@ export default function GameOverScreen({
   onRestart,
   onRestartFromQuiz,
   onHome,
-  firstQuizIdx
+  firstQuizIdx,
+  onRestartChunk,
+  chunkLabel,
 }: GameOverScreenProps) {
   return (
     <div
@@ -36,21 +41,39 @@ export default function GameOverScreen({
       >
         괜찮아요, 다시 도전하면 됩니다!
       </p>
+      {onRestartChunk && (
+        <p className="text-xs mt-1 intro-fade-up-delay2" style={{ color: 'var(--color-text-secondary)' }}>
+          앞에서 마친 마디는 그대로 남아 있어요.
+        </p>
+      )}
       <p
         className="text-xs mt-1 intro-fade-up-delay2"
         style={{ color: 'var(--color-text-secondary)' }}
       >
         {stepIdx + 1}/{totalSteps} 단계까지 진행했습니다
       </p>
+      {onRestartChunk && (
+        <button
+          onClick={onRestartChunk}
+          autoFocus
+          className="mt-8 w-60 py-3.5 rounded-2xl text-white font-bold text-sm
+                     active:scale-[0.97] transition-transform"
+          style={{ backgroundColor: 'var(--color-primary-dark)' }}
+        >
+          이 마디만 다시{chunkLabel ? ` (${chunkLabel})` : ''}
+        </button>
+      )}
       <button
         onClick={onRestart}
-        className="mt-8 w-60 py-3.5 rounded-2xl text-white font-bold text-sm
-                   active:scale-[0.97] transition-transform"
-        style={{ backgroundColor: 'var(--color-primary-dark)' }}
+        className={`${onRestartChunk ? 'mt-3' : 'mt-8'} w-60 py-3.5 rounded-2xl font-bold text-sm
+                   active:scale-[0.97] transition-transform`}
+        style={onRestartChunk
+          ? { color: 'var(--color-primary)', border: '1.5px solid var(--color-primary)' }
+          : { backgroundColor: 'var(--color-primary-dark)', color: 'white' }}
       >
         처음부터 다시
       </button>
-      {firstQuizIdx >= 0 && firstQuizIdx !== 0 && (
+      {!onRestartChunk && firstQuizIdx >= 0 && firstQuizIdx !== 0 && (
         <button
           onClick={onRestartFromQuiz}
           className="mt-3 w-60 py-3.5 rounded-2xl font-bold text-sm

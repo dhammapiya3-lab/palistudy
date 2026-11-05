@@ -1,9 +1,10 @@
 // 전체 과 목록 — 요약(LESSONS)은 늘 들고 있고, 과 내용(단계)은 loadLesson()으로 열 때 받음
 // 과 목록·제목은 lesson-sources.ts, 단계 수·검색 낱말은 lessons-meta.generated.ts (빌드할 때 자동 생성)
-import type { LessonInfo, LessonMeta } from './types'
+import type { LessonInfo, LessonMeta, StepType } from './types'
 import { assignStepIds } from '../../utils/step-id-generator'
 import { LESSON_SOURCES } from './lesson-sources'
 import { LESSON_META } from './lessons-meta.generated'
+import { LESSON_00_ID, LESSON_00_NEW_ORDER } from './lesson-00-order'
 
 export const LESSONS: LessonMeta[] = LESSON_SOURCES.map(({ id, title, subtitle, icon }) => {
   const m = LESSON_META[id]
@@ -14,6 +15,20 @@ export const LESSONS: LessonMeta[] = LESSON_SOURCES.map(({ id, title, subtitle, 
 /** 과 요약 (제목·단계 수 등) */
 export function getLessonMeta(id: string): LessonMeta | undefined {
   return LESSONS.find(l => l.id === id)
+}
+
+/** fixedId가 있는 단계는 그 ID를 그대로 씀 (0과처럼 순서를 바꾼 과의 예전 ID 유지) */
+function withFixedIds(steps: StepType[]): StepType[] {
+  if (!steps.some(s => s.fixedId)) return steps
+  const out = steps.map(s => (s.fixedId ? { ...s, id: s.fixedId } : s))
+  if (import.meta.env?.DEV) {
+    const ids = new Set<string>()
+    for (const s of out) {
+      if (ids.has(s.id)) console.warn(`[lessons] 단계 ID 중복: ${s.id}`)
+      ids.add(s.id)
+    }
+  }
+  return out
 }
 
 const cache = new Map<string, LessonInfo>()
@@ -33,7 +48,10 @@ export function loadLesson(id: string): Promise<LessonInfo | undefined> {
   const src = LESSON_SOURCES.find(s => s.id === id)
   if (!src) return Promise.resolve(undefined)
   const p = src.load().then(raw => {
-    const lesson: LessonInfo = { id, title: src.title, subtitle: src.subtitle, icon: src.icon, steps: assignStepIds(id, raw) }
+    const lesson: LessonInfo = { id, title: src.title, subtitle: src.subtitle, icon: src.icon, steps: withFixedIds(assignStepIds(id, raw)) }
+    if (import.meta.env?.DEV && id === LESSON_00_ID && lesson.steps.map(s => s.id).join() !== LESSON_00_NEW_ORDER.join()) {
+      console.warn('[lessons] 0과 순서가 lesson-00-order.ts의 표와 다름 — 예전 진도 옮기기가 틀어질 수 있음')
+    }
     if (import.meta.env?.DEV && lesson.steps.length !== LESSON_META[id]?.stepCount) {
       console.warn(`[lessons] ${id} 단계 수가 요약과 다름 — npm run gen:meta 실행 필요`)
     }

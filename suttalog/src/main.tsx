@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
 import { runMigrations } from './utils/migrate'
+import { applySavedDisplayPrefs } from './utils/display-prefs'
 
 // 새로고침 복원: 404.html이 ?p=원래경로(+?쿼리 +#해시) 로 보내주면 그 주소로 되돌림
 try {
@@ -22,6 +23,9 @@ const savedFontSize = localStorage.getItem('suttalog-fontsize')
 if (savedFontSize) {
   document.documentElement.style.setProperty('--pali-fontsize', `${savedFontSize}px`)
 }
+
+// 큰 글씨 모드
+applySavedDisplayPrefs()
 
 // 서비스워커 — 같은 빌드에서는 같은 주소(?v=빌드시각)로 등록해 캐시를 유지.
 // 강제 새로고침은 하지 않음: 새 빌드는 앱을 닫았다 다시 열 때 자연스럽게 적용됨.

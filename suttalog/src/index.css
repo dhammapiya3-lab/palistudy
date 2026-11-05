@@ -46,6 +46,9 @@
   --font-pali: 'Noto Serif', Georgia, 'Times New Roman', serif;
   --font-ui: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, 'Segoe UI', sans-serif;
   --pali-fontsize: 18px;
+  /* 한국어 글자 크기 — 본문(뜻·번역)과 해설(문법·불교 해설). 큰 글씨 모드에서 커짐 */
+  --fs-body: 0.875rem;  /* 14px */
+  --fs-note: 0.75rem;   /* 12px */
 
   /* 그림자 */
   --shadow-sm: 0 1px 2px rgba(30, 27, 22, 0.06);
@@ -534,3 +537,20 @@ body {
   min-height: 100dvh;
   position: relative;
 }
+
+/* ═══════════════════════════════════════════
+   큰 글씨 모드 (설정 → 큰 글씨, suttalog-large-text)
+   본문 16px 이상, 해설 14px 이상. Tailwind 크기 변수를 함께 키워
+   text-xs·text-sm 을 쓰는 화면도 따로 고치지 않고 커지게 함.
+   ═══════════════════════════════════════════ */
+html.large-text {
+  --fs-body: 1.0625rem; /* 17px */
+  --fs-note: 0.9375rem; /* 15px */
+  --text-xs: 0.875rem;  /* 12 → 14px */
+  --text-xs--line-height: 1.5;
+  --text-sm: 1rem;      /* 14 → 16px */
+  --text-sm--line-height: 1.55;
+  --text-base: 1.0625rem; /* 16 → 17px */
+}
+html.large-text .text-\[10px\],
+html.large-text .text-\[11px\] { font-size: 0.8125rem; } /* 13px — 작은 꼬리표 */

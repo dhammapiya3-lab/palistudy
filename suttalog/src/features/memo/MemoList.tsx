@@ -90,7 +90,10 @@ export default function MemoList() {
   return (
     <div className="px-4 pt-6 max-w-lg mx-auto">
       <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-bold">📝 메모</h1>
+        <div>
+          <h1 className="text-xl font-bold">📝 내 메모</h1>
+          <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>공부하다 ✏️ 단추로 남긴 메모를 모아 봐요</p>
+        </div>
         <button onClick={() => ((window.history.state as { idx?: number } | null)?.idx ?? 0) > 0 ? nav(-1) : nav('/profile')} className="text-sm px-3 py-2 rounded-full active:scale-95"
           style={{ border: '1px solid var(--color-border)', color: 'var(--color-text-secondary)' }}>← 뒤로</button>
       </div>
@@ -116,7 +119,7 @@ export default function MemoList() {
         </div>
       )}
 
-      {!githubIsConfigured() && (
+      {!githubIsConfigured() && localStorage.getItem('suttalog-admin-mode') === 'true' && (
         <div className="rounded-xl p-3 mb-4 text-xs" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
           💡 <b>GitHub 토큰 미설정</b> — 공유 메모는 읽기만 가능합니다.
           {' '}<button onClick={() => nav('/settings')} className="underline font-bold">설정</button>에서 PAT를 등록하세요.
@@ -129,8 +132,8 @@ export default function MemoList() {
           <p className="text-3xl mb-2">📝</p>
           <p className="text-sm font-semibold">아직 작성한 메모가 없습니다</p>
           <p className="text-xs mt-2 leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
-            학습 중 우하단 ✏️ 버튼으로 단계마다 메모를 남길 수 있습니다.<br />
-            메모는 JSON으로 내보내 AI에게 전달하면 lesson-data를 자동 수정합니다.
+            학습 화면 오른쪽 아래 ✏️(내 메모) 단추를 누르면<br />
+            그 단계에 생각이나 궁금한 점을 적어 둘 수 있어요.
           </p>
         </div>
       ) : (

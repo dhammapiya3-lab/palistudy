@@ -3,6 +3,8 @@ import { isSyncConfigured, isSyncLoggedIn, getSyncUser, initSync, syncLogin, syn
 import { setFontSize as applyFontSize, getSavedFontSize, type FontSizeKey } from '../../../utils/font-size'
 import { isDarkTheme } from '../../../utils/theme'
 import { useStore } from '../../../store/useStore'
+import { useWordSrs } from '../../../store/useWordSrs'
+import { isPrefetchEnabled, setPrefetchEnabled } from '../offline-prefetch'
 
 export function useSettings() {
   const store = useStore()
@@ -23,6 +25,29 @@ export function useSettings() {
   }, [syncAvailable])
 
   const toggleWriting = () => store.setWritingEnabled(!store.writingEnabled)
+
+  // 쉬운 화면 — 켜면 글씨를 '매우 크게'로 (끄면 전에 쓰던 크기로 되돌림)
+  const toggleEasyMode = () => {
+    const on = !store.easyMode
+    store.setEasyMode(on)
+    try {
+      if (on) {
+        localStorage.setItem('primer-font-before-easy', getSavedFontSize())
+        changeFontSize('xlarge')
+      } else {
+        const prev = localStorage.getItem('primer-font-before-easy') as FontSizeKey | null
+        if (prev) changeFontSize(prev)
+        localStorage.removeItem('primer-font-before-easy')
+      }
+    } catch { /* 무시 */ }
+  }
+  const setAudioRate = (r: 0.75 | 1) => store.setAudioRate(r)
+  const setDailyGoal = (m: 5 | 10 | 15) => store.setDailyGoalMin(m)
+  // 처음 안내 다시 보기 — 홈으로 가면 안내가 다시 뜸
+  const replayOnboarding = () => store.setOnboardingSeen(false)
+
+  const [prefetch, setPrefetchState] = useState(isPrefetchEnabled())
+  const togglePrefetch = () => { setPrefetchEnabled(!prefetch); setPrefetchState(!prefetch) }
   
   // 다크 모드 스위치: 지금 화면 기준으로 반대로 (휴대폰 설정 따르기 → 직접 고른 값)
   const isDark = isDarkTheme(store.theme)
@@ -74,6 +99,10 @@ export function useSettings() {
     if (!confirm(msg)) return
     store.resetProgress()
     store.resetStats()
+    useWordSrs.getState().reset()
+    useStore.setState({ studySeconds: {}, quizRecords: {}, seenWords: {} })
+    localStorage.removeItem('primer-milestones-seen')
+    localStorage.removeItem('primer-resume')
     // 레거시 키 삭제 (호환성)
     const keysToRemove: string[] = []
     for (let i = 0; i < localStorage.length; i++) {
@@ -94,6 +123,10 @@ export function useSettings() {
   return {
     settings: {
       writing: store.writingEnabled,
+      easyMode: store.easyMode,
+      audioRate: store.audioRate,
+      dailyGoal: store.dailyGoalMin,
+      prefetch,
       theme: store.theme,
       isDark,
       fontSize,
@@ -107,6 +140,11 @@ export function useSettings() {
     },
     actions: {
       toggleWriting,
+      toggleEasyMode,
+      setAudioRate,
+      setDailyGoal,
+      replayOnboarding,
+      togglePrefetch,
       toggleTheme,
       followSystemTheme,
       changeFontSize,

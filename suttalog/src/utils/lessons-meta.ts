@@ -8,11 +8,42 @@ export type LessonMeta = {
   icon: string
 }
 
-// 학습맵 순서(제1과 → 제11과)
+// 학습맵 순서(제1과 → 제11과) — 과 ID는 그대로 두고 보여 주는 순서·번호만 정함.
+// 귀에 익은 독송문을 먼저(제1~7과), 이어서 경전 읽기(제8~11과).
 export const LESSON_ORDER = [
-  'namo', 'trisarana', 'pancasila', 'tisarana-guna', 'sn45-8', 'mangala',
-  'sn56-11', 'metta', 'sn22-59', 'ratana', 'mn10',
+  'namo', 'trisarana', 'pancasila', 'tisarana-guna', 'metta', 'mangala', 'ratana',
+  'sn45-8', 'sn56-11', 'sn22-59', 'mn10',
 ] as const
+
+/** 학습맵의 두 갈래 묶음 */
+export const LESSON_GROUPS: { key: string; title: string; desc: string; icon: string; ids: readonly string[] }[] = [
+  { key: 'chant', title: '독송문 먼저', icon: '🙏', desc: '예불 때 귀에 익은 글부터 — 뜻을 알고 외워요',
+    ids: ['namo', 'trisarana', 'pancasila', 'tisarana-guna', 'metta', 'mangala', 'ratana'] },
+  { key: 'sutta', title: '경전 읽기', icon: '📜', desc: '부처님 말씀을 처음부터 끝까지 빠짐없이',
+    ids: ['sn45-8', 'sn56-11', 'sn22-59', 'mn10'] },
+]
+
+/** 독송문 과 — '외우기' 모드가 있는 과 */
+export const RECITE_LESSONS: readonly string[] = LESSON_GROUPS[0].ids
+
+export function isReciteLesson(id: string): boolean {
+  return RECITE_LESSONS.includes(canonicalLessonId(id))
+}
+
+/** 이 과 전에 보면 좋은 기초 다지기 레슨 (학습맵 카드에 연결 표시) */
+export const LESSON_PREREQ: Record<string, { kind: 'grammar' | 'reading'; id: string; label: string }> = {
+  'namo':          { kind: 'grammar', id: 'declension-a', label: '격변화' },
+  'trisarana':     { kind: 'grammar', id: 'nom-acc', label: '주격과 대격' },
+  'pancasila':     { kind: 'grammar', id: 'declension-a', label: '격변화' },
+  'tisarana-guna': { kind: 'grammar', id: 'declension-a', label: '격변화' },
+  'metta':         { kind: 'grammar', id: 'declension-a', label: '격변화' },
+  'mangala':       { kind: 'reading', id: 'evam', label: 'Evaṃ me sutaṃ 정형구' },
+  'ratana':        { kind: 'grammar', id: 'declension-a', label: '격변화' },
+  'sn45-8':        { kind: 'reading', id: 'evam', label: 'Evaṃ me sutaṃ 정형구' },
+  'sn56-11':       { kind: 'reading', id: 'sn56-11', label: '초전법륜경 첫 부분 독해' },
+  'sn22-59':       { kind: 'grammar', id: 'present', label: '동사 활용' },
+  'mn10':          { kind: 'reading', id: 'evam', label: 'Evaṃ me sutaṃ 정형구' },
+}
 
 export const LESSON_META: Record<string, LessonMeta> = {
   'namo':          { title: '나모땃사',     subtitle: '세존께 경배',                    source: '전통 예경문', icon: '🙏' },

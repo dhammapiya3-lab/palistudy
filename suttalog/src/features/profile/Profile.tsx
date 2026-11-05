@@ -6,6 +6,9 @@ import { isSecretStorageKey } from '../../utils/memo-github'
 import { getAllProgress } from '../../utils/lesson-progress'
 import { countBasicDone } from '../lessons/basics'
 import { localDateStr } from '../../utils/local-date'
+import { forgivingStreak, longestStreak, readStudyDates, thisWeek } from '../../utils/study-time'
+import { MILESTONES, milestoneReached } from '../../utils/lesson-sections'
+import { RECITE_LESSONS } from '../../utils/lessons-meta'
 
 // 학습 데이터 내보내기 — 이 앱(suttalog-) 데이터만, GitHub 토큰 같은 비밀 값은 제외
 function exportData() {
@@ -48,52 +51,17 @@ function importData(file: File) {
   reader.readAsText(file)
 }
 
-function readStudyDates(): Set<string> {
-  try { return new Set(JSON.parse(localStorage.getItem('suttalog-study-dates') || '[]')) } catch { return new Set() }
-}
-
-function currentStreak(dates: Set<string>): number {
-  const d = new Date()
-  if (!dates.has(localDateStr(d))) d.setDate(d.getDate() - 1)
-  let n = 0
-  while (dates.has(localDateStr(d))) { n++; d.setDate(d.getDate() - 1) }
-  return n
-}
-
-function longestStreak(dates: Set<string>): number {
-  let best = 0
-  for (const s of dates) {
-    const [y, m, day] = s.split('-').map(Number)
-    const prev = new Date(y, m - 1, day - 1)
-    if (dates.has(localDateStr(prev))) continue // 연속 구간의 첫날에서만 셈
-    let n = 0
-    const d = new Date(y, m - 1, day)
-    while (dates.has(localDateStr(d))) { n++; d.setDate(d.getDate() + 1) }
-    best = Math.max(best, n)
-  }
-  return best
-}
-
 function countLearnedWords(): number {
   try { return Object.keys(JSON.parse(localStorage.getItem('suttalog-word-counts') || '{}')).length } catch { return 0 }
-}
-
-/** 이번 주(월~일) 날짜별 학습 여부 */
-function thisWeek(dates: Set<string>): { label: string; studied: boolean; isToday: boolean }[] {
-  const today = new Date()
-  const mondayOffset = (today.getDay() + 6) % 7
-  const monday = new Date(today.getFullYear(), today.getMonth(), today.getDate() - mondayOffset)
-  return ['월', '화', '수', '목', '금', '토', '일'].map((label, i) => {
-    const d = new Date(monday.getFullYear(), monday.getMonth(), monday.getDate() + i)
-    return { label, studied: dates.has(localDateStr(d)), isToday: i === mondayOffset }
-  })
 }
 
 const HELP = [
   { q: '어떻게 공부하나요?', a: '홈의 주황색 카드를 누르면 지금 배울 경전이 열립니다. 단어 → 퀴즈 → 경전 구절 순서로 한 단계씩 넘어가요. 학습맵에서 원하는 과를 골라도 됩니다.' },
   { q: '중간에 그만둬도 되나요?', a: '네. 진도는 자동으로 저장되어 다음에 그 자리부터 이어집니다.' },
   { q: '발음이 안 들려요', a: '설정의 ‘발음 소리’가 켜져 있는지, 기기 소리가 켜져 있는지 확인해 주세요. 기기에 따라 음성 엔진이 없으면 소리가 나지 않을 수 있습니다.' },
-  { q: '글자가 작아요', a: '설정에서 빠알리 글자 크기를 키울 수 있고, 휴대폰에서는 두 손가락으로 화면을 확대할 수도 있습니다.' },
+  { q: '글자가 작아요', a: '설정의 ‘큰 글씨’를 켜면 한국어 해설까지 함께 커집니다. 빠알리 글자 크기는 따로 키울 수 있어요.' },
+  { q: '메모는 어떻게 남기나요?', a: '학습 화면 오른쪽 아래 ✏️(내 메모) 단추를 누르면 그 단계에 메모를 남길 수 있어요. 남긴 메모는 프로필 → 내 메모에서 모아 봅니다.' },
+  { q: '배운 낱말을 다시 보려면?', a: '복습 탭 맨 위 ‘오늘 복습할 낱말’을 누르면 몇 분 안에 뜻 고르기·듣고 고르기로 복습할 수 있어요. 틀린 문제가 먼저 나와요.' },
   { q: '다른 기기로 옮기려면?', a: '이 화면의 ‘학습 데이터 내보내기’로 파일을 저장한 뒤, 새 기기에서 ‘학습 데이터 가져오기’로 불러오세요.' },
 ]
 
@@ -104,7 +72,7 @@ export default function Profile() {
   const [showHelp, setShowHelp] = useState(false)
 
   const dates = readStudyDates()
-  const streak = currentStreak(dates)
+  const streak = forgivingStreak(dates)
   const best = longestStreak(dates)
   const words = countLearnedWords()
   const progress = getAllProgress()
@@ -121,7 +89,10 @@ export default function Profile() {
     { icon: '📚', title: '단어 50개', desc: '단어 50개 학습', got: words >= 50 },
     { icon: '📖', title: '단어 200개', desc: '단어 200개 학습', got: words >= 200 },
     { icon: '🔤', title: '기초 완성', desc: '기초 다지기 모두', got: basics.total > 0 && basics.done === basics.total },
-    { icon: '☸️', title: '전 과정 완료', desc: `경전 ${progress.length}과 모두`, got: doneSuttas === progress.length },
+    { icon: '🙏', title: '독송문 완료', desc: '독송문 과 모두', got: RECITE_LESSONS.every(id => progress.find(p => p.id === id)?.done) },
+    // 긴 경전 중간 이정표
+    ...MILESTONES.map(m => ({ icon: m.icon, title: m.title, desc: m.desc, got: milestoneReached(m) })),
+    { icon: '🌳', title: '전 과정 완료', desc: `경전 ${progress.length}과 모두`, got: doneSuttas === progress.length },
   ]
   const gotCount = achievements.filter(a => a.got).length
 
@@ -144,24 +115,29 @@ export default function Profile() {
       {/* 통계 4박스 */}
       <div className="grid grid-cols-2 gap-3">
         {[
-          { icon: '🔥', value: `${streak}일`, label: '연속 학습' },
+          { icon: '🔥', value: `${streak}일`, label: '이어 가는 학습 (주 1일 쉼 포함)' },
           { icon: '📅', value: `${dates.size}일`, label: '모두 공부한 날' },
-          { icon: '📚', value: `${words}개`, label: '배운 단어' },
+          { icon: '📚', value: `${words}개`, label: '배운 낱말 · 낱말장 ›', to: '/words' },
           { icon: '🏅', value: `${gotCount}/${achievements.length}`, label: '업적' },
-        ].map((s, i) => (
-          <div key={i} className="rounded-xl p-4 text-center"
-            style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-            <span className="text-2xl" aria-hidden="true">{s.icon}</span>
-            <p className="font-bold text-lg mt-1" style={{ color: 'var(--color-primary)' }}>{s.value}</p>
-            <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{s.label}</p>
-          </div>
-        ))}
+        ].map((s, i) => {
+          const body = (
+            <>
+              <span className="text-2xl" aria-hidden="true">{s.icon}</span>
+              <p className="font-bold text-lg mt-1" style={{ color: 'var(--color-primary)' }}>{s.value}</p>
+              <p className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>{s.label}</p>
+            </>
+          )
+          const style = { backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }
+          return s.to
+            ? <button key={i} onClick={() => nav(s.to!)} className="rounded-xl p-4 text-center active:scale-[0.98]" style={style}>{body}</button>
+            : <div key={i} className="rounded-xl p-4 text-center" style={style}>{body}</div>
+        })}
       </div>
 
       {/* 이번 주 학습 */}
       <div className="rounded-2xl p-4"
         style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
-        <p className="text-sm font-semibold mb-3">📊 이번 주 학습</p>
+        <p className="text-sm font-semibold mb-3">📊 이번 주 학습 <span className="text-xs font-normal" style={{ color: 'var(--color-text-secondary)' }}>({week.filter(d => d.studied).length}/7일)</span></p>
         <div className="flex justify-between gap-2">
           {week.map(d => (
             <div key={d.label} className="flex-1 flex flex-col items-center gap-1"
@@ -203,7 +179,7 @@ export default function Profile() {
       {/* 메뉴 */}
       <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         {[
-          { icon: '📝', label: `메모 목록 (${memoCount}개)`, action: () => nav('/memos') },
+          { icon: '📝', label: `내 메모 (${memoCount}개)`, action: () => nav('/memos') },
           { icon: '⚙️', label: '설정', action: () => nav('/settings') },
           { icon: '📤', label: '학습 데이터 내보내기', action: exportData },
           { icon: '📥', label: '학습 데이터 가져오기', action: () => importRef.current?.click() },

@@ -1,7 +1,7 @@
 // 경전 중심 Duolingo식 학습 UI (데이터는 레슨별 파일을 필요할 때만 불러옴)
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
-import { Navigate, useNavigate, useParams } from 'react-router-dom'
-import { speakPali, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
+import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { soundOff, speakPali, speakSequence, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
 import { getMemo, hasMemo, pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/memo'
 import { canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
 import { localDateStr } from '../../utils/local-date'
@@ -11,8 +11,14 @@ import ScrubBar from '../../components/ScrubBar'
 import MemoSheet from '../../components/MemoSheet'
 import type { StepType } from './lesson-data-sn56-11'
 import { getCachedLesson, hasLessonData, loadLesson } from './lesson-registry'
-import { splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
+import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
 import type { LessonResult } from '../lesson/LessonComplete'
+import {
+  addStudySeconds, buildCheckStep, buildTeachIndex, checkQuizEnabled, checkWordsAfterVerse, computeMadis,
+  explainDepth, findTeach, recordSeenWord, recordWrong, sectionShortName, teachForStep, touchLastStudied,
+  type CheckMode, type PracticeRef,
+} from './learn-extras'
+import { FoldToggle, GrammarChip, MadiDoneScreen, WordNote, WrongExplain } from './LearnWidgets'
 
 type Step = StepType
 type Entry = { step: Step; raw: number } // raw = 원본 데이터(필터 전) 기준 번호
@@ -122,7 +128,7 @@ function typeIcon(s: Step): string {
 }
 
 // ───────────────────────── 이번 학습 기록(완료 화면용) ─────────────────────────
-type Session = { startedAt: number; correct: number; wrong: number; words: string[] }
+type Session = { startedAt: number; correct: number; wrong: number; words: string[]; wrongs?: PracticeRef[] }
 function readSession(lid: string): Session {
   try {
     const s = JSON.parse(sessionStorage.getItem(K.session(lid)) || 'null')
@@ -133,6 +139,24 @@ function readSession(lid: string): Session {
   return fresh
 }
 function elapsedSince(t: number): number { return Date.now() - t }
+const refKey = (r: PracticeRef) => (r.kind === 'step' ? `s${r.raw}` : `c${r.teachRaw}:${r.mode}`)
+function pushUnique(list: PracticeRef[], r: PracticeRef) {
+  if (!list.some(x => refKey(x) === refKey(r))) list.push(r)
+}
+
+// 화면에서만 끼워 넣는 문제(확인 문제·다시 풀기) — 원래 단계 번호는 그대로
+type Virtual = {
+  purpose: 'check' | 'retry-madi' | 'retry-lesson'
+  items: PracticeRef[]
+  idx: number
+  correct: number
+  wrong: number
+}
+type MadiDone = {
+  madiNo: number; words: number; correct: number; wrong: number
+  sectionDone: string | null; wrongs: PracticeRef[]; isRetryResult: boolean
+}
+const SCORED = new Set(['quiz', 'match-listen', 'match-reverse', 'arrange'])
 function updateSession(lid: string, f: (s: Session) => void) {
   const s = readSession(lid)
   f(s)
@@ -217,6 +241,7 @@ function LessonLoader({ lid }: { lid: string }) {
 
 function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
   const nav = useNavigate()
+  const location = useLocation()
   const canSpeak = ttsAvailable()
 
   // 걸러진 단계 목록 — 레슨에 들어올 때 한 번만 계산(학습 중 단어 횟수가 늘어도 목록이 당겨지지 않게)
@@ -239,8 +264,24 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     return { pos: positionOf(entries, Math.min(saved, lastRaw)), finishedBefore: done && saved >= lastRaw }
   })
 
+  // 완료 화면의 '틀린 문제 다시 풀기'로 들어온 경우 — 그 문제들만 다시 풂(진도는 그대로)
+  const [retryInit] = useState<PracticeRef[] | null>(() => {
+    const st = location.state as { retry?: unknown } | null
+    if (!st || !Array.isArray(st.retry)) return null
+    const ok = (st.retry as PracticeRef[]).filter(r =>
+      r && (r.kind === 'step'
+        ? Number.isInteger(r.raw) && !!rawSteps[r.raw] && SCORED.has(rawSteps[r.raw].type)
+        : r.kind === 'check' && Number.isInteger(r.teachRaw) && !!buildCheckStep(rawSteps, r)))
+    return ok.length ? ok : null
+  })
+  useEffect(() => {
+    // 새로고침했을 때 다시 풀기가 또 시작되지 않게 주소의 상태를 지움
+    if (location.state) nav(location.pathname, { replace: true, state: null })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const [stepIdx, setStepIdxRaw] = useState(initial.pos)
-  const [showDoneChoice, setShowDoneChoice] = useState(initial.finishedBefore)
+  const [showDoneChoice, setShowDoneChoice] = useState(initial.finishedBefore && !retryInit)
   const setStepIdx = useCallback((next: number) => {
     setStepIdxRaw(next)
     localStorage.setItem(K.progress(lid), String(entries[next].raw))
@@ -282,8 +323,85 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
   const [showTOC, setShowTOC] = useState(false)
   const [showMemo, setShowMemo] = useState(false)
 
+  // 해설 깊이: 'easy'(기본)면 원형·형태·불교 해설을 접어 둠. 한 번 펼치면 이번 학습 동안 펼친 채로
+  const [depth] = useState(explainDepth)
+  const [foldOpen, setFoldOpen] = useState(false)
+
+  // 화면에서만 끼워 넣는 문제(확인 문제·다시 풀기)
+  const [virtual, setVirtual] = useState<Virtual | null>(() =>
+    retryInit ? { purpose: 'retry-lesson', items: retryInit, idx: 0, correct: 0, wrong: 0 } : null)
+  const [retryDone, setRetryDone] = useState<{ correct: number; wrong: number } | null>(null)
+  const [madiDone, setMadiDone] = useState<MadiDone | null>(null)
+  const [toast, setToast] = useState<string | null>(null)
+  const [wordNote, setWordNote] = useState<{ text: string; teachRaw: number | null } | null>(null)
+  const [seq, setSeq] = useState<{ idx: number; total: number } | null>(null)
+  const checkedVerses = useRef(new Set<number>())
+  const advanced = useRef(0) // 이번에 '다음'으로 실제로 넘긴 단계 수
+  const lastActive = useRef(Date.now())
+  const pendingMadiDone = useRef<MadiDone | null>(null)
+
   const entry = entries[stepIdx]
-  const step = entry.step
+  const vItem = virtual ? virtual.items[virtual.idx] : null
+  const vStep = useMemo<Step | null>(() => {
+    if (!vItem) return null
+    return vItem.kind === 'step' ? rawSteps[vItem.raw] : buildCheckStep(rawSteps, vItem)
+  }, [vItem, rawSteps])
+  const step: Step = vStep ?? entry.step
+  // 지금 문제의 원본 단계 번호(확인 문제는 낱말 카드 번호)
+  const curRaw = vItem ? (vItem.kind === 'step' ? vItem.raw : vItem.teachRaw) : entry.raw
+  const optSeed = vItem ? (vItem.kind === 'step' ? vItem.raw : 5000 + vItem.teachRaw * 3) : entry.raw
+
+  // 낱말 카드 색인(구절 낱말 쪽지·오답 설명용)
+  const teachIdx = useMemo(() => buildTeachIndex(rawSteps), [rawSteps])
+
+  // 마디 — 긴 과를 20~30단계씩 화면에서만 나눔(원본 단계 번호 기준이라 설정을 바꿔도 경계가 같음)
+  const madi = useMemo(() => {
+    const ms = computeMadis(rawSteps)
+    const raw = entries.map(e => { let k = 0; while (k + 1 < ms.length && ms[k + 1].start <= e.raw) k++; return k })
+    const uniq = [...new Set(raw)]
+    const remap = new Map(uniq.map((m, i) => [m, i]))
+    const of = raw.map(m => remap.get(m)!)
+    const ranges = uniq.map((_, i) => ({ first: of.indexOf(i), last: of.lastIndexOf(i) }))
+    return { of, ranges }
+  }, [rawSteps, entries])
+  const useMadi = madi.ranges.length > 1
+  const curMadi = madi.of[stepIdx]
+  const madiRange = madi.ranges[curMadi]
+  const madiStats = useRef({ madi: curMadi, correct: 0, wrong: 0, wrongs: [] as PracticeRef[] })
+  const statsFor = (m: number) => {
+    if (madiStats.current.madi !== m) madiStats.current = { madi: m, correct: 0, wrong: 0, wrongs: [] }
+    return madiStats.current
+  }
+
+  // 배운 낱말 기록 — 낱말 카드를 볼 때
+  useEffect(() => {
+    if (!virtual && entry.step.type === 'teach') recordSeenWord(lid, entry.raw, entry.step)
+  }, [lid, entry, virtual])
+
+  // 공부 시간 — 화면이 보이고 최근 2분 안에 손을 댔으면(또는 이어 듣는 중이면) 15초마다 더함
+  useEffect(() => {
+    const mark = () => { lastActive.current = Date.now() }
+    window.addEventListener('pointerdown', mark)
+    window.addEventListener('keydown', mark)
+    const t = window.setInterval(() => {
+      if (document.visibilityState === 'visible' && Date.now() - lastActive.current < 120_000) addStudySeconds(15)
+    }, 15_000)
+    return () => {
+      window.removeEventListener('pointerdown', mark)
+      window.removeEventListener('keydown', mark)
+      window.clearInterval(t)
+    }
+  }, [])
+
+  // 화면을 떠나면 소리 멈춤
+  useEffect(() => () => stopSpeech(), [])
+
+  // 알림(소단원 완료 등)
+  useEffect(() => {
+    if (!toast) return
+    const t = window.setTimeout(() => setToast(null), 3200)
+    return () => window.clearTimeout(t)
+  }, [toast])
   const isQuizType = step.type === 'match-listen' || step.type === 'match-reverse' || step.type === 'quiz'
   const isWriting = step.type === 'writing'
   const isArrange = step.type === 'arrange'
@@ -308,29 +426,32 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     if (!('options' in step)) return [] as string[]
     const opts = [...step.options]
     for (let i = opts.length - 1; i > 0; i--) {
-      const j = Math.abs(((entry.raw + 1) * 31 + i * 17) % (i + 1))
+      const j = Math.abs(((optSeed + 1) * 31 + i * 17) % (i + 1))
       ;[opts[i], opts[j]] = [opts[j], opts[i]]
     }
     return opts
-  }, [step, entry.raw])
+  }, [step, optSeed])
   const answerText = 'options' in step && 'answer' in step && typeof step.answer === 'number' ? step.options[step.answer] : ''
   const isCorrectAnswer = selected !== null && shuffledOpts[selected] === answerText
   const arrangeCorrect = isArrange && JSON.stringify(arrangeOrder) === JSON.stringify(step.correctOrder)
 
   const resetStepState = () => {
     setSelected(null); setShowResult(false); setWritingChecked(false); setArrangeOrder([]); setContextOpen(false)
+    setWordNote(null)
   }
 
   // 원하는 단계로 바로 이동 (목차·진도 막대 공용)
   const goToStep = (i: number) => {
     if (i < 0 || i >= entries.length) return
     stopSpeech()
+    setVirtual(null)
     if (i !== stepIdx) setStepIdx(i)
     resetStepState()
   }
 
   const finishLesson = () => {
     const s = readSession(lid)
+    if (advanced.current >= 5) touchLastStudied(lid)
     const result: LessonResult = {
       lid,
       correct: s.correct,
@@ -338,6 +459,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
       newWords: s.words.length,
       elapsedMs: elapsedSince(s.startedAt),
       steps: entries.length,
+      retry: s.wrongs && s.wrongs.length ? s.wrongs : undefined,
     }
     localStorage.setItem(K.done(lid), 'true')
     localStorage.setItem(K.progress(lid), String(lastRaw))
@@ -346,8 +468,55 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     nav('/lesson-complete', { state: result })
   }
 
+  // 다음 단계로 — 마디가 바뀌면 마디 마침 화면, 소단원이 끝나면 알림
+  const advanceFrom = (i: number) => {
+    if (i + 1 >= entries.length) { finishLesson(); return }
+    const next = i + 1
+    let sectionDone: string | null = null
+    if (entries.length > 40 && entries[next].step.type === 'intro') {
+      const sec = sections.find(x => i >= x.start && i <= x.end)
+      if (sec && sec.start > 0) sectionDone = sectionShortName(sec.title)
+    }
+    setStepIdx(next)
+    resetStepState()
+    if (useMadi && madi.of[next] !== madi.of[i]) {
+      const m = madi.of[i]
+      const r = madi.ranges[m]
+      const words = new Set<string>()
+      for (let k = r.first; k <= r.last; k++) {
+        const st = entries[k].step
+        if (st.type === 'teach') words.add(st.word.toLowerCase().trim())
+      }
+      const ms = statsFor(m)
+      setMadiDone({ madiNo: m + 1, words: words.size, correct: ms.correct, wrong: ms.wrong, sectionDone, wrongs: [...ms.wrongs], isRetryResult: false })
+      madiStats.current = { madi: madi.of[next], correct: 0, wrong: 0, wrongs: [] }
+      window.scrollTo(0, 0)
+      return
+    }
+    if (sectionDone) setToast(`${sectionDone} 편 완료 🪷`)
+  }
+
   const handleNext = () => {
     stopSpeech()
+    // 끼워 넣은 문제 진행
+    if (virtual) {
+      if (virtual.idx + 1 < virtual.items.length) {
+        setVirtual({ ...virtual, idx: virtual.idx + 1 })
+        resetStepState()
+        return
+      }
+      const v = virtual
+      setVirtual(null)
+      resetStepState()
+      if (v.purpose === 'check') advanceFrom(stepIdx)
+      else if (v.purpose === 'retry-madi') {
+        const p = pendingMadiDone.current
+        pendingMadiDone.current = null
+        if (p) setMadiDone({ ...p, wrongs: [], isRetryResult: true })
+      }
+      else setRetryDone({ correct: v.correct, wrong: v.wrong })
+      return
+    }
     // teach 스텝 완료 시 전역 단어 학습 횟수 기록 (처음 배운 단어는 '새 단어'로 셈)
     if (step.type === 'teach') {
       const word = step.word.toLowerCase().trim()
@@ -363,27 +532,89 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     try { dates = JSON.parse(localStorage.getItem('suttalog-study-dates') || '[]') } catch { /* 무시 */ }
     if (!dates.includes(today)) { dates.push(today); localStorage.setItem('suttalog-study-dates', JSON.stringify(dates)) }
 
-    if (stepIdx + 1 >= entries.length) { finishLesson(); return }
-    setStepIdx(stepIdx + 1)
-    resetStepState()
+    // 마지막 학습 과 — 5단계 이상 실제로 넘겼을 때만(잠깐 열어 본 과는 '이어서 학습하기'를 바꾸지 않음)
+    advanced.current++
+    if (advanced.current >= 5) touchLastStudied(lid)
+
+    // 구절이 끝나면 방금 배운 낱말 2~3개로 확인 문제(뒤에 연습 문제가 이미 있으면 생략)
+    if (step.type === 'verse' && checkQuizEnabled() && !checkedVerses.current.has(entry.raw)) {
+      checkedVerses.current.add(entry.raw)
+      const listenOk = canSpeak && !soundOff()
+      const modes: CheckMode[] = listenOk ? ['meaning', 'listen', 'reverse'] : ['meaning', 'reverse', 'meaning']
+      const items: PracticeRef[] = checkWordsAfterVerse(rawSteps, entry.raw)
+        .map((r, i) => ({ kind: 'check' as const, teachRaw: r, mode: modes[i % modes.length] }))
+        .filter(it => buildCheckStep(rawSteps, it))
+      if (items.length >= 2) {
+        setVirtual({ purpose: 'check', items, idx: 0, correct: 0, wrong: 0 })
+        resetStepState()
+        window.scrollTo(0, 0)
+        return
+      }
+    }
+    advanceFrom(stepIdx)
   }
   const handlePrev = () => {
     stopSpeech()
     if (stepIdx > 0) { setStepIdx(stepIdx - 1); resetStepState() }
   }
 
+  // 채점 기록 — 확인 문제·다시 풀기는 연꽃잎을 잃지 않음
+  const score = (ok: boolean) => {
+    if (virtual && vItem) {
+      setVirtual({ ...virtual, correct: virtual.correct + (ok ? 1 : 0), wrong: virtual.wrong + (ok ? 0 : 1) })
+      if (!ok) recordWrong(lid, curRaw)
+      if (virtual.purpose === 'check') {
+        const ms = statsFor(curMadi)
+        if (ok) { ms.correct++; updateSession(lid, s => { s.correct++ }) }
+        else {
+          ms.wrong++; pushUnique(ms.wrongs, vItem)
+          updateSession(lid, s => { s.wrong++; s.wrongs = s.wrongs || []; pushUnique(s.wrongs, vItem) })
+        }
+      }
+      return
+    }
+    const ms = statsFor(curMadi)
+    if (ok) { ms.correct++; updateSession(lid, s => { s.correct++ }) }
+    else {
+      const ref: PracticeRef = { kind: 'step', raw: entry.raw }
+      ms.wrong++; pushUnique(ms.wrongs, ref)
+      updateSession(lid, s => { s.wrong++; s.wrongs = s.wrongs || []; pushUnique(s.wrongs, ref) })
+      recordWrong(lid, entry.raw)
+      loseHeart()
+    }
+  }
   const handleCheckQuiz = () => {
     if (selected === null) return
     setShowResult(true)
-    if (isCorrectAnswer) updateSession(lid, s => { s.correct++ })
-    else { updateSession(lid, s => { s.wrong++ }); loseHeart() }
+    score(isCorrectAnswer)
   }
   const handleCheckArrange = () => {
     if (!isArrange || arrangeOrder.length < step.blocks.length) return
     setShowResult(true)
-    if (arrangeCorrect) updateSession(lid, s => { s.correct++ })
-    else { updateSession(lid, s => { s.wrong++ }); loseHeart() }
+    score(arrangeCorrect)
   }
+
+  // 이 과 전체 이어 듣기 — 구절을 차례로 기기 목소리로 읽음
+  const verseTexts = useMemo(() => {
+    const out: string[] = []
+    rawSteps.forEach(s => { if (s.type === 'verse' && out[out.length - 1] !== s.pali) out.push(s.pali) })
+    return out
+  }, [rawSteps])
+  const playAll = () => {
+    if (seq) { stopSpeech(); return }
+    speakSequence(verseTexts, {
+      onIndex: i => { lastActive.current = Date.now(); setSeq({ idx: i, total: verseTexts.length }) },
+      onDone: () => setSeq(null),
+    })
+  }
+
+  // 틀렸을 때 보여 줄 정답 낱말 카드
+  const wrongTeach = (() => {
+    if (!showResult || isCorrectAnswer || !isQuizType) return null
+    const r = vItem?.kind === 'check' ? vItem.teachRaw : teachForStep(rawSteps, teachIdx, step, curRaw, answerText)
+    const t = r !== null ? rawSteps[r] : null
+    return t && t.type === 'teach' ? t : null
+  })()
   // 손글씨는 채점할 수 없으므로 정답만 보여 줌(감점 없음)
   const handleRevealWriting = () => setWritingChecked(true)
 
@@ -418,6 +649,49 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
           style={{ backgroundColor: 'var(--color-primary)' }}
         >🪷 연꽃잎 채우고 다시 도전</button>
         <button onClick={() => nav('/')} className="mt-3 w-full max-w-xs px-6 py-3 rounded-xl font-bold"
+          style={{ border: '1px solid var(--color-border)' }}>홈으로</button>
+      </CenterScreen>
+    )
+  }
+
+  // ── 마디 마침 ──
+  if (madiDone) {
+    return (
+      <MadiDoneScreen
+        madiNo={madiDone.madiNo}
+        madiCount={madi.ranges.length}
+        words={madiDone.words}
+        correct={madiDone.correct}
+        wrong={madiDone.wrong}
+        sectionDone={madiDone.sectionDone}
+        retryCount={madiDone.wrongs.length}
+        isRetryResult={madiDone.isRetryResult}
+        onMore={() => { setMadiDone(null); window.scrollTo(0, 0) }}
+        onStop={() => { stopSpeech(); nav('/') }}
+        onRetry={() => {
+          // 다시 풀기가 끝나면 마디 마침 화면으로 돌아옴
+          pendingMadiDone.current = madiDone
+          setMadiDone(null)
+          setVirtual({ purpose: 'retry-madi', items: madiDone.wrongs, idx: 0, correct: 0, wrong: 0 })
+          resetStepState()
+        }}
+      />
+    )
+  }
+
+  // ── 완료 화면에서 고른 '틀린 문제 다시 풀기'를 마침 ──
+  if (retryDone) {
+    const n = retryDone.correct + retryDone.wrong
+    return (
+      <CenterScreen>
+        <span className="text-6xl" aria-hidden="true">🪷</span>
+        <h2 className="text-xl font-bold mt-4">다시 풀기를 마쳤습니다</h2>
+        <p className="text-sm mt-2" style={{ color: 'var(--color-text-secondary)' }}>
+          {n > 0 ? `${n}문제 중 ${retryDone.correct}문제를 맞혔어요.` : '수고하셨습니다.'} 틀린 낱말은 복습에서 다시 나옵니다 🙏
+        </p>
+        <button onClick={() => nav('/review')} className="mt-6 w-full max-w-xs py-3 rounded-xl text-white font-bold"
+          style={{ backgroundColor: 'var(--color-primary)' }}>복습하러 가기</button>
+        <button onClick={() => nav('/')} className="mt-3 w-full max-w-xs py-3 rounded-xl font-bold"
           style={{ border: '1px solid var(--color-border)' }}>홈으로</button>
       </CenterScreen>
     )
@@ -474,12 +748,20 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
       if (!seg.hl) {
         return <span key={i} style={{ color: mode === 'context' ? 'var(--color-text-secondary)' : 'var(--color-primary)' }}>{seg.text}</span>
       }
-      if (mode === 'verse' && canSpeak) {
+      if (mode === 'verse') {
+        // 누르면 소리 + 아래에 뜻 쪽지(같은 과 낱말 카드에서 찾음)
+        const open = wordNote?.text === speakableText(seg.text)
         return (
-          <button key={i} onClick={() => speak(seg.text)} lang="pi"
+          <button key={i} lang="pi"
+            onClick={() => {
+              if (canSpeak) speak(seg.text)
+              setWordNote(open ? null : { text: speakableText(seg.text), teachRaw: findTeach(teachIdx, seg.text, entry.raw) })
+            }}
             className="font-bold px-0.5 rounded"
-            style={{ backgroundColor: 'var(--color-primary)', color: 'white', font: 'inherit', fontWeight: 700 }}
-            aria-label={`${seg.text} 발음 듣기`}>{seg.text}</button>
+            style={{ backgroundColor: 'var(--color-primary)', color: 'white', font: 'inherit', fontWeight: 700,
+              outline: open ? '2px solid var(--color-accent)' : undefined, outlineOffset: 1 }}
+            aria-expanded={open}
+            aria-label={`${seg.text} 뜻 보기${canSpeak ? '·발음 듣기' : ''}`}>{seg.text}</button>
         )
       }
       return <mark key={i} className="font-bold px-0.5 rounded" style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}>{seg.text}</mark>
@@ -519,7 +801,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     isQuizType && !showResult ? { label: '확인', onClick: handleCheckQuiz, disabled: selected === null }
     : isArrange && !showResult ? { label: '확인', onClick: handleCheckArrange, disabled: arrangeOrder.length < (isArrange ? step.blocks.length : 0) }
     : isWriting && !writingChecked ? { label: '정답 확인', onClick: handleRevealWriting, disabled: false }
-    : { label: stepIdx + 1 >= entries.length ? '완료 🪷' : '다음 →', onClick: handleNext, disabled: false }
+    : { label: !virtual && stepIdx + 1 >= entries.length ? '완료 🪷' : '다음 →', onClick: handleNext, disabled: false }
   const showSkip = (isQuizType || isArrange) ? !showResult : isWriting ? !writingChecked : false
   const disabledHint =
     primaryAction.disabled && isQuizType ? '보기를 하나 고른 뒤 확인을 눌러 주세요'
@@ -539,7 +821,8 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
             {getLessonTitle(lid)}
           </span>
           <span className="ml-auto shrink-0 text-xs tabular-nums px-1" style={{ color: 'var(--color-text-tertiary)' }}>
-            {stepIdx + 1} / {entries.length}
+            {/* 긴 과는 진도 막대 아래에 '마디' 기준으로 보여 줌 */}
+            {!useMadi && <>{stepIdx + 1} / {entries.length}</>}
           </span>
           <button onClick={() => setShowTOC(true)} aria-label="단계 목차 열기" aria-haspopup="dialog"
             className="w-11 h-11 shrink-0 flex items-center justify-center rounded-full active:scale-90 transition-transform"
@@ -556,14 +839,32 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
         </div>
         {/* 진도 막대 — 머리줄 아래 전체 폭. 누르거나 끌어서 원하는 단계로 이동 */}
         <div className="px-2 pt-1.5">
-          <ScrubBar
-            total={entries.length}
-            current={stepIdx}
-            onSeek={goToStep}
-            getLabel={i => stepLabel(entries[i].step, i)}
-            fillColor="var(--color-primary)"
-            marks={entries.length > 40 ? sections.map(s => s.start) : undefined}
-          />
+          {useMadi && (
+            // 마디 안에서의 진도 — 다른 마디로는 목차에서 이동
+            <ScrubBar
+              total={madiRange.last - madiRange.first + 1}
+              current={stepIdx - madiRange.first}
+              onSeek={i => goToStep(madiRange.first + i)}
+              getLabel={i => stepLabel(entries[madiRange.first + i].step, madiRange.first + i)}
+              fillColor="var(--color-primary)"
+              unitLabel={`${curMadi + 1}마디`}
+            />
+          )}
+          {useMadi ? (
+            <p className="text-xs mt-1.5 text-center tabular-nums" style={{ color: 'var(--color-text-tertiary)' }}>
+              {madi.ranges.length}마디 중 {curMadi + 1} · 이 마디 {stepIdx - madiRange.first + 1}/{madiRange.last - madiRange.first + 1}
+              <span className="sr-only"> (전체 {stepIdx + 1}/{entries.length}단계)</span>
+            </p>
+          ) : (
+            <ScrubBar
+              total={entries.length}
+              current={stepIdx}
+              onSeek={goToStep}
+              getLabel={i => stepLabel(entries[i].step, i)}
+              fillColor="var(--color-primary)"
+              marks={entries.length > 40 ? sections.map(s => s.start) : undefined}
+            />
+          )}
         </div>
       </header>
 
@@ -577,7 +878,24 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
         />
       )}
 
+      {/* 소단원 완료 등 짧은 알림 */}
+      {toast && (
+        <div role="status" className="fixed left-1/2 z-40 px-4 py-2 rounded-full text-sm font-bold shadow-lg"
+          style={{ top: 76, transform: 'translateX(-50%)', backgroundColor: 'var(--color-accent)', color: '#fff', maxWidth: '90vw' }}>
+          {toast}
+        </div>
+      )}
+
       <main className="flex-1 flex flex-col px-4 pt-2">
+        {virtual && (
+          <p className="self-start text-xs font-bold mb-3 px-3 py-1 rounded-full"
+            style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))', color: 'var(--color-accent)' }}>
+            {virtual.purpose === 'check'
+              ? `🌱 방금 배운 낱말 확인 ${virtual.idx + 1}/${virtual.items.length}`
+              : `🔁 틀린 문제 다시 풀기 ${virtual.idx + 1}/${virtual.items.length}`}
+            <span className="font-normal" style={{ color: 'var(--color-text-tertiary)' }}> · 연꽃잎은 줄지 않아요</span>
+          </p>
+        )}
         {step.type === 'intro' && (
           <div className="flex-1 flex flex-col items-center justify-center text-center px-2">
             <span className="text-6xl mb-4" aria-hidden="true">{step.icon}</span>
@@ -590,6 +908,9 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
         {step.type === 'teach' && (() => {
           const ranges = step.verseLine && !step.noVerseHighlight
             ? teachRanges(step.verseLine, step.formInVerse ?? step.word, step.occurrence) : []
+          const hasGrammarNote = !!(step.baseForm || step.formNote)
+          const hasExtra = hasGrammarNote || !!step.buddhism
+          const showExtra = depth === 'detail' || foldOpen
           return (
             <div className="flex-1 flex flex-col pt-1">
               <div className="rounded-2xl p-4 text-center" style={{ backgroundColor: 'var(--color-surface)', border: '2px solid var(--color-primary)' }}>
@@ -602,7 +923,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
                 )}
                 <hr className="my-3" style={{ borderColor: 'var(--color-border)' }} />
                 <p className="text-lg font-bold">{step.meaning}</p>
-                {step.grammar && <p className="text-xs mt-1 px-2 py-0.5 rounded-full inline-block" style={{ backgroundColor: 'var(--color-border)' }}>{step.grammar}</p>}
+                {step.grammar && <GrammarChip grammar={step.grammar} />}
               </div>
               {step.verseLine && (
                 <div className="rounded-xl p-3 mt-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
@@ -613,13 +934,18 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
                   {step.verseLineKo && <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>{step.verseLineKo}</p>}
                 </div>
               )}
-              {(step.baseForm || step.formNote) && (
+              {/* 원형·형태·불교 해설 — '쉽게'(기본)에서는 접어 둠 */}
+              {hasExtra && depth === 'easy' && (
+                <FoldToggle open={foldOpen} onToggle={() => setFoldOpen(o => !o)}
+                  label={hasGrammarNote && step.buddhism ? '📐 문법·해설 더 보기' : hasGrammarNote ? '📐 문법 더 보기' : '☸️ 해설 더 보기'} />
+              )}
+              {showExtra && hasGrammarNote && (
                 <div className="mt-2 rounded-xl p-3 text-xs" style={{ backgroundColor: C.infoBg, border: `1px solid ${C.infoBorder}` }}>
                   {step.baseForm && <p className="font-bold">📐 원형: {step.baseForm}</p>}
                   {step.formNote && <p className="mt-1 whitespace-pre-line" style={{ color: 'var(--color-text-secondary)' }}>{step.formNote}</p>}
                 </div>
               )}
-              {step.buddhism && <div className="mt-2 rounded-xl p-3 text-xs" style={{ backgroundColor: C.okBg, border: `1px solid ${C.okBorder}` }}>☸️ {step.buddhism}</div>}
+              {showExtra && step.buddhism && <div className="mt-2 rounded-xl p-3 text-xs" style={{ backgroundColor: C.okBg, border: `1px solid ${C.okBorder}` }}>☸️ {step.buddhism}</div>}
             </div>
           )
         })()}
@@ -659,10 +985,36 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
               <p className="pali-font leading-relaxed whitespace-pre-line" lang="pi" style={{ fontSize: 'calc(var(--pali-fontsize, 18px) * 1.0)' }}>
                 {renderSegments(step.pali, verseRanges(step.pali, step.highlight), 'verse')}
               </p>
-              {canSpeak && <button onClick={() => speakPali(step.pali)} className="mt-2 py-1 text-xs" style={{ color: 'var(--color-accent)' }}>🔊 전체 듣기</button>}
+              {canSpeak && (
+                <div className="mt-2 flex flex-wrap gap-x-4">
+                  <button onClick={() => speakPali(step.pali)} className="py-1 text-xs" style={{ color: 'var(--color-accent)' }}>🔊 전체 듣기</button>
+                  {verseTexts.length > 1 && (
+                    <button onClick={playAll} className="py-1 text-xs font-medium" style={{ color: 'var(--color-accent)' }} aria-pressed={!!seq}>
+                      {seq ? '■ 이어 듣기 멈춤' : '🎧 이 과 전체 이어 듣기'}
+                    </button>
+                  )}
+                </div>
+              )}
+              {seq && (
+                <div className="mt-2 rounded-lg px-3 py-2 text-xs" role="status"
+                  style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 10%, var(--color-surface))' }}>
+                  <p className="font-bold" style={{ color: 'var(--color-accent)' }}>🎧 이어 듣는 중 · 구절 {seq.idx + 1}/{seq.total}</p>
+                  <p className="pali-font mt-0.5 truncate" lang="pi" style={{ color: 'var(--color-text-secondary)' }}>{verseTexts[seq.idx]}</p>
+                </div>
+              )}
               <p className="text-xs mt-2" style={{ color: 'var(--color-primary)', opacity: 0.8 }}>🗣️ {step.pronKo}</p>
               <p className="text-xs mt-1" style={{ color: 'var(--color-text-secondary)' }}>{step.translation}</p>
+              {!wordNote && verseRanges(step.pali, step.highlight).length > 0 && (
+                <p className="text-[11px] mt-2" style={{ color: 'var(--color-text-tertiary)' }}>💡 색칠된 낱말을 누르면 뜻을 다시 볼 수 있어요</p>
+              )}
             </div>
+            {wordNote && (() => {
+              const t = wordNote.teachRaw !== null ? rawSteps[wordNote.teachRaw] : null
+              return (
+                <WordNote text={wordNote.text} teach={t && t.type === 'teach' ? t : null} canSpeak={canSpeak}
+                  onSpeak={() => speak(wordNote.text)} onClose={() => setWordNote(null)} />
+              )
+            })()}
             {step.note && <div className="mt-2 rounded-xl p-3 text-xs" style={{ backgroundColor: C.noteBg, border: `1px solid ${C.noteBorder}` }}>{step.note}</div>}
           </div>
         )}
@@ -816,15 +1168,19 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
       <div ref={barRef} className="fixed bottom-0 left-0 right-0 z-30 px-4 pt-2 max-w-[430px] mx-auto"
         style={{ backgroundColor: 'var(--color-bg)', paddingBottom: 'calc(env(safe-area-inset-bottom, 0px) + 12px)', borderTop: '1px solid var(--color-border-light)' }}>
         {showResult && isQuizType && (
-          <div className="rounded-xl p-2.5 mb-2" role="status" style={{ backgroundColor: isCorrectAnswer ? C.okBg : C.errBg }}>
-            <p className="text-sm font-bold">{isCorrectAnswer ? '✅ Sādhu! 정답!' : '❌ 틀렸습니다'}</p>
+          <div className="rounded-xl p-2.5 mb-2 overflow-y-auto" role="status" style={{ backgroundColor: isCorrectAnswer ? C.okBg : C.errBg, maxHeight: '32vh' }}>
+            <p className="text-sm font-bold">{isCorrectAnswer ? '✅ Sādhu! 정답!' : '❌ 틀렸습니다 — 괜찮아요, 정답을 함께 볼까요?'}</p>
+            {!isCorrectAnswer && (
+              <WrongExplain teach={wrongTeach} hint={step.type === 'quiz' ? step.hint : undefined}
+                answer={wrongTeach && (normPali(wrongTeach.word) === normPali(answerText) || wrongTeach.meaning === answerText) ? undefined : answerText} />
+            )}
           </div>
         )}
         {disabledHint && (
           <p className="text-[11px] text-center mb-1.5" style={{ color: 'var(--color-text-tertiary)' }}>{disabledHint}</p>
         )}
         <div className="flex gap-2">
-          {stepIdx > 0 && (
+          {stepIdx > 0 && !virtual && (
             <button onClick={handlePrev} className="px-4 py-3.5 rounded-xl font-bold text-sm active:scale-[0.97]"
               style={{ border: '2px solid var(--color-border)' }}>← 이전</button>
           )}
@@ -868,7 +1224,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
         onClose={() => setShowMemo(false)}
         lessonId={lid}
         stepIdx={entry.raw}
-        snapshot={buildSnapshot(step)}
+        snapshot={buildSnapshot(entry.step)}
         onSaved={() => setMemoVer(v => v + 1)}
       />
     </div>

@@ -1,4 +1,5 @@
 import type { StepType } from '../types'
+import type { Gloss } from '../verse-gloss'
 import IntroStep from './steps/IntroStep'
 import TeachStep from './steps/TeachStep'
 import TeachGrammarStep from './steps/TeachGrammarStep'
@@ -26,6 +27,12 @@ interface StepRendererProps {
   arrangeOrder: number[]
   onSetArrangeOrder: (val: number[] | ((prev: number[]) => number[])) => void
   isArrangeCorrect: boolean
+  /** 채점 결과 (맞힘/틀림) — 해설 카드용 */
+  lastOk?: boolean
+  /** 쉬운 화면 (큰 보기, 녹음 숨김) */
+  easyMode?: boolean
+  /** 경전 낱말 풀이 사전 */
+  glossary?: Map<string, Gloss>
 }
 
 export default function StepRenderer(props: StepRendererProps) {
@@ -47,6 +54,8 @@ export default function StepRenderer(props: StepRendererProps) {
           shuffledOpts={props.shuffledOpts}
           getAnswerText={props.getAnswerText}
           onSelect={props.onSelect}
+          lastOk={props.lastOk}
+          large={props.easyMode}
         />
       )
     case 'match-listen':
@@ -59,6 +68,8 @@ export default function StepRenderer(props: StepRendererProps) {
           getAnswerText={props.getAnswerText}
           onSelect={props.onSelect}
           onSpeak={props.onSpeak}
+          lastOk={props.lastOk}
+          large={props.easyMode}
         />
       )
     case 'match-reverse':
@@ -70,6 +81,8 @@ export default function StepRenderer(props: StepRendererProps) {
           shuffledOpts={props.shuffledOpts}
           getAnswerText={props.getAnswerText}
           onSelect={props.onSelect}
+          lastOk={props.lastOk}
+          large={props.easyMode}
         />
       )
     case 'writing':
@@ -83,7 +96,7 @@ export default function StepRenderer(props: StepRendererProps) {
         />
       )
     case 'speak':
-      return <SpeakStep step={step} onSpeak={props.onSpeak} />
+      return <SpeakStep step={step} onSpeak={props.onSpeak} easyMode={props.easyMode} />
     case 'arrange':
       return (
         <ArrangeStep
@@ -94,7 +107,7 @@ export default function StepRenderer(props: StepRendererProps) {
         />
       )
     case 'verse':
-      return <VerseStep step={step} onSpeak={props.onSpeak} />
+      return <VerseStep step={step} onSpeak={props.onSpeak} glossary={props.glossary} />
     default:
       return null
   }
