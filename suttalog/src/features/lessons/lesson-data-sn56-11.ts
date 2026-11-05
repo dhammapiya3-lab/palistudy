@@ -9,6 +9,8 @@ export type StepType =
       occurrence?: number
       /** 카드에 작게 보일 설명(예: '두 번째 vā') — word에는 빠알리 형태만 둠 */
       label?: string
+      /** 확인 문제(뜻 → 낱말)의 정답으로 보일 낱말 — 줄어든 꼴(va) 대신 본래 꼴(vā)을 묻고 싶을 때 */
+      quizWord?: string
       /** 본문에 해당 형태가 없어 일부러 칠하지 않음 */
       noVerseHighlight?: boolean }
   | { type: 'teach-grammar'; title: string; example: string; exampleKo: string; explanation: string }

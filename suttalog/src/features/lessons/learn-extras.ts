@@ -206,9 +206,10 @@ export function buildCheckStep(steps: Step[], ref: Extract<PracticeRef, { kind: 
   if (!others.length) return null
   const answer = Math.floor(rand() * (others.length + 1))
   if (ref.mode === 'reverse') {
-    const opts = others.map(o => o.word)
-    opts.splice(answer, 0, t.word)
-    return { type: 'match-reverse', instruction: `‘${t.meaning}’에 알맞은 낱말은?`, meaning: t.meaning, options: opts, answer }
+    const opts = others.map(o => o.word).filter(w => normPali(w) !== normPali(t.quizWord || t.word))
+    const at = Math.min(answer, opts.length)
+    opts.splice(at, 0, t.quizWord || t.word)
+    return { type: 'match-reverse', instruction: `‘${t.meaning}’에 알맞은 낱말은?`, meaning: t.meaning, options: opts, answer: at }
   }
   const opts = others.map(o => o.meaning)
   opts.splice(answer, 0, t.meaning)
