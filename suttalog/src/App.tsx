@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { lazy, Suspense, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import Layout from './components/Layout'
 import Onboarding from './features/onboarding/Onboarding'
 import Home from './features/home/Home'
+import { schedulePrefetch } from './features/settings/offline-prefetch'
 
 // 홈 외의 화면은 필요할 때 불러옴(첫 로딩을 가볍게). 경전 데이터(약 2MB)는 경전 학습 화면을 열 때만 받음.
 const StudyMap = lazy(() => import('./features/studymap/StudyMap'))
@@ -35,6 +36,9 @@ export default function App() {
   const [onboarded, setOnboarded] = useState(
     localStorage.getItem('suttalog-onboarded') === 'true' || window.location.search.includes('skip')
   )
+
+  // 오프라인 대비: 한가할 때 모든 경전 레슨을 미리 받아 둠(설정에서 끌 수 있음)
+  useEffect(() => { if (onboarded) schedulePrefetch() }, [onboarded])
 
   const completeOnboarding = () => {
     // 처음 쓰는 분: 쓰기 문제는 꺼 둔 채로 시작(설정 → 더 자세한 학습 설정에서 켤 수 있음)

@@ -36,3 +36,12 @@ export async function loadLesson(id: string): Promise<StepType[]> {
   cache[id] = steps
   return steps
 }
+
+/** 경전 레슨 ID 전체(미리 받기·배운 낱말 찾기용) */
+export const LESSON_IDS: string[] = Object.keys(LOADERS)
+
+/** 모든 레슨을 한 번에 받아 둠(오프라인 대비). 하나라도 실패하면 실패로 알림 */
+export async function loadAllLessons(): Promise<void> {
+  const results = await Promise.allSettled(LESSON_IDS.map(id => loadLesson(id)))
+  if (results.some(r => r.status === 'rejected')) throw new Error('일부 레슨을 받지 못함')
+}

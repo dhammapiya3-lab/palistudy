@@ -140,7 +140,7 @@ export default function AlphabetLesson() {
           </div>
 
           {/* 한국어 해석 */}
-          <div className="rounded-2xl p-4" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
+          <div className="rounded-2xl p-4" style={{ backgroundColor: 'color-mix(in srgb, #F9A825 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, #F9A825 40%, var(--color-surface))' }}>
             <p className="text-xs font-semibold mb-2" style={{ color: '#F57F17' }}>📖 해석</p>
             <p className="text-sm whitespace-pre-line leading-relaxed">{lesson.translationKo}</p>
           </div>
@@ -226,7 +226,7 @@ export default function AlphabetLesson() {
                   disabled={showResult}
                   className="w-full p-4 rounded-xl text-left text-sm font-medium transition-all"
                   style={{
-                    backgroundColor: isAnswer ? '#E8F5E9' : isWrong ? '#FFEBEE' : 'var(--color-surface)',
+                    backgroundColor: isAnswer ? 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))' : isWrong ? 'color-mix(in srgb, var(--color-error) 10%, var(--color-surface))' : 'var(--color-surface)',
                     border: isAnswer ? '2px solid #4CAF50' : isWrong ? '2px solid #F44336' : selected === i ? '2px solid var(--color-primary)' : '2px solid var(--color-border)',
                   }}>
                   {isAnswer && '✅ '}{isWrong && '❌ '}{opt}
@@ -236,7 +236,7 @@ export default function AlphabetLesson() {
           </div>
 
           {showResult && (
-            <div className="rounded-xl p-3" style={{ backgroundColor: selected === currentQuiz.answer ? '#E8F5E9' : '#FFEBEE' }}>
+            <div className="rounded-xl p-3" style={{ backgroundColor: selected === currentQuiz.answer ? 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))' : 'color-mix(in srgb, var(--color-error) 10%, var(--color-surface))' }}>
               <p className="text-sm font-bold">{selected === currentQuiz.answer ? '✅ Sādhu! 정답!' : '❌ 오답'}</p>
             </div>
           )}

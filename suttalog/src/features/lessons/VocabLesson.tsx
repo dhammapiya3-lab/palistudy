@@ -104,7 +104,7 @@ export default function VocabLesson() {
             </button>
           </div>
 
-          <div className="rounded-2xl p-4" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
+          <div className="rounded-2xl p-4" style={{ backgroundColor: 'color-mix(in srgb, #F9A825 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, #F9A825 40%, var(--color-surface))' }}>
             <p className="text-sm whitespace-pre-line">{lesson.sourceKo}</p>
           </div>
 

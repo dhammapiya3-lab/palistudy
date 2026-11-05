@@ -270,3 +270,38 @@ export function explainDepth(): 'easy' | 'detail' {
 export function checkQuizEnabled(): boolean {
   return localStorage.getItem('suttalog-check-quiz') !== 'off'
 }
+
+// ───────────────────────── 한 번 학습한 단어는 건너뛰기 ─────────────────────────
+// 설정 'suttalog-skip-learned-words' = 'on' | 'off'(기본: 모든 낱말 카드를 빠짐없이 배움)
+// 켜면 이미 배운 낱말(낱말 카드 word를 normPali로 맞춘 형태 기준, 다른 과에서 배웠어도 포함)의
+// 낱말 카드(teach)를 화면에서만 건너뜀 — 원본 단계 번호·진도·메모 위치는 그대로
+
+export function skipLearnedEnabled(): boolean {
+  return localStorage.getItem('suttalog-skip-learned-words') === 'on'
+}
+
+/** 배운 낱말 기록(suttalog-seen-words)에 있는 낱말 */
+export function learnedFromSeen(): Set<string> {
+  const out = new Set<string>()
+  const arr = readJson<{ word?: string }[]>('suttalog-seen-words', [])
+  if (Array.isArray(arr)) arr.forEach(x => { if (x && typeof x.word === 'string') { const w = normPali(x.word); if (w) out.add(w) } })
+  return out
+}
+
+/** 진도로 본 배운 낱말 — 지금 단계(원본 번호)보다 앞의 낱말 카드, 끝까지 마친 과는 전부 */
+export function learnedFromProgress(lessonId: string, steps: Step[], into: Set<string> = new Set()): Set<string> {
+  const done = localStorage.getItem(`suttalog-done-${lessonId}`) === 'true'
+  const prog = Math.max(0, Number(localStorage.getItem(`suttalog-progress-${lessonId}`) || '0') || 0)
+  const upto = done ? steps.length : Math.min(prog, steps.length)
+  for (let r = 0; r < upto; r++) {
+    const s = steps[r]
+    if (s.type === 'teach') { const w = normPali(s.word); if (w) into.add(w) }
+  }
+  return into
+}
+
+/** 이 과를 시작한 적이 있는지(진도가 있거나 끝까지 마침) */
+export function lessonStarted(lessonId: string): boolean {
+  return localStorage.getItem(`suttalog-done-${lessonId}`) === 'true'
+    || (Number(localStorage.getItem(`suttalog-progress-${lessonId}`) || '0') || 0) > 0
+}

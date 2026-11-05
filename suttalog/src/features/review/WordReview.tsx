@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { speakPali, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
 import { getLessonTitle } from '../../utils/lessons-meta'
 import { buildSession, getDueSummary, recordAnswer, type ReviewItem } from '../../utils/word-review'
+import { isEasyMode, twoChoices } from '../../utils/easy-mode'
 
 const C = {
   okBg: 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))',
@@ -25,6 +26,14 @@ export default function WordReview() {
     setQueue(null)
     buildSession({ listenOk: soundOn }).then(items => {
       if (!alive) return
+      // 쉬운 화면: 보기 2개(정답 + 오답 하나)
+      if (isEasyMode()) {
+        items = items.map((it, i) => {
+          const ans = it.options[it.answer]
+          const options = twoChoices(it.options, ans, i + 1)
+          return { ...it, options, answer: options.indexOf(ans) }
+        })
+      }
       setQueue(items); setIdx(0); setPicked(null); setScore({ ok: 0, ng: 0 }); graded.current = new Set()
     })
     return () => { alive = false; stopSpeech() }

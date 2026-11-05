@@ -10,14 +10,16 @@ import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
 import MemoSheet from '../../components/MemoSheet'
 import type { StepType } from './lesson-data-sn56-11'
-import { getCachedLesson, hasLessonData, loadLesson } from './lesson-registry'
+import { getCachedLesson, hasLessonData, loadLesson, LESSON_IDS } from './lesson-registry'
 import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
 import type { LessonResult } from '../lesson/LessonComplete'
 import {
   addStudySeconds, buildCheckStep, buildTeachIndex, checkQuizEnabled, checkWordsAfterVerse, computeMadis,
-  explainDepth, findTeach, recordSeenWord, recordWrong, sectionShortName, teachForStep, touchLastStudied,
+  explainDepth, findTeach, learnedFromProgress, learnedFromSeen, lessonStarted, recordSeenWord, recordWrong,
+  sectionShortName, skipLearnedEnabled, teachForStep, touchLastStudied,
   type CheckMode, type PracticeRef,
 } from './learn-extras'
+import { isEasyMode, twoChoices } from '../../utils/easy-mode'
 import { FoldToggle, GrammarChip, MadiDoneScreen, WordNote, WrongExplain } from './LearnWidgets'
 
 type Step = StepType
@@ -52,18 +54,28 @@ const K = {
 }
 
 // 단어 설명 단계 설정에 따라 스텝 필터링 — 레슨에 들어올 때 한 번만 계산해 고정
-function buildEntries(steps: Step[]): Entry[] {
+// learned: '한 번 학습한 단어는 건너뛰기'가 켜졌을 때 이미 배운 낱말(normPali 형태), 꺼져 있으면 null
+function buildEntries(steps: Step[], easy: boolean, learned: Set<string> | null): { entries: Entry[]; skippedLearned: number } {
   const mode = localStorage.getItem('suttalog-word-mode') || 'all'
-  const writingEnabled = localStorage.getItem('suttalog-writing') !== 'off'
+  // 쉬운 화면에서는 쓰기 문제를 숨김(프라이머와 같음)
+  const writingEnabled = localStorage.getItem('suttalog-writing') !== 'off' && !easy
   const limit = Number(localStorage.getItem('suttalog-word-limit') || '3')
   let globalCounts: Record<string, number> = {}
   try { globalCounts = JSON.parse(localStorage.getItem('suttalog-word-counts') || '{}') } catch { /* 무시 */ }
   const seenInLesson = new Set<string>()
+  const shownInLesson = new Set<string>() // 건너뛰기 켬: 이 과에서 이미 한 번 보여 준 낱말
+  let skippedLearned = 0
 
   const out: Entry[] = []
   steps.forEach((step, raw) => {
     // 쓰기 끔 설정이면 쓰기 단계는 목록에서 뺌(빈 화면이 잠깐 보이거나 뒤로 못 가는 문제 방지)
     if (step.type === 'writing' && !writingEnabled) return
+    // 한 번 학습한 단어는 건너뛰기 — 다른 과에서 배웠거나, 이 과 앞에서 이미 나온 낱말
+    if (step.type === 'teach' && learned) {
+      const w = normPali(step.word)
+      if (w && (learned.has(w) || shownInLesson.has(w))) { skippedLearned++; return }
+      if (w) shownInLesson.add(w)
+    }
     if (step.type === 'teach' && mode !== 'all') {
       const word = step.word.toLowerCase().trim()
       if (mode === 'first') {
@@ -76,7 +88,17 @@ function buildEntries(steps: Step[]): Entry[] {
     out.push({ step, raw })
   })
   // 모두 걸러져 비는 일은 없게
-  return out.length ? out : steps.map((step, raw) => ({ step, raw }))
+  return out.length ? { entries: out, skippedLearned } : { entries: steps.map((step, raw) => ({ step, raw })), skippedLearned: 0 }
+}
+
+// 이미 배운 낱말 모으기 — 배운 낱말 기록 + 진도(이 과·시작한 다른 과). 다른 과 데이터는 필요할 때만 받음
+async function collectLearned(lid: string, steps: Step[]): Promise<Set<string>> {
+  const learned = learnedFromSeen()
+  learnedFromProgress(lid, steps, learned)
+  const others = LESSON_IDS.filter(id => id !== lid && lessonStarted(id))
+  await Promise.all(others.map(id =>
+    loadLesson(id).then(st => { learnedFromProgress(id, st, learned) }).catch(() => { /* 못 받으면 기록만으로 */ })))
+  return learned
 }
 
 // 원본 번호 → 걸러진 목록 안의 위치(같은 단계가 없으면 그 다음 단계)
@@ -204,6 +226,9 @@ export default function ScriptureLearn() {
 function LessonLoader({ lid }: { lid: string }) {
   const [steps, setSteps] = useState<Step[] | undefined>(() => getCachedLesson(lid))
   const [failed, setFailed] = useState(false)
+  // '한 번 학습한 단어는 건너뛰기' — 꺼져 있으면 null(기본: 모든 낱말을 빠짐없이 배움)
+  const [skipOn] = useState(skipLearnedEnabled)
+  const [learned, setLearned] = useState<Set<string> | null | undefined>(() => (skipOn ? undefined : null))
 
   useEffect(() => {
     if (steps) return
@@ -211,6 +236,13 @@ function LessonLoader({ lid }: { lid: string }) {
     loadLesson(lid).then(s => { if (alive) setSteps(s) }).catch(() => { if (alive) setFailed(true) })
     return () => { alive = false }
   }, [lid, steps])
+
+  useEffect(() => {
+    if (!steps || learned !== undefined) return
+    let alive = true
+    collectLearned(lid, steps).then(l => { if (alive) setLearned(l) }).catch(() => { if (alive) setLearned(learnedFromSeen()) })
+    return () => { alive = false }
+  }, [lid, steps, learned])
 
   if (failed) {
     return (
@@ -223,7 +255,7 @@ function LessonLoader({ lid }: { lid: string }) {
       </CenterScreen>
     )
   }
-  if (!steps) {
+  if (!steps || learned === undefined) {
     return (
       <CenterScreen>
         <div className="w-10 h-10 rounded-full border-4 animate-spin"
@@ -234,18 +266,20 @@ function LessonLoader({ lid }: { lid: string }) {
       </CenterScreen>
     )
   }
-  return <LessonPlayer lid={lid} rawSteps={steps} />
+  return <LessonPlayer lid={lid} rawSteps={steps} learned={learned} />
 }
 
 // ───────────────────────── 레슨 진행 ─────────────────────────
 
-function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
+function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[]; learned: Set<string> | null }) {
   const nav = useNavigate()
   const location = useLocation()
   const canSpeak = ttsAvailable()
+  // 쉬운 화면(설정) — 레슨에 들어올 때 한 번 읽음
+  const [easy] = useState(isEasyMode)
 
   // 걸러진 단계 목록 — 레슨에 들어올 때 한 번만 계산(학습 중 단어 횟수가 늘어도 목록이 당겨지지 않게)
-  const [entries] = useState<Entry[]>(() => buildEntries(rawSteps))
+  const [{ entries, skippedLearned }] = useState(() => buildEntries(rawSteps, easy, learned))
   const lastRaw = rawSteps.length - 1
 
   // 저장된 진도(원본 번호) 읽기 — 예전 '걸러진 번호' 진도는 한 번만 원본 번호로 옮김
@@ -310,6 +344,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
     localStorage.setItem(K.hearts(lid), String(v))
   }
   const loseHeart = () => {
+    if (easy) return // 쉬운 화면: 연꽃잎 없이 공부
     setHearts(hearts - 1)
     setHeartShake(true)
     window.setTimeout(() => setHeartShake(false), 600)
@@ -396,12 +431,42 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
   // 화면을 떠나면 소리 멈춤
   useEffect(() => () => stopSpeech(), [])
 
+  // 쉬운 화면: 학습 화면에서 글씨를 더 크게(프라이머와 같이 화면 전체 + 빠알리 글자) — 나가면 되돌림
+  useEffect(() => {
+    if (!easy) return
+    const el = document.documentElement
+    const beforeFs = el.style.fontSize
+    const beforePali = el.style.getPropertyValue('--pali-fontsize')
+    const pali = Number(localStorage.getItem('suttalog-fontsize')) || 18
+    el.style.fontSize = '18px'
+    el.style.setProperty('--pali-fontsize', `${Math.max(pali, 22)}px`)
+    return () => {
+      el.style.fontSize = beforeFs
+      if (beforePali) el.style.setProperty('--pali-fontsize', beforePali)
+      else el.style.removeProperty('--pali-fontsize')
+    }
+  }, [easy])
+
+  // 이미 배운 낱말을 건너뛴 경우 처음에 한 번 알림
+  useEffect(() => {
+    if (skippedLearned > 0) setToast(`이미 배운 낱말 카드 ${skippedLearned}개는 건너뜁니다 (설정에서 바꿀 수 있어요)`)
+  }, [skippedLearned])
+
   // 알림(소단원 완료 등)
   useEffect(() => {
     if (!toast) return
     const t = window.setTimeout(() => setToast(null), 3200)
     return () => window.clearTimeout(t)
   }, [toast])
+  // 쉬운 화면: 경전 구절·따라 읽기 단계에 들어오면 소리를 한 번 자동으로 들려줌(프라이머와 같음)
+  useEffect(() => {
+    if (!easy || !canSpeak || madiDone || showDoneChoice || retryDone) return
+    if (step.type !== 'verse' && step.type !== 'speak') return
+    const text = step.pali
+    const t = window.setTimeout(() => speakPali(text), 450)
+    return () => window.clearTimeout(t)
+  }, [easy, canSpeak, step, madiDone, showDoneChoice, retryDone])
+
   const isQuizType = step.type === 'match-listen' || step.type === 'match-reverse' || step.type === 'quiz'
   const isWriting = step.type === 'writing'
   const isArrange = step.type === 'arrange'
@@ -429,8 +494,10 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
       const j = Math.abs(((optSeed + 1) * 31 + i * 17) % (i + 1))
       ;[opts[i], opts[j]] = [opts[j], opts[i]]
     }
+    // 쉬운 화면: 보기 2개(정답 + 오답 하나)
+    if (easy && 'answer' in step && typeof step.answer === 'number') return twoChoices(opts, step.options[step.answer], optSeed)
     return opts
-  }, [step, optSeed])
+  }, [step, optSeed, easy])
   const answerText = 'options' in step && 'answer' in step && typeof step.answer === 'number' ? step.options[step.answer] : ''
   const isCorrectAnswer = selected !== null && shuffledOpts[selected] === answerText
   const arrangeCorrect = isArrange && JSON.stringify(arrangeOrder) === JSON.stringify(step.correctOrder)
@@ -635,7 +702,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
   }, [entries])
 
   // ── 연꽃잎을 모두 잃음: 진도는 그대로, 지금 단계에서 다시 도전 ──
-  if (hearts <= 0) {
+  if (hearts <= 0 && !easy) {
     return (
       <CenterScreen>
         <span className="text-6xl" aria-hidden="true">🥀</span>
@@ -832,10 +899,12 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
               <line x1="3" y1="6" x2="3.01" y2="6" /><line x1="3" y1="12" x2="3.01" y2="12" /><line x1="3" y1="18" x2="3.01" y2="18" />
             </svg>
           </button>
+          {!easy && (
           <span className="shrink-0 flex items-center gap-0.5 pr-1" role="img" aria-label={`연꽃잎 ${hearts}개 남음 (최대 ${MAX_HEARTS}개)`}>
             <LotusHeart active shake={heartShake} size={22} />
             <span className="text-sm font-bold tabular-nums" style={{ color: 'var(--color-primary)' }}>×{hearts}</span>
           </span>
+          )}
         </div>
         {/* 진도 막대 — 머리줄 아래 전체 폭. 누르거나 끌어서 원하는 단계로 이동 */}
         <div className="px-2 pt-1.5">
@@ -1196,8 +1265,8 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
         </div>
       </div>
 
-      {/* 메모 버튼 — 아래 막대 바로 위, 학습 칸(430px) 오른쪽 */}
-      <button
+      {/* 메모 버튼 — 아래 막대 바로 위, 학습 칸(430px) 오른쪽 (쉬운 화면에서는 숨김) */}
+      {!easy && <button
         onClick={() => setShowMemo(true)}
         className="fixed rounded-full flex items-center justify-center active:scale-90 z-40"
         style={{
@@ -1216,7 +1285,7 @@ function LessonPlayer({ lid, rawSteps }: { lid: string; rawSteps: Step[] }) {
           <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full"
             style={{ backgroundColor: 'var(--color-error-light)', border: '2px solid var(--color-bg)' }} />
         )}
-      </button>
+      </button>}
 
       {/* 메모 시트 — 위치는 원본 데이터 기준 단계 번호로 저장 */}
       <MemoSheet

@@ -136,3 +136,16 @@ export function debouncedPush() {
   if (syncTimer) clearTimeout(syncTimer)
   syncTimer = setTimeout(() => pushToCloud(), 3000)
 }
+
+/** 클라우드 기록을 지금 기기 내용으로 통째로 바꿈(진도 초기화 때 — 그러지 않으면 다음 동기화 때 진도가 되살아남) */
+export async function overwriteCloud(): Promise<boolean> {
+  if (!currentUser || !db || !fb) return false
+  try {
+    const docRef = fb.d(db, 'suttalog-users', currentUser.uid)
+    await fb.sd(docRef, { lastSyncAt: new Date().toISOString() })
+    return true
+  } catch (e) {
+    console.error('클라우드 초기화 실패:', e)
+    return false
+  }
+}

@@ -153,7 +153,7 @@ export default function GrammarLesson() {
 
         {/* 설명 */}
         {lesson.explanation.map((exp, i) => (
-          <div key={i} className="rounded-2xl p-4" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
+          <div key={i} className="rounded-2xl p-4" style={{ backgroundColor: 'color-mix(in srgb, #F9A825 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, #F9A825 40%, var(--color-surface))' }}>
             <p className="font-bold text-sm mb-2">{exp.title}</p>
             <p className="text-sm whitespace-pre-line leading-relaxed">{exp.content}</p>
           </div>

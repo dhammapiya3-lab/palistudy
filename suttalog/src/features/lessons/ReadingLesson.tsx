@@ -115,7 +115,7 @@ export default function ReadingLesson() {
             </div>
 
             {/* 번역 */}
-            <div className="rounded-2xl p-4" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
+            <div className="rounded-2xl p-4" style={{ backgroundColor: 'color-mix(in srgb, #F9A825 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, #F9A825 40%, var(--color-surface))' }}>
               <p className="text-xs mb-1" style={{ color: '#F57F17' }}>📖 해석</p>
               <p className="text-sm font-medium">{seg.translation}</p>
             </div>

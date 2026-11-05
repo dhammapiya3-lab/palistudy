@@ -13,9 +13,9 @@ export default function PatchCard({ memo, isRemoteOnly, onApprove, onReject }: P
   if (!p) return null
 
   const bg =
-    p.status === 'approved' ? '#E8F5E9' :
-    p.status === 'rejected' ? '#FFEBEE' :
-    p.status === 'applied' ? '#E3F2FD' : '#FFF8E1'
+    p.status === 'approved' ? 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))' :
+    p.status === 'rejected' ? 'color-mix(in srgb, var(--color-error) 10%, var(--color-surface))' :
+    p.status === 'applied' ? 'color-mix(in srgb, #1E88E5 10%, var(--color-surface))' : 'color-mix(in srgb, #F9A825 12%, var(--color-surface))'
   const fg =
     p.status === 'approved' ? '#2E7D32' :
     p.status === 'rejected' ? '#C62828' :
@@ -37,13 +37,13 @@ export default function PatchCard({ memo, isRemoteOnly, onApprove, onReject }: P
       <p className="text-[10px] mb-1" style={{ color: 'var(--color-text-tertiary)' }}>📄 {p.filePath}</p>
       <div className="space-y-1.5">
         <div className="rounded p-2 text-[11px] font-mono whitespace-pre-wrap"
-          style={{ backgroundColor: '#FFEBEE', border: '1px solid #FFCDD2' }}>
-          <span className="font-bold" style={{ color: '#C62828' }}>- 수정 전</span>
+          style={{ backgroundColor: 'color-mix(in srgb, var(--color-error) 10%, var(--color-surface))', border: '1px solid color-mix(in srgb, var(--color-error) 30%, var(--color-surface))' }}>
+          <span className="font-bold" style={{ color: 'var(--color-error)' }}>- 수정 전</span>
           {'\n'}{p.before}
         </div>
         <div className="rounded p-2 text-[11px] font-mono whitespace-pre-wrap"
-          style={{ backgroundColor: '#E8F5E9', border: '1px solid #C8E6C9' }}>
-          <span className="font-bold" style={{ color: '#2E7D32' }}>+ 수정 후</span>
+          style={{ backgroundColor: 'color-mix(in srgb, var(--color-accent) 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-surface))' }}>
+          <span className="font-bold" style={{ color: 'var(--color-accent)' }}>+ 수정 후</span>
           {'\n'}{p.after}
         </div>
       </div>

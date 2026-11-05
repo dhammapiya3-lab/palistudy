@@ -99,7 +99,7 @@ export default function MemoSheet({ open, onClose, lessonId, stepIdx, snapshot, 
             autoFocus />
 
           {existing?.patch && (
-            <div className="mt-3 rounded-xl p-3 text-xs" style={{ backgroundColor: '#E3F2FD', border: '1px solid #BBDEFB' }}>
+            <div className="mt-3 rounded-xl p-3 text-xs" style={{ backgroundColor: 'color-mix(in srgb, #1E88E5 10%, var(--color-surface))', border: '1px solid color-mix(in srgb, #1E88E5 30%, var(--color-surface))' }}>
               <p className="font-bold mb-1">🤖 AI 수정 제안 ({existing.patch.status})</p>
               <p className="text-[11px]" style={{ color: 'var(--color-text-secondary)' }}>{existing.patch.summary}</p>
               <p className="text-[10px] mt-1" style={{ color: 'var(--color-text-tertiary)' }}>메모 목록에서 수정 전/후를 확인하고 승인하세요.</p>

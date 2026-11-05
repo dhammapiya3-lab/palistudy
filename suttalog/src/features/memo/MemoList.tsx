@@ -120,7 +120,7 @@ export default function MemoList() {
       )}
 
       {!githubIsConfigured() && localStorage.getItem('suttalog-admin-mode') === 'true' && (
-        <div className="rounded-xl p-3 mb-4 text-xs" style={{ backgroundColor: '#FFF8E1', border: '1px solid #FFE082' }}>
+        <div className="rounded-xl p-3 mb-4 text-xs" style={{ backgroundColor: 'color-mix(in srgb, #F9A825 12%, var(--color-surface))', border: '1px solid color-mix(in srgb, #F9A825 40%, var(--color-surface))' }}>
           💡 <b>GitHub 토큰 미설정</b> — 공유 메모는 읽기만 가능합니다.
           {' '}<button onClick={() => nav('/settings')} className="underline font-bold">설정</button>에서 PAT를 등록하세요.
         </div>
