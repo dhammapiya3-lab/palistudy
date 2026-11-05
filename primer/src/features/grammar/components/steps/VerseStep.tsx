@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 import type { VerseStep as VerseStepType } from '../../types'
-import { glossKey, noteGlossary, type Gloss } from '../../verse-gloss'
+import { globalGloss, glossKey, noteGlossary, type Gloss } from '../../verse-gloss'
 import AudioPractice from './AudioPractice'
 
 interface VerseStepProps {
@@ -28,7 +28,7 @@ export default function VerseStep({ step, onSpeak, glossary }: VerseStepProps) {
   const fromNote = useMemo(() => noteGlossary(step.note), [step.note])
   const lookup = (w: string): Gloss | undefined => {
     const k = glossKey(w)
-    return glossary?.get(k) || fromNote.get(k)
+    return glossary?.get(k) || fromNote.get(k) || globalGloss(k)
   }
   const activeGloss = active ? lookup(active.word) : undefined
 

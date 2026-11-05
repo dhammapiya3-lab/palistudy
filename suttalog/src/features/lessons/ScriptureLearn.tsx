@@ -13,6 +13,7 @@ import MemoModal from '../../components/memo/MemoModal'
 import type { StepType } from './lesson-data-sn56-11'
 import { getCachedLesson, hasLessonData, loadLesson, LESSON_IDS } from './lesson-registry'
 import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
+import { lookupGloss } from './word-gloss'
 import type { LessonResult } from '../lesson/LessonComplete'
 import {
   addStudySeconds, buildCheckStep, buildTeachIndex, checkQuizEnabled, checkWordsAfterVerse, computeMadis,
@@ -1095,7 +1096,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
               )}
             </div>
             {wordNote && (() => {
-              const t = wordNote.teachRaw !== null ? rawSteps[wordNote.teachRaw] : null
+              const t = wordNote.teachRaw !== null ? rawSteps[wordNote.teachRaw] : lookupGloss(wordNote.text)
               return (
                 <WordNote text={wordNote.text} teach={t && t.type === 'teach' ? t : null} canSpeak={canSpeak}
                   onSpeak={() => speak(wordNote.text)} onClose={() => setWordNote(null)} />

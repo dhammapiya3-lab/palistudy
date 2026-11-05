@@ -121,7 +121,7 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
   useEasyFont(easyMode)
 
   // 경전 낱말 풀이 — 같은 과 낱말 카드에서
-  const glossary = useMemo(() => buildGlossary(STEPS), [STEPS])
+  const glossary = useMemo(() => buildGlossary(STEPS, lid), [STEPS, lid])
 
   // 쉬운 화면: 메모 버튼 숨김 (학습 화면에 있는 동안만)
   const hideMemo = easyMode ? <style>{'button[aria-label="메모"]{display:none!important}'}</style> : null
