@@ -10,6 +10,8 @@ import {
 import { getCurrentPageId, formatDate, extractSearchTerms } from './memo-utils'
 
 interface Props {
+  /** 관리자 기기면 모든 메모와 검토 상태, 아니면 이 기기에서 쓴 메모만 */
+  admin: boolean
   memos: Memo[]
   loading: boolean
   loadMemos: () => void
@@ -59,8 +61,10 @@ async function resolveNavPath(memo: Memo): Promise<string | null> {
   return null
 }
 
-export default function MemoListTab({ memos, loading, loadMemos, startEdit, onClose }: Props) {
-  const [filterMode, setFilterMode] = useState<'lesson' | 'all' | MemoStatus>('미승인')
+export default function MemoListTab({ admin, memos: allMemos, loading, loadMemos, startEdit, onClose }: Props) {
+  const myDevice = getDeviceId()
+  const memos = admin ? allMemos : allMemos.filter(m => m.deviceId === myDevice)
+  const [filterMode, setFilterMode] = useState<'lesson' | 'all' | MemoStatus>(admin ? '미승인' : 'all')
   const [searchText, setSearchText] = useState('')
   const [selectedMemo, setSelectedMemo] = useState<Memo | null>(null)
   const [matchResults, setMatchResults] = useState<{ memoId: string; results: PageSearchResult[] } | null>(null)
@@ -213,8 +217,8 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
             dark:text-neutral-100 leading-relaxed">{memo.text}</p>
         )}
 
-        {/* 상태 선택 — 모든 메모에 표시 */}
-        <div className="space-y-1.5">
+        {/* 검토 상태 — 관리자만 */}
+        {admin && <div className="space-y-1.5">
           <p className="text-xs font-medium text-neutral-500">검토 상태</p>
           <div className="flex gap-2">
             {(['승인', '보류', '미승인'] as MemoStatus[]).map(s => (
@@ -228,7 +232,7 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
                 }`}>{s}</button>
             ))}
           </div>
-        </div>
+        </div>}
 
         {/* 매칭 섹션 (stepId 없을 때) */}
         {isMyMemo && !memo.stepId && (
@@ -285,7 +289,7 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
           ['승인',   '승인',   'bg-green-600'],
           ['보류',   '보류',   'bg-yellow-500'],
           ['미승인', '미승인', 'bg-red-500'],
-        ] as [string, string, string][]).map(([mode, label, activeColor]) => (
+        ] as [string, string, string][]).filter(([mode]) => admin || mode === 'lesson' || mode === 'all').map(([mode, label, activeColor]) => (
           <button key={mode} onClick={() => setFilterMode(mode as typeof filterMode)}
             className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
               filterMode === mode ? `${activeColor} text-white`
@@ -302,7 +306,7 @@ export default function MemoListTab({ memos, loading, loadMemos, startEdit, onCl
         <p className="text-center text-neutral-400 py-8">
           {searchText.trim() ? `"${searchText}" 검색 결과가 없습니다.`
             : filterMode === 'lesson' ? `이 레슨(${currentLessonId || '알 수 없음'})에 메모가 없습니다.`
-            : filterMode === 'all' ? '아직 메모가 없습니다.'
+            : filterMode === 'all' ? (admin ? '아직 메모가 없습니다.' : '아직 보낸 메모가 없습니다.')
             : `"${filterMode}" 상태 메모가 없습니다.`}
         </p>
       ) : (

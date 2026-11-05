@@ -130,8 +130,11 @@ export default function MemoWriteTab({
         <p className="text-xs text-neutral-500 dark:text-neutral-400">
           {editingId
             ? '내용을 수정하고 저장하세요.'
-            : `기능 개선, 버그, 아이디어를 자유롭게 — ${getPageName(location.pathname)}`}
+            : `오류 수정, 개선 의견, 아이디어를 자유롭게 남겨 주세요 — ${getPageName(location.pathname)}`}
         </p>
+        {!editingId && (
+          <p className="text-[11px] text-neutral-500 dark:text-neutral-400">🔒 보내 주신 메모는 관리자만 볼 수 있어요.</p>
+        )}
         <p className="text-[11px] text-neutral-500 dark:text-neutral-400 font-mono">
           위치 ID: {getCurrentPageId(location.pathname)}
         </p>

@@ -8,11 +8,14 @@ import type { Memo } from '../utils/memo'
 import type { ImageItem, Tab } from './memo-utils'
 import MemoWriteTab from './MemoWriteTab'
 import MemoListTab from './MemoListTab'
+import AdminUnlock from './AdminUnlock'
+import { isAdmin } from '../utils/admin'
 
 const DRAFT_KEY = 'pali-memo-draft'
 
 export default function MemoFab() {
   const [open, setOpen] = useState(false)
+  const [admin, setAdmin] = useState(isAdmin)
   // 복습·문법표 안쪽 화면은 아래쪽에 큰 버튼이 있어 메모 버튼을 조금 올림
   const { pathname } = useLocation()
   const raised = pathname.startsWith("/review/") || pathname.startsWith("/tables")
@@ -170,7 +173,7 @@ export default function MemoFab() {
                     tab === 'list'
                       ? 'border-amber-600 text-amber-700 dark:text-amber-400'
                       : 'border-transparent text-neutral-500 dark:text-neutral-400'
-                  }`}>전체 메모</button>
+                  }`}>{admin ? '전체 메모' : '내 메모'}</button>
               </div>
             </div>
 
@@ -191,12 +194,14 @@ export default function MemoFab() {
             {/* 목록 탭 */}
             {tab === 'list' && (
               <MemoListTab
+                admin={admin}
                 memos={memos} loading={loading}
                 loadMemos={loadMemos}
                 startEdit={startEdit}
                 onClose={handleClose}
               />
             )}
+            {tab === 'list' && <AdminUnlock admin={admin} onChange={setAdmin} />}
           </div>
         </div>
       )}

@@ -7,6 +7,8 @@ import type { Memo } from '../../utils/memo-cloud'
 import type { ImageItem, Tab } from './memo-utils'
 import MemoWriteTab from './MemoWriteTab'
 import MemoListTab from './MemoListTab'
+import AdminUnlock from './AdminUnlock'
+import { isAdmin } from '../../utils/admin'
 
 const DRAFT_KEY = 'suttalog-memo-draft'
 
@@ -18,6 +20,7 @@ export default function MemoModal({ open, onClose, initialTab, editMemo }: {
   /** 열자마자 이 메모를 고치기 */
   editMemo?: Memo | null
 }) {
+  const [admin, setAdmin] = useState(isAdmin)
   const [tab, setTab] = useState<Tab>(() => {
     try { return localStorage.getItem(DRAFT_KEY) ? 'write' : 'list' } catch { return 'list' }
   })
@@ -165,7 +168,7 @@ export default function MemoModal({ open, onClose, initialTab, editMemo }: {
                     tab === 'list'
                       ? 'border-amber-600 text-amber-700 dark:text-amber-400'
                       : 'border-transparent text-neutral-500 dark:text-neutral-400'
-                  }`}>전체 메모</button>
+                  }`}>{admin ? '전체 메모' : '내 메모'}</button>
               </div>
             </div>
 
@@ -186,12 +189,14 @@ export default function MemoModal({ open, onClose, initialTab, editMemo }: {
             {/* 목록 탭 */}
             {tab === 'list' && (
               <MemoListTab
+                admin={admin}
                 memos={memos} loading={loading}
                 loadMemos={loadMemos}
                 startEdit={startEdit}
                 onClose={handleClose}
               />
             )}
+            {tab === 'list' && <AdminUnlock admin={admin} onChange={setAdmin} />}
           </div>
         </div>
       )}
