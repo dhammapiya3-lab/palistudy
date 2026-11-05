@@ -1,6 +1,7 @@
 // 경전 중심 Duolingo식 학습 UI (데이터는 레슨별 파일을 필요할 때만 불러옴)
 import { useState, useEffect, useMemo, useRef, useCallback, Fragment } from 'react'
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
+import { commentarySource } from './commentary-src'
 import { soundOff, speakPali, speakSequence, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
 import { pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/memo'
 import { setMemoContext, stepLabel as memoStepLabel, type Memo as CloudMemo } from '../../utils/memo-cloud'
@@ -369,6 +370,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
   // 해설 깊이: 'easy'(기본)면 원형·형태·불교 해설을 접어 둠. 한 번 펼치면 이번 학습 동안 펼친 채로
   const [depth] = useState(explainDepth)
   const [foldOpen, setFoldOpen] = useState(false)
+  const [cmtOpen, setCmtOpen] = useState(false)
 
   // 화면에서만 끼워 넣는 문제(확인 문제·다시 풀기)
   const [virtual, setVirtual] = useState<Virtual | null>(() =>
@@ -1051,6 +1053,21 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
                 </div>
               )}
               {showExtra && step.buddhism && <div className="mt-2 rounded-xl p-3 text-xs" style={{ backgroundColor: C.okBg, border: `1px solid ${C.okBorder}` }}>☸️ {step.buddhism}</div>}
+              {/* 뜻 깊이 이해하기 — VRI 주석서·복주석서에 근거한 해설 (해설이 있는 낱말에만) */}
+              {step.cmt && step.cmt.length > 0 && (
+                <FoldToggle open={cmtOpen} onToggle={() => setCmtOpen(o => !o)} label="📖 뜻 깊이 이해하기" />
+              )}
+              {cmtOpen && step.cmt && step.cmt.length > 0 && (
+                <div className="mt-2 rounded-xl p-3 text-xs space-y-2" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+                  {step.cmt.map((c, i) => (
+                    <div key={i}>
+                      <p className="whitespace-pre-line leading-relaxed">{c.text}</p>
+                      <p className="mt-0.5 text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>— {commentarySource(c.src)}</p>
+                    </div>
+                  ))}
+                  <p className="text-[10px] pt-1" style={{ color: 'var(--color-text-tertiary)', borderTop: '1px solid var(--color-border)' }}>VRI 6차 결집본 주석서·복주석서 근거 (쪽수: 미얀마본)</p>
+                </div>
+              )}
             </div>
           )
         })()}
