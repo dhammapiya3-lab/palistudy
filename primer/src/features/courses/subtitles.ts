@@ -34,6 +34,20 @@ const KO_FIRST: Record<string, string> = {
   'lesson-29': '누구·그·~하는 이 · yo/so/ko',
   'lesson-sandhi': '낱말이 붙을 때 소리 변화 · Sandhi',
   'lesson-absolute': '~할 때 · ~하는데도 · 절대 구문',
+  'lesson-compound': '여러 낱말이 한 낱말로 · 6가지',
+  'lesson-iti': '"~라고" · 말과 생각의 끝 표시',
+  'lesson-passive': '-ya- · ~되다, ~라고 불린다',
+  'lesson-consonant-stem': 'attā·rājā·brahmā · mano·ceto',
+  'lesson-conditional': '~했더라면 ~했을 텐데',
+  'lesson-numerals': 'eka·dve·tayo·cattāro · 서수',
+  'lesson-prefix': 'ā·upa·pa·abhi·saṃ·vi·ni·pari·anu…',
+  'lesson-comparison': '-tara/-tama · seyyo/seṭṭha',
+  'lesson-taddhita': '-ika · -tā/-tta · -ya',
+  'lesson-correlative': 'yathā…tathā · yasmā…tasmā · yo…so',
+  'lesson-case-uses': '때의 목적격 · 목적의 여격 · 관하여의 처소격',
+  'lesson-irregular': 'atthi·hoti · āha · karoti · deti · passati',
+  'lesson-particles': 'kho·pana·hi·eva·api·nu·nāma…',
+  'lesson-peyyala': 'pe · …pa… · 처음과 끝의 정형구',
 }
 
 export function friendlySubtitle(id: string, original: string): string {

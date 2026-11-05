@@ -1,4 +1,4 @@
-// 전체 과 목록(순서·제목) + 과 내용 불러오기 — 교재 32과 전체 수록 완료
+// 전체 과 목록(순서·제목) + 과 내용 불러오기 — 교재 32과 + 연성법 + 경전 읽기 문법 15단원
 // 과 내용(lesson-*.ts)은 과를 열 때만 따로 받음 (처음 여는 화면을 가볍게)
 // ※ 과를 더하거나 순서·내용을 바꾸면 `npm run gen:meta` (빌드할 때는 자동) → lessons-meta.generated.ts 다시 만들어짐
 import type { StepWithoutId } from './types'
@@ -50,6 +50,20 @@ export const LESSON_SOURCES: LessonSource[] = [
   { id: 'lesson-29', title: '32과: 관계·지시·의문대명사', subtitle: 'yo/so/ko · yattha/tattha', icon: '❓', load: () => import('./lesson-29').then(m => m.LESSON_29) },
   // 연성법
   { id: 'lesson-sandhi', title: '연성법', subtitle: 'Sandhi ①~⑬ · 억제음 변화', icon: '🔗', load: () => import('./lesson-01-sandhi').then(m => m.LESSON_01_SANDHI) },
-  // 절대 구문
+  // 경전 읽기 문법
   { id: 'lesson-absolute', title: '절대 처격 · 절대 소유격', subtitle: '처격·소유격 + 분사 · ~할 때 / ~하는데도', icon: '⏳', load: () => import('./lesson-absolute').then(m => m.LESSON_ABSOLUTE) },
+  { id: 'lesson-compound', title: '복합어 (samāsa)', subtitle: '여러 낱말이 한 낱말로 · 6가지', icon: '🧩', load: () => import('./lesson-compound').then(m => m.LESSON_COMPOUND) },
+  { id: 'lesson-iti', title: '인용 표시 iti (’ti)', subtitle: '"~라고" · 말과 생각의 끝 표시', icon: '💬', load: () => import('./lesson-iti').then(m => m.LESSON_ITI) },
+  { id: 'lesson-passive', title: '수동태', subtitle: '-ya- · ~되다, ~라고 불린다', icon: '🔁', load: () => import('./lesson-passive').then(m => m.LESSON_PASSIVE) },
+  { id: 'lesson-consonant-stem', title: '자음 어간 명사 (-an, -as)', subtitle: 'attā·rājā·brahmā · mano·ceto', icon: '🧱', load: () => import('./lesson-consonant-stem').then(m => m.LESSON_CONSONANT_STEM) },
+  { id: 'lesson-conditional', title: '조건법 (-issa)', subtitle: '~했더라면 ~했을 텐데', icon: '🔀', load: () => import('./lesson-conditional').then(m => m.LESSON_CONDITIONAL) },
+  { id: 'lesson-numerals', title: '수사', subtitle: 'eka·dve·tayo·cattāro · 서수', icon: '🔢', load: () => import('./lesson-numerals').then(m => m.LESSON_NUMERALS) },
+  { id: 'lesson-prefix', title: '동사 접두사 (upasagga)', subtitle: 'ā·upa·pa·abhi·saṃ·vi·ni·pari·anu…', icon: '➕', load: () => import('./lesson-prefix').then(m => m.LESSON_PREFIX) },
+  { id: 'lesson-comparison', title: '비교급·최상급', subtitle: '-tara/-tama · seyyo/seṭṭha', icon: '📈', load: () => import('./lesson-comparison').then(m => m.LESSON_COMPARISON) },
+  { id: 'lesson-taddhita', title: '파생 접미사 (taddhita)', subtitle: '-ika · -tā/-tta · -ya', icon: '🌱', load: () => import('./lesson-taddhita').then(m => m.LESSON_TADDHITA) },
+  { id: 'lesson-correlative', title: '상관 구문 (ya … ta …)', subtitle: 'yathā…tathā · yasmā…tasmā · yo…so', icon: '🔗', load: () => import('./lesson-correlative').then(m => m.LESSON_CORRELATIVE) },
+  { id: 'lesson-case-uses', title: '격의 특수 용법', subtitle: '때의 목적격 · 목적의 여격 · 관하여의 처소격', icon: '🎯', load: () => import('./lesson-case-uses').then(m => m.LESSON_CASE_USES) },
+  { id: 'lesson-irregular', title: '자주 나오는 불규칙 동사', subtitle: 'atthi·hoti · āha · karoti · deti · passati', icon: '🌀', load: () => import('./lesson-irregular').then(m => m.LESSON_IRREGULAR) },
+  { id: 'lesson-particles', title: '강조·담화 불변화사', subtitle: 'kho·pana·hi·eva·api·nu·nāma…', icon: '✨', load: () => import('./lesson-particles').then(m => m.LESSON_PARTICLES) },
+  { id: 'lesson-peyyala', title: '줄임 표시와 정형구', subtitle: 'pe · …pa… · 처음과 끝의 정형구', icon: '📜', load: () => import('./lesson-peyyala').then(m => m.LESSON_PEYYALA) },
 ]
