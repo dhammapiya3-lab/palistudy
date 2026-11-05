@@ -27,7 +27,7 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'teach', word: 'kavi', pronKo: '까위', meaning: '시인', icon: '✍️', grammar: '-i 남성명사', formNote: '주격: kavi / kavī' },
   { type: 'teach', word: 'ari', pronKo: '아리', meaning: '적(敵)', icon: '⚔️', grammar: '-i 남성명사', formNote: '주격: ari / arī' },
   { type: 'teach', word: 'gahapati', pronKo: '가하빠띠', meaning: '가장, 거사', icon: '🏠', grammar: '-i 남성명사', formNote: '주격: gahapati / gahapatī', buddhism: '재가 신자 중 유력자' },
-  { type: 'teach', word: 'vyādhi', pronKo: '뱌-디', meaning: '병, 질병', icon: '🤒', grammar: '-i 남성명사', formNote: '주격: vyādhi / vyādhī', buddhism: '사문유관: 노병사(jarā, vyādhi, maraṇa)' },
+  { type: 'teach', word: 'vyādhi', pronKo: '위야-디', meaning: '병, 질병', icon: '🤒', grammar: '-i 남성명사', formNote: '주격: vyādhi / vyādhī', buddhism: '사문유관: 노병사(jarā, vyādhi, maraṇa)' },
   { type: 'teach', word: 'maṇi', pronKo: '마니', meaning: '보석', icon: '💎', grammar: '-i 남성명사', formNote: '주격: maṇi / maṇī' },
   { type: 'teach', word: 'asi', pronKo: '아시', meaning: '칼', icon: '🗡️', grammar: '-i 남성명사', formNote: '주격: asi / asī' },
 

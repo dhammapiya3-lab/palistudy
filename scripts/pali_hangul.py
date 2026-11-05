@@ -6,7 +6,7 @@
 - ṃ → ㅇ 받침
 - 받침은 ㄱ·ㄴ·ㄹ·ㅁ·ㅂ·ㅅ·ㅇ 일곱 가지만 (겹자음의 앞 자음, 비음+자음의 비음, ḷh의 ḷ)
 - 그 밖의 모음 없는 자음은 '으'를 넣음: tv→뜨와(katvā 까뜨와-), dv→드웨, sv→스와, tr→뜨라, br→브라, sm→스마, hm→흐마
-- mh→ㅁ받침+히, yy→이야, 자음+y는 한 음절로 합침(sakya 사꺄, vy→뱌), vo→오-
+- mh→ㅁ받침+히, yy→이야, 자음+y는 한 음절로 합침(sakya 사꺄) — 단 vy는 예외로 '위야'(vyākaroti 위야-까로-띠), vo→오-
 """
 import re
 import unicodedata
@@ -85,7 +85,7 @@ def split_cluster(cl, initial):
     if len(cl) >= 2 and cl[-1] == 'y' and cl[-2] not in ('y',):
         glide = 'y'; onset = cl[-2]
         if onset == 'v':
-            onset = 'b'  # vy → 뱌 (한 음절로 합침)
+            extra.append('위'); onset = 'y'  # vy는 예외: '위야' (vyākaroti 위야-까로-띠)
         for c in cl[:-2]:
             extra.append(S(ONSET[c], 'ㅡ'))
         return coda, extra, onset, glide

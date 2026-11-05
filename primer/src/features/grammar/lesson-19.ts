@@ -35,7 +35,7 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'teach', word: 'kumārī', pronKo: '꾸마-리-', meaning: '소녀', icon: '👧', grammar: '-ī 여성명사', formNote: '주격: kumārī / kumāriyo' },
 
   // === 동사 ===
-  { type: 'teach', word: 'vyākaroti', pronKo: '뱌-까로-띠', meaning: '해답하다, 수기하다', icon: '📖', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vyākaronti\nvi + ā + kar', buddhism: 'vyākaraṇa = 수기(授記)' },
+  { type: 'teach', word: 'vyākaroti', pronKo: '위야-까로-띠', meaning: '해답하다, 수기하다', icon: '📖', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vyākaronti\nvi + ā + kar', buddhism: 'vyākaraṇa = 수기(授記)' },
   { type: 'teach', word: 'pattheti', pronKo: '빳테-띠', meaning: '원하다, 발원하다', icon: '🙏', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: patthenti\npa + atth' },
   { type: 'teach', word: 'vissajjeti', pronKo: '윗삿제-띠', meaning: '해답하다, 보내다', icon: '💬', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: vissajjenti\nvi + sajj(풀다)' },
   { type: 'teach', word: 'āroceti', pronKo: '아-로-쩨-띠', meaning: '알리다, 보고하다', icon: '📢', grammar: '동사 · 현재 3인칭 단수', formNote: '복수: ārocenti\nā + ruc(빛나다)' },
