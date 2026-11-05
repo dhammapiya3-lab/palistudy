@@ -12,7 +12,7 @@ from pali_hangul import to_hangul
 
 parts_all = json.load(open(sys.argv[1]))
 MARK = '이루는 낱말'
-SKIP = {'a', 'an', 'na', 'ca', 'pi', 'va', 'vā', 'su', 'du', 'saṃ', 'sam', 'upa', 'pa', 'vi', 'ni', 'nis', 'nir', 'ā', 'abhi', 'adhi', 'anu', 'apa', 'ati', 'ava', 'o', 'ud', 'u', 'pari', 'paṭi', 'pati', 'ta', 'ya', 'ti', 'iti', 'hi', 'eva', 'kho'}
+SKIP = {'a', 'an', 'du', 'saṃ', 'sam', 'upa', 'pa', 'vi', 'ni', 'nis', 'nir', 'ā', 'abhi', 'adhi', 'anu', 'apa', 'ava', 'o', 'ud', 'u', 'pari', 'paṭi', 'pati', 'ci', 'to', 'h'}  # 접두사·접미 조각만 제외 (ca·pi·eva 같은 불변화사도 낱말로 넣음)
 def norm(w): return re.sub(r'[^a-zāīūṃṅñṭḍṇḷ]', '', w.lower())
 
 total = 0
@@ -20,25 +20,40 @@ for f in sorted(LESSONS.glob('lesson-data-*.ts')):
     lid = f.stem.replace('lesson-data-', '')
     lines = f.read_text(encoding='utf-8').split('\n')
     steps = [(i, json.loads(l.strip().rstrip(','))) for i, l in enumerate(lines) if l.strip().startswith('{"type"')]
-    known = set()
-    for _, o in steps:
-        if o['type'] == 'teach':
-            known.add(norm(o['word']))
-            b = (o.get('baseForm') or '').split('(')[0].split('<')[0].strip()
-            if b and ' ' not in b and '+' not in b: known.add(norm(b))
+    def keys(o):
+        ks = {norm(o['word'])}
+        b = (o.get('baseForm') or '').split('(')[0].split('<')[0].strip()
+        if b and ' ' not in b and '+' not in b: ks.add(norm(b))
+        return ks
+    seg_known = set()
     out = list(lines); inserts = {}  # line index -> new lines after
     remap = {}; newraw = 0; add = 0
     for raw, (li, o) in enumerate(steps):
         remap[raw] = newraw; newraw += 1
-        if o['type'] != 'teach' or o.get('label', '').startswith(MARK):
+        if o['type'] == 'verse':
+            seg_known = set()
+        if o['type'] != 'teach':
+            continue
+        seg_known |= keys(o)
+        if o.get('label', '').startswith(MARK):
             continue
         parts = parts_all.get(f'{lid}|{raw}') or []
+        # 바로 뒤에 이미 붙어 있는 구성 낱말 카드, 그리고 곧 이어 나올(8장 안) 낱말 카드
+        j = raw + 1; tail_li = li
+        while j < len(steps) and steps[j][1].get('label', '').startswith(MARK):
+            tail_li = steps[j][0]; j += 1
+        # 바로 앞뒤 3장 안에 같은 낱말 카드가 있으면 건너뜀 (그 밖에는 복합어마다 빠짐없이 넣음)
+        near = set()
+        for x in list(range(max(0, raw - 3), raw)) + list(range(j, min(len(steps), j + 3))):
+            if steps[x][1]['type'] == 'teach': near |= keys(steps[x][1])
+        for x in range(raw + 1, j): near |= keys(steps[x][1])
+        known = near
         new = []
         for p in parts:
             w = re.sub(r'^-|-$', '', p['w']).strip()
             k = norm(w)
             m = p.get('m') or ''
-            if not k or k in SKIP or len(k) <= 2 or k in known or not m:
+            if not k or k in SKIP or k in known or not m:
                 continue
             if re.match(r'^(ññ|tt|kk|pp|cc|bb|dd|gg|jj|ll|mm|nn|ss|ṭṭ|ḍḍ|tv)', w) or re.search(r'접미사|접두사|분사|어미|격 |소유격|목적격', m):
                 continue   # 조각·문법 설명뿐인 것은 낱말 카드로 만들지 않음
@@ -55,6 +70,7 @@ for f in sorted(LESSONS.glob('lesson-data-*.ts')):
             new.append(card)
         if new:
             ind = lines[li][:len(lines[li]) - len(lines[li].lstrip())]
+            li = tail_li
             inserts[li] = [ind + json.dumps(c, ensure_ascii=False) + ',' for c in new]
             newraw += len(new); add += len(new)
     if not add:
