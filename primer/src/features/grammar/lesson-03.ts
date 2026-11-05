@@ -45,7 +45,7 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'verse', pali: 'Kassako kakacena rukkhaṃ chindati.\nKassakā kakacehi rukkhe chindanti.', pronKo: '깟사꼬- 까까쩨-나 룩캉 친다띠\n깟사까- 까까쩨-히 룩케- 친단띠', translation: '농부는 톱으로 나무를 자른다.\n농부들은 톱들로 나무들을 자른다.', highlight: ['kakacena', 'kakacehi'] },
 
   // === 팔정도 경전 구절 ===
-  { type: 'verse', pali: V_MAGGA, pronKo: '아야메-와 아리요- 앗탕기꼬- 막고-', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
+  { type: 'verse', pali: V_MAGGA, pronKo: '아야메-와 아리요- 앗탕기꼬- 막고-, 세이야티당—삼마-딧티 삼마-상깝뽀- 삼마-와-짜- 삼마-깜만또- 삼마-아-지-오- 삼마-와-야-모- 삼마-사띠 삼마-사마-디.', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
 
   // === 연습문제 3 (25문제) ===
   { type: 'quiz', question: '1. Buddho sāvakehi saddhiṃ vihāraṃ gacchati.', options: ['붓다는 제자들과 함께 정사로 간다', '붓다는 제자를 위해 정사로 간다', '붓다들은 제자들과 함께 정사로 간다', '붓다는 제자들과 함께 마을로 간다'], answer: 0, hint: 'sāvakehi saddhiṃ=제자들과 함께(도구격+saddhiṃ)' },

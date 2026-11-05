@@ -121,6 +121,8 @@ def word_to_hangul(word):
     out = []  # [ [cho, jung, jong, long] ]
     for idx, (cl, v, nas) in enumerate(sylls):
         coda, extra, onset, glide = split_cluster(cl, initial=(idx == 0))
+        if extra == ['이'] and onset == 'y' and v in 'iī':
+            extra = []  # yyi → '이' 한 번만 (opaneyyiko 오-빠네-이꼬-)
         if out and coda:
             out[-1][2] = coda
         # 모음 사이 홑 l/ḷ → 앞 음절에 ㄹ 받침
