@@ -793,6 +793,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "word": "s",
     "pronKo": "사(싸)",
     "meaning": "\"사(싸)\"",
+    "formNote": "실제 소리는 된소리 '싸'에 가깝습니다 (혀끝을 윗니 뒤에 대고 내는 맑은 ㅆ 소리).\n다만 이 앱의 한글 발음 표기는 관례에 따라 '사'로 적습니다. 예: sevanā → 세-와나- (실제로는 '쎄-와나-'에 가깝게)",
     "icon": "🔊",
     "verseLine": "sevanā [세-와나-]",
     "verseLineKo": "가까이함 (행복경)"

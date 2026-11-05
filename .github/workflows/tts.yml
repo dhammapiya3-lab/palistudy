@@ -14,6 +14,7 @@ permissions:
 jobs:
   tts:
     runs-on: ubuntu-latest
+    timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
 
@@ -35,6 +36,8 @@ jobs:
             python generate.py add "${BR#tts/add-}"
           elif [ "$BR" = "tts/letters" ]; then
             python letters.py
+          elif [ "$BR" = "tts/sutta" ]; then
+            python sutta.py
           elif [ "$BR" = "tts/compare2" ]; then
             python compare2.py
           elif [ "$BR" = "tts/letters-vowels" ]; then
@@ -50,6 +53,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A primer/public/audio
+          if [ -d suttalog/public/audio ]; then git add -A suttalog/public/audio; fi
           if [ -d primer/tts-samples ]; then git add -A primer/tts-samples; fi
           git commit -m "발음 mp3 생성 (${GITHUB_REF_NAME})" || echo "변경 없음"
           git push
