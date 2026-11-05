@@ -64,8 +64,8 @@
   "voice": "텔루구어 남"
  },
  "jh": {
-  "file": "letters/c_jh_v2.mp3",
-  "voice": "텔루구어 남"
+  "file": "letters/c_jh_v3.mp3",
+  "voice": "구자라트어 남 · 짧게"
  },
  "ñ": {
   "file": "letters/c_ny.mp3",
@@ -116,8 +116,8 @@
   "voice": "텔루구어 남"
  },
  "ph": {
-  "file": "letters/c_ph.mp3",
-  "voice": "텔루구어 남"
+  "file": "letters/c_ph_v2.mp3",
+  "voice": "마라티어 남 · 길게"
  },
  "b": {
   "file": "letters/c_b.mp3",
