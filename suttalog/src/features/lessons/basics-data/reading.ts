@@ -11,7 +11,7 @@ export const READING_DATA: Record<string, {
         pali: 'Evaṃ me sutaṃ —',
         wordByWord: [
           { word: 'Evaṃ', meaning: '이와 같이' },
-          { word: 'me', meaning: '나에 의해 (by me) — 단축형 me, 여기서는 도구격(행위자) 기능' },
+          { word: 'me', meaning: '나에 의해 / 나의 (by me / my) — 단축형 me, 도구격/소유격' },
           { word: 'sutaṃ', meaning: '들려진 (heard)' },
         ],
         translation: '이와 같이 나는 들었다 —',
