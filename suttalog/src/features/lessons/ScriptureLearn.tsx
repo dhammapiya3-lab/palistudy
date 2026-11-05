@@ -1100,7 +1100,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
               {canSpeak && (
                 <button onClick={() => speakPali(step.pali)}
                   className="flex-1 py-3 rounded-xl text-white text-sm font-bold active:scale-[0.97]" style={{ backgroundColor: 'var(--color-accent)' }}>
-                  ▶ 듣기
+                  🔊 전체 듣기
                 </button>
               )}
               <button onClick={handleNext}

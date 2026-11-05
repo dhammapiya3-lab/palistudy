@@ -25,7 +25,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'teach', word: 'suriyaṃ', pronKo: '수리양', meaning: '태양을', icon: '☀️', grammar: '남성명사 · 목적격 단수', baseForm: 'suriya (태양)', formNote: 'suriya + ṃ → suriyaṃ' },
   { type: 'teach', word: 'candaṃ', pronKo: '짠당', meaning: '달을', icon: '🌙', grammar: '남성명사 · 목적격 단수', baseForm: 'canda (달)', formNote: 'canda + ṃ → candaṃ' },
   { type: 'teach', word: 'kukkuraṃ', pronKo: '꾹꾸랑', meaning: '개를', icon: '🐕', grammar: '남성명사 · 목적격 단수', baseForm: 'kukkura / sunakha / soṇa (개)', formNote: 'kukkura + ṃ → kukkuraṃ' },
-  { type: 'teach', word: 'vihāraṃ', pronKo: '위하-랑', meaning: '정사로', icon: '🏛️', grammar: '남성명사 · 목적격 단수', baseForm: 'vihāra (절, 사원, 정사)', formNote: 'vihāra + ṃ → vihāraṃ' },
+  { type: 'teach', word: 'vihāraṃ', pronKo: '위하-랑', meaning: '정사를/정사로', icon: '🏛️', grammar: '남성명사 · 목적격 단수', baseForm: 'vihāra (절, 사원, 정사)', formNote: 'vihāra + ṃ → vihāraṃ' },
   { type: 'teach', word: 'pattaṃ', pronKo: '빳땅', meaning: '발우를', icon: '🥣', grammar: '남성명사 · 목적격 단수', baseForm: 'patta (발우, 그릇)', formNote: 'patta + ṃ → pattaṃ' },
   { type: 'teach', word: 'āvāṭaṃ', pronKo: '아-와-땅', meaning: '구덩이를', icon: '🕳️', grammar: '남성명사 · 목적격 단수', baseForm: 'āvāṭa (구덩이)', formNote: 'āvāṭa + ṃ → āvāṭaṃ' },
   { type: 'teach', word: 'pabbataṃ', pronKo: '빱바땅', meaning: '산을', icon: '⛰️', grammar: '남성명사 · 목적격 단수', baseForm: 'pabbata (산)', formNote: 'pabbata + ṃ → pabbataṃ' },

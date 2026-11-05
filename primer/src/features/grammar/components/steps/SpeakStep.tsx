@@ -36,7 +36,7 @@ export default function SpeakStep({ step, onSpeak, easyMode }: SpeakStepProps) {
         </p>
         <p className="text-sm mt-2 font-medium">{step.pronKo}</p>
         <div className="flex justify-center">
-          <AudioPractice text={step.pali} showWhole={false} />
+          <AudioPractice text={step.pali} />
         </div>
       </div>
 

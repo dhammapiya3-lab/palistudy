@@ -26,7 +26,7 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'teach', word: 'hatthena', pronKo: '핫테-나', meaning: '손으로', icon: '✋', grammar: '남성명사 · 도구격 단수', baseForm: 'hattha (손)', formNote: 'hattha + ena → hatthena\n복수: hatthehi (손들로)' },
   { type: 'teach', word: 'pādena', pronKo: '빠-데-나', meaning: '발로', icon: '🦶', grammar: '남성명사 · 도구격 단수', baseForm: 'pāda (발)', formNote: 'pāda + ena → pādena\n복수: pādehi (발들로)' },
   { type: 'teach', word: 'maggena', pronKo: '막게-나', meaning: '길로, 길을 통해', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
-  { type: 'teach', word: 'dīpaṃ', pronKo: '디-빵', meaning: '섬을/등불을', icon: '🏝️', grammar: '남성명사, 목적격', baseForm: 'dīpa (섬, 대륙, 등불)', formNote: '도구격: dīpena' },
+  { type: 'teach', word: 'dīpena', pronKo: '디-뻬-나', meaning: '섬으로/등불로', icon: '🏝️', grammar: '남성명사, 도구격 단수', baseForm: 'dīpa (섬, 대륙, 등불)', formNote: 'dīpa + ena → dīpena\n목적격: dīpaṃ (섬을/등불을)' },
   { type: 'teach', word: 'sāvakena', pronKo: '사-와께-나', meaning: '제자에 의해', icon: '🙇', grammar: '남성명사 · 도구격 단수', baseForm: 'sāvaka (제자)', formNote: 'sāvaka + ena → sāvakena\n복수: sāvakehi', buddhism: 'sāvaka = "듣는 자". 붓다의 가르침을 듣고 수행하는 제자' },
   { type: 'teach', word: 'samaṇena', pronKo: '사마네-나', meaning: '사문과 함께', icon: '🧘', grammar: '남성명사 · 도구격 단수', baseForm: 'samaṇa (사문, 스님)', formNote: 'samaṇa + ena → samaṇena' },
   { type: 'teach', word: 'saggena', pronKo: '삭게-나', meaning: '하늘에 의해, 하늘로써', icon: '☁️', grammar: '남성명사 · 도구격 단수', baseForm: 'sagga (하늘)', formNote: 'sagga + ena → saggena\n※ 도구격은 도착점을 나타내지 않음.\n"하늘로(방향) 간다"는 목적격 saggaṃ' },

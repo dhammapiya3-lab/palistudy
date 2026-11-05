@@ -23,7 +23,7 @@ export const READING_DATA: Record<string, {
           { word: 'samayaṃ', meaning: '때에 (occasion)' },
           { word: 'bhagavā', meaning: '세존께서 (the Blessed One)' },
         ],
-        translation: '한 때 세존께서',
+        translation: '한때 세존께서',
       },
       {
         pali: 'Bārāṇasiyaṃ viharati Isipatane Migadāye.',

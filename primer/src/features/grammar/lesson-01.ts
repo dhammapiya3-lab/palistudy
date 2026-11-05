@@ -3,7 +3,7 @@
 import type { StepWithoutId } from './types'
 
 const V1 = 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye.'
-const V1K = '한 때 세존께서 바라나시의 녹야원, 이시빠따나에 머무셨다.'
+const V1K = '한때 세존께서 바라나시의 녹야원, 이시빠따나에 머무셨다.'
 const V2 = 'Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:'
 const V2K = '거기서 세존께서 다섯 비구에게 말씀하셨다:'
 

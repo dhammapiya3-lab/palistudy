@@ -167,7 +167,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "아",
       "아-",
-      "에",
+      "에-",
       "이"
     ],
     "answer": 2,
@@ -179,7 +179,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "options": [
       "아",
       "아-",
-      "오",
+      "오-",
       "이"
     ],
     "answer": 2,
