@@ -57,6 +57,8 @@ L['compound'] = ('복합어 (samāsa)', '여러 낱말이 한 낱말로 · 6가�
     teach('pañcasīla', '다섯 가지 계 (오계)', '🖐️', '수사 복합어 (digu)', 'pañca (다섯) + sīla (계)'),
     teach('mahāpañño', '큰 지혜를 가진 (이)', '🦉', '소유 복합어 (bahubbīhi), 남성 주격 단수', 'mahā (큰) + paññā (지혜)', '"큰 지혜"가 아니라 "큰 지혜를 가진 사람"\n복합어 전체가 형용사로 사람을 가리킴'),
     teach('yathābhūtaṃ', '있는 그대로', '🔍', '불변 복합어 (abyayībhāva)', 'yathā (~대로) + bhūta (있는 것)', '부사처럼 쓰이며 격변화하지 않음'),
+    tg('소유 복합어 — 과거분사 + 명사', 'vīta + rāga → vītarāgo\njita + indriya → jitindriyo\nkata + kicca → katakicco', '탐욕이 사라진 (이)\n감관을 이긴 (이)\n해야 할 일을 마친 (이)', '앞말이 과거분사(-ta, -na)이고 뒷말이 명사이면\n"(뒷말)이 (앞말)된 사람"을 뜻하는 소유 복합어가 많습니다.\n\n• vītarāgo = vīto rāgo yassa so\n  "탐욕이 사라진 그 사람" → 탐욕을 떠난 이\n• jitindriyo = 감관(indriya)이 정복된(jita) 이\n\n아라한을 가리키는 말에 자주 나옵니다.'),
+    teach('vītarāgo', '탐욕이 사라진 (이)', '🍃', '소유 복합어 (bahubbīhi), 남성 주격 단수', 'vīta (사라진, 과거분사) + rāga (탐욕)', '풀어 쓰면 vīto rāgo yassa (탐욕이 사라진 그 사람)\n과거분사 + 명사 꼴의 소유 복합어'),
     tg('소유 복합어 (bahubbīhi) 읽는 법', 'mahāpañño bhikkhu\nsumanā devā\nattamanā bhikkhū', '큰 지혜를 가진 비구\n기쁜 마음인 신들\n흡족한 마음인 비구들', '소유 복합어는 그 자체로 "~을 가진 사람"을 가리키는\n형용사입니다.\n\n• mahā(큰) + paññā(지혜) = mahāpañña\n  → "큰 지혜"가 아니라 "큰 지혜를 가진 (사람)"\n• 꾸미는 명사와 성·수·격이 같아집니다\n  mahāpañño (남성 주격 단수) — bhikkhu와 짝\n\n"~의"(소유격)로 옮기면 뜻이 달라지므로\n"~을 가진", "~인"으로 옮깁니다.'),
     verse('Attamanā pañcavaggiyā bhikkhū bhagavato bhāsitaṃ abhinanduṃ.', '다섯 비구들은 흡족한 마음으로 세존의 말씀을 기뻐하였다.', ['Attamanā', 'pañcavaggiyā'], '초전법륜경(SN 56.11)의 마지막 구절입니다.\nattamanā: 소유 복합어 / pañcavaggiyā: 수사 복합어(다섯 무리인)에서 나온 형용사'),
     verse('Idaṃ kho pana, bhikkhave, dukkhanirodhagāminī paṭipadā ariyasaccaṃ.', '비구들이여, 이것이 괴로움의 소멸로 이끄는 길이라는 성스러운 진리이다.', ['dukkhanirodhagāminī', 'ariyasaccaṃ'], 'dukkha-nirodha-gāminī = 괴로움의 + 소멸로 + 가는(이끄는)\n뒤에서부터: 이끄는 ← 소멸로 ← 괴로움의'),
