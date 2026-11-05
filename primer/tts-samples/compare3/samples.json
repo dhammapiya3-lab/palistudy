@@ -1,0 +1,142 @@
+[
+ {
+  "text": "pañha",
+  "form": "now",
+  "label": "지금 (ny+h)",
+  "native": "పన్య్హ",
+  "file": "p0_now.mp3"
+ },
+ {
+  "text": "pañha",
+  "form": "n_h",
+  "label": "n + h (న్హ)",
+  "native": "పన్హ",
+  "file": "p0_n_h.mp3"
+ },
+ {
+  "text": "pañha",
+  "form": "nn_h",
+  "label": "혀 만 n + h (ణ్హ)",
+  "native": "పణ్హ",
+  "file": "p0_nn_h.mp3"
+ },
+ {
+  "text": "pañha",
+  "form": "n_zwnj_h",
+  "label": "n 끊고 + h (న్‌హ)",
+  "native": "పన్‌హ",
+  "file": "p0_n_zwnj_h.mp3"
+ },
+ {
+  "text": "pañha",
+  "form": "hi",
+  "label": "힌디어 남 (पन्ह)",
+  "native": "पन्ह",
+  "file": "p0_hi.mp3"
+ },
+ {
+  "text": "pañhaṃ",
+  "form": "now",
+  "label": "지금 (ny+h)",
+  "native": "పన్య్హం",
+  "file": "p1_now.mp3"
+ },
+ {
+  "text": "pañhaṃ",
+  "form": "n_h",
+  "label": "n + h (న్హ)",
+  "native": "పన్హం",
+  "file": "p1_n_h.mp3"
+ },
+ {
+  "text": "pañhaṃ",
+  "form": "nn_h",
+  "label": "혀 만 n + h (ణ్హ)",
+  "native": "పణ్హం",
+  "file": "p1_nn_h.mp3"
+ },
+ {
+  "text": "pañhaṃ",
+  "form": "n_zwnj_h",
+  "label": "n 끊고 + h (న్‌హ)",
+  "native": "పన్‌హం",
+  "file": "p1_n_zwnj_h.mp3"
+ },
+ {
+  "text": "pañhaṃ",
+  "form": "hi",
+  "label": "힌디어 남 (पन्ह)",
+  "native": "पन्हं",
+  "file": "p1_hi.mp3"
+ },
+ {
+  "text": "pañhe",
+  "form": "now",
+  "label": "지금 (ny+h)",
+  "native": "పన్య్హే",
+  "file": "p2_now.mp3"
+ },
+ {
+  "text": "pañhe",
+  "form": "n_h",
+  "label": "n + h (న్హ)",
+  "native": "పన్హే",
+  "file": "p2_n_h.mp3"
+ },
+ {
+  "text": "pañhe",
+  "form": "nn_h",
+  "label": "혀 만 n + h (ణ్హ)",
+  "native": "పణ్హే",
+  "file": "p2_nn_h.mp3"
+ },
+ {
+  "text": "pañhe",
+  "form": "n_zwnj_h",
+  "label": "n 끊고 + h (న్‌హ)",
+  "native": "పన్‌హే",
+  "file": "p2_n_zwnj_h.mp3"
+ },
+ {
+  "text": "pañhe",
+  "form": "hi",
+  "label": "힌디어 남 (पन्ह)",
+  "native": "पन्हे",
+  "file": "p2_hi.mp3"
+ },
+ {
+  "text": "Putto mātulamhā pañhaṃ pucchati.",
+  "form": "now",
+  "label": "지금 (ny+h)",
+  "native": "పుత్తో మాతులమ్హా పన్య్హం పుచ్ఛతి.",
+  "file": "p3_now.mp3"
+ },
+ {
+  "text": "Putto mātulamhā pañhaṃ pucchati.",
+  "form": "n_h",
+  "label": "n + h (న్హ)",
+  "native": "పుత్తో మాతులమ్హా పన్హం పుచ్ఛతి.",
+  "file": "p3_n_h.mp3"
+ },
+ {
+  "text": "Putto mātulamhā pañhaṃ pucchati.",
+  "form": "nn_h",
+  "label": "혀 만 n + h (ణ్హ)",
+  "native": "పుత్తో మాతులమ్హా పణ్హం పుచ్ఛతి.",
+  "file": "p3_nn_h.mp3"
+ },
+ {
+  "text": "Putto mātulamhā pañhaṃ pucchati.",
+  "form": "n_zwnj_h",
+  "label": "n 끊고 + h (న్‌హ)",
+  "native": "పుత్తో మాతులమ్హా పన్‌హం పుచ్ఛతి.",
+  "file": "p3_n_zwnj_h.mp3"
+ },
+ {
+  "text": "Putto mātulamhā pañhaṃ pucchati.",
+  "form": "hi",
+  "label": "힌디어 남 (पन्ह)",
+  "native": "पुत्तो मातुलम्हा पन्हं पुच्छति.",
+  "file": "p3_hi.mp3"
+ }
+]
