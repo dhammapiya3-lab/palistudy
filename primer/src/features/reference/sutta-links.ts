@@ -58,7 +58,7 @@ export const SUTTA_LINKS: Record<string, SuttaLink[]> = {
   'lesson-28': [L('mangala', 'Evaṃ me sutaṃ — …', 'me — 1인칭 대명사 단축형(도구격/소유격: 나에 의해 / 나의)')],
   'lesson-29': [L('tisarana-guna', 'Itipi so Bhagavā …', 'so — 지시대명사(그)')],
   'lesson-sandhi': [L('sn56-11', 'Dveme, bhikkhave, antā …', 'dveme = dve + ime — 연성(두 낱말이 붙음)')],
-  'lesson-absolute': [L('sn56-11', 'Pavattite ca pana bhagavatā dhammacakke …', 'pavattite … dhammacakke — 절대 처격(법의 바퀴가 굴려졌을 때)')],
+  'lesson-absolute': [L('sn56-11', 'Pavattite ca pana bhagavatā dhammacakke …', 'pavattite … dhammacakke — 절대 처소격(법의 바퀴가 굴려졌을 때)')],
 }
 
 export function suttaLinksFor(lessonId: string): SuttaLink[] {

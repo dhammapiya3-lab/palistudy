@@ -15,10 +15,10 @@
 },
 "saṅkhāresu": {
 "meaning": "형성들에 대해",
-"grammar": "남성명사, 처격 복수",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "saṅkhāra (형성)",
 "icon": "⚙️",
-"formNote": "주격 복수 saṅkhārā ↔ 처격 복수 saṅkhāresu"
+"formNote": "주격 복수 saṅkhārā ↔ 처소격 복수 saṅkhāresu"
 },
 "ahesunti": {
 "meaning": "\"~되지 마라\"라고",
@@ -36,10 +36,10 @@
 },
 "viññāṇe": {
 "meaning": "의식에 대해",
-"grammar": "중성명사, 처격 단수",
+"grammar": "중성명사, 처소격 단수",
 "baseForm": "viññāṇa (의식)",
 "icon": "🧠",
-"formNote": "주격 viññāṇaṃ ↔ 처격 viññāṇe"
+"formNote": "주격 viññāṇaṃ ↔ 처소격 viññāṇe"
 },
 "niccaṃ": {
 "meaning": "항상한",
@@ -197,14 +197,14 @@
 },
 "rūpasmimpi": {
 "meaning": "물질에 대해서도",
-"grammar": "중성명사 처격 단수 + pi(~도)",
+"grammar": "중성명사 처소격 단수 + pi(~도)",
 "baseForm": "rūpa (물질)",
 "icon": "🧱",
 "formNote": "rūpasmiṃ pi → rūpasmimpi"
 },
 "viññāṇasmimpi": {
 "meaning": "의식에 대해서도",
-"grammar": "중성명사 처격 단수 + pi(~도)",
+"grammar": "중성명사 처소격 단수 + pi(~도)",
 "baseForm": "viññāṇa (의식)",
 "icon": "🧠",
 "formNote": "viññāṇasmiṃ pi → viññāṇasmimpi"
@@ -218,10 +218,10 @@
 },
 "vimuttasmiṃ": {
 "meaning": "해탈했을 때",
-"grammar": "과거분사, 처격 단수 (절대 처격)",
+"grammar": "과거분사, 처소격 단수 (절대 처소격)",
 "baseForm": "vimuccati (해탈하다)",
 "icon": "🕊️",
-"formNote": "처격이 \"~했을 때\"를 나타냄"
+"formNote": "처소격이 \"~했을 때\"를 나타냄"
 },
 "pajānātīti": {
 "meaning": "\"분명히 안다\"라고",
@@ -451,21 +451,21 @@
 },
 "pañcasu": {
 "meaning": "다섯 가지에 대해",
-"grammar": "수사, 처격 복수",
+"grammar": "수사, 처소격 복수",
 "baseForm": "pañca (다섯)",
 "icon": "🖐️",
 "formNote": "nīvaraṇesu를 꾸밈"
 },
 "chasu": {
 "meaning": "여섯 가지에 대해",
-"grammar": "수사, 처격 복수",
+"grammar": "수사, 처소격 복수",
 "baseForm": "cha (여섯)",
 "icon": "6️⃣",
 "formNote": "āyatanesu를 꾸밈"
 },
 "sattasu": {
 "meaning": "일곱 가지에 대해",
-"grammar": "수사, 처격 복수",
+"grammar": "수사, 처소격 복수",
 "baseForm": "satta (일곱)",
 "icon": "7️⃣",
 "formNote": "bojjhaṅgesu를 꾸밈"
@@ -653,17 +653,17 @@
 },
 "tamhi": {
 "meaning": "그 ~에서",
-"grammar": "지시대명사, 처격 단수",
+"grammar": "지시대명사, 처소격 단수",
 "baseForm": "ta (그)",
 "icon": "👉",
 "formNote": "tamhi tamhi = 이런저런 ~에서 (반복)"
 },
 "sattanikāye": {
 "meaning": "중생의 무리에서",
-"grammar": "남성명사(복합어), 처격 단수",
+"grammar": "남성명사(복합어), 처소격 단수",
 "baseForm": "satta (중생) + nikāya (무리)",
 "icon": "👥",
-"formNote": "처격 sattanikāye ↔ 탈격 sattanikāyā"
+"formNote": "처소격 sattanikāye ↔ 탈격 sattanikāyā"
 },
 "āyatanānaṃ": {
 "meaning": "감각 영역들의",
@@ -688,14 +688,14 @@
 "grammar": "지시대명사, 탈격 단수",
 "baseForm": "ta (그)",
 "icon": "👉",
-"formNote": "처격 tamhi ↔ 탈격 tamhā"
+"formNote": "처소격 tamhi ↔ 탈격 tamhā"
 },
 "sattanikāyā": {
 "meaning": "중생의 무리로부터",
 "grammar": "남성명사(복합어), 탈격 단수",
 "baseForm": "satta + nikāya",
 "icon": "👥",
-"formNote": "처격 sattanikāye ↔ 탈격 sattanikāyā"
+"formNote": "처소격 sattanikāye ↔ 탈격 sattanikāyā"
 },
 "socitattaṃ": {
 "meaning": "슬퍼하는 상태",
@@ -1129,7 +1129,7 @@
 },
 "paṭipadāya": {
 "meaning": "길에 대한",
-"grammar": "여성명사, 속격(처격) 단수",
+"grammar": "여성명사, 속격(처소격) 단수",
 "baseForm": "paṭipadā (길, 도닦음)",
 "icon": "🛤️",
 "formNote": "주격 paṭipadā ↔ paṭipadāya"

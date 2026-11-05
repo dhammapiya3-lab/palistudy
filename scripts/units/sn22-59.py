@@ -7,7 +7,7 @@ UNITS = [
      '거기서 세존께서 다섯 비구에게 “비구들이여” 하고 부르셨다. 그 비구들은 “존자시여” 하고 세존께 응답하였다. 세존께서 이렇게 말씀하셨다.', [3]),
 ]
 
-# (주격, 처격(~에 대해), 소원형 동사 hotu/hontu, 금지 ahosi/ahesuṃ, 자아라면 abhavissa/abhavissaṃsu,
+# (주격, 처소격(~에 대해), 소원형 동사 hotu/hontu, 금지 ahosi/ahesuṃ, 자아라면 abhavissa/abhavissaṃsu,
 #  이끌 것 saṃvatteyya/-yyuṃ, 이끈다 saṃvattati/-nti, 한국어 이름, ca 결합형)
 KHANDHA = [
     ('rūpaṃ', 'rūpe', 'hotu', 'ahosī’ti', 'ahosī’’’ti', 'abhavissa', 'saṃvatteyya', 'saṃvattati', '물질', 'Rūpañca', 'Rūpaṃ'),

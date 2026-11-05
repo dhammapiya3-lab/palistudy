@@ -140,7 +140,7 @@ export const VERSE_GLOSS_EXTRA: Record<string, Record<string, G>> = {
     me: ['나에 의해 / 나의', '대명사 ahaṃ의 단축형, 도구격/소유격'], desitaṃ: ['설해진', '과거분사, 목적격 남성 단수 (dhammaṃ과 짝)'], dhāremi: ['나는 수지한다', '동사 현재, 1인칭 단수'] },
   'lesson-absolute': {
     piṇḍāya: ['탁발을 위해', '남성명사, 여격 단수 (목적)'], caranti: V3('다닌다'),
-    bhagavati: ['세존께서 (~하셨을 때)', '-vantu 남성명사, 처소격 단수 (절대 처격)'],
+    bhagavati: ['세존께서 (~하셨을 때)', '-vantu 남성명사, 처소격 단수 (절대 처소격)'],
     brahmā: ['범천이', '-an 남성명사, 주격 단수'], sahampati: ['사함빠띠', '고유명사, 주격 단수'],
     gāthaṃ: ['게송을', '여성명사, 목적격 단수'], abhāsi: ['읊었다', '동사 과거형, 3인칭 단수'],
     assumukhānaṃ: ['눈물 젖은 얼굴인', '소유 복합어, 소유격 복수 (절대 소유격)'],

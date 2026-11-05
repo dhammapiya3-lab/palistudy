@@ -184,12 +184,12 @@
 "formNote": "a(부정) + dinna(주어진) + ā + √dā(가지다) = \"주어지지 않은 것을 가짐\"\n탈격 -ā\n11과 MN10 V_MAG4의 adinnādānā와 동일"
 },
 "kāmesu": {
-"meaning": "감각적 쾌락들에서 (처격 복수)",
-"grammar": "남성명사, 처격 복수",
+"meaning": "감각적 쾌락들에서 (처소격 복수)",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "kāma",
 "icon": "💔",
 "src": "suttalog:pancasila",
-"formNote": "kāma → kāmesu: -a 어간 처격 복수 -esu"
+"formNote": "kāma → kāmesu: -a 어간 처소격 복수 -esu"
 },
 "micchācārā": {
 "meaning": "삿된 행위에서 (탈격)",
@@ -253,7 +253,7 @@
 "baseForm": "kāma",
 "icon": "💋",
 "src": "suttalog:pancasila",
-"formNote": "Kāmesu는 처격 복수\n5과 sn45-8의 kāmehi와 같은 단어"
+"formNote": "Kāmesu는 처소격 복수\n5과 sn45-8의 kāmehi와 같은 단어"
 },
 "micchā": {
 "meaning": "그릇된, 잘못된",
@@ -669,16 +669,16 @@
 "formNote": "√ñā(알다) + ṇa — paññā(지혜)와 같은 어근"
 },
 "dukkhasamudaye": {
-"meaning": "괴로움의 일어남에 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "괴로움의 일어남에 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "dukkha + samudaya",
 "icon": "🔥",
 "src": "suttalog:sn45-8",
-"formNote": "11과 MN10 V_SAC0의 dukkhasamudayo(주격)과 같은 단어 — 처격"
+"formNote": "11과 MN10 V_SAC0의 dukkhasamudayo(주격)과 같은 단어 — 처소격"
 },
 "dukkhanirodhe": {
-"meaning": "괴로움의 소멸에 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "괴로움의 소멸에 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "dukkha + nirodha",
 "icon": "🕊️",
 "src": "suttalog:sn45-8"
@@ -759,16 +759,16 @@
 "src": "suttalog:sn45-8"
 },
 "sāvatthiyaṃ": {
-"meaning": "사왓티에서 (처격)",
-"grammar": "여성명사, 처격 단수",
+"meaning": "사왓티에서 (처소격)",
+"grammar": "여성명사, 처소격 단수",
 "baseForm": "Sāvatthī",
 "icon": "🏛️",
 "src": "suttalog:mangala",
-"formNote": "Sāvatthī → Sāvatthiyaṃ: -ī 어간 처격 -iyaṃ"
+"formNote": "Sāvatthī → Sāvatthiyaṃ: -ī 어간 처소격 -iyaṃ"
 },
 "jetavane": {
-"meaning": "제따와나에서 (처격)",
-"grammar": "중성명사, 처격 단수",
+"meaning": "제따와나에서 (처소격)",
+"grammar": "중성명사, 처소격 단수",
 "baseForm": "Jetavana (제타 숲)",
 "icon": "🌳",
 "src": "suttalog:mangala"
@@ -1370,11 +1370,11 @@
 },
 "bārāṇasiyaṃ": {
 "meaning": "바라나시에서",
-"grammar": "여성명사, 처격(7격)",
+"grammar": "여성명사, 처소격(7격)",
 "baseForm": "Bārāṇasī",
 "icon": "📍",
 "src": "suttalog:sn56-11",
-"formNote": "-ī 어간 처격 어미 -iyaṃ = \"~에서\""
+"formNote": "-ī 어간 처소격 어미 -iyaṃ = \"~에서\""
 },
 "viharati": {
 "meaning": "머무시다",
@@ -1386,19 +1386,19 @@
 },
 "isipatane": {
 "meaning": "이시빠따나에",
-"grammar": "중성명사, 처격(7격)",
+"grammar": "중성명사, 처소격(7격)",
 "baseForm": "Isipatana",
 "icon": "🏔️",
 "src": "suttalog:sn56-11",
-"formNote": "-a 어간 처격 어미 -e = \"~에\""
+"formNote": "-a 어간 처소격 어미 -e = \"~에\""
 },
 "migadāye": {
 "meaning": "녹야원에",
-"grammar": "남성명사, 처격(7격)",
+"grammar": "남성명사, 처소격(7격)",
 "baseForm": "migadāya (사슴+동산)",
 "icon": "🦌",
 "src": "suttalog:sn56-11",
-"formNote": "miga(사슴) + dāya(동산). -a 어간 처격 -e"
+"formNote": "miga(사슴) + dāya(동산). -a 어간 처소격 -e"
 },
 "tatra": {
 "meaning": "거기서",
@@ -1973,8 +1973,8 @@
 "src": "suttalog:metta"
 },
 "sabbabhūtesu": {
-"meaning": "모든 존재에 대해 (처격 복수)",
-"grammar": "복합어, 처격 복수",
+"meaning": "모든 존재에 대해 (처소격 복수)",
+"grammar": "복합어, 처소격 복수",
 "baseForm": "sabba + bhūta",
 "icon": "🌍",
 "src": "suttalog:metta"
@@ -1987,8 +1987,8 @@
 "src": "suttalog:metta"
 },
 "sabbalokasmiṃ": {
-"meaning": "온 세상에 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "온 세상에 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "sabba + loka",
 "icon": "🌍",
 "src": "suttalog:metta"
@@ -2273,15 +2273,15 @@
 "src": "suttalog:sn22-59"
 },
 "bhaññamāne": {
-"meaning": "설해질 때 (현재분사 수동, 처격)",
-"grammar": "수동 현재분사, 처격",
+"meaning": "설해질 때 (현재분사 수동, 처소격)",
+"grammar": "수동 현재분사, 처소격",
 "baseForm": "bhāsati 수동",
 "icon": "🗣️",
 "src": "suttalog:sn22-59"
 },
 "yānīdha": {
-"meaning": "여기 ~한 것들 (관계대명사 복수 + 처격부사)",
-"grammar": "관계대명사 + 처격부사 (산디)",
+"meaning": "여기 ~한 것들 (관계대명사 복수 + 처소격부사)",
+"grammar": "관계대명사 + 처소격부사 (산디)",
 "baseForm": "yāni(어떤 것들이) + idha(여기)",
 "icon": "🔗",
 "src": "suttalog:ratana",
@@ -2328,12 +2328,12 @@
 "formNote": "bhūmi(땅) + ma → bhumma\nbhūtāni 수식"
 },
 "antalikkhe": {
-"meaning": "허공에 (처격 단수)",
-"grammar": "중성명사, 처격 단수",
+"meaning": "허공에 (처소격 단수)",
+"grammar": "중성명사, 처소격 단수",
 "baseForm": "antalikkha (허공)",
 "icon": "☁️",
 "src": "suttalog:ratana",
-"formNote": "antalikkha → antalikkhe: 중성 -a 어간 처격 -e\n\"중간 공간\" = 지상과 천상 사이"
+"formNote": "antalikkha → antalikkhe: 중성 -a 어간 처소격 -e\n\"중간 공간\" = 지상과 천상 사이"
 },
 "sabbeva": {
 "meaning": "모두 다 (강조)",
@@ -2536,12 +2536,12 @@
 "formNote": "idha(여기)의 반대 — 이 세상 너머"
 },
 "saggesu": {
-"meaning": "천상들에서 (처격 복수)",
-"grammar": "남성명사, 처격 복수",
+"meaning": "천상들에서 (처소격 복수)",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "sagga (천상)",
 "icon": "☁️",
 "src": "suttalog:ratana",
-"formNote": "sagga → saggesu: -a 어간 처격 복수 -esu"
+"formNote": "sagga → saggesu: -a 어간 처소격 복수 -esu"
 },
 "ratanaṃ": {
 "meaning": "보배 (주격/대격 중성)",
@@ -2583,12 +2583,12 @@
 "formNote": "후렴 시작 — \"이것 또한 [삼보] 안의 보배\""
 },
 "buddhe": {
-"meaning": "붓다 안에 (처격)",
-"grammar": "남성명사, 처격 단수",
+"meaning": "붓다 안에 (처소격)",
+"grammar": "남성명사, 처소격 단수",
 "baseForm": "buddha",
 "icon": "☸️",
 "src": "suttalog:ratana",
-"formNote": "buddha → buddhe: -a 어간 처격 -e"
+"formNote": "buddha → buddhe: -a 어간 처소격 -e"
 },
 "etena": {
 "meaning": "이 (도구격)",
@@ -2681,7 +2681,7 @@
 "baseForm": "dhamma",
 "icon": "📜",
 "src": "suttalog:ratana",
-"formNote": "dhamma → dhammena: -a 어간 도구격 -ena\nV1의 dhamme(처격)과 비교: 같은 단어 다른 격"
+"formNote": "dhamma → dhammena: -a 어간 도구격 -ena\nV1의 dhamme(처소격)과 비교: 같은 단어 다른 격"
 },
 "samatthi": {
 "meaning": "같은 것 있다 (sama + atthi)",
@@ -2691,8 +2691,8 @@
 "src": "suttalog:ratana"
 },
 "dhamme": {
-"meaning": "담마 안에 (처격)",
-"grammar": "남성명사, 처격",
+"meaning": "담마 안에 (처소격)",
+"grammar": "남성명사, 처소격",
 "baseForm": "dhamma",
 "icon": "📜",
 "src": "suttalog:ratana"
@@ -2836,8 +2836,8 @@
 "formNote": "\"들은 자 = 제자\""
 },
 "etesu": {
-"meaning": "그들에게 (처격 복수)",
-"grammar": "지시대명사, 처격 남성 복수",
+"meaning": "그들에게 (처소격 복수)",
+"grammar": "지시대명사, 처소격 남성 복수",
 "baseForm": "eta",
 "icon": "👉",
 "src": "suttalog:ratana"
@@ -2857,8 +2857,8 @@
 "src": "suttalog:ratana"
 },
 "saṅghe": {
-"meaning": "상가 안에 (처격)",
-"grammar": "남성명사, 처격",
+"meaning": "상가 안에 (처소격)",
+"grammar": "남성명사, 처소격",
 "baseForm": "saṅgha",
 "icon": "🧘",
 "src": "suttalog:ratana"
@@ -2892,8 +2892,8 @@
 "src": "suttalog:ratana"
 },
 "gotamasāsanamhi": {
-"meaning": "고따마 가르침에서 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "고따마 가르침에서 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "gotama + sāsana",
 "icon": "📖",
 "src": "suttalog:ratana"
@@ -3199,8 +3199,8 @@
 "src": "suttalog:ratana"
 },
 "vanappagumbe": {
-"meaning": "숲에서 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "숲에서 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "vana + pagumba",
 "icon": "🌳",
 "src": "suttalog:ratana"
@@ -3213,15 +3213,15 @@
 "src": "suttalog:ratana"
 },
 "phussitagge": {
-"meaning": "꼭대기까지 꽃핀 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "꼭대기까지 꽃핀 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "phussita + agga",
 "icon": "🌸",
 "src": "suttalog:ratana"
 },
 "gimhānamāse": {
-"meaning": "여름 달에 (처격)",
-"grammar": "복합어, 처격",
+"meaning": "여름 달에 (처소격)",
+"grammar": "복합어, 처소격",
 "baseForm": "gimhāna + māsa",
 "icon": "☀️",
 "src": "suttalog:ratana"
@@ -3356,11 +3356,11 @@
 },
 "kurūsu": {
 "meaning": "꾸루 나라에서",
-"grammar": "남성명사, 처격 복수",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "Kuru (꾸루 나라)",
 "icon": "📍",
 "src": "suttalog:mn10",
-"formNote": "Kuru → kurūsu: -u 어간 처격 복수 -ūsu"
+"formNote": "Kuru → kurūsu: -u 어간 처소격 복수 -ūsu"
 },
 "kammāsadhammaṃ": {
 "meaning": "깜마사담마 (마을 이름)",
@@ -3384,7 +3384,7 @@
 "baseForm": "Kuru (꾸루 사람)",
 "icon": "🏛️",
 "src": "suttalog:mn10",
-"formNote": "Kuru → kurūnaṃ: -u 어간 남성 속격 복수 -ūnaṃ\nkurūsu(처격, \"꾸루 나라에서\")와 비교"
+"formNote": "Kuru → kurūnaṃ: -u 어간 남성 속격 복수 -ūnaṃ\nkurūsu(처소격, \"꾸루 나라에서\")와 비교"
 },
 "nigamo": {
 "meaning": "마을, 시장 마을",
@@ -3556,11 +3556,11 @@
 },
 "kāye": {
 "meaning": "몸에서",
-"grammar": "남성명사, 처격 단수",
+"grammar": "남성명사, 처소격 단수",
 "baseForm": "kāya (몸)",
 "icon": "🏋️",
 "src": "suttalog:mn10",
-"formNote": "kāya → kāye: -a 어간 처격 -e"
+"formNote": "kāya → kāye: -a 어간 처소격 -e"
 },
 "kāyānupassī": {
 "meaning": "몸을 관찰하는 자",
@@ -3604,11 +3604,11 @@
 },
 "loke": {
 "meaning": "세상에 대한",
-"grammar": "남성명사, 처격 단수",
+"grammar": "남성명사, 처소격 단수",
 "baseForm": "loka (세상)",
 "icon": "🌍",
 "src": "suttalog:mn10",
-"formNote": "loka → loke: -a 어간 처격 -e"
+"formNote": "loka → loke: -a 어간 처소격 -e"
 },
 "abhijjhādomanassaṃ": {
 "meaning": "탐욕과 근심을",
@@ -3620,11 +3620,11 @@
 },
 "vedanāsu": {
 "meaning": "느낌들에서",
-"grammar": "여성명사, 처격 복수",
+"grammar": "여성명사, 처소격 복수",
 "baseForm": "vedanā (느낌)",
 "icon": "💭",
 "src": "suttalog:mn10",
-"formNote": "vedanā → vedanāsu: -ā 어간 처격 복수 -āsu"
+"formNote": "vedanā → vedanāsu: -ā 어간 처소격 복수 -āsu"
 },
 "vedanānupassī": {
 "meaning": "느낌을 관찰하는 자",
@@ -3635,11 +3635,11 @@
 },
 "citte": {
 "meaning": "마음에서",
-"grammar": "중성명사, 처격 단수",
+"grammar": "중성명사, 처소격 단수",
 "baseForm": "citta (마음)",
 "icon": "🧠",
 "src": "suttalog:mn10",
-"formNote": "citta → citte: -a 어간 처격 -e"
+"formNote": "citta → citte: -a 어간 처소격 -e"
 },
 "cittānupassī": {
 "meaning": "마음을 관찰하는 자",
@@ -3650,11 +3650,11 @@
 },
 "dhammesu": {
 "meaning": "법들에서",
-"grammar": "남성명사, 처격 복수",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "dhamma (법)",
 "icon": "☸️",
 "src": "suttalog:mn10",
-"formNote": "dhamma → dhammesu: -a 어간 처격 복수 -esu"
+"formNote": "dhamma → dhammesu: -a 어간 처소격 복수 -esu"
 },
 "dhammānupassī": {
 "meaning": "법을 관찰하는 자",
@@ -3749,7 +3749,7 @@
 "baseForm": "kāya",
 "icon": "🦴",
 "src": "suttalog:mn10",
-"formNote": "kāya → kāyaṃ: -a 어간 대격 -aṃ\nkāye(처격)와 비교"
+"formNote": "kāya → kāyaṃ: -a 어간 대격 -aṃ\nkāye(처소격)와 비교"
 },
 "paṇidhāya": {
 "meaning": "세우고, 두고",
@@ -4037,12 +4037,12 @@
 "formNote": "둘을 동시에 보는 단계 — 생멸 통찰 완성"
 },
 "kāyasmiṃ": {
-"meaning": "몸에서 (처격, kāye와 동일)",
-"grammar": "남성명사, 처격 단수",
+"meaning": "몸에서 (처소격, kāye와 동일)",
+"grammar": "남성명사, 처소격 단수",
 "baseForm": "kāya",
 "icon": "📍",
 "src": "suttalog:mn10",
-"formNote": "kāya → kāyasmiṃ: -a 어간 처격 -smiṃ (kāye의 다른 형태)\n두 처격 형태 병용"
+"formNote": "kāya → kāyasmiṃ: -a 어간 처소격 -smiṃ (kāye의 다른 형태)\n두 처소격 형태 병용"
 },
 "kāyo": {
 "meaning": "몸이 (주격)",
@@ -4227,48 +4227,48 @@
 "formNote": "sampajāna(분명한 앎) + kārin(행하는 자) = \"분명히 알며 행위하는 자\""
 },
 "abhikkante": {
-"meaning": "나아갈 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "나아갈 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "abhikkanta (abhi- + √kam)",
 "icon": "⏩",
 "src": "suttalog:mn10",
-"formNote": "abhi(앞으로) + √kam(가다) → abhikkanta\n처격 -e: \"나아감에 있어서\""
+"formNote": "abhi(앞으로) + √kam(가다) → abhikkanta\n처소격 -e: \"나아감에 있어서\""
 },
 "paṭikkante": {
-"meaning": "물러설 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "물러설 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "paṭikkanta (paṭi- + √kam)",
 "icon": "⏪",
 "src": "suttalog:mn10",
 "formNote": "paṭi(되돌려) + √kam(가다) → paṭikkanta\n\"물러섬에 있어서\""
 },
 "ālokite": {
-"meaning": "앞을 볼 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "앞을 볼 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "ālokita (ā + √lok)",
 "icon": "👁️",
 "src": "suttalog:mn10",
 "formNote": "ā + √lok(보다) → ālokita\n\"정면을 봄에 있어서\""
 },
 "vilokite": {
-"meaning": "둘러볼 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "둘러볼 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "vilokita (vi + √lok)",
 "icon": "👀",
 "src": "suttalog:mn10",
 "formNote": "vi(분산해) + √lok(보다) → vilokita\n\"옆을/주변을 봄에 있어서\""
 },
 "samiñjite": {
-"meaning": "굽힐 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "굽힐 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "samiñjita (saṃ- + √iñj)",
 "icon": "🦾",
 "src": "suttalog:mn10",
 "formNote": "saṃ + √iñj(굽히다) → samiñjita"
 },
 "pasārite": {
-"meaning": "펼 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "펼 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "pasārita (pa- + √sar)",
 "icon": "🤚",
 "src": "suttalog:mn10",
@@ -4276,96 +4276,96 @@
 },
 "saṅghāṭipattacīvaradhāraṇe": {
 "meaning": "가사·발우·옷을 지님에",
-"grammar": "복합어, 처격 단수",
+"grammar": "복합어, 처소격 단수",
 "baseForm": "saṅghāṭi(겉가사) + patta(발우) + cīvara(옷) + dhāraṇa(지님)",
 "icon": "👘",
 "src": "suttalog:mn10",
 "formNote": "4요소 복합어. 비구 3종 가사+발우 지님의 알아차림"
 },
 "asite": {
-"meaning": "먹을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "먹을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "asita (먹은)",
 "icon": "🍽️",
 "src": "suttalog:mn10",
 "formNote": "√as(먹다)의 과거분사"
 },
 "pīte": {
-"meaning": "마실 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "마실 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "pīta (마신)",
 "icon": "🥤",
 "src": "suttalog:mn10",
 "formNote": "√pā(마시다)의 과거분사"
 },
 "khāyite": {
-"meaning": "씹을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "씹을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "khāyita (씹은)",
 "icon": "🦷",
 "src": "suttalog:mn10"
 },
 "sāyite": {
-"meaning": "맛볼 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "맛볼 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "sāyita (맛본)",
 "icon": "👅",
 "src": "suttalog:mn10"
 },
 "uccārapassāvakamme": {
-"meaning": "대소변을 봄에 (처격)",
-"grammar": "복합어, 처격 단수",
+"meaning": "대소변을 봄에 (처소격)",
+"grammar": "복합어, 처소격 단수",
 "baseForm": "uccāra(대변) + passāva(소변) + kamma(행위)",
 "icon": "🚽",
 "src": "suttalog:mn10",
 "formNote": "대변+소변+행위 복합어. 모든 신체 기능에 마음챙김"
 },
 "gate": {
-"meaning": "갈 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "갈 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "gata (간)",
 "icon": "🚶‍♂️",
 "src": "suttalog:mn10"
 },
 "ṭhite": {
-"meaning": "서 있을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "서 있을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "ṭhita (서 있는)",
 "icon": "🧍‍♂️",
 "src": "suttalog:mn10"
 },
 "nisinne": {
-"meaning": "앉아 있을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "앉아 있을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "nisinna (앉은)",
 "icon": "🪑",
 "src": "suttalog:mn10"
 },
 "sutte": {
-"meaning": "잠들었을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "잠들었을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "sutta (잠든)",
 "icon": "😴",
 "src": "suttalog:mn10",
 "formNote": "√supp(자다)의 과거분사. 잠 속에서도 마음챙김 유지"
 },
 "jāgarite": {
-"meaning": "깨어났을 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "깨어났을 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "jāgarita (깨어난)",
 "icon": "☀️",
 "src": "suttalog:mn10"
 },
 "bhāsite": {
-"meaning": "말할 때 (처격)",
-"grammar": "과거분사, 처격 단수",
+"meaning": "말할 때 (처소격)",
+"grammar": "과거분사, 처소격 단수",
 "baseForm": "bhāsita (말한)",
 "icon": "🗨️",
 "src": "suttalog:mn10"
 },
 "tuṇhībhāve": {
-"meaning": "침묵할 때 (처격)",
-"grammar": "복합어, 처격 단수",
+"meaning": "침묵할 때 (처소격)",
+"grammar": "복합어, 처소격 단수",
 "baseForm": "tuṇhī(조용히) + bhāva(상태)",
 "icon": "🤐",
 "src": "suttalog:mn10",
@@ -4450,12 +4450,12 @@
 "formNote": "paṭi(되돌려) + ava(아래로) + √ikkh(보다) = \"되돌아 살펴봄\""
 },
 "imasmiṃ": {
-"meaning": "이 (안에) (처격)",
-"grammar": "지시대명사, 처격 남성/중성 단수",
+"meaning": "이 (안에) (처소격)",
+"grammar": "지시대명사, 처소격 남성/중성 단수",
 "baseForm": "idaṃ/ima",
 "icon": "📍",
 "src": "suttalog:mn10",
-"formNote": "ima → imasmiṃ: 처격 -smiṃ\n\"imasmiṃ kāye\" = \"이 몸에\""
+"formNote": "ima → imasmiṃ: 처소격 -smiṃ\n\"imasmiṃ kāye\" = \"이 몸에\""
 },
 "kesā": {
 "meaning": "머리카락 (복수)",
@@ -4880,8 +4880,8 @@
 "formNote": "√vadh(죽이다) + -tvā"
 },
 "catumahāpathe": {
-"meaning": "사거리에서 (처격)",
-"grammar": "복합어, 처격 단수",
+"meaning": "사거리에서 (처소격)",
+"grammar": "복합어, 처소격 단수",
 "baseForm": "catu(넷) + mahā(큰) + patha(길)",
 "icon": "➕",
 "src": "suttalog:mn10",
@@ -4927,12 +4927,12 @@
 "formNote": "\"몸\"이지만 묘지관 맥락에서 \"시체\""
 },
 "sivathikāya": {
-"meaning": "묘지에 (처격)",
-"grammar": "여성명사, 처격 단수",
+"meaning": "묘지에 (처소격)",
+"grammar": "여성명사, 처소격 단수",
 "baseForm": "sivathikā (묘지)",
 "icon": "🪦",
 "src": "suttalog:mn10",
-"formNote": "-ā 어간 처격 -āya"
+"formNote": "-ā 어간 처소격 -āya"
 },
 "chaḍḍitaṃ": {
 "meaning": "버려진",
@@ -5498,20 +5498,20 @@
 "src": "suttalog:mn10"
 },
 "cittasmiṃ": {
-"meaning": "마음에서 (처격)",
-"grammar": "중성명사, 처격 단수",
+"meaning": "마음에서 (처소격)",
+"grammar": "중성명사, 처소격 단수",
 "baseForm": "citta",
 "icon": "📍",
 "src": "suttalog:mn10",
-"formNote": "citta → cittasmiṃ: -a 어간 처격 -smiṃ\ncitte와 같은 의미"
+"formNote": "citta → cittasmiṃ: -a 어간 처소격 -smiṃ\ncitte와 같은 의미"
 },
 "nīvaraṇesu": {
-"meaning": "장애들에서 (처격 복수)",
-"grammar": "중성명사, 처격 복수",
+"meaning": "장애들에서 (처소격 복수)",
+"grammar": "중성명사, 처소격 복수",
 "baseForm": "nīvaraṇa (장애)",
 "icon": "🚧",
 "src": "suttalog:mn10",
-"formNote": "nīvaraṇa → nīvaraṇesu: -a 어간 처격 복수 -esu"
+"formNote": "nīvaraṇa → nīvaraṇesu: -a 어간 처소격 복수 -esu"
 },
 "santaṃ": {
 "meaning": "있는, 존재하는",
@@ -5661,12 +5661,12 @@
 "src": "suttalog:mn10"
 },
 "upādānakkhandhesu": {
-"meaning": "취착의 무더기들에서 (처격 복수)",
-"grammar": "복합어, 처격 복수",
+"meaning": "취착의 무더기들에서 (처소격 복수)",
+"grammar": "복합어, 처소격 복수",
 "baseForm": "upādāna(취착) + khandha(무더기)",
 "icon": "📦",
 "src": "suttalog:mn10",
-"formNote": "upādāna(취착) + khandha(무더기) + 처격 -esu"
+"formNote": "upādāna(취착) + khandha(무더기) + 처소격 -esu"
 },
 "rūpassa": {
 "meaning": "물질의 (속격)",
@@ -5752,20 +5752,20 @@
 "src": "suttalog:mn10"
 },
 "ajjhattikabāhiresu": {
-"meaning": "안과 밖의 (처격 복수)",
-"grammar": "복합어, 처격 복수",
+"meaning": "안과 밖의 (처소격 복수)",
+"grammar": "복합어, 처소격 복수",
 "baseForm": "ajjhattika(내부의) + bāhira(외부의)",
 "icon": "🔀",
 "src": "suttalog:mn10",
 "formNote": "ajjhattika(6근) + bāhira(6경)"
 },
 "āyatanesu": {
-"meaning": "감각장소들에서 (처격 복수)",
-"grammar": "중성명사, 처격 복수",
+"meaning": "감각장소들에서 (처소격 복수)",
+"grammar": "중성명사, 처소격 복수",
 "baseForm": "āyatana (감각장소)",
 "icon": "📍",
 "src": "suttalog:mn10",
-"formNote": "āyatana → āyatanesu: -a 어간 처격 복수 -esu"
+"formNote": "āyatana → āyatanesu: -a 어간 처소격 복수 -esu"
 },
 "cakkhuñca": {
 "meaning": "눈을 그리고",
@@ -5889,12 +5889,12 @@
 "formNote": "mano(마노) = 의식의 토대"
 },
 "bojjhaṅgesu": {
-"meaning": "깨달음 요소들에서 (처격 복수)",
-"grammar": "남성명사, 처격 복수",
+"meaning": "깨달음 요소들에서 (처소격 복수)",
+"grammar": "남성명사, 처소격 복수",
 "baseForm": "bojjhaṅga (깨달음 요소)",
 "icon": "✨",
 "src": "suttalog:mn10",
-"formNote": "bodhi(깨달음) + aṅga(요소) → bojjhaṅga\n처격 복수 -esu"
+"formNote": "bodhi(깨달음) + aṅga(요소) → bojjhaṅga\n처소격 복수 -esu"
 },
 "bhāvanāya": {
 "meaning": "닦음에 의해 (도구격/여격)",
@@ -5967,12 +5967,12 @@
 "formNote": "upa(가까이) + √ikkh(보다) = \"고요히 바라봄\""
 },
 "ariyasaccesu": {
-"meaning": "성스러운 진리들에서 (처격 복수)",
-"grammar": "복합어, 처격 복수",
+"meaning": "성스러운 진리들에서 (처소격 복수)",
+"grammar": "복합어, 처소격 복수",
 "baseForm": "ariya(성스러운) + sacca(진리)",
 "icon": "☸️",
 "src": "suttalog:mn10",
-"formNote": "ariya + sacca + 처격 복수 -esu"
+"formNote": "ariya + sacca + 처소격 복수 -esu"
 },
 "dukkhan": {
 "meaning": "\"괴로움\"이라고 (인용)",
@@ -6560,7 +6560,7 @@
 },
 "kattha": {
 "meaning": "어디서?",
-"grammar": "의문부사 (처격)",
+"grammar": "의문부사 (처소격)",
 "baseForm": "kattha",
 "icon": "❓",
 "src": "suttalog:mn10"
@@ -7310,8 +7310,8 @@
 "formNote": "\"완전한 앎\" = 아라한의 지혜"
 },
 "upādisese": {
-"meaning": "잡음이 남은 채 (처격)",
-"grammar": "복합어, 처격 단수",
+"meaning": "잡음이 남은 채 (처소격)",
+"grammar": "복합어, 처소격 단수",
 "baseForm": "upādi(잡음) + sesa(남은)",
 "icon": "🔗",
 "src": "suttalog:mn10",

@@ -65,7 +65,7 @@ export const MILESTONES: Record<string, Milestone> = {
     key: 'reading', short: '경전 읽기 문법', badge: '📜', title: '경전 읽기 문법까지 마쳤어요',
     pali: 'Pavattite ca pana bhagavatā dhammacakke bhummā devā saddamanussāvesuṃ.',
     ko: '세존께서 법의 바퀴를 굴리셨을 때 땅의 신들이 소리 높여 외쳤다.',
-    explain: 'pavattite … dhammacakke(절대 처격), bhagavatā(도구격) — 경전 문장을 문법대로 풀어 읽을 수 있어요.',
+    explain: 'pavattite … dhammacakke(절대 처소격), bhagavatā(도구격) — 경전 문장을 문법대로 풀어 읽을 수 있어요.',
     sutta: { title: '초전법륜경', url: suttaLessonUrl('sn56-11') },
   },
 }
