@@ -3,6 +3,7 @@
 사용법:
   python generate.py sample          → 문제 단어를 여러 목소리로 만들어 비교용 폴더에 저장
   python generate.py full <목소리키>  → 앱에서 쓰는 모든 문장을 고른 목소리로 다시 만듦
+  python generate.py add <목소리키>   → extra-texts.json 중 아직 녹음이 없는 것만 새로 만듦
 """
 import asyncio
 import json
@@ -97,6 +98,52 @@ async def run_sample(keys=None, texts=None, folder='tts-samples'):
         json.dumps({'voices': voices, 'rows': rows}, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
+async def run_add(voice_key: str):
+    """extra-texts.json 중 manifest에 없는 문장만 새로 녹음"""
+    audio = PRIMER / 'public' / 'audio'
+    manifest = json.loads((audio / 'manifest.json').read_text(encoding='utf-8'))
+    extra = json.loads((HERE / 'extra-texts.json').read_text(encoding='utf-8'))
+    known = {t.lower() for t in manifest}
+    used = set(manifest.values())
+    n = 0
+    todo = []
+    for text in extra:
+        if text.lower() in known:
+            continue
+        while f'add_{n:04d}.mp3' in used:
+            n += 1
+        fname = f'add_{n:04d}.mp3'
+        used.add(fname)
+        todo.append((fname, text))
+        known.add(text.lower())
+    sem = asyncio.Semaphore(3)
+    failed = []
+
+    async def one(fname, text):
+        async with sem:
+            try:
+                vk = LETTER_VOICE if is_letter(text) else voice_key
+                await speak(text, vk, audio / fname, retries=2)
+            except Exception:
+                failed.append((fname, text))
+
+    rest = list(todo)
+    for rnd in range(1, 6):
+        failed.clear()
+        await asyncio.gather(*(one(f, t) for f, t in rest))
+        if not failed:
+            break
+        print(f'[{rnd}회차] 실패 {len(failed)}개 → 다시')
+        rest = list(failed)
+        await asyncio.sleep(30 * rnd)
+    if failed:
+        raise SystemExit(f'끝까지 실패: {[t for _, t in failed]}')
+    for fname, text in todo:
+        manifest[text] = fname
+    (audio / 'manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding='utf-8')
+    print(f'새로 녹음: {len(todo)}개')
+
+
 async def run_full(voice_key: str):
     """manifest.json의 모든 문장을 다시 만들고, 빠진 단어도 추가"""
     audio = PRIMER / 'public' / 'audio'
@@ -157,6 +204,8 @@ if __name__ == '__main__':
         asyncio.run(run_sample())
     elif mode == 'ny':
         asyncio.run(run_sample(['te0', 'te'], NY_SAMPLES, 'tts-samples/ny'))
+    elif mode == 'add':
+        asyncio.run(run_add(sys.argv[2]))
     elif mode == 'full':
         asyncio.run(run_full(sys.argv[2]))
     else:

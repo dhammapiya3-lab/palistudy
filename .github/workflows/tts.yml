@@ -31,6 +31,8 @@ jobs:
             python generate.py sample
           elif [ "$BR" = "tts/sample-ny" ]; then
             python generate.py ny
+          elif [ "${BR#tts/add-}" != "$BR" ]; then
+            python generate.py add "${BR#tts/add-}"
           elif [ "$BR" = "tts/probe" ]; then
             python probe.py
           else
