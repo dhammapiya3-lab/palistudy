@@ -13,8 +13,8 @@ export const BASIC_SKILLS: BasicSkill[] = [
     id: '1', title: '알파벳·발음', icon: '🔤', desc: '빠알리어 문자와 발음부호', source: 'Dhammapada 1게',
     lessons: [
       { kind: 'alphabet', id: 'vowels', title: '모음 (a ā i ī u ū e o)', desc: 'Dhp 1게로 배우는 단모음·장모음' },
-      { kind: 'alphabet', id: 'consonants1', title: '자음 기초 (m n p b g d s)', desc: 'Dhp 1게의 자음 분석' },
-      { kind: 'alphabet', id: 'special', title: '특수 발음부호 (ṃ ṅ ñ ṭ ḍ ṇ)', desc: '아래 점·위 점·물결표가 붙은 글자' },
+      { kind: 'alphabet', id: 'consonants1', title: '자음 기초 (k c t p 계열 · y r l v s h)', desc: 'Dhp 1게로 배우는 점 없는 자음 24자' },
+      { kind: 'alphabet', id: 'special', title: '특수 발음부호 (ṃ ṅ ñ ṭ ṭh ḍ ḍh ṇ ḷ)', desc: '아래 점·위 점·물결표가 붙은 글자' },
     ],
   },
   {
@@ -26,10 +26,10 @@ export const BASIC_SKILLS: BasicSkill[] = [
     ],
   },
   {
-    id: '3', title: '문장 구조', icon: '📝', desc: '어순과 주격·대격', source: 'Dhammapada',
+    id: '3', title: '문장 구조', icon: '📝', desc: '어순과 주격·목적격', source: 'Dhammapada',
     lessons: [
       { kind: 'grammar', id: 'sov', title: '주어-목적어-동사 (SOV)', desc: '예문으로 배우는 SOV 어순' },
-      { kind: 'grammar', id: 'nom-acc', title: '주격과 대격 (-o, -aṃ)', desc: '누가(주격) 무엇을(대격)' },
+      { kind: 'grammar', id: 'nom-acc', title: '주격과 목적격 (-o, -aṃ)', desc: '누가(주격) 무엇을(목적격)' },
     ],
   },
   {

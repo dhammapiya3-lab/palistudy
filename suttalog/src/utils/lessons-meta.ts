@@ -33,7 +33,7 @@ export function isReciteLesson(id: string): boolean {
 /** 이 과 전에 보면 좋은 기초 다지기 레슨 (학습맵 카드에 연결 표시) */
 export const LESSON_PREREQ: Record<string, { kind: 'grammar' | 'reading'; id: string; label: string }> = {
   'namo':          { kind: 'grammar', id: 'declension-a', label: '격변화' },
-  'trisarana':     { kind: 'grammar', id: 'nom-acc', label: '주격과 대격' },
+  'trisarana':     { kind: 'grammar', id: 'nom-acc', label: '주격과 목적격' },
   'pancasila':     { kind: 'grammar', id: 'declension-a', label: '격변화' },
   'tisarana-guna': { kind: 'grammar', id: 'declension-a', label: '격변화' },
   'metta':         { kind: 'grammar', id: 'declension-a', label: '격변화' },

@@ -1,6 +1,6 @@
 // 문법 칩 → 빠알리 프라이머 과 연결표 + 한 줄 설명
-// - 낱말 카드의 문법 표시(예: '남성명사, 여격/속격 단수')에서 문법 용어를 찾아
-//   쉬운 한 줄 설명, 두 앱의 용어를 함께 적은 이름('대격(=목적격, 2격)'), 프라이머 과 주소를 돌려줍니다.
+// - 낱말 카드의 문법 표시(예: '남성명사, 여격/소유격 단수')에서 문법 용어를 찾아
+//   쉬운 한 줄 설명, 격 번호를 함께 적은 이름('목적격(2격)'), 프라이머 과 주소를 돌려줍니다.
 // - 프라이머 과 id·제목은 primer/src/features/grammar/lesson-sources.ts 기준입니다.
 //   (프라이머 과 번호는 교재 번호를 따르므로 id 숫자와 'n과'가 다를 수 있음: lesson-11 = 12과)
 
@@ -41,12 +41,12 @@ type Rule = {
 
 const RULES: Rule[] = [
   { terms: ['주격'], name: '주격(1격)', desc: '문장의 주어를 나타냅니다. "~이/가, ~은/는"', lesson: P.nom },
-  { terms: ['대격', '목적격'], name: '대격(=목적격, 2격)', desc: '동사의 목적어를 나타냅니다. "~을/를". 때·방향을 나타내기도 합니다.', lesson: P.acc },
-  { terms: ['구격', '도구격'], name: '구격(=도구격, 3격)', desc: '수단·도구·함께함을 나타냅니다. "~으로, ~에 의해, ~와 함께"', lesson: P.ins },
+  { terms: ['목적격'], name: '목적격(2격)', desc: '동사의 목적어를 나타냅니다. "~을/를". 때·방향을 나타내기도 합니다.', lesson: P.acc },
+  { terms: ['도구격'], name: '도구격(3격)', desc: '수단·도구·함께함을 나타냅니다. "~으로, ~에 의해, ~와 함께"', lesson: P.ins },
   { terms: ['여격'], name: '여격(4격)', desc: '받는 이·목적을 나타냅니다. "~에게, ~께, ~을 위해"', lesson: P.dat },
   { terms: ['탈격'], name: '탈격(5격)', desc: '떠나온 곳·까닭을 나타냅니다. "~로부터, ~ 때문에"', lesson: P.abl },
-  { terms: ['속격', '소유격'], name: '속격(=소유격, 6격)', desc: '소유·관계를 나타냅니다. "~의"', lesson: P.gen },
-  { terms: ['처격', '처소격'], name: '처격(=처소격, 7격)', desc: '장소·때를 나타냅니다. "~에, ~에서"', lesson: P.loc },
+  { terms: ['소유격'], name: '소유격(6격)', desc: '소유·관계를 나타냅니다. "~의"', lesson: P.gen },
+  { terms: ['처소격'], name: '처소격(7격)', desc: '장소·때를 나타냅니다. "~에, ~에서"', lesson: P.loc },
   { terms: ['호격'], name: '호격(8격)', desc: '부르는 말입니다. "~이여!"', lesson: P.voc },
   { terms: ['절대분사'], name: '절대분사', desc: '먼저 한 동작을 나타냅니다. "~하고서, ~한 뒤에" (-tvā, -ya)', lesson: P.abs },
   { terms: ['현재분사'], name: '현재분사', desc: '진행 중인 동작을 꾸밉니다. "~하고 있는, ~하면서" (-nta, -māna)', lesson: P.ppr },
@@ -76,7 +76,7 @@ function linkOf(l: PrimerLesson | undefined): { label: string; url: string } | n
 
 /**
  * 문법 표시에 나오는 용어를 나온 순서대로 돌려줍니다(같은 용어는 한 번).
- * 예: '대명사, 여격/속격 남성 단수' → [여격(4격), 속격(=소유격, 6격)]
+ * 예: '대명사, 여격/소유격 남성 단수' → [여격(4격), 소유격(6격)]
  */
 export function grammarTermsIn(grammar: string | undefined | null): GrammarTerm[] {
   if (!grammar) return []

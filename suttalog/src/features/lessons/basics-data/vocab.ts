@@ -12,7 +12,7 @@ export const VOCAB_DATA: Record<string, {
       { pali: 'Buddha', ko: '깨달은 자, 부처', grammar: '남성명사', ipa: '/bud.dʰɐ/', root: '√budh (깨닫다)' },
       { pali: 'Dhamma', ko: '법, 가르침, 진리', grammar: '남성명사', ipa: '/dʰɐm.mɐ/', root: '√dhar (지탱하다)' },
       { pali: 'Saṅgha', ko: '승가, 공동체', grammar: '남성명사', ipa: '/sɐŋ.gʰɐ/', root: 'saṃ + √han (함께 모이다)' },
-      { pali: 'saraṇaṃ', ko: '귀의처, 보호처', grammar: '중성명사 대격', ipa: '/sɐ.rɐ.ɳɐṃ/', root: '√sar (보호하다; 주석서: hiṃsā "부수다")' },
+      { pali: 'saraṇaṃ', ko: '귀의처, 보호처', grammar: '중성명사 목적격', ipa: '/sɐ.rɐ.ɳɐṃ/', root: '√sar (보호하다; 주석서: hiṃsā "부수다")' },
       { pali: 'gacchāmi', ko: '(나는) 갑니다', grammar: '동사 1인칭 단수 현재', ipa: '/gɐt.tɕʰaː.mi/', root: '√gam (가다)' },
     ],
   },

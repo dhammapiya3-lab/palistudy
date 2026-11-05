@@ -11,7 +11,7 @@ export const READING_DATA: Record<string, {
         pali: 'Evaṃ me sutaṃ —',
         wordByWord: [
           { word: 'Evaṃ', meaning: '이와 같이' },
-          { word: 'me', meaning: '나에 의해 (by me) — 단축형 me, 여기서는 구격(행위자) 기능' },
+          { word: 'me', meaning: '나에 의해 (by me) — 단축형 me, 여기서는 도구격(행위자) 기능' },
           { word: 'sutaṃ', meaning: '들려진 (heard)' },
         ],
         translation: '이와 같이 나는 들었다 —',
@@ -28,7 +28,7 @@ export const READING_DATA: Record<string, {
       {
         pali: 'Bārāṇasiyaṃ viharati Isipatane Migadāye.',
         wordByWord: [
-          { word: 'Bārāṇasiyaṃ', meaning: '바라나시에서 (7격 처격)' },
+          { word: 'Bārāṇasiyaṃ', meaning: '바라나시에서 (7격 처소격)' },
           { word: 'viharati', meaning: '머무시다 (dwells)' },
           { word: 'Isipatane', meaning: '이시빠따나에 (7격)' },
           { word: 'Migadāye', meaning: '녹야원에 (7격, Deer Park)' },

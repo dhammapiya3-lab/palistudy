@@ -13,7 +13,7 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'verse', pali: V_SARANA, pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: V_SARANA_K, highlight: ['tassa', 'bhagavato', 'arahato', 'sammāsambuddhassa'], note: 'tassa = ta(그)의 여격/소유격 "저~에게"\nbhagavato = bhagavant(세존)의 여격\narahato = arahant(아라한)의 여격\nsammāsambuddhassa = sammāsambuddha + ssa(여격)\n※ 여격과 소유격 형태 유사!' },
 
   // === 여격 문법 ===
-  { type: 'teach-grammar', title: '여격 (Dative) — ~에게/위하여/목적으로', example: 'nara + āya = narāya (사람에게)\nnara + ssa = narassa (사람에게)\nnara + ānaṃ = narānaṃ (사람들에게)', exampleKo: '단수: -āya / -ssa\n복수: -ānaṃ', explanation: '여격의 주요 의미:\n• 수여 대상: narāya dadāti (사람에게 준다)\n• 목적/이유: lābhāya gacchati (이득을 위해 간다)\n• 이익/불이익의 대상: kassakassa āharati (농부를 위해 가져온다)\n\n-a 남성명사:\n• 단수: -āya (narāya), -ssa (narassa)\n• 복수: -ānaṃ (narānaṃ)\n※ -ssa는 속격(소유)과 형태 동일!' },
+  { type: 'teach-grammar', title: '여격 (Dative) — ~에게/위하여/목적으로', example: 'nara + āya = narāya (사람에게)\nnara + ssa = narassa (사람에게)\nnara + ānaṃ = narānaṃ (사람들에게)', exampleKo: '단수: -āya / -ssa\n복수: -ānaṃ', explanation: '여격의 주요 의미:\n• 수여 대상: narāya dadāti (사람에게 준다)\n• 목적/이유: lābhāya gacchati (이득을 위해 간다)\n• 이익/불이익의 대상: kassakassa āharati (농부를 위해 가져온다)\n\n-a 남성명사:\n• 단수: -āya (narāya), -ssa (narassa)\n• 복수: -ānaṃ (narānaṃ)\n※ -ssa는 소유격(소유)과 형태 동일!' },
 
   // === 명사 10개 (교재 전체) ===
   { type: 'teach', word: 'tāpasa', pronKo: '따-빠사', meaning: '고행자', icon: '🧘', grammar: '남성명사', baseForm: 'tāpasa', formNote: '여격 단수: tāpasāya / tāpasassa\n여격 복수: tāpasānaṃ' },
