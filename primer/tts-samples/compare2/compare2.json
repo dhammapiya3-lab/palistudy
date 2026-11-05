@@ -1,0 +1,1690 @@
+{
+ "voices": {
+  "hi_m": "힌디어 남",
+  "hi_f": "힌디어 여",
+  "mr_m": "마라티어 남",
+  "mr_f": "마라티어 여",
+  "ne_m": "네팔어 남",
+  "ne_f": "네팔어 여",
+  "kn_m": "칸나다어 남",
+  "kn_f": "칸나다어 여",
+  "te_m": "텔루구어 남",
+  "te_f": "텔루구어 여",
+  "ml_m": "말라얄람어 남",
+  "ml_f": "말라얄람어 여",
+  "gu_m": "구자라트어 남",
+  "gu_f": "구자라트어 여",
+  "bn_m": "벵골어(인도) 남",
+  "bn_f": "벵골어(인도) 여",
+  "bd_m": "벵골어(방글라데시) 남",
+  "si_m": "싱할라어 남",
+  "si_f": "싱할라어 여",
+  "or_f": "오리야어 여",
+  "pa_m": "펀자브어 남",
+  "ur_m": "우르두어 남"
+ },
+ "rows": [
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_m",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_hi_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_m",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_hi_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_f",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_hi_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_m",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_hi_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_f",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_hi_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "hi_f",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_hi_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_m",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_mr_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_m",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_mr_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_m",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_mr_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_f",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_mr_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_f",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_mr_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "mr_f",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_mr_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_m",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_ne_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_m",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_ne_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_f",
+   "form": "short",
+   "text": "झ",
+   "file": "L_jh_ne_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_m",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_ne_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_f",
+   "form": "long",
+   "text": "झा",
+   "file": "L_jh_ne_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_m",
+   "form": "short",
+   "text": "ಝ",
+   "file": "L_jh_kn_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ne_f",
+   "form": "two",
+   "text": "झ झ",
+   "file": "L_jh_ne_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_m",
+   "form": "long",
+   "text": "ಝಾ",
+   "file": "L_jh_kn_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_m",
+   "form": "two",
+   "text": "ಝ ಝ",
+   "file": "L_jh_kn_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_f",
+   "form": "short",
+   "text": "ಝ",
+   "file": "L_jh_kn_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_f",
+   "form": "two",
+   "text": "ಝ ಝ",
+   "file": "L_jh_kn_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "kn_f",
+   "form": "long",
+   "text": "ಝಾ",
+   "file": "L_jh_kn_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_m",
+   "form": "short",
+   "text": "ఝ",
+   "file": "L_jh_te_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_f",
+   "form": "short",
+   "text": "ఝ",
+   "file": "L_jh_te_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_m",
+   "form": "long",
+   "text": "ఝా",
+   "file": "L_jh_te_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_f",
+   "form": "long",
+   "text": "ఝా",
+   "file": "L_jh_te_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_m",
+   "form": "two",
+   "text": "ఝ ఝ",
+   "file": "L_jh_te_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "te_f",
+   "form": "two",
+   "text": "ఝ ఝ",
+   "file": "L_jh_te_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_m",
+   "form": "short",
+   "text": "ഝ",
+   "file": "L_jh_ml_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_m",
+   "form": "two",
+   "text": "ഝ ഝ",
+   "file": "L_jh_ml_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_m",
+   "form": "long",
+   "text": "ഝാ",
+   "file": "L_jh_ml_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_f",
+   "form": "long",
+   "text": "ഝാ",
+   "file": "L_jh_ml_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_f",
+   "form": "short",
+   "text": "ഝ",
+   "file": "L_jh_ml_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_m",
+   "form": "short",
+   "text": "ઝ",
+   "file": "L_jh_gu_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_m",
+   "form": "long",
+   "text": "ઝા",
+   "file": "L_jh_gu_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_m",
+   "form": "two",
+   "text": "ઝ ઝ",
+   "file": "L_jh_gu_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_f",
+   "form": "short",
+   "text": "ઝ",
+   "file": "L_jh_gu_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ml_f",
+   "form": "two",
+   "text": "ഝ ഝ",
+   "file": "L_jh_ml_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_f",
+   "form": "long",
+   "text": "ઝા",
+   "file": "L_jh_gu_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_m",
+   "form": "short",
+   "text": "ঝ",
+   "file": "L_jh_bn_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "gu_f",
+   "form": "two",
+   "text": "ઝ ઝ",
+   "file": "L_jh_gu_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_m",
+   "form": "two",
+   "text": "ঝ ঝ",
+   "file": "L_jh_bn_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_m",
+   "form": "long",
+   "text": "ঝা",
+   "file": "L_jh_bn_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_f",
+   "form": "short",
+   "text": "ঝ",
+   "file": "L_jh_bn_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_f",
+   "form": "long",
+   "text": "ঝা",
+   "file": "L_jh_bn_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bn_f",
+   "form": "two",
+   "text": "ঝ ঝ",
+   "file": "L_jh_bn_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bd_m",
+   "form": "short",
+   "text": "ঝ",
+   "file": "L_jh_bd_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bd_m",
+   "form": "two",
+   "text": "ঝ ঝ",
+   "file": "L_jh_bd_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "bd_m",
+   "form": "long",
+   "text": "ঝা",
+   "file": "L_jh_bd_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ur_m",
+   "form": "short",
+   "text": "جھَ",
+   "file": "L_jh_ur_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ur_m",
+   "form": "long",
+   "text": "جھَا",
+   "file": "L_jh_ur_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "jh",
+   "voice": "ur_m",
+   "form": "two",
+   "text": "جھَ جھَ",
+   "file": "L_jh_ur_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_m",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_hi_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_m",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_hi_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_m",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_hi_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_f",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_hi_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_f",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_hi_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_m",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_mr_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "hi_f",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_hi_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_m",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_mr_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_f",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_mr_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_m",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_mr_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_f",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_mr_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_m",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_ne_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "mr_f",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_mr_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_m",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_ne_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_m",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_ne_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_f",
+   "form": "short",
+   "text": "फ",
+   "file": "L_ph_ne_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_f",
+   "form": "two",
+   "text": "फ फ",
+   "file": "L_ph_ne_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_m",
+   "form": "short",
+   "text": "ಫ",
+   "file": "L_ph_kn_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ne_f",
+   "form": "long",
+   "text": "फा",
+   "file": "L_ph_ne_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_f",
+   "form": "short",
+   "text": "ಫ",
+   "file": "L_ph_kn_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_m",
+   "form": "two",
+   "text": "ಫ ಫ",
+   "file": "L_ph_kn_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_m",
+   "form": "long",
+   "text": "ಫಾ",
+   "file": "L_ph_kn_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_f",
+   "form": "two",
+   "text": "ಫ ಫ",
+   "file": "L_ph_kn_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "kn_f",
+   "form": "long",
+   "text": "ಫಾ",
+   "file": "L_ph_kn_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_m",
+   "form": "short",
+   "text": "ఫ",
+   "file": "L_ph_te_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_m",
+   "form": "long",
+   "text": "ఫా",
+   "file": "L_ph_te_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_f",
+   "form": "short",
+   "text": "ఫ",
+   "file": "L_ph_te_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_m",
+   "form": "two",
+   "text": "ఫ ఫ",
+   "file": "L_ph_te_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_f",
+   "form": "two",
+   "text": "ఫ ఫ",
+   "file": "L_ph_te_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "te_f",
+   "form": "long",
+   "text": "ఫా",
+   "file": "L_ph_te_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_m",
+   "form": "short",
+   "text": "ഫ",
+   "file": "L_ph_ml_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_m",
+   "form": "two",
+   "text": "ഫ ഫ",
+   "file": "L_ph_ml_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_m",
+   "form": "long",
+   "text": "ഫാ",
+   "file": "L_ph_ml_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_f",
+   "form": "short",
+   "text": "ഫ",
+   "file": "L_ph_ml_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_m",
+   "form": "short",
+   "text": "ફ",
+   "file": "L_ph_gu_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_f",
+   "form": "two",
+   "text": "ഫ ഫ",
+   "file": "L_ph_ml_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ml_f",
+   "form": "long",
+   "text": "ഫാ",
+   "file": "L_ph_ml_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_m",
+   "form": "two",
+   "text": "ફ ફ",
+   "file": "L_ph_gu_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_m",
+   "form": "long",
+   "text": "ફા",
+   "file": "L_ph_gu_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_f",
+   "form": "short",
+   "text": "ફ",
+   "file": "L_ph_gu_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_f",
+   "form": "two",
+   "text": "ફ ફ",
+   "file": "L_ph_gu_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "gu_f",
+   "form": "long",
+   "text": "ફા",
+   "file": "L_ph_gu_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_m",
+   "form": "short",
+   "text": "ফ",
+   "file": "L_ph_bn_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_f",
+   "form": "short",
+   "text": "ফ",
+   "file": "L_ph_bn_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_m",
+   "form": "two",
+   "text": "ফ ফ",
+   "file": "L_ph_bn_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_m",
+   "form": "long",
+   "text": "ফা",
+   "file": "L_ph_bn_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_f",
+   "form": "long",
+   "text": "ফা",
+   "file": "L_ph_bn_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bn_f",
+   "form": "two",
+   "text": "ফ ফ",
+   "file": "L_ph_bn_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bd_m",
+   "form": "short",
+   "text": "ফ",
+   "file": "L_ph_bd_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bd_m",
+   "form": "long",
+   "text": "ফা",
+   "file": "L_ph_bd_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "bd_m",
+   "form": "two",
+   "text": "ফ ফ",
+   "file": "L_ph_bd_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_m",
+   "form": "short",
+   "text": "ඵ",
+   "file": "L_ph_si_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_m",
+   "form": "long",
+   "text": "ඵා",
+   "file": "L_ph_si_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_m",
+   "form": "two",
+   "text": "ඵ ඵ",
+   "file": "L_ph_si_m_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_f",
+   "form": "short",
+   "text": "ඵ",
+   "file": "L_ph_si_f_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_f",
+   "form": "long",
+   "text": "ඵා",
+   "file": "L_ph_si_f_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "si_f",
+   "form": "two",
+   "text": "ඵ ඵ",
+   "file": "L_ph_si_f_two.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ur_m",
+   "form": "short",
+   "text": "پھَ",
+   "file": "L_ph_ur_m_short.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ur_m",
+   "form": "long",
+   "text": "پھَا",
+   "file": "L_ph_ur_m_long.mp3"
+  },
+  {
+   "kind": "letter",
+   "key": "ph",
+   "voice": "ur_m",
+   "form": "two",
+   "text": "پھَ پھَ",
+   "file": "L_ph_ur_m_two.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "te_m",
+   "form": "p_h",
+   "text": "ప్హలాని",
+   "file": "W_phalāni_te_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "te_m",
+   "form": "normal",
+   "text": "ఫలాని",
+   "file": "W_phalāni_te_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "te_f",
+   "form": "normal",
+   "text": "ఫలాని",
+   "file": "W_phalāni_te_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "kn_m",
+   "form": "p_h",
+   "text": "ಪ್ಹಲಾನಿ",
+   "file": "W_phalāni_kn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "kn_m",
+   "form": "normal",
+   "text": "ಫಲಾನಿ",
+   "file": "W_phalāni_kn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "te_f",
+   "form": "p_h",
+   "text": "ప్హలాని",
+   "file": "W_phalāni_te_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "kn_f",
+   "form": "normal",
+   "text": "ಫಲಾನಿ",
+   "file": "W_phalāni_kn_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "ml_m",
+   "form": "normal",
+   "text": "ഫലാനി",
+   "file": "W_phalāni_ml_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "kn_f",
+   "form": "p_h",
+   "text": "ಪ್ಹಲಾನಿ",
+   "file": "W_phalāni_kn_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "ml_m",
+   "form": "p_h",
+   "text": "പ്ഹലാനി",
+   "file": "W_phalāni_ml_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "si_m",
+   "form": "normal",
+   "text": "ඵලානි",
+   "file": "W_phalāni_si_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "si_m",
+   "form": "p_h",
+   "text": "ප්හලානි",
+   "file": "W_phalāni_si_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "hi_m",
+   "form": "normal",
+   "text": "फलानि",
+   "file": "W_phalāni_hi_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "mr_m",
+   "form": "normal",
+   "text": "फलानि",
+   "file": "W_phalāni_mr_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "hi_m",
+   "form": "p_h",
+   "text": "प्हलानि",
+   "file": "W_phalāni_hi_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "mr_m",
+   "form": "p_h",
+   "text": "प्हलानि",
+   "file": "W_phalāni_mr_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "bn_m",
+   "form": "normal",
+   "text": "ফলানি",
+   "file": "W_phalāni_bn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phalāni",
+   "voice": "bn_m",
+   "form": "p_h",
+   "text": "প্হলানি",
+   "file": "W_phalāni_bn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "te_m",
+   "form": "normal",
+   "text": "ఫరసు",
+   "file": "W_pharasu_te_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "te_m",
+   "form": "p_h",
+   "text": "ప్హరసు",
+   "file": "W_pharasu_te_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "te_f",
+   "form": "normal",
+   "text": "ఫరసు",
+   "file": "W_pharasu_te_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "te_f",
+   "form": "p_h",
+   "text": "ప్హరసు",
+   "file": "W_pharasu_te_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "kn_m",
+   "form": "normal",
+   "text": "ಫರಸು",
+   "file": "W_pharasu_kn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "kn_m",
+   "form": "p_h",
+   "text": "ಪ್ಹರಸು",
+   "file": "W_pharasu_kn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "kn_f",
+   "form": "normal",
+   "text": "ಫರಸು",
+   "file": "W_pharasu_kn_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "kn_f",
+   "form": "p_h",
+   "text": "ಪ್ಹರಸು",
+   "file": "W_pharasu_kn_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "ml_m",
+   "form": "normal",
+   "text": "ഫരസു",
+   "file": "W_pharasu_ml_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "ml_m",
+   "form": "p_h",
+   "text": "പ്ഹരസു",
+   "file": "W_pharasu_ml_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "si_m",
+   "form": "normal",
+   "text": "ඵරසු",
+   "file": "W_pharasu_si_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "si_m",
+   "form": "p_h",
+   "text": "ප්හරසු",
+   "file": "W_pharasu_si_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "hi_m",
+   "form": "normal",
+   "text": "फरसु",
+   "file": "W_pharasu_hi_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "hi_m",
+   "form": "p_h",
+   "text": "प्हरसु",
+   "file": "W_pharasu_hi_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "mr_m",
+   "form": "normal",
+   "text": "फरसु",
+   "file": "W_pharasu_mr_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "mr_m",
+   "form": "p_h",
+   "text": "प्हरसु",
+   "file": "W_pharasu_mr_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "bn_m",
+   "form": "normal",
+   "text": "ফরসু",
+   "file": "W_pharasu_bn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pharasu",
+   "voice": "bn_m",
+   "form": "p_h",
+   "text": "প্হরসু",
+   "file": "W_pharasu_bn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "te_m",
+   "form": "normal",
+   "text": "ఫుసతి",
+   "file": "W_phusati_te_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "te_m",
+   "form": "p_h",
+   "text": "ప్హుసతి",
+   "file": "W_phusati_te_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "te_f",
+   "form": "normal",
+   "text": "ఫుసతి",
+   "file": "W_phusati_te_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "te_f",
+   "form": "p_h",
+   "text": "ప్హుసతి",
+   "file": "W_phusati_te_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "kn_m",
+   "form": "normal",
+   "text": "ಫುಸತಿ",
+   "file": "W_phusati_kn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "kn_m",
+   "form": "p_h",
+   "text": "ಪ್ಹುಸತಿ",
+   "file": "W_phusati_kn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "kn_f",
+   "form": "normal",
+   "text": "ಫುಸತಿ",
+   "file": "W_phusati_kn_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "kn_f",
+   "form": "p_h",
+   "text": "ಪ್ಹುಸತಿ",
+   "file": "W_phusati_kn_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "ml_m",
+   "form": "p_h",
+   "text": "പ്ഹുസതി",
+   "file": "W_phusati_ml_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "si_m",
+   "form": "normal",
+   "text": "ඵුසති",
+   "file": "W_phusati_si_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "ml_m",
+   "form": "normal",
+   "text": "ഫുസതി",
+   "file": "W_phusati_ml_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "hi_m",
+   "form": "normal",
+   "text": "फुसति",
+   "file": "W_phusati_hi_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "hi_m",
+   "form": "p_h",
+   "text": "प्हुसति",
+   "file": "W_phusati_hi_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "si_m",
+   "form": "p_h",
+   "text": "ප්හුසති",
+   "file": "W_phusati_si_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "mr_m",
+   "form": "normal",
+   "text": "फुसति",
+   "file": "W_phusati_mr_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "mr_m",
+   "form": "p_h",
+   "text": "प्हुसति",
+   "file": "W_phusati_mr_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "bn_m",
+   "form": "normal",
+   "text": "ফুসতি",
+   "file": "W_phusati_bn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "phusati",
+   "voice": "bn_m",
+   "form": "p_h",
+   "text": "প্হুসতি",
+   "file": "W_phusati_bn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "te_m",
+   "form": "normal",
+   "text": "పుప్ఫం",
+   "file": "W_pupphaṃ_te_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "te_m",
+   "form": "p_h",
+   "text": "పుప్ప్హం",
+   "file": "W_pupphaṃ_te_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "te_f",
+   "form": "normal",
+   "text": "పుప్ఫం",
+   "file": "W_pupphaṃ_te_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "te_f",
+   "form": "p_h",
+   "text": "పుప్ప్హం",
+   "file": "W_pupphaṃ_te_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "kn_m",
+   "form": "normal",
+   "text": "ಪುಪ್ಫಂ",
+   "file": "W_pupphaṃ_kn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "kn_m",
+   "form": "p_h",
+   "text": "ಪುಪ್ಪ್ಹಂ",
+   "file": "W_pupphaṃ_kn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "kn_f",
+   "form": "normal",
+   "text": "ಪುಪ್ಫಂ",
+   "file": "W_pupphaṃ_kn_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "kn_f",
+   "form": "p_h",
+   "text": "ಪುಪ್ಪ್ಹಂ",
+   "file": "W_pupphaṃ_kn_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "ml_m",
+   "form": "normal",
+   "text": "പുപ്ഫം",
+   "file": "W_pupphaṃ_ml_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "ml_m",
+   "form": "p_h",
+   "text": "പുപ്പ്ഹം",
+   "file": "W_pupphaṃ_ml_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "si_m",
+   "form": "normal",
+   "text": "පුප්ඵං",
+   "file": "W_pupphaṃ_si_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "si_m",
+   "form": "p_h",
+   "text": "පුප්ප්හං",
+   "file": "W_pupphaṃ_si_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "hi_m",
+   "form": "normal",
+   "text": "पुप्फं",
+   "file": "W_pupphaṃ_hi_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "hi_m",
+   "form": "p_h",
+   "text": "पुप्प्हं",
+   "file": "W_pupphaṃ_hi_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "mr_m",
+   "form": "normal",
+   "text": "पुप्फं",
+   "file": "W_pupphaṃ_mr_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "mr_m",
+   "form": "p_h",
+   "text": "पुप्प्हं",
+   "file": "W_pupphaṃ_mr_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "bn_m",
+   "form": "normal",
+   "text": "পুপ্ফং",
+   "file": "W_pupphaṃ_bn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphaṃ",
+   "voice": "bn_m",
+   "form": "p_h",
+   "text": "পুপ্প্হং",
+   "file": "W_pupphaṃ_bn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "te_m",
+   "form": "normal",
+   "text": "పుప్ఫాని",
+   "file": "W_pupphāni_te_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "te_m",
+   "form": "p_h",
+   "text": "పుప్ప్హాని",
+   "file": "W_pupphāni_te_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "te_f",
+   "form": "normal",
+   "text": "పుప్ఫాని",
+   "file": "W_pupphāni_te_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "te_f",
+   "form": "p_h",
+   "text": "పుప్ప్హాని",
+   "file": "W_pupphāni_te_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "kn_m",
+   "form": "normal",
+   "text": "ಪುಪ್ಫಾನಿ",
+   "file": "W_pupphāni_kn_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "kn_m",
+   "form": "p_h",
+   "text": "ಪುಪ್ಪ್ಹಾನಿ",
+   "file": "W_pupphāni_kn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "kn_f",
+   "form": "normal",
+   "text": "ಪುಪ್ಫಾನಿ",
+   "file": "W_pupphāni_kn_f_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "kn_f",
+   "form": "p_h",
+   "text": "ಪುಪ್ಪ್ಹಾನಿ",
+   "file": "W_pupphāni_kn_f_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "ml_m",
+   "form": "normal",
+   "text": "പുപ്ഫാനി",
+   "file": "W_pupphāni_ml_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "ml_m",
+   "form": "p_h",
+   "text": "പുപ്പ്ഹാനി",
+   "file": "W_pupphāni_ml_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "si_m",
+   "form": "normal",
+   "text": "පුප්ඵානි",
+   "file": "W_pupphāni_si_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "si_m",
+   "form": "p_h",
+   "text": "පුප්ප්හානි",
+   "file": "W_pupphāni_si_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "hi_m",
+   "form": "normal",
+   "text": "पुप्फानि",
+   "file": "W_pupphāni_hi_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "mr_m",
+   "form": "normal",
+   "text": "पुप्फानि",
+   "file": "W_pupphāni_mr_m_normal.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "mr_m",
+   "form": "p_h",
+   "text": "पुप्प्हानि",
+   "file": "W_pupphāni_mr_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "hi_m",
+   "form": "p_h",
+   "text": "पुप्प्हानि",
+   "file": "W_pupphāni_hi_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "bn_m",
+   "form": "p_h",
+   "text": "পুপ্প্হানি",
+   "file": "W_pupphāni_bn_m_p_h.mp3"
+  },
+  {
+   "kind": "word",
+   "key": "pupphāni",
+   "voice": "bn_m",
+   "form": "normal",
+   "text": "পুপ্ফানি",
+   "file": "W_pupphāni_bn_m_normal.mp3"
+  }
+ ],
+ "failed": [
+  "L_jh_si_m_two.mp3",
+  "L_jh_si_m_short.mp3",
+  "L_jh_si_m_long.mp3",
+  "L_jh_si_f_short.mp3",
+  "L_jh_si_f_long.mp3",
+  "L_jh_si_f_two.mp3",
+  "L_jh_or_f_long.mp3",
+  "L_jh_or_f_short.mp3",
+  "L_jh_or_f_two.mp3",
+  "L_jh_pa_m_long.mp3",
+  "L_jh_pa_m_short.mp3",
+  "L_jh_pa_m_two.mp3",
+  "L_ph_or_f_short.mp3",
+  "L_ph_or_f_long.mp3",
+  "L_ph_or_f_two.mp3",
+  "L_ph_pa_m_short.mp3",
+  "L_ph_pa_m_long.mp3",
+  "L_ph_pa_m_two.mp3",
+  "W_phalāni_or_f_normal.mp3",
+  "W_phalāni_or_f_p_h.mp3",
+  "W_pharasu_or_f_normal.mp3",
+  "W_pharasu_or_f_p_h.mp3",
+  "W_phusati_or_f_normal.mp3",
+  "W_phusati_or_f_p_h.mp3",
+  "W_pupphaṃ_or_f_normal.mp3",
+  "W_pupphaṃ_or_f_p_h.mp3",
+  "W_pupphāni_or_f_normal.mp3",
+  "W_pupphāni_or_f_p_h.mp3"
+ ]
+}
