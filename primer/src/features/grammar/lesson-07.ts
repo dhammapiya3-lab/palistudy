@@ -25,7 +25,7 @@ export const LESSON_07: StepWithoutId[] = [
   { type: 'teach', word: 'sakuṇa', pronKo: '사꾸나', meaning: '새', icon: '🐦', grammar: '남성명사', baseForm: 'sakuṇa', formNote: '처소격: sakuṇe\n복수: sakuṇesu' },
   { type: 'teach', word: 'kāka', pronKo: '까-까', meaning: '까마귀', icon: '🐦‍⬛', grammar: '남성명사', baseForm: 'kāka', formNote: '처소격: kāke\n의성어에서 유래' },
   { type: 'teach', word: 'nivāsa', pronKo: '니와-사', meaning: '집, 거처', icon: '🏠', grammar: '남성명사', baseForm: 'nivāsa', formNote: '처소격: nivāse\n"집에서"' },
-  { type: 'teach', word: 'sappurisa / asappurisa', pronKo: '삽뿌리사 / 아삽뿌리사', meaning: '진인(善人) / 악인(惡人)', icon: '⚖️', grammar: '남성명사', baseForm: 'sappurisa, asappurisa', formNote: 'sat(선한) + purisa(사람)\na(부정) + sat + purisa', buddhism: '경전에서 자주 대비되는 쌍' },
+  { type: 'teach', word: 'sappurisa / asappurisa', pronKo: '삽뿌리사 / 아삽뿌리사', meaning: '선인(善人) / 악인(惡人)', icon: '⚖️', grammar: '남성명사', baseForm: 'sappurisa, asappurisa', formNote: 'sat(선한) + purisa(사람)\na(부정) + sat + purisa', buddhism: '경전에서 자주 대비되는 쌍' },
   { type: 'teach', word: 'kāya', pronKo: '까-야', meaning: '몸, 신체', icon: '🧍', grammar: '남성명사', baseForm: 'kāya', formNote: '처소격: kāye/kāyasmiṃ\n"몸에/몸에서"', buddhism: 'kāyānupassanā = 몸에 대한 관찰 (사념처)' },
   { type: 'teach', word: 'dūta', pronKo: '두-따', meaning: '심부름꾼, 사자(使者)', icon: '📨', grammar: '남성명사', baseForm: 'dūta', formNote: '처소격: dūte' },
   { type: 'teach', word: 'goṇa', pronKo: '고-나', meaning: '황소', icon: '🐂', grammar: '남성명사', baseForm: 'goṇa', formNote: '처소격: goṇe\n복수: goṇesu' },

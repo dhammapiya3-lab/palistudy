@@ -51,7 +51,7 @@ export const LESSON_SOURCES: LessonSource[] = [
   // 연성법
   { id: 'lesson-sandhi', title: '연성법', subtitle: 'Sandhi ①~⑬ · 억제음 변화', icon: '🔗', load: () => import('./lesson-01-sandhi').then(m => m.LESSON_01_SANDHI) },
   // 경전 읽기 문법
-  { id: 'lesson-absolute', title: '절대 처격 · 절대 소유격', subtitle: '처격·소유격 + 분사 · ~할 때 / ~하는데도', icon: '⏳', load: () => import('./lesson-absolute').then(m => m.LESSON_ABSOLUTE) },
+  { id: 'lesson-absolute', title: '절대 처격 · 절대 소유격', subtitle: '처격·소유격 + 분사 · ~할 때 / ~할 때, ~하는데도', icon: '⏳', load: () => import('./lesson-absolute').then(m => m.LESSON_ABSOLUTE) },
   { id: 'lesson-compound', title: '복합어 (samāsa)', subtitle: '여러 낱말이 한 낱말로 · 6가지', icon: '🧩', load: () => import('./lesson-compound').then(m => m.LESSON_COMPOUND) },
   { id: 'lesson-iti', title: '인용 표시 iti (’ti)', subtitle: '"~라고" · 말과 생각의 끝 표시', icon: '💬', load: () => import('./lesson-iti').then(m => m.LESSON_ITI) },
   { id: 'lesson-passive', title: '수동태', subtitle: '-ya- · ~되다, ~라고 불린다', icon: '🔁', load: () => import('./lesson-passive').then(m => m.LESSON_PASSIVE) },

@@ -9,9 +9,9 @@ export const LESSON_CORRELATIVE: StepWithoutId[] = [
   {"type": "teach", "word": "yasmā", "pronKo": "야스마-", "meaning": "~이기 때문에", "icon": "❔", "grammar": "관계 대명사 탈격 (부사적)", "baseForm": "ya-"},
   {"type": "teach", "word": "tasmā", "pronKo": "따스마-", "meaning": "그러므로", "icon": "✅", "grammar": "지시 대명사 탈격 (부사적)", "baseForm": "ta-"},
   {"type": "verse", "pali": "Yathā yathā vā panassa kāyo paṇihito hoti, tathā tathā naṃ pajānāti.", "pronKo": "야타- 야타- 와- 빠낫사 까-요- 빠니히또- 호-띠, 따타- 따타- 낭 빠자-나-띠.", "translation": "그의 몸이 어떤 자세로 놓여 있든, 그대로 그것을 분명히 안다.", "highlight": ["Yathā", "tathā"], "note": "대념처경(MN 10)\nyathā yathā … tathā tathā … = 어떻게 ~하든 그대로"},
-  {"type": "verse", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠.", "translation": "비구들이여, 물질은 자아가 아니기 때문에, 그러므로 물질은 병으로 이끈다.", "highlight": ["Yasmā", "tasmā"], "note": "무아상경(SN 22.59)\nyasmā … tasmā … = ~이기 때문에, 그러므로"},
+  {"type": "verse", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠.", "translation": "비구들이여, 물질은 자아가 아니기 때문에, 그러므로 물질은 괴로움으로 이끈다.", "highlight": ["Yasmā", "tasmā"], "note": "무아상경(SN 22.59)\nyasmā … tasmā … = ~이기 때문에, 그러므로"},
   {"type": "quiz", "question": "\"yasmā … tasmā …\"의 뜻은?", "options": ["~이기 때문에, 그러므로", "~하는 곳에, 거기에", "~할 때, 그때", "~하는 대로, 그렇게"], "answer": 0, "hint": "탈격 (이유)", "explain": "yasmā(때문에) … tasmā(그러므로)"},
   {"type": "quiz", "question": "\"yathā\"와 짝을 이루는 말은?", "options": ["tathā", "tasmā", "tattha", "tadā"], "answer": 0, "hint": "~하는 대로 … 그렇게", "explain": "yathā … tathā … (~하는 대로 그렇게)"},
   {"type": "quiz", "question": "\"yattha … tattha …\"의 뜻은?", "options": ["~하는 곳에, 거기에", "~할 때, 그때", "~이기 때문에, 그러므로", "~하는 만큼, 그만큼"], "answer": 0, "hint": "-ttha = 장소", "explain": "yattha(~하는 곳에) … tattha(거기에)"},
-  {"type": "speak", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠.", "translation": "비구들이여, 물질은 자아가 아니기 때문에, 그러므로 물질은 병으로 이끈다."},
+  {"type": "speak", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠.", "translation": "비구들이여, 물질은 자아가 아니기 때문에, 그러므로 물질은 괴로움으로 이끈다."},
 ]
