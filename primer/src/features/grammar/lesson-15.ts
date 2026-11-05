@@ -25,7 +25,7 @@ export const LESSON_15: StepWithoutId[] = [
   { type: 'teach', word: 'dehi / detha', pronKo: '데-히 / 데-타', meaning: '주어라!', icon: '🤲', grammar: '명령형 2인칭', baseForm: 'dadāti', formNote: '현재: dadāti/deti\n명령 단수: dehi\n명령 복수: detha' },
   { type: 'teach', word: 'karohi / karotha', pronKo: '까로-히 / 까로-타', meaning: '행하라!', icon: '⚒️', grammar: '명령형 2인칭', baseForm: 'karoti', formNote: '현재: karoti\n명령 단수: karohi\n명령 복수: karotha\n3인칭: karotu/karontu' },
   { type: 'teach', word: 'suṇāhi / suṇātha', pronKo: '수나-히 / 수나-타', meaning: '들어라!', icon: '👂', grammar: '명령형 2인칭', baseForm: 'suṇāti', formNote: '현재: suṇāti\n명령 단수: suṇāhi\n명령 복수: suṇātha' },
-  { type: 'teach', word: 'mā', pronKo: '마-', meaning: '~하지 마라 (금지)', icon: '🚫', grammar: '금지 불변사', baseForm: 'mā', formNote: 'mā + 명령형 = 금지\nmā gaccha = 가지 마라' },
+  { type: 'teach', word: 'mā', pronKo: '마-', meaning: '~하지 마라 (금지)', icon: '🚫', grammar: '금지 불변화사', baseForm: 'mā', formNote: 'mā + 명령형 = 금지\nmā gaccha = 가지 마라' },
   { type: 'teach', word: 'bhāyati', pronKo: '바-야띠', meaning: '두려워하다', icon: '😨', grammar: '동사 · 현재 3인칭 단수', baseForm: 'bhāyati', formNote: '복수: bhāyanti\n명령: bhāya / bhāyatha\nmā bhāyatha = 두려워하지 마라' },
 
   // === 예문 (단수+복수+금지) ===

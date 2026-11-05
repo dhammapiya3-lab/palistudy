@@ -150,7 +150,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '그것들에서 나는\n그런 나는\n' +
       '참으로 거기서\n그가 바로',
     explanation:
-      '흔히 짧은 대명사·불변사(te, me, so, kho, yesu…)\n끝의 i/e, u/o가 뒤 모음 앞에서:\n' +
+      '흔히 짧은 대명사·불변화사(te, me, so, kho, yesu…)\n끝의 i/e, u/o가 뒤 모음 앞에서:\n' +
       '• i, e → y로 변하고 뒤 a가 장음화\n' +
       '• u, o → v로 변하고 뒤 a가 장음화\n\n' +
       '주로 짧은 단어 끝의 i/u와 e/o에 일어나며,\nā는 이 변화를 겪지 않습니다.\n\n' +
@@ -402,7 +402,7 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
       '  (y가 삽입됨)\n\n' +
       '※ ṃ + eva는 ekameva처럼 m으로도 연결됩니다.\n' +
       '(경전에서는 ekameva 쪽이 더 자주 나옵니다)\n\n' +
-      'eva(바로, ~만)는 경전에서 매우\n자주 나오는 불변사입니다.',
+      'eva(바로, ~만)는 경전에서 매우\n자주 나오는 불변화사입니다.',
   },
 
   // ─── 경전 실례: 전법륜경 ───
