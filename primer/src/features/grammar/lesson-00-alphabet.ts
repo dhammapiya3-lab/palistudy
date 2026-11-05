@@ -222,7 +222,7 @@ export const LESSON_00: StepWithoutId[] = [
       '• ḷa(ㄹ라) — 혀를 말아서 내는 la\n' +
       '• ṃ — 콧소리로 끝맺는 받침 (억제음, Anusvāra · niggahīta)\n\n' +
       'ṃ은 낱말 끝에 자주 나와요:\n' +
-      '예) dhammaṃ(담망), Buddhaṃ(붓당), Ekaṃ(에깡)',
+      '예) dhammaṃ(담망), Buddhaṃ(붓당), Ekaṃ(에-깡)',
   },
 
   // ── (더 알아보기) 자음 전체 도표 ──
@@ -268,7 +268,7 @@ export const LESSON_00: StepWithoutId[] = [
     title: '핵심 발음 규칙',
     example:
       '겹자음 앞 → 짧게:  mettā(멧따-), khetta(켓따)\n' +
-      '                  koṭṭha(콧타), sotthi(솟티)\n\n' +
+      '                  koṭṭha(꼿타), sotthi(솟티)\n\n' +
       'e·o + 자음 하나 → 길게: deva(데-와), senā(세-나-)\n' +
       '                     loka(로-까), odana(오-다나)',
     exampleKo: 'e·o는 보통 길게 / 자음이 두 개 겹친 앞에서는 짧게',

@@ -25,27 +25,27 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'teach', word: 'sakaṭena', pronKo: '사까떼-나', meaning: '짐수레로', icon: '🛒', grammar: '남성명사 · 도구격 단수', baseForm: 'sakaṭa (짐수레)', formNote: 'sakaṭa + ena → sakaṭena' },
   { type: 'teach', word: 'hatthena', pronKo: '핫테-나', meaning: '손으로', icon: '✋', grammar: '남성명사 · 도구격 단수', baseForm: 'hattha (손)', formNote: 'hattha + ena → hatthena\n복수: hatthehi (손들로)' },
   { type: 'teach', word: 'pādena', pronKo: '빠-데-나', meaning: '발로', icon: '🦶', grammar: '남성명사 · 도구격 단수', baseForm: 'pāda (발)', formNote: 'pāda + ena → pādena\n복수: pādehi (발들로)' },
-  { type: 'teach', word: 'maggena', pronKo: '맛게-나', meaning: '길로, 길을 통해', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
+  { type: 'teach', word: 'maggena', pronKo: '막게-나', meaning: '길로, 길을 통해', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
   { type: 'teach', word: 'dīpaṃ', pronKo: '디-빵', meaning: '섬을/등불을', icon: '🏝️', grammar: '남성명사, 목적격', baseForm: 'dīpa (섬, 대륙, 등불)', formNote: '도구격: dīpena' },
-  { type: 'teach', word: 'sāvakena', pronKo: '사-와게-나', meaning: '제자에 의해', icon: '🙇', grammar: '남성명사 · 도구격 단수', baseForm: 'sāvaka (제자)', formNote: 'sāvaka + ena → sāvakena\n복수: sāvakehi', buddhism: 'sāvaka = "듣는 자". 붓다의 가르침을 듣고 수행하는 제자' },
+  { type: 'teach', word: 'sāvakena', pronKo: '사-와께-나', meaning: '제자에 의해', icon: '🙇', grammar: '남성명사 · 도구격 단수', baseForm: 'sāvaka (제자)', formNote: 'sāvaka + ena → sāvakena\n복수: sāvakehi', buddhism: 'sāvaka = "듣는 자". 붓다의 가르침을 듣고 수행하는 제자' },
   { type: 'teach', word: 'samaṇena', pronKo: '사마네-나', meaning: '사문과 함께', icon: '🧘', grammar: '남성명사 · 도구격 단수', baseForm: 'samaṇa (사문, 스님)', formNote: 'samaṇa + ena → samaṇena' },
   { type: 'teach', word: 'saggena', pronKo: '삭게-나', meaning: '하늘에 의해, 하늘로써', icon: '☁️', grammar: '남성명사 · 도구격 단수', baseForm: 'sagga (하늘)', formNote: 'sagga + ena → saggena\n※ 도구격은 도착점을 나타내지 않음.\n"하늘로(방향) 간다"는 목적격 saggaṃ' },
   { type: 'teach', word: 'assena', pronKo: '앗세-나', meaning: '말로', icon: '🐴', grammar: '남성명사 · 도구격 단수', baseForm: 'assa (말)', formNote: 'assa + ena → assena\n복수: assehi' },
   { type: 'teach', word: 'migena', pronKo: '미게-나', meaning: '사슴과 함께', icon: '🦌', grammar: '남성명사 · 도구격 단수', baseForm: 'miga (사슴, 짐승)', formNote: 'miga + ena → migena\n복수: migehi' },
   { type: 'teach', word: 'sarena', pronKo: '사레-나', meaning: '화살로', icon: '🏹', grammar: '남성명사 · 도구격 단수', baseForm: 'sara (화살)', formNote: 'sara + ena → sarena' },
   { type: 'teach', word: 'pāsāṇena', pronKo: '빠-사-네-나', meaning: '돌로', icon: '🪨', grammar: '남성명사 · 도구격 단수', baseForm: 'pāsāṇa (돌, 바위)', formNote: 'pāsāṇa + ena → pāsāṇena' },
-  { type: 'teach', word: 'kakacena', pronKo: '까까게-나', meaning: '톱으로', icon: '🪚', grammar: '남성명사 · 도구격 단수', baseForm: 'kakaca (톱)', formNote: 'kakaca + ena → kakacena' },
-  { type: 'teach', word: 'khaggena', pronKo: '캇게-나', meaning: '칼로', icon: '🗡️', grammar: '남성명사 · 도구격 단수', baseForm: 'khagga (칼)', formNote: 'khagga + ena → khaggena' },
-  { type: 'teach', word: 'corena', pronKo: '조-레-나', meaning: '도둑에 의해', icon: '🥷', grammar: '남성명사 · 도구격 단수', baseForm: 'cora (도둑, 강도)', formNote: 'cora + ena → corena' },
+  { type: 'teach', word: 'kakacena', pronKo: '까까쩨-나', meaning: '톱으로', icon: '🪚', grammar: '남성명사 · 도구격 단수', baseForm: 'kakaca (톱)', formNote: 'kakaca + ena → kakacena' },
+  { type: 'teach', word: 'khaggena', pronKo: '칵게-나', meaning: '칼로', icon: '🗡️', grammar: '남성명사 · 도구격 단수', baseForm: 'khagga (칼)', formNote: 'khagga + ena → khaggena' },
+  { type: 'teach', word: 'corena', pronKo: '쪼-레-나', meaning: '도둑에 의해', icon: '🥷', grammar: '남성명사 · 도구격 단수', baseForm: 'cora (도둑, 강도)', formNote: 'cora + ena → corena' },
   { type: 'teach', word: 'paṇḍitena', pronKo: '빤디떼-나', meaning: '현자와 함께', icon: '🧠', grammar: '남성명사 · 도구격 단수', baseForm: 'paṇḍita (현자, 현명한 사람)', formNote: 'paṇḍita + ena → paṇḍitena\n복수: paṇḍitehi' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Samaṇo narena saddhiṃ gāmaṃ gacchati.\nSamaṇā narehi saddhiṃ gāmaṃ gacchanti.', pronKo: '사마노- 나레-나 삿딤 가-망 갓차띠\n사마나- 나레-히 삿딤 가-망 갓찬띠', translation: '사문은 사람과 함께 마을로 간다.\n사문들은 사람들과 함께 마을로 간다.', highlight: ['narena', 'narehi', 'saddhiṃ'] },
+  { type: 'verse', pali: 'Samaṇo narena saddhiṃ gāmaṃ gacchati.\nSamaṇā narehi saddhiṃ gāmaṃ gacchanti.', pronKo: '사마노- 나레-나 삿딩 가-망 갓차띠\n사마나- 나레-히 삿딩 가-망 갓찬띠', translation: '사문은 사람과 함께 마을로 간다.\n사문들은 사람들과 함께 마을로 간다.', highlight: ['narena', 'narehi', 'saddhiṃ'] },
   { type: 'verse', pali: 'Putto mātulena saha candaṃ passati.\nPuttā mātulehi saha candaṃ passanti.', pronKo: '뿟또- 마-뚤레-나 사하 짠당 빳사띠\n뿟따- 마-뚤레-히 사하 짠당 빳산띠', translation: '아들은 삼촌과 함께 달을 본다.\n아들들은 삼촌들과 함께 달을 본다.', highlight: ['mātulena', 'mātulehi', 'saha'] },
-  { type: 'verse', pali: 'Kassako kakacena rukkhaṃ chindati.\nKassakā kakacehi rukkhe chindanti.', pronKo: '깟사꼬- 까까게-나 룩캉 친다띠\n깟사까- 까까게-히 룩케- 친단띠', translation: '농부는 톱으로 나무를 자른다.\n농부들은 톱들로 나무들을 자른다.', highlight: ['kakacena', 'kakacehi'] },
+  { type: 'verse', pali: 'Kassako kakacena rukkhaṃ chindati.\nKassakā kakacehi rukkhe chindanti.', pronKo: '깟사꼬- 까까쩨-나 룩캉 친다띠\n깟사까- 까까쩨-히 룩케- 친단띠', translation: '농부는 톱으로 나무를 자른다.\n농부들은 톱들로 나무들을 자른다.', highlight: ['kakacena', 'kakacehi'] },
 
   // === 팔정도 경전 구절 ===
-  { type: 'verse', pali: V_MAGGA, pronKo: '아야메-와 아리요- 앗탕기꼬- 맛고-', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
+  { type: 'verse', pali: V_MAGGA, pronKo: '아야메-와 아리요- 앗탕기꼬- 막고-', translation: V_MAGGA_K, highlight: ['maggo', 'sammādiṭṭhi', 'sammāsati'], note: 'maggo = magga의 주격 단수 (복습!)\nsammā = 바른 (불변어)' },
 
   // === 연습문제 3 (25문제) ===
   { type: 'quiz', question: '1. Buddho sāvakehi saddhiṃ vihāraṃ gacchati.', options: ['붓다는 제자들과 함께 정사로 간다', '붓다는 제자를 위해 정사로 간다', '붓다들은 제자들과 함께 정사로 간다', '붓다는 제자들과 함께 마을로 간다'], answer: 0, hint: 'sāvakehi saddhiṃ=제자들과 함께(도구격+saddhiṃ)' },

@@ -19,9 +19,9 @@ export const LESSON_06: StepWithoutId[] = [
   { type: 'teach-grammar', title: '소유격 vs 여격 — 구별법', example: '소유격: narassa putto (사람의 아들)\n여격: narāya deti (사람에게 준다)', exampleKo: '소유격=소유·관계 / 여격=방향·수여', explanation: '복수형은 둘 다 -ānaṃ으로 동일!\n\n• 소유격: ~의 (수식어 역할)\n  narānaṃ puttā = 사람들의 아들들\n• 여격: ~에게 (동사의 간접목적어)\n  narānaṃ deti = 사람들에게 준다\n\n단수:\n• 여격 단수 -āya (narāya)는 여격 전용\n• -ssa (narassa)는 소유격·여격 공통\n복수 -ānaṃ도 두 격 공통입니다.\n따라서 -ssa/-ānaṃ은 문맥으로 구별합니다.' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Narassa putto bhattaṃ yācati.\nNarānaṃ puttā bhattaṃ yācanti.', pronKo: '나랏사 뿟또- 밧땅 야-자띠\n나라-남 뿟따- 밧땅 야-잔띠', translation: '사람의 아들은 밥을 구한다.\n사람들의 아들들은 밥을 구한다.', highlight: ['Narassa', 'Narānaṃ'] },
-  { type: 'verse', pali: 'Mātulassa sahāyako rathaṃ āharati.\nMātulānaṃ sahāyakā rathe āharanti.', pronKo: '마-뚤랏사 사하-야꼬- 라탐 아-하라띠\n마-뚤라-남 사하-야까- 라테- 아-하란띠', translation: '삼촌의 친구는 마차를 가져온다.\n삼촌들의 친구들은 마차들을 가져온다.', highlight: ['Mātulassa', 'Mātulānaṃ'] },
-  { type: 'verse', pali: 'Kassakassa sūkaro dīpaṃ dhāvati.\nKassakānaṃ sūkarā dīpe dhāvanti.', pronKo: '깟사깟사 수-까로- 디-빵 다-와띠\n깟사까-남 수-까라- 디-뻬- 다-완띠', translation: '농부의 돼지는 섬으로 달린다.\n농부들의 돼지들은 섬들로 달린다.', highlight: ['Kassakassa', 'Kassakānaṃ'] },
+  { type: 'verse', pali: 'Narassa putto bhattaṃ yācati.\nNarānaṃ puttā bhattaṃ yācanti.', pronKo: '나랏사 뿟또- 밧땅 야-짜띠\n나라-낭 뿟따- 밧땅 야-짠띠', translation: '사람의 아들은 밥을 구한다.\n사람들의 아들들은 밥을 구한다.', highlight: ['Narassa', 'Narānaṃ'] },
+  { type: 'verse', pali: 'Mātulassa sahāyako rathaṃ āharati.\nMātulānaṃ sahāyakā rathe āharanti.', pronKo: '마-뚤랏사 사하-야꼬- 라탕 아-하라띠\n마-뚤라-낭 사하-야까- 라테- 아-하란띠', translation: '삼촌의 친구는 마차를 가져온다.\n삼촌들의 친구들은 마차들을 가져온다.', highlight: ['Mātulassa', 'Mātulānaṃ'] },
+  { type: 'verse', pali: 'Kassakassa sūkaro dīpaṃ dhāvati.\nKassakānaṃ sūkarā dīpe dhāvanti.', pronKo: '깟사깟사 수-까로- 디-빵 다-와띠\n깟사까-낭 수-까라- 디-뻬- 다-완띠', translation: '농부의 돼지는 섬으로 달린다.\n농부들의 돼지들은 섬들로 달린다.', highlight: ['Kassakassa', 'Kassakānaṃ'] },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Kassakassa putto vejjassa sahāyena saddhiṃ āgacchati.', options: ['농부의 아들은 의사의 친구와 함께 온다', '농부의 아들은 의사와 함께 온다', '농부들의 아들은 의사의 친구와 함께 간다', '농부의 아들들은 의사의 친구와 함께 온다'], answer: 0, hint: 'kassakassa=농부의, vejjassa sahāyena=의사의 친구와(도구격)' },

@@ -12,7 +12,7 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'intro', title: '1과: 남성명사 주격 + 동사', subtitle: '-a puliṅga paṭhamā vibhatti', description: '-a로 끝나는 남성명사의 주격과\n현재 3인칭 동사를 배웁니다.\n\n전법륜경의 첫 구절에서 직접 확인합니다.', icon: '📿' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V1, pronKo: '에-깡 사마양 바가와~ 바-라-나시양 위하라띠 이시빠따네- 미가다-예-', translation: V1K, highlight: ['bhagavā', 'viharati'], note: 'bhagavā(세존)는 주격, viharati(머무시다)는 현재 3인칭 동사입니다.\n오늘 이 문법을 배웁니다!' },
+  { type: 'verse', pali: V1, pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-', translation: V1K, highlight: ['bhagavā', 'viharati'], note: 'bhagavā(세존)는 주격, viharati(머무시다)는 현재 3인칭 동사입니다.\n오늘 이 문법을 배웁니다!' },
 
   // === 주격 문법 ===
   { type: 'teach-grammar', title: '주격 (Nominative) — ~은/는/이/가', example: 'nara + o = naro (사람은)\nnara + ā = narā (사람들은)', exampleKo: '단수: -a → -o / 복수: -a → -ā', explanation: '주격은 문장의 주어입니다.\n\n-a로 끝나는 남성명사:\n• 단수: -a → -o (naro, buddho, kassako)\n• 복수: -a → -ā (narā, buddhā, kassakā)' },
@@ -51,7 +51,7 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'verse', pali: 'Kassako kasati / Kassakā kasanti', pronKo: '깟사꼬- 까사띠 / 깟사까- 까산띠', translation: '농부는 쟁기질한다 / 농부들은 쟁기질한다', highlight: ['Kassako', 'Kassakā', 'kasati', 'kasanti'] },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V2, pronKo: '따뜨라 코- 바가와~ 빤짜왓기예- 빅쿠- 아-만떼-시', translation: V2K, highlight: ['bhagavā', 'āmantesi'], note: 'bhagavā = 주격 (세존께서)\nāmantesi = 과거형 동사 (말씀하셨다)' },
+  { type: 'verse', pali: V2, pronKo: '따뜨라 코- 바가와- 빤짜왁기예- 빅쿠- 아-만떼-시', translation: V2K, highlight: ['bhagavā', 'āmantesi'], note: 'bhagavā = 주격 (세존께서)\nāmantesi = 과거형 동사 (말씀하셨다)' },
 
   // === 연습문제 1 (16문제) ===
   { type: 'quiz', question: '1. Bhūpālo bhuñjati.', options: ['왕은 먹는다', '왕은 달린다', '왕들은 먹는다', '소년은 먹는다'], answer: 0, hint: 'Bhūpālo = 왕은(주격 단수), bhuñjati = 먹다' },
@@ -72,5 +72,5 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'quiz', question: '16. Sugato āgacchati.', options: ['선서는 가신다', '선서는 오신다', '선서들은 오신다', '여래는 오신다'], answer: 1, hint: 'Sugato = 선서는(주격 단수), āgacchati = 오다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에-깡 사마양 바가와~ 바-라-나시양 위하라띠' },
+  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠' },
 ]

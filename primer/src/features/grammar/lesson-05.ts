@@ -40,9 +40,9 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'teach', word: 'pajahati', pronKo: '빠자하띠', meaning: '버리다', icon: '🗑️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'pajahati', formNote: '복수: pajahanti' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Dhīvaro narāya macchaṃ āharati.\nDhīvarā narānaṃ macche āharanti.', pronKo: '디-와로- 나라-야 맛참 아-하라띠\n디-와라- 나라-남 맛체- 아-하란띠', translation: '어부는 사람에게 물고기를 가져온다.\n어부들은 사람들에게 물고기들을 가져온다.', highlight: ['narāya', 'narānaṃ'] },
-  { type: 'verse', pali: 'Putto mātulassa odanaṃ dadāti.\nPuttā mātulānaṃ odanaṃ dadanti.', pronKo: '뿟또- 마-뚤랏사 오-다낭 다다-띠\n뿟따- 마-뚤라-남 오-다낭 다단띠', translation: '아들은 삼촌에게 밥을 준다.\n아들들은 삼촌들에게 밥을 준다.', highlight: ['mātulassa', 'mātulānaṃ'] },
-  { type: 'verse', pali: 'Vāṇijo kassakassa ajaṃ dadāti.\nVāṇijā kassakānaṃ aje dadanti.', pronKo: '와-니조- 깟사깟사 아잠 다다-띠\n와-니자- 깟사까-남 아제- 다단띠', translation: '상인은 농부에게 염소를 준다.\n상인들은 농부들에게 염소들을 준다.', highlight: ['kassakassa', 'kassakānaṃ'] },
+  { type: 'verse', pali: 'Dhīvaro narāya macchaṃ āharati.\nDhīvarā narānaṃ macche āharanti.', pronKo: '디-와로- 나라-야 맛창 아-하라띠\n디-와라- 나라-낭 맛체- 아-하란띠', translation: '어부는 사람에게 물고기를 가져온다.\n어부들은 사람들에게 물고기들을 가져온다.', highlight: ['narāya', 'narānaṃ'] },
+  { type: 'verse', pali: 'Putto mātulassa odanaṃ dadāti.\nPuttā mātulānaṃ odanaṃ dadanti.', pronKo: '뿟또- 마-뚤랏사 오-다낭 다다-띠\n뿟따- 마-뚤라-낭 오-다낭 다단띠', translation: '아들은 삼촌에게 밥을 준다.\n아들들은 삼촌들에게 밥을 준다.', highlight: ['mātulassa', 'mātulānaṃ'] },
+  { type: 'verse', pali: 'Vāṇijo kassakassa ajaṃ dadāti.\nVāṇijā kassakānaṃ aje dadanti.', pronKo: '와-니조- 깟사깟사 아장 다다-띠\n와-니자- 깟사까-낭 아제- 다단띠', translation: '상인은 농부에게 염소를 준다.\n상인들은 농부들에게 염소들을 준다.', highlight: ['kassakassa', 'kassakānaṃ'] },
 
   // === 연습문제 5 (10문제) ===
   { type: 'quiz', question: '1. Upāsako ācariyassa phalaṃ dadāti.', options: ['우바새는 스승에게 과일을 준다', '우바새는 스승으로부터 과일을 받는다', '우바새들은 스승에게 과일을 준다', '우바새는 스승과 함께 과일을 먹는다'], answer: 0, hint: 'ācariyassa=스승에게(여격), dadāti=주다' },

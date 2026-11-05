@@ -44,8 +44,8 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'teach', word: 'nikkhamati', pronKo: '닉카마띠', meaning: '떠나다, 나오다', icon: '🚪', grammar: '동사 · 현재 3인칭 단수', baseForm: 'nikkhamati', formNote: '복수: nikkhamanti\n예: vihārasmā nikkhamati (정사로부터 떠나다)' },
 
   // === 교재 예문 3쌍 ===
-  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-자꼬- 나랑하- 밧땅 야-자띠\n야-자까- 나레-히 밧땅 야-잔띠', translation: '거지는 사람에게서 밥을 구한다.\n거지들은 사람들에게서 밥을 구한다.', highlight: ['naramhā', 'narehi'] },
-  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또- 마-뚤랑하- 빤함 뿟차띠\n뿟따- 마-뚤레-히 빤헤- 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'], note: '※ pucchati는 보통 묻는 대상도 목적격으로 받는 이중 목적격(mātulaṃ pañhaṃ pucchati)을 씁니다. 여기서는 탈격 연습을 위한 교재 예문입니다.' },
+  { type: 'verse', pali: 'Yācako naramhā bhattaṃ yācati.\nYācakā narehi bhattaṃ yācanti.', pronKo: '야-짜꼬- 나람하- 밧땅 야-짜띠\n야-짜까- 나레-히 밧땅 야-짠띠', translation: '거지는 사람에게서 밥을 구한다.\n거지들은 사람들에게서 밥을 구한다.', highlight: ['naramhā', 'narehi'] },
+  { type: 'verse', pali: 'Putto mātulamhā pañhaṃ pucchati.\nPuttā mātulehi pañhe pucchanti.', pronKo: '뿟또- 마-뚤람하- 빤항 뿟차띠\n뿟따- 마-뚤레-히 빤헤- 뿟찬띠', translation: '아들은 삼촌에게서 질문을 묻는다.\n아들들은 삼촌들에게서 질문들을 묻는다.', highlight: ['mātulamhā', 'mātulehi'], note: '※ pucchati는 보통 묻는 대상도 목적격으로 받는 이중 목적격(mātulaṃ pañhaṃ pucchati)을 씁니다. 여기서는 탈격 연습을 위한 교재 예문입니다.' },
   { type: 'verse', pali: 'Kassako rukkhasmā patati.\nKassakā rukkhehi patanti.', pronKo: '깟사꼬- 룩카스마- 빠따띠\n깟사까- 룩케-히 빠딴띠', translation: '농부는 나무에서 떨어진다.\n농부들은 나무들에서 떨어진다.', highlight: ['rukkhasmā', 'rukkhehi'] },
 
   // === 연습문제 4 (10문제) ===

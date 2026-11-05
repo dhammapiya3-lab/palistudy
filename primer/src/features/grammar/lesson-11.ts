@@ -33,7 +33,7 @@ export const LESSON_11: StepWithoutId[] = [
 
   // === 예문 ===
   { type: 'verse', pali: 'Ahaṃ dhammaṃ suṇāmi.\nMayaṃ dhammaṃ suṇāma.', pronKo: '아항 담망 수나-미\n마양 담망 수나-마', translation: '나는 법을 듣는다.\n우리는 법을 듣는다.', highlight: ['suṇāmi', 'suṇāma', 'Ahaṃ', 'Mayaṃ'], note: 'suṇāmi = suṇāti의 1인칭 단수\nsuṇāma = suṇāti의 1인칭 복수' },
-  { type: 'verse', pali: 'Tvaṃ kiṃ passasi?\nAhaṃ rukkhaṃ passāmi.', pronKo: '뜨왕 킹 빳사시?\n아항 룩캉 빳사-미', translation: '너는 무엇을 보느냐?\n나는 나무를 본다.', highlight: ['passasi', 'passāmi', 'kiṃ'], note: 'passasi = passati의 2인칭 단수\npassāmi = passati의 1인칭 단수\nkiṃ = 무엇(의문사)' },
+  { type: 'verse', pali: 'Tvaṃ kiṃ passasi?\nAhaṃ rukkhaṃ passāmi.', pronKo: '뜨왕 낑 빳사시?\n아항 룩캉 빳사-미', translation: '너는 무엇을 보느냐?\n나는 나무를 본다.', highlight: ['passasi', 'passāmi', 'kiṃ'], note: 'passasi = passati의 2인칭 단수\npassāmi = passati의 1인칭 단수\nkiṃ = 무엇(의문사)' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Buddhaṃ saraṇaṃ gacchāmi.', options: ['나는 부처님께 귀의합니다', '그는 부처님께 귀의합니다', '우리는 부처님께 귀의합니다', '너는 부처님께 귀의합니다'], answer: 0, hint: 'gacchāmi = 1인칭 단수 (-āmi)' },

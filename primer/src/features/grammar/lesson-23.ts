@@ -22,7 +22,7 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'teach-grammar', title: '-i 남성명사 격변화 (aggi 불)', example: '주격: aggi / aggī,aggayo\n목적격: aggiṃ / aggī,aggayo\n도구격: agginā / aggīhi\n여격: aggino,aggissa / aggīnaṃ\n탈격: agginā,aggimhā / aggīhi\n소유격: aggino,aggissa / aggīnaṃ\n처소격: aggimhi,aggismiṃ / aggīsu\n호격: aggi / aggī,aggayo', exampleKo: '단수: -inā(도구격), -ino/-issa(여/소유)\n복수: -ī/-īhi/-īnaṃ/-īsu', explanation: '-i 남성명사 핵심:\n• 도구격 단수: -inā (narena와 대응)\n• 여격/소유격 단수: -ino 또는 -issa\n• 탈격: -inā 또는 -imhā\n• 처소격: -imhi 또는 -ismiṃ\n• 복수: -ī/-īhi/-īnaṃ/-īsu\n• 복수 주격/목적격/호격 이형: -ayo (aggayo)\n  (-iyo는 -i/-ī 여성명사 어미)' },
 
   // === -i 남성명사 단어 ===
-  { type: 'teach', word: 'aggi', pronKo: '앗기', meaning: '불', icon: '🔥', grammar: '-i 남성명사', formNote: '주격: aggi / aggī' },
+  { type: 'teach', word: 'aggi', pronKo: '악기', meaning: '불', icon: '🔥', grammar: '-i 남성명사', formNote: '주격: aggi / aggī' },
   { type: 'teach', word: 'muni', pronKo: '무니', meaning: '성자, 무니', icon: '🧘', grammar: '-i 남성명사', formNote: '주격: muni / munī', buddhism: 'Sakyamuni = 석가모니(석가족의 성자)' },
   { type: 'teach', word: 'kavi', pronKo: '까위', meaning: '시인', icon: '✍️', grammar: '-i 남성명사', formNote: '주격: kavi / kavī' },
   { type: 'teach', word: 'ari', pronKo: '아리', meaning: '적(敵)', icon: '⚔️', grammar: '-i 남성명사', formNote: '주격: ari / arī' },

@@ -29,13 +29,13 @@ export const LESSON_09: StepWithoutId[] = [
   { type: 'teach', word: 'sutvā', pronKo: '숫뜨와-', meaning: '듣고서', icon: '👂', grammar: '절대분사', baseForm: 'suṇāti → sutvā', formNote: '불규칙: su + tvā\nsuṇitvā도 가능' },
   { type: 'teach', word: 'āgamma', pronKo: '아-감마', meaning: '와서, 도착하고서', icon: '🏃', grammar: '절대분사(-ya형)', baseForm: 'āgacchati → āgamma', formNote: 'ā + gam + ya → āgamma\nāgantvā도 가능' },
   { type: 'teach', word: 'ādāya', pronKo: '아-다-야', meaning: '가지고서, 취하여', icon: '🤲', grammar: '절대분사(-ya형)', baseForm: 'ādadāti → ādāya', formNote: 'ā + dā + ya → ādāya' },
-  { type: 'teach', word: 'āruyha', pronKo: '아-룻야', meaning: '오르고서', icon: '⬆️', grammar: '절대분사(-ya형)', baseForm: 'āruhati → āruyha', formNote: 'ā + ruh + ya → āruyha' },
+  { type: 'teach', word: 'āruyha', pronKo: '아-루이하', meaning: '오르고서', icon: '⬆️', grammar: '절대분사(-ya형)', baseForm: 'āruhati → āruyha', formNote: 'ā + ruh + ya → āruyha' },
   { type: 'teach', word: 'yācitvā', pronKo: '야-찌뜨와-', meaning: '구걸하고서, 청하고서', icon: '🙏', grammar: '절대분사', baseForm: 'yācati → yācitvā', formNote: '규칙: -ati → -itvā' },
   { type: 'teach', word: 'vandati', pronKo: '완다띠', meaning: '예배하다, 절하다', icon: '🙇', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vandati', formNote: '복수: vandanti\nvandana = 예배, 경배' },
 
   // === 교재 예문 ===
   { type: 'verse', pali: 'Kassako khettamhā āgantvā bhattaṃ bhuñjati.', pronKo: '깟사꼬- 켓땀하- 아-간뜨와- 밧땅 분자띠', translation: '농부는 밭에서 돌아와서(āgantvā) 밥을 먹는다.', highlight: ['āgantvā', 'khettamhā', 'bhattaṃ'], note: 'āgantvā = 와서 (절대분사)\nkhettamhā = 밭에서 (탈격)\nbhattaṃ = 밥을 (목적격)' },
-  { type: 'verse', pali: 'Vānarā rukkhaṃ āruyha phalāni khādanti.', pronKo: '와-나라- 룩캉 아-룻야 팔라-니 카-단띠', translation: '원숭이들은 나무에 올라서(āruyha) 과일들을 먹는다.', highlight: ['āruyha', 'rukkhaṃ', 'phalāni'], note: 'āruyha = 올라서 (-ya형 절대분사)\nrukkhaṃ = 나무를 (āruyha의 목적어)' },
+  { type: 'verse', pali: 'Vānarā rukkhaṃ āruyha phalāni khādanti.', pronKo: '와-나라- 룩캉 아-루이하 팔라-니 카-단띠', translation: '원숭이들은 나무에 올라서(āruyha) 과일들을 먹는다.', highlight: ['āruyha', 'rukkhaṃ', 'phalāni'], note: 'āruyha = 올라서 (-ya형 절대분사)\nrukkhaṃ = 나무를 (āruyha의 목적어)' },
   { type: 'verse', pali: 'Dārako bhattaṃ yācitvā rodati.', pronKo: '다-라꼬- 밧땅 야-찌뜨와- 로-다띠', translation: '아이는 밥을 구걸하고서(yācitvā) 운다.', highlight: ['yācitvā', 'bhattaṃ', 'rodati'], note: 'yācitvā = 구걸하고서 (절대분사)\nrodati = 울다' },
   { type: 'verse', pali: 'Samaṇo Buddhaṃ passitvā vandati.', pronKo: '사마노- 붓당 빳씻뜨와- 완다띠', translation: '사문은 부처님을 보고서(passitvā) 예배한다.', highlight: ['passitvā', 'Buddhaṃ', 'vandati'], note: 'passitvā = 보고서 (disvā와 동의)\nvandati = 예배하다' },
 

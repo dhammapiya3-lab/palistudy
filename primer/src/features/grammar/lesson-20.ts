@@ -24,7 +24,7 @@ export const LESSON_20: StepWithoutId[] = [
   { type: 'verse', pali: 'Pacantī nārī gehasmiṃ vasati.', pronKo: '빠짠띠- 나-리- 게-하스밍 와사띠', translation: '요리하는 여자는 집에서 산다.', highlight: ['Pacantī'], note: 'pacantī = 요리하는 (여성 현재분사 단수)' },
   { type: 'verse', pali: 'Pacantiyo nāriyo gehesu vasanti.', pronKo: '빠짠띠요- 나-리요- 게-헤-수 와산띠', translation: '요리하는 여자들은 집들에서 산다.', highlight: ['Pacantiyo'], note: 'pacantiyo = 요리하는 (여성 현재분사 복수)' },
   { type: 'verse', pali: 'Gacchantī kumārī vihāraṃ passati.', pronKo: '갓찬띠- 꾸마-리- 위하-랑 빳사띠', translation: '가고 있는 소녀는 정사를 본다.', highlight: ['Gacchantī'], note: 'gacchantī = 가고 있는 (여성 현재분사 단수)' },
-  { type: 'verse', pali: 'Hasantiyā kumāriyā saddo suyyati.', pronKo: '하산띠야- 꾸마-리야- 삿도- 숫야띠', translation: '웃는 소녀의 소리가 들린다.', highlight: ['Hasantiyā'], note: 'hasantiyā = 웃는 (소유격 단수)' },
+  { type: 'verse', pali: 'Hasantiyā kumāriyā saddo suyyati.', pronKo: '하산띠야- 꾸마-리야- 삿도- 수이야띠', translation: '웃는 소녀의 소리가 들린다.', highlight: ['Hasantiyā'], note: 'hasantiyā = 웃는 (소유격 단수)' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Pacantī nārī odanaṃ pacati.', options: ['요리하는 여자는 밥을 짓는다', '여자가 요리를 한다', '요리하는 여자들은 밥을 짓는다', '여자는 밥을 먹는다'], answer: 0, hint: 'pacantī = 요리하는 (여성 현재분사)' },

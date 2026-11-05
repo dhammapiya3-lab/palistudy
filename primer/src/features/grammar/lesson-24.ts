@@ -22,7 +22,7 @@ export const LESSON_24: StepWithoutId[] = [
   { type: 'teach', word: 'kaṭacchu', pronKo: '까땃추', meaning: '국자, 숟가락', icon: '🥄', grammar: '-u 남성명사', formNote: '주격: kaṭacchu / kaṭacchū' },
   { type: 'teach', word: 'sattu', pronKo: '삿뚜', meaning: '적(敵)', icon: '⚔️', grammar: '-u 남성명사', formNote: '주격: sattu / sattū' },
   { type: 'teach', word: 'setu', pronKo: '세-뚜', meaning: '다리(橋)', icon: '🌉', grammar: '-u 남성명사', formNote: '주격: setu / setū' },
-  { type: 'teach', word: 'ketu', pronKo: '게-뚜', meaning: '깃발', icon: '🚩', grammar: '-u 남성명사', formNote: '주격: ketu / ketū' },
+  { type: 'teach', word: 'ketu', pronKo: '께-뚜', meaning: '깃발', icon: '🚩', grammar: '-u 남성명사', formNote: '주격: ketu / ketū' },
   { type: 'teach', word: 'susu', pronKo: '수수', meaning: '청년', icon: '👦', grammar: '-u 남성명사', formNote: '주격: susu / susū' },
 
   // === -ū 남성명사 격변화표 (vidū 현자) ===

@@ -47,7 +47,7 @@ export const LESSON_07: StepWithoutId[] = [
   // === 교재 예문 3쌍 ===
   { type: 'verse', pali: 'Nāviko samudde tarati.\nNāvikā samuddesu taranti.', pronKo: '나-위꼬- 사뭇데- 따라띠\n나-위까- 사뭇데-수 따란띠', translation: '선원은 바다에서 건넌다.\n선원들은 바다들에서 건넌다.', highlight: ['samudde', 'samuddesu'] },
   { type: 'verse', pali: 'Sakuṇo ākāse uppatati.\nSakuṇā ākāsesu uppatanti.', pronKo: '사꾸노- 아-까-세- 웁빠따띠\n사꾸나- 아-까-세-수 웁빠딴띠', translation: '새는 허공에서 난다.\n새들은 허공들에서 난다.', highlight: ['ākāse', 'ākāsesu'] },
-  { type: 'verse', pali: 'Sappuriso loke jīvati.\nSappurisā lokesu jīvanti.', pronKo: '삽뿌리소- 로-게- 지-와띠\n삽뿌리사- 로-게-수 지-완띠', translation: '선인은 세상에서 산다.\n선인들은 세상들에서 산다.', highlight: ['loke', 'lokesu'] },
+  { type: 'verse', pali: 'Sappuriso loke jīvati.\nSappurisā lokesu jīvanti.', pronKo: '삽뿌리소- 로-께- 지-와띠\n삽뿌리사- 로-께-수 지-완띠', translation: '선인은 세상에서 산다.\n선인들은 세상들에서 산다.', highlight: ['loke', 'lokesu'] },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Goṇā gāme āhiṇḍanti.', options: ['황소들은 마을에서 돌아다닌다', '황소는 마을에서 돌아다닌다', '황소들은 마을로 달린다', '황소들은 마을에서 산다'], answer: 0, hint: 'gāme=마을에서(처소격), āhiṇḍanti=돌아다니다(복수)' },

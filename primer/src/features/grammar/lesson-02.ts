@@ -48,7 +48,7 @@ export const LESSON_02: StepWithoutId[] = [
   // === 교재 예문 3쌍 ===
   { type: 'verse', pali: 'Putto naraṃ passati / Puttā nare passanti', pronKo: '뿟또- 나랑 빳사띠 / 뿟따- 나레- 빳산띠', translation: '아들은 사람을 본다 / 아들들은 사람들을 본다', highlight: ['naraṃ', 'nare', 'passati', 'passanti'] },
   { type: 'verse', pali: 'Brāhmaṇo mātulaṃ rakkhati / Brāhmaṇā mātule rakkhanti', pronKo: '브라-흐마노- 마-뚤랑 락카띠 / 브라-흐마나- 마-뚤레- 락칸띠', translation: '바라문은 삼촌을 보호한다 / 바라문들은 삼촌들을 보호한다', highlight: ['mātulaṃ', 'mātule'] },
-  { type: 'verse', pali: 'Vāṇijo kassakaṃ paharati / Vāṇijā kassake paharanti', pronKo: '와-니조- 깟사깡 빠하라띠 / 와-니자- 깟사게- 빠하란띠', translation: '상인은 농부를 때린다 / 상인들은 농부들을 때린다', highlight: ['kassakaṃ', 'kassake'] },
+  { type: 'verse', pali: 'Vāṇijo kassakaṃ paharati / Vāṇijā kassake paharanti', pronKo: '와-니조- 깟사깡 빠하라띠 / 와-니자- 깟사께- 빠하란띠', translation: '상인은 농부를 때린다 / 상인들은 농부들을 때린다', highlight: ['kassakaṃ', 'kassake'] },
 
   // === 경전 실례 ===
   { type: 'verse', pali: V_DUKKHA, pronKo: '이당 코- 빠나 빅카웨- 둑캉 아리야삿짱', translation: V_DUKKHA_K, highlight: ['dukkhaṃ', 'ariyasaccaṃ'], note: 'dukkhaṃ ariyasaccaṃ: -ṃ이지만 중성명사 주격!\n(중성명사 주격도 -ṃ — 나중에 배움)' },

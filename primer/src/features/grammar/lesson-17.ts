@@ -51,7 +51,7 @@ export const LESSON_17: StepWithoutId[] = [
   // === 예문 ===
   { type: 'verse', pali: 'Vanitā sālaṃ gacchati.\nVanitāyo sālaṃ gacchanti.', pronKo: '와니따- 살-랑 갓차띠\n와니따-요- 살-랑 갓찬띠', translation: '여인은 강당에 간다.\n여인들은 강당에 간다.', highlight: ['Vanitā', 'Vanitāyo'], note: '주격: vanitā(단수) / vanitāyo(복수)\n-ā 여성명사의 복수 주격에 -āyo 추가' },
   { type: 'verse', pali: 'Ammā dārikaṃ poseti.\nAmmāyo dārikāyo posenti.', pronKo: '암마- 다-리깡 뽀-세-띠\n암마-요- 다-리까-요- 뽀-센띠', translation: '어머니는 소녀를 양육한다.\n어머니들은 소녀들을 양육한다.', highlight: ['Ammā', 'Ammāyo', 'dārikaṃ', 'dārikāyo'], note: '목적격: dārikaṃ(단수) / dārikāyo(복수)' },
-  { type: 'verse', pali: 'Kaññā saddhāya Buddhaṃ namassati.', pronKo: '깐냐- 삿다-야 붓탕 나맛사띠', translation: '소녀는 믿음으로 붓다께 예배한다.', highlight: ['saddhāya', 'namassati'], note: 'saddhāya = 믿음으로 (도구격 단수 -āya)\n여성명사 도구격=여격=탈격=소유격=처소격 단수 모두 -āya' },
+  { type: 'verse', pali: 'Kaññā saddhāya Buddhaṃ namassati.', pronKo: '깐냐- 삿다-야 붓당 나맛사띠', translation: '소녀는 믿음으로 붓다께 예배한다.', highlight: ['saddhāya', 'namassati'], note: 'saddhāya = 믿음으로 (도구격 단수 -āya)\n여성명사 도구격=여격=탈격=소유격=처소격 단수 모두 -āya' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Vanitā guhāyaṃ vasati.', options: ['여인은 동굴에서 산다', '여인들은 동굴에서 산다', '여인은 동굴로 간다', '여인은 강당에서 산다'], answer: 0, hint: 'guhāyaṃ = 동굴에서(처소격 -āyaṃ)' },

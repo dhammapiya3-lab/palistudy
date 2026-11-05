@@ -29,11 +29,11 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'teach', word: 'puppha / kusuma', pronKo: '뿝파 / 꾸수마', meaning: '꽃', icon: '🌸', grammar: '중성명사', baseForm: 'puppha, kusuma', formNote: '주격: pupphaṃ / pupphā,pupphāni' },
   { type: 'teach', word: 'geha / ghara', pronKo: '게-하 / 가라', meaning: '집', icon: '🏘️', grammar: '중성명사', baseForm: 'geha, ghara', formNote: '주격: gehaṃ / gehā\n처소격: gehe (집에서)' },
   { type: 'teach', word: 'āsana', pronKo: '아-사나', meaning: '자리, 좌석', icon: '💺', grammar: '중성명사', baseForm: 'āsana', formNote: '주격: āsanaṃ / āsanā,āsanāni', buddhism: 'āsana = 좌선의 자리\npaññatt-āsana = 마련된 자리' },
-  { type: 'teach', word: 'paṇṇa', pronKo: '빤냐', meaning: '나뭇잎', icon: '🍃', grammar: '중성명사', baseForm: 'paṇṇa', formNote: '주격: paṇṇaṃ / paṇṇā,paṇṇāni' },
+  { type: 'teach', word: 'paṇṇa', pronKo: '빤나', meaning: '나뭇잎', icon: '🍃', grammar: '중성명사', baseForm: 'paṇṇa', formNote: '주격: paṇṇaṃ / paṇṇā,paṇṇāni' },
   { type: 'teach', word: 'tiṇa', pronKo: '띠나', meaning: '풀', icon: '🌿', grammar: '중성명사', baseForm: 'tiṇa', formNote: '주격: tiṇaṃ / tiṇā,tiṇāni' },
   { type: 'teach', word: 'khīra', pronKo: '키-라', meaning: '우유', icon: '🥛', grammar: '중성명사', baseForm: 'khīra', formNote: '주격: khīraṃ\n처소격: khīre' },
   { type: 'teach', word: 'nagara', pronKo: '나가라', meaning: '도시', icon: '🏙️', grammar: '중성명사', baseForm: 'nagara', formNote: '주격: nagaraṃ / nagarā\n처소격: nagare (도시에서)' },
-  { type: 'teach', word: 'uyyāna', pronKo: '웃야-나', meaning: '공원, 동산', icon: '🏞️', grammar: '중성명사', baseForm: 'uyyāna', formNote: '주격: uyyānaṃ / uyyānā\n처소격: uyyāne (공원에서)' },
+  { type: 'teach', word: 'uyyāna', pronKo: '우이야-나', meaning: '공원, 동산', icon: '🏞️', grammar: '중성명사', baseForm: 'uyyāna', formNote: '주격: uyyānaṃ / uyyānā\n처소격: uyyāne (공원에서)' },
   { type: 'teach', word: 'khetta', pronKo: '켓따', meaning: '들, 논, 밭', icon: '🌾', grammar: '중성명사', baseForm: 'khetta', formNote: '주격: khettaṃ / khettā,khettāni\n처소격: khette (들에서)', buddhism: 'puññakkhetta = 공덕의 밭 (승가)' },
   { type: 'teach', word: 'bhaṇḍa', pronKo: '반다', meaning: '상품, 물건', icon: '📦', grammar: '중성명사', baseForm: 'bhaṇḍa', formNote: '주격: bhaṇḍaṃ / bhaṇḍā,bhaṇḍāni' },
   { type: 'teach', word: 'sīla', pronKo: '실-라', meaning: '계, 덕, 도덕', icon: '📿', grammar: '중성명사', baseForm: 'sīla', formNote: '주격: sīlaṃ / sīlā,sīlāni', buddhism: 'sīla = 계율. 삼학(三學) 중 첫째\nsīla → samādhi → paññā' },
@@ -58,7 +58,7 @@ export const LESSON_08: StepWithoutId[] = [
 
   // === 교재 예문 3쌍 (호격 + 중성명사) ===
   { type: 'verse', pali: 'Purisa, dānaṃ dehi!\nPurisā, dānāni detha!', pronKo: '뿌리사, 다-낭 데-히\n뿌리사-, 다-나-니 데-타', translation: '이 사람이여, 보시를 행하라!\n사람들이여, 보시들을 행하라!', highlight: ['Purisa', 'Purisā', 'dānaṃ', 'dānāni'], note: 'purisa=호격 단수, purisā=호격 복수\ndānaṃ = 중성 목적격 단수, dānāni = 중성 목적격 복수\n(중성은 주격·목적격 단수가 -aṃ으로 같고, 복수 -āni도 같음)' },
-  { type: 'verse', pali: 'Kumāra, pupphaṃ āhara!\nKumārā, pupphāni āharatha!', pronKo: '꾸마-라, 뿝팜 아-하라\n꾸마-라-, 뿝파-니 아-하라타', translation: '소년이여, 꽃을 가져오라!\n소년들이여, 꽃들을 가져오라!', highlight: ['Kumāra', 'Kumārā', 'pupphaṃ', 'pupphāni'] },
+  { type: 'verse', pali: 'Kumāra, pupphaṃ āhara!\nKumārā, pupphāni āharatha!', pronKo: '꾸마-라, 뿝팡 아-하라\n꾸마-라-, 뿝파-니 아-하라타', translation: '소년이여, 꽃을 가져오라!\n소년들이여, 꽃들을 가져오라!', highlight: ['Kumāra', 'Kumārā', 'pupphaṃ', 'pupphāni'] },
   { type: 'verse', pali: 'Rūpaṃ aniccaṃ.\nRūpāni aniccāni.', pronKo: '루-빵 아닛짱\n루-빠-니 아닛짜-니', translation: '물질은 무상하다.\n물질들은 무상하다.', highlight: ['Rūpaṃ', 'Rūpāni'], note: '중성명사 주격: 단수 -aṃ / 복수 -āni\naniccaṃ/aniccāni도 중성 형용사!' },
 
   // === 연습문제 10개 ===
