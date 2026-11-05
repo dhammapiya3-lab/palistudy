@@ -106,7 +106,8 @@ def build(data, gloss, extra):
                 continue
             if re.search(r'[\s·]', s.get('word', '')):
                 continue
-            cand = split_parts(s.get('baseForm')) or split_parts(s.get('formNote'))
+            # 원형(baseForm)에 이미 나눠 적힌 경우는 '문법 더 보기'와 겹치므로 만들지 않음
+            cand = None  # 원형·형태 설명(문법 더 보기)에 이미 나눠 적혀 있으면 겹치므로 만들지 않음
             if not cand:
                 continue
             res = []
