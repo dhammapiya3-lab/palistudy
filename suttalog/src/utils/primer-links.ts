@@ -55,7 +55,7 @@ const RULES: Rule[] = [
   { terms: ['과거분사'], name: '과거분사', desc: '이미 된 일을 나타냅니다. "~된, ~한" (-ta, -na)', lesson: P.pp },
   { terms: ['아오리스트', '과거(aorist)', '과거'], name: '과거형(아오리스트)', desc: '지난 일을 말합니다. "~했다"', lesson: P.aor },
   { terms: ['미래'], name: '미래형', desc: '앞으로의 일을 말합니다. "~할 것이다" (-issa-)', lesson: P.fut },
-  { terms: ['가능법', '원망법', '원망형', '원망'], name: '가능법(=원망형)', desc: '바람·가정을 나타냅니다. "~하기를, ~한다면, ~해야 한다" (-eyya)', lesson: P.opt },
+  { terms: ['원망형', '원망'], name: '원망형', desc: '바람·가정을 나타냅니다. "~하기를, ~한다면, ~해야 한다" (-eyya)', lesson: P.opt },
   { terms: ['명령형', '명령'], name: '명령형', desc: '명령·기원을 나타냅니다. "~하라, ~하기를" (-tu, -hi)', lesson: P.imp },
   { terms: ['사역'], name: '사역형', desc: '"~하게 하다, ~시키다" (-e-, -aya-, -āpe-)', lesson: P.caus },
   { terms: ['현재'], name: '현재형', desc: '지금의 일·늘 그러한 일을 말합니다. 주어의 인칭·수에 따라 어미가 바뀝니다. "~한다"', lesson: P.pres },
