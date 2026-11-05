@@ -1,4 +1,4 @@
-"""ph가 든 문장·낱말 녹음을 '낱말은 칸나다어 남, 문장은 텔루구어 남 — 둘 다 p와 h 따로 적기'로 다시 만듦 (두 앱, 새 파일 이름으로 — 옛 캐시를 피함)"""
+"""ph가 든 문장·낱말 녹음을 '텔루구어 남 · p와 h 따로 적기'로 다시 만듦 (낱말 하나짜리만 — 문장은 이미 이 소리) (두 앱, 새 파일 이름으로 — 옛 캐시를 피함)"""
 import asyncio, json, hashlib
 from pathlib import Path
 from generate import speak, is_letter
@@ -20,11 +20,11 @@ async def main():
         m = json.loads(mp.read_text(encoding='utf-8'))
         groups = {}
         for k, f in m.items():
-            if 'ph' in k.lower() and not is_letter(k):
+            if 'ph' in k.lower() and not is_letter(k) and len(k.split()) == 1:
                 groups.setdefault(f, k)
         done = {}
         async def one(old, text):
-            new = 'ph_' + hashlib.sha1((text + '|ph2').encode()).hexdigest()[:12] + '.mp3'
+            new = 'ph_' + hashlib.sha1((text + '|ph3').encode()).hexdigest()[:12] + '.mp3'
             async with sem:
                 for n in range(3):
                     try:

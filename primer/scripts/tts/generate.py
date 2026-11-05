@@ -23,7 +23,7 @@ VOICES = {
     'hi': ('hi-IN-MadhurNeural', 'devanagari', '힌디어 (지금 쓰는 목소리)'),
     'kn': ('kn-IN-GaganNeural', 'kannada', '칸나다어'),
     'kn_ph': ('kn-IN-GaganNeural', 'kannada_ph', '칸나다어 남 · p와 h 따로 적기 (ph 든 낱말 하나)'),
-    'te_ph': ('te-IN-MohanNeural', 'telugu_ph', '텔루구어 남 · p와 h 따로 적기 (ph 든 문장)'),
+    'te_ph': ('te-IN-MohanNeural', 'telugu_ph', '텔루구어 남 · p와 h 따로 적기 (ph 든 낱말·문장)'),
     'te': ('te-IN-MohanNeural', 'telugu', '텔루구어 (ñ → ny 보정)'),
     'te0': ('te-IN-MohanNeural', 'telugu_raw', '텔루구어 (보정 전)'),
     'si': ('si-LK-SameeraNeural', 'sinhala', '싱할라어 (스리랑카)'),
@@ -69,11 +69,10 @@ NY_SAMPLES = [
 
 
 async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
-    # ph가 든 녹음은 사용자가 고른 소리로 (글자 ph 하나는 글자 녹음을 씀)
-    # - 낱말 하나: 칸나다어 남 · p와 h 따로 적기
-    # - 문장(낱말 둘 이상): 앞뒤 문장과 같은 텔루구어 남 목소리에서 p와 h만 따로 적기
+    # ph가 든 녹음(낱말·문장)은 사용자가 고른 소리: 텔루구어 남 · p와 h 따로 적기
+    # (글자 ph 하나는 글자 녹음을 씀)
     if voice_key == 'te' and 'ph' in text.lower() and not is_letter(text):
-        voice_key = 'kn_ph' if len(text.split()) == 1 else 'te_ph'
+        voice_key = 'te_ph'
     voice, script, _ = VOICES[voice_key]
     native = to_script(spoken_form(text), script)
     for n in range(retries):
