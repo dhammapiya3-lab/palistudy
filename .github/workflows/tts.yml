@@ -33,6 +33,8 @@ jobs:
             python generate.py ny
           elif [ "${BR#tts/add-}" != "$BR" ]; then
             python generate.py add "${BR#tts/add-}"
+          elif [ "$BR" = "tts/letters" ]; then
+            python letters.py
           elif [ "$BR" = "tts/probe" ]; then
             python probe.py
           else
