@@ -11,10 +11,16 @@ jobs:
         run: |
           K=AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA
           BASE="https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos"
-          curl -s "$BASE?pageSize=1000&key=$K" > all.json
           python3 - <<'PY'
-          import json
-          d=json.load(open('all.json')).get('documents',[])
+          import json, urllib.request, urllib.parse
+          K='AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA'
+          BASE='https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos'
+          d=[]; tok=''
+          while True:
+              u=BASE+'?pageSize=300&key='+K+('&pageToken='+urllib.parse.quote(tok) if tok else '')
+              j=json.load(urllib.request.urlopen(u))
+              d+=j.get('documents',[]); tok=j.get('nextPageToken')
+              if not tok: break
           def v(f,k):
               x=f.get(k,{})
               return x.get('stringValue', x.get('nullValue', None) if 'nullValue' in x else x.get('stringValue'))
