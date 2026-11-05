@@ -22,6 +22,7 @@ RATE = '-30%'
 VOICES = {
     'hi': ('hi-IN-MadhurNeural', 'devanagari', '힌디어 (지금 쓰는 목소리)'),
     'kn': ('kn-IN-GaganNeural', 'kannada', '칸나다어'),
+    'kn_ph': ('kn-IN-GaganNeural', 'kannada_ph', '칸나다어 남 · p와 h 따로 적기 (ph 든 낱말·문장)'),
     'te': ('te-IN-MohanNeural', 'telugu', '텔루구어 (ñ → ny 보정)'),
     'te0': ('te-IN-MohanNeural', 'telugu_raw', '텔루구어 (보정 전)'),
     'si': ('si-LK-SameeraNeural', 'sinhala', '싱할라어 (스리랑카)'),
@@ -67,6 +68,9 @@ NY_SAMPLES = [
 
 
 async def speak(text: str, voice_key: str, out: Path, retries: int = 3) -> str:
+    # ph가 든 낱말·문장은 사용자가 고른 소리(칸나다어 남 · p와 h 따로 적기)로 — 글자 ph 하나는 글자 녹음을 씀
+    if voice_key == 'te' and 'ph' in text.lower() and not is_letter(text):
+        voice_key = 'kn_ph'
     voice, script, _ = VOICES[voice_key]
     native = to_script(spoken_form(text), script)
     for n in range(retries):

@@ -80,6 +80,8 @@ def to_script(roman: str, script: str) -> str:
         return deva
     if script == 'kannada':
         return shift_block(deva, 0x0C80)
+    if script == 'kannada_ph':  # ph를 p + h로 따로 적어 f처럼 읽지 않게 (사용자가 고른 ph 낱말 소리)
+        return shift_block(deva.replace('फ', 'प्ह'), 0x0C80)
     if script == 'telugu_raw':
         return shift_block(deva, 0x0C00)
     if script == 'telugu':
