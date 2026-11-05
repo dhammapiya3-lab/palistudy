@@ -44,6 +44,12 @@ if ('serviceWorker' in navigator) {
     }
   } else {
     window.addEventListener('load', () => {
+      // 새 버전 서비스워커가 자리 잡으면 한 번 새로고침해 최신 화면을 보여 줌 (진도는 저장되어 있음)
+      const hadController = !!navigator.serviceWorker.controller
+      let reloaded = false
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (hadController && !reloaded) { reloaded = true; window.location.reload() }
+      })
       navigator.serviceWorker.register(`/palistudy/suttalog/sw.js?v=${__BUILD_TIME__}`, { scope: '/palistudy/suttalog/' })
         .catch(e => console.warn('서비스워커 등록 실패', e))
     })

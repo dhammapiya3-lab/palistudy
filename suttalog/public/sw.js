@@ -12,6 +12,7 @@ const AUDIO_CACHE = 'suttalog-audio-v2' // 2026-11-05 빠알리 프라이머와 
 
 // 설치 — 앱 첫 화면(HTML)을 미리 담아 둠. waiting 상태로 머물고 다음 방문 때 적용(강제 새로고침 없음).
 self.addEventListener('install', event => {
+  self.skipWaiting() // 새 배포를 바로 적용(다음 방문까지 기다리지 않음)
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.add(new Request(SHELL_URL, { cache: 'reload' }))).catch(() => {})
   )
