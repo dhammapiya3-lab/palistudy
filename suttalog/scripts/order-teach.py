@@ -7,7 +7,7 @@ import json, re, sys
 from pathlib import Path
 HERE = Path(__file__).resolve().parent
 LESSONS = HERE.parent / 'src/features/lessons'
-SKIP = {('ratana', 2), ('ratana', 84), ('ratana', 192), ('ratana', 148), ('ratana', 163)}  # 148·163은 아래처럼 손으로 맞춰 둔 구간
+SKIP_WORDS = {('ratana', 'Yānīdha'), ('ratana', 'buddhaseṭṭho'), ('ratana', 'Khīṇaṃ purāṇaṃ'), ('ratana', 'Sahāvassa'), ('ratana', 'so')}  # 일부러 '복합어 → 이루는 낱말' 순서로 두거나 손으로 맞춘 구간(첫 카드 낱말)
 MANUAL: dict = {  # (과, 구간 첫 raw): 새 순서(원래 raw 목록) — 한 번 적용한 뒤에는 SKIP으로 옮길 것
 }
 
@@ -69,7 +69,7 @@ for f in sorted(LESSONS.glob('lesson-data-*.ts')):
         if (lid, k) in MANUAL:
             new = MANUAL[(lid, k)]
             assert sorted(new) == run, (lid, k)
-        elif (lid, k) in SKIP or len(run) < 2:
+        elif (lid, steps[k][1]['word']) in SKIP_WORDS or len(run) < 2:
             new = run
         else:
             ps = {r: pos_of(steps[r][1], target) for r in run}
