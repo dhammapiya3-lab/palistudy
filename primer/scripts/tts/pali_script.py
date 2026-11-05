@@ -62,12 +62,14 @@ def telugu_ny(te: str) -> str:
     """텔루구어 목소리는 ఞ(ñ)를 'n'으로 읽어 버림 → 'ny'(న్య)로 적어 '냐·뉴'로 읽게 함
     - ññ + 모음 (puñña, sabbaññū) → న్న్య (nnya)
     - ñ + c/ch/j/jh (pañca, kuñjara) → న (같은 자리 비음이라 n으로 충분)
+    - ñ + h (pañha) → న (n + h로 적어 '빤하'로 읽게 함)
     - 그 밖의 ñ + 모음 (ñāṇa) → న్య
     """
     import re
     NY, N, VIR = 'న', 'య', '్'
     te = te.replace('ఞ్ఞ', NY + VIR + NY + VIR + N)
     te = re.sub('ఞ(?=్[చఛజఝ])', NY, te)
+    te = re.sub('ఞ(?=్హ)', NY, te)  # ñh → n + h (pañha 빤하; 'ny'로 적으면 '빠니하'로 들림)
     te = te.replace('ఞ', NY + VIR + N)
     return te
 
