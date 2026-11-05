@@ -1,7 +1,6 @@
 // 프로필/나 화면 — 통계와 업적은 실제 저장된 학습 기록으로 계산
 import { useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { countMemos } from '../../utils/memo'
 import { isSecretStorageKey } from '../../utils/memo-github'
 import { getAllProgress } from '../../utils/lesson-progress'
 import { countBasicDone } from '../lessons/basics'
@@ -68,7 +67,6 @@ const HELP = [
 export default function Profile() {
   const nav = useNavigate()
   const importRef = useRef<HTMLInputElement>(null)
-  const [memoCount] = useState(countMemos())
   const [showHelp, setShowHelp] = useState(false)
 
   const dates = readStudyDates()
@@ -179,7 +177,7 @@ export default function Profile() {
       {/* 메뉴 */}
       <div className="rounded-2xl overflow-hidden" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
         {[
-          { icon: '📝', label: `내 메모 (${memoCount}개)`, action: () => nav('/memos') },
+          { icon: '📝', label: '피드백 메모', action: () => nav('/memos') },
           { icon: '⚙️', label: '설정', action: () => nav('/settings') },
           { icon: '📤', label: '학습 데이터 내보내기', action: exportData },
           { icon: '📥', label: '학습 데이터 가져오기', action: () => importRef.current?.click() },

@@ -1,0 +1,71 @@
+# 경전 앱 메모 시험: probe/sutta-memo 가지에 올리면 실행 (시험 메모는 끝에 지움)
+name: Probe suttalog memo
+on:
+  push:
+    branches: ['probe/sutta-memo']
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 실제 사이트에서 시험
+        run: |
+          mkdir t && cd t && npm init -y >/dev/null && npm i -s playwright@1 >/dev/null && npx playwright install --with-deps chromium >/dev/null 2>&1
+          cat > t.mjs <<'JS'
+          import { chromium } from 'playwright'
+          const B = 'https://dhammapiya3-lab.github.io/palistudy/suttalog'
+          const b = await chromium.launch()
+          const pg = await b.newPage({ viewport: { width: 390, height: 780 } })
+          pg.on('pageerror', e => console.log('[페이지오류]', e.message))
+          pg.on('response', r => { if (r.url().includes('firestore')) console.log('[firestore]', r.request().method(), r.status(), r.url().slice(0, 110)) })
+          await pg.goto(B + '/'); await pg.waitForTimeout(1500)
+          await pg.evaluate(() => {
+            localStorage.setItem('suttalog-onboarded', 'true')
+            localStorage.setItem('suttalog-memo:ratana:14', JSON.stringify({ memoId: 'x', pageId: 'ratana:14', lessonId: 'ratana', lessonTitle: '보배경', stepIdx: 14, stepSnapshot: { stepType: 'teach', word: 'sumanā' }, body: '자동 시험 메모 (옮기기)', createdAt: '2026-11-05T09:00:00Z', updatedAt: '2026-11-05T09:00:00Z' }))
+            localStorage.setItem('suttalog-memo-index', JSON.stringify(['ratana:14']))
+          })
+          await pg.goto(B + '/'); await pg.waitForTimeout(8000)
+          console.log('옮긴 뒤 기기 목록:', await pg.evaluate(() => localStorage.getItem('suttalog-memo-index')))
+          // 새 메모 쓰기
+          await pg.goto(B + '/learn/scripture/ratana?step=14'); await pg.waitForTimeout(4000)
+          console.log('단계 카드:', await pg.locator('text=자동 시험 메모 (옮기기)').count())
+          await pg.click('button[aria-label^="메모"]'); await pg.waitForTimeout(800)
+          await pg.click('[role=tab]:has-text("새 메모")'); await pg.waitForTimeout(300)
+          await pg.fill('textarea', '자동 시험 메모 (새로 쓰기)')
+          await pg.click('text=메모 보내기')
+          await pg.waitForTimeout(6000)
+          const n = await pg.locator('text=자동 시험 메모').count()
+          console.log('목록에 보이는 시험 메모 수:', n)
+          // 메모 화면
+          await pg.goto(B + '/memos'); await pg.waitForTimeout(5000)
+          console.log('메모 화면 시험 메모 수:', await pg.locator('text=자동 시험 메모').count())
+          // 프라이머 목록에는 안 보여야 함
+          const pp = await b.newPage()
+          await pp.goto('https://dhammapiya3-lab.github.io/palistudy/primer/#/'); await pp.waitForTimeout(3000)
+          await pp.click('[aria-label="메모"]'); await pp.waitForTimeout(800)
+          await pp.click('text=전체 메모'); await pp.waitForTimeout(300)
+          await pp.click('button:has-text("전체")').catch(() => {}); await pp.waitForTimeout(5000)
+          console.log('프라이머 목록 시험 메모 수(0이어야 함):', await pp.locator('text=자동 시험 메모').count())
+          await b.close()
+          JS
+          node t.mjs
+      - name: 시험 메모 지우기
+        run: |
+          python3 - <<'PY'
+          import json, urllib.request, urllib.parse
+          K='AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA'
+          BASE='https://firestore.googleapis.com/v1/projects/panditarama-video/databases/(default)/documents/pali-primer-memos'
+          d=[]; tok=''
+          while True:
+              j=json.load(urllib.request.urlopen(BASE+'?pageSize=300&key='+K+('&pageToken='+urllib.parse.quote(tok) if tok else '')))
+              d+=j.get('documents',[]); tok=j.get('nextPageToken')
+              if not tok: break
+          for x in d:
+              t=x['fields'].get('text',{}).get('stringValue','')
+              if t.startswith('자동 시험 메모'):
+                  r=urllib.request.Request('https://firestore.googleapis.com/v1/'+x['name']+'?key='+K, method='DELETE')
+                  urllib.request.urlopen(r); print('지움', x['name'].split('/')[-1], t, x['fields'].get('app',{}).get('stringValue'))
+          print('suttalog 메모 수', sum(1 for x in d if x['fields'].get('app',{}).get('stringValue')=='suttalog'))
+          PY

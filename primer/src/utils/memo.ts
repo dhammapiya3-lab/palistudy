@@ -198,7 +198,11 @@ export async function getMemos(): Promise<Memo[]> {
     )
     const snap = await fb.getDocs(q)
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return snap.docs.map((d: any) => ({ id: d.id, ...d.data() }))
+    return snap.docs
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      .map((d: any) => ({ id: d.id, ...d.data() }))
+      // 경전으로 배우기 앱의 메모(app: 'suttalog')는 같은 저장소에 있지만 이 앱 목록에는 보이지 않게
+      .filter((m: { app?: string }) => m.app !== 'suttalog')
   } catch (e) {
     console.error('메모 조회 실패:', e)
     return []

@@ -2,13 +2,15 @@
 import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { Navigate, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { soundOff, speakPali, speakSequence, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
-import { getMemo, hasMemo, pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/memo'
+import { pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/memo'
+import { getDeviceId, setMemoContext, stepLabel as memoStepLabel, type Memo as CloudMemo } from '../../utils/memo-cloud'
+import { useMemos } from '../../components/memo/useMemos'
 import { canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
 import { localDateStr } from '../../utils/local-date'
 import WritingCanvas from '../../components/WritingCanvas'
 import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
-import MemoSheet from '../../components/MemoSheet'
+import MemoModal from '../../components/memo/MemoModal'
 import type { StepType } from './lesson-data-sn56-11'
 import { getCachedLesson, hasLessonData, loadLesson, LESSON_IDS } from './lesson-registry'
 import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type Range } from './pali-highlight'
@@ -293,6 +295,11 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
         localStorage.setItem(K.progress(lid), String(saved))
       }
       localStorage.setItem(K.rawMigrated(lid), '1')
+    }
+    // 메모의 '이동'으로 들어온 경우(?step=원본 단계 번호) — 그 단계부터 보여 줌
+    const q = Number(new URLSearchParams(location.search).get('step'))
+    if (location.search.includes('step=') && Number.isInteger(q) && q >= 0 && q <= lastRaw) {
+      return { pos: positionOf(entries, q), finishedBefore: false }
     }
     const done = localStorage.getItem(K.done(lid)) === 'true'
     return { pos: positionOf(entries, Math.min(saved, lastRaw)), finishedBefore: done && saved >= lastRaw }
@@ -686,8 +693,22 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
   const handleRevealWriting = () => setWritingChecked(true)
 
   const pageId = pageIdOf(lid, entry.raw)
-  const currentMemo = hasMemo(pageId) ? getMemo(pageId) : null
   void memoVer
+  // 피드백 메모 — 빠알리 프라이머와 같은 온라인 저장소. 이 단계에 남긴 메모들
+  const allMemos = useMemos()
+  const stepMemos = allMemos.filter(m => m.stepId === pageId)
+  const [editMemo, setEditMemo] = useState<CloudMemo | null>(null)
+  const myId = getDeviceId()
+  // 메모 창이 '지금 위치'를 알 수 있게 알려 줌
+  useEffect(() => {
+    setMemoContext({
+      stepId: pageId,
+      page: memoStepLabel(getLessonTitle(lid) || lid, entry.raw),
+      snapshot: JSON.stringify(buildSnapshot(entry.step)),
+      lessonId: lid,
+    })
+  }, [pageId, lid, entry])
+  useEffect(() => () => setMemoContext(null), [])
 
   // 소단원(intro) 시작 위치 — 진도 막대 눈금·목차 묶음에 사용
   const sections = useMemo(() => {
@@ -1211,23 +1232,20 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
           </div>
         )}
 
-        {/* === 메모 미리보기 카드 — 현재 단계에 메모가 있으면 노출 === */}
-        {currentMemo && (
-          <button onClick={() => setShowMemo(true)}
+        {/* === 메모 미리보기 카드 — 이 단계에 남긴 메모 === */}
+        {stepMemos.map(m => (
+          <button key={m.id} onClick={() => { setEditMemo(m.deviceId === myId ? m : null); setShowMemo(true) }}
             className="rounded-xl p-3 text-left w-full mt-4 active:scale-[0.98]"
             style={{ backgroundColor: C.noteBg, border: `1px solid ${C.noteBorder}`, color: 'var(--color-text)' }}>
             <div className="flex items-center gap-2 mb-1">
-              <span className="text-xs font-bold" style={{ color: 'var(--color-primary)' }}>📝 내 메모</span>
-              <span className="ml-auto text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>눌러서 고치기</span>
+              <span className="text-xs font-bold" style={{ color: 'var(--color-primary)' }}>📝 {m.deviceId === myId ? '내 메모' : '메모'}</span>
+              {m.status && <span className="text-[10px] font-semibold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'var(--color-primary)', color: '#fff' }}>{m.status}</span>}
+              <span className="ml-auto text-[10px]" style={{ color: 'var(--color-text-tertiary)' }}>{m.deviceId === myId ? '눌러서 고치기' : '눌러서 보기'}</span>
             </div>
-            <p className="text-xs whitespace-pre-wrap leading-relaxed">{currentMemo.body}</p>
-            {currentMemo.patch && (
-              <p className="text-[10px] mt-2 px-2 py-1 rounded-full inline-block" style={{ backgroundColor: 'var(--color-primary)', color: '#fff' }}>
-                AI 제안 · {currentMemo.patch.status === 'proposed' ? '검토 대기' : currentMemo.patch.status}
-              </p>
-            )}
+            <p className="text-xs whitespace-pre-wrap leading-relaxed">{m.text}</p>
+            {m.images?.length > 0 && <p className="text-[10px] mt-1" style={{ color: 'var(--color-text-tertiary)' }}>📷 사진 {m.images.length}장</p>}
           </button>
-        )}
+        ))}
 
         {/* 아래 막대·메모 버튼에 가리지 않도록 여백 */}
         <div aria-hidden="true" style={{ minHeight: barH + 72 }} />
@@ -1267,7 +1285,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
 
       {/* 메모 버튼 — 아래 막대 바로 위, 학습 칸(430px) 오른쪽 (쉬운 화면에서는 숨김) */}
       {!easy && <button
-        onClick={() => setShowMemo(true)}
+        onClick={() => { setEditMemo(null); setShowMemo(true) }}
         className="fixed rounded-full flex items-center justify-center active:scale-90 z-40"
         style={{
           bottom: barH + 12,
@@ -1275,26 +1293,24 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
           width: 48, height: 48,
           backgroundColor: 'var(--color-primary)', color: '#fff', boxShadow: '0 4px 16px rgba(0,0,0,0.28)',
         }}
-        aria-label={currentMemo ? '메모 보기·고치기' : '메모 작성'}
+        aria-label={stepMemos.length ? '메모 (이 단계에 메모 있음)' : '메모'}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <path d="M12 20h9" />
           <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
         </svg>
-        {currentMemo && (
+        {stepMemos.length > 0 && (
           <span className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full"
             style={{ backgroundColor: 'var(--color-error-light)', border: '2px solid var(--color-bg)' }} />
         )}
       </button>}
 
-      {/* 메모 시트 — 위치는 원본 데이터 기준 단계 번호로 저장 */}
-      <MemoSheet
+      {/* 메모 창 — 빠알리 프라이머와 같은 모양 (위치는 원본 데이터 기준 단계 번호) */}
+      <MemoModal
         open={showMemo}
-        onClose={() => setShowMemo(false)}
-        lessonId={lid}
-        stepIdx={entry.raw}
-        snapshot={buildSnapshot(entry.step)}
-        onSaved={() => setMemoVer(v => v + 1)}
+        onClose={() => { setShowMemo(false); setEditMemo(null); setMemoVer(v => v + 1) }}
+        initialTab={editMemo ? undefined : (stepMemos.length ? 'list' : 'write')}
+        editMemo={editMemo}
       />
     </div>
   )
