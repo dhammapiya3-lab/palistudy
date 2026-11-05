@@ -2,7 +2,7 @@
 // 과 데이터(lesson-sources.ts)의 원래 부제는 그대로 두고, 없는 과는 원래 부제를 씀
 const KO_FIRST: Record<string, string> = {
   'lesson-00': '글자와 소리 익히기 · 모음 8 · 자음 33',
-  'lesson-alphabet-2': '41자를 하나씩 · 행복경 예시',
+  'lesson-alphabet-2': '41자를 하나씩 · 축복경 예시',
   'lesson-01': '~은/는, ~한다 · -o/-ā · -ti/-nti',
   'lesson-02': '~을/를 (목적) · -ṃ/-e',
   'lesson-03': '~으로, ~와 함께 (도구) · -ena/-ehi',

@@ -1,4 +1,4 @@
-// 자모와 발음 2 — SuttaLog3 alphabet 기반, 행복경 예시
+// 자모와 발음 2 — SuttaLog3 alphabet 기반, 축복경 예시
 // 모음8 + 자음33 개별 teach + quiz
 import type { StepWithoutId } from './types'
 
@@ -6,8 +6,8 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
   {
     "type": "intro",
     "title": "자모와 발음 2",
-    "subtitle": "모음 8자 · 자음 33자 — 행복경 예시",
-    "description": "빠알리 알파벳 41자를 하나씩 익힙니다. 각 글자의 발음을 행복경(Maṅgala Sutta) 실제 단어로 확인합니다.",
+    "subtitle": "모음 8자 · 자음 33자 — 축복경 예시",
+    "description": "빠알리 알파벳 41자를 하나씩 익힙니다. 각 글자의 발음을 축복경(Maṅgala Sutta) 실제 단어로 확인합니다.",
     "icon": "🔡"
   },
   {
@@ -24,7 +24,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "짧은 \"아\"",
     "icon": "🔊",
     "verseLine": "acintayuṃ [아찐따융]",
-    "verseLineKo": "생각했다 (행복경)"
+    "verseLineKo": "생각했다 (축복경)"
   },
   {
     "type": "teach",
@@ -33,7 +33,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "긴 \"아\" (두 배 길게)",
     "icon": "🔊",
     "verseLine": "ārāme [아-라-메-]",
-    "verseLineKo": "동산에서 (행복경)"
+    "verseLineKo": "동산에서 (축복경)"
   },
   {
     "type": "teach",
@@ -60,7 +60,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "짧은 \"우\"",
     "icon": "🔊",
     "verseLine": "uttamaṃ [웃따망]",
-    "verseLineKo": "최상의 (행복경)"
+    "verseLineKo": "최상의 (축복경)"
   },
   {
     "type": "teach",
@@ -69,7 +69,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "긴 \"우\" (두 배 길게)",
     "icon": "🔊",
     "verseLine": "pūjā [뿌-자-]",
-    "verseLineKo": "공양 (행복경)"
+    "verseLineKo": "공양 (축복경)"
   },
   {
     "type": "teach",
@@ -78,7 +78,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "긴 \"에\" (이중자음 앞에서는 짧게)",
     "icon": "🔊",
     "verseLine": "evaṃ [에-왕]",
-    "verseLineKo": "이와 같이 (행복경)"
+    "verseLineKo": "이와 같이 (축복경)"
   },
   {
     "type": "teach",
@@ -199,7 +199,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "된소리 \"까\"",
     "icon": "🔊",
     "verseLine": "kammantā [깜만따-]",
-    "verseLineKo": "생업들 (행복경)"
+    "verseLineKo": "생업들 (축복경)"
   },
   {
     "type": "teach",
@@ -208,7 +208,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "거센소리 \"카\"",
     "icon": "🔊",
     "verseLine": "khantī [칸띠-]",
-    "verseLineKo": "인내 (행복경)"
+    "verseLineKo": "인내 (축복경)"
   },
   {
     "type": "teach",
@@ -217,7 +217,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"가\"",
     "icon": "🔊",
     "verseLine": "gacchanti [갓찬띠]",
-    "verseLineKo": "간다 (행복경)"
+    "verseLineKo": "간다 (축복경)"
   },
   {
     "type": "teach",
@@ -235,7 +235,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "ng 소리",
     "icon": "🔊",
     "verseLine": "maṅgala [망갈라]",
-    "verseLineKo": "행복 (행복경)"
+    "verseLineKo": "행복 (축복경)"
   },
   {
     "type": "quiz",
@@ -311,7 +311,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "된소리 \"짜\"",
     "icon": "🔊",
     "verseLine": "ca [짜]",
-    "verseLineKo": "그리고 (행복경)"
+    "verseLineKo": "그리고 (축복경)"
   },
   {
     "type": "teach",
@@ -320,7 +320,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "거센소리 \"차\"",
     "icon": "🔊",
     "verseLine": "dhammasākacchā [담마사-깟차-]",
-    "verseLineKo": "법담을 나눔 (행복경)"
+    "verseLineKo": "법담을 나눔 (축복경)"
   },
   {
     "type": "teach",
@@ -329,7 +329,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"자\"",
     "icon": "🔊",
     "verseLine": "Jetavane [제-따와네-]",
-    "verseLineKo": "제따와나에서 (행복경)"
+    "verseLineKo": "제따와나에서 (축복경)"
   },
   {
     "type": "teach",
@@ -347,7 +347,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"냐\"",
     "icon": "🔊",
     "verseLine": "kataññutā [까딴뉴따-]",
-    "verseLineKo": "감사함 (행복경)"
+    "verseLineKo": "감사함 (축복경)"
   },
   {
     "type": "quiz",
@@ -423,7 +423,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀를 말아 \"따\"",
     "icon": "🔊",
     "verseLine": "upaṭṭhānaṃ [우빳타-낭]",
-    "verseLineKo": "봉양 (행복경)"
+    "verseLineKo": "봉양 (축복경)"
   },
   {
     "type": "teach",
@@ -432,7 +432,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀를 말아 \"타\"",
     "icon": "🔊",
     "verseLine": "santuṭṭhī [산뚯티-]",
-    "verseLineKo": "만족 (행복경)"
+    "verseLineKo": "만족 (축복경)"
   },
   {
     "type": "teach",
@@ -441,7 +441,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀를 말아 \"다\"",
     "icon": "🔊",
     "verseLine": "paṇḍitānaṃ [빤디따-낭]",
-    "verseLineKo": "현명한 이들의 (행복경)"
+    "verseLineKo": "현명한 이들의 (축복경)"
   },
   {
     "type": "teach",
@@ -459,7 +459,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀를 말아 \"나\"",
     "icon": "🔊",
     "verseLine": "anāthapiṇḍikassa [아나-타삔디깟사]",
-    "verseLineKo": "아나타삔디까의 (행복경)"
+    "verseLineKo": "아나타삔디까의 (축복경)"
   },
   {
     "type": "quiz",
@@ -535,7 +535,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "이에 혀 대고 \"따\"",
     "icon": "🔊",
     "verseLine": "tapo [따뽀-]",
-    "verseLineKo": "고행 (행복경)"
+    "verseLineKo": "고행 (축복경)"
   },
   {
     "type": "teach",
@@ -544,7 +544,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "이에 혀 대고 \"타\"",
     "icon": "🔊",
     "verseLine": "sotthānaṃ [솟타-낭]",
-    "verseLineKo": "안녕을 (행복경)"
+    "verseLineKo": "안녕을 (축복경)"
   },
   {
     "type": "teach",
@@ -553,7 +553,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "이에 혀 대고 \"다\"",
     "icon": "🔊",
     "verseLine": "dānañca [다-난짜]",
-    "verseLineKo": "보시 (행복경)"
+    "verseLineKo": "보시 (축복경)"
   },
   {
     "type": "teach",
@@ -562,7 +562,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "이에 혀 대고 숨 섞인 \"다\"",
     "icon": "🔊",
     "verseLine": "dhammesu [담메-수]",
-    "verseLineKo": "법들에서 (행복경)"
+    "verseLineKo": "법들에서 (축복경)"
   },
   {
     "type": "teach",
@@ -571,7 +571,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"나\"",
     "icon": "🔊",
     "verseLine": "nivāto [니와-또-]",
-    "verseLineKo": "겸손 (행복경)"
+    "verseLineKo": "겸손 (축복경)"
   },
   {
     "type": "quiz",
@@ -647,7 +647,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "된소리 \"빠\"",
     "icon": "🔊",
     "verseLine": "pūjā [뿌-자-]",
-    "verseLineKo": "공양 (행복경)"
+    "verseLineKo": "공양 (축복경)"
   },
   {
     "type": "teach",
@@ -656,7 +656,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "거센소리 \"파\"",
     "icon": "🔊",
     "verseLine": "phuṭṭhassa [풋탓사]",
-    "verseLineKo": "부딪힌 자의 (행복경)"
+    "verseLineKo": "부딪힌 자의 (축복경)"
   },
   {
     "type": "teach",
@@ -665,7 +665,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"바\"",
     "icon": "🔊",
     "verseLine": "bahū [바후-]",
-    "verseLineKo": "많은 (행복경)"
+    "verseLineKo": "많은 (축복경)"
   },
   {
     "type": "teach",
@@ -674,7 +674,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "숨 섞인 \"바\"",
     "icon": "🔊",
     "verseLine": "bhagavā [바가와-]",
-    "verseLineKo": "세존 (행복경)"
+    "verseLineKo": "세존 (축복경)"
   },
   {
     "type": "teach",
@@ -683,7 +683,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"마\"",
     "icon": "🔊",
     "verseLine": "maṅgala [망갈라]",
-    "verseLineKo": "행복 (행복경)"
+    "verseLineKo": "행복 (축복경)"
   },
   {
     "type": "quiz",
@@ -759,7 +759,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"야\"",
     "icon": "🔊",
     "verseLine": "yassa [얏사]",
-    "verseLineKo": "그 사람의 (관계대명사 소유격, 행복경)"
+    "verseLineKo": "그 사람의 (관계대명사 소유격, 축복경)"
   },
   {
     "type": "teach",
@@ -768,7 +768,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀 굴리지 않는 \"라\"",
     "icon": "🔊",
     "verseLine": "virajaṃ [위라장]",
-    "verseLineKo": "티끌 없는 (행복경)"
+    "verseLineKo": "티끌 없는 (축복경)"
   },
   {
     "type": "teach",
@@ -777,7 +777,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "혀끝 윗잇몸 \"라\"",
     "icon": "🔊",
     "verseLine": "lokadhammehi [로-까담메-히]",
-    "verseLineKo": "세상의 법으로 (행복경)"
+    "verseLineKo": "세상의 법으로 (축복경)"
   },
   {
     "type": "teach",
@@ -786,7 +786,8 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"와\" (w에 가까움)",
     "icon": "🔊",
     "verseLine": "viharati [위하라띠]",
-    "verseLineKo": "머무시다 (행복경)"
+    "verseLineKo": "머무시다 (축복경)",
+    "formNote": "실제 소리는 'ㅇ(w)'와 'ㅂ(v)'의 중간쯤입니다 (윗니를 아랫입술에 살짝 대거나 두 입술을 가볍게 모아 내는 부드러운 소리).\n다만 이 앱의 한글 발음 표기는 관례에 따라 'ㅇ'으로 적습니다. 예: viharati → 위하라띠, deva → 데-와"
   },
   {
     "type": "teach",
@@ -796,7 +797,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "formNote": "실제 소리는 된소리 '싸'에 가깝습니다 (혀끝을 윗니 뒤에 대고 내는 맑은 ㅆ 소리).\n다만 이 앱의 한글 발음 표기는 관례에 따라 '사'로 적습니다. 예: sevanā → 세-와나- (실제로는 '쎄-와나-'에 가깝게)",
     "icon": "🔊",
     "verseLine": "sevanā [세-와나-]",
-    "verseLineKo": "가까이함 (행복경)"
+    "verseLineKo": "가까이함 (축복경)"
   },
   {
     "type": "teach",
@@ -805,7 +806,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "\"하\"",
     "icon": "🔊",
     "verseLine": "brūhi [브루-히]",
-    "verseLineKo": "말씀해 주소서 (행복경)"
+    "verseLineKo": "말씀해 주소서 (축복경)"
   },
   {
     "type": "teach",
@@ -823,7 +824,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "meaning": "콧소리 받침 (니가히따)",
     "icon": "🔊",
     "verseLine": "evaṃ [에-왕]",
-    "verseLineKo": "이와 같이 (행복경)"
+    "verseLineKo": "이와 같이 (축복경)"
   },
   {
     "type": "quiz",
