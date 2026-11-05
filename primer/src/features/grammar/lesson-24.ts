@@ -50,8 +50,8 @@ export const LESSON_24: StepWithoutId[] = [
   { type: 'quiz', question: '10. Setumhi nisinno bandhu taruno sākhaṃ hatthena ākaḍḍhi.', options: ['다리에 앉은 친척은 나무의 가지를 손으로 끌어당겼다', '다리에 앉은 친척들은 나무의 가지를 손으로 끌어당겼다', '다리 위의 친척은 나무의 가지를 도끼로 잘랐다', '다리에 앉은 친척은 나무의 열매를 손으로 땄다'], answer: 0, hint: 'setumhi = 다리에(처소격), nisinno = 앉은, sākhaṃ = 가지를' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워- 따타-가땃사 사-와까- 혼띠', translation: '비구들은 여래의 제자들이다', highlight: ['Bhikkhavo'], note: 'bhikkhavo = bhikkhu의 주격 복수 (= bhikkhū), honti의 주어\n호격 복수는 bhikkhave / bhikkhavo — 경전에서 붓다가 제자들을 부를 때는 bhikkhave' },
+  { type: 'verse', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카오- 따타-가땃사 사-와까- 혼띠', translation: '비구들은 여래의 제자들이다', highlight: ['Bhikkhavo'], note: 'bhikkhavo = bhikkhu의 주격 복수 (= bhikkhū), honti의 주어\n호격 복수는 bhikkhave / bhikkhavo — 경전에서 붓다가 제자들을 부를 때는 bhikkhave' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카워- 따타-가땃사 사-와까- 혼띠' },
+  { type: 'speak', pali: 'Bhikkhavo Tathāgatassa sāvakā honti', pronKo: '빅카오- 따타-가땃사 사-와까- 혼띠' },
 ]

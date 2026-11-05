@@ -10,7 +10,7 @@ export const LESSON_16: StepWithoutId[] = [
   { type: 'intro', title: '17과: 과거형 (Aorist)', subtitle: 'Ajjatanī (Aorist / Past Tense)', description: '과거형: 이미 일어난 사건\n\n• -a어간: apaci / paci (요리했다)\n• -e어간: coresi / corayi (훔쳤다)\n• 어두첨자 a-: 과거 표시 (선택적)\n\n경전: "Bhagavā evaṃ avoca\n(세존께서 이와 같이 말씀하셨다)"', icon: '⏳' },
 
   // === 경전 구절 ===
-  { type: 'verse', pali: V_AORI, pronKo: '바가와- 에-왕 아워-짜', translation: V_AORI_K, highlight: ['avoca'], note: 'avoca = √vac(말하다)의 과거형. 같은 뜻의 현재형으로는 보통 √vad의 vadati를 씁니다(√vac의 현재형 vatti·vacati는 드묾).\na(과거접두) + voca(어근 vac의 변형)\n(역사적으로는 중복 aorist a-va-uc-a로 설명됨)\n경전 말미에 자주 등장하는 정형구' },
+  { type: 'verse', pali: V_AORI, pronKo: '바가와- 에-왕 아오-짜', translation: V_AORI_K, highlight: ['avoca'], note: 'avoca = √vac(말하다)의 과거형. 같은 뜻의 현재형으로는 보통 √vad의 vadati를 씁니다(√vac의 현재형 vatti·vacati는 드묾).\na(과거접두) + voca(어근 vac의 변형)\n(역사적으로는 중복 aorist a-va-uc-a로 설명됨)\n경전 말미에 자주 등장하는 정형구' },
 
   // === -a어간 과거형 ===
   { type: 'teach-grammar', title: '과거형 — -a어간 (pacati) 전체 활용', example: '3인칭: apaci, paci / apaciṃsu, paciṃsu\n2인칭: apaco, paco / apacittha, pacittha\n1인칭: apaciṃ, paciṃ / apacimhā, pacimhā', exampleKo: '단수 / 복수\n(a- 접두사는 선택적)', explanation: '-a어간 과거형 어미:\n\n인칭 | 단수 | 복수\n3인칭 | -i | -iṃsu\n2인칭 | -o | -ittha\n1인칭 | -iṃ | -imhā\n\n어두첨자 a-:\n• apaci = a + paci (과거 강조)\n• paci = 같은 의미 (a- 생략 가능)\n\na-는 선택적이며 의미 차이는 없습니다.\n짧은 어근 과거형(akāsi, avoca, agamāsi 등)에는 보통 붙고,\n다음절 어간(desesi, pucchi 등)에서는 흔히 생략됩니다.' },
@@ -25,7 +25,7 @@ export const LESSON_16: StepWithoutId[] = [
   { type: 'teach', word: 'apaci / paci', pronKo: '아빠찌 / 빠찌', meaning: '요리했다', icon: '🍳', grammar: '과거형 3인칭 단수', baseForm: 'pacati', formNote: '현재: pacati\n과거: paci / apaci\n복수: paciṃsu / apaciṃsu' },
   { type: 'teach', word: 'agami / gami', pronKo: '아가미 / 가미', meaning: '갔다', icon: '🚶', grammar: '과거형 3인칭 단수', baseForm: 'gacchati', formNote: '현재: gacchati\n과거: gami / agami\n복수: gamiṃsu\n※ 경전에서는 agamāsi / agamā / agacchi가 더 흔하고,\n복수는 agamaṃsu / agamiṃsu가 일반적' },
   { type: 'teach', word: 'adadi / adaṃsu', pronKo: '아다디 / 아당수', meaning: '주었다', icon: '🎁', grammar: '과거형 3인칭', baseForm: 'dadāti', formNote: '현재: dadāti\n과거 단수: adadi\n과거 복수: adaṃsu / dadaṃsu' },
-  { type: 'teach', word: 'avoca', pronKo: '아워-짜', meaning: '말했다', icon: '🗣️', grammar: '과거형 3인칭 단수', baseForm: 'vacati', formNote: '현재: vadati(√vad, 보통 이 형태) / vatti·vacati(√vac, 드묾)\n과거: avoca\n복수: avocuṃ\n경전 정형구에 빈출' },
+  { type: 'teach', word: 'avoca', pronKo: '아오-짜', meaning: '말했다', icon: '🗣️', grammar: '과거형 3인칭 단수', baseForm: 'vacati', formNote: '현재: vadati(√vad, 보통 이 형태) / vatti·vacati(√vac, 드묾)\n과거: avoca\n복수: avocuṃ\n경전 정형구에 빈출' },
   { type: 'teach', word: 'desesi / desayi', pronKo: '데-세-시 / 데-사이', meaning: '설했다', icon: '📖', grammar: '과거형 3인칭 단수', baseForm: 'deseti', formNote: '현재: deseti\n과거: desesi / desayi\n복수: desesuṃ / desayiṃsu', buddhism: 'Buddho dhammaṃ desesi = 붓다께서 법을 설하셨다' },
   { type: 'teach', word: 'pūjesi / pūjayi', pronKo: '뿌-제-시 / 뿌-자이', meaning: '공양했다', icon: '🙏', grammar: '과거형 3인칭 단수', baseForm: 'pūjeti', formNote: '현재: pūjeti\n과거: pūjesi / pūjayi\n복수: pūjesuṃ' },
   { type: 'teach', word: 'akāsi / akariṃsu', pronKo: '아까-시 / 아까링수', meaning: '했다 / 했다', icon: '⚒️', grammar: '과거형 3인칭 (단수 / 복수)', baseForm: 'karoti', formNote: '현재: karoti\n과거 단수: akāsi\n과거 복수: akariṃsu / akaṃsu' },
@@ -49,5 +49,5 @@ export const LESSON_16: StepWithoutId[] = [
   { type: 'quiz', question: '10. Mayaṃ dhammaṃ suṇimhā.', options: ['우리는 법을 들었다', '나는 법을 들었다', '우리는 법을 듣는다', '우리는 법을 들을 것이다'], answer: 0, hint: 'suṇimhā = 1인칭 복수 과거형 (-imhā)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Bhagavā evaṃ avoca', pronKo: '바가와- 에-왕 아워-짜' },
+  { type: 'speak', pali: 'Bhagavā evaṃ avoca', pronKo: '바가와- 에-왕 아오-짜' },
 ]

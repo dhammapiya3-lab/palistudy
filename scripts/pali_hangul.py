@@ -4,7 +4,9 @@
 - 겹자음 앞 자음은 받침 (kk→ㄱ, tt·cc·jj·dd·ss→ㅅ, pp·bb→ㅂ, mm→ㅁ, nn·ññ·ṇṇ→ㄴ, ṅ→ㅇ)
 - 모음 사이 l·ḷ 은 앞 음절에 ㄹ 받침을 더함 — 장모음 뒤에도 (kusala 꾸살라, kāla 깔-라, sīla 실-라)
 - ṃ → ㅇ 받침
-- tv→뜨와, dv→드웨, sv→스와, tr→뜨라, br→브라, sm→스마, mh→므히, ḷh→흘리, yy→이야, Cy→갸·뱌(합침)
+- 받침은 ㄱ·ㄴ·ㄹ·ㅁ·ㅂ·ㅅ·ㅇ 일곱 가지만 (겹자음의 앞 자음, 비음+자음의 비음, ḷh의 ḷ)
+- 그 밖의 모음 없는 자음은 '으'를 넣음: tv→뜨와(katvā 까뜨와-), dv→드웨, sv→스와, tr→뜨라, br→브라, sm→스마, hm→흐마
+- mh→ㅁ받침+히, yy→이야, 자음+y는 한 음절로 합침(sakya 사꺄, vy→뱌), vo→오-
 """
 import re
 import unicodedata
@@ -71,18 +73,19 @@ def split_cluster(cl, initial):
         elif a == 'y' and b == 'h':
             extra.append('이'); cl = cl[1:]
         elif a in ('ḷ', 'l') and b == 'h':
-            extra.append('흘'); cl = ['l'] + cl[2:]
+            coda = 'ㄹ'; cl = cl[1:]
         elif a == 's' and b in ('m', 'n'):
             extra.append('스'); cl = cl[1:]
         elif b in ('v', 'r') and a not in ('v', 'r', 'y'):
             pass  # 아래에서 '으'음절로
         elif b == 'y':
             pass  # 아래에서 합침
-        elif a in CODA:
-            coda = CODA[a]; cl = cl[1:]
+        # 그 밖의 모음 없는 자음은 아래에서 '으'를 넣어 적음 (규칙 1.3)
     # 남은 덩어리: 마지막 자음(또는 활음 앞 자음)이 초성
     if len(cl) >= 2 and cl[-1] == 'y' and cl[-2] not in ('y',):
         glide = 'y'; onset = cl[-2]
+        if onset == 'v':
+            onset = 'b'  # vy → 뱌 (한 음절로 합침)
         for c in cl[:-2]:
             extra.append(S(ONSET[c], 'ㅡ'))
         return coda, extra, onset, glide

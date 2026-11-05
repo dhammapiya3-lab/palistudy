@@ -813,7 +813,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "라(ḷ)",
     "meaning": "혀를 말아 \"라\"",
     "icon": "🔊",
-    "verseLine": "bāḷhaṃ [바-랑]",
+    "verseLine": "bāḷhaṃ [발-항]",
     "verseLineKo": "강하게"
   },
   {

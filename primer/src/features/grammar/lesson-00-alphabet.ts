@@ -115,7 +115,7 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-teach-grammar-2',
     type: 'teach-grammar',
     title: '자음 ① 목구멍 쪽 소리 (후음 喉音)',
-    example: 'ka(까)  kha(카)  ga(가)\ngha(그하)  ṅa(응아)',
+    example: 'ka(까)  kha(카)  ga(가)\ngha(가ʰ)  ṅa(응아)',
     exampleKo: '자음은 다섯 글자씩 한 줄 — 그 첫 줄',
     explanation:
       '혀 뒤쪽을 입천장 안쪽(여린입천장)에 대고 내는 소리예요.\n' +
@@ -125,7 +125,7 @@ export const LESSON_00: StepWithoutId[] = [
       '• ka(까) — 된소리 "까"\n' +
       '• kha(카) — 숨을 세게 "카" (h는 "숨을 섞으라"는 표시)\n' +
       '• ga(가) — 부드러운 "가"\n' +
-      '• gha(그하) — "가"에 숨을 섞어서\n' +
+      '• gha(가ʰ) — "가"에 숨을 섞어서\n' +
       '• ṅa(응아) — 콧소리 (영어 sing의 ng)\n\n' +
       '(①~⑤의 문법 이름: 무성무기 · 무성대기 · 유성무기 · 유성대기 · 비음)',
   },
@@ -135,13 +135,13 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-teach-grammar-3',
     type: 'teach-grammar',
     title: '자음 ② 입천장 소리 (구개음 口蓋音)',
-    example: 'ca(짜)  cha(차)  ja(자)\njha(즈하)  ña(냐)',
+    example: 'ca(짜)  cha(차)  ja(자)\njha(자ʰ)  ña(냐)',
     exampleKo: '혀를 단단한 입천장에 대고 내는 소리',
     explanation:
       '• ca(짜) — 된소리 "짜" (영어 c의 "ㅋ" 소리가 아니에요)\n' +
       '• cha(차) — 숨을 세게 "차"\n' +
       '• ja(자) — 부드러운 "자"\n' +
-      '• jha(즈하) — "자"에 숨을 섞어서\n' +
+      '• jha(자ʰ) — "자"에 숨을 섞어서\n' +
       '• ña(냐) — 콧소리 "냐"',
   },
 
@@ -161,14 +161,14 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-teach-grammar-4',
     type: 'teach-grammar',
     title: '자음 ③ 혀를 말아 내는 소리 (반설음 反舌音)',
-    example: 'ṭa(따)  ṭha(타)  ḍa(다)\nḍha(드하)  ṇa(나)',
+    example: 'ṭa(따)  ṭha(타)  ḍa(다)\nḍha(다ʰ)  ṇa(나)',
     exampleKo: '글자 아래에 점(.)이 있으면 혀를 말아요',
     explanation:
       '혀끝을 뒤로 살짝 말아 입천장에 대고 내는 소리예요.\n\n' +
       '• ṭa(따) — 혀를 말아서 "따"\n' +
       '• ṭha(타) — 혀를 말아서 "타"\n' +
       '• ḍa(다) — 혀를 말아서 "다"\n' +
-      '• ḍha(드하) — ḍa에 숨을 섞어서\n' +
+      '• ḍha(다ʰ) — ḍa에 숨을 섞어서\n' +
       '• ṇa(나) — 혀를 말아서 "나"\n\n' +
       '⚠️ ṭ, ḍ, ṇ 아래의 점이 "혀를 말아라" 표시입니다.',
   },
@@ -178,13 +178,13 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-teach-grammar-5',
     type: 'teach-grammar',
     title: '자음 ④ 이에 대는 소리 (치음 齒音)',
-    example: 'ta(따)  tha(타)  da(다)\ndha(드하)  na(나)',
+    example: 'ta(따)  tha(타)  da(다)\ndha(다ʰ)  na(나)',
     exampleKo: '혀끝을 윗니 뒤에 대고 내는 소리',
     explanation:
       '• ta(따) — 된소리 "따"\n' +
       '• tha(타) — 숨을 세게 "타" (영어 th 소리가 아니에요)\n' +
       '• da(다) — 부드러운 "다"\n' +
-      '• dha(드하) — "다"에 숨을 섞어서\n' +
+      '• dha(다ʰ) — "다"에 숨을 섞어서\n' +
       '• na(나) — "나"\n\n' +
       '점 없는 t·d·n은 이에 대고, 점 있는 ṭ·ḍ·ṇ은 혀를 말아서.',
   },
@@ -194,13 +194,13 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-teach-grammar-6',
     type: 'teach-grammar',
     title: '자음 ⑤ 입술 소리 (순음 脣音)',
-    example: 'pa(빠)  pha(파)  ba(바)\nbha(브하)  ma(마)',
+    example: 'pa(빠)  pha(파)  ba(바)\nbha(바ʰ)  ma(마)',
     exampleKo: '두 입술을 모아서 내는 소리',
     explanation:
       '• pa(빠) — 된소리 "빠"\n' +
       '• pha(파) — 숨을 세게 "파" (영어 f 소리가 아니에요)\n' +
       '• ba(바) — 부드러운 "바"\n' +
-      '• bha(브하) — "바"에 숨을 섞어서\n' +
+      '• bha(바ʰ) — "바"에 숨을 섞어서\n' +
       '• ma(마) — "마"',
   },
 
@@ -211,7 +211,7 @@ export const LESSON_00: StepWithoutId[] = [
     title: '자음 ⑥ 나머지 8개',
     example:
       'ya(야)  ra(라)  la(라)  va(와)\n' +
-      'sa(싸)  ha(하)  ḷa(ㄹ라)  ṃ(받침 ㅇ·ㅁ)',
+      'sa(싸)  ha(하)  ḷa(ㄹ라)  ṃ(받침 ㅇ)',
     exampleKo: 'ya·ra·la·va + sa + ha + ḷa + ṃ = 8개',
     explanation:
       '• ya, ra, la, va — 모음처럼 부드러운 자음 (반모음)\n' +
@@ -233,11 +233,11 @@ export const LESSON_00: StepWithoutId[] = [
     title: '자음 전체 도표 (5×5 + 기타 8 = 33개)',
     example:
       '        무성무기  무성대기  유성무기  유성대기  비음\n' +
-      '후  음: ka(까)   kha(카)   ga(가)   gha(그하)  ṅa(응아)\n' +
-      '구개음: ca(짜)   cha(차)   ja(자)   jha(즈하)  ña(냐)\n' +
-      '반설음: ṭa(따)   ṭha(타)   ḍa(다)   ḍha(드하)  ṇa(나)\n' +
-      '치  음: ta(따)   tha(타)   da(다)   dha(드하)  na(나)\n' +
-      '순  음: pa(빠)   pha(파)   ba(바)   bha(브하)  ma(마)\n' +
+      '후  음: ka(까)   kha(카)   ga(가)   gha(가ʰ)  ṅa(응아)\n' +
+      '구개음: ca(짜)   cha(차)   ja(자)   jha(자ʰ)  ña(냐)\n' +
+      '반설음: ṭa(따)   ṭha(타)   ḍa(다)   ḍha(다ʰ)  ṇa(나)\n' +
+      '치  음: ta(따)   tha(타)   da(다)   dha(다ʰ)  na(나)\n' +
+      '순  음: pa(빠)   pha(파)   ba(바)   bha(바ʰ)  ma(마)\n' +
       '─────────────────────────\n' +
       '반모음: ya  ra  la  va\n' +
       '치찰음: sa | 기음: ha | 억제음: ṃ | ḷa',
@@ -247,7 +247,8 @@ export const LESSON_00: StepWithoutId[] = [
       '각 열(무성무기~비음)은 발음 방법이 같습니다.\n\n' +
       '무성 = 성대 떨림 없음 / 유성 = 성대 떨림\n' +
       '무기 = 기식(숨) 없음 / 대기 = 기식 있음\n' +
-      '비음 = 코로 빠져나가는 소리',
+      '비음 = 코로 빠져나가는 소리\n' +
+      'ʰ = 숨을 섞어 내는 소리 (gh·jh·ḍh·dh·bh는 한 글자)',
   },
 
   // ── 듣고 고르기 ③ ──
@@ -281,7 +282,12 @@ export const LESSON_00: StepWithoutId[] = [
       '   (deva의 -va, loka의 -ka에 있는 a는 그대로 짧음)\n\n' +
       '3. a, i, u는 늘 짧게\n' +
       '4. ā, ī, ū는 늘 길게\n' +
-      '   예) deva 데-와 / mettā 멧따-',
+      '   예) deva 데-와 / mettā 멧따-\n\n' +
+      '5. 한글 표기: 겹자음의 앞 자음은 앞 음절의 받침으로 적어요\n' +
+      '   kk·gg→ㄱ, tt·dd·cc·jj·ṭṭ·ss→ㅅ, pp·bb→ㅂ, mm→ㅁ, nn·ññ·ṇṇ→ㄴ, ll→ㄹ\n' +
+      '   예) bhikkhu 빅쿠, sutta 숫따, nibbāna 닙바-나, dhamma 담마\n' +
+      '   비음 + 자음도 받침: saṅgha 상가, ānanda 아-난다\n' +
+      '   그 밖의 모음 없는 자음은 \'으\'를 넣어요: katvā 까뜨와-, brahmā 브라흐마-',
   },
 
   // ── 퀴즈: 발음규칙 ──
