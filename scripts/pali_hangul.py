@@ -2,7 +2,7 @@
 
 - 장음 ā ī ū, 그리고 겹자음·ṃ 앞이 아닌 e·o 뒤에 '-'
 - 겹자음 앞 자음은 받침 (kk→ㄱ, tt·cc·jj·dd·ss→ㅅ, pp·bb→ㅂ, mm→ㅁ, nn·ññ·ṇṇ→ㄴ, ṅ→ㅇ)
-- 모음 사이 l·ḷ 은 앞 음절에 ㄹ 받침을 더함 (kusala 꾸살라, kāla 깔-라)
+- 모음 사이 l·ḷ 은 앞 음절에 ㄹ 받침을 더함 — 장모음 뒤에도 (kusala 꾸살라, kāla 깔-라, sīla 실-라)
 - ṃ → ㅇ 받침
 - tv→뜨와, dv→드웨, sv→스와, tr→뜨라, br→브라, sm→스마, mh→므히, ḷh→흘리, yy→이야, Cy→갸·뱌(합침)
 """
@@ -121,8 +121,7 @@ def word_to_hangul(word):
         if out and coda:
             out[-1][2] = coda
         # 모음 사이 홑 l/ḷ → 앞 음절에 ㄹ 받침
-        if out and len(cl) == 1 and cl[0] in ('l', 'ḷ') and not out[-1][2] and not sylls[idx - 1][2] \
-                and sylls[idx - 1][1] in 'aiu':
+        if out and len(cl) == 1 and cl[0] in ('l', 'ḷ') and not out[-1][2] and not sylls[idx - 1][2]:
             out[-1][2] = 'ㄹ'
         for e in extra:
             out.append(['raw', e, '', False])

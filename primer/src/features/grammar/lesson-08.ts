@@ -36,7 +36,7 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'teach', word: 'uyyāna', pronKo: '웃야-나', meaning: '공원, 동산', icon: '🏞️', grammar: '중성명사', baseForm: 'uyyāna', formNote: '주격: uyyānaṃ / uyyānā\n처소격: uyyāne (공원에서)' },
   { type: 'teach', word: 'khetta', pronKo: '켓따', meaning: '들, 논, 밭', icon: '🌾', grammar: '중성명사', baseForm: 'khetta', formNote: '주격: khettaṃ / khettā,khettāni\n처소격: khette (들에서)', buddhism: 'puññakkhetta = 공덕의 밭 (승가)' },
   { type: 'teach', word: 'bhaṇḍa', pronKo: '반다', meaning: '상품, 물건', icon: '📦', grammar: '중성명사', baseForm: 'bhaṇḍa', formNote: '주격: bhaṇḍaṃ / bhaṇḍā,bhaṇḍāni' },
-  { type: 'teach', word: 'sīla', pronKo: '시-라', meaning: '계, 덕, 도덕', icon: '📿', grammar: '중성명사', baseForm: 'sīla', formNote: '주격: sīlaṃ / sīlā,sīlāni', buddhism: 'sīla = 계율. 삼학(三學) 중 첫째\nsīla → samādhi → paññā' },
+  { type: 'teach', word: 'sīla', pronKo: '실-라', meaning: '계, 덕, 도덕', icon: '📿', grammar: '중성명사', baseForm: 'sīla', formNote: '주격: sīlaṃ / sīlā,sīlāni', buddhism: 'sīla = 계율. 삼학(三學) 중 첫째\nsīla → samādhi → paññā' },
   { type: 'teach', word: 'dāna', pronKo: '다-나', meaning: '보시, 베풂', icon: '🎁', grammar: '중성명사', baseForm: 'dāna', formNote: '주격: dānaṃ / dānā,dānāni', buddhism: 'dāna = 보시(布施). 바라밀 첫째\ndānaṃ deti = 보시를 행하다' },
   { type: 'teach', word: 'rūpa', pronKo: '루-빠', meaning: '색, 물질, 형태', icon: '🔮', grammar: '중성명사', baseForm: 'rūpa', formNote: '주격: rūpaṃ / rūpā,rūpāni', buddhism: '오온(五蘊) 첫째: rūpa(색)\nrūpaṃ anattā = 색은 무아' },
   { type: 'teach', word: 'dvāra', pronKo: '드와-라', meaning: '문', icon: '🚪', grammar: '중성명사', baseForm: 'dvāra', formNote: '주격: dvāraṃ / dvārā,dvārāni', buddhism: '6근의 문: dvāra\ncakkhu-dvāra = 눈의 문' },

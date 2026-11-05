@@ -7,7 +7,7 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'intro', title: '10-11과: 부정사 + 현재분사', subtitle: 'Tuṃ-paccaya / Nta-māna-paccaya', description: '부정사: ~하기 위해, ~할 (-(i)tuṃ)\n현재분사: ~하면서, ~하는 (-nta/-māna)\n새 단어: 중성명사 + 동사\n\n예문: "Dānaṃ dadamānā sagge uppajjanti"', icon: '📚' },
 
   // === 대표 예문 (교재 작문) ===
-  { type: 'verse', pali: 'Dānaṃ dadamānā sīlāni rakkhamānā\nmanussā sagge uppajjanti.', pronKo: '다-낭 다다마-나- 시-라-니 락카마-나-\n마눗사- 삭게- 웁빠잔띠', translation: '보시하면서(dadamānā) 계를 지키면서(rakkhamānā)\n사람들은 천상에 태어난다.', highlight: ['dadamānā', 'rakkhamānā', 'sagge'], note: '※ 교재 작문 예문 (경전 구절 아님)\ndadamānā = dadāti(주다)의 현재분사 복수 주격 (어간 dada- + māna)\nrakkhamānā = rakkhati(지키다)의 현재분사 복수 주격\n-māna 형태의 현재분사가 주어를 수식!' },
+  { type: 'verse', pali: 'Dānaṃ dadamānā sīlāni rakkhamānā\nmanussā sagge uppajjanti.', pronKo: '다-낭 다다마-나- 실-라-니 락카마-나-\n마눗사- 삭게- 웁빳잔띠', translation: '보시하면서(dadamānā) 계를 지키면서(rakkhamānā)\n사람들은 천상에 태어난다.', highlight: ['dadamānā', 'rakkhamānā', 'sagge'], note: '※ 교재 작문 예문 (경전 구절 아님)\ndadamānā = dadāti(주다)의 현재분사 복수 주격 (어간 dada- + māna)\nrakkhamānā = rakkhati(지키다)의 현재분사 복수 주격\n-māna 형태의 현재분사가 주어를 수식!' },
 
   // === 부정사 문법 ===
   { type: 'teach-grammar', title: '부정사 -(i)tuṃ — ~하기 위해, ~할', example: 'pacati → pacituṃ (요리할, 요리하기 위해)\nkhādati → khādituṃ (먹을)\ngacchati → gantuṃ (갈)\ndadāti → dātuṃ (줄)\ntiṭṭhati → ṭhātuṃ (설)\npibati → pātuṃ (마실)', exampleKo: '어간 + (i)tuṃ = ~할, ~하기 위해', explanation: '부정사는 목적이나 의도를 표현합니다.\n\n규칙형: 어간 + ituṃ\n• pacituṃ, khādituṃ, vasituṃ\n\n불규칙형: 어근 + tuṃ\n• gantuṃ (← gam), dātuṃ (← dā)\n• ṭhātuṃ (← ṭhā), pātuṃ (← pā)\n• sotuṃ (← su, 듣다)\n• ñātuṃ (← ñā, 알다)\n\n용법: sakkoti/ussahati + 부정사\n"~할 수 있다/감히 ~하다"' },
@@ -68,5 +68,5 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'quiz', question: '20. Paṇḍitā saccaṃ ñātuṃ ussahanti.', options: ['현자들은 진리를 알려고 노력한다', '현자는 진리를 알려고 노력한다', '현자들은 진리를 알고서 노력한다', '현자들은 진리를 가르치려고 노력한다'], answer: 0, hint: 'ñātuṃ=알기를(부정사, ← ñā), ussahanti=노력하다(복수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Dānaṃ dadamānā sagge uppajjanti', pronKo: '다-낭 다다마-나- 삭게- 웁빠잔띠' },
+  { type: 'speak', pali: 'Dānaṃ dadamānā sagge uppajjanti', pronKo: '다-낭 다다마-나- 삭게- 웁빳잔띠' },
 ]

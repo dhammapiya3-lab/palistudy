@@ -32,7 +32,7 @@ export const LESSON_14: StepWithoutId[] = [
   // === 예문 3쌍 ===
   { type: 'verse', pali: 'Sace samaṇo dhammaṃ deseyya, manussā suṇeyyuṃ.\nYadi samaṇā dhammaṃ deseyyuṃ, manussā suṇeyyuṃ.', pronKo: '사쩨- 사마노- 담망 데-세이야, 마눗사- 수네이융\n야디 사마나- 담망 데-세이융, 마눗사- 수네이융', translation: '만약 사문이 법을 설한다면, 사람들이 들을 것이다.\n만약 사문들이 법을 설한다면, 사람들이 들을 것이다.', highlight: ['deseyya', 'deseyyuṃ', 'suṇeyyuṃ'], note: 'sace/yadi + 원망형 = 조건문\n-eyya(단수) / -eyyuṃ(복수)' },
   { type: 'verse', pali: 'Upāsako dānaṃ dadeyya.\nUpāsakā dānāni dadeyyuṃ.', pronKo: '우빠-사꼬- 다-낭 다데이야\n우빠-사까- 다-나-니 다데이융', translation: '우바새는 보시를 줄 수 있다.\n우바새들은 보시들을 줄 수 있다.', highlight: ['dadeyya', 'dadeyyuṃ'] },
-  { type: 'verse', pali: 'Sace tvaṃ sīlaṃ rakkheyyāsi, sukhaṃ labheyyāsi.\nSace tumhe sīlaṃ rakkheyyātha, sukhaṃ labheyyātha.', pronKo: '사쩨- 뜨왕 시-랑 락케이야-시, 수캉 랍베이야-시\n사쩨- 뚬헤- 시-랑 락케이야-타, 수캉 랍베이야-타', translation: '만약 네가 계를 지킨다면, 행복을 얻을 것이다.\n만약 너희가 계를 지킨다면, 행복을 얻을 것이다.', highlight: ['rakkheyyāsi', 'rakkheyyātha', 'labheyyāsi', 'labheyyātha'], note: '2인칭: -eyyāsi(단수) / -eyyātha(복수)' },
+  { type: 'verse', pali: 'Sace tvaṃ sīlaṃ rakkheyyāsi, sukhaṃ labheyyāsi.\nSace tumhe sīlaṃ rakkheyyātha, sukhaṃ labheyyātha.', pronKo: '사쩨- 뜨왕 실-랑 락케이야-시, 수캉 랍베이야-시\n사쩨- 뚬헤- 실-랑 락케이야-타, 수캉 랍베이야-타', translation: '만약 네가 계를 지킨다면, 행복을 얻을 것이다.\n만약 너희가 계를 지킨다면, 행복을 얻을 것이다.', highlight: ['rakkheyyāsi', 'rakkheyyātha', 'labheyyāsi', 'labheyyātha'], note: '2인칭: -eyyāsi(단수) / -eyyātha(복수)' },
 
   // === 연습문제 10개 ===
   { type: 'quiz', question: '1. Sace puriso dhammaṃ suṇeyya, paññaṃ labheyya.', options: ['만약 사람이 법을 듣는다면, 지혜를 얻을 것이다', '사람은 법을 듣고 지혜를 얻는다', '만약 사람들이 법을 듣는다면, 지혜를 얻을 것이다', '사람이 법을 들어야 한다'], answer: 0, hint: 'sace + 원망형 = 조건문, suṇeyya=듣다면, labheyya=얻을 것이다' },
@@ -47,5 +47,5 @@ export const LESSON_14: StepWithoutId[] = [
   { type: 'quiz', question: '10. Sace devo vasseyya, kassako khettaṃ kaseyya.', options: ['만약 비가 내린다면, 농부는 밭을 갈 것이다', '비가 내리고 농부는 밭을 간다', '만약 비가 내린다면, 농부들은 밭을 갈 것이다', '비가 내려서 농부는 밭을 갈았다'], answer: 0, hint: 'devo vasseyya = 비가 내린다면 (deva=비/신, vassati=비가 오다)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Sace sīlaṃ rakkheyya sukhī assa', pronKo: '사쩨- 시-랑 락케이야 수키- 앗사' },
+  { type: 'speak', pali: 'Sace sīlaṃ rakkheyya sukhī assa', pronKo: '사쩨- 실-랑 락케이야 수키- 앗사' },
 ]

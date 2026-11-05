@@ -30,7 +30,7 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'teach', word: 'āvāṭaṃ', pronKo: '아-와-땅', meaning: '구덩이를 (목적격 단수)', icon: '🕳️', grammar: '남성명사 · 목적격 단수', baseForm: 'āvāṭa (구덩이)', formNote: 'āvāṭa + ṃ → āvāṭaṃ' },
   { type: 'teach', word: 'pabbataṃ', pronKo: '빱바땅', meaning: '산을 (목적격 단수)', icon: '⛰️', grammar: '남성명사 · 목적격 단수', baseForm: 'pabbata (산)', formNote: 'pabbata + ṃ → pabbataṃ' },
   { type: 'teach', word: 'yācakaṃ', pronKo: '야-짜깡', meaning: '거지를 (목적격 단수)', icon: '🧎', grammar: '남성명사 · 목적격 단수', baseForm: 'yācaka (거지)', formNote: 'yācaka + ṃ → yācakaṃ (목적격)' },
-  { type: 'teach', word: 'sigālaṃ', pronKo: '시가-랑', meaning: '재칼을 (목적격 단수)', icon: '🦊', grammar: '남성명사 · 목적격 단수', baseForm: 'sigāla (재칼)', formNote: 'sigāla + ṃ → sigālaṃ' },
+  { type: 'teach', word: 'sigālaṃ', pronKo: '시갈-랑', meaning: '재칼을 (목적격 단수)', icon: '🦊', grammar: '남성명사 · 목적격 단수', baseForm: 'sigāla (재칼)', formNote: 'sigāla + ṃ → sigālaṃ' },
   { type: 'teach', word: 'rukkhaṃ', pronKo: '룩캉', meaning: '나무를 (목적격 단수)', icon: '🌳', grammar: '남성명사 · 목적격 단수', baseForm: 'rukkha (나무)', formNote: 'rukkha + ṃ → rukkhaṃ' },
 
   // === 동사 10개 (교재 전체) ===

@@ -17,7 +17,7 @@ export const LESSON_12: StepWithoutId[] = [
   { type: 'teach', word: 'cinteti', pronKo: '찐떼-띠', meaning: '생각하다', icon: '💭', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'cinteti', formNote: '복수: cintenti\ncint(생각하다)에서 파생\ncintā = 생각, 사유' },
   { type: 'teach', word: 'pūjeti', pronKo: '뿌-제-띠', meaning: '공경하다, 공양하다', icon: '🙏', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'pūjeti', formNote: '복수: pūjenti\npūjā = 공양, 공경\npupphena pūjeti = 꽃으로 공양하다' },
   { type: 'teach', word: 'katheti', pronKo: '까테-띠', meaning: '말하다, 이야기하다', icon: '💬', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'katheti', formNote: '복수: kathenti\nkathā = 이야기, 담론' },
-  { type: 'teach', word: 'jāleti', pronKo: '자-레-띠', meaning: '불태우다, 태우다', icon: '🔥', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'jāleti', formNote: '복수: jālenti\njal(타다)의 사역형\n자동사: jalati (타다)' },
+  { type: 'teach', word: 'jāleti', pronKo: '잘-레-띠', meaning: '불태우다, 태우다', icon: '🔥', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'jāleti', formNote: '복수: jālenti\njal(타다)의 사역형\n자동사: jalati (타다)' },
   { type: 'teach', word: 'māreti', pronKo: '마-레-띠', meaning: '죽이다', icon: '⚔️', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'māreti', formNote: '복수: mārenti\nmar(죽다)의 사역형\nMāra = 마라(악마)', buddhism: 'pāṇātipātā veramaṇī = 살생을 삼가는 것\n첫째 계율' },
   { type: 'teach', word: 'coreti', pronKo: '쪼-레-띠', meaning: '훔치다', icon: '🦹', grammar: '동사 · -e어간 3인칭 단수', baseForm: 'coreti', formNote: '복수: corenti\ncora = 도둑\ncoreyya = 훔친다면/훔칠 수도 있다 (원망형)\n(미래형은 coressati)' },
 

@@ -19,7 +19,7 @@ export const LESSON_27: StepWithoutId[] = [
   { type: 'teach', word: 'dhanavantu', pronKo: '다나완뚜', meaning: '부유한', icon: '💰', grammar: '-vantu 형용사', formNote: '남성 주격: dhanavā' },
   { type: 'teach', word: 'Bhagavantu', pronKo: '바가완뚜', meaning: '세존(世尊), 복된 분', icon: '🙏', grammar: '-vantu 형용사 → 존칭명사', formNote: '남성 주격: Bhagavā', buddhism: 'Bhagavā = 붓다의 호칭. 10가지 호칭 중 하나' },
   { type: 'teach', word: 'yasavantu', pronKo: '야사완뚜', meaning: '유명한, 명성있는', icon: '⭐', grammar: '-vantu 형용사', formNote: '남성 주격: yasavā' },
-  { type: 'teach', word: 'sīlavantu', pronKo: '시-라완뚜', meaning: '계행이 있는, 덕있는', icon: '📿', grammar: '-vantu 형용사', formNote: '남성 주격: sīlavā', buddhism: '오계(pañcasīla)를 지키는 자' },
+  { type: 'teach', word: 'sīlavantu', pronKo: '실-라완뚜', meaning: '계행이 있는, 덕있는', icon: '📿', grammar: '-vantu 형용사', formNote: '남성 주격: sīlavā', buddhism: '오계(pañcasīla)를 지키는 자' },
   { type: 'teach', word: 'saddhāvantu', pronKo: '삿다-완뚜', meaning: '믿음이 있는', icon: '🕊️', grammar: '-vantu 형용사', formNote: '남성 주격: saddhāvā', buddhism: 'saddhā(믿음) = 오근(五根) 중 하나' },
   { type: 'teach', word: 'balavantu', pronKo: '발라완뚜', meaning: '힘센, 강한', icon: '💪', grammar: '-vantu 형용사', formNote: '남성 주격: balavā' },
   { type: 'teach', word: 'paññavantu', pronKo: '빤냐완뚜', meaning: '현명한', icon: '🧠', grammar: '-vantu 형용사', formNote: '남성 주격: paññavā', buddhism: 'paññā(지혜) = 삼학(三學)의 완성' },

@@ -29,7 +29,7 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'teach', word: 'kathā', pronKo: '까타-', meaning: '이야기, 담화', icon: '💬', grammar: '여성명사 -ā', baseForm: 'kathā', formNote: '목적격: kathaṃ (이야기를)\n복수: kathā/kathāyo', buddhism: 'dhammakathā = 법담(法談)' },
   { type: 'teach', word: 'latā', pronKo: '라따-', meaning: '덩굴', icon: '🌿', grammar: '여성명사 -ā', baseForm: 'latā', formNote: '도구격: latāya (덩굴로)\n복수: latā/latāyo' },
   { type: 'teach', word: 'guhā', pronKo: '구하-', meaning: '동굴', icon: '🕳️', grammar: '여성명사 -ā', baseForm: 'guhā', formNote: '처소격: guhāyaṃ (동굴에서)\n복수: guhā/guhāyo' },
-  { type: 'teach', word: 'mālā', pronKo: '마-라-', meaning: '화환', icon: '💐', grammar: '여성명사 -ā', baseForm: 'mālā', formNote: '목적격: mālaṃ (화환을)\n복수: mālā/mālāyo' },
+  { type: 'teach', word: 'mālā', pronKo: '말-라-', meaning: '화환', icon: '💐', grammar: '여성명사 -ā', baseForm: 'mālā', formNote: '목적격: mālaṃ (화환을)\n복수: mālā/mālāyo' },
   { type: 'teach', word: 'surā', pronKo: '수라-', meaning: '술', icon: '🍶', grammar: '여성명사 -ā', baseForm: 'surā', formNote: '탈격: surāya (술로부터)', buddhism: 'surāmerayamajjapamādaṭṭhānā\n= 다섯째 계 (음주 금지)' },
   { type: 'teach', word: 'sākhā', pronKo: '사-카-', meaning: '가지 (나뭇가지)', icon: '🌳', grammar: '여성명사 -ā', baseForm: 'sākhā', formNote: '처소격: sākhāyaṃ (가지에)\n복수: sākhā/sākhāyo' },
   { type: 'teach', word: 'devatā', pronKo: '데-와따-', meaning: '천신, 신', icon: '✨', grammar: '여성명사 -ā', baseForm: 'devatā', formNote: '복수 주격: devatā/devatāyo\ndeva + tā(추상명사 접미사) = 신성 → 신\n문법적 성은 여성이지만 남녀 신 모두 가리킴\n(여신은 devī)' },

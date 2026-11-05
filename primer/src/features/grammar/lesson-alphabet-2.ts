@@ -50,7 +50,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "이-",
     "meaning": "긴 \"이\" (두 배 길게)",
     "icon": "🔊",
-    "verseLine": "sīla [시-라]",
+    "verseLine": "sīla [실-라]",
     "verseLineKo": "계율"
   },
   {
@@ -59,7 +59,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "우",
     "meaning": "짧은 \"우\"",
     "icon": "🔊",
-    "verseLine": "uttamaṃ [욷따망]",
+    "verseLine": "uttamaṃ [웃따망]",
     "verseLineKo": "최상의 (행복경)"
   },
   {
@@ -449,7 +449,7 @@ export const LESSON_ALPHABET_2: StepWithoutId[] = [
     "pronKo": "다(반h)",
     "meaning": "혀를 말아 숨 섞인 \"다\"",
     "icon": "🔊",
-    "verseLine": "vuḍḍhi [욷디]",
+    "verseLine": "vuḍḍhi [웃디]",
     "verseLineKo": "성장, 번영"
   },
   {
