@@ -42,7 +42,7 @@ export const LESSON_PANCASILA: StepType[] = [
   {"type": "quiz", "question": "4번째 계는?", "options": ["살생", "음주", "거짓말", "도둑질"], "answer": 2},
   {"type": "quiz", "question": "탈격 -ā의 의미?", "options": ["~로부터 (멀어짐)", "~안에", "~과 함께", "~의"], "answer": 0, "hint": "5계 모두 탈격으로 \"~으로부터 멀어짐\""},
   {"type": "quiz", "question": "5계 중 11과 DN22의 sammāvācā(정어)와 직결되는 것은?", "options": ["1계 불살생", "4계 불망어", "5계 불음주", "3계 불사음"], "answer": 1, "hint": "musāvādā = 정어의 첫째 항목"},
-  {"type": "speak", "pali": "Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi.", "pronKo": "빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미."},
-  {"type": "speak", "pali": "Musāvādā veramaṇī sikkhāpadaṃ samādiyāmi.", "pronKo": "무사-와-다- 웨-라마니- 식카-빠당 사마-디야-미."},
+  {"type": "speak", "pali": "Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi.", "pronKo": "빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미.", "translation": "살아있는 생명을 죽이지 않는 계를 받들겠습니다."},
+  {"type": "speak", "pali": "Musāvādā veramaṇī sikkhāpadaṃ samādiyāmi.", "pronKo": "무사-와-다- 웨-라마니- 식카-빠당 사마-디야-미.", "translation": "거짓말하지 않는 계를 받들겠습니다."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "거짓말하지 않는 계를 받들겠습니다.", "blocks": ["veramaṇī sikkhāpadaṃ", "Musāvādā", "samādiyāmi."], "correctOrder": [1, 0, 2]},
 ]

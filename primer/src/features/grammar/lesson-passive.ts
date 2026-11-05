@@ -14,5 +14,5 @@ export const LESSON_PASSIVE: StepWithoutId[] = [
   {"type": "quiz", "question": "\"vuccati\"의 뜻은?", "options": ["불린다, ~라고 한다", "말한다", "말했다", "말하게 한다"], "answer": 0, "hint": "vac + ya", "explain": "vuccati는 vatti(말하다)의 수동태입니다."},
   {"type": "quiz", "question": "수동태 문장에서 행위자(~에 의해)는 무슨 격?", "options": ["도구격", "주격", "목적격", "소유격"], "answer": 0, "hint": "bhikkhunā", "explain": "수동태의 행위자는 도구격으로 나타냅니다."},
   {"type": "quiz", "question": "\"na labbhati\"의 뜻으로 알맞은 것은?", "options": ["얻어지지 않는다 (할 수 없다)", "얻지 않는다", "얻었다", "얻게 하라"], "answer": 0, "hint": "labhati의 수동태 + 부정", "explain": "labbhati는 labhati(얻다)의 수동태입니다."},
-  {"type": "speak", "pali": "Ayaṃ vuccati, bhikkhave, sammāsati.", "pronKo": "아양 웃짜띠, 빅카웨-, 삼마-사띠."},
+  {"type": "speak", "pali": "Ayaṃ vuccati, bhikkhave, sammāsati.", "pronKo": "아양 웃짜띠, 빅카웨-, 삼마-사띠.", "translation": "비구들이여, 이것을 바른 마음챙김이라고 한다."},
 ]

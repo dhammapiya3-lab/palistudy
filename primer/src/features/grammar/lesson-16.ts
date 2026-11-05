@@ -49,5 +49,5 @@ export const LESSON_16: StepWithoutId[] = [
   { type: 'quiz', question: '10. Mayaṃ dhammaṃ suṇimhā.', options: ['우리는 법을 들었다', '나는 법을 들었다', '우리는 법을 듣는다', '우리는 법을 들을 것이다'], answer: 0, hint: 'suṇimhā = 1인칭 복수 과거형 (-imhā)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Bhagavā evaṃ avoca', pronKo: '바가와- 에-왕 아오-짜' },
+  { type: 'speak', pali: 'Bhagavā evaṃ avoca', pronKo: '바가와- 에-왕 아오-짜', translation: '세존께서 이와 같이 말씀하셨다.' },
 ]

@@ -14,5 +14,5 @@ export const LESSON_PARTICLES: StepWithoutId[] = [
   {"type": "quiz", "question": "\"sabbeva\"를 풀면?", "options": ["sabbe + eva (모두 다)", "sabba + iva", "sabbe + va (또는)", "sabbe + vā"], "answer": 0, "hint": "강조 eva", "explain": "sabbe(모두) + eva(바로) = 모두 다"},
   {"type": "quiz", "question": "\"kiṃ nu\"의 nu는?", "options": ["의문 (~인가?)", "부정 (아니다)", "강조 (바로)", "인용 (~라고)"], "answer": 0, "hint": "물음", "explain": "nu는 의문을 나타냅니다."},
   {"type": "quiz", "question": "\"tena hi\"의 뜻은?", "options": ["그렇다면", "그러므로 그는", "그에 의해", "그것도"], "answer": 0, "hint": "관용구", "explain": "tena hi = 그렇다면"},
-  {"type": "speak", "pali": "Idaṃ kho pana, bhikkhave, dukkhaṃ ariyasaccaṃ.", "pronKo": "이당 코- 빠나, 빅카웨-, 둑캉 아리야삿짱."},
+  {"type": "speak", "pali": "Idaṃ kho pana, bhikkhave, dukkhaṃ ariyasaccaṃ.", "pronKo": "이당 코- 빠나, 빅카웨-, 둑캉 아리야삿짱.", "translation": "비구들이여, 그런데 이것이 괴로움의 성스러운 진리이다."},
 ]

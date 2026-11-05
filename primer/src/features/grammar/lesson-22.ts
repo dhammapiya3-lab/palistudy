@@ -39,5 +39,5 @@ export const LESSON_22: StepWithoutId[] = [
   { type: 'quiz', question: '8. Seṭṭhī dāse kammaṃ kāreti.', options: ['장자는 하인들에게 일을 시킨다', '하인들은 장자에게 일을 한다', '장자는 하인들의 일을 한다', '장자는 하인들과 일을 한다'], answer: 0, hint: 'kāreti = 일시키다 (사역형)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Rājā purise kammaṃ kāreti', pronKo: '라-자- 뿌리세- 깜망 까-레-띠' },
+  { type: 'speak', pali: 'Rājā purise kammaṃ kāreti', pronKo: '라-자- 뿌리세- 깜망 까-레-띠', translation: '왕은 사람들에게 일을 시킨다.' },
 ]

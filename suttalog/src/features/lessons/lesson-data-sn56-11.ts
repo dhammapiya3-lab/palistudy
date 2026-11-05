@@ -16,7 +16,7 @@ export type StepType =
   | { type: 'teach-grammar'; title: string; example: string; exampleKo: string; explanation: string }
   | { type: 'verse'; pali: string; pronKo: string; translation: string; highlight?: string[]; note?: string }
   | { type: 'quiz'; question: string; options: string[]; answer: number; hint?: string }
-  | { type: 'speak'; pali: string; pronKo: string }
+  | { type: 'speak'; pali: string; pronKo: string; translation?: string }
   | { type: 'match-listen'; instruction: string; word: string; pronKo: string; options: string[]; answer: number }
   | { type: 'match-reverse'; instruction: string; meaning: string; options: string[]; answer: number }
   | { type: 'writing'; instruction: string; meaning: string; pronKo: string; answer: string; hint?: string }
@@ -39,7 +39,7 @@ export const LESSON_SN56_11: StepType[] = [
   {"type": "quiz", "question": "\"migadāye\"의 -e는 무슨 격?", "options": ["주격", "목적격", "처소격", "소유격"], "answer": 2},
   {"type": "writing", "instruction": "\"세존\"을 빠알리어로 써보세요", "meaning": "세존 (붓다의 존칭)", "pronKo": "바가와-", "answer": "bhagavā", "hint": "bh로 시작, ā로 끝남"},
   {"type": "writing", "instruction": "\"머무시다\"를 빠알리어로 써보세요", "meaning": "머무시다 (동사 현재)", "pronKo": "위하라띠", "answer": "viharati", "hint": "v로 시작"},
-  {"type": "speak", "pali": "Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye.", "pronKo": "에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-."},
+  {"type": "speak", "pali": "Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye.", "pronKo": "에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-.", "translation": "한때 세존께서 바라나시의 이시빠따나 녹야원에 머무셨다."},
   {"type": "teach-grammar", "title": "bhikkhu(비구) 격변화", "example": "bhikkhu → bhikkhū → bhikkhave", "exampleKo": "비구가 → 비구들을 → 비구들이여", "explanation": "-u 어간 남성명사:\n• 주격: bhikkhu / bhikkhū\n• 목적격: bhikkhuṃ / bhikkhū\n• 호격: bhikkhu / bhikkhave\n\n💡 목적격 복수 = 주격 복수(bhikkhū)"},
   {"type": "teach", "icon": "👉", "word": "tatra", "pronKo": "따뜨라", "meaning": "거기서", "grammar": "부사 (불변어)", "formNote": "변하지 않는 단어. 격변화 없음.", "verseLine": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:", "verseLineKo": "거기서 세존께서 다섯 비구에게 말씀하셨다:", "audio": true},
   {"type": "teach", "icon": "❗", "word": "kho", "pronKo": "코-", "meaning": "실로, 참으로", "grammar": "강조 불변어", "formNote": "문장 강조. 영어 indeed. 경전에 매우 자주 나옴.", "verseLine": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:", "verseLineKo": "거기서 세존께서 다섯 비구에게 말씀하셨다:", "audio": true},
@@ -52,7 +52,7 @@ export const LESSON_SN56_11: StepType[] = [
   {"type": "writing", "instruction": "\"비구들을\"을 빠알리어로 써보세요", "meaning": "비구들을 (목적격 복수)", "pronKo": "빅쿠-", "answer": "bhikkhū", "hint": "bhikkhu의 목적격 복수"},
   {"type": "writing", "instruction": "\"말씀하셨다\"를 빠알리어로 써보세요", "meaning": "말씀하셨다 (과거)", "pronKo": "아-만떼-시", "answer": "āmantesi"},
   {"type": "arrange", "instruction": "문장을 올바른 순서로 배열하세요", "translation": "거기서 세존께서 다섯 비구에게 말씀하셨다", "blocks": ["āmantesi", "bhagavā", "bhikkhū", "pañcavaggiye", "tatra", "kho"], "correctOrder": [4, 5, 1, 3, 2, 0]},
-  {"type": "speak", "pali": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:", "pronKo": "따뜨라 코- 바가와- 빤짜왁기예- 빅쿠- 아-만떼-시:"},
+  {"type": "speak", "pali": "Tatra kho bhagavā pañcavaggiye bhikkhū āmantesi:", "pronKo": "따뜨라 코- 바가와- 빤짜왁기예- 빅쿠- 아-만떼-시:", "translation": "거기서 세존께서 다섯 비구에게 말씀하셨다."},
   {"type": "teach-grammar", "title": "도구격(3격) -ena / 미래수동분사(의무분사) -tabba", "example": "pabbajita → pabbajitena\n√sev → sevitabbā", "exampleKo": "출가자 → 출가자에 의해\n따르다 → 따라야 할", "explanation": "도구격(-ena) = \"~에 의해, ~로써\"\n미래수동분사(의무분사) -tabba = \"~해야 할\" (영어 should)\n\"na sevitabbā\" = 따르지 말아야 할\n\"pabbajitena\" = 출가자에 의해"},
   {"type": "teach", "icon": "2️⃣", "word": "dveme", "pronKo": "드웨-메-", "meaning": "이 두 가지", "grammar": "수사+대명사", "baseForm": "dve (둘) + ime (이것들)", "formNote": "dve(둘)+ime(이것들) 합쳐진 형태.", "verseLine": "\"Dveme, bhikkhave, antā pabbajitena na sevitabbā.\"", "verseLineKo": "\"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다.\"", "audio": true},
   {"type": "teach", "icon": "🧘", "word": "bhikkhave", "pronKo": "빅카웨-", "meaning": "비구들이여", "grammar": "남성명사, 호격 복수", "baseForm": "bhikkhu (비구)", "formNote": "호격(8격) = 부르는 말 \"~이여!\"\nbhikkhu → bhikkhave (호격 복수)\n\n💡 앞에서 배운 bhikkhū(목적격)과 비교:\n• bhikkhū = 비구들을 (목적어)\n• bhikkhave = 비구들이여 (호칭)", "buddhism": "경전에서 붓다가 제자를 부를 때. 가장 자주 나오는 호칭.", "verseLine": "\"Dveme, bhikkhave, antā pabbajitena na sevitabbā.\"", "verseLineKo": "\"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다.\"", "audio": true},
@@ -122,7 +122,7 @@ export const LESSON_SN56_11: StepType[] = [
   {"type": "writing", "instruction": "\"중도\"를 빠알리어로 써보세요", "meaning": "중도 (중간의 길)", "pronKo": "맛지마- 빠띠빠다-", "answer": "majjhimā paṭipadā"},
   {"type": "writing", "instruction": "\"성스러운 팔정도\"를 써보세요", "meaning": "성스러운 여덟 가지 길", "pronKo": "아리요- 앗탕기꼬- 막고-", "answer": "ariyo aṭṭhaṅgiko maggo"},
   {"type": "writing", "instruction": "\"바른 마음챙김\"을 써보세요", "meaning": "바른 마음챙김 (정념)", "pronKo": "삼마-사띠", "answer": "sammāsati"},
-  {"type": "speak", "pali": "sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhi", "pronKo": "삼마-딧티 삼마-상깝뽀- 삼마-와-짜- 삼마-깜만또- 삼마-아-지-오- 삼마-와-야-모- 삼마-사띠 삼마-사마-디"},
+  {"type": "speak", "pali": "sammādiṭṭhi sammāsaṅkappo sammāvācā sammākammanto sammāājīvo sammāvāyāmo sammāsati sammāsamādhi", "pronKo": "삼마-딧티 삼마-상깝뽀- 삼마-와-짜- 삼마-깜만또- 삼마-아-지-오- 삼마-와-야-모- 삼마-사띠 삼마-사마-디", "translation": "바른 견해, 바른 사유, 바른 말, 바른 행위, 바른 생계, 바른 정진, 바른 마음챙김, 바른 삼매."},
   {"type": "teach", "icon": "👇", "word": "Ayaṃ", "pronKo": "아양", "meaning": "이 (것)", "grammar": "지시대명사, 주격 단수 (남성·여성 공통; 여기서는 paṭipadā와 호응하는 여성)", "baseForm": "ima/idaṃ (이)", "formNote": "근칭 지시대명사. \"ayaṃ maggo\" = \"이 길\"", "verseLine": "Ayaṃ kho sā, bhikkhave, majjhimā paṭipadā tathāgatena abhisambuddhā cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati.", "verseLineKo": "비구들이여, 이것이 여래가 완전히 깨달아, 눈을 만들고 앎을 만들며 평온과 최상의 앎과 깨달음과 열반으로 이끄는 그 중도이다.", "audio": true},
   {"type": "verse", "pali": "Ayaṃ kho sā, bhikkhave, majjhimā paṭipadā tathāgatena abhisambuddhā cakkhukaraṇī ñāṇakaraṇī upasamāya abhiññāya sambodhāya nibbānāya saṃvattati.", "pronKo": "아양 코- 사-, 빅카웨-, 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다- 짝쿠까라니- 냐-나까라니- 우빠사마-야 아빈냐-야 삼보-다-야 닙바-나-야 상왓따띠.", "translation": "비구들이여, 이것이 여래가 완전히 깨달아, 눈을 만들고 앎을 만들며 평온과 최상의 앎과 깨달음과 열반으로 이끄는 그 중도이다."},
   {"type": "teach", "icon": "📜", "word": "dukkhaṃ", "pronKo": "둑캉", "meaning": "괴로움", "grammar": "중성명사, 주격 단수", "baseForm": "dukkha (괴로움)", "formNote": "dukkha → dukkhaṃ: 중성 -a 어간 주격 -ṃ\n💡 남성 주격은 -o인데 중성 주격은 -ṃ!", "buddhism": "고(苦). 사성제 첫째. 단순 고통이 아닌 불만족·불완전함 포괄.", "verseLine": "Idaṃ kho pana, bhikkhave, dukkhaṃ ariyasaccaṃ—", "verseLineKo": "비구들이여, 이것이 괴로움의 성스러운 진리이다—", "audio": true},

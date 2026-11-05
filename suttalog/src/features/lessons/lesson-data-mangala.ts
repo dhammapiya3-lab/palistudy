@@ -161,7 +161,7 @@ export const LESSON_MANGALA: StepType[] = [
   {"type": "quiz", "question": "\"etaṃ maṅgalamuttamaṃ\"의 뜻은?", "options": ["이것이 최상의 축복이다", "이것이 법이다", "이것이 계율이다", "이것이 귀의처이다"], "answer": 0},
   {"type": "quiz", "question": "게송 9의 핵심 4가지 축복은?", "options": ["정진·범행·사성제·열반", "보시·지계·인욕·정진", "계·정·혜", "신·구·의"], "answer": 0},
   {"type": "quiz", "question": "\"lokadhamma\"(세속8법)에 흔들리지 않는 경지는?", "options": ["10게송 — 아라한의 경지", "1게송", "5게송", "6게송"], "answer": 0},
-  {"type": "speak", "pali": "Asevanā ca bālānaṃ, paṇḍitānañca sevanā.\nPūjā ca pūjaneyyānaṃ, etaṃ maṅgalamuttamaṃ.", "pronKo": "아세-와나- 짜 발-라-낭, 빤디따-난짜 세-와나-.\n뿌-자- 짜 뿌-자네이야-낭, 에-땅 망갈라뭇따망."},
-  {"type": "speak", "pali": "Mātāpitu upaṭṭhānaṃ, puttadārassa saṅgaho.\nAnākulā ca kammantā, etaṃ maṅgalamuttamaṃ.", "pronKo": "마-따-삐뚜 우빳타-낭, 뿟따다-랏사 상가호-.\n아나-꿀라- 짜 깜만따-, 에-땅 망갈라뭇따망."},
+  {"type": "speak", "pali": "Asevanā ca bālānaṃ, paṇḍitānañca sevanā.\nPūjā ca pūjaneyyānaṃ, etaṃ maṅgalamuttamaṃ.", "pronKo": "아세-와나- 짜 발-라-낭, 빤디따-난짜 세-와나-.\n뿌-자- 짜 뿌-자네이야-낭, 에-땅 망갈라뭇따망.", "translation": "어리석은 자를 가까이하지 않고, 지혜로운 자를 가까이하며, 공양받을 만한 분께 공양함 — 이것이 최상의 축복이다."},
+  {"type": "speak", "pali": "Mātāpitu upaṭṭhānaṃ, puttadārassa saṅgaho.\nAnākulā ca kammantā, etaṃ maṅgalamuttamaṃ.", "pronKo": "마-따-삐뚜 우빳타-낭, 뿟따다-랏사 상가호-.\n아나-꿀라- 짜 깜만따-, 에-땅 망갈라뭇따망.", "translation": "부모 봉양, 처자 돌봄, 혼란 없는 일 — 이것이 최상의 축복이다."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "이것이 최상의 축복이다.", "blocks": ["maṅgalamuttamaṃ.", "etaṃ"], "correctOrder": [1, 0]},
 ]

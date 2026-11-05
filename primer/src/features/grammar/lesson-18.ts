@@ -45,5 +45,5 @@ export const LESSON_18: StepWithoutId[] = [
   { type: 'quiz', question: '10. Pahīnā kilesā arahato.', options: ['아라한의 번뇌들은 멸해졌다', '아라한은 번뇌를 멸한다', '아라한의 번뇌들은 남아있다', '번뇌가 아라한을 멸했다'], answer: 0, hint: 'pahīnā = 멸해진 (복수), arahato = 아라한의' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma', pronKo: '붓데-나 바-시땅 담망 수나-마' },
+  { type: 'speak', pali: 'Buddhena bhāsitaṃ dhammaṃ suṇāma', pronKo: '붓데-나 바-시땅 담망 수나-마', translation: '우리는 붓다에 의해 말씀하신 법을 듣는다.' },
 ]

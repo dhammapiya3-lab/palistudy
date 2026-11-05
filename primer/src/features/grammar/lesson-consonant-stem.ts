@@ -15,5 +15,5 @@ export const LESSON_CONSONANT_STEM: StepWithoutId[] = [
   {"type": "quiz", "question": "\"attano\"는 무슨 격?", "options": ["소유격 (자기의)", "주격", "목적격", "처소격"], "answer": 0, "hint": "attan의 -o 꼴", "explain": "attano는 attan의 여격·소유격 꼴이며, 여기서는 \"자기의\"입니다."},
   {"type": "quiz", "question": "\"manasā\"의 뜻은?", "options": ["마음으로", "마음은", "마음의", "마음에"], "answer": 0, "hint": "-as 중성의 도구격 -asā", "explain": "manasā는 manas(마음)의 도구격입니다."},
   {"type": "quiz", "question": "\"mano\"는 무슨 성(性)의 명사?", "options": ["중성", "남성", "여성", "성이 없음"], "answer": 0, "hint": "-as 어간", "explain": "-o로 끝나지만 -as 어간 중성명사입니다."},
-  {"type": "speak", "pali": "Attā hi attano nātho, ko hi nātho paro siyā.", "pronKo": "앗따- 히 앗따노- 나-토-, 꼬- 히 나-토- 빠로- 시야-."},
+  {"type": "speak", "pali": "Attā hi attano nātho, ko hi nātho paro siyā.", "pronKo": "앗따- 히 앗따노- 나-토-, 꼬- 히 나-토- 빠로- 시야-.", "translation": "자기야말로 자기의 의지처이니, 다른 누가 의지처가 되겠는가."},
 ]

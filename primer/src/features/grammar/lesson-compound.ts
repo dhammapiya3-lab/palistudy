@@ -22,5 +22,5 @@ export const LESSON_COMPOUND: StepWithoutId[] = [
   {"type": "quiz", "question": "\"mātāpitaro\"는 어떤 복합어?", "options": ["병렬 (어머니와 아버지)", "격한정 (어머니의 아버지)", "소유 (어머니를 가진)", "불변"], "answer": 0, "hint": "두 낱말이 \"그리고\"로 이어짐", "explain": "어머니와 아버지가 나란히 이어진 병렬 복합어(dvanda)입니다."},
   {"type": "quiz", "question": "\"mahāpañño bhikkhu\"의 바른 뜻은?", "options": ["큰 지혜를 가진 비구", "비구의 큰 지혜", "큰 비구의 지혜", "지혜로 큰 비구에게"], "answer": 0, "hint": "소유 복합어 = 형용사", "explain": "mahāpañño는 bhikkhu를 꾸미는 소유 복합어(큰 지혜를 가진)입니다."},
   {"type": "quiz", "question": "\"pañcasīla\"는 어떤 복합어?", "options": ["수사 복합어 (digu)", "병렬 복합어", "소유 복합어", "불변 복합어"], "answer": 0, "hint": "숫자 + 명사", "explain": "pañca(다섯) + sīla(계) = 오계, 수사 복합어입니다."},
-  {"type": "speak", "pali": "Attamanā pañcavaggiyā bhikkhū bhagavato bhāsitaṃ abhinanduṃ.", "pronKo": "앗따마나- 빤짜왁기야- 빅쿠- 바가와또- 바-시땅 아비난둥."},
+  {"type": "speak", "pali": "Attamanā pañcavaggiyā bhikkhū bhagavato bhāsitaṃ abhinanduṃ.", "pronKo": "앗따마나- 빤짜왁기야- 빅쿠- 바가와또- 바-시땅 아비난둥.", "translation": "다섯 비구들은 흡족한 마음으로 세존의 말씀을 기뻐하였다."},
 ]

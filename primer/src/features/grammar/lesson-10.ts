@@ -68,5 +68,5 @@ export const LESSON_10: StepWithoutId[] = [
   { type: 'quiz', question: '20. Paṇḍitā saccaṃ ñātuṃ ussahanti.', options: ['현자들은 진리를 알려고 노력한다', '현자는 진리를 알려고 노력한다', '현자들은 진리를 알고서 노력한다', '현자들은 진리를 가르치려고 노력한다'], answer: 0, hint: 'ñātuṃ=알기를(부정사, ← ñā), ussahanti=노력하다(복수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Dānaṃ dadamānā sagge uppajjanti', pronKo: '다-낭 다다마-나- 삭게- 웁빳잔띠' },
+  { type: 'speak', pali: 'Dānaṃ dadamānā sagge uppajjanti', pronKo: '다-낭 다다마-나- 삭게- 웁빳잔띠', translation: '보시하면서 (사람들은) 천상에 태어난다.' },
 ]

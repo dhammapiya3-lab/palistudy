@@ -47,5 +47,5 @@ export const LESSON_14: StepWithoutId[] = [
   { type: 'quiz', question: '10. Sace devo vasseyya, kassako khettaṃ kaseyya.', options: ['만약 비가 내린다면, 농부는 밭을 갈 것이다', '비가 내리고 농부는 밭을 간다', '만약 비가 내린다면, 농부들은 밭을 갈 것이다', '비가 내려서 농부는 밭을 갈았다'], answer: 0, hint: 'devo vasseyya = 비가 내린다면 (deva=비/신, vassati=비가 오다)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Sace sīlaṃ rakkheyya sukhī assa', pronKo: '사쩨- 실-랑 락케이야 수키- 앗사' },
+  { type: 'speak', pali: 'Sace sīlaṃ rakkheyya sukhī assa', pronKo: '사쩨- 실-랑 락케이야 수키- 앗사', translation: '만약 (비구가) 계를 지킨다면 행복할 것이다.' },
 ]

@@ -61,5 +61,5 @@ export const LESSON_04: StepWithoutId[] = [
   { type: 'quiz', question: '10. Yācako kassakasmā soṇaṃ yācati.', options: ['거지는 농부에게 개를 준다', '거지는 농부에게서 개를 요청한다', '거지들은 농부에게서 개를 요청한다', '거지는 농부와 함께 개를 본다'], answer: 1, hint: 'kassakasmā=농부에게서(탈격), soṇaṃ=개를, yācati=구하다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미' },
+  { type: 'speak', pali: 'Pāṇātipātā veramaṇī sikkhāpadaṃ samādiyāmi', pronKo: '빠-나-띠빠-따- 웨-라마니- 식카-빠당 사마-디야-미', translation: '살아 있는 생명을 죽이는 것을 삼가는 학습계목을 받아 지닙니다.' },
 ]

@@ -513,11 +513,11 @@ export const LESSON_01_SANDHI: StepWithoutId[] = [
   {
     type: 'speak',
     pali: 'jātipi dukkhā, jarāpi dukkhā, maraṇampi dukkhaṃ',
-    pronKo: '자-띠삐 둑카-, 자라-삐 둑카-, 마라남삐 둑캉',
+    pronKo: '자-띠삐 둑카-, 자라-삐 둑카-, 마라남삐 둑캉', translation: '태어남도 괴로움이고, 늙음도 괴로움이고, 죽음도 괴로움이다.',
   },
   {
     type: 'speak',
     pali: 'Dveme bhikkhave antā pabbajitena na sevitabbā',
-    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-',
+    pronKo: '드웨-메- 빅카웨- 안따- 빱바지떼-나 나 세-위땁바-', translation: '"비구들이여, 출가자가 따르지 말아야 할 두 극단이 있다."',
   },
 ]

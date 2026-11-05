@@ -35,6 +35,9 @@ export default function SpeakStep({ step, onSpeak, easyMode }: SpeakStepProps) {
           {step.pali}
         </p>
         <p className="text-sm mt-2 font-medium">{step.pronKo}</p>
+        {step.translation && (
+          <p className="text-sm mt-1.5" style={{ color: 'var(--color-text-secondary)' }}>{step.translation}</p>
+        )}
         <div className="flex justify-center">
           <AudioPractice text={step.pali} />
         </div>

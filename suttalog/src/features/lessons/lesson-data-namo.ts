@@ -13,6 +13,6 @@ export const LESSON_NAMO: StepType[] = [
   {"type": "quiz", "question": "\"sammāsambuddhassa\"의 의미는?", "options": ["번뇌를 소멸한 분", "법을 설하신 분", "완전히 바르게 깨달은 분", "오온을 소멸한 분"], "answer": 2},
   {"type": "quiz", "question": "\"Arahato\"의 뜻은?", "options": ["아라한께, 공양받을 만한 분께", "왕께", "스승께", "제자께"], "answer": 0, "hint": "√arah (arahati: \"가치 있다\")"},
   {"type": "quiz", "question": "-ant 어간의 -ato(bhagavato·arahato), -a 어간의 -assa(sammāsambuddhassa)는 여기서 어떤 뜻?", "options": ["~께 (격)", "~로부터", "~안에서", "~과 함께"], "answer": 0, "hint": "Namo는 \"~께 경배\" — 여격을 받음"},
-  {"type": "speak", "pali": "Namo tassa Bhagavato Arahato Sammāsambuddhassa.", "pronKo": "나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사."},
+  {"type": "speak", "pali": "Namo tassa Bhagavato Arahato Sammāsambuddhassa.", "pronKo": "나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사.", "translation": "저 세존, 아라한, 완전히 바르게 깨달은 분께 경배드립니다."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "저 세존, 아라한, 완전히 바르게 깨달은 분께 경배드립니다.", "blocks": ["tassa", "Namo", "Sammāsambuddhassa.", "Bhagavato", "Arahato"], "correctOrder": [1, 0, 3, 4, 2]},
 ]

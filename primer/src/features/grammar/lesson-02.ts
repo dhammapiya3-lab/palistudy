@@ -81,5 +81,5 @@ export const LESSON_02: StepWithoutId[] = [
   { type: 'quiz', question: '25. Sahāyakā pabbate āruhanti.', options: ['친구는 산을 오른다', '친구들은 산들을 오른다', '친구들은 산을 오른다', '친구들은 산으로 달린다'], answer: 1, hint: 'Sahāyakā=친구들은, pabbate=산들을(목적격 복수), āruhanti=오르다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미' },
+  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미', translation: '저는 붓다께 귀의합니다.' },
 ]

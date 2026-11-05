@@ -38,5 +38,5 @@ export const LESSON_28: StepWithoutId[] = [
   { type: 'verse', pali: 'Buddhaṃ saraṇaṃ gacchāmi\nDhammaṃ saraṇaṃ gacchāmi\nSaṅghaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미\n담망 사라낭 갓차-미\n상강 사라낭 갓차-미', translation: '나는 붓다께 귀의합니다\n나는 담마에 귀의합니다\n나는 상가에 귀의합니다', highlight: ['gacchāmi'], note: 'gacchāmi = (ahaṃ) gacchāmi — 1인칭 단수 동사에 주어 ahaṃ 생략 가능' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미' },
+  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미', translation: '저는 붓다께 귀의합니다.' },
 ]

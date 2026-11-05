@@ -51,5 +51,5 @@ export const LESSON_27: StepWithoutId[] = [
   { type: 'verse', pali: 'Bhagavatā desitaṃ dhammaṃ\ndhāremi.', pronKo: '바가와따- 데-시땅 담망\n다-레-미', translation: '세존에 의해 설해진 법을\n나는 수지한다.', highlight: ['Bhagavatā', 'desitaṃ'], note: 'Bhagavatā = 도구격(~에 의해). desitaṃ = 과거분사(설해진). 수동 구문의 전형' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Evaṃ me sutaṃ: ekaṃ samayaṃ Bhagavā Sāvatthiyaṃ viharati', pronKo: '에-왕 메- 수땅: 에-깡 사마양 바가와- 사-왓티양 위하라띠' },
+  { type: 'speak', pali: 'Evaṃ me sutaṃ: ekaṃ samayaṃ Bhagavā Sāvatthiyaṃ viharati', pronKo: '에-왕 메- 수땅: 에-깡 사마양 바가와- 사-왓티양 위하라띠', translation: '이와 같이 나는 들었다. 한때 세존께서는 사왓티에 머무셨다.' },
 ]

@@ -74,5 +74,5 @@ export const LESSON_08: StepWithoutId[] = [
   { type: 'quiz', question: '10. Samaṇā araññe viharanti.', options: ['사문들은 숲에서 머문다', '사문은 숲에서 머문다', '사문들은 숲으로 간다', '사문들은 마을에서 머문다'], answer: 0, hint: 'araññe=숲에서(처소격), viharanti=머물다(복수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Rūpaṃ bhikkhave anattā', pronKo: '루-빵 빅카웨- 아낫따-' },
+  { type: 'speak', pali: 'Rūpaṃ bhikkhave anattā', pronKo: '루-빵 빅카웨- 아낫따-', translation: '비구들이여, 물질은 무아이다.' },
 ]

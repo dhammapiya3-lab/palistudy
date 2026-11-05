@@ -57,5 +57,5 @@ export const LESSON_05: StepWithoutId[] = [
   { type: 'quiz', question: '10. Dārakā makkaṭānaṃ phale āharanti.', options: ['아이들은 원숭이들에게 과일들을 가져온다', '아이들은 원숭이들로부터 과일들을 받는다', '아이는 원숭이들에게 과일들을 가져온다', '아이들은 원숭이들과 함께 과일들을 먹는다'], answer: 0, hint: 'makkaṭānaṃ=원숭이들에게(여격 복수), phale=과일들을' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Namo tassa bhagavato arahato sammāsambuddhassa', pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사' },
+  { type: 'speak', pali: 'Namo tassa bhagavato arahato sammāsambuddhassa', pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: '저 세존이시며, 아라한이시며, 정등각이신 분께 경배합니다.' },
 ]

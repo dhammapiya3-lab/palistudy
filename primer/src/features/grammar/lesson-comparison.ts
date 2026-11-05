@@ -14,5 +14,5 @@ export const LESSON_COMPARISON: StepWithoutId[] = [
   {"type": "quiz", "question": "\"seyyo\"의 뜻은?", "options": ["더 나은", "가장 나쁜", "나쁜", "처음의"], "answer": 0, "hint": "비교급", "explain": "seyyo는 \"더 나은\"이라는 비교급입니다. 최상급은 seṭṭha."},
   {"type": "quiz", "question": "\"재물보다\"처럼 비교 대상은 무슨 격?", "options": ["탈격", "소유격", "도구격", "주격"], "answer": 0, "hint": "dhanato", "explain": "비교 대상(~보다)은 탈격으로 나타냅니다."},
   {"type": "quiz", "question": "\"maṅgalamuttamaṃ\"을 풀면?", "options": ["maṅgalaṃ + uttamaṃ (최상의 축복)", "maṅgala + muttamaṃ", "maṅgalam + uttama (축복의 위)", "maṅga + lamuttamaṃ"], "answer": 0, "hint": "연성", "explain": "ṃ 뒤에 모음이 오면 m으로 이어집니다."},
-  {"type": "speak", "pali": "Etaṃ maṅgalamuttamaṃ.", "pronKo": "에-땅 망갈라뭇따망."},
+  {"type": "speak", "pali": "Etaṃ maṅgalamuttamaṃ.", "pronKo": "에-땅 망갈라뭇따망.", "translation": "이것이 최상의 축복이다."},
 ]

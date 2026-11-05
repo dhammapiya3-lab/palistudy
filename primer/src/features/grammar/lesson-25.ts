@@ -55,5 +55,5 @@ export const LESSON_25: StepWithoutId[] = [
   { type: 'verse', pali: 'Satthā bhikkhūnaṃ dhammaṃ desento anukampaṃ upādāya', pronKo: '삿타- 빅쿠-낭 담망 데-센또- 아누깜빵 우빠-다-야', translation: '스승은 비구들에게 법을 설하시면서 연민을 지니시고', highlight: ['Satthā', 'bhikkhūnaṃ'], note: 'satthā = satthu의 주격 단수. 붓다가 자비심으로 가르치심을 표현' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Satthā bhikkhūnaṃ dhammaṃ desesi', pronKo: '삿타- 빅쿠-낭 담망 데-세-시' },
+  { type: 'speak', pali: 'Satthā bhikkhūnaṃ dhammaṃ desesi', pronKo: '삿타- 빅쿠-낭 담망 데-세-시', translation: '스승께서는 비구들에게 법을 설하셨다.' },
 ]

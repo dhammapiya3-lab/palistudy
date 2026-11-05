@@ -228,7 +228,7 @@ export const LESSON_RATANA: StepType[] = [
   {"type": "quiz", "question": "예류자의 보장은?", "options": ["7생 안에 아라한과", "천상 출생", "즉시 부처", "신통 획득"], "answer": 0},
   {"type": "quiz", "question": "아라한 비유 (14게송)는?", "options": ["꺼지는 등불", "구름 흩어짐", "강의 흐름", "꽃이 핌"], "answer": 0, "hint": "nibbanti dhīrā yathāyaṃ padīpo"},
   {"type": "quiz", "question": "보배경 결어에서 3보 예배 순서는?", "options": ["붓다 → 담마 → 상가", "상가 → 담마 → 붓다", "담마 → 붓다 → 상가", "동시"], "answer": 0},
-  {"type": "speak", "pali": "etena saccena suvatthi hotu.", "pronKo": "에-떼-나 삿쩨-나 수왓티 호-뚜."},
-  {"type": "speak", "pali": "Yaṃ kiñci vittaṃ idha vā huraṃ vā, saggesu vā yaṃ ratanaṃ paṇītaṃ.\nNa no samaṃ atthi tathāgatena, idampi buddhe ratanaṃ paṇītaṃ.\nEtena saccena suvatthi hotu.", "pronKo": "양 낀찌 윗땅 이다 와- 후랑 와-, 삭게-수 와- 양 라따낭 빠니-땅.\n나 노- 사망 앗티 따타-가떼-나, 이담삐 붓데- 라따낭 빠니-땅.\n에-떼-나 삿쩨-나 수왓티 호-뚜."},
+  {"type": "speak", "pali": "etena saccena suvatthi hotu.", "pronKo": "에-떼-나 삿쩨-나 수왓티 호-뚜.", "translation": "이 진리로 행복이 있기를!"},
+  {"type": "speak", "pali": "Yaṃ kiñci vittaṃ idha vā huraṃ vā, saggesu vā yaṃ ratanaṃ paṇītaṃ.\nNa no samaṃ atthi tathāgatena, idampi buddhe ratanaṃ paṇītaṃ.\nEtena saccena suvatthi hotu.", "pronKo": "양 낀찌 윗땅 이다 와- 후랑 와-, 삭게-수 와- 양 라따낭 빠니-땅.\n나 노- 사망 앗티 따타-가떼-나, 이담삐 붓데- 라따낭 빠니-땅.\n에-떼-나 삿쩨-나 수왓티 호-뚜.", "translation": "이 세상이든 저 세상이든 어떤 보물이든, 천상의 어떤 뛰어난 보배든 — 여래와 같은 것은 없다. 이것이 붓다 안의 뛰어난 보배. 이 진실에 의해 행복이 있기를."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "이 진실에 의해 행복이 있기를.", "blocks": ["saccena", "etena", "hotu.", "suvatthi"], "correctOrder": [1, 0, 3, 2]},
 ]

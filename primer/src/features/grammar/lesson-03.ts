@@ -75,5 +75,5 @@ export const LESSON_03: StepWithoutId[] = [
   { type: 'quiz', question: '25. Bhūpālo paṇḍitena saha manusse rakkhati.', options: ['왕은 현자와 함께 사람들을 보호한다', '왕들은 현자와 함께 사람들을 보호한다', '왕은 현자에 의해 사람들을 보호한다', '왕은 현자와 함께 사람을 보호한다'], answer: 0, hint: 'paṇḍitena saha=현자와 함께, manusse=사람들을' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Ete kho bhikkhave ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā', pronKo: '에-떼- 코- 빅카웨- 우보- 안떼- 아누빠감마 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다-' },
+  { type: 'speak', pali: 'Ete kho bhikkhave ubho ante anupagamma majjhimā paṭipadā tathāgatena abhisambuddhā', pronKo: '에-떼- 코- 빅카웨- 우보- 안떼- 아누빠감마 맛지마- 빠띠빠다- 따타-가떼-나 아비삼붓다-', translation: '비구들이여, 이 양극단에 다가가지 않고, 여래에 의해 깨달아진 중도가 있으니' },
 ]

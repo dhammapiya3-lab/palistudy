@@ -52,5 +52,5 @@ export const LESSON_09: StepWithoutId[] = [
   { type: 'quiz', question: '10. Bhikkhū āsanamhā uṭṭhāya Buddhaṃ vandanti.', options: ['비구들은 자리에서 일어나서 부처님께 예배한다', '비구는 자리에서 일어나서 부처님께 예배한다', '비구들은 자리에 앉아서 부처님께 예배한다', '비구들은 자리에서 일어나서 법을 듣는다'], answer: 0, hint: 'uṭṭhāya=일어나서(-ya형), āsanamhā=자리에서(탈격)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Bhagavantaṃ vanditvā padakkhiṇaṃ katvā pakkāmi', pronKo: '바가완땅 완디뜨와- 빠닥키낭 까뜨와- 빡까-미' },
+  { type: 'speak', pali: 'Bhagavantaṃ vanditvā padakkhiṇaṃ katvā pakkāmi', pronKo: '바가완땅 완디뜨와- 빠닥키낭 까뜨와- 빡까-미', translation: '세존께 예배하고 오른쪽으로 도는 예를 행하고서 떠나갔다.' },
 ]

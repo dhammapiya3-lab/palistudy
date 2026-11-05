@@ -15,5 +15,5 @@ export const LESSON_IRREGULAR: StepWithoutId[] = [
   {"type": "quiz", "question": "\"Idamavoca bhagavā\"의 avoca는?", "options": ["vatti(말하다)의 과거형", "vatti의 미래형", "명령형", "명사"], "answer": 0, "hint": "aorist", "explain": "avoca는 \"말했다\"라는 과거형입니다."},
   {"type": "quiz", "question": "\"disvā\"의 뜻은?", "options": ["보고서", "보았다", "볼 것이다", "보인"], "answer": 0, "hint": "절대분사 -tvā와 같은 역할", "explain": "disvā는 passati의 절대분사(보고서)입니다."},
   {"type": "quiz", "question": "\"bhavantu\"는 어떤 꼴?", "options": ["명령형 (~이 되기를)", "과거형", "미래형", "현재분사"], "answer": 0, "hint": "-ntu", "explain": "3인칭 복수 명령형 어미 -ntu입니다."},
-  {"type": "speak", "pali": "Sabbeva bhūtā sumanā bhavantu.", "pronKo": "삽베-와 부-따- 수마나- 바완뚜."},
+  {"type": "speak", "pali": "Sabbeva bhūtā sumanā bhavantu.", "pronKo": "삽베-와 부-따- 수마나- 바완뚜.", "translation": "모든 존재가 기쁜 마음이 되기를."},
 ]

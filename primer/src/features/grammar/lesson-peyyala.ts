@@ -14,5 +14,5 @@ export const LESSON_PEYYALA: StepWithoutId[] = [
   {"type": "quiz", "question": "경전의 \"… pe …\"는?", "options": ["앞에 나온 말을 되풀이한다는 줄임 표시", "\"~라고\"", "부정어", "문장의 끝"], "answer": 0, "hint": "peyyāla", "explain": "pe는 반복되는 부분을 줄였다는 표시입니다."},
   {"type": "quiz", "question": "\"abhinandunti\"를 풀면?", "options": ["abhinanduṃ + iti", "abhinandati + nti", "abhi + nandunti (현재)", "abhinanda + unti"], "answer": 0, "hint": "ṃ + iti → nti", "explain": "과거형 abhinanduṃ(기뻐하였다)에 인용 표시 iti가 붙었습니다."},
   {"type": "quiz", "question": "\"Evaṃ me sutaṃ\"의 sutaṃ은?", "options": ["과거분사 (들은)", "동사 현재형", "명령형", "부사"], "answer": 0, "hint": "suṇāti → suta", "explain": "sutaṃ은 suṇāti(듣다)의 과거분사입니다."},
-  {"type": "speak", "pali": "Evaṃ me sutaṃ — ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme.", "pronKo": "에-왕 메- 수땅 — 에-깡 사마양 바가와- 사-왓티양 위하라띠 제-따와네- 아나-타삔디깟사 아-라-메-."},
+  {"type": "speak", "pali": "Evaṃ me sutaṃ — ekaṃ samayaṃ bhagavā sāvatthiyaṃ viharati jetavane anāthapiṇḍikassa ārāme.", "pronKo": "에-왕 메- 수땅 — 에-깡 사마양 바가와- 사-왓티양 위하라띠 제-따와네- 아나-타삔디깟사 아-라-메-.", "translation": "이와 같이 나는 들었다. 한때 세존께서는 사왓티의 제따 숲, 아나타삔디까의 동산에 머무셨다."},
 ]

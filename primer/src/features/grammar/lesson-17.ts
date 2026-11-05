@@ -66,5 +66,5 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'quiz', question: '10. Khudā ca pipāsā ca vanitānaṃ dukkhaṃ.', options: ['배고픔과 갈증은 여인들의 고통이다', '배고픔과 갈증은 여인의 고통이다', '배고픔과 갈증은 사람들의 고통이다', '배고픔과 갈증은 여인들에게 고통을 준다'], answer: 0, hint: 'vanitānaṃ=여인들의(소유격 복수 -ānaṃ), ca=그리고' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Catasso imā bhikkhave parisā', pronKo: '짜땃소- 이마- 빅카웨- 빠리사-' },
+  { type: 'speak', pali: 'Catasso imā bhikkhave parisā', pronKo: '짜땃소- 이마- 빅카웨- 빠리사-', translation: '비구들이여, 이 네 가지 수행원이 있다.' },
 ]

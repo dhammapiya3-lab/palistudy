@@ -16,5 +16,5 @@ export const LESSON_NUMERALS: StepWithoutId[] = [
   {"type": "quiz", "question": "\"cattāri ariyasaccāni\"에서 cattāri가 중성인 이유는?", "options": ["sacca가 중성명사라서", "복수라서", "주격이라서", "숫자는 늘 중성"], "answer": 0, "hint": "꾸미는 명사의 성", "explain": "sacca는 중성명사이므로 중성 cattāri를 씁니다."},
   {"type": "quiz", "question": "\"dveme\"를 풀면?", "options": ["dve + ime (이 두 가지)", "dve + me (나의 둘)", "dvi + eme", "de + veme"], "answer": 0, "hint": "연성", "explain": "dve + ime → dveme (모음 연성)"},
   {"type": "quiz", "question": "\"tatiyampi\"의 뜻은?", "options": ["세 번째에도", "셋이서", "세 가지의", "세 번 하라"], "answer": 0, "hint": "tatiya + pi", "explain": "tatiya(셋째) + pi(~에도) = 세 번째에도"},
-  {"type": "speak", "pali": "Ekāyano ayaṃ, bhikkhave, maggo, yadidaṃ cattāro satipaṭṭhānā.", "pronKo": "에-까-야노- 아양, 빅카웨-, 막고-, 야디당 짯따-로- 사띠빳타-나-."},
+  {"type": "speak", "pali": "Ekāyano ayaṃ, bhikkhave, maggo, yadidaṃ cattāro satipaṭṭhānā.", "pronKo": "에-까-야노- 아양, 빅카웨-, 막고-, 야디당 짯따-로- 사띠빳타-나-.", "translation": "비구들이여, 이것은 하나로 가는 길이니, 곧 네 가지 마음챙김의 확립이다."},
 ]

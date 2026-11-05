@@ -56,5 +56,5 @@ export const LESSON_26: StepWithoutId[] = [
   { type: 'verse', pali: 'Cakkhuṃ bhikkhave anattā.\nYadanattā taṃ netaṃ mama,\nnesohamasmi, na meso attāti.', pronKo: '짝쿵 빅카웨- 아낫따-. 야다낫따- 땅 네-땅 마마, 네-소-하마스미, 나 메-소- 앗따-띠.', translation: '비구들이여, 눈은 무아이다.\n무아인 것, 그것은 나의 것이 아니고,\n그것은 내가 아니며, 그것은 나의 자아가 아니다.', highlight: ['Cakkhuṃ', 'anattā'], note: '여기서 cakkhuṃ은 cakkhu의 주격 단수.\n-u/-i 중성명사는 주격 단수에 -uṃ/-iṃ 이형이 있음 (cakkhuṃ, aṭṭhiṃ).' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Cakkhuṃ aniccaṃ, cakkhuṃ anattā', pronKo: '짝쿵 아닛짱, 짝쿵 아낫따-.' },
+  { type: 'speak', pali: 'Cakkhuṃ aniccaṃ, cakkhuṃ anattā', pronKo: '짝쿵 아닛짱, 짝쿵 아낫따-.', translation: '눈은 무상하고, 눈은 무아이다.' },
 ]

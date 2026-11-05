@@ -13,5 +13,5 @@ export const LESSON_TADDHITA: StepWithoutId[] = [
   {"type": "quiz", "question": "\"cetasika\"의 뜻은?", "options": ["마음의, 정신적인", "마음을 가진 이", "마음이 없는", "마음으로"], "answer": 0, "hint": "cetas + ika", "explain": "-ika는 \"~에 속한, ~와 관련된\"을 뜻합니다."},
   {"type": "quiz", "question": "\"kataññutā\"는 어떤 낱말?", "options": ["추상명사 (은혜를 앎)", "동사", "소유격", "부사"], "answer": 0, "hint": "-tā", "explain": "-tā는 \"~함, ~임\"을 뜻하는 추상명사를 만듭니다."},
   {"type": "quiz", "question": "\"paṇḍicca\"는 어떻게 만들어졌나?", "options": ["paṇḍita + ya", "paṇḍi + cca", "paṇḍa + icca", "paṇḍita + ika"], "answer": 0, "hint": "-ya가 앞 자음과 닮음", "explain": "paṇḍita + ya → paṇḍicca (현명함)"},
-  {"type": "speak", "pali": "Gāravo ca nivāto ca, santuṭṭhi ca kataññutā.", "pronKo": "가-라오- 짜 니와-또- 짜, 산뚯티 짜 까딴뉴따-."},
+  {"type": "speak", "pali": "Gāravo ca nivāto ca, santuṭṭhi ca kataññutā.", "pronKo": "가-라오- 짜 니와-또- 짜, 산뚯티 짜 까딴뉴따-.", "translation": "공경과 겸손, 만족과 은혜를 앎."},
 ]

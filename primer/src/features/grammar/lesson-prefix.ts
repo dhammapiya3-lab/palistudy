@@ -14,5 +14,5 @@ export const LESSON_PREFIX: StepWithoutId[] = [
   {"type": "quiz", "question": "\"āgacchati\"의 뜻은?", "options": ["오다", "가다", "떠나다", "앉다"], "answer": 0, "hint": "ā = 이쪽으로", "explain": "ā(이쪽으로) + gacchati(가다) = 오다"},
   {"type": "quiz", "question": "\"anupassī\"의 anu-는 무슨 뜻?", "options": ["따라", "아래로", "위로", "함께"], "answer": 0, "hint": "anu-passati", "explain": "anu(따라) + passati(보다) = 따라 관찰하다"},
   {"type": "quiz", "question": "\"uggacchati\"는 어떻게 만들어졌나?", "options": ["ud(위로) + gacchati", "ug + acchati", "u + gacchati", "uggha + cchati"], "answer": 0, "hint": "연성 d + g → gg", "explain": "ud + gacchati → uggacchati (떠오르다)"},
-  {"type": "speak", "pali": "Kāye kāyānupassī viharati ātāpī sampajāno satimā.", "pronKo": "까-예- 까-야-누빳시- 위하라띠 아-따-삐- 삼빠자-노- 사띠마-."},
+  {"type": "speak", "pali": "Kāye kāyānupassī viharati ātāpī sampajāno satimā.", "pronKo": "까-예- 까-야-누빳시- 위하라띠 아-따-삐- 삼빠자-노- 사띠마-.", "translation": "몸에서 몸을 따라 관찰하며 머문다, 열심히, 분명히 알아차리며, 마음챙기며."},
 ]

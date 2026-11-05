@@ -54,5 +54,5 @@ export const LESSON_12: StepWithoutId[] = [
   { type: 'quiz', question: '10. Manusso pāṇaṃ na māreti.', options: ['사람은 생물을 죽이지 않는다', '사람은 생물을 죽인다', '사람들은 생물을 죽이지 않는다', '사람은 생물을 기르지 않는다'], answer: 0, hint: 'na māreti = 죽이지 않는다, pāṇa = 생물/목숨' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddho dhammaṃ deseti', pronKo: '붓도- 담망 데-세-띠' },
+  { type: 'speak', pali: 'Buddho dhammaṃ deseti', pronKo: '붓도- 담망 데-세-띠', translation: '붓다께서 법을 설하신다.' },
 ]

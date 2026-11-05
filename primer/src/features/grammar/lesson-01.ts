@@ -72,5 +72,5 @@ export const LESSON_01: StepWithoutId[] = [
   { type: 'quiz', question: '16. Sugato āgacchati.', options: ['선서는 가신다', '선서는 오신다', '선서들은 오신다', '여래는 오신다'], answer: 1, hint: 'Sugato = 선서는(주격 단수), āgacchati = 오다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠' },
+  { type: 'speak', pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati', pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠', translation: '한때 세존께서는 바라나시에 머무셨다.' },
 ]

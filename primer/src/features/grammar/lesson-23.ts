@@ -59,5 +59,5 @@ export const LESSON_23: StepWithoutId[] = [
   { type: 'quiz', question: '15. Sukhī puriso dhammaṃ suṇāti.', options: ['행복한 사람은 법을 듣는다', '행복한 사람들은 법을 듣는다', '사람은 행복한 법을 듣는다', '행복한 사람은 법을 설한다'], answer: 0, hint: 'sukhī = 행복한 자(남성 단수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Muni araññe viharati', pronKo: '무니 아란녜- 위하라띠' },
+  { type: 'speak', pali: 'Muni araññe viharati', pronKo: '무니 아란녜- 위하라띠', translation: '성자는 숲에서 머문다.' },
 ]

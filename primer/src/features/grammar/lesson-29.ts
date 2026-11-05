@@ -47,5 +47,5 @@ export const LESSON_29: StepWithoutId[] = [
   { type: 'verse', pali: 'Yathā Bhagavā dhammaṃ deseti,\ntathā tumhehi paṭipajjitabbaṃ.', pronKo: '야타- 바가와- 담망 데-세-띠,\n따타- 뚬헤-히 빠띠빳지땁방.', translation: '세존께서 법을 가르치신 대로\n그처럼 당신들은 실천해야 한다.', highlight: ['Yathā', 'tathā', 'tumhehi'], note: 'yathā…tathā = …하는 대로…그렇게\ntumhehi = 너희에 의해 (도구격, 수동문)\npaṭipajjitabbaṃ = 실천되어야 할 것 (미래수동분사(의무분사))' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha', pronKo: '야타- 바가와- 담망 데-세-띠 따타- 빠띠빳자타' },
+  { type: 'speak', pali: 'Yathā Bhagavā dhammaṃ deseti tathā paṭipajjatha', pronKo: '야타- 바가와- 담망 데-세-띠 따타- 빠띠빳자타', translation: '세존께서 법을 설하시는 대로 그렇게 실천하라.' },
 ]

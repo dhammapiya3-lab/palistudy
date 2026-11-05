@@ -46,5 +46,5 @@ export const LESSON_15: StepWithoutId[] = [
   { type: 'quiz', question: '10. Caratha bhikkhave cārikaṃ!', options: ['비구들이여, 편력하라!', '비구여, 편력하라!', '비구들이여, 편력하지 마라!', '비구들이여, 편력할 것이다!'], answer: 0, hint: 'caratha = carati의 명령형 2인칭 복수' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Caratha bhikkhave cārikaṃ bahujanahitāya', pronKo: '짜라타 빅카웨- 짜-리깡 바후자나히따-야' },
+  { type: 'speak', pali: 'Caratha bhikkhave cārikaṃ bahujanahitāya', pronKo: '짜라타 빅카웨- 짜-리깡 바후자나히따-야', translation: '비구들이여, 많은 사람의 이익을 위해 편력하라.' },
 ]

@@ -1009,5 +1009,5 @@ export const LESSON_MN10: StepType[] = [
   {"type": "quiz", "question": "법념처(dhammānupassanā)에 속하지 않는 항목은?", "options": ["5장애", "5취온", "6내외처", "9가지 묘지관"], "answer": 3, "hint": "묘지관은 신념처."},
   {"type": "quiz", "question": "도성제 = 무엇?", "options": ["갈애", "오취온", "팔정도", "12연기"], "answer": 2},
   {"type": "writing", "instruction": "\"마음챙김 확립\"을 빠알리어로 써보세요", "meaning": "사념처", "pronKo": "사띠빳타-나", "answer": "satipaṭṭhāna", "hint": "sati + paṭṭhāna"},
-  {"type": "speak", "pali": "Ekāyano ayaṃ, bhikkhave, maggo sattānaṃ visuddhiyā, sokaparidevānaṃ samatikkamāya dukkhadomanassānaṃ atthaṅgamāya ñāyassa adhigamāya nibbānassa sacchikiriyāya, yadidaṃ cattāro satipaṭṭhānā.", "pronKo": "에-까-야노- 아양, 빅카웨-, 막고- 삿따-낭 위숫디야-, 소-까빠리데-와-낭 사마띡까마-야 둑카도-마낫사-낭 앗탕가마-야 냐-얏사 아디가마-야 닙바-낫사 삿치끼리야-야, 야디당 짯따-로- 사띠빳타-나-."},
+  {"type": "speak", "pali": "Ekāyano ayaṃ, bhikkhave, maggo sattānaṃ visuddhiyā, sokaparidevānaṃ samatikkamāya dukkhadomanassānaṃ atthaṅgamāya ñāyassa adhigamāya nibbānassa sacchikiriyāya, yadidaṃ cattāro satipaṭṭhānā.", "pronKo": "에-까-야노- 아양, 빅카웨-, 막고- 삿따-낭 위숫디야-, 소-까빠리데-와-낭 사마띡까마-야 둑카도-마낫사-낭 앗탕가마-야 냐-얏사 아디가마-야 닙바-낫사 삿치끼리야-야, 야디당 짯따-로- 사띠빳타-나-.", "translation": "\"비구들이여, 중생의 청정을 위해, 슬픔과 비탄을 넘기 위해, 괴로움과 근심을 사라지게 하기 위해, 바른 이치를 얻기 위해, 열반을 실현하기 위해 — 이 하나의 길이 있으니, 그것이 네 가지 마음챙김의 확립(四念處)이다.\""},
 ]

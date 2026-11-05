@@ -62,5 +62,5 @@ export const LESSON_07: StepWithoutId[] = [
   { type: 'quiz', question: '10. Sakuṇā rukkhamhi nisīdanti.', options: ['새들은 나무에 앉는다', '새는 나무에 앉는다', '새들은 나무에서 난다', '새들은 나무들에 앉는다'], answer: 0, hint: 'rukkhamhi=나무에(처소격 -mhi 단수), nisīdanti=앉다(복수)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: V_EKAM, pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-' },
+  { type: 'speak', pali: V_EKAM, pronKo: '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-', translation: '한때 세존께서 바라나시 이시빠따나의 녹야원에 머물고 계셨다.' },
 ]

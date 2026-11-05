@@ -48,5 +48,5 @@ export const LESSON_11: StepWithoutId[] = [
   { type: 'quiz', question: '10. Natthi santiparaṃ sukhaṃ. (Dhp 202)', options: ['평화보다 더 큰 행복은 없다', '평화는 가장 큰 행복이다', '행복은 평화에 있다', '평화와 행복은 없다'], answer: 0, hint: 'natthi=없다, santiparaṃ = santi(평화, 여성명사; 동사 santi "그들은 있다"와 동형이의어) + para(~보다 높은), sukhaṃ=행복' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미' },
+  { type: 'speak', pali: 'Buddhaṃ saraṇaṃ gacchāmi', pronKo: '붓당 사라낭 갓차-미', translation: '저는 붓다께 귀의합니다.' },
 ]

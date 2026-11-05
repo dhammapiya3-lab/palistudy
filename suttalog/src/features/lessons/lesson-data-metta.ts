@@ -115,7 +115,7 @@ export const LESSON_METTA: StepType[] = [
   {"type": "quiz", "question": "자애경의 어머니 비유에서 어머니는 누구를 보호?", "options": ["외아들 (ekaputta)", "많은 아들", "남편", "부모"], "answer": 0},
   {"type": "quiz", "question": "\"brahmavihāra\"(梵住) 4무량심은?", "options": ["자(慈)·비(悲)·희(喜)·사(捨)", "계·정·혜·해탈", "신·구·의·법", "4성제"], "answer": 0},
   {"type": "quiz", "question": "자애 수행의 결과 (10게송)는?", "options": ["다시 모태에 들지 않음", "많은 재산", "많은 친구", "오래 살기"], "answer": 0},
-  {"type": "speak", "pali": "Sukhinova khemino hontu, sabbasattā bhavantu sukhitattā.", "pronKo": "수키노-와 케-미노- 혼뚜, 삽바삿따- 바완뚜 수키땃따-."},
-  {"type": "speak", "pali": "Mettañca sabbalokasmi, mānasaṃ bhāvaye aparimāṇaṃ. Uddhaṃ adho ca tiriyañca, asambādhaṃ averamasapattaṃ.", "pronKo": "멧딴짜 삽발로-까스미, 마-나상 바-와예- 아빠리마-낭. 웃당 아도- 짜 띠리얀짜, 아삼바-당 아웨-라마사빳땅."},
+  {"type": "speak", "pali": "Sukhinova khemino hontu, sabbasattā bhavantu sukhitattā.", "pronKo": "수키노-와 케-미노- 혼뚜, 삽바삿따- 바완뚜 수키땃따-.", "translation": "행복하고 안온하기를! 모든 중생이 행복한 마음이 되기를!"},
+  {"type": "speak", "pali": "Mettañca sabbalokasmi, mānasaṃ bhāvaye aparimāṇaṃ. Uddhaṃ adho ca tiriyañca, asambādhaṃ averamasapattaṃ.", "pronKo": "멧딴짜 삽발로-까스미, 마-나상 바-와예- 아빠리마-낭. 웃당 아도- 짜 띠리얀짜, 아삼바-당 아웨-라마사빳땅.", "translation": "온 세상에 한량없는 자애의 마음을 닦으라 — 위·아래·사방으로, 막힘 없이, 원한 없이, 적의 없이."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "모든 존재들이여, 행복한 마음이 되기를!", "blocks": ["sattā", "sabbe", "sukhitattā.", "bhavantu"], "correctOrder": [1, 0, 3, 2]},
 ]

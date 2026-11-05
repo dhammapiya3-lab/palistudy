@@ -15,5 +15,5 @@ export const LESSON_CASE_USES: StepWithoutId[] = [
   {"type": "quiz", "question": "\"ekaṃ samayaṃ\"의 samayaṃ은 어떤 용법?", "options": ["때를 나타내는 목적격", "동사의 목적어", "목적의 여격", "처소격"], "answer": 0, "hint": "\"한때\"", "explain": "목적격이 때·기간을 나타냅니다."},
   {"type": "quiz", "question": "\"nibbānāya saṃvattati\"의 nibbānāya는?", "options": ["목적의 여격 (열반으로)", "소유격 (열반의)", "처소격 (열반에서)", "주격"], "answer": 0, "hint": "-āya", "explain": "여격 -āya가 목적·결과를 나타냅니다."},
   {"type": "quiz", "question": "\"jātipaccayā\"의 탈격은 무엇을 나타내나?", "options": ["원인·조건", "장소", "목적", "때"], "answer": 0, "hint": "~을 조건으로", "explain": "탈격은 원인·조건을 나타내기도 합니다."},
-  {"type": "speak", "pali": "Upasamāya abhiññāya sambodhāya nibbānāya saṃvattati.", "pronKo": "우빠사마-야 아빈냐-야 삼보-다-야 닙바-나-야 상왓따띠."},
+  {"type": "speak", "pali": "Upasamāya abhiññāya sambodhāya nibbānāya saṃvattati.", "pronKo": "우빠사마-야 아빈냐-야 삼보-다-야 닙바-나-야 상왓따띠.", "translation": "고요함으로, 최상의 앎으로, 바른 깨달음으로, 열반으로 이끈다."},
 ]

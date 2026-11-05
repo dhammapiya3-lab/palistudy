@@ -37,5 +37,5 @@ export const LESSON_21: StepWithoutId[] = [
   { type: 'quiz', question: '10. Sīlaṃ rakkhitabbaṃ sabbadā.', options: ['계는 항상 지켜져야 한다', '계를 항상 지킨다', '계는 항상 지켜졌다', '계를 항상 지킬 것이다'], answer: 0, hint: 'rakkhitabbaṃ = 지켜야 할, sabbadā = 항상' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Karaṇīyaṃ kusalaṃ sukhāvahaṃ', pronKo: '까라니-양 꾸살랑 수카-와항' },
+  { type: 'speak', pali: 'Karaṇīyaṃ kusalaṃ sukhāvahaṃ', pronKo: '까라니-양 꾸살랑 수카-와항', translation: '행해져야 할 선은 행복을 가져온다.' },
 ]

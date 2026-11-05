@@ -12,5 +12,5 @@ export const LESSON_CONDITIONAL: StepWithoutId[] = [
   {"type": "quiz", "question": "\"abhavissa\"의 뜻은?", "options": ["~였더라면", "~일 것이다", "~였다", "~이어라"], "answer": 0, "hint": "a- + 어간 + -issa", "explain": "abhavissa는 bhavati의 조건법입니다."},
   {"type": "quiz", "question": "조건법과 미래형의 차이는?", "options": ["조건법은 앞에 a-가 붙고 어미가 -issa", "조건법은 -tvā로 끝남", "둘은 같은 형태", "미래형에 a-가 붙음"], "answer": 0, "hint": "abhavissa / bhavissati", "explain": "조건법: a-bhav-issa / 미래형: bhav-issati"},
   {"type": "quiz", "question": "무아상경의 이 조건법 문장이 말하려는 것은?", "options": ["물질은 자아가 아니다", "물질은 자아이다", "물질은 병이 없다", "물질은 영원하다"], "answer": 0, "hint": "사실과 반대되는 가정", "explain": "\"자아였더라면 병들지 않을 텐데, 병드니 자아가 아니다\"라는 논증입니다."},
-  {"type": "speak", "pali": "Rūpañca hidaṃ, bhikkhave, attā abhavissa, nayidaṃ rūpaṃ ābādhāya saṃvatteyya.", "pronKo": "루-빤짜 히당, 빅카웨-, 앗따- 아바윗사, 나이당 루-빵 아-바-다-야 상왓떼이야."},
+  {"type": "speak", "pali": "Rūpañca hidaṃ, bhikkhave, attā abhavissa, nayidaṃ rūpaṃ ābādhāya saṃvatteyya.", "pronKo": "루-빤짜 히당, 빅카웨-, 앗따- 아바윗사, 나이당 루-빵 아-바-다-야 상왓떼이야.", "translation": "비구들이여, 만약 이 물질이 자아였더라면, 이 물질은 병으로 이끌지 않을 것이다."},
 ]

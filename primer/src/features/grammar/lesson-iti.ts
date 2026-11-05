@@ -13,5 +13,5 @@ export const LESSON_ITI: StepWithoutId[] = [
   {"type": "quiz", "question": "\"ariyasacca'nti\"에서 'nti는?", "options": ["ariyasaccaṃ + iti (인용 표시)", "동사 3인칭 복수 어미", "부정어", "처소격 어미"], "answer": 0, "hint": "ṃ + iti → nti", "explain": "ṃ으로 끝나는 말에 iti가 붙으면 'nti가 됩니다. 동사 어미 -nti와 헷갈리지 마세요."},
   {"type": "quiz", "question": "\"‘gacchāmī’ti pajānāti\"의 뜻은?", "options": ["\"나는 간다\"라고 분명히 안다", "가면서 분명히 안다", "나는 가서 안다", "\"그는 간다\"라고 말한다"], "answer": 0, "hint": "따옴표 안 = 생각의 내용", "explain": "'…'ti 안의 gacchāmi(나는 간다)가 아는 내용입니다."},
   {"type": "quiz", "question": "문장 처음의 \"Itipi so bhagavā\"에서 iti의 뜻은?", "options": ["이와 같이, 이렇게", "~라고 말했다", "그러므로", "만약"], "answer": 0, "hint": "문장 처음의 iti", "explain": "문장 처음에 오면 \"이와 같이\"의 뜻입니다."},
-  {"type": "speak", "pali": "Gacchanto vā ‘gacchāmī’ti pajānāti.", "pronKo": "갓찬또- 와- '갓차-미-'띠 빠자-나-띠."},
+  {"type": "speak", "pali": "Gacchanto vā ‘gacchāmī’ti pajānāti.", "pronKo": "갓찬또- 와- '갓차-미-'띠 빠자-나-띠.", "translation": "걸어갈 때는 \"나는 걷는다\"라고 분명히 안다."},
 ]

@@ -36,5 +36,5 @@ export const LESSON_06: StepWithoutId[] = [
   { type: 'quiz', question: '10. Yācako amaccassa sāṭakaṃ icchati.', options: ['거지는 대신의 옷을 원한다', '거지들은 대신의 옷을 원한다', '거지는 대신에게 옷을 원한다', '거지는 대신의 밥을 원한다'], answer: 0, hint: 'amaccassa=대신의(소유격), sāṭakaṃ=옷을' },
 
   // === 마무리 ===
-  { type: 'speak', pali: V_NAMO, pronKo: '숩빠띠빤노- 바가와또- 사-와까상고- 우줍빠띠빤노- 바가와또- 사-와까상고-' },
+  { type: 'speak', pali: V_NAMO, pronKo: '숩빠띠빤노- 바가와또- 사-와까상고- 우줍빠띠빤노- 바가와또- 사-와까상고-', translation: '세존의 제자 승가는 잘 수행하는 이들이며, 세존의 제자 승가는 올곧게 수행하는 이들입니다.' },
 ]

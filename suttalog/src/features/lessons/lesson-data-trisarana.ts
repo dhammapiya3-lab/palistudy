@@ -30,8 +30,8 @@ export const LESSON_TRISARANA: StepType[] = [
   {"type": "quiz", "question": "두 번째 귀의문은 어떻게 시작하나요?", "options": ["Tatiyampi", "Dutiyampi", "Ekampi", "Catutthapi"], "answer": 1},
   {"type": "quiz", "question": "삼보(三寶)의 빠알리어는?", "options": ["Buddha·Dhamma·Saṅgha", "Sīla·Samādhi·Paññā", "Dukkha·Anicca·Anattā", "Rāga·Dosa·Moha"], "answer": 0},
   {"type": "quiz", "question": "\"gacchāmi\"는 어떤 인칭·수·시제?", "options": ["1인칭 단수 현재", "3인칭 단수 현재", "2인칭 복수", "명령형"], "answer": 0, "hint": "-mi 어미 = 1인칭 단수"},
-  {"type": "speak", "pali": "Buddhaṃ saraṇaṃ gacchāmi.", "pronKo": "붓당 사라낭 갓차-미."},
-  {"type": "speak", "pali": "Dhammaṃ saraṇaṃ gacchāmi.", "pronKo": "담망 사라낭 갓차-미."},
-  {"type": "speak", "pali": "Saṅghaṃ saraṇaṃ gacchāmi.", "pronKo": "상강 사라낭 갓차-미."},
+  {"type": "speak", "pali": "Buddhaṃ saraṇaṃ gacchāmi.", "pronKo": "붓당 사라낭 갓차-미.", "translation": "저는 붓다께 귀의합니다."},
+  {"type": "speak", "pali": "Dhammaṃ saraṇaṃ gacchāmi.", "pronKo": "담망 사라낭 갓차-미.", "translation": "저는 담마에 귀의합니다."},
+  {"type": "speak", "pali": "Saṅghaṃ saraṇaṃ gacchāmi.", "pronKo": "상강 사라낭 갓차-미.", "translation": "저는 상가에 귀의합니다."},
   {"type": "arrange", "instruction": "빠알리 문장을 순서대로 배열하세요.", "translation": "저는 붓다께 귀의합니다.", "blocks": ["saraṇaṃ", "Buddhaṃ", "gacchāmi."], "correctOrder": [1, 0, 2]},
 ]

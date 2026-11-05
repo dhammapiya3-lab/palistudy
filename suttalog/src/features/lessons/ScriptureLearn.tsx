@@ -1113,6 +1113,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
             <div className="rounded-2xl p-5 w-full" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
               <p className="pali-font font-semibold whitespace-pre-line" lang="pi" style={{ color: 'var(--color-primary)', fontSize: 'calc(var(--pali-fontsize, 18px) * 0.95)' }}>{step.pali}</p>
               <p className="text-sm mt-2 font-medium">{step.pronKo}</p>
+              {step.translation && <p className="text-sm mt-1.5" style={{ color: 'var(--color-text-secondary)' }}>{step.translation}</p>}
             </div>
             <div className="mt-5 flex gap-3 w-full">
               {canSpeak && (

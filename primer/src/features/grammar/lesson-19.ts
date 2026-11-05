@@ -54,5 +54,5 @@ export const LESSON_19: StepWithoutId[] = [
   { type: 'quiz', question: '10. Taruṇī aṭaviyā pupphāni saṃharati.', options: ['젊은 여자는 숲에서 꽃들을 모은다', '젊은 여자들은 숲에서 꽃을 모은다', '젊은 여자는 숲으로 꽃들을 가져간다', '젊은 여자는 공원에서 꽃들을 모은다'], answer: 0, hint: 'aṭaviyā = 숲에서(처소격)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Nadiyā jalaṃ pibanti gāviyo', pronKo: '나디야- 잘랑 삐반띠 가-위요-' },
+  { type: 'speak', pali: 'Nadiyā jalaṃ pibanti gāviyo', pronKo: '나디야- 잘랑 삐반띠 가-위요-', translation: '암소들은 강에서 물을 마신다.' },
 ]

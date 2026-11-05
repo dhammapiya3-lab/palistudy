@@ -362,7 +362,7 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-speak-1',
     type: 'speak',
     pali: 'Namo tassa bhagavato arahato sammāsambuddhassa',
-    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사',
+    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: '그 세존, 아라한, 정등각께 경배합니다.',
   },
 
   // ════════ 더 알아보기 (평소에는 건너뜀 — 과 끝 화면·목차에서 열 수 있음) ════════
@@ -422,7 +422,7 @@ export const LESSON_00: StepWithoutId[] = [
     type: 'speak',
     pali: 'Ekaṃ samayaṃ bhagavā bārāṇasiyaṃ viharati isipatane migadāye',
     pronKo:
-      '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-',
+      '에-깡 사마양 바가와- 바-라-나시양 위하라띠 이시빠따네- 미가다-예-', translation: '한때 세존께서 바라나시의 이시빠따나 녹야원에 머무셨다.',
   },
 
   // ── 명사의 8격 미리 보기 ──

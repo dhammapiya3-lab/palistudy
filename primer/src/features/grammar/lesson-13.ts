@@ -52,5 +52,5 @@ export const LESSON_13: StepWithoutId[] = [
   { type: 'quiz', question: '10. Satthā dhammaṃ desessati.', options: ['스승은 법을 설할 것이다', '스승은 법을 설한다', '스승들은 법을 설할 것이다', '스승은 법을 들을 것이다'], answer: 0, hint: 'desessati = deseti의 미래형 (-e어간)' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Buddho dhammaṃ desessati', pronKo: '붓도- 담망 데-셋사띠' },
+  { type: 'speak', pali: 'Buddho dhammaṃ desessati', pronKo: '붓도- 담망 데-셋사띠', translation: '붓다께서 법을 설하실 것이다.' },
 ]

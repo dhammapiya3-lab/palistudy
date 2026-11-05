@@ -12,7 +12,7 @@ export type StepWithoutId = StepExtras & (
   | { type: 'match-listen'; instruction: string; word: string; pronKo: string; options: string[]; answer: number }
   | { type: 'match-reverse'; instruction: string; meaning: string; options: string[]; answer: number }
   | { type: 'writing'; instruction: string; meaning: string; pronKo: string; answer: string; hint?: string }
-  | { type: 'speak'; pali: string; pronKo: string }
+  | { type: 'speak'; pali: string; pronKo: string; translation?: string }
   | { type: 'arrange'; instruction: string; translation: string; blocks: string[]; correctOrder: number[] }
   | { type: 'verse'; pali: string; pronKo: string; translation: string; highlight: string[]; note?: string }
 )

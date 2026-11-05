@@ -39,5 +39,5 @@ export const LESSON_20: StepWithoutId[] = [
   { type: 'quiz', question: '10. Hasantiyo kumāriyo uyyāne kīḷanti.', options: ['웃는 소녀들은 공원에서 논다', '웃는 소녀는 공원에서 논다', '소녀들은 공원에서 웃는다', '웃는 소녀들은 숲에서 논다'], answer: 0, hint: 'hasantiyo = 웃는 (복수), kīḷanti = 놀다' },
 
   // === 마무리 ===
-  { type: 'speak', pali: 'Pacantī nārī gehasmiṃ vasati', pronKo: '빠짠띠- 나-리- 게-하스밍 와사띠' },
+  { type: 'speak', pali: 'Pacantī nārī gehasmiṃ vasati', pronKo: '빠짠띠- 나-리- 게-하스밍 와사띠', translation: '요리하는 여자는 집에서 산다.' },
 ]

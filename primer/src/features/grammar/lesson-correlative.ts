@@ -13,5 +13,5 @@ export const LESSON_CORRELATIVE: StepWithoutId[] = [
   {"type": "quiz", "question": "\"yasmā … tasmā …\"의 뜻은?", "options": ["~이기 때문에, 그러므로", "~하는 곳에, 거기에", "~할 때, 그때", "~하는 대로, 그렇게"], "answer": 0, "hint": "탈격 (이유)", "explain": "yasmā(때문에) … tasmā(그러므로)"},
   {"type": "quiz", "question": "\"yathā\"와 짝을 이루는 말은?", "options": ["tathā", "tasmā", "tattha", "tadā"], "answer": 0, "hint": "~하는 대로 … 그렇게", "explain": "yathā … tathā … (~하는 대로 그렇게)"},
   {"type": "quiz", "question": "\"yattha … tattha …\"의 뜻은?", "options": ["~하는 곳에, 거기에", "~할 때, 그때", "~이기 때문에, 그러므로", "~하는 만큼, 그만큼"], "answer": 0, "hint": "-ttha = 장소", "explain": "yattha(~하는 곳에) … tattha(거기에)"},
-  {"type": "speak", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠."},
+  {"type": "speak", "pali": "Yasmā ca kho, bhikkhave, rūpaṃ anattā, tasmā rūpaṃ ābādhāya saṃvattati.", "pronKo": "야스마- 짜 코-, 빅카웨-, 루-빵 아낫따-, 따스마- 루-빵 아-바-다-야 상왓따띠.", "translation": "비구들이여, 물질은 자아가 아니기 때문에, 그러므로 물질은 병으로 이끈다."},
 ]

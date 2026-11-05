@@ -24,5 +24,5 @@ export const LESSON_ABSOLUTE: StepWithoutId[] = [
   {"type": "quiz", "question": "절대 소유격이 주로 나타내는 뜻은?", "options": ["~하는데도 (아랑곳하지 않고)", "~에게", "~으로부터", "~와 함께"], "answer": 0, "hint": "앞의 상황을 무릅쓰고 뒷일이 일어남", "explain": "절대 소유격은 \"~하는데도\"라는 양보의 뜻을 나타냅니다."},
   {"type": "teach-grammar", "title": "정리 — 절대 처격 vs 절대 소유격", "example": "처격: sūriye uggacchante\n소유격: puttassa rudantassa", "exampleKo": "해가 떠오를 때\n아들이 우는데도", "explanation": "공통점\n• 명사 + 분사가 같은 격으로 짝을 이룸\n• 본래 문장과 주인공이 다름\n\n차이점\n• 절대 처격 (-e, -smiṃ, -mhi …)\n  → ~할 때, ~하면, ~한 뒤에 (때·조건)\n• 절대 소유격 (-ssa, -ānaṃ …)\n  → ~하는데도 (양보·무시)\n\n분사의 종류로 때를 읽습니다.\n• 현재분사 → ~하는 동안\n• 과거분사 → ~한 뒤에"},
   {"type": "quiz", "question": "\"Imasmiṃ sati idaṃ hoti.\"에서 절대 처격 부분은?", "options": ["imasmiṃ sati", "idaṃ hoti", "sati idaṃ", "imasmiṃ idaṃ"], "answer": 0, "hint": "처격 대명사 + 처격 분사", "explain": "imasmiṃ(이것, 처격) + sati(있는, 처격) = 이것이 있을 때"},
-  {"type": "speak", "pali": "Imasmiṃ sati idaṃ hoti.", "pronKo": "이마스밍 사띠 이당 호-띠."},
+  {"type": "speak", "pali": "Imasmiṃ sati idaṃ hoti.", "pronKo": "이마스밍 사띠 이당 호-띠.", "translation": "이것이 있을 때 이것이 있다."},
 ]

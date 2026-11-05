@@ -37,8 +37,10 @@ def quiz(q, opts, ans, hint, explain):
     return {'type': 'quiz', 'question': q, 'options': opts, 'answer': ans, 'hint': hint, 'explain': explain}
 
 
-def speak(pali):
-    return {'type': 'speak', 'pali': pali, 'pronKo': P(pali)}
+def speak(pali, translation=''):
+    s = {'type': 'speak', 'pali': pali, 'pronKo': P(pali)}
+    if translation: s['translation'] = translation
+    return s
 
 
 L = {}
@@ -200,7 +202,7 @@ L['taddhita'] = ('파생 접미사 (taddhita)', '-ika · -tā/-tta · -ya', '�
     quiz('"cetasika"의 뜻은?', ['마음의, 정신적인', '마음을 가진 이', '마음이 없는', '마음으로'], 0, 'cetas + ika', '-ika는 "~에 속한, ~와 관련된"을 뜻합니다.'),
     quiz('"kataññutā"는 어떤 낱말?', ['추상명사 (은혜를 앎)', '동사', '소유격', '부사'], 0, '-tā', '-tā는 "~함, ~임"을 뜻하는 추상명사를 만듭니다.'),
     quiz('"paṇḍicca"는 어떻게 만들어졌나?', ['paṇḍita + ya', 'paṇḍi + cca', 'paṇḍa + icca', 'paṇḍita + ika'], 0, '-ya가 앞 자음과 닮음', 'paṇḍita + ya → paṇḍicca (현명함)'),
-    speak('Gāravo ca nivāto ca, santuṭṭhi ca kataññutā.'),
+    speak('Gāravo ca nivāto ca, santuṭṭhi ca kataññutā.', '공경과 겸손, 만족과 은혜를 앎.'),
 ])
 
 # ───────── 10. 상관 구문 ─────────
@@ -296,6 +298,9 @@ if __name__ == '__main__':
     texts = []
     for key in ORDER:
         title, sub, icon, const, steps = L[key]
+        for st in steps:  # 따라 읽기 번역: 같은 문장의 구절 번역을 씀
+            if st['type'] == 'speak' and 'translation' not in st:
+                st['translation'] = next(v['translation'] for v in steps if v['type'] == 'verse' and v['pali'] == st['pali'])
         body = (f"// {title} — '경전 읽기 문법' 묶음 (scripts/reading_lessons.py로 만듦)\n"
                 "import type { StepWithoutId } from './types'\n\n"
                 f"export const {const}: StepWithoutId[] = [\n"
