@@ -661,7 +661,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
     score(arrangeCorrect)
   }
 
-  // 이 과 전체 이어 듣기 — 구절을 차례로 기기 목소리로 읽음
+  // 이 과 전체 이어 듣기 — 구절을 차례로 읽음(녹음이 있으면 녹음, 없으면 기기 목소리)
   const verseTexts = useMemo(() => {
     const out: string[] = []
     rawSteps.forEach(s => { if (s.type === 'verse' && out[out.length - 1] !== s.pali) out.push(s.pali) })

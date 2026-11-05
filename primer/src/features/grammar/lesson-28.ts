@@ -9,15 +9,15 @@ export const LESSON_28: StepWithoutId[] = [
   { type: 'teach-grammar', title: '1인칭 대명사 격변화 (ahaṃ 나)', example: '주격: ahaṃ / mayaṃ\n목적격: maṃ, mamaṃ / amhe, no\n도구격: mayā, me / amhehi, no\n여격: mayhaṃ, mamaṃ, me / amhākaṃ, no\n탈격: mayā / amhehi, no\n소유격: mama, mayhaṃ, me / amhākaṃ, no\n처소격: mayi / amhesu\n호격: — / —', exampleKo: '단수 어간: ma-, 복수 어간: amh-\nme = 단축형 (구·여·소유격) / no = 목·구·여·(탈)·소유격', explanation: '1인칭 핵심 패턴:\n• 주격: ahaṃ(나) / mayaṃ(우리)\n• me = 단수 구·여·소유격 단축형\n• no = 복수 목·구·여·탈·소유격 단축형\n  (탈격 용법 포함 여부는 문법서마다 다름)\n• mayā = 도구격·탈격 겸용\n• 처소격: mayi(단수), amhesu(복수)' },
 
   // === 1인칭 단어 ===
-  { type: 'teach', word: 'ahaṃ', pronKo: '아항', meaning: '나 (주격)', icon: '👤', grammar: '1인칭 대명사 단수', formNote: '주격: ahaṃ, 목적격: maṃ' },
-  { type: 'teach', word: 'mayaṃ', pronKo: '마양', meaning: '우리 (주격)', icon: '👥', grammar: '1인칭 대명사 복수', formNote: '주격: mayaṃ, 목적격: amhe' },
+  { type: 'teach', word: 'ahaṃ', pronKo: '아항', meaning: '나', icon: '👤', grammar: '1인칭 대명사, 주격 단수', formNote: '주격: ahaṃ, 목적격: maṃ' },
+  { type: 'teach', word: 'mayaṃ', pronKo: '마양', meaning: '우리', icon: '👥', grammar: '1인칭 대명사, 주격 복수', formNote: '주격: mayaṃ, 목적격: amhe' },
 
   // === 2인칭 대명사 격변화 (tvaṃ) ===
   { type: 'teach-grammar', title: '2인칭 대명사 격변화 (tvaṃ 너)', example: '주격: tvaṃ, tuvaṃ / tumhe\n목적격: taṃ, tavaṃ, tuvaṃ / tumhe, vo\n도구격: tvayā, tayā, te / tumhehi, vo\n여격: tuyhaṃ, te / tumhākaṃ, vo\n탈격: tvayā, tayā / tumhehi, vo\n소유격: tava, tuyhaṃ, te / tumhākaṃ, vo\n처소격: tvayi, tayi / tumhesu\n호격: tvaṃ, tuvaṃ / tumhe', exampleKo: '단수 어간: tva-/ta-, 복수 어간: tumh-\nte = 단축형 (구·여·소유격) / vo = 목·구·여·(탈)·소유격', explanation: '2인칭 핵심 패턴:\n• 주격: tvaṃ(너) / tumhe(너희)\n• te = 단수 구·여·소유격 단축형\n• vo = 복수 목·구·여·탈·소유격 단축형\n• tvayā/tayā = 도구격·탈격 겸용\n• 1인칭과 구조 동일 (me↔te, no↔vo)\n• 호격: 대명사의 호격은 문법서마다 처리가 다름\n  (여기서는 주격형 tvaṃ/tumhe를 부르는 말로 제시)' },
 
   // === 2인칭 단어 ===
-  { type: 'teach', word: 'tvaṃ', pronKo: '뜨왕', meaning: '너 (주격)', icon: '👤', grammar: '2인칭 대명사 단수', formNote: '주격: tvaṃ/tuvaṃ, 목적격: taṃ/tavaṃ' },
-  { type: 'teach', word: 'tumhe', pronKo: '뚬헤-', meaning: '너희 (주격)', icon: '👥', grammar: '2인칭 대명사 복수', formNote: '주격: tumhe, 목적격: tumhe' },
+  { type: 'teach', word: 'tvaṃ', pronKo: '뜨왕', meaning: '너', icon: '👤', grammar: '2인칭 대명사, 주격 단수', formNote: '주격: tvaṃ/tuvaṃ, 목적격: taṃ/tavaṃ' },
+  { type: 'teach', word: 'tumhe', pronKo: '뚬헤-', meaning: '너희', icon: '👥', grammar: '2인칭 대명사, 주격 복수', formNote: '주격: tumhe, 목적격: tumhe' },
 
   // === 1인칭 vs 2인칭 대조 ===
   { type: 'teach-grammar', title: '1인칭 / 2인칭 단축형 대조', example: '       1인칭    2인칭\n단축(단수): me       te\n단축(복수): no       vo\n주격(단수): ahaṃ     tvaṃ\n주격(복수): mayaṃ    tumhe\n처소(단수): mayi     tvayi\n처소(복수): amhesu   tumhesu', exampleKo: 'me/te = 단수 단축, no/vo = 복수 단축', explanation: '단축형 규칙:\n• me (나에 의해/나에게/나의) — 문맥으로 격 판단\n• te (너에 의해/너에게/너의) — 문맥으로 격 판단\n  (목적격 "나를/너를"은 보통 maṃ/taṃ을 씀)\n• no (우리를/우리에게/우리의)\n• vo (너희를/너희에게/너희의)\n\n단축형은 문장 첫 자리에 올 수 없음!' },

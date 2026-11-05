@@ -7,7 +7,8 @@ const params = new URL(self.location.href).searchParams
 const CACHE_VERSION = params.get('v') || 'v1'
 const CACHE_NAME = `suttalog-${CACHE_VERSION}`
 const SHELL_URL = '/palistudy/suttalog/'
-const AUDIO_CACHE = 'suttalog-audio' // 음성 파일은 배포와 상관없이 유지
+// 음성 파일(mp3)은 배포와 상관없이 유지 — 녹음을 통째로 다시 만들면 이름 끝 번호를 올려 예전 소리를 지움
+const AUDIO_CACHE = 'suttalog-audio-v2' // 2026-11-05 빠알리 프라이머와 같은 목소리(텔루구어 남성) 녹음으로 바꿈
 
 // 설치 — 앱 첫 화면(HTML)을 미리 담아 둠. waiting 상태로 머물고 다음 방문 때 적용(강제 새로고침 없음).
 self.addEventListener('install', event => {
@@ -55,8 +56,24 @@ self.addEventListener('fetch', event => {
     return
   }
 
-  // 음성 파일: 캐시 우선(한 번 들은 소리는 오프라인에서도)
-  if (url.pathname.includes('/audio/')) {
+  // 녹음 목록(audio/manifest.json·letters.json): 네트워크 우선, 끊겼으면 저장해 둔 것
+  if (url.pathname.includes('/audio/') && url.pathname.endsWith('.json')) {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            const clone = response.clone()
+            caches.open(CACHE_NAME).then(cache => cache.put(request, clone))
+          }
+          return response
+        })
+        .catch(() => caches.match(request).then(r => r || Response.error()))
+    )
+    return
+  }
+
+  // 음성 파일(mp3): 별도 음성 캐시에서 캐시 우선(한 번 들은 소리는 오프라인에서도)
+  if (url.pathname.includes('/audio/') && url.pathname.endsWith('.mp3')) {
     event.respondWith(
       caches.open(AUDIO_CACHE).then(cache =>
         cache.match(request).then(cached => {

@@ -4,9 +4,8 @@ import { useEffect, useMemo, useState, type ReactNode } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { loadLesson, hasLessonData } from '../lessons/lesson-registry'
 import { speakPali, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
+import { bare, buildLines, lineWords, type Line } from './recite-lines'
 import { LESSON_META, canonicalLessonId, isReciteLesson } from '../../utils/lessons-meta'
-
-type Line = { pali: string; ko: string; pronKo: string }
 
 const STAGES = [
   { key: 'listen', label: '듣고 따라 읽기', tip: '🔊를 눌러 듣고, 소리 내어 따라 읽어 보세요.' },
@@ -14,47 +13,6 @@ const STAGES = [
   { key: 'hidden', label: '모두 가리고', tip: '모두 가렸어요. 외워서 읽어 보세요. 막히면 낱말을 누르세요.' },
   { key: 'pick', label: '다음 낱말 고르기', tip: '이어지는 낱말을 차례로 골라 보세요.' },
 ] as const
-
-/** 문장부호를 뺀 비교용 형태 */
-const bare = (w: string) => w.toLowerCase().replace(/[.,;:!?'"‘’“”—–()]/g, '')
-
-/** 긴 줄(12낱말 넘음)은 쉼표에서 나눠 8낱말 안팎으로 */
-function splitLong(line: string): string[] {
-  const words = line.split(/\s+/).filter(Boolean)
-  if (words.length <= 12) return [line]
-  const out: string[] = []
-  let cur: string[] = []
-  for (const w of words) {
-    cur.push(w)
-    if (cur.length >= 6 && /[,;.]$/.test(w)) { out.push(cur.join(' ')); cur = [] }
-  }
-  if (cur.length) {
-    if (cur.length < 3 && out.length) out[out.length - 1] += ' ' + cur.join(' ')
-    else out.push(cur.join(' '))
-  }
-  return out
-}
-
-function buildLines(steps: Awaited<ReturnType<typeof loadLesson>>): Line[] {
-  const out: Line[] = []
-  const seen = new Set<string>()
-  for (const s of steps) {
-    if (s.type !== 'verse') continue
-    const lines = s.pali.split('\n').map(l => l.trim()).filter(Boolean)
-    const kos = s.translation.split('\n').map(l => l.trim()).filter(Boolean)
-    const prons = s.pronKo.split('\n').map(l => l.trim()).filter(Boolean)
-    lines.forEach((l, i) => {
-      if (/niṭṭhit/i.test(l)) return // '…경 끝' 맺음말은 빼고
-      const key = bare(l).replace(/\s+/g, ' ')
-      if (seen.has(key)) return // 반복되는 줄(후렴·모아 읽기)은 한 번만
-      seen.add(key)
-      const ko = kos.length === lines.length ? kos[i] : s.translation
-      const pron = prons.length === lines.length ? prons[i] : ''
-      for (const part of splitLong(l)) out.push({ pali: part, ko, pronKo: part === l ? pron : '' })
-    })
-  }
-  return out
-}
 
 export default function Recite() {
   const { lessonId = '' } = useParams<{ lessonId: string }>()
@@ -78,7 +36,7 @@ export default function Recite() {
   }, [lid, valid])
 
   const line = lines?.[lineIdx]
-  const words = useMemo(() => line ? line.pali.split(/\s+/).filter(Boolean) : [], [line])
+  const words = useMemo(() => line ? lineWords(line.pali) : [], [line])
 
   // 고르기 단계 보기: 정답 + 이 과의 다른 낱말 2개
   const pool = useMemo(() => {

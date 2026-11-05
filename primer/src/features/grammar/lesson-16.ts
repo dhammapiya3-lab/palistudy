@@ -28,7 +28,7 @@ export const LESSON_16: StepWithoutId[] = [
   { type: 'teach', word: 'avoca', pronKo: '아워-짜', meaning: '말했다', icon: '🗣️', grammar: '과거형 3인칭 단수', baseForm: 'vacati', formNote: '현재: vadati(√vad, 보통 이 형태) / vatti·vacati(√vac, 드묾)\n과거: avoca\n복수: avocuṃ\n경전 정형구에 빈출' },
   { type: 'teach', word: 'desesi / desayi', pronKo: '데-세-시 / 데-사이', meaning: '설했다', icon: '📖', grammar: '과거형 3인칭 단수', baseForm: 'deseti', formNote: '현재: deseti\n과거: desesi / desayi\n복수: desesuṃ / desayiṃsu', buddhism: 'Buddho dhammaṃ desesi = 붓다께서 법을 설하셨다' },
   { type: 'teach', word: 'pūjesi / pūjayi', pronKo: '뿌-제-시 / 뿌-자이', meaning: '공양했다', icon: '🙏', grammar: '과거형 3인칭 단수', baseForm: 'pūjeti', formNote: '현재: pūjeti\n과거: pūjesi / pūjayi\n복수: pūjesuṃ' },
-  { type: 'teach', word: 'akāsi / akariṃsu', pronKo: '아까-시 / 아까링수', meaning: '했다 / 했다(복수)', icon: '⚒️', grammar: '과거형 3인칭', baseForm: 'karoti', formNote: '현재: karoti\n과거 단수: akāsi\n과거 복수: akariṃsu / akaṃsu' },
+  { type: 'teach', word: 'akāsi / akariṃsu', pronKo: '아까-시 / 아까링수', meaning: '했다 / 했다', icon: '⚒️', grammar: '과거형 3인칭 (단수 / 복수)', baseForm: 'karoti', formNote: '현재: karoti\n과거 단수: akāsi\n과거 복수: akariṃsu / akaṃsu' },
   { type: 'teach', word: 'aṭṭhāsi', pronKo: '앗타-시', meaning: '섰다', icon: '🧍', grammar: '과거형 3인칭 단수', baseForm: 'tiṭṭhati', formNote: '현재: tiṭṭhati\n과거: aṭṭhāsi\n복수: aṭṭhaṃsu' },
 
   // === 예문 ===

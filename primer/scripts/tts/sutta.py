@@ -1,7 +1,7 @@
 """경전으로 배우기 발음 mp3 만들기 — 프라이머 문장 목소리(텔루구어 남)와 같은 방식
 suttalog/scripts/tts-texts.json (ttsKey로 정리된 문장 목록) → suttalog/public/audio/<hash>.mp3 + manifest.json
 이미 manifest에 있는 문장은 건너뜀 (여러 번 돌려도 안전)"""
-import asyncio, hashlib, json
+import asyncio, hashlib, json, re
 from pathlib import Path
 from generate import speak, is_letter, LETTER_VOICE
 
@@ -9,6 +9,13 @@ ROOT = Path(__file__).resolve().parent.parent.parent.parent
 TEXTS = ROOT / 'suttalog' / 'scripts' / 'tts-texts.json'
 AUDIO = ROOT / 'suttalog' / 'public' / 'audio'
 VOICE = 'te'
+
+
+def clean(t):
+    # '/', '·', 대괄호는 소리 내어 읽지 않도록 쉼표·공백으로 바꿈
+    t = re.sub(r'\s*[/·]\s*', ', ', t)
+    t = t.replace('[', '').replace(']', '')
+    return re.sub(r'\s+', ' ', t).strip()
 
 async def main():
     AUDIO.mkdir(parents=True, exist_ok=True)
@@ -29,7 +36,7 @@ async def main():
     async def one(t, f):
         async with sem:
             try:
-                await speak(t, LETTER_VOICE if is_letter(t) else VOICE, AUDIO / f, retries=3)
+                await speak(clean(t), LETTER_VOICE if is_letter(t) else VOICE, AUDIO / f, retries=3)
                 done.append((t, f))
             except Exception:
                 failed.append((t, f))
