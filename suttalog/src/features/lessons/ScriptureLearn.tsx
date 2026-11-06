@@ -19,7 +19,7 @@ import { normPali, splitByRanges, speakableText, teachRanges, verseRanges, type 
 import { lookupGloss } from './word-gloss'
 import type { LessonResult } from '../lesson/LessonComplete'
 import {
-  addStudySeconds, buildCheckStep, buildTeachIndex, checkQuizEnabled, checkWordsAfterVerse, computeMadis,
+  addStudySeconds, buildCheckStep, buildTeachIndex, checkQuizEnabled, checkWordsAfterVerse, checkWordsMidRun, computeMadis,
   explainDepth, findTeach, learnedFromProgress, learnedFromSeen, lessonStarted, recordSeenWord, recordWrong,
   sectionShortName, skipLearnedEnabled, teachForStep, touchLastStudied,
   type CheckMode, type PracticeRef,
@@ -616,11 +616,12 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
     if (advanced.current >= 5) touchLastStudied(lid)
 
     // 구절이 끝나면 방금 배운 낱말 2~3개로 확인 문제(뒤에 연습 문제가 이미 있으면 생략)
-    if (step.type === 'verse' && checkQuizEnabled() && !checkedVerses.current.has(entry.raw)) {
+    // 낱말 카드가 길게 이어지면 8장마다 중간 확인 문제
+    if ((step.type === 'verse' || step.type === 'teach') && checkQuizEnabled() && !checkedVerses.current.has(entry.raw)) {
       checkedVerses.current.add(entry.raw)
       const listenOk = canSpeak && !soundOff()
       const modes: CheckMode[] = listenOk ? ['meaning', 'listen', 'reverse'] : ['meaning', 'reverse', 'meaning']
-      const items: PracticeRef[] = checkWordsAfterVerse(rawSteps, entry.raw)
+      const items: PracticeRef[] = (step.type === 'verse' ? checkWordsAfterVerse(rawSteps, entry.raw) : checkWordsMidRun(rawSteps, entry.raw))
         .map((r, i) => ({ kind: 'check' as const, teachRaw: r, mode: modes[i % modes.length] }))
         .filter(it => buildCheckStep(rawSteps, it))
       if (items.length >= 2) {

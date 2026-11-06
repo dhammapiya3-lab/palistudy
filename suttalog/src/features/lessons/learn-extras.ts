@@ -157,12 +157,23 @@ export function checkWordsAfterVerse(steps: Step[], verseRaw: number): number[] 
     if (nx && PRACTICE_TYPES.has(nx.type)) return []
     if (nx && nx.type !== 'speak') break
   }
+  // 낱말 카드가 길게 이어지면 중간 확인(checkWordsMidRun)에서 이미 물었으므로, 그 뒤의 낱말만
+  let start = verseRaw
+  while (start > 0 && steps[start - 1].type === 'teach') start--
+  const n = verseRaw - start
+  const tail = n - Math.floor((n - 1) / CHECK_EVERY) * CHECK_EVERY
+  return pickCheck(steps, verseRaw - tail, verseRaw - 1)
+}
+
+/** 낱말 카드가 이 수만큼 이어지면 중간에 확인 문제 */
+export const CHECK_EVERY = 8
+
+function pickCheck(steps: Step[], from: number, to: number): number[] {
   const group: number[] = []
   const seen = new Set<string>()
-  for (let r = verseRaw - 1; r >= 0; r--) {
+  for (let r = to; r >= from; r--) {
     const s = steps[r]
-    if (s.type === 'verse' || s.type === 'intro') break
-    if (!eligible(s)) continue
+    if (!s || !eligible(s)) continue
     const w = normPali(s.word)
     if (seen.has(w)) continue
     seen.add(w)
@@ -172,6 +183,27 @@ export function checkWordsAfterVerse(steps: Step[], verseRaw: number): number[] 
   if (group.length <= 3) return group
   // 고르게 셋: 앞·가운데·끝
   return [group[0], group[Math.floor(group.length / 2)], group[group.length - 1]]
+}
+
+/**
+ * 낱말 카드만 길게 이어지는 곳(복합어·구성 낱말 카드가 많은 마디)에서
+ * 카드 8장마다, 또는 구절 없이 낱말 카드로 끝나는 곳에서 방금 배운 낱말로 확인 문제.
+ */
+export function checkWordsMidRun(steps: Step[], raw: number): number[] {
+  if (steps[raw]?.type !== 'teach') return []
+  let start = raw
+  while (start > 0 && steps[start - 1].type === 'teach') start--
+  const count = raw - start + 1
+  const next = steps[raw + 1]
+  if (next && next.type === 'teach') {
+    if (count % CHECK_EVERY !== 0) return []
+    return pickCheck(steps, raw - CHECK_EVERY + 1, raw)
+  }
+  // 낱말 카드 다음이 구절이면 구절 뒤 확인 문제가 맡음, 연습 문제가 바로 오면 생략
+  if (next && (next.type === 'verse' || PRACTICE_TYPES.has(next.type) || next.type === 'speak')) return []
+  const tail = count - Math.floor((count - 1) / CHECK_EVERY) * CHECK_EVERY
+  if (tail < 3) return []
+  return pickCheck(steps, raw - tail + 1, raw)
 }
 
 // 결정적 의사 난수(같은 문제는 늘 같은 보기)

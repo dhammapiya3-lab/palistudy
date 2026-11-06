@@ -389,7 +389,7 @@ export function useGrammarLearn(lesson: LessonInfo | null) {
   }, [chunkOf])
 
   const handleNext = useCallback(() => {
-    if (phase !== 'stable') return
+    if (phase === 'exit') return  // 들어오는 중(enter)에도 누르면 바로 넘어가게 — 빠르게 누를 때 무시되지 않도록
     const n = nextIdx(stepIdx)
     if (n === -1) { finishLesson(); return }
     markStudied()
