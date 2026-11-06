@@ -24,6 +24,21 @@ def related(a, b):
 SHARED = json.loads((HERE / 'commentary' / '_shared.json').read_text(encoding='utf-8'))
 def nline(s):
     return ' '.join(re.sub(r'[^a-zāīūṃṅñṭḍṇḷ ]', ' ', s.lower()).split())
+def dedupe(items):
+    """한 카드 안에 같은 해설이 두 번 들어가지 않게 — 빠알리 괄호·띄어쓰기만 다른 것도 같은 것으로 보고 더 자세한 쪽을 남김"""
+    def key(t):
+        return re.sub(r'\s+', '', re.sub(r'\([^)]*\)', '', t))
+    out = []
+    for c in items:
+        k = key(c['text'])
+        same = next((x for x in out if key(x['text']) == k), None)
+        if same is None:
+            out.append(c)
+        elif len(c['text']) > len(same['text']):
+            out[out.index(same)] = c
+    return out
+
+
 def shared_for(o):
     w, line = norm(o['word']), nline(o.get('verseLine') or '')
     for e in SHARED:
@@ -54,6 +69,8 @@ for src in sorted(p for p in (HERE / 'commentary').glob('*.json') if not p.name.
             new = src_e['cmt'] if src_e else shared_for(o)
         if e and e['word'] != o['word']:
             raise SystemExit(f'{lid} raw {raw}: {e["word"]} ≠ {o["word"]}')
+        if new:
+            new = dedupe(new)
         if o.get('cmt') != new:
             if new: o['cmt'] = new
             else: o.pop('cmt', None)
