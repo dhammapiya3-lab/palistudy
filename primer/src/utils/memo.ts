@@ -1,24 +1,10 @@
 import { fitImages, withTimeout, friendlyError } from './memo-fit'
-// 메모 시스템 — Firestore에 base64 이미지 저장
-// 기기별 ID로 "내 메모" 구분, 수정 가능
+import { rpc, deviceKey, getAdminCode, type MemoRow } from './memo-store'
+// 메모 시스템 — 온라인 저장소(Supabase 'memos', app: 'primer')에 사진(base64)과 함께 저장
+// 보통 기기는 이 기기에서 쓴 메모만, 관리자 암호가 맞을 때만 모든 메모를 받음 (저장소가 직접 확인)
 
-const COLLECTION = 'pali-primer-memos'
+const APP = 'primer'
 const DEVICE_ID_KEY = 'pali-memo-device-id'
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let db: any = null
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-let fb: any = null
-
-const FIREBASE_CONFIG = {
-  apiKey: 'AIzaSyDDNRL69ugkKb6mJPnJb2kQud0_3b97viA',
-  authDomain: 'panditarama-video.firebaseapp.com',
-  projectId: 'panditarama-video',
-  storageBucket: 'panditarama-video.firebasestorage.app',
-  messagingSenderId: '504794613271',
-  appId: '1:504794613271:web:ac565d6c6e82d9b72c7e52',
-}
-
 const MAX_IMAGE_WIDTH = 800
 const SAVE_TIMEOUT = 25000 // 25초 안에 저장 안 되면 실패로 안내
 
@@ -53,22 +39,15 @@ export function getDeviceId(): string {
   return id
 }
 
-// Firebase 초기화
-async function ensureFirebase() {
-  if (db) return
+const adminCode = () => getAdminCode() || null
 
-  const { initializeApp, getApps, getApp } = await import('firebase/app')
-  const { getFirestore, initializeFirestore, collection, addDoc, getDocs, doc, updateDoc,
-    deleteDoc, query, orderBy, where } = await import('firebase/firestore')
-
-  fb = { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, query, orderBy, where }
-
-  const app = getApps().length > 0 ? getApp() : initializeApp(FIREBASE_CONFIG)
-  try {
-    // 카카오톡 등 앱 안 브라우저·회사망에서 실시간 연결이 막히면 자동으로 다른 방식(롱폴링) 사용
-    db = initializeFirestore(app, { experimentalAutoDetectLongPolling: true })
-  } catch {
-    db = getFirestore(app) // 이미 초기화된 경우
+function fromRow(r: MemoRow): Memo {
+  return {
+    id: r.id, page: r.page, stepId: r.step_id || undefined, status: (r.status || undefined) as MemoStatus | undefined,
+    text: r.text, images: Array.isArray(r.images) ? (r.images as MemoImage[]) : [],
+    createdAt: r.created_at, updatedAt: r.updated_at || undefined,
+    deviceId: r.mine ? getDeviceId() : (r.device_id || ''),
+    userAgent: r.user_agent || '',
   }
 }
 
@@ -106,7 +85,6 @@ export async function saveMemo(
 ): Promise<boolean> {
   lastMemoError = ''
   try {
-    await ensureFirebase()
     let images: MemoImage[] = []
     for (let i = 0; i < imageFiles.length; i++) {
       const dataUrl = await fileToDataUrl(imageFiles[i])
@@ -116,16 +94,10 @@ export async function saveMemo(
     const fitted = await fitImages(text, images)
     if (!fitted) throw new Error('too-big')
     images = fitted
-    const memo: Record<string, unknown> = {
-      page,
-      text,
-      images,
-      createdAt: new Date().toISOString(),
-      deviceId: getDeviceId(),
-      userAgent: navigator.userAgent.slice(0, 150),
-    }
-    if (stepId) memo.stepId = stepId // undefined 값은 Firestore가 거부하므로 있을 때만
-    await withTimeout(fb.addDoc(fb.collection(db, COLLECTION), memo), SAVE_TIMEOUT)
+    await withTimeout(rpc('memo_add', {
+      p_app: APP, p_page: page, p_text: text, p_images: images, p_step_id: stepId ?? null, p_snapshot: null,
+      p_device_id: getDeviceId(), p_device_key: deviceKey(), p_user_agent: navigator.userAgent.slice(0, 150),
+    }), SAVE_TIMEOUT)
     return true
   } catch (e) {
     console.error('메모 저장 실패:', e)
@@ -143,19 +115,12 @@ export async function updateMemo(
 ): Promise<boolean> {
   lastMemoError = ''
   try {
-    await ensureFirebase()
-    const ref = fb.doc(db, COLLECTION, memoId)
     const fitted = await fitImages(text, images)
     if (!fitted) throw new Error('too-big')
-    const updateData: Record<string, unknown> = {
-      text,
-      images: fitted,
-      updatedAt: new Date().toISOString(),
-    }
-    if (stepId !== undefined) {
-      updateData.stepId = stepId
-    }
-    await withTimeout(fb.updateDoc(ref, updateData), SAVE_TIMEOUT)
+    const ok = await withTimeout(rpc<boolean>('memo_update', {
+      p_id: memoId, p_text: text, p_images: fitted, p_step_id: stepId ?? null, p_device_key: deviceKey(), p_admin_code: adminCode(),
+    }), SAVE_TIMEOUT)
+    if (!ok) throw Object.assign(new Error('denied'), { code: 'permission-denied' })
     return true
   } catch (e) {
     console.error('메모 수정 실패:', e)
@@ -167,58 +132,37 @@ export async function updateMemo(
 // 메모 삭제
 export async function deleteMemo(memoId: string): Promise<boolean> {
   try {
-    await ensureFirebase()
-    await fb.deleteDoc(fb.doc(db, COLLECTION, memoId))
-    return true
+    return await rpc<boolean>('memo_delete', { p_id: memoId, p_device_key: deviceKey(), p_admin_code: adminCode() })
   } catch (e) {
     console.error('메모 삭제 실패:', e)
     return false
   }
 }
 
-// 내 메모 조회 (현재 기기 — 클라이언트 필터링)
+// 내 메모 조회 (이 기기에서 쓴 것)
 export async function getMyMemos(): Promise<Memo[]> {
-  try {
-    const all = await getMemos()
-    const myId = getDeviceId()
-    return all.filter(m => m.deviceId === myId)
-  } catch (e) {
-    console.error('메모 조회 실패:', e)
-    return []
-  }
+  const all = await getMemos()
+  return all.filter(m => m.deviceId === getDeviceId())
 }
 
-// 전체 메모 조회 (스크립트용)
+// 메모 조회 — 관리자는 전체, 보통 기기는 이 기기에서 쓴 것만
 export async function getMemos(): Promise<Memo[]> {
   try {
-    await ensureFirebase()
-    const q = fb.query(
-      fb.collection(db, COLLECTION),
-      fb.orderBy('createdAt', 'desc'),
-    )
-    const snap = await fb.getDocs(q)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return snap.docs
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      .map((d: any) => ({ id: d.id, ...d.data() }))
-      // 경전으로 배우기 앱의 메모(app: 'suttalog')는 같은 저장소에 있지만 이 앱 목록에는 보이지 않게
-      .filter((m: { app?: string }) => m.app !== 'suttalog')
+    const rows = await rpc<MemoRow[]>('memo_list', { p_app: APP, p_device_key: deviceKey(), p_admin_code: adminCode() })
+    return (rows || []).map(fromRow)
   } catch (e) {
     console.error('메모 조회 실패:', e)
     return []
   }
 }
 
-// 메모 상태 업데이트 (승인/보류/미승인)
+// 메모 상태 업데이트 (승인/보류/미승인) — 관리자만
 export async function updateMemoStatus(
   memoId: string,
   status: MemoStatus | null,  // null이면 상태 제거
 ): Promise<boolean> {
   try {
-    await ensureFirebase()
-    const ref = fb.doc(db, COLLECTION, memoId)
-    await fb.updateDoc(ref, { status: status ?? null, updatedAt: new Date().toISOString() })
-    return true
+    return await rpc<boolean>('memo_set_status', { p_id: memoId, p_status: status, p_admin_code: adminCode() })
   } catch (e) {
     console.error('메모 상태 업데이트 실패:', e)
     return false
@@ -231,10 +175,7 @@ export async function updateMemoStepId(
   stepId: string,
 ): Promise<boolean> {
   try {
-    await ensureFirebase()
-    const ref = fb.doc(db, COLLECTION, memoId)
-    await fb.updateDoc(ref, { stepId })
-    return true
+    return await rpc<boolean>('memo_update', { p_id: memoId, p_text: null, p_images: null, p_step_id: stepId, p_device_key: deviceKey(), p_admin_code: adminCode() })
   } catch (e) {
     console.error('stepId 업데이트 실패:', e)
     return false
