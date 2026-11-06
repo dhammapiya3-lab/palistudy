@@ -236,15 +236,17 @@ export function buildCheckStep(steps: Step[], ref: Extract<PracticeRef, { kind: 
   }
   const others = pool.slice(0, 3)
   if (!others.length) return null
+  // 보기에는 '(원형)' 같은 카드용 표시를 빼고 뜻만
+  const clean = (m: string) => m.replace(/\s*\(원형\)\s*$/, '')
   const answer = Math.floor(rand() * (others.length + 1))
   if (ref.mode === 'reverse') {
     const opts = others.map(o => o.word).filter(w => normPali(w) !== normPali(t.quizWord || t.word))
     const at = Math.min(answer, opts.length)
     opts.splice(at, 0, t.quizWord || t.word)
-    return { type: 'match-reverse', instruction: `‘${t.meaning}’에 알맞은 낱말은?`, meaning: t.meaning, options: opts, answer: at }
+    return { type: 'match-reverse', instruction: `‘${clean(t.meaning)}’에 알맞은 낱말은?`, meaning: clean(t.meaning), options: opts, answer: at }
   }
-  const opts = others.map(o => o.meaning)
-  opts.splice(answer, 0, t.meaning)
+  const opts = others.map(o => clean(o.meaning))
+  opts.splice(answer, 0, clean(t.meaning))
   if (ref.mode === 'listen') {
     return { type: 'match-listen', instruction: '🔊 소리를 듣고 알맞은 뜻을 고르세요', word: t.word, pronKo: t.pronKo, options: opts, answer }
   }
