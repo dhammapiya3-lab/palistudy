@@ -3,6 +3,7 @@ const NAMES: Record<string, string> = {
   KhpA: '쿳다까빠타 주석서',
   AA: '앙굿따라 니까야 주석서',
   UdA: '우다나 주석서',
+  VibhA: '위방가 주석서',
   SnA: '숫따니빠따 주석서',
   MA: '맛지마 니까야 주석서',
   'MṬ': '맛지마 니까야 복주석서',
