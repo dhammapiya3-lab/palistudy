@@ -635,8 +635,15 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
   }
   const handlePrev = () => {
     stopSpeech()
+    // 끼워 넣은 문제(확인 문제·다시 풀기) 안에서는 앞 문제로, 첫 문제에서는 방금 배우던 카드로
+    if (virtual) {
+      if (virtual.idx > 0) { setVirtual({ ...virtual, idx: virtual.idx - 1 }); resetStepState(); return }
+      if (virtual.purpose === 'check') { setVirtual(null); resetStepState(); return }
+      return
+    }
     if (stepIdx > 0) { setStepIdx(stepIdx - 1); resetStepState() }
   }
+  const canPrev = virtual ? (virtual.idx > 0 || virtual.purpose === 'check') : stepIdx > 0
 
   // 채점 기록 — 확인 문제·다시 풀기는 연꽃잎을 잃지 않음
   const score = (ok: boolean) => {
@@ -1288,7 +1295,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
           <p className="text-[11px] text-center mb-1.5" style={{ color: 'var(--color-text-tertiary)' }}>{disabledHint}</p>
         )}
         <div className="flex gap-2">
-          {stepIdx > 0 && !virtual && (
+          {canPrev && (
             <button onClick={handlePrev} className="px-4 py-3.5 rounded-xl font-bold text-sm active:scale-[0.97]"
               style={{ border: '2px solid var(--color-border)' }}>← 이전</button>
           )}
