@@ -1,5 +1,4 @@
 [
-{"raw": 4, "word": "suta", "part": true, "cmt": [{"text": "여기서는 '내가 들은(mayā sutaṃ)'과 '나의 들음(mama sutaṃ)' 두 가지 뜻이 모두 맞다.", "src": "KhpA 0.86"}, {"text": "또 '나(me)'가 자신을 가리킨다면 '들었다(sutaṃ)'는 그 들은 법을 가리킨다.", "src": "KhpA 0.87"}]},
 {"raw": 11, "word": "migadāye", "cmt": [{"text": "그 숲은 짐승과 새들에게 안전을 베풀어 준 곳에 생겼기에 '녹야원(사슴 동산)'이라 한다.", "src": "MA 1.370"}]},
 {"raw": 24, "word": "pañcavaggiye", "cmt": [{"text": "안냐시꼰단냐 장로를 비롯한 다섯 사람, 곧 예전에 (보살이 고행할 때) 시중들던 이들이다.", "src": "SA 2.256; SṬ 2.227"}]},
 {"raw": 26, "word": "āmantesi", "cmt": [{"text": "아살하 보름날 법륜을 굴리신 뒤 다섯 비구가 차례로 예류과에 서자, '이제 이들에게 번뇌의 소멸을 위한 법을 설하리라' 하시고 그 보름의 닷새째 되는 날 부르셨다.", "src": "SA 2.256"}]},
@@ -71,14 +70,11 @@
 {"raw": 185, "word": "iha", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'Tasmātiha'에 대한 해설〕\n'그러므로'란 이 다섯 무더기가 무상하고 괴롭고 무아이기 때문에라는 뜻이다.", "src": "SA 2.256"}]},
 {"raw": 186, "word": "kiñci", "cmt": [{"text": "'어떤 ~이든(yaṃkiñci)'은 남김없이 모두를 포괄하는 말이고, '물질'은 그 범위를 한정하는 말이다. 두 말로 물질을 남김없이 파악한 뒤 과거 등으로 나눈다.", "src": "Vism 2.103"}]},
 {"raw": 187, "word": "kiñ", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'kiñci'에 대한 해설〕\n'어떤 ~이든(yaṃkiñci)'은 남김없이 모두를 포괄하는 말이고, '물질'은 그 범위를 한정하는 말이다. 두 말로 물질을 남김없이 파악한 뒤 과거 등으로 나눈다.", "src": "Vism 2.103"}]},
-{"raw": 189, "word": "atta", "part": true, "cmt": [{"text": "'자기(atta)'란 마음, 또는 몸과 마음 전체이다.", "src": "KhpA 0.112"}, {"text": "자기(atta)를 지치게 하는 데 몰두함, 곧 자기에게 괴로움을 일으키는 것이다.", "src": "SA 3.328; SṬ 2.541"}]},
-{"raw": 202, "word": "atthi", "part": true, "cmt": [{"text": "주석가들은 '사람이 쓰고 누리는 것이 여기에 모두(sabbaṃ) 있다(atthi)'고 해서, 또 대상(隊商)들이 '무슨 물건이 있소?' 하고 물으면 '다 있소'라고 대답하던 데서 사왓티라 한다고 말한다.", "src": "KhpA 0.94"}, {"text": "주석가들은 '사람이 쓰고 누리는 것이 여기에 모두(sabbaṃ) 있다(atthi)'고 해서, 또 대상(隊商)들이 '무슨 물건이 있소?' 하고 물으면 '다 있소(sabbamatthi)'라고 대답하던 데서 사왓티라 한다고 말한다.", "src": "KhpA 0.94"}]},
-{"raw": 236, "word": "sāvaka", "part": true, "cmt": [{"text": "세존의 훈계와 가르침을 공손히 듣기에 '제자(sāvaka)'이고, 제자들의 모임이 '제자 승가'이다.", "src": "Vism 1.212"}]},
 {"raw": 237, "word": "nibbindati", "cmt": [{"text": "'염오한다'는 싫어한다는 뜻이다. 여기서 염오란 (도로) 나오게 하는 위빳사나를 말한다.", "src": "MA 2.20"}]},
 {"raw": 238, "word": "vindati", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'nibbindati'에 대한 해설〕\n'염오한다'는 싫어한다는 뜻이다. 여기서 염오란 (도로) 나오게 하는 위빳사나를 말한다.", "src": "MA 2.20"}]},
 {"raw": 242, "word": "virajjati", "cmt": [{"text": "'탐욕이 빛바랜다'에서 빛바램(virāga)은 도(道)를 말한다.", "src": "MA 2.21"}]},
 {"raw": 243, "word": "virāgā vimuccati", "cmt": [{"text": "'빛바램을 통해 해탈한다'는 빛바램, 곧 도(道)로써 해탈한다는 뜻이니 과(果)를 말한 것이다.", "src": "MA 2.21"}]},
-{"raw": 244, "word": "virāga", "part": true, "cmt": [{"text": "'탐욕이 빛바랜다'에서 빛바램(virāga)은 도(道)를 말한다.", "src": "MA 2.21"}]},
+{"raw": 244, "word": "virāga", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'virāgā vimuccati'에 대한 해설〕\n'빛바램을 통해 해탈한다'는 빛바램, 곧 도(道)로써 해탈한다는 뜻이니 과(果)를 말한 것이다.", "src": "MA 2.21"}]},
 {"raw": 246, "word": "vimuttamiti ñāṇaṃ", "cmt": [{"text": "'해탈했을 때 해탈했다는 앎이 있다'에서는 반조(paccavekkhaṇa)를 말한 것이다.", "src": "MA 2.21"}]},
 {"raw": 247, "word": "vimutta", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'vimuttamiti ñāṇaṃ'에 대한 해설〕\n'해탈했을 때 해탈했다는 앎이 있다'에서는 반조(paccavekkhaṇa)를 말한 것이다.", "src": "MA 2.21"}]},
 {"raw": 248, "word": "iti", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'vimuttamiti ñāṇaṃ'에 대한 해설〕\n'해탈했을 때 해탈했다는 앎이 있다'에서는 반조(paccavekkhaṇa)를 말한 것이다.", "src": "MA 2.21"}]},
@@ -96,11 +92,8 @@
 {"raw": 264, "word": "na", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'nāparaṃ itthattāya'에 대한 해설〕\n이제 다시 이런 상태(열여섯 가지 일)를 위해, 또는 번뇌를 없애기 위해 닦아야 할 도가 없다는 뜻이다. 또는 지금의 이 무더기의 흐름 다음에 다른 무더기의 흐름은 없다는 뜻이다. 다섯 무더기는 완전히 알아진 채 뿌리 잘린 나무처럼 서 있을 뿐이다.", "src": "MA 1.185"}]},
 {"raw": 265, "word": "aparaṃ", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'nāparaṃ itthattāya'에 대한 해설〕\n이제 다시 이런 상태(열여섯 가지 일)를 위해, 또는 번뇌를 없애기 위해 닦아야 할 도가 없다는 뜻이다. 또는 지금의 이 무더기의 흐름 다음에 다른 무더기의 흐름은 없다는 뜻이다. 다섯 무더기는 완전히 알아진 채 뿌리 잘린 나무처럼 서 있을 뿐이다.", "src": "MA 1.185"}]},
 {"raw": 266, "word": "itthatta", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'nāparaṃ itthattāya'에 대한 해설〕\n이제 다시 이런 상태(열여섯 가지 일)를 위해, 또는 번뇌를 없애기 위해 닦아야 할 도가 없다는 뜻이다. 또는 지금의 이 무더기의 흐름 다음에 다른 무더기의 흐름은 없다는 뜻이다. 다섯 무더기는 완전히 알아진 채 뿌리 잘린 나무처럼 서 있을 뿐이다.", "src": "MA 1.185"}]},
-{"raw": 273, "word": "atta", "part": true, "cmt": [{"text": "'자기(atta)'란 마음, 또는 몸과 마음 전체이다.", "src": "KhpA 0.112"}, {"text": "자기(atta)를 지치게 하는 데 몰두함, 곧 자기에게 괴로움을 일으키는 것이다.", "src": "SA 3.328; SṬ 2.541"}]},
-{"raw": 274, "word": "mana", "part": true, "cmt": [{"text": "옛 스승들은 마음(mana)이 높기(ussanna)에 인간이라 한다고 말한다.", "src": "KhpA 0.104"}]},
 {"raw": 303, "word": "atīta·anāgata·paccuppanna", "cmt": [{"text": "'과거'란 자기 본성, 곧 무너짐을 지나간 것이다.", "src": "SA 2.257"}]},
 {"raw": 304, "word": "atīta", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'atīta·anāgata·paccuppanna'에 대한 해설〕\n'과거'란 자기 본성, 곧 무너짐을 지나간 것이다.", "src": "SA 2.257"}]},
 {"raw": 305, "word": "anāgata", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'atīta·anāgata·paccuppanna'에 대한 해설〕\n'과거'란 자기 본성, 곧 무너짐을 지나간 것이다.", "src": "SA 2.257"}]},
-{"raw": 306, "word": "paccuppanna", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'atīta·anāgata·paccuppanna'에 대한 해설〕\n'과거'란 자기 본성, 곧 무너짐을 지나간 것이다.", "src": "SA 2.257"}]},
-{"raw": 316, "word": "sammā", "part": true, "cmt": [{"text": "바르게(sammā) 취합니다(ādiyāmi)는 뜻이다.", "src": "KhpA 0.15"}, {"text": "바르게(sammā), 그리고 스스로(sāmaṃ) 진리들을 깨달으셨기에 '정등각자(sammāsambuddha)'라 한다.", "src": "SnA 2.164"}]}
+{"raw": 306, "word": "paccuppanna", "part": true, "cmt": [{"text": "〔이 낱말이 들어 있는 'atīta·anāgata·paccuppanna'에 대한 해설〕\n'과거'란 자기 본성, 곧 무너짐을 지나간 것이다.", "src": "SA 2.257"}]}
 ]

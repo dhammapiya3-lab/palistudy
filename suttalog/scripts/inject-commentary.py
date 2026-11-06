@@ -53,6 +53,8 @@ for src in sorted(p for p in (HERE / 'commentary').glob('*.json') if not p.name.
     explicit = {k: v for k, v in want.items() if not v.get('part')}  # 구성 낱말 카드 해설은 다른 카드로 옮기지 않음
     f = LESSONS / f'lesson-data-{lid}.ts'
     lines = f.read_text(encoding='utf-8').split('\n')
+    # 단계 번호 → 경전 구절 (해설을 옮길 때 같은 구절인지 확인용)
+    vl = [json.loads(x.strip().rstrip(',')).get('verseLine') for x in lines if x.strip().startswith('{"type"')]
     raw = -1; n = 0
     for i, ln in enumerate(lines):
         st = ln.strip(); body = st.rstrip(',')
@@ -64,8 +66,11 @@ for src in sorted(p for p in (HERE / 'commentary').glob('*.json') if not p.name.
             continue
         e = want.pop(raw, None)
         new = e['cmt'] if e else None
-        if not e:
-            src_e = next((x for x in explicit.values() if related(x['word'], o['word'])), None)
+        if not e and not (o.get('label') or '').startswith('이루는 낱말'):
+            # 복합어를 이루는 낱말 카드는 그 카드만을 위해 찾은 해설(part)만 보여 줌 — 다른 카드 해설을 빌려 오지 않음
+            # 같은 낱말이라도 다른 구절이면 해설이 맞지 않으므로, 같은 구절이거나 '(원형)' 복습 카드일 때만 옮김
+            src_e = next((x for r2, x in explicit.items() if related(x['word'], o['word'])
+                          and (vl[r2] == o.get('verseLine') or '(원형)' in (o.get('meaning') or '') or '원형' in (o.get('grammar') or ''))), None)
             new = src_e['cmt'] if src_e else shared_for(o)
         if e and e['word'] != o['word']:
             raise SystemExit(f'{lid} raw {raw}: {e["word"]} ≠ {o["word"]}')
