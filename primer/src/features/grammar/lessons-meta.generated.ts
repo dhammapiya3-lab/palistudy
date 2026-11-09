@@ -36,7 +36,7 @@ export const LESSON_META: Record<string, GeneratedLessonMeta> = {
   "lesson-29": { stepCount: 23, search: "" },
   "lesson-sandhi": { stepCount: 41, search: "" },
   "lesson-absolute": { stepCount: 23, search: "uggacchante\n떠오를 때\nvutte\n말해졌을 때\nsati\n있을 때\nparinibbute\n완전한 열반에 드셨을 때\nrudantassa\n울고 있는\nakamakanam\n원하지 않는" },
-  "lesson-compound": { stepCount: 21, search: "matapitaro\n부모님 (어머니와 아버지)\ndhammacakka\n법의 바퀴\ndevadatta\n천신에 의해 주어진 (천신의 선물)\nariyasacca\n성스러운 진리\npancasila\n다섯 가지 계 (오계)\nmahapanno\n큰 지혜를 가진 (이)\nyathabhutam\n있는 그대로\nvitarago\n탐욕이 사라진 (이)" },
+  "lesson-compound": { stepCount: 21, search: "matapitaro\n부모님 (어머니와 아버지)\ndukkhanirodha\n괴로움의 소멸\ndevadatta\n천신에 의해 주어진 (천신의 선물)\nariyasacca\n성스러운 진리\npancasila\n다섯 가지 계 (오계)\nmahapanno\n큰 지혜를 가진 (이)\nyathabhutam\n있는 그대로\nvitarago\n탐욕이 사라진 (이)" },
   "lesson-iti": { stepCount: 12, search: "iti\n~라고, 이와 같이\npajanati\n분명히 안다" },
   "lesson-passive": { stepCount: 13, search: "vuccati\n불린다, ~라고 한다\nlabbhati\n얻어진다, 가능하다\ndiyati\n주어진다\nkariyati\n행해진다" },
   "lesson-consonant-stem": { stepCount: 14, search: "atta\n자아, 자기\nattano\n자기의, 자신에게\nranno\n왕의, 왕에게\nmanasa\n마음으로\ncetasa\n마음으로" },
