@@ -12,8 +12,8 @@ function Tool({ icon, title, desc, onClick, disabled }: { icon: string; title: s
       className="rounded-2xl p-3.5 text-left card-shadow transition-all active:scale-[0.98] disabled:opacity-50"
       style={{ backgroundColor: 'var(--color-surface)', border: '1.5px solid var(--color-border)', minHeight: 96 }}>
       <span className="text-2xl" aria-hidden="true">{icon}</span>
-      <p className="font-bold text-sm mt-1.5">{title}</p>
-      <p className="text-[11px] mt-0.5 leading-snug" style={{ color: 'var(--color-text-secondary)' }}>{desc}</p>
+      <p className="font-bold text-sm mt-1.5" style={{ wordBreak: 'keep-all' }}>{title}</p>
+      <p className="text-[11px] mt-0.5 leading-snug" style={{ color: 'var(--color-text-secondary)', wordBreak: 'keep-all' }}>{desc}</p>
     </button>
   )
 }

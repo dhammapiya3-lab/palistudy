@@ -122,6 +122,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  /* 한글은 낱말 단위로 줄바꿈(‘외우\n기’처럼 낱말 중간에서 끊기지 않게), 아주 긴 낱말만 중간에서 끊음 */
+  word-break: keep-all;
+  overflow-wrap: break-word;
   /* 텍스트 선택 방지 */
   -webkit-user-select: none;
   -moz-user-select: none;

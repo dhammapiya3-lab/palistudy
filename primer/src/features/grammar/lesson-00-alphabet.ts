@@ -318,15 +318,15 @@ export const LESSON_00: StepWithoutId[] = [
     pali: 'Namo tassa bhagavato arahato sammāsambuddhassa.',
     pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사',
     translation:
-      '그 세존, 아라한, 정등각에게 귀의합니다.',
+      '저 세존, 아라한, 완전하게 스스로 깨달은 분께 경배드립니다.',
     highlight: ['Namo', 'bhagavato', 'arahato', 'sammāsambuddhassa'],
     note:
       '예경문(vandanā). 삼귀의 앞에 3번 읊습니다.\n' +
-      '• Namo — 귀의, 예경 (불변화사처럼 쓰임; 대상은 여격)\n' +
+      '• Namo — 경배, 예경 (불변화사처럼 쓰임; 대상은 여격)\n' +
       '• tassa — "그분께" (여격; 형태는 소유격과 동일)\n' +
       '• bhagavato — 세존께 (여격; 형태는 소유격과 동일)\n' +
       '• arahato — 아라한께 (여격; 형태는 소유격과 동일)\n' +
-      '• sammāsambuddhassa — 정등각께 (여격; 형태는 소유격과 동일)\n' +
+      '• sammāsambuddhassa — 완전하게 스스로 깨달은 분께 (여격; 형태는 소유격과 동일)\n' +
       '• 이중자음 mm, ddh 앞 모음은 짧게!',
   },
 
@@ -362,7 +362,7 @@ export const LESSON_00: StepWithoutId[] = [
     fixedId: 'lesson-00-speak-1',
     type: 'speak',
     pali: 'Namo tassa bhagavato arahato sammāsambuddhassa',
-    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: '그 세존, 아라한, 정등각께 경배합니다.',
+    pronKo: '나모- 땃사 바가와또- 아라하또- 삼마-삼붓닷사', translation: '저 세존, 아라한, 완전하게 스스로 깨달은 분께 경배드립니다.',
   },
 
   // ════════ 더 알아보기 (평소에는 건너뜀 — 과 끝 화면·목차에서 열 수 있음) ════════

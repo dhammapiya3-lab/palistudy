@@ -1,6 +1,6 @@
 // 라우트 정의 + 동기화 초기화 + 하단 네비게이션
 import { useEffect, lazy, Suspense } from 'react'
-import { Routes, Route, useParams } from 'react-router-dom'
+import { Routes, Route, useParams, Navigate } from 'react-router-dom'
 import Home from './features/home/Home'
 import Courses from './features/courses/Courses'
 import Review from './features/review/Review'
@@ -48,6 +48,8 @@ export default function App() {
         <Route path="/learn/:lessonId" element={<KeyedGrammarLearn />} />
         {/* 기존 경로 호환 */}
         <Route path="/settings" element={<Settings />} />
+        {/* 없는 주소로 들어오면 빈 화면 대신 홈으로 */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       </Suspense>
       <BottomNav />
