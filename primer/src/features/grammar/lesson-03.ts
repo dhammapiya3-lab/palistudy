@@ -22,7 +22,7 @@ export const LESSON_03: StepWithoutId[] = [
 
   // === 명사 17개 (교재 전체) ===
   { type: 'teach', word: 'rathena', pronKo: '라테-나', meaning: '마차로', icon: '🛞', grammar: '남성명사 · 도구격 단수', baseForm: 'ratha (마차)', formNote: 'ratha + ena → rathena' },
-  { type: 'teach', word: 'sakaṭena', pronKo: '사까떼-나', meaning: '짐수레로', icon: '🛒', grammar: '남성명사 · 도구격 단수', baseForm: 'sakaṭa (짐수레)', formNote: 'sakaṭa + ena → sakaṭena' },
+  { type: 'teach', word: 'sakaṭena', pronKo: '사까떼-나', meaning: '짐수레로', icon: '🛒', grammar: '중성명사 · 도구격 단수', baseForm: 'sakaṭa (짐수레)', formNote: 'sakaṭa + ena → sakaṭena\n-a로 끝나는 중성명사의 도구격 단수는 남성명사(-ena)와 꼴이 같아요.' },
   { type: 'teach', word: 'hatthena', pronKo: '핫테-나', meaning: '손으로', icon: '✋', grammar: '남성명사 · 도구격 단수', baseForm: 'hattha (손)', formNote: 'hattha + ena → hatthena\n복수: hatthehi (손들로)' },
   { type: 'teach', word: 'pādena', pronKo: '빠-데-나', meaning: '발로', icon: '🦶', grammar: '남성명사 · 도구격 단수', baseForm: 'pāda (발)', formNote: 'pāda + ena → pādena\n복수: pādehi (발들로)' },
   { type: 'teach', word: 'maggena', pronKo: '막게-나', meaning: '길로, 길을 통해', icon: '🛤️', grammar: '남성명사 · 도구격 단수', baseForm: 'magga (길, 도)', formNote: 'magga + ena → maggena', buddhism: '팔정도(aṭṭhaṅgiko maggo)의 magga(道)와 같은 단어' },
