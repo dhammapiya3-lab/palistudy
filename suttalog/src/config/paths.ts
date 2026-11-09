@@ -49,7 +49,7 @@ const AWAKENING_PATH: LearningPath = {
     {
       title: '칠각지 (Seven Factors of Awakening)',
       titlePali: 'Satta Bojjhaṅgā',
-      description: '마음챙김에서 평정까지',
+      description: '마음챙김에서 평온까지',
       suttas: ['sn46.1', 'sn46.3', 'mn118'],
     },
   ],

@@ -46,7 +46,7 @@ export const LESSON_17: StepWithoutId[] = [
   { type: 'teach', word: 'kujjhati', pronKo: '꿋자띠', meaning: '화내다, 성내다', icon: '😠', grammar: '동사 · 현재 3인칭 단수', baseForm: 'kujjhati', formNote: '복수: kujjhanti\nkudh(화내다)에서 파생' },
   { type: 'teach', word: 'namassati', pronKo: '나맛사띠', meaning: '예배하다, 경배하다', icon: '🙇', grammar: '동사 · 현재 3인칭 단수', baseForm: 'namassati', formNote: '복수: namassanti\nnamas(경의) + ati' },
   { type: 'teach', word: 'poseti', pronKo: '뽀-세-띠', meaning: '먹이다, 양육하다', icon: '🍼', grammar: '동사 · 현재 3인칭 단수', baseForm: 'poseti', formNote: '복수: posenti\npus(먹이다)에서 파생' },
-  { type: 'teach', word: 'vāyamati', pronKo: '와-야마띠', meaning: '노력하다, 정진하다', icon: '🏋️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vāyamati', formNote: '복수: vāyamanti\nvāyāma = 정진, 노력', buddhism: 'sammāvāyāma = 정정진(正精進)' },
+  { type: 'teach', word: 'vāyamati', pronKo: '와-야마띠', meaning: '노력하다, 정진하다', icon: '🏋️', grammar: '동사 · 현재 3인칭 단수', baseForm: 'vāyamati', formNote: '복수: vāyamanti\nvāyāma = 정진, 노력', buddhism: 'sammāvāyāma = 바른 정진(正精進)' },
 
   // === 예문 ===
   { type: 'verse', pali: 'Vanitā sālaṃ gacchati.\nVanitāyo sālaṃ gacchanti.', pronKo: '와니따- 살-랑 갓차띠\n와니따-요- 살-랑 갓찬띠', translation: '여인은 강당에 간다.\n여인들은 강당에 간다.', highlight: ['Vanitā', 'Vanitāyo'], note: '주격: vanitā(단수) / vanitāyo(복수)\n-ā 여성명사의 복수 주격에 -āyo 추가' },

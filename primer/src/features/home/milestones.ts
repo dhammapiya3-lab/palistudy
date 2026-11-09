@@ -22,7 +22,7 @@ export const MILESTONES: Record<string, Milestone> = {
   basic: {
     key: 'basic', short: '글자·발음', badge: '🔤', title: '글자와 발음을 익혔어요',
     pali: 'Namo tassa Bhagavato Arahato Sammāsambuddhassa.',
-    ko: '저 세존, 아라한, 완전히 바르게 깨달은 분께 경배드립니다.',
+    ko: '저 세존, 아라한, 완전하게 스스로 깨달은 분께 경배드립니다.',
     explain: '이제 예경문을 로마자 그대로 소리 내어 읽을 수 있어요. 긴 소리(ā)와 겹자음(mm, ss)도 알아봅니다.',
     sutta: { title: '나모땃사', url: suttaLessonUrl('namo') },
   },
@@ -50,7 +50,7 @@ export const MILESTONES: Record<string, Milestone> = {
   advanced: {
     key: 'advanced', short: '고급 문법', badge: '☸️', title: '고급 문법까지 마쳤어요',
     pali: 'Itipi so Bhagavā, Arahaṃ, Sammāsambuddho …',
-    ko: '그러므로 그 세존께서는 아라한이시고, 바르게 스스로 깨달은 분이시고 …',
+    ko: '그러므로 그 세존께서는 아라한이시고, 완전하게 스스로 깨달은 분이시고 …',
     explain: 'so는 지시대명사(그), Bhagavā는 -vant 명사의 주격 — 삼보공덕의 첫 구절을 문법으로 풀어 읽을 수 있어요.',
     sutta: { title: '삼보공덕', url: suttaLessonUrl('tisarana-guna') },
   },
