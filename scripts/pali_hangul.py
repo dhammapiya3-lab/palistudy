@@ -159,6 +159,8 @@ def word_to_hangul(word):
 
 
 def to_hangul(text):
+    # VRI 표기 citta’nti(= cittaṃ + ti): 따옴표 뒤 nti의 n은 앞 낱말 받침으로 읽음 → 찟딴'띠
+    text = re.sub('(?<=[a-zāīūṃ])([’”\'"]+)nti', r'n\1ti', text)
     out = []
     for tok in re.split(r'(\s+|[,.;:!?—–"“”‘’()\[\]…·/]+)', text):
         if not tok:
