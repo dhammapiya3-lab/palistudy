@@ -1,0 +1,23 @@
+# 메모 저장소(Supabase 무료 요금제)가 7일 동안 쓰이지 않아 자동으로 멈추는 것을 막기 위한 정기 접속
+# 앱과 같은 방식(REST API)으로 메모 목록을 한 번 읽기만 함 — 아무것도 쓰거나 지우지 않음
+name: Memo store keep-alive
+on:
+  schedule:
+    - cron: '23 3 */2 * *'   # 이틀마다 12:23 KST
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 메모 저장소에 읽기 요청 보내기
+        run: |
+          K=sb_publishable_uvVDjOPLa4kn7F-LTGiEUA_PbjOjSfk
+          CODE=$(curl -s -o /tmp/out -w '%{http_code}' -X POST \
+            'https://ncoghwflcgdkedchdimd.supabase.co/rest/v1/rpc/memo_list' \
+            -H "apikey: $K" -H "Authorization: Bearer $K" -H 'Content-Type: application/json' \
+            -d '{"p_app":"suttalog","p_device_key":"keepalive-github-actions-0000","p_admin_code":""}')
+          echo "HTTP $CODE"; head -c 200 /tmp/out; echo
+          if [ "$CODE" != "200" ]; then
+            echo "::error::메모 저장소 접속 실패(HTTP $CODE) — 저장소가 일시 정지되었을 수 있습니다. supabase.com 대시보드에서 palistudy-memos를 Restore 해 주세요."
+            exit 1
+          fi
