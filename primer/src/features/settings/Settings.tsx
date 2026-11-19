@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { FONT_SIZES } from '../../utils/font-size'
 import { APP_NAME, APP_VERSION } from '../../config/constants'
 import { useSettings } from './hooks/useSettings'
+import { setVoiceGender, stopPali } from '../../utils/pali-tts'
+import { readVoiceGender } from '../../shared/voice-setting'
+import type { VoiceGender } from '../../shared/pali-voice'
 
 /** 애니메이션 토글 스위치 */
 function Toggle({ value, onChange, label }: { value: boolean; onChange: () => void; label: string }) {
@@ -72,7 +75,23 @@ function SettingRow({
   )
 }
 
-/** 몇 개 중 하나 고르기 (하루 목표·소리 속도) */
+/** 발음 목소리 (남성·여성) — 앱 전체, 기본 남성 */
+function VoiceChoice() {
+  const [voice, setVoice] = React.useState<VoiceGender>(readVoiceGender)
+  const change = (g: VoiceGender) => { stopPali(); setVoice(g); setVoiceGender(g) }
+  return (
+    <div className="p-4 rounded-2xl space-y-3" style={{ backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }}>
+      <div>
+        <p className="font-semibold text-sm"><span aria-hidden="true">🗣️ </span>발음 목소리</p>
+        <p className="text-xs mt-0.5" style={{ color: 'var(--color-text-secondary)' }}>앱 전체의 빠알리어 발음을 남성·여성 중 어느 목소리로 들을지</p>
+      </div>
+      <Segmented label="발음 목소리" value={voice} onChange={change}
+        options={[{ v: 'm' as VoiceGender, label: '남성' }, { v: 'f' as VoiceGender, label: '여성' }]} />
+    </div>
+  )
+}
+
+/** 몇 개 중 하나 고르기 (하루 목표·소리 속도·목소리) */
 function Segmented<T extends string | number>({ label, value, options, onChange }: {
   label: string; value: T; options: { v: T; label: string }[]; onChange: (v: T) => void
 }) {
@@ -165,6 +184,7 @@ export default function Settings() {
               <Segmented label="소리 속도" value={settings.audioRate} onChange={actions.setAudioRate}
                 options={[{ v: 0.75, label: '느리게' }, { v: 1, label: '보통' }]} />
             </div>
+            <VoiceChoice />
             <SettingRow
               icon={<span>✍️</span>}
               title="쓰기 모드"

@@ -4,14 +4,15 @@
 // - 기기 목소리: 공용 규칙(shared/pali-voice.ts) — 텔루구어 > 칸나다어 > 힌디어 목소리, 녹음과 같은 글자 변환
 import { ttsKey } from './tts-key'
 import { pickPaliVoice, textForVoice, type VoiceGender } from '../shared/pali-voice'
+import { readVoiceGender, saveVoiceGender } from '../shared/voice-setting'
 
 export { paliToDevanagari } from '../shared/pali-voice'
 
 const BASE = import.meta.env.BASE_URL || '/'
 const AUDIO_DIR = `${BASE}audio/`
 
-// ───────────────── 목소리 성별 (내 서재에서 고름 — 그 밖의 화면은 늘 남성) ─────────────────
-let gender: VoiceGender = 'm'
+// ───── 목소리 성별 — 설정(또는 내 서재)에서 고름, 기본은 남성 ─────
+let gender: VoiceGender = readVoiceGender()
 let femaleManifest: Record<string, string> | null = null
 let femaleLoading: Promise<void> | null = null
 function loadFemale(): Promise<void> {
@@ -27,11 +28,13 @@ function loadFemale(): Promise<void> {
   }
   return femaleLoading
 }
-/** 목소리 성별 바꾸기 — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
+/** 목소리 성별 바꾸기(저장까지) — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
 export function setVoiceGender(g: VoiceGender): void {
   gender = g
+  saveVoiceGender(g)
   if (g === 'f') void loadFemale()
 }
+if (gender === 'f' && typeof window !== 'undefined') void loadFemale()
 
 // ───────────────── 녹음 목록 (한 번만 받아 둠) ─────────────────
 let manifest: Record<string, string> | null = null

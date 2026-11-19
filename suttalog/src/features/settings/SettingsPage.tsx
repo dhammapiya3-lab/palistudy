@@ -1,5 +1,7 @@
 // 설정 페이지
-import { stopSpeech } from '../../utils/pali-tts'
+import { setVoiceGender, stopSpeech } from '../../utils/pali-tts'
+import { readVoiceGender } from '../../shared/voice-setting'
+import type { VoiceGender } from '../../shared/pali-voice'
 import { useState, useEffect, type ReactNode } from 'react'
 import { isSyncConfigured, isSyncLoggedIn, getSyncUser, initSync, syncLogin, syncLogout, pullFromCloud, pushToCloud, overwriteCloud } from '../../utils/sync'
 import { clearGithubConfig, getGithubUser, githubIsConfigured, setGithubConfig } from '../../utils/memo-github'
@@ -119,6 +121,8 @@ export default function SettingsPage() {
     }
   }
   const changeAudioRate = (r: '0.75' | '1') => { setAudioRate(r); localStorage.setItem('suttalog-audio-rate', r) }
+  const [voice, setVoice] = useState<VoiceGender>(readVoiceGender)
+  const changeVoice = (g: VoiceGender) => { stopSpeech(); setVoice(g); setVoiceGender(g) }
   // 쉬운 화면 — 켜면 큰 글씨도 함께 켬(끄면 전에 쓰던 상태로)
   const toggleEasy = () => {
     const next = !easy
@@ -285,6 +289,12 @@ export default function SettingsPage() {
               <p className="text-xs mt-0.5 mb-2" style={sub}>발음을 천천히 듣고 따라 하고 싶을 때 ‘느리게’</p>
               <Segmented label="소리 속도" value={audioRate} onChange={changeAudioRate}
                 options={[{ value: '0.75', label: '느리게' }, { value: '1', label: '보통' }]} />
+            </div>
+            <div>
+              <p className="text-sm font-semibold"><span aria-hidden="true">🗣️ </span>발음 목소리</p>
+              <p className="text-xs mt-0.5 mb-2" style={sub}>앱 전체의 빠알리어 발음을 남성·여성 중 어느 목소리로 들을지</p>
+              <Segmented label="발음 목소리" value={voice} onChange={changeVoice}
+                options={[{ value: 'm' as VoiceGender, label: '남성' }, { value: 'f' as VoiceGender, label: '여성' }]} />
             </div>
           </div>
           <SettingRow icon="✍️" title="쓰기 모드"

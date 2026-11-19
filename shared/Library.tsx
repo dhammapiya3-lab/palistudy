@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { toHangul } from './pali-hangul'
 import type { Bookmark, LibraryStore } from './library-store'
 import type { VoiceGender } from './pali-voice'
+import { onVoiceGenderChange, readVoiceGender } from './voice-setting'
 
 /** 앱의 소리 기능 */
 export type LibraryTts = {
@@ -14,14 +15,8 @@ export type LibraryTts = {
   available: () => boolean
   /** 이 글의 녹음(mp3)이 있는지 (모르면 생략) */
   hasRecording?: (text: string) => Promise<boolean>
-  /** 목소리 성별 바꾸기 — 내 서재를 나가면 'm'(남성)으로 돌려 놓음 */
+  /** 목소리 성별 바꾸기 — 앱 전체 설정(설정 화면의 '발음 목소리')과 같은 것 */
   setGender?: (g: VoiceGender) => void
-}
-
-// 고른 목소리는 두 앱이 함께 기억 (같은 사이트라 저장 공간을 같이 씀)
-const VOICE_KEY = 'palistudy-library-voice'
-function readGender(): VoiceGender {
-  try { return localStorage.getItem(VOICE_KEY) === 'f' ? 'f' : 'm' } catch { return 'm' }
 }
 
 export type LibraryProps = {
@@ -59,17 +54,13 @@ export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmark
   const [playing, setPlaying] = useState<string | null>(null)   // 이어 듣기 중인 항목 id
   const [undo, setUndo] = useState<Bookmark | null>(null)
   const canSpeak = tts.available()
-  const [gender, setGenderState] = useState<VoiceGender>(readGender)
-  // 내 서재에 있는 동안만 고른 목소리 — 나가면 공부 화면은 늘 남성
-  useEffect(() => {
-    tts.setGender?.(gender)
-    return () => tts.setGender?.('m')
-  }, [tts, gender])
+  // 목소리는 앱 전체 설정과 같음 — 여기서 바꾸면 설정 화면에도, 공부 화면에도 그대로
+  const [gender, setGenderState] = useState<VoiceGender>(readVoiceGender)
+  useEffect(() => onVoiceGenderChange(setGenderState), [])
   const chooseGender = (g: VoiceGender) => {
     if (g === gender) return
     tts.stop(); setPlaying(null)
-    setGenderState(g)
-    try { localStorage.setItem(VOICE_KEY, g) } catch { /* 저장 못 해도 이번에는 그대로 씀 */ }
+    tts.setGender?.(g)
   }
 
   useEffect(() => store.onChange(() => setItems(store.read())), [store])
@@ -129,7 +120,7 @@ export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmark
           </div>
           {gender === 'f' && (
             <p className="text-[11px] mt-1.5 leading-relaxed" style={{ color: 'var(--color-text-tertiary)' }}>
-              직접 넣은 글은 이 기기에 있는 목소리로 읽어요. 기기에 여성 목소리가 없으면 다른 목소리로 읽을 수 있어요.
+              앱 전체에 적용돼요(설정에서도 바꿀 수 있어요). 직접 넣은 글은 이 기기에 있는 목소리로 읽어서, 기기에 여성 목소리가 없으면 다른 목소리로 읽을 수 있어요.
             </p>
           )}
         </div>

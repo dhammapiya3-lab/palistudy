@@ -2,6 +2,7 @@
 
 import { useStore } from '../store/useStore'
 import { pickPaliVoice, textForVoice, type VoiceGender } from '../shared/pali-voice'
+import { readVoiceGender, saveVoiceGender } from '../shared/voice-setting'
 
 export { paliToDevanagari } from '../shared/pali-voice'
 
@@ -54,8 +55,8 @@ async function loadManifest() {
 // 앱 시작 시 매니페스트 로드
 const manifestReady = loadManifest()
 
-// ───── 목소리 성별 (내 서재에서 고름 — 그 밖의 화면은 늘 남성) ─────
-let gender: VoiceGender = 'm'
+// ───── 목소리 성별 — 설정(또는 내 서재)에서 고름, 기본은 남성 ─────
+let gender: VoiceGender = readVoiceGender()
 let femaleManifest: Record<string, string> | null = null
 let femaleLoading: Promise<void> | null = null
 function loadFemale(): Promise<void> {
@@ -75,11 +76,13 @@ function loadFemale(): Promise<void> {
   }
   return femaleLoading
 }
-/** 목소리 성별 바꾸기 — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
+/** 목소리 성별 바꾸기(저장까지) — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
 export function setVoiceGender(g: VoiceGender): void {
   gender = g
+  saveVoiceGender(g)
   if (g === 'f') void loadFemale()
 }
+if (gender === 'f' && typeof window !== 'undefined') void loadFemale()
 
 /** 이 글의 녹음(mp3)이 있는지 — 녹음 목록을 다 받은 뒤에 답함 */
 export async function hasRecording(text: string): Promise<boolean> {
