@@ -7,6 +7,7 @@ import { pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/me
 import { setMemoContext, stepLabel as memoStepLabel, type Memo as CloudMemo } from '../../utils/memo-cloud'
 import { canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
 import { localDateStr } from '../../utils/local-date'
+import { findSuttaBookmark, onBookmarksChange, toggleSuttaBookmark } from '../../utils/bookmarks'
 import WritingCanvas from '../../components/WritingCanvas'
 import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
@@ -397,6 +398,27 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
   // 지금 문제의 원본 단계 번호(확인 문제는 낱말 카드 번호)
   const curRaw = vItem ? (vItem.kind === 'step' ? vItem.raw : vItem.teachRaw) : entry.raw
   const optSeed = vItem ? (vItem.kind === 'step' ? vItem.raw : 5000 + vItem.teachRaw * 3) : entry.raw
+  // 내 서재 책갈피 (경전 구절·따라 읽기 카드)
+  const [marked, setMarked] = useState(false)
+  useEffect(() => {
+    const check = () => setMarked(!!findSuttaBookmark(lid, curRaw))
+    check()
+    return onBookmarksChange(check)
+  }, [lid, curRaw])
+  const toggleMark = () => {
+    if (step.type !== 'verse' && step.type !== 'speak') return
+    const on = toggleSuttaBookmark({ lessonId: lid, raw: curRaw, pali: step.pali, pronKo: step.pronKo, translation: step.translation })
+    setToast(on ? '🔖 내 서재에 저장했어요' : '책갈피를 뺐어요')
+  }
+  const markBtn = (
+    <button onClick={toggleMark} aria-pressed={marked} aria-label={marked ? '책갈피 빼기' : '내 서재에 책갈피'}
+      className="px-3 py-1.5 rounded-full text-xs font-semibold"
+      style={marked
+        ? { backgroundColor: 'var(--color-accent)', color: '#fff' }
+        : { border: '1px solid var(--color-border)', color: 'var(--color-text-secondary)', backgroundColor: 'var(--color-surface)' }}>
+      {marked ? '🔖 내 서재에 저장됨' : '🔖 책갈피'}
+    </button>
+  )
 
   // 낱말 카드 색인(구절 낱말 쪽지·오답 설명용)
   const teachIdx = useMemo(() => buildTeachIndex(rawSteps), [rawSteps])
@@ -1139,6 +1161,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
               {!wordNote && verseRanges(step.pali, step.highlight).length > 0 && (
                 <p className="text-[11px] mt-2" style={{ color: 'var(--color-text-tertiary)' }}>💡 색칠된 낱말을 누르면 뜻을 다시 볼 수 있어요</p>
               )}
+              <div className="flex justify-end mt-2">{markBtn}</div>
             </div>
             {wordNote && (() => {
               const t = wordNote.teachRaw !== null ? rawSteps[wordNote.teachRaw] : lookupGloss(wordNote.text)
@@ -1159,6 +1182,7 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
               <p className="pali-font font-semibold whitespace-pre-line" lang="pi" style={{ color: 'var(--color-primary)', fontSize: 'calc(var(--pali-fontsize, 18px) * 0.95)' }}>{step.pali}</p>
               <p className="text-sm mt-2 font-medium">{step.pronKo}</p>
               {step.translation && <p className="text-sm mt-1.5" style={{ color: 'var(--color-text-secondary)' }}>{step.translation}</p>}
+              <div className="flex justify-center mt-3">{markBtn}</div>
             </div>
             <div className="mt-5 flex gap-3 w-full">
               {canSpeak && (

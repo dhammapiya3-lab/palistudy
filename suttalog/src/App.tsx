@@ -25,6 +25,7 @@ const MemoList = lazy(() => import('./features/memo/MemoList'))
 const NotFound = lazy(() => import('./features/notfound/NotFound'))
 const WordReview = lazy(() => import('./features/review/WordReview'))
 const WordBook = lazy(() => import('./features/review/WordBook'))
+const Library = lazy(() => import('./features/library/Library'))
 const Recite = lazy(() => import('./features/recite/Recite'))
 
 function Loading() {
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/memos" element={<MemoList />} />
             <Route path="/words" element={<WordBook />} />
+            <Route path="/library" element={<Library />} />
             {/* 낱말 복습·독송문 외우기는 하단 메뉴 없이 한 화면 */}
             <Route path="/review/words" element={<WordReview />} />
             <Route path="/recite/:lessonId" element={<Recite />} />

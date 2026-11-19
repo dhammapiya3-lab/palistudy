@@ -232,7 +232,7 @@ export default function SettingsPage() {
   }
 
   const resetAll = async () => {
-    const msg = '경전으로 배우기의 모든 학습 데이터를 초기화하시겠습니까?\n진도·메모·설정이 삭제됩니다.\n(빠알리 프라이머의 기록은 지워지지 않습니다.)'
+    const msg = '경전으로 배우기의 모든 학습 데이터를 초기화하시겠습니까?\n진도·메모·내 서재·설정이 삭제됩니다.\n(빠알리 프라이머의 기록은 지워지지 않습니다.)'
       + (syncLoggedIn ? '\n(클라우드에 저장된 진도도 지워집니다)' : '')
     if (!confirm(msg)) return
     // 같은 주소를 쓰는 빠알리 프라이머 데이터는 남기고, 이 앱(suttalog-) 데이터만 지움
@@ -573,7 +573,7 @@ export default function SettingsPage() {
       <section>
         <h2 className={sectionTitle} style={sectionTitleStyle}>기타</h2>
         <div className="space-y-3">
-          <SettingRow icon="🗑️" title="진도 초기화" desc="경전으로 배우기의 진도·메모·설정을 모두 삭제 (빠알리 프라이머 기록은 그대로)"
+          <SettingRow icon="🗑️" title="진도 초기화" desc="경전으로 배우기의 진도·메모·내 서재·설정을 모두 삭제 (빠알리 프라이머 기록은 그대로)"
             onClick={resetAll} danger right={chevron} />
       {/* 정보 — 버전 번호를 7번 누르면 관리자 모드 */}
       <div className="rounded-2xl p-4" style={card}>

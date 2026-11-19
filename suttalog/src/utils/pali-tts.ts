@@ -21,6 +21,12 @@ const manifestLoading: Promise<void> = typeof window === 'undefined' ? Promise.r
     .catch(() => { /* 녹음 목록이 없으면 기기 목소리로 */ })
     .finally(() => { manifestReady = true })
 
+/** 이 글의 녹음(mp3)이 있는지 — 녹음 목록을 다 받은 뒤에 답함 */
+export async function hasRecording(text: string): Promise<boolean> {
+  await manifestLoading
+  return !!findMp3(text)
+}
+
 /** 이 글의 녹음 파일 이름 (없으면 null) */
 function findMp3(text: string): string | null {
   return manifest?.[ttsKey(text)] ?? null
