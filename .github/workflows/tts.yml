@@ -30,16 +30,20 @@ jobs:
           BR="${GITHUB_REF_NAME}"
           if [ "$BR" = "tts/sample" ]; then
             python generate.py sample
+          elif [ "$BR" = "tts/female" ]; then
+            python female.py
           elif [ "$BR" = "tts/sample-female" ]; then
             python generate.py female
           elif [ "$BR" = "tts/sample-ny" ]; then
             python generate.py ny
           elif [ "${BR#tts/add-}" != "$BR" ]; then
             python generate.py add "${BR#tts/add-}"
+            python female.py   # 새 남성 녹음에 맞춰 여성 녹음도
           elif [ "$BR" = "tts/letters" ]; then
             python letters.py
           elif [ "$BR" = "tts/sutta" ]; then
             python sutta.py
+            python female.py   # 새 남성 녹음에 맞춰 여성 녹음도
           elif [ "$BR" = "tts/compare5" ]; then
             python compare5.py
           elif [ "$BR" = "tts/compare4" ]; then
@@ -68,6 +72,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A primer/public/audio
           if [ -d suttalog/public/audio ]; then git add -A suttalog/public/audio; fi
+          for d in primer/public/audio-f suttalog/public/audio-f; do if [ -d "$d" ]; then git add -A "$d"; fi; done
           if [ -d primer/tts-samples ]; then git add -A primer/tts-samples; fi
           git commit -m "발음 mp3 생성 (${GITHUB_REF_NAME})" || echo "변경 없음"
           git push
