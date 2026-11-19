@@ -188,15 +188,49 @@ function audioRate(): number {
   return rateSetting()
 }
 
-// 사용 가능한 인도계 음성 찾기 (hi-IN > hi > sa > en-IN > 아무거나)
+// 사용 가능한 인도계 음성 찾기
+// 텔루구어·칸나다어 목소리를 먼저 씀: 낱말 끝 모음을 그대로 읽어서 빠알리어에 가까움 (녹음 mp3도 텔루구어 목소리).
+// 힌디어 목소리는 낱말 끝 'a'를 빼고 읽어(cakkaṃva → 짝깡우) 그다음으로 미룸.
 function findBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
   const voices = synth.getVoices()
-  const priorities = ['hi-IN', 'hi', 'sa', 'en-IN', 'it-IT', 'en-US']
+  const priorities = ['te-IN', 'te', 'kn-IN', 'kn', 'hi-IN', 'hi', 'sa', 'en-IN', 'it-IT', 'en-US']
   for (const lang of priorities) {
-    const found = voices.find(v => v.lang.startsWith(lang))
+    const found = voices.find(v => v.lang.replace('_', '-').startsWith(lang))
     if (found) return found
   }
   return voices[0] || null
+}
+
+/** 데바나가리(U+0900) 글자를 같은 배열의 다른 인도 문자 블록으로 옮김 (텔루구 0x0C00, 칸나다 0x0C80) */
+function shiftBlock(deva: string, base: number): string {
+  let out = ''
+  for (const c of deva) {
+    const code = c.codePointAt(0)!
+    out += code >= 0x0900 && code <= 0x097F ? String.fromCodePoint(code - 0x0900 + base) : c
+  }
+  return out
+}
+
+/** 텔루구어 목소리는 ఞ(ñ)를 n으로 읽음 → 녹음 만들 때와 같이 ny로 적음 (primer/scripts/tts/pali_script.py telugu_ny) */
+function teluguNy(te: string): string {
+  const NY = 'న', Y = 'య', VIR = '్'
+  return te
+    .split('ఞ్ఞ').join(NY + VIR + NY + VIR + Y)
+    .replace(/ఞ(?=్[చఛజఝ])/g, NY)
+    .replace(/ఞ(?=్హ)/g, NY)
+    .split('ఞ').join(NY + VIR + Y)
+}
+
+/** 고른 목소리의 언어에 맞춰 읽을 글을 바꿈 */
+export function textForVoice(text: string, lang: string): string {
+  const l = lang.toLowerCase()
+  if (l.startsWith('te') || l.startsWith('kn')) {
+    // ph는 f로 읽지 않도록 p + h로 따로 적음 (녹음과 같음)
+    const deva = paliToDevanagari(text).split('फ').join('प्ह')
+    return l.startsWith('te') ? teluguNy(shiftBlock(deva, 0x0C00)) : shiftBlock(deva, 0x0C80)
+  }
+  if (l.startsWith('hi') || l.startsWith('sa') || l.startsWith('mr')) return paliToDevanagari(text)
+  return text
 }
 
 // 재생 요청 번호 — 늦게 도착한 이전 요청이 또 읽지 않도록
@@ -270,8 +304,7 @@ function speakSynth(seq: number, text: string, fire: (failed: boolean) => void) 
     if (played || seq !== requestSeq) return // 한 요청은 한 번만 읽음
     played = true
     const voice = findBestVoice(synth)
-    const useDevanagari = voice && (voice.lang.startsWith('hi') || voice.lang.startsWith('sa'))
-    const speakText = useDevanagari ? paliToDevanagari(text) : text
+    const speakText = voice ? textForVoice(text, voice.lang) : text
 
     const u = new SpeechSynthesisUtterance(speakText)
     u.lang = voice?.lang || 'hi-IN'
