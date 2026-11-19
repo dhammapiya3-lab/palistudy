@@ -5,6 +5,7 @@ Pali pronunciation audio with a Telugu neural voice (the method used in the pali
 사용법 / Usage:
     pip install edge-tts
     python pali_tts.py "Buddhaṃ saraṇaṃ gacchāmi" buddham.mp3
+    python pali_tts.py --female "Buddhaṃ saraṇaṃ gacchāmi" buddham-f.mp3   # 여성 목소리 / female voice
     python pali_tts.py --script "cakkaṃva vahato padaṃ"      # 변환된 텔루구 글자만 보기 / print converted text only
 
 원리 / How it works:
@@ -13,7 +14,7 @@ Pali pronunciation audio with a Telugu neural voice (the method used in the pali
     3) 텔루구어 목소리가 잘못 읽는 두 가지를 고쳐 적음
        - ñ: ఞ를 n으로 읽어 버림 → 'ny'(న్య)로 적음 (ññ → nny, ñc/ñj/ñh → n)
        - ph: f로 읽지 않도록 p + h로 따로 적음
-    4) 마이크로소프트 텔루구어 목소리(te-IN-MohanNeural)로 30% 느리게 읽힘
+    4) 마이크로소프트 텔루구어 목소리로 30% 느리게 읽힘 — 남성 te-IN-MohanNeural(기본) · 여성 te-IN-ShrutiNeural
     텔루구어는 힌디어와 달리 낱말 끝 모음(a)을 빼지 않고, 장단모음을 구분해 빠알리어에 가까움.
 
 MIT License — 자유롭게 쓰고 고치고 나눠 주세요.
@@ -22,7 +23,8 @@ import asyncio
 import re
 import sys
 
-VOICE = 'te-IN-MohanNeural'
+VOICE = 'te-IN-MohanNeural'          # 남성 (기본) / male (default)
+VOICE_FEMALE = 'te-IN-ShrutiNeural'  # 여성 / female
 RATE = '-30%'
 
 CONSONANTS = {
@@ -84,17 +86,19 @@ def to_telugu(roman: str) -> str:
     return telugu_ny(shift_block(deva, 0x0C00))
 
 
-async def make_mp3(text: str, out: str) -> None:
+async def make_mp3(text: str, out: str, female: bool = False) -> None:
     import edge_tts
-    await edge_tts.Communicate(to_telugu(text), VOICE, rate=RATE).save(out)
+    await edge_tts.Communicate(to_telugu(text), VOICE_FEMALE if female else VOICE, rate=RATE).save(out)
 
 
 if __name__ == '__main__':
     args = sys.argv[1:]
     if not args:
         print(__doc__); sys.exit(1)
+    female = '--female' in args
+    args = [a for a in args if a != '--female']
     if args[0] == '--script':
         print(to_telugu(' '.join(args[1:]))); sys.exit(0)
     text, out = args[0], (args[1] if len(args) > 1 else 'out.mp3')
-    asyncio.run(make_mp3(text, out))
+    asyncio.run(make_mp3(text, out, female))
     print(f'{out} 저장 / saved')

@@ -84,12 +84,26 @@ export function textForVoice(text: string, lang: string): string {
   return text
 }
 
-/** 빠알리어를 읽기에 가장 알맞은 기기 목소리 */
-export function pickPaliVoice(voices: SpeechSynthesisVoice[]): SpeechSynthesisVoice | null {
+/** 목소리 성별 — 'm' 남성 · 'f' 여성 */
+export type VoiceGender = 'm' | 'f'
+
+// 기기 목소리는 성별을 알려 주지 않으므로 이름으로 짐작 (마이크로소프트·애플·구글에서 쓰는 이름)
+// 구글 기본 목소리('Google ...')는 대부분 여성
+const FEMALE = /female|woman|shruti|sapna|swara|kalpana|lekha|neerja|ananya|aarohi|heera|kajal|veena|zira|samantha|alice|google/i
+const MALE = /\bmale\b|\bman\b|mohan|gagan|madhur|hemant|rishi|prabhat|arjun|aarav|ravi|kunal|david|mark|luca|diego/i
+function guessGender(v: SpeechSynthesisVoice): VoiceGender | null {
+  if (MALE.test(v.name)) return 'm'
+  if (FEMALE.test(v.name)) return 'f'
+  return null
+}
+
+/** 빠알리어를 읽기에 가장 알맞은 기기 목소리 — 언어 순서가 먼저, 같은 언어 안에서 고른 성별을 우선 */
+export function pickPaliVoice(voices: SpeechSynthesisVoice[], gender?: VoiceGender): SpeechSynthesisVoice | null {
   const priorities = ['te-IN', 'te', 'kn-IN', 'kn', 'hi-IN', 'hi', 'sa', 'en-IN', 'it-IT', 'en-US']
   for (const lang of priorities) {
-    const found = voices.find(v => v.lang.replace('_', '-').startsWith(lang))
-    if (found) return found
+    const same = voices.filter(v => v.lang.replace('_', '-').startsWith(lang))
+    if (!same.length) continue
+    return (gender && same.find(v => guessGender(v) === gender)) || same[0]
   }
   return voices[0] || null
 }

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Library, { type LibraryTts } from '../../shared/Library'
 import { library } from '../../utils/library'
 import { getLessonMeta } from '../grammar/lessons'
-import { hasRecording, speakPali, speakSequence, stopPali } from '../../utils/pali-tts'
+import { hasRecording, setVoiceGender, speakPali, speakSequence, stopPali } from '../../utils/pali-tts'
 
 const tts: LibraryTts = {
   speak: speakPali,
@@ -12,6 +12,7 @@ const tts: LibraryTts = {
   stop: stopPali,
   available: () => typeof window !== 'undefined' && (typeof Audio !== 'undefined' || 'speechSynthesis' in window),
   hasRecording,
+  setGender: setVoiceGender,
 }
 
 export default function LibraryPage() {

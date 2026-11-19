@@ -30,11 +30,12 @@
 
 ```bash
 pip install edge-tts
-python pali_tts.py "Buddhaṃ saraṇaṃ gacchāmi" buddham.mp3
+python pali_tts.py "Buddhaṃ saraṇaṃ gacchāmi" buddham.mp3            # 남성 목소리 (Mohan)
+python pali_tts.py --female "Buddhaṃ saraṇaṃ gacchāmi" buddham-f.mp3  # 여성 목소리 (Shruti)
 python pali_tts.py --script "cakkaṃva vahato padaṃ"     # 바뀐 텔루구 글자만 보기
 ```
 
-여러 문장은 Python에서 `to_telugu()`와 `make_mp3()`를 불러 쓰면 됩니다.
+여러 문장은 Python에서 `to_telugu()`와 `make_mp3(text, out, female=False)`를 불러 쓰면 됩니다.
 
 ### 2. 웹페이지에서 기기 목소리로 읽기 (JavaScript)
 
@@ -43,11 +44,22 @@ python pali_tts.py --script "cakkaṃva vahato padaṃ"     # 바뀐 텔루구 �
 ```js
 import { pickPaliVoice, textForVoice } from './pali-voice.js'
 
-const voice = pickPaliVoice(speechSynthesis.getVoices())
+const voice = pickPaliVoice(speechSynthesis.getVoices())        // 여성 목소리를 먼저: pickPaliVoice(voices, 'f')
 const u = new SpeechSynthesisUtterance(textForVoice('Buddhaṃ saraṇaṃ gacchāmi', voice.lang))
 u.voice = voice; u.lang = voice.lang; u.rate = 0.6
 speechSynthesis.speak(u)
 ```
+
+### 3. 이미 만든 녹음 가져다 쓰기
+
+앱에서 쓰는 빠알리어 문장 녹음(mp3)이 남성·여성 두 가지로 들어 있습니다. 각 폴더의 `manifest.json`이 `{ "빠알리어 글": "파일 이름" }` 목록입니다.
+
+| 앱 | 남성 (Mohan) | 여성 (Shruti) |
+|---|---|---|
+| 빠알리 프라이머 (낱말·예문) | [`primer/public/audio/`](../../primer/public/audio/) | [`primer/public/audio-f/`](../../primer/public/audio-f/) |
+| 경전으로 배우기 (경전 구절) | [`suttalog/public/audio/`](../../suttalog/public/audio/) | [`suttalog/public/audio-f/`](../../suttalog/public/audio-f/) |
+
+앱에 문장이 늘어나면 두 목소리 녹음도 자동으로 함께 늘어납니다. 녹음은 마이크로소프트 목소리로 만든 것이라 아래 '알아 둘 점'의 이용 조건이 그대로 적용됩니다(MIT 라이선스는 코드에만 해당).
 
 ## 알아 둘 점
 
@@ -70,4 +82,4 @@ speechSynthesis.speak(u)
 
 ### English (short)
 
-Pali has no TTS voice of its own. Feeding Pali to a Hindi voice drops word-final *a* and reads *ph* as "f". This method converts IAST Pali → Devanagari → **Telugu script** (same Unicode layout), respells **ñ as "ny"** and **ph as p + h**, and reads it with Microsoft's Telugu voice `te-IN-MohanNeural` at −30% speed. Telugu keeps final vowels and vowel length, so it sounds much closer to Pali. `pali_tts.py` makes mp3 files (edge-tts); `pali-voice.js` does the same with the browser's own voices (Telugu → Kannada → Hindi). MIT License.
+Pali has no TTS voice of its own. Feeding Pali to a Hindi voice drops word-final *a* and reads *ph* as "f". This method converts IAST Pali → Devanagari → **Telugu script** (same Unicode layout), respells **ñ as "ny"** and **ph as p + h**, and reads it with Microsoft's Telugu voice at −30% speed — male `te-IN-MohanNeural` (default) or female `te-IN-ShrutiNeural` (`--female`). Telugu keeps final vowels and vowel length, so it sounds much closer to Pali. `pali_tts.py` makes mp3 files (edge-tts); `pali-voice.js` does the same with the browser's own voices (Telugu → Kannada → Hindi; `pickPaliVoice(voices, 'f')` prefers a female voice). Ready-made mp3s (male and female, with `manifest.json`) are in `primer/public/audio(-f)/` and `suttalog/public/audio(-f)/`; as Microsoft voice output, Microsoft's terms apply to them (the MIT License covers the code only). MIT License.

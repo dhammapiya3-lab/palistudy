@@ -1,7 +1,7 @@
 // 빠알리어 TTS — 녹음 mp3(edge-tts) 우선 재생 + 기기 목소리(Web Speech API) 폴백
 
 import { useStore } from '../store/useStore'
-import { pickPaliVoice, textForVoice } from '../shared/pali-voice'
+import { pickPaliVoice, textForVoice, type VoiceGender } from '../shared/pali-voice'
 
 export { paliToDevanagari } from '../shared/pali-voice'
 
@@ -54,18 +54,53 @@ async function loadManifest() {
 // 앱 시작 시 매니페스트 로드
 const manifestReady = loadManifest()
 
+// ───── 목소리 성별 (내 서재에서 고름 — 그 밖의 화면은 늘 남성) ─────
+let gender: VoiceGender = 'm'
+let femaleManifest: Record<string, string> | null = null
+let femaleLoading: Promise<void> | null = null
+function loadFemale(): Promise<void> {
+  if (!femaleLoading) {
+    femaleLoading = fetch(`${BASE}audio-f/manifest.json`, { cache: 'no-cache' })
+      .then(r => (r.ok ? r.json() : {}))
+      .then(raw => {
+        const m: Record<string, string> = {}
+        for (const [rawKey, val] of Object.entries(raw as Record<string, string>)) {
+          const key = rawKey.normalize('NFC')
+          m[key] = val
+          if (!m[key.toLowerCase()]) m[key.toLowerCase()] = val
+        }
+        femaleManifest = m
+      })
+      .catch(() => { femaleManifest = {} })
+  }
+  return femaleLoading
+}
+/** 목소리 성별 바꾸기 — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
+export function setVoiceGender(g: VoiceGender): void {
+  gender = g
+  if (g === 'f') void loadFemale()
+}
+
 /** 이 글의 녹음(mp3)이 있는지 — 녹음 목록을 다 받은 뒤에 답함 */
 export async function hasRecording(text: string): Promise<boolean> {
   await manifestReady
+  if (gender === 'f') await loadFemale()
   return !!findMp3(text)
 }
 
 // 현재 재생 중인 Audio 인스턴스
 let currentAudio: HTMLAudioElement | null = null
 
-/** 녹음 목록에서 찾기 — 대소문자, 앞뒤 문장부호, 줄바꿈 표기 차이를 무시 */
+/** 녹음 파일 주소(BASE 뒤) — 여성을 골랐으면 여성 녹음 먼저, 없으면 남성 녹음 */
 function findMp3(text: string): string | null {
-  if (!manifest) return null
+  const f = gender === 'f' && femaleManifest ? lookup(femaleManifest, text) : null
+  if (f) return `audio-f/${f}`
+  const m = manifest ? lookup(manifest, text) : null
+  return m ? `audio/${m}` : null
+}
+
+/** 녹음 목록에서 찾기 — 대소문자, 앞뒤 문장부호, 줄바꿈 표기 차이를 무시 */
+function lookup(manifest: Record<string, string>, text: string): string | null {
   const t = text.normalize('NFC').trim()
   const stripped = t.replace(/^[\p{P}\s]+|[\p{P}\s]+$/gu, '')
   // 녹음 목록에는 줄바꿈이 '\\n' 글자로 적혀 있음
@@ -102,7 +137,7 @@ export function speakLetter(text: string) {
     if (!f) { speakPali(text); return }
     stopPali()
     if (isSoundOff()) return
-    tryPlayMp3(text, f)
+    tryPlayMp3(text, `audio/${f}`)
   }
   if (letterMap) go(); else void loadLetterMap().then(go)
 }
@@ -112,7 +147,7 @@ function tryPlayMp3(text: string, forcedFile?: string): boolean {
   if (!filename) return false
   try {
     if (currentAudio) { currentAudio.pause(); currentAudio = null }
-    const audio = new Audio(`${AUDIO_DIR}${filename}`)
+    const audio = new Audio(`${BASE}${filename}`)
     currentAudio = audio
     audio.playbackRate = audioRate()
     // 느리게 들어도 음높이는 그대로
@@ -149,7 +184,7 @@ function stopCurrent() {
 function speakWithWebAPI(text: string) {
   const id = playId
   const trySpeak = () => {
-    const voice = pickPaliVoice(speechSynthesis.getVoices())
+    const voice = pickPaliVoice(speechSynthesis.getVoices(), gender)
     const u = new SpeechSynthesisUtterance(voice ? textForVoice(text, voice.lang) : text)
     u.lang = voice?.lang || 'hi-IN'
     if (voice) u.voice = voice
@@ -189,10 +224,17 @@ function playOne(text: string, done?: () => void) {
   playId++
   if (!text || !text.trim() || isSoundOff()) { done?.(); return }
   onDone = done || null
-  // mp3 먼저 시도 (edge-tts 고품질)
-  if (tryPlayMp3(text)) return
-  // 폴백: Web Speech API
-  try { speakWithWebAPI(text) } catch { finishCurrent() }
+  const id = playId
+  const go = () => {
+    if (id !== playId) return
+    // mp3 먼저 시도 (edge-tts 고품질)
+    if (tryPlayMp3(text)) return
+    // 폴백: Web Speech API
+    try { speakWithWebAPI(text) } catch { finishCurrent() }
+  }
+  // 여성 녹음 목록을 아직 못 받았으면 받은 뒤에
+  if (gender === 'f' && !femaleManifest) void loadFemale().then(go)
+  else go()
 }
 
 // 이어 듣기 순서 번호 — stopPali()나 새 이어 듣기가 시작되면 바뀌어 앞의 것이 멈춤

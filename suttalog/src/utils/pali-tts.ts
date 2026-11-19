@@ -3,11 +3,35 @@
 // - 알파벳·발음 레슨의 글자 하나: public/audio/letters.json (빠알리 프라이머 '자모와 발음 2'에서 고른 글자 목소리)
 // - 기기 목소리: 공용 규칙(shared/pali-voice.ts) — 텔루구어 > 칸나다어 > 힌디어 목소리, 녹음과 같은 글자 변환
 import { ttsKey } from './tts-key'
-import { pickPaliVoice, textForVoice } from '../shared/pali-voice'
+import { pickPaliVoice, textForVoice, type VoiceGender } from '../shared/pali-voice'
 
 export { paliToDevanagari } from '../shared/pali-voice'
 
-const AUDIO_DIR = `${import.meta.env.BASE_URL || '/'}audio/`
+const BASE = import.meta.env.BASE_URL || '/'
+const AUDIO_DIR = `${BASE}audio/`
+
+// ───────────────── 목소리 성별 (내 서재에서 고름 — 그 밖의 화면은 늘 남성) ─────────────────
+let gender: VoiceGender = 'm'
+let femaleManifest: Record<string, string> | null = null
+let femaleLoading: Promise<void> | null = null
+function loadFemale(): Promise<void> {
+  if (!femaleLoading) {
+    femaleLoading = fetch(`${BASE}audio-f/manifest.json`, { cache: 'no-cache' })
+      .then(r => (r.ok && (r.headers.get('content-type') || '').includes('json') ? r.json() : null))
+      .then((raw: Record<string, string> | null) => {
+        const m: Record<string, string> = {}
+        if (raw && typeof raw === 'object') for (const [k, v] of Object.entries(raw)) if (typeof v === 'string') { const key = ttsKey(k); if (key && !m[key]) m[key] = v }
+        femaleManifest = m
+      })
+      .catch(() => { femaleManifest = {} })
+  }
+  return femaleLoading
+}
+/** 목소리 성별 바꾸기 — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
+export function setVoiceGender(g: VoiceGender): void {
+  gender = g
+  if (g === 'f') void loadFemale()
+}
 
 // ───────────────── 녹음 목록 (한 번만 받아 둠) ─────────────────
 let manifest: Record<string, string> | null = null
@@ -27,12 +51,17 @@ const manifestLoading: Promise<void> = typeof window === 'undefined' ? Promise.r
 /** 이 글의 녹음(mp3)이 있는지 — 녹음 목록을 다 받은 뒤에 답함 */
 export async function hasRecording(text: string): Promise<boolean> {
   await manifestLoading
+  if (gender === 'f') await loadFemale()
   return !!findMp3(text)
 }
 
-/** 이 글의 녹음 파일 이름 (없으면 null) */
+/** 이 글의 녹음 파일 주소(BASE 뒤) — 여성을 골랐으면 여성 녹음 먼저, 없으면 남성 녹음 (없으면 null) */
 function findMp3(text: string): string | null {
-  return manifest?.[ttsKey(text)] ?? null
+  const key = ttsKey(text)
+  const f = gender === 'f' ? femaleManifest?.[key] : undefined
+  if (f) return `audio-f/${f}`
+  const m = manifest?.[key]
+  return m ? `audio/${m}` : null
 }
 
 // 일부 안드로이드 WebView·인앱 브라우저에는 speechSynthesis가 없음 → 없으면 조용히 건너뜀
@@ -109,11 +138,11 @@ function speakOne(text: string, onEnd?: (failed: boolean) => void): number {
     if (file) playMp3(seq, file, fire, () => speakSynth(seq, text, fire))
     else speakSynth(seq, text, fire)
   }
-  if (manifestReady) {
+  if (manifestReady && (gender === 'm' || femaleManifest)) {
     if (!findMp3(text) && !synthAvailable()) return -1
     go()
   } else {
-    void manifestLoading.then(go)
+    void Promise.all([manifestLoading, gender === 'f' ? loadFemale() : null]).then(go)
   }
   return seq
 }
@@ -121,7 +150,7 @@ function speakOne(text: string, onEnd?: (failed: boolean) => void): number {
 /** 녹음 재생 — 끝나면 fire(false). 재생할 수 없으면 fallback(기기 목소리) */
 function playMp3(seq: number, file: string, fire: (failed: boolean) => void, fallback: () => void) {
   let audio: HTMLAudioElement
-  try { audio = new Audio(`${AUDIO_DIR}${file}`) } catch { fallback(); return }
+  try { audio = new Audio(`${BASE}${file}`) } catch { fallback(); return }
   currentAudio = audio
   audio.playbackRate = audioRate()
   // 느리게 들어도 음높이는 그대로
@@ -154,7 +183,7 @@ function speakSynth(seq: number, text: string, fire: (failed: boolean) => void) 
   const trySpeak = () => {
     if (played || seq !== requestSeq) return // 한 요청은 한 번만 읽음
     played = true
-    const voice = pickPaliVoice(synth.getVoices())
+    const voice = pickPaliVoice(synth.getVoices(), gender)
     const speakText = voice ? textForVoice(text, voice.lang) : text
 
     const u = new SpeechSynthesisUtterance(speakText)
@@ -208,7 +237,7 @@ export function speakLetter(text: string) {
     stopAudio()
     try { getSynth()?.cancel() } catch { /* 무시 */ }
     const s = ++requestSeq
-    playMp3(s, file, () => {}, () => speakSynth(s, text, () => {}))
+    playMp3(s, `audio/${file}`, () => {}, () => speakSynth(s, text, () => {}))
   }
   if (letterMap) go(); else void loadLetterMap().then(go)
 }
