@@ -30,6 +30,8 @@ jobs:
           BR="${GITHUB_REF_NAME}"
           if [ "$BR" = "tts/sample" ]; then
             python generate.py sample
+          elif [ "$BR" = "tts/sample-female" ]; then
+            python generate.py female
           elif [ "$BR" = "tts/sample-ny" ]; then
             python generate.py ny
           elif [ "${BR#tts/add-}" != "$BR" ]; then

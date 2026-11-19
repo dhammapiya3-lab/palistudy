@@ -26,6 +26,7 @@ VOICES = {
     'te_ph': ('te-IN-MohanNeural', 'telugu_ph', '텔루구어 남 · p와 h 따로 적기 (ph 든 낱말·문장)'),
     'te': ('te-IN-MohanNeural', 'telugu', '텔루구어 (ñ → ny 보정)'),
     'te0': ('te-IN-MohanNeural', 'telugu_raw', '텔루구어 (보정 전)'),
+    'te_f': ('te-IN-ShrutiNeural', 'telugu_ph', '텔루구어 여 (Shruti) · 지금 규칙 그대로'),
     'si': ('si-LK-SameeraNeural', 'sinhala', '싱할라어 (스리랑카)'),
 }
 
@@ -210,6 +211,10 @@ if __name__ == '__main__':
         asyncio.run(run_sample())
     elif mode == 'ny':
         asyncio.run(run_sample(['te0', 'te'], NY_SAMPLES, 'tts-samples/ny'))
+    elif mode == 'female':  # 남·여 목소리 비교
+        asyncio.run(run_sample(['te_ph', 'te_f'], SAMPLES + [
+            'cakkaṃva vahato padaṃ', 'Manopubbaṅgamā dhammā manoseṭṭhā manomayā',
+            'Sabbe sattā bhavantu sukhitattā', 'Evaṃ me sutaṃ'], 'tts-samples/female'))
     elif mode == 'add':
         asyncio.run(run_add(sys.argv[2]))
     elif mode == 'full':
