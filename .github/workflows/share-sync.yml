@@ -1,0 +1,31 @@
+# 공개 폴더 share/pali-tts 를 앱의 발음 규칙과 늘 같게 유지
+#   발음 규칙(shared/pali-voice.ts · share/pali-tts/pali_tts.py)이 바뀌어 main에 올라오면
+#   pali-voice.js 를 다시 만들고, Python·JS 규칙이 같은지 확인한 뒤 바뀐 것을 올림
+#   (두 규칙이 다르면 실패 알림 메일이 옴)
+name: Share sync (pali-tts)
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'shared/pali-voice.ts'
+      - 'share/pali-tts/pali_tts.py'
+      - 'scripts/build-share.mjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - name: 공개 폴더 다시 만들기 + 규칙 확인
+        run: node scripts/build-share.mjs
+      - name: 바뀐 것 올리기
+        run: |
+          if git diff --quiet -- share; then echo "바뀐 것 없음"; exit 0; fi
+          git config user.name github-actions; git config user.email github-actions@users.noreply.github.com
+          git add share && git commit -m "share/pali-tts: 앱의 발음 규칙에 맞춰 자동 갱신" && git push

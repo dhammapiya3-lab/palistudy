@@ -1,4 +1,5 @@
 // 브라우저(기기 목소리)로 빠알리어를 읽을 때 쓰는 규칙 — palistudy 앱의 shared/pali-voice.ts 를 JS로 옮긴 것. MIT License.
+// ⚠️ 자동으로 만든 파일 — 고칠 때는 shared/pali-voice.ts 를 고치세요 (scripts/build-share.mjs)
 // 사용 예: const v = pickPaliVoice(speechSynthesis.getVoices()); const u = new SpeechSynthesisUtterance(textForVoice("Buddhaṃ saraṇaṃ gacchāmi", v.lang)); u.voice = v; u.lang = v.lang; speechSynthesis.speak(u)
 const CONSONANTS = {
   "kh": "ख",

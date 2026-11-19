@@ -10,6 +10,7 @@ on:
     # 앱에서 올리는 메모(memos/)만 바뀐 경우에는 다시 배포하지 않음
     paths-ignore:
       - 'memos/**'
+      - 'share/**'
   workflow_dispatch:
 
 permissions:
