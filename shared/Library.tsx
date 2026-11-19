@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { toHangul } from './pali-hangul'
 import type { Bookmark, LibraryStore } from './library-store'
 import type { VoiceGender } from './pali-voice'
-import { onVoiceGenderChange, readVoiceGender } from './voice-setting'
+import { readLibraryVoice, readVoiceGender, saveLibraryVoice } from './voice-setting'
 
 /** 앱의 소리 기능 */
 export type LibraryTts = {
@@ -15,8 +15,8 @@ export type LibraryTts = {
   available: () => boolean
   /** 이 글의 녹음(mp3)이 있는지 (모르면 생략) */
   hasRecording?: (text: string) => Promise<boolean>
-  /** 목소리 성별 바꾸기 — 앱 전체 설정(설정 화면의 '발음 목소리')과 같은 것 */
-  setGender?: (g: VoiceGender) => void
+  /** 목소리 성별 바꾸기 — save=false: 저장하지 않고 지금만 (내 서재 안에서만 쓰는 목소리) */
+  setGender?: (g: VoiceGender, save?: boolean) => void
 }
 
 export type LibraryProps = {
@@ -54,13 +54,17 @@ export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmark
   const [playing, setPlaying] = useState<string | null>(null)   // 이어 듣기 중인 항목 id
   const [undo, setUndo] = useState<Bookmark | null>(null)
   const canSpeak = tts.available()
-  // 목소리는 앱 전체 설정과 같음 — 여기서 바꾸면 설정 화면에도, 공부 화면에도 그대로
-  const [gender, setGenderState] = useState<VoiceGender>(readVoiceGender)
-  useEffect(() => onVoiceGenderChange(setGenderState), [])
+  // 내 서재 안에서만 쓰는 목소리 — 나가면 앱 전체 설정(설정 화면의 '발음 목소리')으로 돌아감
+  const [gender, setGenderState] = useState<VoiceGender>(readLibraryVoice)
+  useEffect(() => {
+    tts.setGender?.(gender, false)
+    return () => tts.setGender?.(readVoiceGender(), false)
+  }, [tts, gender])
   const chooseGender = (g: VoiceGender) => {
     if (g === gender) return
     tts.stop(); setPlaying(null)
-    tts.setGender?.(g)
+    setGenderState(g)
+    saveLibraryVoice(g)
   }
 
   useEffect(() => store.onChange(() => setItems(store.read())), [store])
@@ -107,7 +111,7 @@ export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmark
       {canSpeak && tts.setGender && (
         <div className="mb-4">
           <div className="flex items-center gap-2" role="radiogroup" aria-label="발음 목소리">
-            <span className="text-sm font-semibold mr-1">🗣️ 목소리</span>
+            <span className="text-sm font-semibold mr-1">🗣️ 내 서재 목소리</span>
             {([['m', '남성'], ['f', '여성']] as const).map(([g, label]) => (
               <button key={g} role="radio" aria-checked={gender === g} onClick={() => chooseGender(g)}
                 className="px-4 py-1.5 rounded-full text-sm font-semibold"
@@ -120,7 +124,7 @@ export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmark
           </div>
           {gender === 'f' && (
             <p className="text-[11px] mt-1.5 leading-relaxed" style={{ color: 'var(--color-text-tertiary)' }}>
-              앱 전체에 적용돼요(설정에서도 바꿀 수 있어요). 직접 넣은 글은 이 기기에 있는 목소리로 읽어서, 기기에 여성 목소리가 없으면 다른 목소리로 읽을 수 있어요.
+              직접 넣은 글은 이 기기에 있는 목소리로 읽어서, 기기에 여성 목소리가 없으면 다른 목소리로 읽을 수 있어요.
             </p>
           )}
         </div>

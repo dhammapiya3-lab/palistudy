@@ -28,10 +28,11 @@ function loadFemale(): Promise<void> {
   }
   return femaleLoading
 }
-/** 목소리 성별 바꾸기(저장까지) — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀 */
-export function setVoiceGender(g: VoiceGender): void {
+/** 목소리 성별 바꾸기 — 여성은 여성 녹음(audio-f)과 여성 기기 목소리를 먼저 씀
+ *  save: true면 앱 전체 설정으로 저장(설정 화면), false면 지금만(내 서재 안에서) */
+export function setVoiceGender(g: VoiceGender, save = true): void {
   gender = g
-  saveVoiceGender(g)
+  if (save) saveVoiceGender(g)
   if (g === 'f') void loadFemale()
 }
 if (gender === 'f' && typeof window !== 'undefined') void loadFemale()
