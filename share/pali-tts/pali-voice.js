@@ -106,11 +106,19 @@ function textForVoice(text, lang) {
   if (l.startsWith("hi") || l.startsWith("sa") || l.startsWith("mr")) return preventSchwa(paliToDevanagari(text));
   return text;
 }
-function pickPaliVoice(voices) {
+const FEMALE = /female|woman|shruti|sapna|swara|kalpana|lekha|neerja|ananya|aarohi|heera|kajal|veena|zira|samantha|alice|google/i;
+const MALE = /\bmale\b|\bman\b|mohan|gagan|madhur|hemant|rishi|prabhat|arjun|aarav|ravi|kunal|david|mark|luca|diego/i;
+function guessGender(v) {
+  if (MALE.test(v.name)) return "m";
+  if (FEMALE.test(v.name)) return "f";
+  return null;
+}
+function pickPaliVoice(voices, gender) {
   const priorities = ["te-IN", "te", "kn-IN", "kn", "hi-IN", "hi", "sa", "en-IN", "it-IT", "en-US"];
   for (const lang of priorities) {
-    const found = voices.find((v) => v.lang.replace("_", "-").startsWith(lang));
-    if (found) return found;
+    const same = voices.filter((v) => v.lang.replace("_", "-").startsWith(lang));
+    if (!same.length) continue;
+    return gender && same.find((v) => guessGender(v) === gender) || same[0];
   }
   return voices[0] || null;
 }
