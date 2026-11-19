@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run gen:meta && vite",
+    "dev": "node ../scripts/sync-shared.mjs && npm run gen:meta && vite",
     "gen:meta": "tsx scripts/gen-lesson-meta.mts",
-    "build": "npm run gen:meta && tsc -b && vite build",
+    "build": "node ../scripts/sync-shared.mjs && npm run gen:meta && tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },

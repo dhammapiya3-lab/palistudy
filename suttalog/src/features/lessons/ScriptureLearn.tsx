@@ -7,7 +7,7 @@ import { pageIdOf, relocateLessonMemos, type StepSnapshot } from '../../utils/me
 import { setMemoContext, stepLabel as memoStepLabel, type Memo as CloudMemo } from '../../utils/memo-cloud'
 import { canonicalLessonId, getLessonTitle } from '../../utils/lessons-meta'
 import { localDateStr } from '../../utils/local-date'
-import { findSuttaBookmark, onBookmarksChange, toggleSuttaBookmark } from '../../utils/bookmarks'
+import { library } from '../../utils/library'
 import WritingCanvas from '../../components/WritingCanvas'
 import LotusHeart from '../../components/LotusHeart'
 import ScrubBar from '../../components/ScrubBar'
@@ -401,13 +401,13 @@ function LessonPlayer({ lid, rawSteps, learned }: { lid: string; rawSteps: Step[
   // 내 서재 책갈피 (경전 구절·따라 읽기 카드)
   const [marked, setMarked] = useState(false)
   useEffect(() => {
-    const check = () => setMarked(!!findSuttaBookmark(lid, curRaw))
+    const check = () => setMarked(!!library.findLesson(lid, curRaw))
     check()
-    return onBookmarksChange(check)
+    return library.onChange(check)
   }, [lid, curRaw])
   const toggleMark = () => {
     if (step.type !== 'verse' && step.type !== 'speak') return
-    const on = toggleSuttaBookmark({ lessonId: lid, raw: curRaw, pali: step.pali, pronKo: step.pronKo, translation: step.translation })
+    const on = library.toggleLesson({ lessonId: lid, raw: curRaw, pali: step.pali, pronKo: step.pronKo, translation: step.translation })
     setToast(on ? '🔖 내 서재에 저장했어요' : '책갈피를 뺐어요')
   }
   const markBtn = (

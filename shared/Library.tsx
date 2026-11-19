@@ -1,16 +1,35 @@
-// 내 서재 — 책갈피한 경전 구절과 직접 붙여넣은 빠알리어 글을 모아 보고, 발음을 들음
+// 내 서재 화면 — 책갈피한 구절과 직접 붙여넣은 빠알리어 글을 모아 보고, 발음을 들음
+// 두 앱(경전으로 배우기·빠알리 프라이머)이 함께 씀 — 앱마다 다른 것(저장소·소리·출처 이름)은 props로 받음
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { getLessonTitle, lessonNumber } from '../../utils/lessons-meta'
-import { hasRecording, speakPali, speakSequence, stopSpeech, ttsAvailable } from '../../utils/pali-tts'
-import { toHangul } from '../../utils/pali-hangul'
-import {
-  addMine, onBookmarksChange, readBookmarks, removeBookmark, restoreBookmark, updateBookmark, type Bookmark,
-} from '../../utils/bookmarks'
+import { toHangul } from './pali-hangul'
+import type { Bookmark, LibraryStore } from './library-store'
 
-type Filter = 'all' | 'sutta' | 'mine'
+/** 앱의 소리 기능 */
+export type LibraryTts = {
+  speak: (text: string) => void
+  /** 여러 글을 차례로 — onIndex(i): i번째 시작, onDone: 끝나거나 멈춤 */
+  sequence: (texts: string[], onIndex: (i: number) => void, onDone: () => void) => void
+  stop: () => void
+  available: () => boolean
+  /** 이 글의 녹음(mp3)이 있는지 (모르면 생략) */
+  hasRecording?: (text: string) => Promise<boolean>
+}
+
+export type LibraryProps = {
+  store: LibraryStore
+  tts: LibraryTts
+  /** 책갈피의 출처 이름(예: '제5과 자애경')과, 그 자리로 돌아가는 함수 */
+  sourceOf: (b: Bookmark) => { label: string; open?: () => void }
+  /** '경전 책갈피'처럼 공부 화면 책갈피를 부르는 이름 */
+  lessonTabLabel: string
+  /** 책갈피 단추가 있는 곳 (빈 서재 안내에 씀) */
+  bookmarkWhere: string
+}
+
+type Filter = 'all' | 'lesson' | 'mine'
 
 const box = { backgroundColor: 'var(--color-surface)', border: '1px solid var(--color-border)' }
+const PALI = { fontFamily: 'var(--font-pali)' }
 const soft = { backgroundColor: 'color-mix(in srgb, var(--color-accent) 12%, transparent)' }
 
 /** 붙여넣은 글 다듬기 — 줄 끝 공백·빈 줄 정리, ṁ → ṃ */
@@ -23,40 +42,36 @@ const linesOf = (s: string) => s.split('\n').map(l => l.trim()).filter(Boolean)
 const wordsOf = (s: string) => s.split(/[\s,.;:!?—–“”‘’"()[\]…]+/).map(w => w.replace(/^['’]+|['’]+$/g, '')).filter(w => hasRoman(w))
 const pronOf = (b: Bookmark) => b.pronKo || toHangul(b.pali)
 
-export default function Library() {
-  const nav = useNavigate()
-  const [items, setItems] = useState<Bookmark[]>(readBookmarks)
+export default function Library({ store, tts, sourceOf, lessonTabLabel, bookmarkWhere }: LibraryProps) {
+  const [items, setItems] = useState<Bookmark[]>(store.read)
   const [filter, setFilter] = useState<Filter>('all')
   const [q, setQ] = useState('')
   const [adding, setAdding] = useState(false)
   const [playing, setPlaying] = useState<string | null>(null)   // 이어 듣기 중인 항목 id
   const [undo, setUndo] = useState<Bookmark | null>(null)
-  const canSpeak = ttsAvailable()
+  const canSpeak = tts.available()
 
-  useEffect(() => onBookmarksChange(() => setItems(readBookmarks())), [])
-  useEffect(() => () => stopSpeech(), [])
+  useEffect(() => store.onChange(() => setItems(store.read())), [store])
+  useEffect(() => () => tts.stop(), [tts])
   useEffect(() => {
     if (!undo) return
     const t = window.setTimeout(() => setUndo(null), 6000)
     return () => window.clearTimeout(t)
   }, [undo])
 
-  const counts = { all: items.length, sutta: items.filter(b => b.kind === 'sutta').length, mine: items.filter(b => b.kind === 'mine').length }
+  const counts = { all: items.length, lesson: items.filter(b => b.kind === 'lesson').length, mine: items.filter(b => b.kind === 'mine').length }
   const query = q.trim().toLowerCase()
   const shown = items.filter(b => (filter === 'all' || b.kind === filter)
     && (!query || b.pali.toLowerCase().includes(query) || (b.translation || '').includes(query) || (b.note || '').includes(query) || pronOf(b).includes(query)))
 
   const playAll = () => {
-    if (playing) { stopSpeech(); setPlaying(null); return }
+    if (playing) { tts.stop(); setPlaying(null); return }
     const list = shown
-    speakSequence(list.map(b => b.pali), {
-      onIndex: i => setPlaying(list[i]?.id ?? null),
-      onDone: () => setPlaying(null),
-    })
+    tts.sequence(list.map(b => b.pali), i => setPlaying(list[i]?.id ?? null), () => setPlaying(null))
   }
 
   const remove = (id: string) => {
-    const gone = removeBookmark(id)
+    const gone = store.remove(id)
     if (gone) setUndo(gone)
   }
 
@@ -68,7 +83,7 @@ export default function Library() {
       </p>
 
       {adding
-        ? <AddBox onClose={() => setAdding(false)} canSpeak={canSpeak} />
+        ? <AddBox store={store} tts={tts} onClose={() => setAdding(false)} canSpeak={canSpeak} />
         : (
           <button onClick={() => setAdding(true)}
             className="w-full py-3 rounded-xl text-sm font-bold mb-4 active:scale-[0.98]"
@@ -80,7 +95,7 @@ export default function Library() {
       {items.length > 0 && (
         <>
           <div className="flex gap-1.5 mb-3" role="tablist" aria-label="보기">
-            {([['all', '전체'], ['sutta', '🔖 경전 책갈피'], ['mine', '✏️ 내가 넣은 글']] as const).map(([k, label]) => (
+            {([['all', '전체'], ['lesson', `🔖 ${lessonTabLabel}`], ['mine', '✏️ 내가 넣은 글']] as const).map(([k, label]) => (
               <button key={k} role="tab" aria-selected={filter === k} onClick={() => setFilter(k)}
                 className="px-3 py-1.5 rounded-full text-xs font-semibold"
                 style={filter === k
@@ -111,7 +126,7 @@ export default function Library() {
         <div className="text-center py-10 text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
           <p className="text-4xl mb-3" aria-hidden="true">🔖</p>
           아직 저장한 글이 없어요.<br />
-          경전 공부 화면의 구절 카드에서 <b>🔖 책갈피</b>를 누르거나,<br />
+          {bookmarkWhere}에서 <b>🔖 책갈피</b>를 누르거나,<br />
           위의 ‘붙여넣어 저장하기’로 직접 넣어 보세요.
         </div>
       )}
@@ -121,9 +136,8 @@ export default function Library() {
 
       <ul className="space-y-3">
         {shown.map(b => (
-          <ItemCard key={b.id} b={b} canSpeak={canSpeak} active={playing === b.id}
-            onOpen={b.kind === 'sutta' && b.lessonId != null && b.raw != null
-              ? () => nav(`/learn/scripture/${b.lessonId}?step=${b.raw}`) : undefined}
+          <ItemCard key={b.id} b={b} store={store} tts={tts} canSpeak={canSpeak} active={playing === b.id}
+            source={b.kind === 'lesson' ? sourceOf(b) : null}
             onRemove={() => remove(b.id)} />
         ))}
       </ul>
@@ -132,7 +146,7 @@ export default function Library() {
         <div role="status" className="fixed left-1/2 z-50 px-4 py-2.5 rounded-full text-sm shadow-lg flex items-center gap-3"
           style={{ bottom: 84, transform: 'translateX(-50%)', backgroundColor: 'var(--color-text)', color: 'var(--color-surface)', maxWidth: '92vw' }}>
           <span>지웠어요</span>
-          <button onClick={() => { restoreBookmark(undo); setUndo(null) }} className="font-bold underline">되돌리기</button>
+          <button onClick={() => { store.restore(undo); setUndo(null) }} className="font-bold underline">되돌리기</button>
         </div>
       )}
     </div>
@@ -140,7 +154,7 @@ export default function Library() {
 }
 
 /** 붙여넣기 상자 — 발음 미리 보기·듣기 후 저장 */
-function AddBox({ onClose, canSpeak }: { onClose: () => void; canSpeak: boolean }) {
+function AddBox({ store, tts, onClose, canSpeak }: { store: LibraryStore; tts: LibraryTts; onClose: () => void; canSpeak: boolean }) {
   const [text, setText] = useState('')
   const [meaning, setMeaning] = useState('')
   const [saved, setSaved] = useState(false)
@@ -154,7 +168,7 @@ function AddBox({ onClose, canSpeak }: { onClose: () => void; canSpeak: boolean 
   }
   const save = () => {
     if (!ok) return
-    addMine(clean, meaning)
+    store.addMine(clean, meaning)
     setText(''); setMeaning(''); setSaved(true)
     window.setTimeout(() => setSaved(false), 2500)
     ref.current?.focus()
@@ -169,8 +183,8 @@ function AddBox({ onClose, canSpeak }: { onClose: () => void; canSpeak: boolean 
       <textarea ref={ref} value={text} onChange={e => setText(e.target.value)} rows={3}
         placeholder="여기에 빠알리어 낱말이나 문장을 붙여넣으세요 (로마자)"
         aria-label="빠알리어 글" lang="pi"
-        className="w-full px-3 py-2.5 rounded-xl text-base pali-font resize-y"
-        style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', color: 'var(--color-text)' }} />
+        className="w-full px-3 py-2.5 rounded-xl text-base resize-y"
+        style={{ ...PALI, backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)', color: 'var(--color-text)' }} />
       {typeof navigator !== 'undefined' && navigator.clipboard && 'readText' in navigator.clipboard && (
         <button onClick={paste} className="text-xs py-1 mb-1" style={{ color: 'var(--color-accent)' }}>📋 복사한 글 붙여넣기</button>
       )}
@@ -186,7 +200,7 @@ function AddBox({ onClose, canSpeak }: { onClose: () => void; canSpeak: boolean 
           <p className="text-[11px] mb-1" style={{ color: 'var(--color-text-tertiary)' }}>발음 미리 보기</p>
           <p className="text-sm whitespace-pre-line" style={{ color: 'var(--color-primary)' }}>🗣️ {toHangul(clean)}</p>
           {canSpeak && (
-            <button onClick={() => speakPali(clean)} className="mt-2 text-xs font-semibold py-1" style={{ color: 'var(--color-accent)' }}>🔊 들어 보기</button>
+            <button onClick={() => tts.speak(clean)} className="mt-2 text-xs font-semibold py-1" style={{ color: 'var(--color-accent)' }}>🔊 들어 보기</button>
           )}
         </div>
       )}
@@ -199,14 +213,21 @@ function AddBox({ onClose, canSpeak }: { onClose: () => void; canSpeak: boolean 
   )
 }
 
-function ItemCard({ b, canSpeak, active, onOpen, onRemove }: {
-  b: Bookmark; canSpeak: boolean; active: boolean; onOpen?: () => void; onRemove: () => void
+function ItemCard({ b, store, tts, canSpeak, active, source, onRemove }: {
+  b: Bookmark; store: LibraryStore; tts: LibraryTts; canSpeak: boolean; active: boolean
+  source: { label: string; open?: () => void } | null; onRemove: () => void
 }) {
+  const onOpen = source?.open
   const [open, setOpen] = useState<'none' | 'lines' | 'words' | 'edit'>('none')
   const [recorded, setRecorded] = useState<boolean | null>(null)
   const lines = useMemo(() => linesOf(b.pali), [b.pali])
   const words = useMemo(() => wordsOf(b.pali), [b.pali])
-  useEffect(() => { let alive = true; hasRecording(b.pali).then(r => { if (alive) setRecorded(r) }); return () => { alive = false } }, [b.pali])
+  useEffect(() => {
+    if (!tts.hasRecording) return
+    let alive = true
+    tts.hasRecording(b.pali).then(r => { if (alive) setRecorded(r) })
+    return () => { alive = false }
+  }, [b.pali, tts])
 
   const pronLines = linesOf(pronOf(b))
   const toggle = (k: typeof open) => setOpen(o => o === k ? 'none' : k)
@@ -215,17 +236,17 @@ function ItemCard({ b, canSpeak, active, onOpen, onRemove }: {
     <li className="rounded-2xl p-4" style={{ ...box, ...(active ? { outline: '2px solid var(--color-accent)' } : {}) }}>
       <div className="flex items-start gap-3">
         {canSpeak && (
-          <button onClick={() => speakPali(b.pali)} aria-label="발음 듣기"
+          <button onClick={() => tts.speak(b.pali)} aria-label="발음 듣기"
             className="w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-lg" style={soft}>🔊</button>
         )}
         <div className="flex-1 min-w-0">
-          <p lang="pi" className="pali-font font-semibold whitespace-pre-line leading-relaxed"
-            style={{ color: 'var(--color-primary)', fontSize: 'var(--pali-fontsize, 18px)' }}>{b.pali}</p>
+          <p lang="pi" className="font-semibold whitespace-pre-line leading-relaxed"
+            style={{ ...PALI, color: 'var(--color-primary)', fontSize: 'var(--pali-fontsize, 18px)' }}>{b.pali}</p>
           <p className="text-xs mt-1 whitespace-pre-line" style={{ color: 'var(--color-primary)', opacity: 0.8 }}>🗣️ {pronOf(b)}</p>
           {b.translation && <p className="text-sm mt-1.5" style={{ color: 'var(--color-text-secondary)' }}>{b.translation}</p>}
           {b.note && <p className="text-xs mt-1.5 rounded-lg px-2 py-1" style={{ backgroundColor: 'var(--color-bg)' }}>📝 {b.note}</p>}
           <p className="text-[11px] mt-2" style={{ color: 'var(--color-text-tertiary)' }}>
-            {b.kind === 'sutta' && b.lessonId ? `🔖 제${lessonNumber(b.lessonId)}과 ${getLessonTitle(b.lessonId)}` : '✏️ 내가 넣은 글'}
+            {source ? `🔖 ${source.label}` : '✏️ 내가 넣은 글'}
             {canSpeak && recorded !== null && ` · ${recorded ? '🎙 녹음 목소리' : '기기 목소리로 읽어요'}`}
           </p>
         </div>
@@ -245,10 +266,10 @@ function ItemCard({ b, canSpeak, active, onOpen, onRemove }: {
         <ul className="mt-2 space-y-1.5">
           {lines.map((l, i) => (
             <li key={i}>
-              <button onClick={() => speakPali(l)} className="w-full text-left rounded-lg px-3 py-2 flex gap-2 items-start" style={{ backgroundColor: 'var(--color-bg)' }}>
+              <button onClick={() => tts.speak(l)} className="w-full text-left rounded-lg px-3 py-2 flex gap-2 items-start" style={{ backgroundColor: 'var(--color-bg)' }}>
                 <span aria-hidden="true">🔊</span>
                 <span className="min-w-0">
-                  <span lang="pi" className="pali-font block text-sm">{l}</span>
+                  <span lang="pi" className="block text-sm" style={PALI}>{l}</span>
                   {pronLines[i] && <span className="block text-[11px]" style={{ color: 'var(--color-text-secondary)' }}>{pronLines[i]}</span>}
                 </span>
               </button>
@@ -259,19 +280,19 @@ function ItemCard({ b, canSpeak, active, onOpen, onRemove }: {
       {open === 'words' && (
         <div className="mt-2 flex flex-wrap gap-1.5">
           {words.map((w, i) => (
-            <button key={i} onClick={() => speakPali(w)} className="rounded-full px-3 py-1.5 text-sm" style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)' }}>
-              <span lang="pi" className="pali-font">{w}</span>
+            <button key={i} onClick={() => tts.speak(w)} className="rounded-full px-3 py-1.5 text-sm" style={{ backgroundColor: 'var(--color-bg)', border: '1px solid var(--color-border)' }}>
+              <span lang="pi" style={PALI}>{w}</span>
               <span className="text-[10px] ml-1" style={{ color: 'var(--color-text-tertiary)' }}>{toHangul(w)}</span>
             </button>
           ))}
         </div>
       )}
-      {open === 'edit' && <EditBox b={b} onDone={() => setOpen('none')} />}
+      {open === 'edit' && <EditBox b={b} store={store} onDone={() => setOpen('none')} />}
     </li>
   )
 }
 
-function EditBox({ b, onDone }: { b: Bookmark; onDone: () => void }) {
+function EditBox({ b, store, onDone }: { b: Bookmark; store: LibraryStore; onDone: () => void }) {
   const [pali, setPali] = useState(b.pali)
   const [tr, setTr] = useState(b.translation || '')
   const [note, setNote] = useState(b.note || '')
@@ -279,7 +300,7 @@ function EditBox({ b, onDone }: { b: Bookmark; onDone: () => void }) {
   const save = () => {
     const clean = cleanPali(pali)
     if (b.kind === 'mine' && !hasRoman(clean)) return
-    updateBookmark(b.id, b.kind === 'mine'
+    store.update(b.id, b.kind === 'mine'
       ? { pali: clean, translation: tr.trim() || undefined, note: note.trim() || undefined }
       : { note: note.trim() || undefined })
     onDone()
@@ -289,7 +310,7 @@ function EditBox({ b, onDone }: { b: Bookmark; onDone: () => void }) {
       {b.kind === 'mine' && (
         <>
           <textarea value={pali} onChange={e => setPali(e.target.value)} rows={2} lang="pi" aria-label="빠알리어 글"
-            className="w-full px-3 py-2 rounded-lg text-base pali-font" style={field} />
+            className="w-full px-3 py-2 rounded-lg text-base" style={{ ...field, ...PALI }} />
           <input value={tr} onChange={e => setTr(e.target.value)} placeholder="뜻" aria-label="뜻"
             className="w-full px-3 py-2 rounded-lg text-sm" style={field} />
         </>

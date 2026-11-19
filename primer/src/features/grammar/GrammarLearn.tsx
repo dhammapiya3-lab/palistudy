@@ -11,6 +11,7 @@ import type { LessonInfo } from './types'
 import LearnHeader from './components/LearnHeader'
 import LearnFooter from './components/LearnFooter'
 import StepRenderer from './components/StepRenderer'
+import MarkButton from '../library/MarkButton'
 import CompletionScreen from './components/CompletionScreen'
 import GameOverScreen from './components/GameOverScreen'
 import TOCSheet from './components/TOCSheet'
@@ -259,6 +260,10 @@ function GrammarLearnView({ lesson }: { lesson: LessonInfo | null }) {
             easyMode={easyMode}
             glossary={glossary}
           />
+          {(step.type === 'verse' || step.type === 'speak') && (
+            <MarkButton key={`${lid}:${stepIdx}`} lessonId={lid} raw={stepIdx}
+              pali={step.pali} pronKo={step.pronKo} translation={step.translation} />
+          )}
 
           {/* 바로 뒤에 붙은 '더 알아보기' — 원할 때만 */}
           {inlineMore && (

@@ -32,3 +32,6 @@ extract-pdf.mjs
 
 # 메모 이미지 추출 폴더
 memo-images/
+
+# 공용 코드 복사본 (원본은 /shared)
+src/shared/

@@ -1,7 +1,9 @@
-// 빠알리어 TTS — edge-tts mp3 우선 재생 + Web Speech API 폴백
-// edge-tts (Microsoft hi-IN-MadhurNeural) 고품질 음성
+// 빠알리어 TTS — 녹음 mp3(edge-tts) 우선 재생 + 기기 목소리(Web Speech API) 폴백
 
 import { useStore } from '../store/useStore'
+import { pickPaliVoice, textForVoice } from '../shared/pali-voice'
+
+export { paliToDevanagari } from '../shared/pali-voice'
 
 const BASE = import.meta.env.BASE_URL || '/'
 
@@ -50,7 +52,13 @@ async function loadManifest() {
 }
 
 // 앱 시작 시 매니페스트 로드
-loadManifest()
+const manifestReady = loadManifest()
+
+/** 이 글의 녹음(mp3)이 있는지 — 녹음 목록을 다 받은 뒤에 답함 */
+export async function hasRecording(text: string): Promise<boolean> {
+  await manifestReady
+  return !!findMp3(text)
+}
 
 // 현재 재생 중인 Audio 인스턴스
 let currentAudio: HTMLAudioElement | null = null
@@ -136,85 +144,13 @@ function stopCurrent() {
   finishCurrent()
 }
 
-// === Web Speech API 폴백 (기존 코드) ===
-
-const CONSONANTS: Record<string, string> = {
-  'kh': 'ख', 'k': 'क', 'gh': 'घ', 'g': 'ग', 'ṅ': 'ङ',
-  'ch': 'छ', 'c': 'च', 'jh': 'झ', 'j': 'ज', 'ñ': 'ञ',
-  'ṭh': 'ठ', 'ṭ': 'ट', 'ḍh': 'ढ', 'ḍ': 'ड', 'ṇ': 'ण',
-  'th': 'थ', 't': 'त', 'dh': 'ध', 'd': 'द', 'n': 'न',
-  'ph': 'फ', 'p': 'प', 'bh': 'भ', 'b': 'ब', 'm': 'म',
-  'y': 'य', 'r': 'र', 'l': 'ल', 'ḷ': 'ळ',
-  'v': 'व', 's': 'स', 'h': 'ह',
-}
-
-const VOWELS_IND: Record<string, string> = {
-  'ā': 'आ', 'a': 'अ', 'ī': 'ई', 'i': 'इ',
-  'ū': 'ऊ', 'u': 'उ', 'e': 'ए', 'o': 'ओ',
-}
-
-const VOWELS_DEP: Record<string, string> = {
-  'ā': 'ा', 'a': '', 'ī': 'ी', 'i': 'ि',
-  'ū': 'ू', 'u': 'ु', 'e': 'े', 'o': 'ो',
-}
-
-const VIRAMA = '्'
-const isVowel = (ch: string) => ch in VOWELS_IND
-
-export function paliToDevanagari(roman: string): string {
-  let result = '', i = 0
-  const s = roman.toLowerCase()
-  while (i < s.length) {
-    const ch = s[i]
-    if (/[\s,.;:!?\-—–/"'()""'']/.test(ch)) { result += ch === '/' ? ',' : ch; i++; continue }
-    if (ch === 'ṃ') { result += 'ं'; i++; continue }
-    const two = s.slice(i, i + 2)
-    let consonant: string | undefined, consumed = 0
-    if (CONSONANTS[two]) { consonant = CONSONANTS[two]; consumed = 2 }
-    else if (CONSONANTS[ch]) { consonant = CONSONANTS[ch]; consumed = 1 }
-    if (consonant) {
-      i += consumed
-      if (i < s.length && isVowel(s[i])) { result += consonant + VOWELS_DEP[s[i]]; i++ }
-      else { result += consonant + VIRAMA }
-      continue
-    }
-    if (isVowel(ch)) { result += VOWELS_IND[ch]; i++; continue }
-    result += ch; i++
-  }
-  // 힌디어 schwa deletion 방지: 단어 끝 자음의 내재 'a'를 명시적으로 표기
-  // 빠알리어는 모든 'a'를 발음해야 함 (힌디어와 다름)
-  result = preventSchwa(result)
-  return result
-}
-
-/** 힌디어 schwa deletion 방지 — 단어 끝 자음에 ा 추가 */
-function preventSchwa(deva: string): string {
-  return deva.split(/(\s+|,)/).map(word => {
-    if (!word.trim() || word === ',') return word
-    const code = word.charCodeAt(word.length - 1)
-    // 데바나가리 자음 범위 (क=0x0915 ~ ह=0x0939): 내재 'a'가 묵음 처리됨
-    if (code >= 0x0915 && code <= 0x0939) {
-      return word + 'ा'
-    }
-    return word
-  }).join('')
-}
-
-function findBestVoice(): SpeechSynthesisVoice | null {
-  const voices = speechSynthesis.getVoices()
-  for (const lang of ['hi-IN', 'hi', 'sa', 'si', 'en-IN', 'it-IT', 'en-US']) {
-    const found = voices.find(v => v.lang.startsWith(lang))
-    if (found) return found
-  }
-  return voices[0] || null
-}
+// === Web Speech API 폴백 — 목소리 고르기·글자 변환은 공용 규칙(shared/pali-voice.ts) ===
 
 function speakWithWebAPI(text: string) {
   const id = playId
   const trySpeak = () => {
-    const voice = findBestVoice()
-    const useDevanagari = voice && (voice.lang.startsWith('hi') || voice.lang.startsWith('sa'))
-    const u = new SpeechSynthesisUtterance(useDevanagari ? paliToDevanagari(text) : text)
+    const voice = pickPaliVoice(speechSynthesis.getVoices())
+    const u = new SpeechSynthesisUtterance(voice ? textForVoice(text, voice.lang) : text)
     u.lang = voice?.lang || 'hi-IN'
     if (voice) u.voice = voice
     u.rate = 0.6 * audioRate()

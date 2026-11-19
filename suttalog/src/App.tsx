@@ -25,7 +25,7 @@ const MemoList = lazy(() => import('./features/memo/MemoList'))
 const NotFound = lazy(() => import('./features/notfound/NotFound'))
 const WordReview = lazy(() => import('./features/review/WordReview'))
 const WordBook = lazy(() => import('./features/review/WordBook'))
-const Library = lazy(() => import('./features/library/Library'))
+const Library = lazy(() => import('./features/library/LibraryPage'))
 const Recite = lazy(() => import('./features/recite/Recite'))
 
 function Loading() {

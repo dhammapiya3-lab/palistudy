@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 .claude/
 .devbrowser/
+
+# 공용 코드 복사본 (원본은 /shared)
+src/shared/

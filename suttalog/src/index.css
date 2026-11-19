@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* 공용 코드 복사본(src/shared)은 git에서 빠져 있어 자동으로 안 읽힘 → 직접 알려 줌 */
+@source "./shared";
 
 /* Tailwind의 dark: 표시는 휴대폰 설정이 아니라 앱 테마(<html data-theme="dark">)를 따름 — 설정 → 다크 모드 */
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

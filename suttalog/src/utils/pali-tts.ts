@@ -1,8 +1,11 @@
 // 빠알리어 소리 — 미리 녹음한 mp3(빠알리 프라이머와 같은 목소리) 우선, 없으면 기기 목소리(TTS)
 // - 녹음 목록: public/audio/manifest.json = { ttsKey(글): 'audio/ 아래 파일 이름' } (없으면 기기 목소리만 씀)
 // - 알파벳·발음 레슨의 글자 하나: public/audio/letters.json (빠알리 프라이머 '자모와 발음 2'에서 고른 글자 목소리)
-// - 기기 목소리: 로마자 → 데바나가리 변환 + 힌디어 TTS (데바나가리를 넘기면 빠알리어 발음이 정확해짐)
+// - 기기 목소리: 공용 규칙(shared/pali-voice.ts) — 텔루구어 > 칸나다어 > 힌디어 목소리, 녹음과 같은 글자 변환
 import { ttsKey } from './tts-key'
+import { pickPaliVoice, textForVoice } from '../shared/pali-voice'
+
+export { paliToDevanagari } from '../shared/pali-voice'
 
 const AUDIO_DIR = `${import.meta.env.BASE_URL || '/'}audio/`
 
@@ -30,113 +33,6 @@ export async function hasRecording(text: string): Promise<boolean> {
 /** 이 글의 녹음 파일 이름 (없으면 null) */
 function findMp3(text: string): string | null {
   return manifest?.[ttsKey(text)] ?? null
-}
-
-const CONSONANTS: Record<string, string> = {
-  'kh': 'ख', 'k': 'क',
-  'gh': 'घ', 'g': 'ग',
-  'ṅ': 'ङ',
-  'ch': 'छ', 'c': 'च',
-  'jh': 'झ', 'j': 'ज',
-  'ñ': 'ञ',
-  'ṭh': 'ठ', 'ṭ': 'ट',
-  'ḍh': 'ढ', 'ḍ': 'ड',
-  'ṇ': 'ण',
-  'th': 'थ', 't': 'त',
-  'dh': 'ध', 'd': 'द',
-  'n': 'न',
-  'ph': 'फ', 'p': 'प',
-  'bh': 'भ', 'b': 'ब',
-  'm': 'म',
-  'y': 'य', 'r': 'र', 'l': 'ल', 'ḷ': 'ळ',
-  'v': 'व', 's': 'स', 'h': 'ह',
-}
-
-const VOWELS_INDEPENDENT: Record<string, string> = {
-  'ā': 'आ', 'a': 'अ',
-  'ī': 'ई', 'i': 'इ',
-  'ū': 'ऊ', 'u': 'उ',
-  'e': 'ए', 'o': 'ओ',
-}
-
-const VOWELS_DEPENDENT: Record<string, string> = {
-  'ā': 'ा', 'a': '',
-  'ī': 'ी', 'i': 'ि',
-  'ū': 'ू', 'u': 'ु',
-  'e': 'े', 'o': 'ो',
-}
-
-const VIRAMA = '्'
-
-// 장모음 키 목록 (2글자 체크 불필요 — 모두 1글자)
-// 장모음 참조용
-// const LONG_VOWELS = new Set(['ā', 'ī', 'ū'])
-
-function isVowel(ch: string): boolean {
-  return ch in VOWELS_INDEPENDENT
-}
-
-export function paliToDevanagari(roman: string): string {
-  let result = ''
-  let i = 0
-  const s = roman.toLowerCase()
-
-  while (i < s.length) {
-    const ch = s[i]
-
-    // 공백/구두점 그대로
-    if (/[\s,.;:!?\-—–"'()""'']/.test(ch)) {
-      result += ch
-      i++
-      continue
-    }
-
-    // ṃ (anusvara)
-    if (ch === 'ṃ') {
-      result += 'ं'
-      i++
-      continue
-    }
-
-    // 자음 체크 (2글자 먼저)
-    const two = s.slice(i, i + 2)
-    let consonant: string | undefined
-    let consumed = 0
-
-    if (CONSONANTS[two]) {
-      consonant = CONSONANTS[two]
-      consumed = 2
-    } else if (CONSONANTS[ch]) {
-      consonant = CONSONANTS[ch]
-      consumed = 1
-    }
-
-    if (consonant) {
-      i += consumed
-      // 다음 글자가 모음이면 dependent vowel mark
-      if (i < s.length && isVowel(s[i])) {
-        result += consonant + VOWELS_DEPENDENT[s[i]]
-        i++
-      } else {
-        // 다음이 자음이거나 끝이면 virama
-        result += consonant + VIRAMA
-      }
-      continue
-    }
-
-    // 독립 모음
-    if (isVowel(ch)) {
-      result += VOWELS_INDEPENDENT[ch]
-      i++
-      continue
-    }
-
-    // 알 수 없는 문자 그대로
-    result += ch
-    i++
-  }
-
-  return result
 }
 
 // 일부 안드로이드 WebView·인앱 브라우저에는 speechSynthesis가 없음 → 없으면 조용히 건너뜀
@@ -186,51 +82,6 @@ export function speechRate(): number {
 // 녹음(mp3)은 이미 천천히(-30%) 녹음했으므로 '보통' 1배, '느리게' 0.75배
 function audioRate(): number {
   return rateSetting()
-}
-
-// 사용 가능한 인도계 음성 찾기
-// 텔루구어·칸나다어 목소리를 먼저 씀: 낱말 끝 모음을 그대로 읽어서 빠알리어에 가까움 (녹음 mp3도 텔루구어 목소리).
-// 힌디어 목소리는 낱말 끝 'a'를 빼고 읽어(cakkaṃva → 짝깡우) 그다음으로 미룸.
-function findBestVoice(synth: SpeechSynthesis): SpeechSynthesisVoice | null {
-  const voices = synth.getVoices()
-  const priorities = ['te-IN', 'te', 'kn-IN', 'kn', 'hi-IN', 'hi', 'sa', 'en-IN', 'it-IT', 'en-US']
-  for (const lang of priorities) {
-    const found = voices.find(v => v.lang.replace('_', '-').startsWith(lang))
-    if (found) return found
-  }
-  return voices[0] || null
-}
-
-/** 데바나가리(U+0900) 글자를 같은 배열의 다른 인도 문자 블록으로 옮김 (텔루구 0x0C00, 칸나다 0x0C80) */
-function shiftBlock(deva: string, base: number): string {
-  let out = ''
-  for (const c of deva) {
-    const code = c.codePointAt(0)!
-    out += code >= 0x0900 && code <= 0x097F ? String.fromCodePoint(code - 0x0900 + base) : c
-  }
-  return out
-}
-
-/** 텔루구어 목소리는 ఞ(ñ)를 n으로 읽음 → 녹음 만들 때와 같이 ny로 적음 (primer/scripts/tts/pali_script.py telugu_ny) */
-function teluguNy(te: string): string {
-  const NY = 'న', Y = 'య', VIR = '్'
-  return te
-    .split('ఞ్ఞ').join(NY + VIR + NY + VIR + Y)
-    .replace(/ఞ(?=్[చఛజఝ])/g, NY)
-    .replace(/ఞ(?=్హ)/g, NY)
-    .split('ఞ').join(NY + VIR + Y)
-}
-
-/** 고른 목소리의 언어에 맞춰 읽을 글을 바꿈 */
-export function textForVoice(text: string, lang: string): string {
-  const l = lang.toLowerCase()
-  if (l.startsWith('te') || l.startsWith('kn')) {
-    // ph는 f로 읽지 않도록 p + h로 따로 적음 (녹음과 같음)
-    const deva = paliToDevanagari(text).split('फ').join('प्ह')
-    return l.startsWith('te') ? teluguNy(shiftBlock(deva, 0x0C00)) : shiftBlock(deva, 0x0C80)
-  }
-  if (l.startsWith('hi') || l.startsWith('sa') || l.startsWith('mr')) return paliToDevanagari(text)
-  return text
 }
 
 // 재생 요청 번호 — 늦게 도착한 이전 요청이 또 읽지 않도록
@@ -303,7 +154,7 @@ function speakSynth(seq: number, text: string, fire: (failed: boolean) => void) 
   const trySpeak = () => {
     if (played || seq !== requestSeq) return // 한 요청은 한 번만 읽음
     played = true
-    const voice = findBestVoice(synth)
+    const voice = pickPaliVoice(synth.getVoices())
     const speakText = voice ? textForVoice(text, voice.lang) : text
 
     const u = new SpeechSynthesisUtterance(speakText)

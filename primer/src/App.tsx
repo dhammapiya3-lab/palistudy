@@ -17,6 +17,7 @@ const ReviewQuiz = lazy(() => import('./features/review/ReviewQuiz'))
 const WordBook = lazy(() => import('./features/review/WordBook'))
 const Recite = lazy(() => import('./features/review/Recite'))
 const GrammarTables = lazy(() => import('./features/reference/GrammarTables'))
+const LibraryPage = lazy(() => import('./features/library/LibraryPage'))
 
 // 과가 바뀌면 화면 상태(단계 위치)를 새로 시작
 function KeyedGrammarLearn() {
@@ -44,6 +45,7 @@ export default function App() {
         <Route path="/review/words" element={<WordBook />} />
         <Route path="/review/recite" element={<Recite />} />
         <Route path="/tables" element={<GrammarTables />} />
+        <Route path="/library" element={<LibraryPage />} />
         <Route path="/profile" element={<Settings />} />
         <Route path="/learn/:lessonId" element={<KeyedGrammarLearn />} />
         {/* 기존 경로 호환 */}

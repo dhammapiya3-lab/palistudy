@@ -42,6 +42,17 @@ const TABS = [
     ),
   },
   {
+    key: 'library',
+    label: '내 서재',
+    path: '/library',
+    icon: (active: boolean) => (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'}
+        stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z" />
+      </svg>
+    ),
+  },
+  {
     key: 'profile',
     label: '설정',
     path: '/profile',
@@ -84,7 +95,7 @@ export default function BottomNav() {
             <button
               key={tab.key}
               onClick={() => nav(tab.path)}
-              className="flex flex-col items-center justify-center gap-0.5 py-2 px-4 flex-1
+              className="flex flex-col items-center justify-center gap-0.5 py-2 px-2 flex-1
                 transition-all duration-200 active:scale-95"
               style={{
                 minHeight: '56px',
