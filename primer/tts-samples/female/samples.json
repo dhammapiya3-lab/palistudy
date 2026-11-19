@@ -1,0 +1,283 @@
+{
+ "voices": {
+  "te_ph": "텔루구어 남 · p와 h 따로 적기 (ph 든 낱말·문장)",
+  "te_f": "텔루구어 여 (Shruti) · 지금 규칙 그대로"
+ },
+ "rows": [
+  {
+   "text": "kusuma",
+   "files": {
+    "te_ph": "00_te_ph.mp3",
+    "te_f": "00_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "కుసుమ",
+    "te_f": "కుసుమ"
+   }
+  },
+  {
+   "text": "vana",
+   "files": {
+    "te_ph": "01_te_ph.mp3",
+    "te_f": "01_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "వన",
+    "te_f": "వన"
+   }
+  },
+  {
+   "text": "jala",
+   "files": {
+    "te_ph": "02_te_ph.mp3",
+    "te_f": "02_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "జల",
+    "te_f": "జల"
+   }
+  },
+  {
+   "text": "deva",
+   "files": {
+    "te_ph": "03_te_ph.mp3",
+    "te_f": "03_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "దేవ",
+    "te_f": "దేవ"
+   }
+  },
+  {
+   "text": "nāvika",
+   "files": {
+    "te_ph": "04_te_ph.mp3",
+    "te_f": "04_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "నావిక",
+    "te_f": "నావిక"
+   }
+  },
+  {
+   "text": "puñña",
+   "files": {
+    "te_ph": "05_te_ph.mp3",
+    "te_f": "05_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "పున్న్య",
+    "te_f": "పున్న్య"
+   }
+  },
+  {
+   "text": "paññā",
+   "files": {
+    "te_ph": "06_te_ph.mp3",
+    "te_f": "06_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "పన్న్యా",
+    "te_f": "పన్న్యా"
+   }
+  },
+  {
+   "text": "kaññā",
+   "files": {
+    "te_ph": "07_te_ph.mp3",
+    "te_f": "07_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "కన్న్యా",
+    "te_f": "కన్న్యా"
+   }
+  },
+  {
+   "text": "sabbaññū",
+   "files": {
+    "te_ph": "08_te_ph.mp3",
+    "te_f": "08_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "సబ్బన్న్యూ",
+    "te_f": "సబ్బన్న్యూ"
+   }
+  },
+  {
+   "text": "vadaññū",
+   "files": {
+    "te_ph": "09_te_ph.mp3",
+    "te_f": "09_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "వదన్న్యూ",
+    "te_f": "వదన్న్యూ"
+   }
+  },
+  {
+   "text": "mattaññū",
+   "files": {
+    "te_ph": "10_te_ph.mp3",
+    "te_f": "10_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "మత్తన్న్యూ",
+    "te_f": "మత్తన్న్యూ"
+   }
+  },
+  {
+   "text": "kīḷati",
+   "files": {
+    "te_ph": "11_te_ph.mp3",
+    "te_f": "11_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "కీళతి",
+    "te_f": "కీళతి"
+   }
+  },
+  {
+   "text": "rathena",
+   "files": {
+    "te_ph": "12_te_ph.mp3",
+    "te_f": "12_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "రథేన",
+    "te_f": "రథేన"
+   }
+  },
+  {
+   "text": "ariyasaccaṃ",
+   "files": {
+    "te_ph": "13_te_ph.mp3",
+    "te_f": "13_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "అరియసచ్చం",
+    "te_f": "అరియసచ్చం"
+   }
+  },
+  {
+   "text": "vijjhati",
+   "files": {
+    "te_ph": "14_te_ph.mp3",
+    "te_f": "14_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "విజ్ఝతి",
+    "te_f": "విజ్ఝతి"
+   }
+  },
+  {
+   "text": "coressati",
+   "files": {
+    "te_ph": "15_te_ph.mp3",
+    "te_f": "15_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "చోరేస్సతి",
+    "te_f": "చోరేస్సతి"
+   }
+  },
+  {
+   "text": "uppatati",
+   "files": {
+    "te_ph": "16_te_ph.mp3",
+    "te_f": "16_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "ఉప్పతతి",
+    "te_f": "ఉప్పతతి"
+   }
+  },
+  {
+   "text": "sannipatati",
+   "files": {
+    "te_ph": "17_te_ph.mp3",
+    "te_f": "17_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "సన్నిపతతి",
+    "te_f": "సన్నిపతతి"
+   }
+  },
+  {
+   "text": "Catasso imā bhikkhave parisā",
+   "files": {
+    "te_ph": "18_te_ph.mp3",
+    "te_f": "18_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "చతస్సో ఇమా భిక్ఖవే పరిసా",
+    "te_f": "చతస్సో ఇమా భిక్ఖవే పరిసా"
+   }
+  },
+  {
+   "text": "Buddhaṃ saraṇaṃ gacchāmi",
+   "files": {
+    "te_ph": "19_te_ph.mp3",
+    "te_f": "19_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "బుద్ధం సరణం గచ్ఛామి",
+    "te_f": "బుద్ధం సరణం గచ్ఛామి"
+   }
+  },
+  {
+   "text": "Namo tassa bhagavato arahato sammāsambuddhassa",
+   "files": {
+    "te_ph": "20_te_ph.mp3",
+    "te_f": "20_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "నమో తస్స భగవతో అరహతో సమ్మాసమ్బుద్ధస్స",
+    "te_f": "నమో తస్స భగవతో అరహతో సమ్మాసమ్బుద్ధస్స"
+   }
+  },
+  {
+   "text": "cakkaṃva vahato padaṃ",
+   "files": {
+    "te_ph": "21_te_ph.mp3",
+    "te_f": "21_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "చక్కంవ వహతో పదం",
+    "te_f": "చక్కంవ వహతో పదం"
+   }
+  },
+  {
+   "text": "Manopubbaṅgamā dhammā manoseṭṭhā manomayā",
+   "files": {
+    "te_ph": "22_te_ph.mp3",
+    "te_f": "22_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "మనోపుబ్బఙ్గమా ధమ్మా మనోసేట్ఠా మనోమయా",
+    "te_f": "మనోపుబ్బఙ్గమా ధమ్మా మనోసేట్ఠా మనోమయా"
+   }
+  },
+  {
+   "text": "Sabbe sattā bhavantu sukhitattā",
+   "files": {
+    "te_ph": "23_te_ph.mp3",
+    "te_f": "23_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "సబ్బే సత్తా భవన్తు సుఖితత్తా",
+    "te_f": "సబ్బే సత్తా భవన్తు సుఖితత్తా"
+   }
+  },
+  {
+   "text": "Evaṃ me sutaṃ",
+   "files": {
+    "te_ph": "24_te_ph.mp3",
+    "te_f": "24_te_f.mp3"
+   },
+   "native": {
+    "te_ph": "ఏవం మే సుతం",
+    "te_f": "ఏవం మే సుతం"
+   }
+  }
+ ]
+}
