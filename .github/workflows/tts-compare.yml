@@ -1,0 +1,20 @@
+# 발음 비교 샘플 만들기 (compare/** 가지에서만 — 사이트에는 영향 없음)
+name: TTS compare samples
+on:
+  push:
+    branches: ['compare/**']
+    paths: ['compare/samples.json', 'compare/telugu.py']
+permissions:
+  contents: write
+jobs:
+  make:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - run: pip install edge-tts
+      - run: python compare/telugu.py
+      - run: |
+          git config user.name github-actions; git config user.email github-actions@users.noreply.github.com
+          git add compare/*.mp3 && git commit -m "비교 샘플(텔루구어) 생성" && git push
